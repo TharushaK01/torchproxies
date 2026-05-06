@@ -27,7 +27,7 @@ export default function BlogCard({ post }: BlogCardProps) {
 
   return (
     <Link
-      href={`/resources/blog/${post.slug}`}
+      href={post.link} target="_blank" rel="noopener noreferrer"
       className="group bg-[#111] border border-white/5 rounded-xl overflow-hidden 
                  flex flex-col hover:border-orange-500/30 hover:-translate-y-1 
                  transition-all duration-300"

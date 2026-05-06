@@ -3,7 +3,7 @@ const WP_URL = process.env.WORDPRESS_URL;
 // ── Fetch all posts ──────────────────────────────────────────
 export async function getAllPosts() {
   const res = await fetch(
-    `${WP_URL}/wp-json/wp/v2/posts?_embed&per_page=12`,
+    `${WP_URL}/wp-json/wp/v2/posts?_embed&per_page=100`,
     { next: { revalidate: 3600 } } // cache & rebuild every 1 hour
   );
 

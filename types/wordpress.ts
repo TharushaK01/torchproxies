@@ -1,6 +1,7 @@
 export interface WPPost {
   id: number;
   slug: string;
+  link: string;
   date: string;                        // "2026-01-15T10:30:00"
   title: {
     rendered: string;                  // HTML string
