@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { LazyMotion, domAnimation } from "framer-motion";
 
 export const metadata: Metadata = {
   title: {
@@ -23,11 +24,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="bg-[#0a0a0a] text-stone-100 flex flex-col min-h-screen antialiased">
+    <html lang="en" suppressHydrationWarning>
+      <body className="bg-[#0a0a0a] text-stone-100 flex flex-col min-h-screen antialiased"
+      suppressHydrationWarning
+      >
         <Navbar />
         <div className="flex-1">
-          {children}
+          <LazyMotion features={domAnimation}>
+  {children}
+</LazyMotion>
+
         </div>
         <Footer />
       </body>
