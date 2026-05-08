@@ -4,7 +4,7 @@ import React from 'react';
 
 const ContactSection = () => {
   return (
-    <section className="bg-black text-white py-24 px-6">
+    <section className="bg-[#0a0a0a] text-white py-24 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
         
         {/* Left Side: Contact Info */}
