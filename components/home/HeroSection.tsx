@@ -60,7 +60,7 @@ const STATS = [
   { value: "Unlimited Concurrency" },
   { value: "195+ Countries" },
 ];
-{/* ── Stats Bar ───────────────────────────────── */}
+{/* ── Stats Bar ───────────────────────────────── */ }
 
 
 const fadeUp = {
@@ -109,7 +109,7 @@ const stagger = {
 // };
 
 export default function HeroSection() {
-      const hasMounted = useHasMounted(); // ← add this
+  const hasMounted = useHasMounted(); // ← add this
 
   // ← add this guard — renders plain version until client is ready
   if (!hasMounted) return (
@@ -204,12 +204,12 @@ export default function HeroSection() {
           custom={0}
           variants={fadeUp}
           className="
-            text-stone-300
-            text-base sm:text-lg md:text-xl
-            font-light
-            mb-3
-            tracking-wide
-          "
+    text-stone-300
+    text-[60px]
+    font-light
+    mb-3
+    tracking-wide
+  "
         >
           Best proxies for
         </m.p>
@@ -245,20 +245,20 @@ export default function HeroSection() {
             text-stone-400
           "
         >
-          Residential & isp proxies for Shopify, sneaker, ticket sites with city<br/>
-targeting, asn diversity, auto retry, real 10 gbps lines.
+          Residential & isp proxies for Shopify, sneaker, ticket sites with city<br />
+          targeting, asn diversity, auto retry, real 10 gbps lines.
         </m.p>
       </m.div>
 
       {/* ── Stats Bar ───────────────────────────────── */}
-<m.div
-  variants={stagger}
-  initial="hidden"
-  animate="visible"
-  className="w-full max-w-4xl mb-10 sm:mb-12 px-4"
->
-  <div
-    className="
+      <m.div
+        variants={stagger}
+        initial="hidden"
+        animate="visible"
+        className="w-full max-w-4xl mb-10 sm:mb-12 px-4"
+      >
+        <div
+          className="
       flex flex-wrap md:flex-nowrap
       items-center justify-center
       gap-y-3 gap-x-6 sm:gap-x-10
@@ -266,37 +266,37 @@ targeting, asn diversity, auto retry, real 10 gbps lines.
       px-5 sm:px-8
       py-4 sm:py-5
     "
-  >
-    {STATS.map((stat, i) => (
-      <m.div
-        key={stat.value}
-        custom={i}
-        variants={fadeUp}
-        className="flex items-center gap-2 text-sm sm:text-base"
-      >
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="3"
-          className="text-orange-500 shrink-0"
         >
-          <path
-            d="M5 13l4 4L19 7"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+          {STATS.map((stat, i) => (
+            <m.div
+              key={stat.value}
+              custom={i}
+              variants={fadeUp}
+              className="flex items-center gap-2 text-sm sm:text-base"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3"
+                className="text-orange-500 shrink-0"
+              >
+                <path
+                  d="M5 13l4 4L19 7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
 
-        <span className="text-stone-200 font-medium whitespace-nowrap">
-          {stat.value}
-        </span>
+              <span className="text-stone-200 font-medium whitespace-nowrap">
+                {stat.value}
+              </span>
+            </m.div>
+          ))}
+        </div>
       </m.div>
-    ))}
-  </div>
-</m.div>
       {/* ── CTA ─────────────────────────────────── */}
       <m.div
         initial={{ opacity: 0, y: 20 }}
@@ -403,10 +403,9 @@ targeting, asn diversity, auto retry, real 10 gbps lines.
       >
         <p
           className="
-            text-[10px] sm:text-xs
-            uppercase
-            tracking-[0.25em]
-            text-stone-600
+            text-[14px] sm:text-base
+            tracking-[0.01em]
+            text-stone-300
             text-center
           "
         >
@@ -456,13 +455,13 @@ targeting, asn diversity, auto retry, real 10 gbps lines.
           }}
         >
           <svg
-            // width="20"
-            // height="20"
-            // viewBox="0 0 24 24"
-            // fill="none"
-            // stroke="currentColor"
-            // strokeWidth="1.5"
-            // className="text-stone-700"
+          // width="20"
+          // height="20"
+          // viewBox="0 0 24 24"
+          // fill="none"
+          // stroke="currentColor"
+          // strokeWidth="1.5"
+          // className="text-stone-700"
           >
             <path
               d="M12 5v14M5 12l7 7 7-7"

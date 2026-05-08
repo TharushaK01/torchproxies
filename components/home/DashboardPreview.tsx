@@ -1,6 +1,7 @@
 "use client";
 
 import { m } from "framer-motion";
+import Marquee from '../ui/Marquee';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -22,17 +23,17 @@ const SIDEBAR_ITEMS = [
 // ── Stat cards ───────────────────────────────────────────────
 const STATS = [
   { label: "Active Connections", value: "1,284", change: "+12%", up: true },
-  { label: "Bandwidth Used",     value: "82.6 GB", change: "+5%",  up: true },
-  { label: "Requests Today",     value: "428K",   change: "-2%",  up: false },
-  { label: "Avg Latency",        value: "13.5ms", change: "-8%",  up: true  },
+  { label: "Bandwidth Used", value: "82.6 GB", change: "+5%", up: true },
+  { label: "Requests Today", value: "428K", change: "-2%", up: false },
+  { label: "Avg Latency", value: "13.5ms", change: "-8%", up: true },
 ];
 
 // ── Proxy rows ───────────────────────────────────────────────
 const PROXY_ROWS = [
-  { type: "Residential Proxy", location: "US · New York",   status: "Active",  speed: "Fast"   },
-  { type: "ISP Proxy",         location: "UK · London",     status: "Active",  speed: "Fast"   },
-  { type: "Datacenter Proxy",  location: "DE · Frankfurt",  status: "Idle",    speed: "Medium" },
-  { type: "Mobile Proxy",      location: "JP · Tokyo",      status: "Active",  speed: "Fast"   },
+  { type: "Residential Proxy", location: "US · New York", status: "Active", speed: "Fast" },
+  { type: "ISP Proxy", location: "UK · London", status: "Active", speed: "Fast" },
+  { type: "Datacenter Proxy", location: "DE · Frankfurt", status: "Idle", speed: "Medium" },
+  { type: "Mobile Proxy", location: "JP · Tokyo", status: "Active", speed: "Fast" },
 ];
 
 // ── Chart bars (fake uptime data) ────────────────────────────
@@ -43,7 +44,7 @@ const CHART_BARS = [
 
 export default function DashboardPreview() {
   return (
-   <section className="relative bg-[#0a0a0a] py-16 sm:py-40 -mt-[280px] px-4 sm:px-6 overflow-hidden">
+    <section className="relative bg-[#0a0a0a] py-16 sm:py-40 -mt-[280px] px-4 sm:px-6 overflow-hidden">
 
       {/* ── Background glow ───────────────────────────── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -77,6 +78,10 @@ export default function DashboardPreview() {
           {/* Outer glow frame */}
           <div className="absolute -inset-px rounded-2xl bg-gradient-to-b 
                           from-orange-500/20 via-white/5 to-transparent pointer-events-none" />
+
+
+          {/* ── Window ────────────────────────────────────── */}
+
 
           {/* Dashboard window chrome */}
           <div className="relative bg-[#0f0f0f] border border-white/8 rounded-2xl 
@@ -113,7 +118,7 @@ export default function DashboardPreview() {
                                   shadow-[0_0_10px_rgba(234,88,12,0.5)]">
                     <svg width="12" height="14" viewBox="0 0 12 14" fill="none">
                       <path d="M6 0C6 0 3 3.5 3 6C3 7.7 4.3 9 6 9C7.7 9 9 7.7 9 6C9 3.5 6 0 6 0Z"
-                            fill="white" opacity="0.9" />
+                        fill="white" opacity="0.9" />
                     </svg>
                   </div>
                   <span className="hidden md:block text-white text-xs font-bold tracking-tight">
@@ -225,8 +230,8 @@ export default function DashboardPreview() {
                             background: h > 85
                               ? "rgba(234,88,12,0.8)"
                               : h > 70
-                              ? "rgba(234,88,12,0.4)"
-                              : "rgba(234,88,12,0.2)",
+                                ? "rgba(234,88,12,0.4)"
+                                : "rgba(234,88,12,0.2)",
                           }}
                           initial={{ height: 0 }}
                           whileInView={{ height: `${h}%` }}
@@ -336,6 +341,10 @@ export default function DashboardPreview() {
           ))} */}
         </m.div>
       </div>
+      <div className="relative z-10 -mt-24 w-full w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+        <Marquee />
+      </div>
     </section>
+
   );
 }
