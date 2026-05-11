@@ -25,14 +25,23 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+
+        {/* add this for residential standard page to fix the hydration error */}
+        <link
+          rel="stylesheet"
+          href="/_next/static/chunks/torchproxies_app_globals_03-haz8.css"
+          as="style"
+        />
+      </head>
       <body className="bg-[#0a0a0a] text-stone-100 flex flex-col min-h-screen antialiased"
-      suppressHydrationWarning
+        suppressHydrationWarning
       >
         <Navbar />
         <div className="flex-1">
           <LazyMotion features={domAnimation}>
-  {children}
-</LazyMotion>
+            {children}
+          </LazyMotion>
 
         </div>
         <Footer />
