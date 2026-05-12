@@ -36,3 +36,27 @@ body {
   width: max-content;
   animation: marquee 30s linear infinite;
 }
+/* ── WordPress post content wrapper ─────────────────────── */
+.wp-post-content {
+  color: #cccccc;
+  font-size: 16px;
+  line-height: 1.75;
+  width: 100%;
+}
+
+.wp-post-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.wp-post-content a {
+  color: #E8500A;
+}
+
+/* Center the inner page-wrap div that WordPress generates */
+.wp-post-content .page-wrap,
+.wp-post-content .blog-layout,
+.wp-post-content .e-con-inner {
+  max-width: 100% !important;
+  margin: 0 auto !important;
+}
