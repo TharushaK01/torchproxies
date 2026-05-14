@@ -42,7 +42,7 @@ const GlobalNetwork = () => {
             style={{ width: "100%", height: "auto" }}
           >
             <Geographies geography={geoUrl}>
-              {({ geographies }) =>
+              {({ geographies }: { geographies: Geography[] }) =>
                 geographies.map((geo) => {
                   const countryName = geo.properties.name;
                   const isHoveredSpecific = countryProxyData[countryName];
