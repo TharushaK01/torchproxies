@@ -1,7 +1,6 @@
 "use client";
 import { useHasMounted } from "@/hooks/useHasMounted";
-import { m } from "framer-motion";
-import Link from "next/link";
+import { m, type Variants } from "framer-motion";
 
 const BRANDS = [
   {
@@ -63,7 +62,7 @@ const STATS = [
 {/* ── Stats Bar ───────────────────────────────── */ }
 
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
     opacity: 1,
