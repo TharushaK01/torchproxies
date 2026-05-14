@@ -12,29 +12,6 @@ export async function getAllPosts() {
   return res.json();
 }
 
-// export async function getPostBySlug(slug: string) {
-//   if (!WP_URL) throw new Error("WORDPRESS_URL is missing in .env");
-//   const res = await fetch(
-//     `${getApiUrl("posts")}?slug=${slug}&_embed`,   // ← posts endpoint
-//     { next: { revalidate: 3600 } }
-//   );
-//   if (!res.ok) return null;
-//   const posts = await res.json();
-//   return posts.length > 0 ? posts[0] : null;
-// }
-// export async function getPostBySlug(slug: string) {
-//   if (!WP_URL) throw new Error("WORDPRESS_URL is missing in .env");
-
-//   const res = await fetch(
-//     `${getApiUrl("posts")}?slug=${slug}&_embed`,
-//     { next: { revalidate: 3600 } }
-//   );
-
-//   if (!res.ok) return null;
-//   const posts = await res.json();
-//   return posts.length > 0 ? posts[0] : null;
-// }
-
 export async function getPostBySlug(slug: string) {
   if (!WP_URL) throw new Error("WORDPRESS_URL is missing in .env");
 
@@ -72,4 +49,14 @@ export async function getPageBySlug(slug: string) {
 
   const pages = await res.json();
   return pages.length > 0 ? pages[0] : null;
+}
+
+
+// ── NEW: Get Elementor CSS files for a specific page ─────────
+export async function getPageStyles(pageId: number) {
+  return [
+    `${WP_URL}/wp-content/plugins/elementor/assets/css/frontend.min.css`,
+    `${WP_URL}/wp-content/plugins/elementor-pro/assets/css/frontend.min.css`,
+    `${WP_URL}/wp-content/uploads/elementor/css/post-${pageId}.css`,
+  ];
 }
