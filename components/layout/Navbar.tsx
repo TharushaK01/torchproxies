@@ -128,7 +128,7 @@ export default function Navbar() {
                   key={link.label}
                   className="relative"
                   onMouseEnter={() => setOpenDropdown(link.label)}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  onMouseLeave={() => setTimeout(() => setOpenDropdown(null), 150)}
                 >
                   <Link
                     href={link.href}
