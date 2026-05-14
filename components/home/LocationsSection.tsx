@@ -1,6 +1,5 @@
 import React from 'react';
-import Flag from 'react-world-flags'; // npm install react-world-flags
-
+import Flag from 'react-world-flags'; 
 const LocationsSection = () => {
   const locations = [
     { code: 'US', name: 'United States', ips: '4,429,824' },
