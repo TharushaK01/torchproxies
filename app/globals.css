@@ -1,164 +1,119 @@
 @layer base, wordpress, components, utilities;
+
+/* ─────────────────────────────
+   1. TAILWIND SYSTEM
+───────────────────────────── */
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0a0a0a;
+  color: #ededed;
+  font-family: 'Urbanist', 'Inter', Arial, sans-serif;
 }
 
+/* ─────────────────────────────
+   2. WORDPRESS ISOLATION LAYER
+───────────────────────────── */
+@layer wordpress {
 
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
+  /* Core box model safety */
+  .wp-post-content *,
+  .wp-post-content *::before,
+  .wp-post-content *::after {
+    box-sizing: border-box !important;
   }
 
-  100% {
-    transform: translateX(-50%);
+  /* Restore native list behavior (Elementor compatibility) */
+  .wp-post-content ul,
+  .wp-post-content ol {
+    list-style: unset !important;
+    margin: unset !important;
+    padding: unset !important;
+  }
+
+  /* Responsive media safety */
+  .wp-post-content img {
+    max-width: 100% !important;
+    height: auto !important;
+    display: inline-block;
+  }
+
+  /* Remove WP structural noise inside content only */
+  .wp-post-content nav,
+  .wp-post-content footer,
+  .wp-post-content header {
+    display: none !important;
+  }
+
+  /* Layout wrapper */
+  .wp-post-content {
+    width: 100%;
+    display: block;
+    padding-top: 80px !important;
+  }
+
+  /* Page container */
+  .wp-post-content .page-wrap {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 24px !important;
+    width: 100% !important;
+  }
+
+  /* Blog layout */
+  .wp-post-content .blog-layout {
+    display: grid !important;
+    grid-template-columns: 1fr 300px !important;
+    gap: 48px !important;
+    padding: 48px 0 80px !important;
+  }
+
+  /* Elementor container normalization */
+  .wp-post-content .e-con-boxed,
+  .wp-post-content .elementor-section-boxed > .elementor-container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+
+  .wp-post-content .e-con-inner {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .wp-post-content .elementor-section.elementor-section-full_width,
+  .wp-post-content .elementor-section:first-child {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 }
 
-.animate-marquee-infinite {
-  display: flex;
-  width: max-content;
-  animation: marquee 30s linear infinite;
-}
-
-/* ── Protect Navbar from WordPress CSS overrides ────────── */
+/* ─────────────────────────────
+   3. APP SHELL PROTECTION
+───────────────────────────── */
 header.fixed,
-header.fixed *,
-header.fixed nav,
-header.fixed nav * {
-  all: revert-layer;
+footer {
+  z-index: 99999;
+  position: relative;
 }
 
-
-
-/* ── Protect Footer from WordPress CSS overrides ────────── */
-footer,
-footer *,
-footer nav,
-footer nav * {
-  all: revert-layer;
-}
-
-
-/* ── Scope ALL WordPress styles inside content only ─────── */
-.wp-post-content *,
-.wp-post-content *::before,
-.wp-post-content *::after {
-  box-sizing: border-box;
-}
-
-/* ── Hide WordPress nav inside content ──────────────────── */
-.wp-post-content nav {
-  display: none !important;
-}
-
-/* ── Center page wrapper ─────────────────────────────────── */
-.wp-post-content .page-wrap {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 0 24px !important;
-  width: 100% !important;
-}
-
-.wp-post-content .blog-layout {
-  display: grid !important;
-  grid-template-columns: 1fr 300px !important;
-  gap: 48px !important;
-  padding: 48px 0 80px !important;
-}
-
-.wp-post-content .e-con-boxed {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  width: 100% !important;
-}
-
-/* ── Force WordPress content to center ──────────────────── */
-.wp-post-content {
-  width: 100%;
-}
-
-/* Center the main page wrapper */
-.wp-post-content .page-wrap {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 0 24px !important;
-  width: 100% !important;
-}
-
-/* Fix blog layout grid */
-.wp-post-content .blog-layout {
-  display: grid !important;
-  grid-template-columns: 1fr 300px !important;
-  gap: 48px !important;
-  padding: 48px 0 80px !important;
-}
-/* ── Push blog post content below fixed navbar ──────────── */
-.wp-post-content {
-  padding-top: 80px !important;
-  display: block !important;
-}
-
-/* Fix Elementor container centering */
-.wp-post-content .e-con-boxed {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  width: 100% !important;
-}
-
-.wp-post-content .e-con-inner {
-  max-width: 100% !important;
-  width: 100% !important;
-}
-
-/* Fix nav that WordPress includes */
-.wp-post-content nav {
-  display: none !important;
-}
-
-/* Force footer to always use your styles not WordPress ones */
-body>div>footer {
-  all: unset;
+/* Ensure WP footer cannot override app shell */
+body > div > div > footer {
   display: block;
 }
 
-/* Scope WordPress nav override to only inside post content */
-.wp-post-content nav {
-  display: none !important;
-  all: unset !important;
-}
-
-/* Prevent WordPress body/footer styles leaking out */
-.wp-post-content footer {
-  display: none !important;
-}
-
+/* ─────────────────────────────
+   4. COMPONENTS
+───────────────────────────── */
 @layer components {
 
-  /* ── Navbar pill container ────────────────────────────── */
-  header nav>div.hidden.lg\:flex.items-center>div {
+  /* Navbar pill container */
+  header nav > div.hidden.lg\:flex.items-center > div {
     display: flex !important;
     align-items: center !important;
     background: #111111 !important;
@@ -167,35 +122,24 @@ body>div>footer {
     padding: 6px !important;
   }
 
-  /* ── Footer background ────────────────────────────────── */
-  body>div>div>footer {
+  /* Footer styling override */
+  body > div > div > footer {
     background: #080808 !important;
-    display: block !important;
     width: 100% !important;
-  }
-
-  /* ── Hide WP nav and footer inside post ──────────────── */
-  .wp-post-content nav,
-  .wp-post-content footer {
-    display: none !important;
-  }
-}
-/* Mobile responsive */
-@media (max-width: 768px) {
-  .wp-post-content .blog-layout {
-    grid-template-columns: 1fr !important;
-  }
-
-  .wp-post-content .page-wrap {
-    padding: 0 16px !important;
-  }
-
-  .wp-post-content .blog-layout {
-    grid-template-columns: 1fr !important;
+    display: block !important;
   }
 }
 
+/* ─────────────────────────────
+   5. ANIMATIONS
+───────────────────────────── */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
 
-
-
-
+.animate-marquee-infinite {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}

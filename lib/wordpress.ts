@@ -55,8 +55,27 @@ export async function getPageBySlug(slug: string) {
 // ── NEW: Get Elementor CSS files for a specific page ─────────
 export async function getPageStyles(pageId: number) {
   return [
+    // ── Google Fonts ─────────────────────────────────────
+    "https://fonts.googleapis.com/css?family=Urbanist%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CChivo%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CSpace%20Grotesk%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&display=swap",
+    "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+
+    // ── Elementor core ───────────────────────────────────
     `${WP_URL}/wp-content/plugins/elementor/assets/css/frontend.min.css`,
     `${WP_URL}/wp-content/plugins/elementor-pro/assets/css/frontend.min.css`,
+
+    // ── Elementor global styles ──────────────────────────
+    `${WP_URL}/wp-content/uploads/elementor/css/global.css`,
+    `${WP_URL}/wp-content/uploads/elementor/css/custom-frontend.min.css`,
+
+    // ── Page specific CSS ────────────────────────────────
     `${WP_URL}/wp-content/uploads/elementor/css/post-${pageId}.css`,
+
+    // ── Widget CSS ───────────────────────────────────────
+    `${WP_URL}/wp-content/uploads/elementor/css/custom-widget-icon-list.min.css`,
+
+    // ── WordPress core ───────────────────────────────────
+    `${WP_URL}/wp-includes/css/dist/block-library/style.min.css`,
+    // ── Theme CSS ────────────────────────────────────────────
+   `${WP_URL}/wp-content/themes/hub/style.css`,
   ];
 }
