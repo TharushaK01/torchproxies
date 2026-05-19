@@ -54,7 +54,9 @@ export default async function BlogPostPage({
   const cleanContent = post.content.rendered
     .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "");
   return (
-    <main className="bg-[#0a0a0a] min-h-screen text-stone-100 pt-28">
+    <main className="bg-[#0a0a0a] min-h-screen text-stone-100 relative"
+      style={{ paddingTop: "80px" }}
+      suppressHydrationWarning>
       <div
         className="wp-post-content"
         dangerouslySetInnerHTML={{

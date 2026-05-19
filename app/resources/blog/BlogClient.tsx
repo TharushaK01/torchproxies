@@ -36,7 +36,7 @@ export default function BlogClient({ posts, categories }: BlogClientProps) {
     <main className="bg-[#0a0a0a] min-h-screen text-stone-100">
 
       {/* ── Hero ──────────────────────────────────────────── */}
-      <header className="text-center py-40 px-6 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(160,40,5,0.5),transparent)]">
+      <header className="text-center py-20 sm:py-28 px-6 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(160,40,5,0.5),transparent)]">
         <h1 className="font-serif text-5xl font-normal tracking-tight mb-4">
           TorchProxies Blogs
         </h1>

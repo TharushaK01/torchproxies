@@ -54,7 +54,6 @@ body {
   .wp-post-content {
     width: 100%;
     display: block;
-    padding-top: 80px !important;
   }
 
   /* Page container */
@@ -113,14 +112,14 @@ body > div > div > footer {
 @layer components {
 
   /* Navbar pill container */
-  header nav > div.hidden.lg\:flex.items-center > div {
+  /* header nav > div.hidden.lg\:flex.items-center > div {
     display: flex !important;
     align-items: center !important;
     background: #111111 !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 9999px !important;
     padding: 6px !important;
-  }
+  } */
 
   /* Footer styling override */
   body > div > div > footer {
@@ -143,3 +142,4 @@ body > div > div > footer {
   width: max-content;
   animation: marquee 30s linear infinite;
 }
+

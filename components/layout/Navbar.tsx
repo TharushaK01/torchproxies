@@ -77,12 +77,12 @@ export default function Navbar() {
         className={`
           fixed top-0 left-0 right-0 z-50 transition-all duration-300
           ${scrolled
-            ? ""
-            : ""
+            ? "bg-transparent backdrop-blur-xl border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
+            : "bg-transparent"
           }
         `}
       >
-        <nav className="max-w-[1400px] mx-auto px-6 h-[80px] flex items-center justify-between">
+        <nav className="max-w-[1400px] mx-auto px-6 py-4 h-auto flex items-center justify-between">
 
           {/* ── Logo (far left) ───────────────────────────── */}
           <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
