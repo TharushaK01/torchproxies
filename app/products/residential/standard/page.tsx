@@ -333,19 +333,14 @@ return (
       }
     `}} />
 
-    {/* Change layout here: Add relative positioning to main container */}
-    <main className="bg-[#0a0a0a] min-h-screen text-stone-100 overflow-x-hidden relative">
-      {/* FIX: Swapped style from marginTop to paddingTop to eliminate layout gaps */}
-      <div 
-        className={`wp-post-content elementor elementor-${post.id}`}
-        style={{ paddingTop: "80px" }} 
-      >
-        <div
-          dangerouslySetInnerHTML={{ __html: cleanContent }}
-          suppressHydrationWarning
-        />
-      </div>
-    </main>
+<main className="bg-[#0a0a0a] min-h-screen text-stone-100 overflow-x-hidden relative pt-20">
+  <div className={`wp-post-content elementor elementor-${post.id}`}>
+    <div
+      dangerouslySetInnerHTML={{ __html: cleanContent }}
+      suppressHydrationWarning
+    />
+  </div>
+</main>
     <script 
       src="https://code.jquery.com/jquery-3.7.1.min.js" 
       defer

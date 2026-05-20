@@ -92,41 +92,9 @@ body {
   }
 }
 
-/* ─────────────────────────────
-   3. APP SHELL PROTECTION
-───────────────────────────── */
-header.fixed,
+
 footer {
-  z-index: 99999;
-  position: relative;
-}
-
-/* Ensure WP footer cannot override app shell */
-body > div > div > footer {
-  display: block;
-}
-
-/* ─────────────────────────────
-   4. COMPONENTS
-───────────────────────────── */
-@layer components {
-
-  /* Navbar pill container */
-  /* header nav > div.hidden.lg\:flex.items-center > div {
-    display: flex !important;
-    align-items: center !important;
-    background: #111111 !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-radius: 9999px !important;
-    padding: 6px !important;
-  } */
-
-  /* Footer styling override */
-  body > div > div > footer {
-    background: #080808 !important;
-    width: 100% !important;
-    display: block !important;
-  }
+  z-index: 999;
 }
 
 /* ─────────────────────────────
@@ -141,5 +109,14 @@ body > div > div > footer {
   display: flex;
   width: max-content;
   animation: marquee 30s linear infinite;
+}
+/* ── Footer protection only ─────────────────────────────── */
+footer {
+  z-index: 999;
+}
+
+body > div > div > footer {
+  background: #080808 !important;
+  display: block !important;
 }
 
