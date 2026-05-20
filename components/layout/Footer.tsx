@@ -118,20 +118,13 @@ const SOCIAL_LINKS = [
   },
 ];
 
-// Columns that share the same visual column in the layout
-// B2B Reseller + Corporate are stacked in col 2
-// Data Collection + Resources are stacked in col 6
-const COL1 = [FOOTER_COLUMNS[0]];                    // Company
-const COL2 = [FOOTER_COLUMNS[1], FOOTER_COLUMNS[2]]; // B2B Reseller + Corporate
-const COL3 = [FOOTER_COLUMNS[3]];                    // Proxies
-const COL4 = [FOOTER_COLUMNS[4]];                    // Solutions
-const COL5 = [FOOTER_COLUMNS[5], FOOTER_COLUMNS[6]]; // Data Collection + Resources
+const COL1 = [FOOTER_COLUMNS[0]];
+const COL2 = [FOOTER_COLUMNS[1], FOOTER_COLUMNS[2]];
+const COL3 = [FOOTER_COLUMNS[3]];
+const COL4 = [FOOTER_COLUMNS[4]];
+const COL5 = [FOOTER_COLUMNS[5], FOOTER_COLUMNS[6]];
 
-function FooterColumn({
-  groups,
-}: {
-  groups: (typeof FOOTER_COLUMNS)[number][];
-}) {
+function FooterColumn({ groups }: { groups: (typeof FOOTER_COLUMNS)[number][] }) {
   return (
     <div className="flex flex-col gap-8">
       {groups.map((group) => (
@@ -162,42 +155,20 @@ function FooterColumn({
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0a0a0a] border-t border-white/5 relative overflow-hidden">
-
-      {/* ── Watermark "TORCH LABS" text ───────────────────── */}
-      <div
-        className="absolute bottom-8 left-0 right-0 flex items-center justify-center
-                   pointer-events-none select-none overflow-hidden"
-        aria-hidden="true"
-      >
-        <span
-          className="text-[clamp(250px,14vw,180px)] font-black tracking-[0 em] uppercase
-                     text-white/[0.03] whitespace-nowrap"
-        >
-          TORCH LABS
-        </span>
-      </div>
-
-      {/* ── Main footer content ───────────────────────────── */}
-      <div className="relative max-w-[1400px] mx-auto px-8 pt-16 pb-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-12">
+    <footer className="bg-[#050505] border-t border-white/5 relative overflow-hidden w-full">
+      
+      {/* ── Main content layout container ─────────────────── */}
+      <div className="relative z-10 max-w-[1400px] mx-auto px-8 pt-16 pb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-12">
 
           {/* ── Brand column ──────────────────────────────── */}
           <div className="flex flex-col gap-5">
-            {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5">
               <div className="w-8 h-8 flex items-center justify-center relative">
                 <div className="absolute inset-0 bg-orange-500 rounded-full opacity-20 blur-md" />
                 <svg width="22" height="26" viewBox="0 0 22 26" fill="none" className="relative z-10">
-                  <path
-                    d="M11 0C11 0 6 6 6 12C6 15.3 8.2 18 11 18C13.8 18 16 15.3 16 12C16 6 11 0 11 0Z"
-                    fill="url(#footerFlameGrad)"
-                  />
-                  <path
-                    d="M11 10C11 10 8.5 12.5 8.5 14.5C8.5 15.9 9.6 17 11 17C12.4 17 13.5 15.9 13.5 14.5C13.5 12.5 11 10 11 10Z"
-                    fill="white"
-                    opacity="0.9"
-                  />
+                  <path d="M11 0C11 0 6 6 6 12C6 15.3 8.2 18 11 18C13.8 18 16 15.3 16 12C16 6 11 0 11 0Z" fill="url(#footerFlameGrad)" />
+                  <path d="M11 10C11 10 8.5 12.5 8.5 14.5C8.5 15.9 9.6 17 11 17C12.4 17 13.5 15.9 13.5 14.5C13.5 12.5 11 10 11 10Z" fill="white" opacity="0.9" />
                   <rect x="9.5" y="17" width="3" height="4" rx="1.5" fill="#f97316" opacity="0.8" />
                   <defs>
                     <linearGradient id="footerFlameGrad" x1="11" y1="0" x2="11" y2="18" gradientUnits="userSpaceOnUse">
@@ -212,15 +183,13 @@ export default function Footer() {
               </span>
             </Link>
 
-            {/* Status indicator */}
+            {/* Status indicators */}
             <div className="flex items-center gap-2">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
               </span>
-              <span className="text-green-400 text-xs font-medium">
-                All services are online
-              </span>
+              <span className="text-green-400 text-xs font-medium">All services are online</span>
             </div>
 
             {/* Social icons */}
@@ -232,10 +201,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-8 h-8 flex items-center justify-center rounded-lg
-                             border border-white/10 text-stone-500
-                             hover:border-orange-500/40 hover:text-orange-400
-                             transition-all duration-200"
+                  className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/10 text-stone-500 hover:border-orange-500/40 hover:text-orange-400 transition-all duration-200"
                 >
                   {s.icon}
                 </Link>
@@ -254,12 +220,26 @@ export default function Footer() {
         </div>
 
         {/* ── Bottom copyright bar ──────────────────────── */}
-        <div className="mt-14 pt-6 border-t border-white/0 text-center">
-          <p className="text-xs text-stone-600">
+        <div className="mt-24 text-center relative z-20">
+          <p className="text-xs text-stone-600 font-medium tracking-wide">
             © Copyright {new Date().getFullYear()} Torch Labs Software. All Rights Reserved
           </p>
         </div>
       </div>
+
+      {/* ── Perfected "TORCH LABS" Watermark Background ── */}
+<span
+  className="absolute left-1/2 translate-x-[-35%] select-none pointer-events-none whitespace-nowrap font-black tracking-normal uppercase text-white opacity-10 z-0 bottom-[-15%] pt-6"
+  style={{
+    fontSize: "clamp(180px, 24vw, 440px)",
+    lineHeight: "1.0",
+    maskImage: "linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,1) 90%, rgba(0,0,0,1) 100%)",
+    WebkitMaskImage: "linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,1) 90%, rgba(0,0,0,1) 100%)",
+  }}
+>
+  TORCH LABS
+</span>
+
     </footer>
   );
 }
