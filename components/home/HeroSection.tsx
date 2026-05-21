@@ -1,6 +1,7 @@
 "use client";
+import { useState, useEffect } from "react"; // Added useState & useEffect
 import { useHasMounted } from "@/hooks/useHasMounted";
-import { m, type Variants } from "framer-motion";
+import { m, type Variants, AnimatePresence } from "framer-motion"; // Added AnimatePresence
 
 const BRANDS = [
   {
@@ -59,8 +60,8 @@ const STATS = [
   { value: "Unlimited Concurrency" },
   { value: "195+ Countries" },
 ];
-{/* ── Stats Bar ───────────────────────────────── */ }
 
+const WORDS = ["INDIVIDUALS", "BUSINESSES"]; // The words to cycle through
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -75,6 +76,21 @@ const fadeUp: Variants = {
   }),
 };
 
+// Custom variants for the changing text loop
+const textCycleVariants: Variants = {
+  initial: { opacity: 0, y: 15 },
+  animate: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.4, ease: [0.25, 1, 0.5, 1] }
+  },
+  exit: { 
+    opacity: 0, 
+    y: -15,
+    transition: { duration: 0.3, ease: [0.25, 1, 0.5, 1] }
+  }
+};
+
 const stagger = {
   hidden: {},
   visible: {
@@ -84,40 +100,24 @@ const stagger = {
   },
 };
 
-
-// const fadeUp = {
-//   hidden: { opacity: 0, y: 30 },
-//   visible: (i: number) => ({
-//     opacity: 1,
-//     y: 0,
-//     transition: {
-//       delay: i * 0.12,
-//       duration: 0.6,
-//       ease: [0.22, 1, 0.36, 1],
-//     },
-//   }),
-// };
-
-// const stagger = {
-//   hidden: {},
-//   visible: {
-//     transition: {
-//       staggerChildren: 0.1,
-//     },
-//   },
-// };
-
 export default function HeroSection() {
-  const hasMounted = useHasMounted(); // ← add this
+  const hasMounted = useHasMounted();
+  const [index, setIndex] = useState(0); // Track current active word
 
-  // ← add this guard — renders plain version until client is ready
+  // Loop effect to switch words every 2.5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % WORDS.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
   if (!hasMounted) return (
-    <section className="relative flex flex-col items-center justify-center 
-                        overflow-hidden bg-[#0a0a0a] px-4 sm:px-6 
-                        pt-10 sm:pt-14 pb-16 sm:pb-24 min-h-[90vh]">
-      {/* static placeholder — same height, no animations */}
+    <section className="relative flex flex-col items-center justify-center overflow-hidden bg-[#0a0a0a] px-4 sm:px-6 pt-10 sm:pt-14 pb-16 sm:pb-24 min-h-[90vh]">
+      {/* static placeholder */}
     </section>
   );
+
   return (
     <section
       className="
@@ -203,34 +203,42 @@ export default function HeroSection() {
           custom={0}
           variants={fadeUp}
           className="
-    text-stone-300
-    text-[60px]
-    font-light
-    mb-3
-    tracking-wide
-  "
+            text-stone-300
+            text-[60px]
+            font-light
+            mb-3
+            tracking-wide
+          "
         >
           Best proxies for
         </m.p>
 
-        <m.h1
-          custom={1}
-          variants={fadeUp}
-          style={{
-            fontFamily: "'Arial Black', 'Helvetica', sans-serif",
-          }}
-          className="
-            text-white
-            uppercase
-            font-black
-            leading-[0.9]
-            tracking-[-0.04em]
-
-            text-[clamp(42px,16vw,120px)]
-          "
-        >
-          INDIVIDUALS
-        </m.h1>
+        {/* Text Container with Fixed Layout height to prevent layout shifts */}
+        <div className="relative h-[clamp(42px,16vw,120px)] flex items-center justify-center overflow-hidden">
+          <AnimatePresence mode="wait">
+            <m.h1
+              key={WORDS[index]} // Critical: key change triggers the animation loop
+              variants={textCycleVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              style={{
+                fontFamily: "'Arial Black', 'Helvetica', sans-serif",
+              }}
+              className="
+                absolute
+                text-white
+                uppercase
+                font-black
+                leading-[0.9]
+                tracking-[-0.04em]
+                text-[clamp(42px,16vw,120px)]
+              "
+            >
+              {WORDS[index]}
+            </m.h1>
+          </AnimatePresence>
+        </div>
 
         <m.p
           custom={2}
@@ -256,16 +264,7 @@ export default function HeroSection() {
         animate="visible"
         className="w-full max-w-4xl mb-10 sm:mb-12 px-4"
       >
-        <div
-          className="
-      flex flex-wrap md:flex-nowrap
-      items-center justify-center
-      gap-y-3 gap-x-6 sm:gap-x-10
-
-      px-5 sm:px-8
-      py-4 sm:py-5
-    "
-        >
+        <div className="flex flex-wrap md:flex-nowrap items-center justify-center gap-y-3 gap-x-6 sm:gap-x-10 px-5 sm:px-8 py-4 sm:py-5">
           {STATS.map((stat, i) => (
             <m.div
               key={stat.value}
@@ -296,6 +295,7 @@ export default function HeroSection() {
           ))}
         </div>
       </m.div>
+
       {/* ── CTA ─────────────────────────────────── */}
       <m.div
         initial={{ opacity: 0, y: 20 }}
@@ -305,170 +305,31 @@ export default function HeroSection() {
           duration: 0.6,
           ease: [0.22, 1, 0.36, 1],
         }}
-        className="
-          relative z-10
-          flex flex-col sm:flex-row
-          items-stretch sm:items-center
-          justify-center
-          gap-3
-          w-full
-          max-w-md sm:max-w-none
-          mb-14 sm:mb-16
-        "
-      >
-        {/* Primary CTA */}
-        {/* <Link
-          href="https://dashboard.torchproxies.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="
-            group relative
-            w-full sm:w-auto
-            text-center
-
-            rounded-xl
-            bg-orange-500
-            hover:bg-orange-600
-
-            px-6 sm:px-7
-            py-3.5
-
-            text-sm font-semibold text-white
-
-            transition-all duration-200
-
-            shadow-[0_0_25px_rgba(234,88,12,0.45)]
-            hover:shadow-[0_0_40px_rgba(234,88,12,0.65)]
-          "
-        >
-          <span className="relative z-10">Get Started Today</span>
-        </Link> */}
-
-        {/* Secondary CTA */}
-        {/* <button
-          className="
-            flex items-center justify-center gap-2
-            w-full sm:w-auto
-
-            rounded-xl
-            border border-white/10
-            bg-white/[0.04]
-
-            px-4 py-3.5
-
-            text-sm text-stone-300
-
-            hover:border-white/20
-            transition-all duration-200
-          "
-        >
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <circle cx="12" cy="12" r="10" />
-            <line x1="2" y1="12" x2="22" y2="12" />
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-          </svg>
-
-          <span>Specify your location</span>
-
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-            <path
-              d="M2 4L6 8L10 4"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-          </svg>
-        </button> */}
-      </m.div>
+        className="relative z-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 w-full max-w-md sm:max-w-none mb-14 sm:mb-16"
+      />
 
       {/* ── Brands ───────────────────────────────── */}
       <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.75, duration: 0.8 }}
-        className="
-          relative z-10
-          flex flex-col items-center
-          gap-5
-          w-full
-        "
+        className="relative z-10 flex flex-col items-center gap-5 w-full"
       >
-        <p
-          className="
-            text-[14px] sm:text-base
-            tracking-[0.01em]
-            text-stone-300
-            text-center
-          "
-        >
+        <p className="text-[14px] sm:text-base tracking-[0.01em] text-stone-300 text-center">
           Trusted by industry leaders
         </p>
 
-        <div
-          className="
-            flex flex-wrap items-center justify-center
-            gap-x-6 gap-y-4
-            sm:gap-x-10
-          "
-        >
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4 sm:gap-x-10">
           {BRANDS.map((brand) => (
             <div
               key={brand.name}
               title={brand.name}
-              className="
-                text-stone-600
-                hover:text-stone-400
-                transition-colors duration-300
-              "
+              className="text-stone-600 hover:text-stone-400 transition-colors duration-300"
             >
               {brand.svg}
             </div>
           ))}
         </div>
-      </m.div>
-
-      {/* ── Scroll Indicator ────────────────────── */}
-      <m.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.5 }}
-        className="
-          absolute bottom-6 sm:bottom-8
-          left-1/2 -translate-x-1/2
-          flex flex-col items-center gap-1.5
-        "
-      >
-        <m.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{
-            repeat: Infinity,
-            duration: 1.5,
-            ease: "easeInOut",
-          }}
-        >
-          <svg
-          // width="20"
-          // height="20"
-          // viewBox="0 0 24 24"
-          // fill="none"
-          // stroke="currentColor"
-          // strokeWidth="1.5"
-          // className="text-stone-700"
-          >
-            <path
-              d="M12 5v14M5 12l7 7 7-7"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </m.div>
       </m.div>
     </section>
   );
