@@ -5,32 +5,27 @@ const ClientManagement = () => {
   return (
     <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto space-y-32">
-        
+
         {/* Row 1: Easy Client Management */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Visual Side */}
           <div className="relative group">
-            <div className="bg-[#0d0d0d] border border-gray-800 rounded-3xl p-4 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
-               {/* Simplified Dashboard Mockup */}
-               <div className="bg-[#050505] rounded-2xl p-6 border border-gray-900 min-h-[350px]">
-                  <div className="grid grid-cols-4 gap-4 mb-8">
-                    {[1, 2, 3, 4].map((i) => (
-                      <div key={i} className="h-16 bg-[#111] rounded-xl border border-gray-800" />
-                    ))}
-                  </div>
-                  <div className="h-40 bg-[#111] rounded-xl border border-gray-800 w-full mb-6" />
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="h-24 bg-[#111] rounded-xl border border-gray-800" />
-                    <div className="h-24 bg-[#111] rounded-xl border border-gray-800" />
-                  </div>
-               </div>
+            <div className="bg-[#0d0d0d] border border-gray-800 rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
+              <div className="bg-[#050505] rounded-2xl border border-gray-900/50 overflow-hidden flex items-center justify-center">
+                {/* Official B2B Dashboard Representation Asset */}
+                <img
+                  src="/images/b2bDashboard.png"
+                  alt="Torch B2B Client Management Dashboard"
+                  className="w-full h-auto object-cover rounded-2xl"
+                />
+              </div>
             </div>
 
             {/* Floating Labels */}
-            <Label tag="Centralized Proxy Management" className="top-4 left-1/4" />
-            <Label tag="Realtime usage and analytics" className="top-1/3 right-0 translate-x-1/4" />
-            <Label tag="Reseller-Friendly Setup" className="bottom-1/4 left-0 -translate-x-1/4" />
-            <Label tag="Instant Plan & Balance Controls" className="bottom-8 right-1/4" />
+            {/* <Label tag="Centralized Proxy Management" className="top-4 left-12" />
+            <Label tag="Realtime usage and analytics" className="top-1/3 -right-4 translate-x-4" />
+            <Label tag="Reseller-Friendly Setup" className="bottom-1/4 -left-8" />
+            <Label tag="Instant Plan & Balance Controls" className="-bottom-4 right-12" /> */}
           </div>
 
           {/* Text Side */}
@@ -58,37 +53,11 @@ const ClientManagement = () => {
 
           {/* Visual Side: Swagger UI Mockup */}
           <div className="order-1 lg:order-2 relative group">
-            <div className="bg-[#111] border border-gray-800 rounded-3xl p-8 shadow-2xl">
-              <div className="flex items-center gap-2 mb-8">
-                <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-[10px]">S</div>
-                <span className="font-bold text-xl tracking-tight">Swagger</span>
-              </div>
-              
-              <div className="flex gap-4">
-                {/* Left Sidebar Mock */}
-                <div className="w-1/3 space-y-2">
-                  {['Smart Proxies', 'Packetstream', 'Oxylabs', 'IPRoyal', 'Brightdata'].map((name, i) => (
-                    <div key={i} className={`text-[10px] p-2 rounded border border-gray-800 text-center ${i === 0 ? 'bg-gray-100 text-black font-bold' : 'bg-transparent text-gray-500'}`}>
-                      {name}
-                    </div>
-                  ))}
-                </div>
-                
-                {/* API Endpoints Mock */}
-                <div className="flex-grow space-y-3">
-                  <Endpoint method="POST" path="/proxy_api/v1/smart/users/create" color="text-green-400" />
-                  <Endpoint method="POST" path="/proxy_api/v1/smart/users/update" color="text-green-400" />
-                  <Endpoint method="GET" path="/proxy_api/v1/smart/users" color="text-blue-400" />
-                  <Endpoint method="GET" path="/proxy_api/v1/smart/users/{user-id}/usage" color="text-blue-400" />
-                </div>
-              </div>
-            </div>
-
-            {/* Floating Labels */}
-            <Label tag="Developer friendly" className="-top-4 right-1/4" />
-            <Label tag="Flexible for Any Use Case" className="top-1/4 -right-8 translate-x-4" />
-            <Label tag="Fully Automated" className="bottom-1/4 -right-4" />
-            <Label tag="Works Across All Proxy Types" className="-bottom-4 left-1/4" />
+            <img
+              src="/images/ProxyAPI.png"
+              alt="Proxy API"
+              className="w-full h-auto rounded-3xl shadow-2xl"
+            />
           </div>
         </div>
       </div>
