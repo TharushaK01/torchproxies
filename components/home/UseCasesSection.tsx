@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 
 // ── 1. SOCIAL MEDIA MOCKUP (Applying Proxies UI) ───────────────────
 const TL_APPLY_ORDER = [
@@ -20,7 +21,7 @@ function SocialMediaMockup() {
     TL_APPLY_ORDER.reduce((acc, p) => ({ ...acc, [p.id]: p.initial }), {})
   );
   const [progressStage, setProgressStage] = useState("apply");
-  const rowRef = useRef(null);
+  const rowRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     let timers = [];
@@ -60,7 +61,7 @@ function SocialMediaMockup() {
         setCurrentIndex((prevIndex) => {
           const nextIndex = (prevIndex + 1) % TL_APPLY_ORDER.length;
           const nextPerson = TL_APPLY_ORDER[nextIndex];
-          
+
           setStatuses((prev) => ({
             ...prev,
             [nextPerson.id]: nextPerson.initial === "verifying" ? "verifying" : nextPerson.initial,
@@ -83,7 +84,7 @@ function SocialMediaMockup() {
     return currentIndex * rowStep;
   };
 
-  const getBadgeText = (status) => {
+  const getBadgeText = (status: "verifying" | "blocked" | "applied" | "queued") => {
     if (status === "verifying") return "Verifying";
     if (status === "blocked") return "Blocked";
     if (status === "applied") return "Applied";
@@ -150,8 +151,8 @@ function SocialMediaMockup() {
         </div>
 
         <div className="tl-applyproxies-rows-window">
-          <div 
-            className="tl-applyproxies-rows-list" 
+          <div
+            className="tl-applyproxies-rows-list"
             ref={rowRef}
             style={{ transform: `translateY(-${getRowTranslation()}px)` }}
           >
@@ -165,8 +166,8 @@ function SocialMediaMockup() {
                     <div className="tl-applyproxies-info">
                       <div className="tl-applyproxies-name">{person.name}</div>
                       <div className="tl-applyproxies-meta">
-                        {person.country} <i className="tl-applyproxies-sep">|</i> 
-                        {person.app} <i className="tl-applyproxies-sep">|</i> 
+                        {person.country} <i className="tl-applyproxies-sep">|</i>
+                        {person.app} <i className="tl-applyproxies-sep">|</i>
                         {person.plan}
                       </div>
                     </div>
@@ -182,17 +183,17 @@ function SocialMediaMockup() {
 
         <div className="tl-applyproxies-steps">
           <div className="tl-applyproxies-rail">
-            <span 
-              className="tl-applyproxies-fill" 
+            <span
+              className="tl-applyproxies-fill"
               style={{ width: progressStage === "generate" ? "0%" : progressStage === "apply" ? "50%" : "100%" }}
             ></span>
             <span className="tl-applyproxies-dot tl-applyproxies-dot-filled" style={{ left: "0%" }}></span>
-            <span 
-              className={`tl-applyproxies-dot ${progressStage === "apply" || progressStage === "connect" ? "tl-applyproxies-dot-filled" : ""}`} 
+            <span
+              className={`tl-applyproxies-dot ${progressStage === "apply" || progressStage === "connect" ? "tl-applyproxies-dot-filled" : ""}`}
               style={{ left: "50%" }}
             ></span>
-            <span 
-              className={`tl-applyproxies-dot ${progressStage === "connect" ? "tl-applyproxies-dot-filled" : ""}`} 
+            <span
+              className={`tl-applyproxies-dot ${progressStage === "connect" ? "tl-applyproxies-dot-filled" : ""}`}
               style={{ left: "100%" }}
             ></span>
           </div>
@@ -357,10 +358,10 @@ function WebScrapingMockup() {
 // ── 3. GAMING MOCKUP (Original Network Testing Panel) ──────────────
 function GamingMockup() {
   const servers = [
-    { name: "US-East",   ping: 12,  status: "optimal" },
-    { name: "EU-West",   ping: 28,  status: "optimal" },
-    { name: "Asia-SEA",  ping: 45,  status: "good"    },
-    { name: "US-West",   ping: 18,  status: "optimal" },
+    { name: "US-East", ping: 12, status: "optimal" },
+    { name: "EU-West", ping: 28, status: "optimal" },
+    { name: "Asia-SEA", ping: 45, status: "good" },
+    { name: "US-West", ping: 18, status: "optimal" },
   ];
   const [pings, setPings] = useState(servers.map((s) => s.ping));
 
@@ -590,7 +591,7 @@ function SneakerMockup() {
     const item = listRef.current.querySelector<HTMLDivElement>(".sb-item");
     if (!item) return 0;
     const styles = window.getComputedStyle(item);
-    const gap = 10; 
+    const gap = 10;
     return currentIndex * (item.clientHeight + gap);
   };
 
@@ -637,8 +638,8 @@ function SneakerMockup() {
         </div>
 
         <div className="sb-list-window">
-          <div 
-            className="sb-list" 
+          <div
+            className="sb-list"
             ref={listRef}
             style={{ transform: `translateY(-${getTranslation()}px)` }}
           >
@@ -678,7 +679,16 @@ const useCases = [
   {
     title: "Gaming",
     description: "Improve connection speed and stability for seamless online matches with lower latency worldwide.",
-    mockup: <GamingMockup />,
+    mockup: (
+      <Image
+        src="/images/Gaming.png"
+        alt="Gaming proxy latency overview"
+        fill
+        className="object-cover group-hover:scale-105 transition-transform duration-500"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        priority
+      />
+    ),
   },
   {
     title: "Online Market Place",
@@ -719,10 +729,13 @@ const UseCasesSection = () => {
         <div className="bg-[#0a0a0a] border border-gray-800 rounded-[32px] p-10
                         flex flex-col justify-center">
           <h3 className="text-2xl font-bold mb-6">Explore other Use Cases</h3>
-          <p className="text-gray-400 text-sm leading-relaxed mb-4">
+          <p className="text-gray-400 text-sm leading-relaxed mb-30">
             From streaming and market research to SEO, ad verification and travel
             data gathering. Whatever your use case, we have you covered.
           </p>
+          <button className="self-start px-20 py-3 bg-transparent text-white rounded-xl font-medium border border-white/20 hover:border-white/60 hover:bg-white/5 transition-all duration-300">
+            View other use cases
+          </button>
         </div>
       </div>
     </section>

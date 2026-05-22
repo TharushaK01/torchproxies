@@ -1,7 +1,7 @@
 "use client";
-import { useState, useEffect } from "react"; // Added useState & useEffect
+import { useState, useEffect } from "react"; 
 import { useHasMounted } from "@/hooks/useHasMounted";
-import { m, type Variants, AnimatePresence } from "framer-motion"; // Added AnimatePresence
+import { m, type Variants, AnimatePresence } from "framer-motion"; 
 
 const BRANDS = [
   {
@@ -61,7 +61,7 @@ const STATS = [
   { value: "195+ Countries" },
 ];
 
-const WORDS = ["INDIVIDUALS", "BUSINESSES"]; // The words to cycle through
+const WORDS = ["INDIVIDUALS", "BUSINESSES"]; 
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -76,7 +76,6 @@ const fadeUp: Variants = {
   }),
 };
 
-// Custom variants for the changing text loop
 const textCycleVariants: Variants = {
   initial: { opacity: 0, y: 15 },
   animate: { 
@@ -102,9 +101,8 @@ const stagger = {
 
 export default function HeroSection() {
   const hasMounted = useHasMounted();
-  const [index, setIndex] = useState(0); // Track current active word
+  const [index, setIndex] = useState(0); 
 
-  // Loop effect to switch words every 2.5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % WORDS.length);
@@ -217,7 +215,7 @@ export default function HeroSection() {
         <div className="relative h-[clamp(42px,16vw,120px)] flex items-center justify-center overflow-hidden">
           <AnimatePresence mode="wait">
             <m.h1
-              key={WORDS[index]} // Critical: key change triggers the animation loop
+              key={WORDS[index]} 
               variants={textCycleVariants}
               initial="initial"
               animate="animate"
@@ -262,7 +260,7 @@ export default function HeroSection() {
         variants={stagger}
         initial="hidden"
         animate="visible"
-        className="w-full max-w-4xl mb-10 sm:mb-12 px-4"
+        className="w-full max-w-4xl mb-4 px-4"
       >
         <div className="flex flex-wrap md:flex-nowrap items-center justify-center gap-y-3 gap-x-6 sm:gap-x-10 px-5 sm:px-8 py-4 sm:py-5">
           {STATS.map((stat, i) => (
@@ -296,7 +294,7 @@ export default function HeroSection() {
         </div>
       </m.div>
 
-      {/* ── CTA ─────────────────────────────────── */}
+      {/* ── CTA Button container updated ─────────────────────────────────── */}
       <m.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -305,9 +303,23 @@ export default function HeroSection() {
           duration: 0.6,
           ease: [0.22, 1, 0.36, 1],
         }}
-        className="relative z-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 w-full max-w-md sm:max-w-none mb-14 sm:mb-16"
-      />
-
+        className="relative z-10 flex items-center justify-center w-full mb-20 px-4"
+      >
+        <button 
+          className="
+            w-full max-w-[290px] sm:max-w-[320px] py-4 px-8 
+            bg-orange-600 hover:bg-orange-500 text-white 
+            font-bold text-base rounded-2xl tracking-[0.2px]
+            transition-all duration-200 ease-out text-center
+            shadow-[0_4px_30px_rgba(234,88,12,0.45)]
+            hover:shadow-[0_6px_35px_rgba(234,88,12,0.6)]
+            hover:scale-[1.01] active:scale-[0.99]
+          "
+        >
+          Start free with 1 GB
+        </button>
+      </m.div>
+        
       {/* ── Brands ───────────────────────────────── */}
       <m.div
         initial={{ opacity: 0 }}
@@ -315,8 +327,8 @@ export default function HeroSection() {
         transition={{ delay: 0.75, duration: 0.8 }}
         className="relative z-10 flex flex-col items-center gap-5 w-full"
       >
-        <p className="text-[14px] sm:text-base tracking-[0.01em] text-stone-300 text-center">
-          Trusted by industry leaders
+        <p className="text-[14px] sm:text-base font-normal tracking-wide text-stone-300 text-center opacity-80">
+          Trusted by teams worldwide
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4 sm:gap-x-10">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check } from 'lucide-react'; 
+import { Check } from 'lucide-react';
 
 const PricingSection = () => {
   const topFeatures = [
@@ -15,7 +15,7 @@ const PricingSection = () => {
       name: "Standard",
       desc: "Perfect for everyday online tasks.",
       price: "From $4/GB per month",
-      icon: "🟠", // Replace with your custom SVG or Image
+      icon: "🟠",
       features: [
         "Premium residential IPs",
         "Rotating and sticky sessions",
@@ -76,41 +76,54 @@ const PricingSection = () => {
         {plans.map((plan, i) => (
           <div
             key={i}
-            className={`relative p-8 rounded-2xl border-2 transition-all ${
-              plan.featured 
-                ? 'border-orange-600 bg-gradient-to-b from-[#1a0d00] to-black shadow-[0_0_30px_rgba(234,88,12,0.2)]' 
+            className={`relative p-8 rounded-2xl border-2 flex flex-col justify-between transition-all ${
+              plan.featured
+                ? 'border-orange-600 bg-gradient-to-b from-[#1a0d00] to-black shadow-[0_0_30px_rgba(234,88,12,0.2)]'
                 : 'border-gray-800 bg-[#0a0a0a]'
             }`}
           >
-            <div className="flex items-center gap-4 mb-4">
-               <div className="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center text-2xl">
-                 {plan.icon}
-               </div>
-               <div>
-                 <h3 className="text-xl font-bold">{plan.name}</h3>
-                 <p className="text-gray-400 text-sm">{plan.desc}</p>
-               </div>
-            </div>
+            <div>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center text-2xl">
+                  {plan.icon}
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold">{plan.name}</h3>
+                  <p className="text-gray-400 text-sm">{plan.desc}</p>
+                </div>
+              </div>
 
-            <div className="flex items-center gap-3 mb-8">
-              <span className="bg-[#2a1200] text-orange-500 px-4 py-2 rounded-lg font-bold text-sm">
-                {plan.price}
-              </span>
-              {plan.highlight && (
-                <span className="bg-[#001a11] text-green-500 px-4 py-2 rounded-lg text-sm font-bold border border-green-900">
-                  {plan.highlight}
+              <div className="flex items-center gap-3 mb-8">
+                <span className="bg-[#2a1200] text-orange-500 px-4 py-2 rounded-lg font-bold text-sm">
+                  {plan.price}
                 </span>
-              )}
+                {plan.highlight && (
+                  <span className="bg-[#001a11] text-green-500 px-4 py-2 rounded-lg text-sm font-bold border border-green-900">
+                    {plan.highlight}
+                  </span>
+                )}
+              </div>
+
+              <ul className="space-y-4 mb-8">
+                {plan.features.map((feat, idx) => (
+                  <li key={idx} className="flex gap-3 text-sm text-gray-300 leading-tight">
+                    <Check className="text-orange-500 w-4 h-4 shrink-0 mt-0.5" />
+                    {feat}
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            <ul className="space-y-4">
-              {plan.features.map((feat, idx) => (
-                <li key={idx} className="flex gap-3 text-sm text-gray-300 leading-tight">
-                  <Check className="text-orange-500 w-4 h-4 shrink-0 mt-0.5" />
-                  {feat}
-                </li>
-              ))}
-            </ul>
+            {/* Dynamic UI Button Layout Assignment */}
+            <button
+              className={`w-full py-3.5 px-6 font-bold rounded-xl transition-all duration-200 ${
+                plan.featured
+                  ? 'bg-orange-600 text-white hover:bg-orange-500 shadow-[0_4px_20px_rgba(234,88,12,0.3)]'
+                  : 'bg-transparent text-gray-200 border border-gray-700 hover:border-gray-500 hover:bg-white/5'
+              }`}
+            >
+              Try for free
+            </button>
           </div>
         ))}
       </div>
@@ -118,32 +131,39 @@ const PricingSection = () => {
       {/* Bottom Large Blocks */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-8">
         {/* ISP Section */}
-        <div className="lg:col-span-3 bg-[#0a0a0a] border-2 border-gray-800 rounded-2xl p-8">
-          <div className="flex items-center justify-between mb-8">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center text-2xl">⚡</div>
-              <div>
-                <h3 className="text-xl font-bold">ISP</h3>
-                <p className="text-gray-400 text-sm">Static residential proxies with unlimited data.</p>
+        <div className="lg:col-span-3 bg-[#0a0a0a] border-2 border-gray-800 rounded-2xl p-8 flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center text-2xl">⚡</div>
+                <div>
+                  <h3 className="text-xl font-bold">ISP</h3>
+                  <p className="text-gray-400 text-sm">Static residential proxies with unlimited data.</p>
+                </div>
               </div>
+              <span className="bg-[#2a1200] text-orange-500 px-4 py-2 rounded-lg font-bold text-sm">From $2.3/IP</span>
             </div>
-            <span className="bg-[#2a1200] text-orange-500 px-4 py-2 rounded-lg font-bold text-sm">From $2.3/IP</span>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 mb-8">
+              {[
+                "Reliable and Stable Connections",
+                "ISP-grade Anonymity",
+                "Best for Crypto, ticketing, web scraping, and automation",
+                "Quick Setup and Instant Activation",
+                "Versatility Across Applications",
+                "24/7 Dedicated Support",
+                "Global Coverage with Regional Optimization"
+              ].map((text, i) => (
+                <div key={i} className="flex gap-3 text-sm text-gray-300">
+                  <Check className="text-orange-500 w-4 h-4 shrink-0 mt-0.5" /> {text}
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
-            {[
-              "Reliable and Stable Connections",
-              "ISP-grade Anonymity",
-              "Best for Crypto, ticketing, web scraping, and automation",
-              "Quick Setup and Instant Activation",
-              "Versatility Across Applications",
-              "24/7 Dedicated Support",
-              "Global Coverage with Regional Optimization"
-            ].map((text, i) => (
-              <div key={i} className="flex gap-3 text-sm text-gray-300">
-                 <Check className="text-orange-500 w-4 h-4 shrink-0 mt-0.5" /> {text}
-              </div>
-            ))}
-          </div>
+
+          <button className="w-full bg-transparent text-gray-200 border border-gray-700 hover:border-gray-500 py-3.5 rounded-xl font-bold hover:bg-white/5 transition-all">
+            Try for free
+          </button>
         </div>
 
         {/* Custom Plan Section */}
@@ -152,12 +172,12 @@ const PricingSection = () => {
             <h2 className="text-5xl font-bold mb-4">Need a <br /> custom plan?</h2>
             <p className="text-gray-400 mb-8">No worries, we'll build your Residential & ISP proxy plan today.</p>
             <div className="flex gap-3 text-sm text-gray-300 mb-8">
-               <Check className="text-orange-500 w-4 h-4 shrink-0 mt-0.5" />
-               For enterprise that needs additional data, security, control and more support
+              <Check className="text-orange-500 w-4 h-4 shrink-0 mt-0.5" />
+              For enterprise that needs additional data, security, control and more support
             </div>
           </div>
-          <button className="w-full border border-gray-700 py-4 rounded-xl font-bold hover:bg-white hover:text-black transition-all">
-            Request custom plan
+          <button className="w-full bg-transparent text-gray-200 border border-gray-700 hover:border-gray-500 py-3.5 rounded-xl font-bold hover:bg-white/5 transition-all">
+            Get a quote
           </button>
         </div>
       </div>

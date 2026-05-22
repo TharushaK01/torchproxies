@@ -77,115 +77,130 @@ const FeaturesGrid = () => {
         </div>
 
         {/* Panel 2: Infrastructure Status */}
-        <div className="bg-[#0a0a0a] border border-gray-800 rounded-3xl p-8 flex flex-col justify-between">
-          <div>
-            <h3 className="text-2xl font-bold mb-2">No drops, no delays. Steady connections every time</h3>
-            <p className="text-gray-400 text-sm mb-6">Enjoy a stable connection with 99.6% uptime for smooth, reliable use.</p>
-          </div>
+<div className="bg-[#0a0a0a] border border-gray-800 rounded-3xl p-8 flex flex-col justify-between">
+  <div>
+    <h3 className="text-2xl font-bold mb-2">No drops, no delays. Steady connections every time</h3>
+    <p className="text-gray-400 text-sm mb-6">Enjoy a stable connection with 99.6% uptime for smooth, reliable use.</p>
+  </div>
 
-          <div className="flex flex-col gap-[12px] w-full">
-            <div className="relative mb-[10px] z-10">
-              <div 
-                className="absolute top-0 left-[10px] right-[10px] bottom-[-10px] bg-[#15171A] border border-[#202329] rounded-[20px] pointer-events-none z-0" 
-                style={{ boxShadow: '0 8px 18px rgba(0,0,0,.6)' }}
-                aria-hidden="true"
-              />
-              
-              <div 
-                className="relative z-10 bg-[#0E0E11] border border-[#2A2E35] rounded-[20px] p-[18px_18px_14px]"
-                style={{ boxShadow: '0 12px 28px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.02)' }}
-              >
-                <div className="flex items-center justify-between mb-[10px]">
-                  <h2 className="m-0 font-normal text-2xl tracking-[0.2px] text-[#F2F4F6] max-[560px]:text-[22px]">
-                    Proxy Infrastructure
-                  </h2>
-                  <span className="text-[#28E090] font-normal text-xl max-[560px]:text-[18px]">
-                    Operational
-                    
-                  </span>
-                </div>
-
-                <div 
-                  className="flex items-end gap-[6px] md:gap-[10px] h-[148px] max-[560px]:h-[110px] pt-2 px-1 pb-[18px] max-[560px]:pb-[14px]"
-                  aria-label="30 days uptime"
-                >
-                  {barConfigs.map((config, i) => (
-                    <m.span
-                      key={i}
-                      className={`flex-1 block rounded-[18px] max-[560px]:rounded-[16px] transition-[background,box-shadow] duration-100 ease-out ${
-                        i >= 15 ? 'max-[560px]:hidden' : ''
-                      } ${
-                        config.isActive 
-                          ? 'bg-gradient-to-b from-[#FF9C3A] via-[#FF6A1A] to-[#D64900]' 
-                          : 'bg-[#7a2b12]'
-                      }`}
-                      style={{
-                        boxShadow: config.isActive 
-                          ? '0 8px 18px rgba(255,106,26,.40), inset 0 -7px 10px rgba(0,0,0,.25)' 
-                          : 'none'
-                      }}
-                      initial={{ height: 0 }}
-                      animate={{ height: `${config.targetHeight}%` }}
-                      transition={{
-                        duration: 0.6,
-                        delay: i * 0.015,
-                        ease: [0.25, 1, 0.5, 1]
-                      }}
-                    />
-                  ))}
-                  {barConfigs.length === 0 && [...Array(30)].map((_, i) => (
-                    <span 
-                      key={i} 
-                      className={`flex-1 block bg-[#7a2b12] h-0 ${i >= 15 ? 'max-[560px]:hidden' : ''}`} 
-                    />
-                  ))}
-                </div>
-
-                <div className="flex items-center gap-2.5 max-[560px]:gap-2 text-base max-[560px]:text-sm font-normal text-[#F2F4F6]">
-                  <span className="whitespace-nowrap">30 days ago</span>
-                  <span 
-                    className="flex-1 h-[1px] mx-2.5 opacity-65"
-                    style={{ backgroundImage: 'repeating-linear-gradient(90deg, #8e939a 0 12px, transparent 12px 22px)' }}
-                    aria-hidden="true"
-                  />
-                  <span className="whitespace-nowrap">99.99% uptime</span>
-                  <span 
-                    className="flex-1 h-[1px] mx-2.5 opacity-65"
-                    style={{ backgroundImage: 'repeating-linear-gradient(90deg, #8e939a 0 12px, transparent 12px 22px)' }}
-                    aria-hidden="true"
-                  />
-                  <span className="whitespace-nowrap">Today</span>
-                </div>
-              </div>
-            </div>
-
-            <div 
-              className="bg-[#0E0E11] border border-[#2A2E35] rounded-[16px] p-[12px_14px] flex items-center justify-between"
-              style={{ boxShadow: '0 12px 28px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.02)' }}
-            >
-              <div className="flex items-center gap-3">
-                <span 
-                  className="w-[6px] h-[26px] rounded-[8px] bg-[#FF6A1A]" 
-                  style={{ boxShadow: '0 0 14px rgba(255,106,26,.5)' }}
-                  aria-hidden="true"
-                />
-                <span className="text-xl max-[560px]:text-[18px] font-normal text-[#F2F4F6]">Status</span>
-              </div>
-              
-              <div className="flex items-center gap-2.5">
-                <span 
-                  className="w-3.5 h-3.5 rounded-full" 
-                  style={{
-                    background: 'radial-gradient(circle at 50% 50%, #3CFFBF 0%, #28E090 60%, #0aa86b 100%)',
-                    boxShadow: '0 0 8px rgba(40,224,144,.7)',
-                    animation: 'pulseGlow 1.5s infinite ease-in-out'
-                  }}
-                />
-                <span className="text-xl max-[560px]:text-[18px] font-normal text-[#F2F4F6]">Online</span>
-              </div>
-            </div>
-          </div>
+  <div className="flex flex-col gap-[12px] w-full">
+    <div className="relative mb-[10px] z-10">
+      <div 
+        className="absolute top-0 left-[10px] right-[10px] bottom-[-10px] bg-[#15171A] border border-[#202329] rounded-[20px] pointer-events-none z-0" 
+        style={{ boxShadow: '0 8px 18px rgba(0,0,0,.6)' }}
+        aria-hidden="true"
+      />
+      
+      <div 
+        className="relative z-10 bg-[#0E0E11] border border-[#2A2E35] rounded-[20px] p-[18px_18px_14px]"
+        style={{ boxShadow: '0 12px 28px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.02)' }}
+      >
+        <div className="flex items-center justify-between mb-[10px]">
+          <h2 className="m-0 font-normal text-2xl tracking-[0.2px] text-[#F2F4F6] max-[560px]:text-[22px]">
+            Proxy Infrastructure
+          </h2>
+          <span className="text-[#28E090] font-normal text-xl max-[560px]:text-[18px]">
+            Operational
+          </span>
         </div>
+
+        {/* Height Container handles vertical line styling */}
+        <div 
+          className="flex items-end gap-[6px] md:gap-[8px] h-[130px] max-[560px]:h-[100px] pt-4 px-1 pb-[18px] max-[560px]:pb-[14px]"
+          aria-label="30 days uptime"
+        >
+          {barConfigs.map((config, i) => {
+            const totalBars = barConfigs.length;
+            // Identifies exactly the last two bars in the array (representing "Today")
+            const isLastTwoBars = i >= totalBars - 2;
+
+            return (
+              <m.span
+                key={i}
+                className={`flex-1 block rounded-[6px] ${
+                  i >= 24 ? 'max-[560px]:hidden' : ''
+                }`}
+                // 1. Static structural base state
+                initial={{ 
+                  height: '100%', 
+                  opacity: 0,
+                  background: 'rgba(86, 34, 18, 0.2)',
+                  boxShadow: '0 0 0px rgba(0,0,0,0)'
+                }}
+                // 2. Swapped "animate" to "whileInView" to trigger only when scrolled into view
+                whileInView={{ 
+                  opacity: isLastTwoBars ? 0.35 : (config.isActive ? 1 : 0.75),
+                  background: config.isActive && !isLastTwoBars
+                    ? 'linear-gradient(to bottom, #FF9C3A, #FF6A1A, #D64900)' 
+                    : 'rgb(86, 34, 18)', // The last two bars get the dark background color
+                  boxShadow: config.isActive && !isLastTwoBars
+                    ? '0 6px 14px rgba(255,106,26,.45), inset 0 -3px 6px rgba(0,0,0,.3)' 
+                    : 'none'
+                }}
+                // 3. Prevent the animation from re-triggering constantly when scrolling up and down
+                viewport={{ once: true, margin: "-10% 0px" }}
+                transition={{
+                  duration: 0.25,
+                  delay: i * 0.03, // Cascades smoothly from left to right
+                  ease: "easeOut"
+                }}
+              />
+            );
+          })}
+          {barConfigs.length === 0 && [...Array(30)].map((_, i) => (
+            <span 
+              key={i} 
+              className={`flex-1 block bg-[#562212] opacity-75 h-full rounded-[6px] ${i >= 24 ? 'max-[560px]:hidden' : ''}`} 
+            />
+          ))}
+        </div>
+
+        <div className="flex items-center gap-2.5 max-[560px]:gap-2 text-base max-[560px]:text-sm font-normal text-[#F2F4F6]">
+          <span className="whitespace-nowrap opacity-80">30 days ago</span>
+          <span 
+            className="flex-1 h-[1px] mx-2.5 opacity-30"
+            style={{ backgroundImage: 'repeating-linear-gradient(90deg, #8e939a 0 10px, transparent 10px 18px)' }}
+            aria-hidden="true"
+          />
+          <span className="whitespace-nowrap opacity-90 font-medium">99.99% uptime</span>
+          <span 
+            className="flex-1 h-[1px] mx-2.5 opacity-30"
+            style={{ backgroundImage: 'repeating-linear-gradient(90deg, #8e939a 0 10px, transparent 10px 18px)' }}
+            aria-hidden="true"
+          />
+          <span className="whitespace-nowrap opacity-80">Today</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Status Row */}
+    <div 
+      className="bg-[#0E0E11] border border-[#2A2E35] rounded-[16px] p-[12px_14px] flex items-center justify-between"
+      style={{ boxShadow: '0 12px 28px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.02)' }}
+    >
+      <div className="flex items-center gap-3">
+        <span 
+          className="w-[6px] h-[26px] rounded-[8px] bg-[#FF6A1A]" 
+          style={{ boxShadow: '0 0 14px rgba(255,106,26,.5)' }}
+          aria-hidden="true"
+        />
+        <span className="text-xl max-[560px]:text-[18px] font-normal text-[#F2F4F6]">Status</span>
+      </div>
+      
+      <div className="flex items-center gap-2.5">
+        <span 
+          className="w-3.5 h-3.5 rounded-full" 
+          style={{
+            background: 'radial-gradient(circle at 50% 50%, #3CFFBF 0%, #28E090 60%, #0aa86b 100%)',
+            boxShadow: '0 0 8px rgba(40,224,144,.7)',
+            animation: 'pulseGlow 1.5s infinite ease-in-out'
+          }}
+        />
+        <span className="text-xl max-[560px]:text-[18px] font-normal text-[#F2F4F6]">Online</span>
+      </div>
+    </div>
+  </div>
+</div>
 
         {/* Panel 3: Proxy Range - Integrated Stacked Cascade Layout */}
         <div 
