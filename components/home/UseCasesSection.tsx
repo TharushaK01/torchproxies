@@ -3,8 +3,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
+type ProxyStatus = "verifying" | "blocked" | "applied" | "queued";
+
 // ── 1. SOCIAL MEDIA MOCKUP (Applying Proxies UI) ───────────────────
-const TL_APPLY_ORDER = [
+const TL_APPLY_ORDER: Array<{ id: string; initial: ProxyStatus; name: string; country: string; app: string; plan: string }> = [
   { id: "john", initial: "verifying", name: "John Doe", country: "Germany", app: "Instagram", plan: "Premium USA East Coast" },
   { id: "cho", initial: "blocked", name: "Cho Lee", country: "China", app: "TikTok", plan: "Premium USA West Coast" },
   { id: "amy", initial: "queued", name: "Amy Smith", country: "France", app: "Instagram", plan: "Premium USA Central" },
@@ -17,7 +19,7 @@ const TL_APPLY_ORDER = [
 
 function SocialMediaMockup() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [statuses, setStatuses] = useState(
+  const [statuses, setStatuses] = useState<Record<string, ProxyStatus>>(
     TL_APPLY_ORDER.reduce((acc, p) => ({ ...acc, [p.id]: p.initial }), {})
   );
   const [progressStage, setProgressStage] = useState("apply");
