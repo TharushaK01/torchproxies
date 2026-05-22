@@ -16,7 +16,7 @@ const NAV_LINKS = [
           {
             label: "Standard Residential",
             description: "Perfect for everyday online tasks.",
-            href: "/products/residential",
+            href: "/standard-residential-proxies",
             price: "$2.9/GB",
           },
           {
