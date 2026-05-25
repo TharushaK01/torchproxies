@@ -126,6 +126,33 @@ export default function TorchProxiesLandingPage() {
         { name: "Sarah M.", role: "DevOps Architect", text: "IP targeting is granular down to city targets. The latency levels are significantly lower than competitive alternatives." },
         { name: "David L.", role: "Automated Data Analyst", text: "Top tier network infrastructure. The standard volume tier setups maintain premium speeds without bottleneck dropouts." },
     ];
+
+    const faqData = [
+    {
+        q: "What are residential proxies?",
+        a: "Residential proxies are IP addresses assigned by Internet Service Providers (ISPs) to homeowners. They act as intermediaries between your device and the internet, allowing you to browse anonymously and access geo-restricted content."
+    },
+    {
+        q: "How do residential proxies work and how are they different?",
+        a: "Residential proxies route your internet traffic through real residential IP addresses, making them appear as normal users to websites. Unlike datacenter proxies, they have higher trust scores and are much harder to detect and block."
+    },
+    {
+        q: "What makes Torch Proxies's residential proxies better than other proxy providers?",
+        a: "Our residential proxy network offers unmatched speed, stability, ethical sourcing, and city-level targeting with 24/7 support and transparent pricing."
+    },
+    {
+        q: "What are the ideal use cases for the Standard Residential plan?",
+        a: "Perfect for general web scraping, social media management, market research, sneaker copping, and everyday automation tasks."
+    },
+    {
+        q: "Are residential proxies legal to use?",
+        a: "Yes, residential proxies are completely legal when used responsibly and in compliance with website terms of service."
+    },
+    {
+        q: "Do you offer free trials?",
+        a: "Yes, we offer a free 1GB trial so you can test our network performance before committing."
+    },
+];
     return (
         <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
 
@@ -831,43 +858,53 @@ export default function TorchProxiesLandingPage() {
             </section>
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
-            <section className="py-24 max-w-4xl mx-auto px-6 border-t border-stone-900 mb-12">
-                <div className="text-center mb-16">
-                    <span className="text-[#FE4A01] text-xs font-medium tracking-wider block mb-3">
-                        FAQ
-                    </span>
-                    <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white mb-4">
-                        Frequently asked questions
-                    </h2>
-                </div>
+{/* FAQ SECTION */}
+<section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden">
+    <div className="max-w-4xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+            <span className="text-[#FE4A01] text-xs font-medium tracking-widest block mb-3">
+                FAQ
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
+                Frequently asked questions
+            </h2>
+        </div>
 
-                <div className="space-y-4">
-                    {[
-                        { q: "What exactly are standard residential proxies?", a: "Standard residential proxies represent real, physical IP configurations leased out directly from consumer internet service providers globally. They possess elite reputation metrics to ensure your automated tracking routines remain unblocked." },
-                        { q: "Does the bandwidth volume pool expire at the end of the month?", a: "No, bandwidth balances acquired on individual packages remain completely active up to your utilization limits. Top up anytime." },
-                        { q: "Can I filter targeting pools down to distinct cities?", a: "Yes, our operational configuration routes endpoints down across country, state, or city-level parameters instantly inside your panel workspace." },
-                        { q: "What communication format protocols are supported natively?", a: "Our nodes support transparent dual HTTP and secure SOCKS5 network request paths automatically without requiring special setup conversions." },
-                    ].map((faq, index) => {
-                        const isOpen = activeFaq === index;
-                        return (
-                            <div key={index} className="bg-stone-900/30 border border-stone-800 rounded-xl overflow-hidden transition-all">
-                                <button
-                                    onClick={() => setActiveFaq(isOpen ? null : index)}
-                                    className="w-full text-left p-5 flex items-center justify-between font-bold text-sm text-stone-200 hover:text-white"
-                                >
-                                    <span>{faq.q}</span>
-                                    <ChevronDown className={`w-4 h-4 text-stone-500 transition-transform duration-200 ${isOpen ? 'rotate-180 text-orange-500' : ''}`} />
-                                </button>
-                                {isOpen && (
-                                    <div className="px-5 pb-5 text-xs leading-relaxed text-stone-400 border-t border-stone-800/40 pt-3">
-                                        {faq.a}
-                                    </div>
-                                )}
-                            </div>
-                        );
-                    })}
-                </div>
-            </section>
+        {/* FAQ Items */}
+        <div className="space-y-px">
+            {faqData.map((faq, index) => {
+                const isOpen = activeFaq === index;
+                return (
+                    <div 
+                        key={index} 
+                        className="border-b border-stone-800 last:border-none group"
+                    >
+                        <button
+                            onClick={() => setActiveFaq(isOpen ? null : index)}
+                            className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors"
+                        >
+                            <span>{faq.q}</span>
+                            <ChevronDown 
+                                className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`} 
+                            />
+                        </button>
+                        
+                        {/* Answer */}
+                        <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
+                            <p className="text-stone-400 text-[15px] leading-relaxed pr-10">
+                                {faq.a}
+                            </p>
+                        </div>
+                    </div>
+                );
+            })}
+        </div>
+    </div>
+
+    {/* Bottom Gradient Overlay - Matches the image */}
+    <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#3a1f00] to-transparent pointer-events-none" />
+</section>
 
         </div>
     );
