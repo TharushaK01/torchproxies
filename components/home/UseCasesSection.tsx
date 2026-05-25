@@ -707,6 +707,18 @@ const useCases = [
 const UseCasesSection = () => {
   return (
     <section className="bg-[#0a0a0a] text-white py-24 px-6">
+      <div className="text-center mb-16">
+        <span className="text-[#FE4A01] text-xs font-medium tracking-wider block mb-3">
+          Use cases
+        </span>
+        <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white mb-4">
+          Where our proxies can help
+        </h2>
+        <p className="text-stone-400 text-sm sm:text-base max-w-xl mx-auto font-normal">
+
+          Use our Residential & ISP proxies for your every online need
+        </p>
+      </div>
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {useCases.map((useCase, index) => (
           <div
@@ -720,7 +732,7 @@ const UseCasesSection = () => {
               {useCase.mockup}
             </div>
 
-            <h3 className="text-2xl font-bold mb-4">{useCase.title}</h3>
+            <h3 className="text-2xl font-medium mb-4">{useCase.title}</h3>
             <p className="text-gray-400 text-sm leading-relaxed">
               {useCase.description}
             </p>
@@ -730,7 +742,7 @@ const UseCasesSection = () => {
         {/* Final Panel Placeholder */}
         <div className="bg-[#0a0a0a] border border-gray-800 rounded-[32px] p-10
                         flex flex-col justify-center">
-          <h3 className="text-2xl font-bold mb-6">Explore other Use Cases</h3>
+          <h3 className="text-2xl font-medium mb-6">Explore other Use Cases</h3>
           <p className="text-gray-400 text-sm leading-relaxed mb-30">
             From streaming and market research to SEO, ad verification and travel
             data gathering. Whatever your use case, we have you covered.

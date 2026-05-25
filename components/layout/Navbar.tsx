@@ -22,7 +22,7 @@ const NAV_LINKS = [
           {
             label: "Premium Residential",
             description: "For demanding users and businesses.",
-            href: "/products/premium",
+            href: "/premium-residential-proxies",
             price: "$3.4/GB",
           },
           {
