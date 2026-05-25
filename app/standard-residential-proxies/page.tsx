@@ -120,6 +120,12 @@ export default function TorchProxiesLandingPage() {
   ];
   const useCases = ["Social Media", "Web Scraping", "Gaming", "Online Market", "Sneaker"];
   const [activeTab, setActiveTab] = useState<'premium' | 'planX'>('premium');
+
+const reviews = [
+    { name: "Alex K.", role: "Lead Scraping Engineer", text: "Absolute game changer for parsing target inventory updates. The success parameters are consistently stable." },
+    { name: "Sarah M.", role: "DevOps Architect", text: "IP targeting is granular down to city targets. The latency levels are significantly lower than competitive alternatives." },
+    { name: "David L.", role: "Automated Data Analyst", text: "Top tier network infrastructure. The standard volume tier setups maintain premium speeds without bottleneck dropouts." },
+];
     return (
         <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
 
@@ -758,29 +764,44 @@ export default function TorchProxiesLandingPage() {
     </section>
 
             {/* ── SECTION 10: TESTIMONIALS ─────────────────────────────────── */}
-            <section className="py-24 bg-stone-950/20 border-t border-stone-900">
-                <div className="max-w-6xl mx-auto px-6">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl sm:text-5xl font-black mb-4">Customer Reviews</h2>
-                        <p className="text-stone-400">See how developer engineering nodes rate our overall connectivity network performance.</p>
-                    </div>
+<section className="py-24 bg-stone-950/20 border-t border-stone-900">
+    <div className="max-w-6xl mx-auto px-6">
+        <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-5xl font-black mb-4">Customer Reviews</h2>
+            <p className="text-stone-400">See how developer engineering nodes rate our overall connectivity network performance.</p>
+        </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {[
-                            { name: "Alex K.", role: "Lead Scraping Engineer", text: "Absolute game changer for parsing target inventory updates. The success parameters are consistently stable." },
-                            { name: "Sarah M.", role: "DevOps Architect", text: "IP targeting is granular down to city targets. The latency levels are significantly lower than competitive alternatives." },
-                            { name: "David L.", role: "Automated Data Analyst", text: "Top tier network infrastructure. The standard volume tier setups maintain premium speeds without bottleneck dropouts." },
-                        ].map((review, i) => (
-                            <div key={i} className="bg-stone-900/40 border border-stone-800 p-6 rounded-2xl relative">
-                                <div className="text-amber-500 text-lg mb-3">★★★★★</div>
-                                <p className="text-stone-300 text-xs leading-relaxed italic mb-4">"{review.text}"</p>
-                                <div className="text-stone-100 font-bold text-xs">{review.name}</div>
-                                <div className="text-stone-500 text-[10px]">{review.role}</div>
-                            </div>
-                        ))}
+        {/* Testimonial Slider */}
+        <div className="overflow-hidden">
+            <div className="flex gap-6 animate-marquee">
+                {reviews.map((review, i) => (
+                    <div
+                        key={i}
+                        className="bg-stone-900/40 border border-stone-800 p-6 rounded-2xl min-w-[340px] md:min-w-[380px]"
+                    >
+                        <div className="text-amber-500 text-lg mb-3">★★★★★</div>
+                        <p className="text-stone-300 text-xs leading-relaxed italic mb-4">"{review.text}"</p>
+                        <div className="text-stone-100 font-bold text-xs">{review.name}</div>
+                        <div className="text-stone-500 text-[10px]">{review.role}</div>
                     </div>
-                </div>
-            </section>
+                ))}
+
+                {/* Duplicate for seamless infinite scrolling */}
+                {reviews.map((review, i) => (
+                    <div
+                        key={`dup-${i}`}
+                        className="bg-stone-900/40 border border-stone-800 p-6 rounded-2xl min-w-[340px] md:min-w-[380px]"
+                    >
+                        <div className="text-amber-500 text-lg mb-3">★★★★★</div>
+                        <p className="text-stone-300 text-xs leading-relaxed italic mb-4">"{review.text}"</p>
+                        <div className="text-stone-100 font-bold text-xs">{review.name}</div>
+                        <div className="text-stone-500 text-[10px]">{review.role}</div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+</section>
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             <section className="py-24 max-w-4xl mx-auto px-6 border-t border-stone-900 mb-12">
