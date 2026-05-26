@@ -28,7 +28,7 @@ const NAV_LINKS = [
           {
             label: "Plan X Residential",
             description: "For demanding users and businesses.",
-            href: "/products/plan-x",
+            href: "/plan-x-residential",
             price: "$3.9/GB",
             badge: "Most Popular",
           },
