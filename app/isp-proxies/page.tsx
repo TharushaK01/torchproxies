@@ -9,39 +9,47 @@ import UseCasesSection from '@/components/home/UseCasesSection';
 
 const Marquee: React.FC = () => (
     <div className="w-full overflow-hidden bg-[#FE4A01] py-3 mt-50 whitespace-nowrap select-none flex">
-        {/* Wrapping container that holds both sets of text */}
-        <div className="flex animate-marquee text-xs font-semibold tracking-wider text-white uppercase">
+        {/* Wrapping container that holds both sets of elements */}
+        <div className="flex animate-marquee">
             {/* Original Content */}
-            <div className="flex items-center space-x-8 pr-8">
-                <span>• 99.9% uptime guaranteed</span>
-                <span>• Blazing fast proxy speeds</span>
-                <span>• Global geo targeting support</span>
-                <span>• Secure & anonymous connections</span>
-                <span>• Unlimited sessions & rotations</span>
-                <span>• Built for scraping & automation</span>
+            <div className="flex items-center space-x-8 pr-8 shrink-0">
+                <img src="/images/logo/vodafone.png" alt="99.9% uptime guaranteed" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/att.png" alt="Blazing fast proxy speeds" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/vocus.png" alt="Global geo targeting support" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/virgin.png" alt="Secure & anonymous connections" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/t.png" alt="Unlimited sessions & rotations" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/comcast.png" alt="Built for scraping & automation" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/verizon.png" alt="Built for scraping & automation" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/colt.png" alt="Built for scraping & automation" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/sparkle.png" alt="Built for scraping & automation" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/orange.png" alt="Built for scraping & automation" className="h-5 w-auto object-contain" />
             </div>
 
             {/* Duplicated Content for Seamless Loop */}
-            <div className="flex items-center space-x-8 pr-8" aria-hidden="true">
-                <span>• 99.9% uptime guaranteed</span>
-                <span>• Blazing fast proxy speeds</span>
-                <span>• Global geo targeting support</span>
-                <span>• Secure & anonymous connections</span>
-                <span>• Unlimited sessions & rotations</span>
-                <span>• Built for scraping & automation</span>
+            <div className="flex items-center space-x-8 pr-8 shrink-0" aria-hidden="true">
+                <img src="/images/logo/vodafone.png" alt="99.9% uptime guaranteed" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/att.png" alt="Blazing fast proxy speeds" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/vocus.png" alt="Global geo targeting support" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/virgin.png" alt="Secure & anonymous connections" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/t.png" alt="Unlimited sessions & rotations" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/comcast.png" alt="Built for scraping & automation" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/verizon.png" alt="Built for scraping & automation" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/colt.png" alt="Built for scraping & automation" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/sparkle.png" alt="Built for scraping & automation" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/orange.png" alt="Built for scraping & automation" className="h-5 w-auto object-contain" />
             </div>
         </div>
 
         {/* CSS Keyframe for a flawless seamless loop */}
         <style jsx global>{`
-      @keyframes marquee {
-        0% { transform: translateX(0%); }
-        100% { transform: translateX(-50%); }
-      }
-      .animate-marquee {
-        animation: marquee 25s linear infinite;
-      }
-    `}</style>
+            @keyframes marquee {
+                0% { transform: translateX(0%); }
+                100% { transform: translateX(-50%); }
+            }
+            .animate-marquee {
+                animation: marquee 25s linear infinite;
+            }
+        `}</style>
     </div>
 );
 
@@ -78,43 +86,43 @@ export default function TorchProxiesLandingPage() {
 
     // Hardcoded pricing tiers matching the design exactly
     const tiers = [
-        { id: '1GB', size: '1GB', price: '$ 5', discount: '0% OFF' },
-        { id: '5GB', size: '5GB', price: '$ 4.75', discount: '5.56% OFF' },
-        { id: '25GB', size: '25GB', price: '$ 4.50', discount: '11.11% OFF' },
-        { id: '100GB', size: '100GB', price: '$ 4.25', discount: '16.67% OFF' },
-        { id: '500GB', size: '500GB', price: '$ 4.00', discount: '22.22% OFF' },
-        { id: '1000GB', size: '1000GB', price: '$ 3.90', discount: '24.44% OFF' },
+        { id: '1GB', size: '5 ISP', price: '$ 2.4', discount: '0% OFF' },
+        { id: '5GB', size: '25 ISP', price: '$ 2.3', discount: '4.17% OFF' },
+        { id: '25GB', size: '50 ISP', price: '$ 2.3', discount: '4.17% OFF' },
+        { id: '100GB', size: '100 ISP', price: '$ 2.3', discount: '4.17% OFF' },
+        { id: '500GB', size: '200 ISP', price: '$ 2.3', discount: '4.17% OFF' },
+        { id: '1000GB', size: '254 ISP', price: '$ 2.3', discount: '4.17% OFF' },
     ];
     const features = [
         {
             icon: <Database className="text-white w-4 h-4" />,
-            title: "High Data Collection",
-            desc: "Capture high-volume data with precision, speed & zero compromise"
+            title: "Financial Market Insights",
+            desc: "Track stocks, forex, and crypto markets in real time with precision"
         },
         {
             icon: <RefreshCw className="text-white w-4 h-4" />,
-            title: "Smart IP Rotation",
-            desc: "Smart rotation with advanced logic to avoid toughest blocks"
+            title: "Enhanced Gaming ",
+            desc: "Enjoy seamless, low-latency gaming with high-speed proxy support"
         },
         {
             icon: <Layers className="text-white w-4 h-4" />,
-            title: "Advanced Sticky Sessions",
+            title: "Advanced Online Privacy",
             desc: "Maintain session persistence across complex workflows and long tasks"
         },
         {
             icon: <ShieldCheck className="text-white w-4 h-4" />,
-            title: "SOCKS5 & HTTPS Support",
-            desc: "Supports SOCKS5, HTTPS, and advanced tunneling for total flexibility"
+            title: "Global Content Access",
+            desc: "Unblock and explore global content with fast, stable connections"
         },
         {
             icon: <Infinity className="text-white w-4 h-4" />,
-            title: "Unlimited Sessions",
+            title: "Compliance Monitoring",
             desc: "Handle massive concurrent requests with zero rate limits or throttling"
         },
         {
             icon: <Tag className="text-white w-4 h-4" />,
-            title: "Cost Effective",
-            desc: "Premium reliability and customization for high-stakes operations"
+            title: "Business Intelligence",
+            desc: "Get real-time data to power smart, competitive business decisions"
         }
     ];
     const useCases = ["Social Media", "Web Scraping", "Gaming", "Online Market", "Sneaker"];
@@ -156,7 +164,7 @@ export default function TorchProxiesLandingPage() {
         <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-            <header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 overflow-hidden">
+            <header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-1 overflow-hidden">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(234,88,12,0.2)_0%,transparent_60%)] pointer-events-none" />
                 <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(234,88,12,0.05)_0%,transparent_70%)] pointer-events-none" />
 
@@ -204,63 +212,24 @@ export default function TorchProxiesLandingPage() {
                 </div>
             </header>
 
-            {/* ── SECTION 2: Perfect for Every Scraping & Animations ─────────── */}
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden">
-                <div className="max-w-7xl mx-auto space-y-32">
-
-                    {/* Row 1: Easy Client Management */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        {/* Visual Side */}
-                        <div className="relative group">
-                            <div className="bg-[#0d0d0d] border border-gray-800 rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
-                                <div className="bg-[#050505] rounded-2xl border border-gray-900/50 overflow-hidden flex items-center justify-center">
-
-                                    <img
-                                        src="/images/why_plan_x.png"
-                                        alt="Perfect for Everyday Scraping & Automation"
-                                        className="w-full h-auto object-cover rounded-2xl"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Text Side */}
-                        <div className="space-y-6">
-                            <h2 className="text-4xl md:text-5xl font-regular tracking-tight">
-                                Why Plan X Residential Proxies Stand Out
-                            </h2>
-                            <p className="text-gray-400 text-lg leading-relaxed">
-                                Plan X blends Residential IPs for authenticity with ISP IPs for speed and stability, creating a hybrid network built for high-performance scraping, automation, and content access.
-                            </p>
-                            <ul className="text-gray-400 text-lg leading-relaxed">
-                                <li>&#9679; Fast, stable and highly reliable for demanding tasks.</li>
-                                <li>&#9679; A hybrid mix of Residential + ISP IPs for maximum versatility.</li>
-                                <li>&#9679; Engineered to support large-scale, resource-intensive workflows with ease.</li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             {/* ── SECTION 3: Residential Proxies ────────────────────── */}
-            <section className="py-24 bg-[#0a0a0a] text-white relative overflow-hidden">
+            <section className="py-24 -mt-[100px] bg-[#0a0a0a] text-white relative overflow-hidden">
                 <div className="max-w-7xl mx-auto px-6">
 
                     {/* ── TOP HEADER SUB-LABELS ───────────────────────────────── */}
                     <div className="text-center mb-16">
                         <span className="text-[#FE4A01] text-xs font-regular tracking-wider block mb-3">
-                            X Residential Proxies
+                            ISP Proxies
                         </span>
                         <h2 className="text-3xl sm:text-5xl font-regular tracking-tight mb-6">
-                            Buy X residential proxies
+                            Buy ISP proxies
                         </h2>
 
                         {/* Top Trust Badges */}
                         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-stone-400 text-xs sm:text-sm font-medium">
                             <span className="flex items-center gap-1.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Secure checkout with SSL encryption</span>
                             <span className="flex items-center gap-1.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Pay As You Go Pricing </span>
-                            <span className="flex items-center gap-1.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Premium IPs</span>
+                            <span className="flex items-center gap-1.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Reliable & stable connection</span>
                             <span className="flex items-center gap-1.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Support both card & crypto</span>
                         </div>
                     </div>
@@ -280,43 +249,36 @@ export default function TorchProxiesLandingPage() {
                                     </div>
                                 </div>
                                 <div>
-                                    <h3 className="text-2xl sm:text-3xl font-semi-bold tracking-tight text-stone-200">
-                                        X Residential
+                                    <h3 className="text-[36px] sm:text-3xl font-bold tracking-tight text-stone-200">
+                                        ISP Proxies
                                     </h3>
-                                    <h3 className="text-2xl sm:text-3xl font-semi-bold tracking-tight text-stone-200">
-                                        Proxies
-                                    </h3>
+
                                 </div>
                             </div>
 
                             <p className="text-stone-400 text-sm sm:text-base leading-relaxed">
-                                Unmatched speed, stability and flexibility with rotating residential proxies and static sessions <span className="text-[#FE4A01]">for top tier performance.</span>
+                                Static residential proxies with unlimited data. <span className="text-[#FE4A01]">Ideal for sneaker botting, scraping and automation.</span>
                             </p>
 
-                            {/* Custom Micro Pill Badge */}
-                            <div className="inline-block bg-[#FE4A01]/10 border border-[#FE4A01]/20 px-3 py-1 rounded-md">
-                                <span className="text-[#FE4A01] text-xs font-bold tracking-wide">From  $5/GB  per month</span>
-                            </div>
-
                             {/* Feature Checklist */}
-                            <ul className="space-y-3.5 pt-4 text-stone-400 text-sm font-medium">
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Data never expires</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Can cancel anytime</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Authentic residential proxies with dedicated ISP pools</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Rotating and sticky sessions</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Target country, state, and city-level</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Suitable for general web scraping</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Unlimited concurrent sessions</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> 120M+ ethically sourced unique IPs in 195 countries</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Easy API access for integration</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Sneaker drops, ticketing queues, strict retail sites, social media anti-bot environments, flash sales, bot-driven automation, and mission-critical high-demand ops.</li>
+                            <ul className="space-y-3.5 pt-4 text-stone-400 text-[16px] font-regular">
+                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Available in USA, UK, Canada, Germany, Netherlands, Italy, France, Australia, and Hong Kong</li>
+                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> ISP grade Anonymity</li>
+                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Quick Setup and Instant Activation</li>
+                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Versatility Across Applications</li>
+                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> 24/7 Dedicated Support</li>
+                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Global Coverage with Regional Optimization</li>
+                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Static, Dedicated ISP IPs</li>
+                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Low Block & CAPTCHA Rates</li>
+                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Ideal for Always-On Monitors & Long Sessions</li>
+                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Works seamlessly for scraping, automation tools and stable account sessions across supported regions</li>
 
 
                             </ul>
 
                             {/* Main Primary CTA Button */}
                             <div className="pt-4">
-                                <button className="w-full sm:w-auto px-10 py-4 bg-[#FE4A01] hover:bg-[#e04201] text-white font-bold rounded-xl transition-all shadow-[0_15px_35px_rgba(254,74,1,.25)] text-sm">
+                                <button className="w-full sm:w-auto px-10 py-4 bg-[#FE4A01] hover:bg-[#e04201] text-white font-regular rounded-xl transition-all shadow-[0_15px_35px_rgba(254,74,1,.25)] text-[16px]">
                                     Start free with 1 GB
                                 </button>
                             </div>
@@ -324,11 +286,15 @@ export default function TorchProxiesLandingPage() {
                             {/* Gateway Merchant Footnote Icons */}
                             <div className="pt-4 flex items-center gap-3 text-xs text-stone-500 font-medium select-none">
                                 <span>We Support</span>
-                                <span className="font-bold tracking-wider text-stone-400 text-[10px] bg-stone-900 px-1.5 py-0.5 rounded border border-stone-800">VISA</span>
-                                <span className="font-bold tracking-wider text-stone-400 text-[10px] bg-stone-900 px-1.5 py-0.5 rounded border border-stone-800">MC</span>
-                                <span className="font-bold tracking-wider text-stone-400 text-[10px] bg-stone-900 px-1.5 py-0.5 rounded border border-stone-800">AMEX</span>
-                                <span className="font-bold tracking-wider text-stone-400 text-[10px] bg-stone-900 px-1.5 py-0.5 rounded border border-stone-800">STRIPE</span>
-                                <span className="font-bold tracking-wider text-stone-400 text-[10px] bg-stone-900 px-1.5 py-0.5 rounded border border-stone-800">BTC</span>
+                                <div className="flex items-center justify-center">
+                                    <img
+                                        src="/images/support_logo.png"
+                                        alt="Supported Payment Methods"
+                                        className="h-10 w-auto object-contain opacity-100 px-4 py-2 rounded grayscale brightness-120 hover:opacity-100 transition-opacity"
+                                        loading="lazy"
+                                    />
+
+                                </div>
                                 <span>& more</span>
                             </div>
                         </div>
@@ -347,24 +313,24 @@ export default function TorchProxiesLandingPage() {
                                             }`}
                                     >
                                         {/* Floating Green Percentage Label */}
-                                        <div className="absolute top-4 right-4 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded">
+                                        <div className="absolute top-4 right-4 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[12px] font-bold px-2 py-0.5 rounded">
                                             {tier.discount}
                                         </div>
 
                                         {/* Volume Metric Display */}
                                         <div className="mt-2">
-                                            <span className="text-2xl font-bold tracking-tight text-stone-200">
+                                            <span className="text-[32px] font-medium tracking-tight text-stone-200">
                                                 {tier.size}
                                             </span>
                                         </div>
 
                                         {/* Price Metric Formula */}
                                         <div className="mt-4 flex items-baseline gap-1">
-                                            <span className="text-[#FE4A01] font-bold text-xl">
+                                            <span className="text-[#FE4A01] font-semi-bold text-[24px]">
                                                 {tier.price}
                                             </span>
 
-                                            <span className="text-[#FE4A01] text-xs font-medium self-start">
+                                            <span className="text-[#FE4A01] text-[14px] font-regular self-start">
                                                 per GB
                                             </span>
                                         </div>
@@ -442,24 +408,24 @@ export default function TorchProxiesLandingPage() {
                             Features
                         </span>
                         <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white mb-4">
-                            Built for you dashboard
+                            Simple Ways to Get ISP Proxies
                         </h2>
                         <p className="text-stone-400 text-sm sm:text-base max-w-xl mx-auto font-normal">
-                            Easily manage, monitor and optimize your proxy operations with a user centric dashboard.
+                            Get enterprise grade ISP proxies the way that fits your workflow. Whether you prefer a simple dashboard or full API automation, TorchLabs makes it effortless.
                         </p>
                     </div>
 
                     {/* ── BENTO BOX GRID LAYOUT ────────────────────────────────── */}
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
 
-                        {/* CARD 1: TARGET ANY COUNTRY (Left Column - Spans 5 cols) */}
-                        <div className="lg:col-span-6 bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col justify-between overflow-hidden min-h-[540px]">
+                        {/* CARD 1: LEFT COLUMN */}
+                        <div className="bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col justify-between overflow-hidden min-h-[540px]">
                             <div className="mb-6">
                                 <h3 className="text-[28px] font-regular tracking-tight text-stone-200 mb-3">
-                                    Target Any Country, State or City
+                                    No-Code Dashboard
                                 </h3>
                                 <p className="text-stone-400 text-[18px] leading-relaxed font-normal">
-                                    Reach your audience anywhere with pinpoint geographic precision.
+                                    Pick your country and quantity, confirm the monthly subscription and instantly activate your ISP pool. Manage renewals, upgrades and cancellations from one place.
                                 </p>
                             </div>
 
@@ -469,7 +435,7 @@ export default function TorchProxiesLandingPage() {
 
                                 <div className="w-full relative z-10 drop-shadow-2xl transition-transform duration-300 hover:scale-[1.01]">
                                     <img
-                                        src="/images/proxy-generator.png"
+                                        src="/images/No_code_ashboard.png"
                                         alt="Standard Residential Proxies Generator Dashboard"
                                         className="w-full h-auto rounded-xl object-contain"
                                         loading="lazy"
@@ -478,53 +444,26 @@ export default function TorchProxiesLandingPage() {
                             </div>
                         </div>
 
-                        {/* RIGHT SIDE CONTAINER GROUP (Spans 7 cols) */}
-                        <div className="lg:col-span-6 flex flex-col gap-6">
-
-                            {/* CARD 2: TRACK MANAGE & CONTROL (Top Right Row) */}
-                            <div className="bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col gap-6 justify-between items-start overflow-hidden min-h-[258px]">
-                                <div>
-                                    <h3 className="text-2xl font-regular tracking-tight text-stone-200 mb-3">
-                                        Track Manage & Stay in Control
-                                    </h3>
-                                    <p className="text-stone-400 text-sm leading-relaxed font-normal">
-                                        Monitor usage, switch locations, and stay fully in command of your network.
-                                    </p>
-                                </div>
-
-                                {/* Visual Image Area */}
-                                <div className="w-full bg-[#111115] border border-stone-900 rounded-2xl p-4 h-48 relative flex items-center justify-center overflow-hidden drop-shadow-2xl">
-                                    <img
-                                        src="/images/usage-status.png"
-                                        alt="Detailed network usage statistics showing bandwidth used"
-                                        className="w-full h-auto object-contain rounded-xl"
-                                        loading="lazy"
-                                    />
-                                </div>
+                        {/* CARD 2: RIGHT COLUMN (Extra inner wrapper container div completely removed) */}
+                        <div className="bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col justify-between items-start overflow-hidden min-h-[540px]">
+                            <div className="mb-6">
+                                <h3 className="text-2xl font-regular tracking-tight text-stone-200 mb-3">
+                                    Full API Automation for Developers
+                                </h3>
+                                <p className="text-stone-400 text-sm leading-relaxed font-normal">
+                                    Assign your ISP plan to a sub user, choose user/pass or IP whitelist auth and copy or export your proxy list to plug into bots, scrapers, and automation tools.
+                                </p>
                             </div>
 
-                            {/* CARD 3: DEVELOPER FRIENDLY SETUP (Bottom Right Row) */}
-                            <div className="bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col gap-6 justify-between items-start overflow-hidden min-h-[258px]">
-                                <div>
-                                    <h3 className="text-2xl font-regular tracking-tight text-stone-200 mb-3">
-                                        Fast, Developer Friendly Setup
-                                    </h3>
-                                    <p className="text-stone-400 text-sm leading-relaxed font-normal">
-                                        Get started in minutes with simple integration and powerful API tools.
-                                    </p>
-                                </div>
-
-                                {/* Visual Image Area */}
-                                <div className="w-full bg-[#111115] border border-stone-900 rounded-2xl p-4 h-48 relative flex items-center justify-center overflow-hidden drop-shadow-2xl">
-                                    <img
-                                        src="/images/api-setup.png"
-                                        alt="Developer friendly Swagger API documentation panel"
-                                        className="w-full h-auto object-contain rounded-xl"
-                                        loading="lazy"
-                                    />
-                                </div>
+                            {/* Visual Image Area */}
+                            <div className="w-full relative z-10 drop-shadow-2xl transition-transform duration-300 hover:scale-[1.01]">
+                                <img
+                                    src="/images/full_api.png"
+                                    alt="Detailed network usage statistics showing bandwidth used"
+                                    className="w-full h-auto object-contain rounded-xl"
+                                    loading="lazy"
+                                />
                             </div>
-
                         </div>
 
                     </div>
@@ -612,150 +551,6 @@ export default function TorchProxiesLandingPage() {
 
                 {/* Other sections can go here */}
             </main>
-
-            {/* ── SECTION 9: UPSELL CARDS ──────────────────────────────────── */}
-            <section className="py-24 bg-[#0a0a0a] text-white border-t border-stone-900">
-                <div className="max-w-6xl mx-auto px-6">
-
-                    {/* ── TOP HEADLINE SECTION ────────────────────────────────── */}
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl sm:text-4xl font-normal tracking-tight text-white mb-2">
-                            Looking for more power?
-                        </h2>
-                        <p className="text-stone-400 text-sm font-normal">
-                            Fast and reliable rotating residential proxies.
-                        </p>
-                    </div>
-
-                    {/* ── NAV TAB SYSTEM ──────────────────────────────────────── */}
-                    <div className="flex justify-center border-b border-stone-900 max-w-2xl mx-auto mb-16">
-                        <button
-                            onClick={() => setActiveTab('premium')}
-                            className={`pb-4 px-8 text-sm font-medium transition-all relative ${activeTab === 'premium' ? 'text-[#FE4A01]' : 'text-stone-500 hover:text-stone-300'
-                                }`}
-                        >
-                            Standard Residential Proxies
-                            {activeTab === 'premium' && (
-                                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#FE4A01]" />
-                            )}
-                        </button>
-                        <button
-                            onClick={() => setActiveTab('planX')}
-                            className={`pb-4 px-8 text-sm font-medium transition-all relative ${activeTab === 'planX' ? 'text-[#FE4A01]' : 'text-stone-500 hover:text-stone-300'
-                                }`}
-                        >
-                            Plan X Residential Proxies
-                            {activeTab === 'planX' && (
-                                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#FE4A01]" />
-                            )}
-                        </button>
-                    </div>
-
-                    {/* ── TAB DYNAMIC VIEW CONTENT ────────────────────────────── */}
-                    {activeTab === 'premium' ? (
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
-                            {/* Left Info Column */}
-                            <div className="lg:col-span-5 space-y-6">
-                                <div className="flex items-center gap-3">
-                                    <h3 className="text-3xl font-medium tracking-tight text-white">
-                                        Standard Residential Proxies
-                                    </h3>
-                                    <span className="bg-[#FE4A01]/10 border border-[#FE4A01]/20 text-[#FE4A01] text-[10px] font-medium px-2.5 py-1 rounded-md">
-                                        From $4.5/GB
-                                    </span>
-                                </div>
-                                <p className="text-stone-400 text-sm leading-relaxed">
-                                    Reliable and affordable with rotating residential proxies and optional static sessions perfect for everyday online tasks.
-                                </p>
-                                <ul className="space-y-3 text-stone-300 text-sm">
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Premium residential IPs</li>
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Rotating and sticky sessions</li>
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Target country, state, and city-level</li>
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Suitable for general web scraping</li>
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Unlimited concurrent sessions</li>
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> 90M+ ethically sourced unique IPs in 195 countries</li>
-                                </ul>
-                                <button className="w-full sm:w-auto px-8 py-3.5 bg-[#FE4A01] hover:bg-orange-600 text-white font-medium rounded-xl transition-all text-sm">
-                                    Upgrade to premium
-                                </button>
-                            </div>
-
-                            {/* Right Graphics Badge Mockup Column */}
-                            <div className="lg:col-span-7 bg-[#0b0b0d] border border-stone-900 rounded-3xl p-12 min-h-[380px] flex items-center justify-center relative overflow-hidden">
-                                <div className="bg-[#FE4A01] rounded-2xl w-80 h-36 relative flex flex-col justify-center items-center text-center p-4 shadow-2xl">
-                                    <div className="absolute -top-3 left-6 bg-white border border-stone-100 px-2 py-1 rounded-md text-[8px] font-medium text-stone-700 flex items-center gap-1">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-orange-500" /> Premium Residential Proxies
-                                    </div>
-                                    <div className="absolute -top-3 right-6 bg-[#00E699] text-black px-2 py-1 rounded-md text-[8px] font-medium flex items-center gap-1">
-                                        ✓ Premium Residential Proxies
-                                    </div>
-                                    <div className="absolute -left-12 bg-white border border-stone-100 p-2 rounded-xl text-center shadow-md">
-                                        <div className="text-sm font-black text-stone-900">90M+</div>
-                                        <div className="text-[7px] text-stone-400 font-medium">verified residential IPs</div>
-                                    </div>
-                                    <div className="absolute -right-8 bg-white border border-stone-100 p-2.5 rounded-xl text-center shadow-md space-y-1 max-w-[85px]">
-                                        <Globe className="text-[#FE4A01] w-3 h-3 mx-auto" />
-                                        <div className="text-[7px] text-stone-800 font-bold leading-tight">Target country, state and city level</div>
-                                    </div>
-                                    <div className="absolute -bottom-3 left-12 bg-white border border-stone-100 px-2 py-1 rounded-md text-[8px] font-bold text-stone-700 flex items-center gap-1 shadow-md">
-                                        <RefreshCw className="text-orange-500 w-2.5 h-2.5" /> Rotation & sticky sessions
-                                    </div>
-                                    <div className="w-5 h-5 rounded-full bg-white flex items-center justify-center mb-1 text-orange-600 text-[10px] font-bold shadow">✓</div>
-                                    <h4 className="text-white font-black text-base tracking-wide uppercase">Enhanced features for heavy & strict workloads</h4>
-                                </div>
-                            </div>
-
-                        </div>
-                    ) : (
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
-                            {/* Left Info Column (Plan X) */}
-                            <div className="lg:col-span-5 space-y-6">
-                                <div className="flex items-center gap-3">
-                                    <h3 className="text-3xl font-medium tracking-tight text-white">
-                                        Plan X Residential Proxies
-                                    </h3>
-                                    <span className="bg-[#FE4A01]/10 border border-[#FE4A01]/20 text-[#FE4A01] text-[10px] font-bold px-2.5 py-1 rounded-md">
-                                        From $5.0/GB
-                                    </span>
-                                </div>
-                                <p className="text-stone-400 text-sm leading-relaxed">
-                                    Authentic residential network proxy connections combined with dedicated exclusive high performance ISP sub pools.
-                                </p>
-                                <ul className="space-y-3 text-stone-300 text-sm">
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Authentic residential proxies with dedicated ISP pools</li>
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Rotating and sticky node sessions</li>
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Target country, state, and city-level</li>
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Suitable for top tier general web scraping</li>
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Unlimited concurrent sessions</li>
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> 120M+ premium unique data source node access</li>
-                                </ul>
-                                <button className="w-full sm:w-auto px-8 py-3.5 bg-[#FE4A01] hover:bg-orange-600 text-white font-medium rounded-xl transition-all text-sm">
-                                    Upgrade to Plan X
-                                </button>
-                            </div>
-
-                            {/* Right Graphics Badge Mockup Column (Plan X Variation) */}
-                            <div className="lg:col-span-7 bg-[#0b0b0d] border border-stone-900 rounded-3xl p-12 min-h-[380px] flex items-center justify-center relative overflow-hidden">
-                                <div className="bg-stone-900 border border-stone-800 rounded-2xl w-80 h-36 relative flex flex-col justify-center items-center text-center p-4 shadow-2xl">
-                                    <div className="absolute -top-3 left-6 bg-white border border-stone-100 px-2 py-1 rounded-md text-[8px] font-bold text-stone-700 flex items-center gap-1">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-stone-500" /> Plan X Residential
-                                    </div>
-                                    <div className="absolute -left-12 bg-white border border-stone-100 p-2 rounded-xl text-center shadow-md">
-                                        <div className="text-sm font-black text-stone-900">120M+</div>
-                                        <div className="text-[7px] text-stone-400 font-medium">ISP unique pools</div>
-                                    </div>
-                                    <div className="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center mb-1 text-white text-[10px] font-bold shadow">✓</div>
-                                    <h4 className="text-white font-bold text-sm tracking-wide">AUTHENTIC EXCLUSIVE TOP TIER PERFORMANCE</h4>
-                                </div>
-                            </div>
-
-                        </div>
-                    )}
-
-                </div>
-            </section>
 
             {/* ── SECTION 10: TESTIMONIALS ─────────────────────────────────── */}
             <section className="py-24 bg-stone-950/20 border-t border-stone-900">
