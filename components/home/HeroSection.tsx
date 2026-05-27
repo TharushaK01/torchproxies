@@ -1,7 +1,7 @@
 "use client";
-import { useState, useEffect } from "react"; 
+import { useState, useEffect } from "react";
 import { useHasMounted } from "@/hooks/useHasMounted";
-import { m, type Variants, AnimatePresence } from "framer-motion"; 
+import { m, type Variants, AnimatePresence } from "framer-motion";
 
 const BRANDS = [
   {
@@ -61,7 +61,7 @@ const STATS = [
   { value: "195+ Countries" },
 ];
 
-const WORDS = ["INDIVIDUALS", "BUSINESSES"]; 
+const WORDS = ["INDIVIDUALS", "BUSINESSES"];
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -78,13 +78,13 @@ const fadeUp: Variants = {
 
 const textCycleVariants: Variants = {
   initial: { opacity: 0, y: 15 },
-  animate: { 
-    opacity: 1, 
+  animate: {
+    opacity: 1,
     y: 0,
     transition: { duration: 0.4, ease: [0.25, 1, 0.5, 1] }
   },
-  exit: { 
-    opacity: 0, 
+  exit: {
+    opacity: 0,
     y: -15,
     transition: { duration: 0.3, ease: [0.25, 1, 0.5, 1] }
   }
@@ -101,7 +101,7 @@ const stagger = {
 
 export default function HeroSection() {
   const hasMounted = useHasMounted();
-  const [index, setIndex] = useState(0); 
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -151,37 +151,14 @@ export default function HeroSection() {
       </div>
 
       {/* ── Trustpilot ───────────────────────────── */}
-      <m.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="
-          relative z-10
-          flex flex-wrap items-center justify-center gap-2
-          mb-8 sm:mb-10
-          text-[11px] sm:text-xs
-          text-stone-400
-          text-center
-        "
-      >
-        <span className="font-medium text-white">Excellent</span>
-
-        <div className="flex gap-0.5">
-          {[...Array(5)].map((_, i) => (
-            <svg
-              key={i}
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="#00b67a"
-            >
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-            </svg>
-          ))}
-        </div>
-
-        <span>Trustpilot</span>
-      </m.div>
+      <div className="flex items-center justify-center mb-6">
+        <img
+          src="/images/TrustPiolet.png"
+          alt="Excellent 5-star rating on Trustpilot"
+          className="h-6 w-auto object-contain"
+          loading="lazy"
+        />
+      </div>
 
       {/* ── Hero Content ─────────────────────────── */}
       <m.div
@@ -203,7 +180,7 @@ export default function HeroSection() {
           className="
             text-stone-300
             text-[60px]
-            font-light
+            font-regular
             mb-3
             tracking-wide
           "
@@ -215,7 +192,7 @@ export default function HeroSection() {
         <div className="relative h-[clamp(42px,16vw,120px)] flex items-center justify-center overflow-hidden">
           <AnimatePresence mode="wait">
             <m.h1
-              key={WORDS[index]} 
+              key={WORDS[index]}
               variants={textCycleVariants}
               initial="initial"
               animate="animate"
@@ -227,10 +204,10 @@ export default function HeroSection() {
                 absolute
                 text-white
                 uppercase
-                font-black
+                font-normal
                 leading-[0.9]
                 tracking-[-0.04em]
-                text-[clamp(42px,16vw,120px)]
+                text-[clamp(42px,16vw,100px)]
               "
             >
               {WORDS[index]}
@@ -245,6 +222,7 @@ export default function HeroSection() {
             mt-5 sm:mt-6
             mx-auto
             max-w-[90%] sm:max-w-2xl
+            text-[18px]
             text-sm sm:text-base
             leading-relaxed
             text-stone-400
@@ -305,7 +283,7 @@ export default function HeroSection() {
         }}
         className="relative z-10 flex items-center justify-center w-full mb-20 px-4"
       >
-        <button 
+        <button
           className="
             w-full max-w-[290px] sm:max-w-[320px] py-4 px-8 
             bg-orange-600 hover:bg-orange-500 text-white 
@@ -319,7 +297,7 @@ export default function HeroSection() {
           Start free with 1 GB
         </button>
       </m.div>
-        
+
       {/* ── Brands ───────────────────────────────── */}
       <m.div
         initial={{ opacity: 0 }}
@@ -327,21 +305,19 @@ export default function HeroSection() {
         transition={{ delay: 0.75, duration: 0.8 }}
         className="relative z-10 flex flex-col items-center gap-5 w-full"
       >
-        <p className="text-[14px] sm:text-base font-normal tracking-wide text-stone-300 text-center opacity-80">
+        <p className="text-[12px] sm:text-base font-normal tracking-wide text-stone-200 text-center opacity-100">
           Trusted by teams worldwide
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4 sm:gap-x-10">
-          {BRANDS.map((brand) => (
-            <div
-              key={brand.name}
-              title={brand.name}
-              className="text-stone-600 hover:text-stone-400 transition-colors duration-300"
-            >
-              {brand.svg}
+              <img
+                src="/images/HeroLogo.png" // Corrected typo "TrustPiolet" to "Trustpilot"
+                alt="Excellent 5-star rating on Trustpilot"
+                className="h-6 w-auto object-contain transition-opacity duration-200 hover:opacity-80 cursor-pointer"
+                loading="lazy"
+              />
+
             </div>
-          ))}
-        </div>
       </m.div>
     </section>
   );

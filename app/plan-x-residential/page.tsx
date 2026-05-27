@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Check, ChevronDown, Shield, Zap, Globe, BarChart3, Activity, Sliders } from 'lucide-react';
 import Flag from 'react-world-flags';
-import { Database, RefreshCw, Layers, ShieldCheck, Infinity, Tag } from 'lucide-react';
+import { Database, RefreshCw, Layers, ShieldCheck, Infinity, Tag, CreditCard } from 'lucide-react';
 import UseCasesSection from '@/components/home/UseCasesSection';
 
 
@@ -161,58 +161,31 @@ export default function TorchProxiesLandingPage() {
                 <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(234,88,12,0.05)_0%,transparent_70%)] pointer-events-none" />
 
                 <div className="max-w-6xl mx-auto text-center z-10">
-                    <div className="flex items-center justify-center gap-3 mb-6 font-normal text-white">
-                        {/* The "Excellent" text */}
-                        <span className="text-sm">Excellent</span>
-
-                        {/* Five Star Rating Block */}
-                        <div className="flex gap-[2px]">
-                            {[...Array(5)].map((_, i) => (
-                                <div
-                                    key={i}
-                                    className="w-5 h-5 flex items-center justify-center rounded-sm bg-[#00b67a]"
-                                    style={{
-                                        // Creates the partial fill effect on the last star (approx 90%)
-                                        clipPath: i === 4 ? 'inset(0 10% 0 0)' : 'none',
-                                    }}
-                                >
-                                    {/* Star Icon (Unicode works well for standalone mocks) */}
-                                    <span className="text-white text-xs">★</span>
-                                </div>
-                            ))}
-                            {/* Background for the empty part of the last star */}
-                            {[...Array(5)].map((_, i) => (
-                                i === 4 && (
-                                    <div key="last-star-bg" className="absolute w-5 h-5 flex items-center justify-center rounded-sm bg-stone-700 -z-10 ml-[88px]" />
-                                )
-                            ))}
-                        </div>
-
-                        {/* Green Star Logo & "Trustpilot" text */}
-                        <div className="flex items-center gap-1.5 ml-1">
-                            <div className="w-4 h-4 flex items-center justify-center rounded-full bg-[#00b67a]">
-                                <span className="text-white text-[10px]">★</span>
-                            </div>
-                            <span className="text-sm">Trustpilot</span>
-                        </div>
+                    <div className="flex items-center justify-center mb-6">
+                        <img
+                            src="/images/TrustPiolet.png"
+                            alt="Excellent 5-star rating on Trustpilot"
+                            className="h-6 w-auto object-contain"
+                            loading="lazy"
+                        />
                     </div>
 
-                    <h1 className="text-4xl sm:text-6xl lg:text-7xl font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
+                    <h1 className="text-[60px] sm:text-6xl lg:text-7xl font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
                         Redefining Performance <br />
-                        <span className="bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">with X Residential</span>
+                        <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">with X Residential</span>
                     </h1>
 
-                    <p className="max-w-2xl mx-auto text-stone-400 text-base sm:text-xl mb-10 leading-relaxed">
+                    <p className="max-w-2xl mx-auto text-[18px] sm:text-xl text-stone-400 mb-10 leading-relaxed">
                         Built for speed and scale  X Residential Proxies offer top-tier performance, unmatched reliability and limitless potential.
                     </p>
 
-                    <div className="mt-[-50px] py-10 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-stone-400 text-sm font-medium">
+                    <div className="mt-[-50px] py-10 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-sm font-medium">
                         <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Pricing starts from $3.9/GB</div>
                         <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Residential with dedicated ISP pools</div>
                         <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> 24 hour refund policy</div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
                         <button className="w-full sm:w-60 px-8 py-4 bg-orange-600 hover:bg-orange-500 text-white font-bold rounded-xl transition-all duration-200 shadow-[0_0_30px_rgba(234,88,12,0.4)] hover:scale-[1.01]">
                             Start free with 1 GB
                         </button>
@@ -221,7 +194,12 @@ export default function TorchProxiesLandingPage() {
                         </button>
                     </div>
 
-                    <div className="relative z-10 -mt-24 w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+                    <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide py-6">
+                        <CreditCard className="w-4 h-4 text-stone-500" />
+                        <span>No credit card needed. Instant access</span>
+                    </div>
+
+                    <div className="relative z-10 -mt-40 w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
                         <Marquee />
                     </div>
                 </div>

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Check, ChevronDown, Shield, Zap, Globe, BarChart3, Activity, Sliders } from 'lucide-react';
 import { p } from 'framer-motion/m';
 import Flag from 'react-world-flags';
-import { Database, RefreshCw, Layers, ShieldCheck, Infinity, Tag } from 'lucide-react';
+import { Database, RefreshCw, Layers, ShieldCheck, Infinity, Tag, CreditCard } from 'lucide-react';
 import UseCasesSection from '@/components/home/UseCasesSection';
 
 
@@ -128,31 +128,31 @@ export default function TorchProxiesLandingPage() {
     ];
 
     const faqData = [
-    {
-        q: "What are residential proxies?",
-        a: "Residential proxies are IP addresses assigned by Internet Service Providers (ISPs) to homeowners. They act as intermediaries between your device and the internet, allowing you to browse anonymously and access geo-restricted content."
-    },
-    {
-        q: "How do residential proxies work and how are they different?",
-        a: "Residential proxies route your internet traffic through real residential IP addresses, making them appear as normal users to websites. Unlike datacenter proxies, they have higher trust scores and are much harder to detect and block."
-    },
-    {
-        q: "What makes Torch Proxies's residential proxies better than other proxy providers?",
-        a: "Our residential proxy network offers unmatched speed, stability, ethical sourcing, and city-level targeting with 24/7 support and transparent pricing."
-    },
-    {
-        q: "What are the ideal use cases for the Standard Residential plan?",
-        a: "Perfect for general web scraping, social media management, market research, sneaker copping, and everyday automation tasks."
-    },
-    {
-        q: "Are residential proxies legal to use?",
-        a: "Yes, residential proxies are completely legal when used responsibly and in compliance with website terms of service."
-    },
-    {
-        q: "Do you offer free trials?",
-        a: "Yes, we offer a free 1GB trial so you can test our network performance before committing."
-    },
-];
+        {
+            q: "What are residential proxies?",
+            a: "Residential proxies are IP addresses assigned by Internet Service Providers (ISPs) to homeowners. They act as intermediaries between your device and the internet, allowing you to browse anonymously and access geo-restricted content."
+        },
+        {
+            q: "How do residential proxies work and how are they different?",
+            a: "Residential proxies route your internet traffic through real residential IP addresses, making them appear as normal users to websites. Unlike datacenter proxies, they have higher trust scores and are much harder to detect and block."
+        },
+        {
+            q: "What makes Torch Proxies's residential proxies better than other proxy providers?",
+            a: "Our residential proxy network offers unmatched speed, stability, ethical sourcing, and city-level targeting with 24/7 support and transparent pricing."
+        },
+        {
+            q: "What are the ideal use cases for the Standard Residential plan?",
+            a: "Perfect for general web scraping, social media management, market research, sneaker copping, and everyday automation tasks."
+        },
+        {
+            q: "Are residential proxies legal to use?",
+            a: "Yes, residential proxies are completely legal when used responsibly and in compliance with website terms of service."
+        },
+        {
+            q: "Do you offer free trials?",
+            a: "Yes, we offer a free 1GB trial so you can test our network performance before committing."
+        },
+    ];
     return (
         <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
 
@@ -162,58 +162,31 @@ export default function TorchProxiesLandingPage() {
                 <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(234,88,12,0.05)_0%,transparent_70%)] pointer-events-none" />
 
                 <div className="max-w-6xl mx-auto text-center z-10">
-                    <div className="flex items-center justify-center gap-3 mb-6 font-normal text-white">
-                        {/* The "Excellent" text */}
-                        <span className="text-sm">Excellent</span>
-
-                        {/* Five Star Rating Block */}
-                        <div className="flex gap-[2px]">
-                            {[...Array(5)].map((_, i) => (
-                                <div
-                                    key={i}
-                                    className="w-5 h-5 flex items-center justify-center rounded-sm bg-[#00b67a]"
-                                    style={{
-                                        // Creates the partial fill effect on the last star (approx 90%)
-                                        clipPath: i === 4 ? 'inset(0 10% 0 0)' : 'none',
-                                    }}
-                                >
-                                    {/* Star Icon (Unicode works well for standalone mocks) */}
-                                    <span className="text-white text-xs">★</span>
-                                </div>
-                            ))}
-                            {/* Background for the empty part of the last star */}
-                            {[...Array(5)].map((_, i) => (
-                                i === 4 && (
-                                    <div key="last-star-bg" className="absolute w-5 h-5 flex items-center justify-center rounded-sm bg-stone-700 -z-10 ml-[88px]" />
-                                )
-                            ))}
-                        </div>
-
-                        {/* Green Star Logo & "Trustpilot" text */}
-                        <div className="flex items-center gap-1.5 ml-1">
-                            <div className="w-4 h-4 flex items-center justify-center rounded-full bg-[#00b67a]">
-                                <span className="text-white text-[10px]">★</span>
-                            </div>
-                            <span className="text-sm">Trustpilot</span>
-                        </div>
+                    <div className="flex items-center justify-center mb-6">
+                        <img
+                            src="/images/TrustPiolet.png"
+                            alt="Excellent 5-star rating on Trustpilot"
+                            className="h-6 w-auto object-contain"
+                            loading="lazy"
+                        />
                     </div>
 
-                    <h1 className="text-4xl sm:text-6xl lg:text-7xl font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
+                    <h1 className="text-[60px] sm:text-6xl lg:text-7xl font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
                         Best Premium Residential   <br />
-                        <span className="bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">Proxy. Access 100M+ Global IPs</span>
+                        <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">Proxy. Access 100M+ Global IPs</span>
                     </h1>
 
-                    <p className="max-w-2xl mx-auto text-stone-400 text-base sm:text-xl mb-10 leading-relaxed">
+                    <p className="max-w-2xl mx-auto text-stone-400 text-base text-[18px] mb-10 leading-relaxed">
                         Experience faster speeds and enhanced performance. Premium Residential Proxies is built for those who need a little extra power to stay productive and efficient.
                     </p>
 
-                    <div className="mt-[-50px] py-10 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-stone-400 text-sm font-medium">
+                    <div className="mt-[-50px] py-10 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-400 text-[16px] font-regular">
                         <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Pricing starts from $3.4/GB</div>
                         <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> For demanding users & businesses</div>
                         <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> 24 hour refund policy</div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
                         <button className="w-full sm:w-60 px-8 py-4 bg-orange-600 hover:bg-orange-500 text-white font-bold rounded-xl transition-all duration-200 shadow-[0_0_30px_rgba(234,88,12,0.4)] hover:scale-[1.01]">
                             Start free with 1 GB
                         </button>
@@ -222,7 +195,12 @@ export default function TorchProxiesLandingPage() {
                         </button>
                     </div>
 
-                    <div className="relative z-10 -mt-24 w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+                    <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide py-6">
+                        <CreditCard className="w-4 h-4 text-stone-500" />
+                        <span>No credit card needed. Instant access</span>
+                    </div>
+
+                    <div className="relative z-10 -mt-40 w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
                         <Marquee />
                     </div>
                 </div>
@@ -858,53 +836,53 @@ export default function TorchProxiesLandingPage() {
             </section>
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
-{/* FAQ SECTION */}
-<section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden">
-    <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
-            <span className="text-[#FE4A01] text-xs font-medium tracking-widest block mb-3">
-                FAQ
-            </span>
-            <h2 className="text-4xl sm:text-5xl font_regular tracking-tight text-white">
-                Frequently asked questions
-            </h2>
-        </div>
-
-        {/* FAQ Items */}
-        <div className="space-y-px">
-            {faqData.map((faq, index) => {
-                const isOpen = activeFaq === index;
-                return (
-                    <div 
-                        key={index} 
-                        className="border-b border-stone-800 last:border-none group"
-                    >
-                        <button
-                            onClick={() => setActiveFaq(isOpen ? null : index)}
-                            className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors"
-                        >
-                            <span>{faq.q}</span>
-                            <ChevronDown 
-                                className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`} 
-                            />
-                        </button>
-                        
-                        {/* Answer */}
-                        <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
-                            <p className="text-stone-400 text-[15px] leading-relaxed pr-10">
-                                {faq.a}
-                            </p>
-                        </div>
+            {/* FAQ SECTION */}
+            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden">
+                <div className="max-w-4xl mx-auto">
+                    {/* Header */}
+                    <div className="text-center mb-16">
+                        <span className="text-[#FE4A01] text-xs font-medium tracking-widest block mb-3">
+                            FAQ
+                        </span>
+                        <h2 className="text-4xl sm:text-5xl font_regular tracking-tight text-white">
+                            Frequently asked questions
+                        </h2>
                     </div>
-                );
-            })}
-        </div>
-    </div>
 
-    {/* Bottom Gradient Overlay - Matches the image */}
-    <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#3a1f00] to-transparent pointer-events-none" />
-</section>
+                    {/* FAQ Items */}
+                    <div className="space-y-px">
+                        {faqData.map((faq, index) => {
+                            const isOpen = activeFaq === index;
+                            return (
+                                <div
+                                    key={index}
+                                    className="border-b border-stone-800 last:border-none group"
+                                >
+                                    <button
+                                        onClick={() => setActiveFaq(isOpen ? null : index)}
+                                        className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors"
+                                    >
+                                        <span>{faq.q}</span>
+                                        <ChevronDown
+                                            className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
+                                        />
+                                    </button>
+
+                                    {/* Answer */}
+                                    <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
+                                        <p className="text-stone-400 text-[15px] leading-relaxed pr-10">
+                                            {faq.a}
+                                        </p>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+
+                {/* Bottom Gradient Overlay - Matches the image */}
+                <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#3a1f00] to-transparent pointer-events-none" />
+            </section>
 
         </div>
     );

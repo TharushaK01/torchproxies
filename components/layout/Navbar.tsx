@@ -40,7 +40,7 @@ const NAV_LINKS = [
           {
             label: "ISP Proxies",
             description: "Static residential proxies with unlimited data.",
-            href: "/products/isp",
+            href: "/isp-proxies",
             price: "$2.3/IP",
           },
         ],
