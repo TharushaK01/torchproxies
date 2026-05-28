@@ -45,6 +45,68 @@ const Marquee: React.FC = () => (
     </div>
 );
 
+interface Plan {
+    name: string;
+    price: {
+        monthly: string;
+        yearly: string;
+    };
+}
+
+const plans: Plan[] = [
+    { name: 'FREE', price: { monthly: '$0', yearly: '$0' } },
+    { name: 'BASIC', price: { monthly: '$100', yearly: '$80' } },
+    { name: 'PREMIUM', price: { monthly: '$160', yearly: '$130' } },
+];
+interface FeatureRow {
+    title: string;
+    free: string | boolean;
+    basic: string | boolean;
+    premium: string | boolean;
+}
+
+// Full array representation matching the exact repeat sequence in the screenshot
+const featureMatrix: FeatureRow[] = [
+    // Block 1
+    { title: 'Pay-as-You-Go Billing for Proxies', free: 'Add credits first', basic: 'Pay end of month', premium: 'Pay end of month' },
+    { title: 'Seamless Integration with Porter Proxies Data Center & ISP API', free: false, basic: true, premium: true },
+    { title: 'Custom Proxy Pool Configurations', free: false, basic: false, premium: true },
+    { title: 'Untraceable Proxy Masking', free: 'Add on', basic: '10 Add on - 25% discount', premium: 'Add on - free setup' },
+    { title: 'Remove Torch Labs Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
+    { title: 'Pre-configured Residential Proxy APIs with Free Whitelabeling', free: true, basic: true, premium: true },
+    { title: 'Advanced Chargeback Protection Mechanism', free: false, basic: true, premium: true },
+    { title: 'Fully White Label the Dashboard with Your Domain', free: false, basic: 'Free one time', premium: 'Unlimited' },
+    { title: 'Theme Customization Options for Personalized Branding', free: 'Free one time', basic: 'Free one time', premium: 'Unlimited' },
+    { title: 'Additional Team Member Seats', free: false, basic: false, premium: true },
+    { title: 'Restrict Dashboard Access Using Discord Server Membership or Role', free: false, basic: true, premium: true },
+
+    // Block 2
+    { title: 'Pay-as-You-Go Billing for Proxies', free: 'Add credits first', basic: 'Pay end of month', premium: 'Pay end of month' },
+    { title: 'Seamless Integration with Porter Proxies Data Center & ISP API', free: false, basic: true, premium: true },
+    { title: 'Custom Proxy Pool Configurations', free: false, basic: false, premium: true },
+    { title: 'Untraceable Proxy Masking', free: 'Add on', basic: '10 Add on - 25% discount', premium: 'Add on - free setup' },
+    { title: 'Remove Torch Labs Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
+    { title: 'Pre-configured Residential Proxy APIs with Free Whitelabeling', free: true, basic: true, premium: true },
+    { title: 'Advanced Chargeback Protection Mechanism', free: false, basic: true, premium: true },
+    { title: 'Fully White Label the Dashboard with Your Domain', free: false, basic: 'Free one time', premium: 'Unlimited' },
+    { title: 'Theme Customization Options for Personalized Branding', free: 'Free one time', basic: 'Free one time', premium: 'Unlimited' },
+    { title: 'Additional Team Member Seats', free: false, basic: false, premium: true },
+    { title: 'Restrict Dashboard Access Using Discord Server Membership or Role', free: false, basic: true, premium: true },
+
+    // Block 3
+    { title: 'Pay-as-You-Go Billing for Proxies', free: 'Add credits first', basic: 'Pay end of month', premium: 'Pay end of month' },
+    { title: 'Seamless Integration with Porter Proxies Data Center & ISP API', free: false, basic: true, premium: true },
+    { title: 'Custom Proxy Pool Configurations', free: false, basic: false, premium: true },
+    { title: 'Untraceable Proxy Masking', free: 'Add on', basic: '10 Add on - 25% discount', premium: 'Add on - free setup' },
+    { title: 'Remove Torch Labs Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
+    { title: 'Pre-configured Residential Proxy APIs with Free Whitelabeling', free: true, basic: true, premium: true },
+    { title: 'Advanced Chargeback Protection Mechanism', free: false, basic: true, premium: true },
+    { title: 'Fully White Label the Dashboard with Your Domain', free: false, basic: 'Free one time', premium: 'Unlimited' },
+    { title: 'Theme Customization Options for Personalized Branding', free: 'Free one time', basic: 'Free one time', premium: 'Unlimited' },
+    { title: 'Additional Team Member Seats', free: false, basic: false, premium: true },
+    { title: 'Restrict Dashboard Access Using Discord Server Membership or Role', free: false, basic: true, premium: true }
+];
+
 export default function TorchProxiesLandingPage() {
     const [activeFaq, setActiveFaq] = useState<number | null>(null);
     const [selectedTier, setSelectedTier] = useState<string>("5GB");
@@ -159,6 +221,35 @@ export default function TorchProxiesLandingPage() {
         { name: "Malice Proxies", src: "/images/business/malke.png" },
         { name: "Proxify.gg", src: "/images/business/proxify.png" }
     ];
+    const [isMonthly, setIsMonthly] = useState<boolean>(true);
+
+    // Custom logic to swap true/false variables out for exact vector SVGs
+    const renderCell = (val: string | boolean) => {
+        if (typeof val === 'boolean') {
+            return val ? (
+                // Circular Orange Check Icon
+                <div className="flex justify-center">
+                    <div className="w-5 h-5 rounded-full bg-[#FF4F00] flex items-center justify-center text-black">
+                        <svg className="w-3 h-3 stroke-[3.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                </div>
+            ) : (
+                // Circular Dimmed Cross Close Icon
+                <div className="flex justify-center">
+                    <div className="w-5 h-5 rounded-full border border-zinc-800 flex items-center justify-center text-zinc-600">
+                        <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </div>
+                </div>
+            );
+        }
+
+        // Fallback string printing for dynamic descriptors
+        return <span className="text-zinc-400 text-[13px] tracking-wide font-normal">{val}</span>;
+    };
 
     return (
         <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
@@ -290,353 +381,280 @@ export default function TorchProxiesLandingPage() {
                             Features
                         </span>
                         <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white mb-4">
-                           Everything a Reseller Needs in One Dashboard
+                            Everything a Reseller Needs in One Dashboard
                         </h2>
                         <p className="text-stone-400 text-sm sm:text-base max-w-xl mx-auto font-normal">
                             Instead of stitching together random tools, We give you a single place to run your proxy business.
                         </p>
                     </div>
 
-{/* ── ASYMMETRIC STAGGERED BENTO GRID LAYOUT ─────────────────── */}
-{/* Parent container establishes a 2-column track on desktop */}
-<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                    {/* ── ASYMMETRIC STAGGERED BENTO GRID LAYOUT ─────────────────── */}
+                    {/* Parent container establishes a 2-column track on desktop */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
 
-  {/* ── COLUMN 1 (Left Track: 1st Card Taller, 2nd Card Shorter) ── */}
-  <div className="flex flex-col gap-6 w-full">
-    
-    {/* CARD 1: Taller Card */}
-    <div className="bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col justify-between overflow-hidden min-h-[580px]">
-      <div className="mb-6">
-        <h3 className="text-2xl font-regular tracking-tight text-stone-200 mb-3">
-          White label dashboard
-        </h3>
-        <p className="text-stone-400 text-[18px] leading-relaxed font-normal">
-          Your domain, your logo, your colors. Clients log into your panel while we power the backend.
-        </p>
-      </div>
+                        {/* ── COLUMN 1 (Left Track: 1st Card Taller, 2nd Card Shorter) ── */}
+                        <div className="flex flex-col gap-6 w-full">
 
-      {/* Visual Component Area */}
-      <div className="w-full bg-[#111115]/30 border border-stone-900/50 rounded-2xl h-auto relative overflow-hidden flex items-center justify-center p-4">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#FE4A01_1px,transparent_1px)] [background-size:16px_16px]" />
-        <div className="w-full relative z-10 drop-shadow-2xl transition-transform duration-300 hover:scale-[1.01]">
-          <img
-            src="/images/white_label.svg"
-            alt="White label configuration panel dashboard interface illustration"
-            className="w-full h-auto rounded-xl object-contain"
-            loading="lazy"
-          />
-        </div>
-      </div>
-    </div>
-
-    {/* CARD 2: Shorter Card */}
-    <div className="bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col justify-between overflow-hidden min-h-[380px]">
-      <div className="mb-6">
-        <h3 className="text-2xl font-regular tracking-tight text-stone-200 mb-3">
-          Client & Usage Management
-        </h3>
-        <p className="text-stone-400 text-[18px] leading-relaxed font-normal">
-          Create sub-users, assign plans and monitor usage without spreadsheets or manual tracking.
-        </p>
-      </div>
-
-      {/* Smaller Visual Component Area */}
-      <div className="w-full bg-[#111115]/50 border border-stone-900 rounded-2xl p-4 h-40 relative flex items-center justify-center overflow-hidden drop-shadow-2xl">
-        <img
-          src="/images/global_residential.svg"
-          alt="Client management list component table breakdown snapshot"
-          className="w-full h-auto object-contain rounded-xl"
-          loading="lazy"
-        />
-      </div>
-    </div>
-
-  </div>
-
-
-  {/* ── COLUMN 2 (Right Track: 1st Card Shorter, 2nd Card Taller) ── */}
-  <div className="flex flex-col gap-6 w-full">
-    
-    {/* CARD 3: Shorter Card */}
-    <div className="bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col justify-between overflow-hidden min-h-[380px]">
-      <div className="mb-6">
-        <h3 className="text-2xl font-regular tracking-tight text-stone-200 mb-3">
-          Global Residential & ISP Access
-        </h3>
-        <p className="text-stone-400 text-[18px] leading-relaxed font-normal">
-          Offer high quality residential and ISP proxies with strong uptime ready for scraping, automation.
-        </p>
-      </div>
-
-      {/* Button Layout Badge Array Component */}
-       <div className="w-full bg-[#111115]/50 border border-stone-900 rounded-2xl p-4 h-40 relative flex items-center justify-center overflow-hidden drop-shadow-2xl">
-        <img
-          src="/images/client_usage.svg"
-          alt="Client management list component table breakdown snapshot"
-          className="w-full h-auto object-contain rounded-xl"
-          loading="lazy"
-        />
-      </div>
-    </div>
-
-    {/* CARD 4: Taller Card */}
-    <div className="bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col justify-between overflow-hidden min-h-[580px]">
-      <div className="mb-6">
-        <h3 className="text-2xl font-regular tracking-tight text-stone-200 mb-3">
-          Affiliate & Revenue Tracking
-        </h3>
-        <p className="text-stone-400 text-[18px] leading-relaxed font-normal">
-          Built in stats so you can see who's sending traffic, which clients are spending and how your proxy business is growing.
-        </p>
-      </div>
-
-      {/* Tall Component Asset Graph Area */}
-      <div className="w-full bg-[#111115]/30 border border-stone-900/50 rounded-2xl h-auto relative overflow-hidden flex items-center justify-center p-4">
-        <div className="w-full relative z-10 drop-shadow-2xl transition-transform duration-300 hover:scale-[1.01]">
-          <img
-            src="/images/affiliate_revenue.svg"
-            alt="Financial balance monitoring graphs displaying conversion stats panel"
-            className="w-full h-auto rounded-xl object-contain"
-            loading="lazy"
-          />
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-</div>
-
-                </div>
-            </section>
-
-            {/* ── SECTION 3: Residential Proxies ────────────────────── */}
-            <section className="py-24 -mt-[100px] bg-[#0a0a0a] text-white relative overflow-hidden">
-                <div className="max-w-7xl mx-auto px-6">
-
-                    {/* ── TOP HEADER SUB-LABELS ───────────────────────────────── */}
-                    <div className="text-center mb-16">
-                        <span className="text-[#FE4A01] text-xs font-regular tracking-wider block mb-3">
-                            ISP Proxies
-                        </span>
-                        <h2 className="text-3xl sm:text-5xl font-regular tracking-tight mb-6">
-                            Buy ISP proxies
-                        </h2>
-
-                        {/* Top Trust Badges */}
-                        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-stone-400 text-xs sm:text-sm font-medium">
-                            <span className="flex items-center gap-1.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Secure checkout with SSL encryption</span>
-                            <span className="flex items-center gap-1.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Pay As You Go Pricing </span>
-                            <span className="flex items-center gap-1.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Reliable & stable connection</span>
-                            <span className="flex items-center gap-1.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Support both card & crypto</span>
-                        </div>
-                    </div>
-
-                    {/* ── MAIN CONTENT GRID ───────────────────────────────────── */}
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mt-4">
-
-                        {/* LEFT PANEL: PRODUCT META & SPECIFICATIONS */}
-                        <div className="lg:col-span-6 space-y-6 lg:pr-8">
-                            <div className="flex items-center gap-4">
-                                {/* Product Badge Logo Block */}
-                                <div className="w-14 h-14 rounded-xl bg-[#FE4A01] flex items-center justify-center shadow-[0_10px_30px_rgba(254,74,1,.2)]">
-                                    <div className="flex items-center gap-[3px] w-6">
-                                        <span className="w-[4px] h-3 bg-white rounded-full block"></span>
-                                        <span className="w-[4px] h-5 bg-white rounded-full block"></span>
-                                        <span className="w-[4px] h-3 bg-white rounded-full block"></span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3 className="text-[36px] sm:text-3xl font-bold tracking-tight text-stone-200">
-                                        ISP Proxies
+                            {/* CARD 1: Taller Card */}
+                            <div className="bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col justify-between overflow-hidden min-h-[580px]">
+                                <div className="mb-6">
+                                    <h3 className="text-[28px] font-medium tracking-tight text-stone-200 mb-3">
+                                        White label dashboard
                                     </h3>
-
-                                </div>
-                            </div>
-
-                            <p className="text-stone-400 text-sm sm:text-base leading-relaxed">
-                                Static residential proxies with unlimited data. <span className="text-[#FE4A01]">Ideal for sneaker botting, scraping and automation.</span>
-                            </p>
-
-                            {/* Feature Checklist */}
-                            <ul className="space-y-3.5 pt-4 text-stone-400 text-[16px] font-regular">
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Available in USA, UK, Canada, Germany, Netherlands, Italy, France, Australia, and Hong Kong</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> ISP grade Anonymity</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Quick Setup and Instant Activation</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Versatility Across Applications</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> 24/7 Dedicated Support</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Global Coverage with Regional Optimization</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Static, Dedicated ISP IPs</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Low Block & CAPTCHA Rates</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Ideal for Always-On Monitors & Long Sessions</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Works seamlessly for scraping, automation tools and stable account sessions across supported regions</li>
-
-
-                            </ul>
-
-                            {/* Main Primary CTA Button */}
-                            <div className="pt-4">
-                                <button className="w-full sm:w-auto px-10 py-4 bg-[#FE4A01] hover:bg-[#e04201] text-white font-regular rounded-xl transition-all shadow-[0_15px_35px_rgba(254,74,1,.25)] text-[16px]">
-                                    Start free with 1 GB
-                                </button>
-                            </div>
-
-                            {/* Gateway Merchant Footnote Icons */}
-                            <div className="pt-4 flex items-center gap-3 text-xs text-stone-500 font-medium select-none">
-                                <span>We Support</span>
-                                <div className="flex items-center justify-center">
-                                    <img
-                                        src="/images/support_logo.png"
-                                        alt="Supported Payment Methods"
-                                        className="h-10 w-auto object-contain opacity-100 px-4 py-2 rounded grayscale brightness-120 hover:opacity-100 transition-opacity"
-                                        loading="lazy"
-                                    />
-
-                                </div>
-                                <span>& more</span>
-                            </div>
-                        </div>
-
-                        {/* RIGHT PANEL: GRID OF PRICING CARDS */}
-                        <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {tiers.map((tier) => {
-                                const isSelected = selectedPlan === tier.id;
-                                return (
-                                    <div
-                                        key={tier.id}
-                                        onClick={() => setSelectedPlan(tier.id)}
-                                        className={`border rounded-2xl p-6 relative cursor-pointer select-none transition-all duration-200 flex flex-col justify-between min-h-[140px] ${isSelected
-                                            ? 'bg-stone-900/40 border-[#FE4A01] shadow-[0_0_25px_rgba(254,74,1,.1)]'
-                                            : 'bg-[#0b0b0d]/50 border-stone-900 hover:border-stone-800/80'
-                                            }`}
-                                    >
-                                        {/* Floating Green Percentage Label */}
-                                        <div className="absolute top-4 right-4 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[12px] font-bold px-2 py-0.5 rounded">
-                                            {tier.discount}
-                                        </div>
-
-                                        {/* Volume Metric Display */}
-                                        <div className="mt-2">
-                                            <span className="text-[32px] font-medium tracking-tight text-stone-200">
-                                                {tier.size}
-                                            </span>
-                                        </div>
-
-                                        {/* Price Metric Formula */}
-                                        <div className="mt-4 flex items-baseline gap-1">
-                                            <span className="text-[#FE4A01] font-semi-bold text-[24px]">
-                                                {tier.price}
-                                            </span>
-
-                                            <span className="text-[#FE4A01] text-[14px] font-regular self-start">
-                                                per GB
-                                            </span>
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                        </div>
-
-                    </div>
-
-                </div>
-            </section>
-
-            {/* ── SECTION 4: GLOBAL LOCATIONS ──────────────────────────────── */}
-            <section className="relative bg-[#0a0a0a] text-white py-24 overflow-hidden">
-
-                {/* Background Vector */}
-                <div
-                    className="absolute inset-0 opacity-40 bg-center bg-no-repeat bg-contain pointer-events-none"
-                    style={{
-                        backgroundImage: "url('/images/world-map.png')",
-                    }}
-                />
-
-                <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-                    <span className="text-orange-500 font-medium text-sm mb-4 block tracking-widest">
-                        Locations
-                    </span>
-
-                    <h2 className="text-4xl md:text-5xl font-regular mb-6">
-                        Available in 195+ countries
-                    </h2>
-
-                    <p className="text-gray-400 max-w-2xl mx-auto mb-16">
-                        We provide you access to a global network of ethical sourced proxy nodes from around the world.
-                    </p>
-
-                    {/* Locations Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-                        {locations.map((loc, index) => (
-                            <div
-                                key={index}
-                                className="flex items-center gap-4 bg-[#0a0a0a]/80 border border-gray-800 p-5 rounded-2xl hover:border-orange-500/50 transition-all group"
-                            >
-                                <div className="w-12 h-8 overflow-hidden rounded shadow-sm">
-                                    <Flag code={loc.code} className="w-full h-full object-cover" />
-                                </div>
-
-                                <div className="text-left">
-                                    <h3 className="font-bold text-sm group-hover:text-orange-500 transition-colors">
-                                        {loc.name}
-                                    </h3>
-
-                                    <p className="text-xs text-gray-500">
-                                        {loc.ips} IPs
+                                    <p className="text-stone-400 text-[18px] leading-relaxed font-normal">
+                                        Your domain, your logo, your colors. Clients log into your panel while we power the backend.
                                     </p>
                                 </div>
+
+                                {/* Visual Component Area */}
+                                <div className="w-full bg-[#111115]/30 border border-stone-900/50 rounded-2xl h-auto relative overflow-hidden flex items-center justify-center p-4">
+                                    <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#FE4A01_1px,transparent_1px)] [background-size:16px_16px]" />
+                                    <div className="w-full relative z-10 drop-shadow-2xl transition-transform duration-300 hover:scale-[1.01]">
+                                        <img
+                                            src="/images/white_label.svg"
+                                            alt="White label configuration panel dashboard interface illustration"
+                                            className="w-full h-auto rounded-xl object-contain"
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* CARD 2: Shorter Card */}
+                            <div className="bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col justify-between overflow-hidden min-h-[380px]">
+                                <div className="mb-6">
+                                    <h3 className="text-[28px] font-medium tracking-tight text-stone-200 mb-3">
+                                        Client & Usage Management
+                                    </h3>
+                                    <p className="text-stone-400 text-[18px] leading-relaxed font-normal">
+                                        Create sub-users, assign plans and monitor usage without spreadsheets or manual tracking.
+                                    </p>
+                                </div>
+
+                                {/* Smaller Visual Component Area */}
+                                <div className="w-full bg-[#111115]/50 border border-stone-900 rounded-2xl p-4 h-40 relative flex items-center justify-center overflow-hidden drop-shadow-2xl">
+                                    <img
+                                        src="/images/client_usage.svg"
+                                        alt="Client management list component table breakdown snapshot"
+                                        className="w-full h-auto object-contain rounded-xl"
+                                        loading="lazy"
+                                    />
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        {/* ── COLUMN 2 (Right Track: 1st Card Shorter, 2nd Card Taller) ── */}
+                        <div className="flex flex-col gap-6 w-full">
+
+                            {/* CARD 3: Shorter Card */}
+                            <div className="bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col justify-between overflow-hidden min-h-[380px]">
+                                <div className="mb-6">
+                                    <h3 className="text-[28px] font-medium tracking-tight text-stone-200 mb-3">
+                                        Global Residential & ISP Access
+                                    </h3>
+                                    <p className="text-stone-400 text-[18px] leading-relaxed font-normal">
+                                        Offer high quality residential and ISP proxies with strong uptime ready for scraping, automation.
+                                    </p>
+                                </div>
+
+                                {/* Button Layout Badge Array Component */}
+                                <div className="w-full bg-[#111115]/50 border border-stone-900 rounded-2xl p-4 h-40 relative flex items-center justify-center overflow-hidden drop-shadow-2xl">
+                                    <img
+                                        src="/images/global_residential.svg"
+                                        alt="Client management list component table breakdown snapshot"
+                                        className="w-full h-auto object-contain rounded-xl"
+                                        loading="lazy"
+                                    />
+                                </div>
+                            </div>
+
+                            {/* CARD 4: Taller Card */}
+                            <div className="bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col justify-between overflow-hidden min-h-[580px]">
+                                <div className="mb-6">
+                                    <h3 className="text-[28px] font-medium tracking-tight text-stone-200 mb-3">
+                                        Affiliate & Revenue Tracking
+                                    </h3>
+                                    <p className="text-stone-400 text-[18px] leading-relaxed font-normal">
+                                        Built in stats so you can see who's sending traffic, which clients are spending and how your proxy business is growing.
+                                    </p>
+                                </div>
+
+                                {/* Tall Component Asset Graph Area */}
+                                <div className="w-full bg-[#111115]/30 border border-stone-900/50 rounded-2xl h-auto relative overflow-hidden flex items-center justify-center p-4">
+                                    <div className="w-full relative z-10 drop-shadow-2xl transition-transform duration-300 hover:scale-[1.01]">
+                                        <img
+                                            src="/images/affiliate_revenue.svg"
+                                            alt="Financial balance monitoring graphs displaying conversion stats panel"
+                                            className="w-full h-auto rounded-xl object-contain"
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+
+
+            <section className="bg-[#0a0a0a] text-white py-40 px-4 md:px-8 font-sans -mt-[150px]">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+
+                    {/* --- LEFT SIDE: TITLE & TOGGLE --- */}
+                    <div className="lg:col-span-5">
+                        <span className="text-zinc-500 text-xs font-semibold tracking-wider uppercase block mb-2">
+                            Plans
+                        </span>
+                        <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-white mb-6">
+                            Compare our plans
+                        </h2>
+
+                        {/* Toggle Switch */}
+                        <div className="inline-flex rounded-full bg-black border border-zinc-800 p-1">
+                            <button
+                                onClick={() => setIsMonthly(true)}
+                                className={`px-6 py-2 rounded-full text-xs font-semibold transition-all duration-200 ${isMonthly
+                                        ? 'bg-[#FF4F00] text-white'
+                                        : 'text-zinc-400 hover:text-white'
+                                    }`}
+                            >
+                                Monthly
+                            </button>
+                            <button
+                                onClick={() => setIsMonthly(false)}
+                                className={`px-6 py-2 rounded-full text-xs font-semibold transition-all duration-200 ${!isMonthly
+                                        ? 'bg-[#FF4F00] text-white'
+                                        : 'text-zinc-400 hover:text-white'
+                                    }`}
+                            >
+                                Yearly
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* --- RIGHT SIDE: PRICING CARDS --- */}
+                    <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
+                        {plans.map((plan) => (
+                            <div
+                                key={plan.name}
+                                className="bg-[#0A0A0A] border border-zinc-900 rounded-2xl p-6 flex flex-col justify-between min-h-[175px] transition-all hover:border-zinc-800"
+                            >
+                                {/* Card Label and Price */}
+                                <div>
+                                    <p className="text-zinc-500 text-xs font-medium tracking-wider uppercase">
+                                        {plan.name}
+                                    </p>
+                                    <p className="text-4xl font-semibold mt-1.5 text-white tracking-tight">
+                                        {isMonthly ? plan.price.monthly : plan.price.yearly}
+                                    </p>
+                                    <p className="text-zinc-600 text-[11px] mt-0.5">
+                                        {isMonthly ? 'per month' : 'per month, billed yearly'}
+                                    </p>
+                                </div>
+
+                                {/* Action Button */}
+                                <button className="w-full mt-5 py-2.5 px-4 bg-[#FF4F00] hover:bg-[#e04600] text-white font-medium text-xs rounded-xl transition duration-150 active:scale-[0.98]">
+                                    Get started
+                                </button>
                             </div>
                         ))}
                     </div>
 
-                    <button className="bg-gradient-to-r from-orange-600 to-orange-500 px-8 py-4 rounded-xl font-bold text-white shadow-lg shadow-orange-900/20 hover:scale-105 transition-transform">
-                        View all locations
-                    </button>
                 </div>
             </section>
 
 
 
-            {/* ── SECTION 6: CORE FEATURES ─────────────────────────────────── */}
-            <section className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white">
-                {/* ── HEADER ─────────────────────────────────────────────── */}
-                <div className="text-center mb-20">
-                    <span className="text-[#FE4A01] text-xs font-bold tracking-wider block mb-3">
-                        Features
-                    </span>
-                    <h2 className="text-3xl sm:text-[40px] font-regular tracking-tight mb-4 text-white">
-                        Enhanced Features for Heavy & Strict Workloads
-                    </h2>
-                    <p className="text-stone-400 text-sm sm:text-base max-w-2xl mx-auto font-normal leading-relaxed">
-                        Upgraded performance, smarter rotation, and stronger stability built for high-volume scraping and stricter websites.
-                    </p>
+            <div className="bg-[#0a0a0a] py-32 px-4 md:px-8 -mt-[250px]">
+                <div className="max-w-7xl mx-auto overflow-x-auto border border-zinc-900 rounded-xl bg-[#050505]">
+
+                    <table className="w-full min-w-[900px] border-collapse text-left table-fixed">
+                        {/* Defined col groups to perfectly align columns cleanly */}
+                        <colgroup>
+                            <col className="w-[46%]" />
+                            <col className="w-[18%]" />
+                            <col className="w-[18%]" />
+                            <col className="w-[18%]" />
+                        </colgroup>
+
+                        <tbody>
+                            {featureMatrix.map((row, idx) => (
+                                <tr
+                                    key={idx}
+                                    className="border-b border-zinc-900/60 last:border-b-0 hover:bg-zinc-900/10 transition-colors duration-100"
+                                >
+                                    {/* Feature Description Left Element */}
+                                    <td className="py-4 px-6 text-zinc-300 text-[13px] font-normal tracking-wide whitespace-normal leading-relaxed">
+                                        {row.title}
+                                    </td>
+
+                                    {/* Free Tier Segment */}
+                                    <td className="py-4 px-4 text-center align-middle">
+                                        {renderCell(row.free)}
+                                    </td>
+
+                                    {/* Basic Tier Segment (Slightly tinted background highlight matching your reference) */}
+                                    <td className="py-4 px-4 text-center align-middle bg-zinc-950/40">
+                                        {renderCell(row.basic)}
+                                    </td>
+
+                                    {/* Premium Tier Segment */}
+                                    <td className="py-4 px-4 text-center align-middle">
+                                        {renderCell(row.premium)}
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+
                 </div>
+            </div>
 
-                {/* ── FEATURES GRID ──────────────────────────────────────── */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16 max-w-6xl mx-auto">
-                    {features.map((feat, i) => (
-                        <div key={i} className="flex items-start gap-4 group">
 
-                            {/* Round Solid Orange Icon Badge */}
-                            <div className="w-11 h-11 rounded-full bg-[#FE4A01] flex items-center justify-center shrink-0 shadow-[0_4px_14px_rgba(254,74,1,0.2)] transition-transform duration-200 group-hover:scale-105">
-                                {feat.icon}
+            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px]">
+                <div className="max-w-7xl mx-auto space-y-32">
+
+                    {/* Row 1: Easy Client Management */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        {/* Visual Side */}
+                        <div className="relative group">
+                            <div className="bg-[#0d0d0d] border border-gray-800 rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
+                                <div className="bg-[#050505] rounded-2xl border border-gray-900/50 overflow-hidden flex items-center justify-center">
+
+                                    <img
+                                        src="/images/Launch_faster.png"
+                                        alt="Perfect for Everyday Scraping & Automation"
+                                        className="w-full h-auto object-cover rounded-2xl"
+                                    />
+                                </div>
                             </div>
-
-                            {/* Text Information Elements */}
-                            <div className="space-y-1.5">
-                                <h4 className="text-lg font-regular text-white tracking-tight">
-                                    {feat.title}
-                                </h4>
-                                <p className="text-stone-400 text-[13px] sm:text-sm leading-relaxed font-normal">
-                                    {feat.desc}
-                                </p>
-                            </div>
-
                         </div>
-                    ))}
+
+                        {/* Text Side */}
+                        <div className="space-y-6">
+                            <h2 className="text-4xl md:text-5xl font-regular tracking-tight">
+                                Launch faster with a ready to Go, conversion focused landing page
+                            </h2>
+                            <p className="text-gray-400 text-lg leading-relaxed">
+                                To help you get to market sooner, We create a polished, modern landing page tailored to your brand and fully aligned with the reseller dashboard.
+                            </p>
+                            <p className="text-gray-400 text-lg leading-relaxed">
+                                We handle the layout, structure and UX so you can stay focused on bringing in traffic and growing your customer base.
+                            </p>
+                            <button className="w-[271px] h-[50px] mt-5 py-2.5 px-4 bg-[#FF4F00] hover:bg-[#e04600] text-white font-medium text-xs rounded-xl transition duration-150 active:scale-[0.98]">
+                                Request Landing Page Design
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </section>
+
 
             {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
             {/* Upgrade CTA Banner */}
@@ -668,16 +686,6 @@ export default function TorchProxiesLandingPage() {
                     </div>
                 </div>
             </section>
-
-            {/* ── SECTION 8: USE CASES ─────────────────────────────────────── */}
-            <main className="bg-[#0a0a0a] min-h-screen text-white">
-                {/* Other sections can go here */}
-
-                {/* ── YOUR NEW USE CASES SECTION ── */}
-                <UseCasesSection />
-
-                {/* Other sections can go here */}
-            </main>
 
             {/* ── SECTION 10: TESTIMONIALS ─────────────────────────────────── */}
             <section className="py-24 bg-stone-950/20 border-t border-stone-900">
