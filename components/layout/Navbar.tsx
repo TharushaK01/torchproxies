@@ -81,7 +81,7 @@ const NAV_LINKS = [
         {
           label: "Proxy API",
           description: "A developer friendly API that enables resellers to automate proxy delivery",
-          href: "/reseller/api",
+          href: "/proxy-api",
           tag: "Developer friendly",
           tagColor: "text-emerald-400 bg-emerald-950/40 border border-emerald-900/50",
         }
