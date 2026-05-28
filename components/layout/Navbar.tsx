@@ -104,7 +104,7 @@ const NAV_LINKS = [
         items: [
           { label: "Price Monitoring", href: "/use-cases/price-monitoring" },
           { label: "SEO Monitoring", href: "/use-cases/seo-monitoring" },
-          { label: "Ad Verifications", href: "/use-cases/ad-verification" },
+          { label: "Ad Verifications", href: "/ad-verification" },
         ]
       },
       {
