@@ -143,24 +143,10 @@ interface ProxyCard {
 
 const proxyCards: ProxyCard[] = [
     {
-        title: 'Premium Residential Proxies',
-        description: 'Best for lightweight and regional ad checks',
-        price: '$4/GB',
-        badge: { text: 'Most Popular', variant: 'popular' },
-        iconType: 'residential',
-        features: [
-            'Real residential IPs for authentic ad views',
-            'Reliable for smaller verification workloads',
-            'Predictable pricing with no enterprise overhead',
-            'Simple setup with automatic rotation',
-            'Ideal for spot checks, regional compliance, and creative validation',
-        ],
-    },
-    {
         title: 'Hybrid Proxies',
         description: 'Best for enterprise-grade ad verification',
         price: '$5/GB',
-        badge: { text: 'Enterprise', variant: 'enterprise' },
+        badge: { text: 'Most Popular', variant: 'popular' },
         iconType: 'hybrid',
         features: [
             '99% success rate on strict ad platforms',
@@ -170,6 +156,21 @@ const proxyCards: ProxyCard[] = [
             'Best ROI for compliance-critical operations',
         ],
     },
+    {
+        title: 'Premium Residential Proxies',
+        description: 'Best for lightweight and regional ad checks',
+        price: '$4.5/GB',
+        badge: { text: 'For Startups', variant: 'enterprise' },
+        iconType: 'residential',
+        features: [
+            'Real residential IPs for authentic ad views',
+            'Reliable for smaller verification workloads',
+            'Predictable pricing with no enterprise overhead',
+            'Simple setup with automatic rotation',
+            'Ideal for spot checks, regional compliance, and creative validation',
+        ],
+    },
+    
 ];
 
 
@@ -268,18 +269,18 @@ export default function TorchProxiesLandingPage() {
     const features = [
         {
             icon: <Database className="text-white w-4 h-4" />,
-            title: "Financial Market Insights",
-            desc: "Track stocks, forex, and crypto markets in real time with precision"
+            title: "TLS Fingerprinting Flags You Instantly",
+            desc: "Anti-bot systems inspect your connection the moment it starts. Datacenter proxies use server-grade TLS patterns that stand out before your first request even completes."
         },
         {
             icon: <RefreshCw className="text-white w-4 h-4" />,
-            title: "Enhanced Gaming ",
-            desc: "Enjoy seamless, low-latency gaming with high-speed proxy support"
+            title: "Datacenter IPs Are Already Blacklisted ",
+            desc: "Major platforms rely on IP reputation databases. Most datacenter networks are pre-flagged, so entire IP ranges get blocked not just individual addresses."
         },
         {
             icon: <Layers className="text-white w-4 h-4" />,
-            title: "Advanced Online Privacy",
-            desc: "Maintain session persistence across complex workflows and long tasks"
+            title: "Bot Behavior Still Gives You Away",
+            desc: "Perfect timing, no browser cache, and repeatable patterns signal automation. Even with rotation, most datacenter setups fail after a few requests."
         },
     ];
     const useCases = ["Social Media", "Web Scraping", "Gaming", "Online Market", "Sneaker"];
@@ -356,7 +357,7 @@ export default function TorchProxiesLandingPage() {
 
 
     // The exact words cycled in the video
-    const words = ['Mobile', 'Social Media', 'Display', 'Video'];
+    const words = ['Amazon', 'eBay', 'Shopify', 'Walmart', 'Target', 'Best Buy', 'Alibaba', 'Booking.com'];
 
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
     const [fadeState, setFadeState] = useState<'fade-in' | 'fade-out'>('fade-in');
@@ -436,12 +437,12 @@ export default function TorchProxiesLandingPage() {
 
                         {/* Heading */}
                         <h1 className="text-[60px] sm:text-5xl lg:text-[56px] font-regular tracking-tight leading-[1.1] max-w-xl text-white mb-1">
-                            Best Proxies for Ad Verification
+                           Best Proxies for Price Monitoring
                         </h1>
 
                         {/* Subheading with colored emphasis */}
                         <p className="text-zinc-500 text-base md:text-lg max-w-xl mb-2 font-normal leading-relaxed select-none">
-                            Verify{' '}
+                            Scrape{' '}
                             <span
                                 className={`text-[#FF4F00] font-medium inline-block transition-all duration-300 transform ${fadeState === 'fade-in'
                                         ? 'opacity-100 translate-y-0'
@@ -450,7 +451,7 @@ export default function TorchProxiesLandingPage() {
                             >
                                 {words[currentWordIndex]}
                             </span>{' '}
-                            Ads across platforms without getting flagged
+                            prices without getting bloacked
                         </p>
 
                         {/* Features Inline List */}
@@ -459,13 +460,13 @@ export default function TorchProxiesLandingPage() {
                                 <svg className="w-4 h-4 text-[#FF4F00] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                 </svg>
-                                <span>Real-user ad visibility</span>
+                                <span>Real-Time Price Accuracy </span>
                             </div>
                             <div className="flex items-center gap-1.5">
                                 <svg className="w-4 h-4 text-[#FF4F00] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                 </svg>
-                                <span>99% Ad Visibility Rate</span>
+                                <span>99% Success Rates</span>
                             </div>
                             <div className="flex items-center gap-1.5">
                                 <svg className="w-4 h-4 text-[#FF4F00] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -497,7 +498,7 @@ export default function TorchProxiesLandingPage() {
 
                         <div className="relative w-full max-w-[480px] aspect-[4/3]">
                             <Image
-                                src="/images/ad_verification.png" // Replace this with your actual image file path
+                                src="/images/best_proxies.png" // Replace this with your actual image file path
                                 alt="Proxy Network Infrastructure Ad Verification Illustration"
                                 fill
                                 priority
@@ -516,10 +517,10 @@ export default function TorchProxiesLandingPage() {
                     {/* --- HEADER SECTION --- */}
                     <div className="text-center max-w-5xl mx-auto mb-16">
                         <h2 className="text-3xl md:text-[42px] font-medium tracking-tight text-white mb-4 leading-tight">
-                            Why Your Ad Verification Tools Keep Getting Detected
+                            Stop Getting Blocked on Amazon & Walmart
                         </h2>
                         <p className="text-zinc-500 text-[18px] md:text-base font-regular max-w-4xl mx-auto leading-relaxed">
-                            Google's latest SERP protection systems are designed to detect and throttle automated rank tracking even at low volumes.
+                            Amazon and Walmart run enterprise-grade anti-bot systems built to detect and block datacenter proxies almost instantly
                         </p>
                     </div>
 
@@ -571,7 +572,7 @@ export default function TorchProxiesLandingPage() {
                                 <div className="bg-[#050505] rounded-2xl border border-gray-900/50 overflow-hidden flex items-center justify-center">
 
                                     <img
-                                        src="/images/detection_breaks.png"
+                                        src="/images/cheap_proxies.png"
                                         alt="Perfect for Everyday Scraping & Automation"
                                         className="w-full h-auto object-cover rounded-2xl"
                                     />
@@ -582,25 +583,19 @@ export default function TorchProxiesLandingPage() {
                         {/* Text Side */}
                         <div className="space-y-6">
                             <h2 className="text-[42px] md:text-5xl md:leading-snug font-medium tracking-tight">
-                                Why Detection Breaks Ad Verification Accuracy
+                                Why “Cheap” Proxies Cost You More
                             </h2>
                             <h4 className="text-[20px] font-medium text-stone-200 mb-4">
-                                Cloaked or Fake Ads
+                                Poisoned Price Data
                             </h4>
                             <p className="text-gray-400 text-[16px] font-regular leading-relaxed">
-                                Detected sessions are served alternate creatives, placeholders or empty inventory,  not real ads.
+                                If you scrape a CAPTCHA page or regional redirect instead of the real price, your repricer can push prices to $0 or spike them to unrealistic levels.
                             </p>
                             <h4 className="text-[20px] font-medium text-stone-200 mb-4">
-                                Wasted Verification Spend
+                                Missed Flash Sales
                             </h4>
                             <p className="text-gray-400 text-[16px] font-regular leading-relaxed">
-                                Retries, blocked impressions and failed sessions inflate costs without improving coverage.
-                            </p>
-                            <h4 className="text-[20px] font-medium text-stone-200 mb-4">
-                                Incomplete Campaign Visibility
-                            </h4>
-                            <p className="text-gray-400 text-[16px] font-regular leading-relaxed">
-                                Miss violations, geo issues and placement errors because real ads are never shown to bots.
+                                Seconds matter. While you're retrying failed requests through a burnt IP pool, your competitors are already checking out.
                             </p>
 
                         </div>
@@ -613,10 +608,10 @@ export default function TorchProxiesLandingPage() {
             {/* ── TOP HEADER SECTION ───────────────────────────────────── */}
             <div className="text-center mb-16">
                 <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white mb-4">
-                    Our Ad Verification Solutions
+                    Our Price Monitoring Solutions
                 </h2>
                 <p className="text-stone-400 text-sm sm:text-base max-w-3xl mx-auto font-normal">
-                    We offer two proxy solutions optimized for different ad verification scales and enforcement levels. Choose based on platform strictness, impression volume, and compliance requirements.
+                    We offer two proxy solutions optimized for different price monitoring needs and data accuracy requirements.Choose based on your product volume, budget and tolerance for missing or delayed price updates.
                 </p>
             </div>
             <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px]">
@@ -630,16 +625,14 @@ export default function TorchProxiesLandingPage() {
                             {/* Text Side */}
                             <div className="space-y-6">
                                 <h2 className="text-[42px] md:text-5xl font-regular tracking-tight">
-                                    Proxies for Enterprise Scale Ad Verification
+                                    Hybrid Proxies Built for Strict Detection Systems
                                 </h2>
                                 <p className="text-gray-400 text-lg leading-relaxed">
-                                    Designed for large scale ad compliance monitoring where accuracy, speed and stealth are non negotiable.
+                                    Built for environments where traffic is actively analyzed and blocked if it doesn’t look real.
                                 </p>
                                 <ul className="text-gray-400 text-lg leading-relaxed">
-                                    <li>&#9679; Built for strict ad platforms with advanced fraud detection</li>
-                                    <li>&#9679; Ideal for agencies, brands and verification vendors monitoring at scale</li>
-                                    <li>&#9679; Maintains real-user identity signals across long sessions</li>
-                                    <li>&#9679; Supports high-frequency verification without cloaking or blocks</li>
+                                    <li>&#9679; Best for sites with advanced anti-bot protection (Cloudflare, Akamai, PerimeterX)</li>
+                                    <li>&#9679; Ideal for high-frequency, accuracy-critical monitoring where blocks are costly</li>
                                 </ul>
 
                             </div>
@@ -648,7 +641,7 @@ export default function TorchProxiesLandingPage() {
                             <div className="bg-[#050505] rounded-2xl border border-gray-900/50 overflow-hidden flex items-center justify-center">
 
                                 <img
-                                    src="/images/enterprise_scale.png"
+                                    src="/images/hybrid_proxies_built.png"
                                     alt="Perfect for Everyday Scraping & Automation"
                                     className="w-full h-auto object-cover rounded-2xl"
                                 />
@@ -672,7 +665,7 @@ export default function TorchProxiesLandingPage() {
                                 <div className="bg-[#050505] rounded-2xl border border-gray-900/50 overflow-hidden flex items-center justify-center">
 
                                     <img
-                                        src="/images/medium_scale.png"
+                                        src="/images/premium_proxies.png"
                                         alt="Perfect for Everyday Scraping & Automation"
                                         className="w-full h-auto object-cover rounded-2xl"
                                     />
@@ -683,16 +676,14 @@ export default function TorchProxiesLandingPage() {
                         {/* Text Side */}
                         <div className="space-y-6">
                             <h2 className="text-4xl md:text-5xl font-regular tracking-tight">
-                                Proxies for Small to Medium Scale Ad Verification
+                                Premium Proxies for Easier Monitoring Targets
                             </h2>
                             <p className="text-gray-400 text-lg leading-relaxed">
-                                Designed for reliable ad checks on platforms with lighter enforcement and predictable behavior.
+                                Designed for reliable monitoring on sites with lighter enforcement and predictable behavior.
                             </p>
                             <ul className="text-gray-400 text-lg leading-relaxed">
-                                <li>&#9679; Suitable for regional, niche, or early stage ad monitoring</li>
-                                <li>&#9679; Ideal for teams validating creatives, placements, and visibility</li>
-                                <li>&#9679; Easy to deploy and scale without enterprise complexity</li>
-                                <li>&#9679; Cost-effective for lower impression volumes</li>
+                                <li>&#9679; Best for sites without advanced anti-bot protection (eBay, AliExpress, Etsy, Craigslist)</li>
+                                <li>&#9679; Ideal for getting started and scaling steadily without extra overhead</li>
                             </ul>
 
                         </div>
@@ -707,10 +698,10 @@ export default function TorchProxiesLandingPage() {
                     {/* --- HEADER --- */}
                     <div className="text-center max-w-4xl mx-auto mb-16">
                         <h2 className="text-3xl md:text-[42px] font-medium tracking-tight text-white mb-4">
-                            The Right Proxies for Ad Verification
+                            The Right Proxies for Price Monitoring
                         </h2>
                         <p className="text-zinc-500 text-sm md:text-base font-normal leading-relaxed">
-                            Select the proxy type that matches your verification volume, platform strictness, and accuracy needs without overpaying 
+                            Choose the right proxy based on whether your target sites use advanced anti-bot protection and how large your monitoring scale is.
                         </p>
                     </div>
 
@@ -932,16 +923,37 @@ export default function TorchProxiesLandingPage() {
 
                         <div className="relative z-10 max-w-4xl mx-auto">
                             <h2 className="text-4xl md:text-5xl font-regular tracking-tight mb-6 text-white">
-                                Get started with Plan X residential proxies<br className="hidden md:block" />
+                                Stop Losing Data. Start Monitoring Reliably<br className="hidden md:block" />
                             </h2>
 
                             <p className="text-stone-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-                                Unlock premium speed, stability and higher success rates for demanding or strict websites.
+                                Join 200+ data teams who switched to Torch Proxies for their critical e commerce intelligence.
                             </p>
 
-                            <button className="px-10 py-4 bg-white text-black font-medium rounded-2xl text-lg hover:bg-stone-100 transition-all active:scale-95">
+                            <button className="px-10 py-4 bg-[#FE4A01] text-black font-medium rounded-2xl text-lg hover:bg-stone-100 transition-all active:scale-95">
                                 Get started now
                             </button>
+                        </div>
+                         {/* Features Inline List */}
+                        <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 items-center mb-10 mt-10 text-[16px] font-regular sm:text-sm text-zinc-200">
+                            <div className="flex items-center gap-1.5">
+                                <svg className="w-4 h-4 text-[#FFF6EC] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Real-Time Price Accuracy </span>
+                            </div>
+                            <div className="flex items-center gap-1.5">
+                                <svg className="w-4 h-4 text-[#FFF6EC] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>99% Success Rates</span>
+                            </div>
+                            <div className="flex items-center gap-1.5">
+                                <svg className="w-4 h-4 text-[#FFF6EC] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>120M+ IPs Across 195 Countries</span>
+                            </div>
                         </div>
                     </div>
                 </div>

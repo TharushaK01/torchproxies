@@ -102,8 +102,8 @@ const NAV_LINKS = [
       {
         section: "Market Research",
         items: [
-          { label: "Price Monitoring", href: "/use-cases/price-monitoring" },
-          { label: "SEO Monitoring", href: "/use-cases/seo-monitoring" },
+          { label: "Price Monitoring", href: "/price-monitoring" },
+          { label: "SEO Monitoring", href: "/seo-monitoring" },
           { label: "Ad Verifications", href: "/ad-verification" },
         ]
       },
