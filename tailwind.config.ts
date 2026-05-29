@@ -21,9 +21,14 @@ const config: Config = {
           '0%, 100%': { boxShadow: '0 0 4px rgba(40,224,144,.3)' },
           '50%': { boxShadow: '0 0 16px rgba(40,224,144,.7), 0 0 8px rgba(40,224,144,.5)' },
         },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        }
       },
       animation: {
         ticker: 'ticker 28s linear infinite',
+        'marquee': 'marquee 25s linear infinite',
       },
     },
   },

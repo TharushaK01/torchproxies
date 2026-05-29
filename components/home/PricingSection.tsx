@@ -61,13 +61,23 @@ const PricingSection = () => {
   ];
 
   return (
-    <section className="bg-[#0a0a0a] text-white py-20 px-6">
+    <section className="bg-[#0a0a0a] text-white py-20 px-6 -mt-[80px]">
+<div className="flex flex-col items-center text-center w-full">
+  <span className="text-orange-500 font-medium text-sm mb-4 tracking-widest flex items-center justify-center gap-2">
+    Our products
+  </span>
+  <h2 className="text-8xl md:text-5xl font-bold mb-6 max-w-4xl">
+    Choose your Residential & ISP Proxy Plan
+  </h2>
+</div>
+
       {/* Top Bar Features */}
       <div className="flex flex-wrap justify-center gap-6 mb-16 text-sm font-medium text-gray-300">
         {topFeatures.map((f, i) => (
           <div key={i} className="flex items-center gap-2">
             <Check className="text-orange-500 w-4 h-4" /> {f}
           </div>
+
         ))}
       </div>
 
@@ -76,11 +86,10 @@ const PricingSection = () => {
         {plans.map((plan, i) => (
           <div
             key={i}
-            className={`relative p-8 rounded-2xl border-2 flex flex-col justify-between transition-all ${
-              plan.featured
+            className={`relative p-8 rounded-2xl border-2 flex flex-col justify-between transition-all ${plan.featured
                 ? 'border-orange-600 bg-gradient-to-b from-[#1a0d00] to-black shadow-[0_0_30px_rgba(234,88,12,0.2)]'
                 : 'border-gray-800 bg-[#0a0a0a]'
-            }`}
+              }`}
           >
             <div>
               <div className="flex items-center gap-4 mb-4">
@@ -116,11 +125,10 @@ const PricingSection = () => {
 
             {/* Dynamic UI Button Layout Assignment */}
             <button
-              className={`w-full py-3.5 px-6 font-bold rounded-xl transition-all duration-200 ${
-                plan.featured
+              className={`w-full py-3.5 px-6 font-bold rounded-xl transition-all duration-200 ${plan.featured
                   ? 'bg-orange-600 text-white hover:bg-orange-500 shadow-[0_4px_20px_rgba(234,88,12,0.3)]'
                   : 'bg-transparent text-gray-200 border border-gray-700 hover:border-gray-500 hover:bg-white/5'
-              }`}
+                }`}
             >
               Try for free
             </button>
@@ -143,7 +151,7 @@ const PricingSection = () => {
               </div>
               <span className="bg-[#2a1200] text-orange-500 px-4 py-2 rounded-lg font-bold text-sm">From $2.3/IP</span>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 mb-8">
               {[
                 "Reliable and Stable Connections",

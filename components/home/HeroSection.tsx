@@ -129,15 +129,6 @@ export default function HeroSection() {
     >
       {/* ── Background Glow ───────────────────────── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div
-          className="
-            absolute top-[-5%] left-1/2 -translate-x-1/2
-            w-[500px] h-[400px]
-            sm:w-[700px] sm:h-[500px]
-            lg:w-[900px] lg:h-[600px]
-            bg-[radial-gradient(ellipse_at_center,rgba(180,50,5,0.35)_0%,transparent_70%)]
-          "
-        />
 
         <div
           className="
@@ -151,11 +142,11 @@ export default function HeroSection() {
       </div>
 
       {/* ── Trustpilot ───────────────────────────── */}
-      <div className="flex items-center justify-center mb-6">
+      <div className="flex items-center justify-center mt-[50px]">
         <img
           src="/images/TrustPiolet.png"
           alt="Excellent 5-star rating on Trustpilot"
-          className="h-6 w-auto object-contain"
+          className="h-8 w-auto object-contain"
           loading="lazy"
         />
       </div>
@@ -198,7 +189,7 @@ export default function HeroSection() {
               animate="animate"
               exit="exit"
               style={{
-                fontFamily: "'Arial Black', 'Helvetica', sans-serif",
+                fontFamily: "'Archivo', sans-serif",
               }}
               className="
                 absolute
@@ -219,7 +210,7 @@ export default function HeroSection() {
           custom={2}
           variants={fadeUp}
           className="
-            mt-5 sm:mt-6
+            mt-1 sm:mt-1
             mx-auto
             max-w-[90%] sm:max-w-2xl
             text-[18px]
@@ -238,7 +229,7 @@ export default function HeroSection() {
         variants={stagger}
         initial="hidden"
         animate="visible"
-        className="w-full max-w-4xl mb-4 px-4"
+        className="w-full max-w-4xl mb-4 px-4 -mt-[24px]"
       >
         <div className="flex flex-wrap md:flex-nowrap items-center justify-center gap-y-3 gap-x-6 sm:gap-x-10 px-5 sm:px-8 py-4 sm:py-5">
           {STATS.map((stat, i) => (
@@ -305,7 +296,7 @@ export default function HeroSection() {
         transition={{ delay: 0.75, duration: 0.8 }}
         className="relative z-10 flex flex-col items-center gap-5 w-full"
       >
-        <p className="text-[12px] sm:text-base font-normal tracking-wide text-stone-200 text-center opacity-100">
+        <p className="text-[12px] sm:text-base font-regular tracking-wide text-stone-200 text-center opacity-100 mt-[20px]">
           Trusted by teams worldwide
         </p>
 

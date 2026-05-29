@@ -21,7 +21,7 @@ const LocationsSection = () => {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-        <span className="text-orange-500 font-medium text-sm mb-4 block uppercase tracking-widest">
+        <span className="text-orange-500 font-medium text-sm mb-4 block tracking-widest">
           Locations
         </span>
         <h2 className="text-4xl md:text-5xl font-bold mb-6">

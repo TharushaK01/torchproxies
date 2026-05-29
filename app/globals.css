@@ -5,6 +5,25 @@
 ───────────────────────────── */
 @import "tailwindcss";
 
+@theme {
+  --font-archivo: var(--font-archivo), sans-serif;
+  --font-geist: var(--font-geist), sans-serif;
+  --font-urbanist: var(--font-urbanist), sans-serif;
+}
+
+
+@layer base {
+  /* Set Archivo or Geist as the default font for all Headings */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-archivo tracking-tight;
+  }
+
+  /* Set Urbanist or Geist as the default font for all Paragraphs & Body text */
+  p, span, li, a, td, table {
+    @apply font-urbanist;
+  }
+}
+
 :root {
   --background: #0a0a0a;
   --foreground: #ededed;
