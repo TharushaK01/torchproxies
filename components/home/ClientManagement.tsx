@@ -4,7 +4,24 @@ import { CheckCircle2 } from 'lucide-react';
 const ClientManagement = () => {
   return (
     <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden">
+
       <div className="max-w-7xl mx-auto space-y-32">
+
+        <div className="text-center mb-16">
+          <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
+            B2B Services
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white mb-4 max-w-3xl text-center mx-auto">
+            Simplify and scale your business with our easy to use tools.
+          </h2>
+          <p className="text-stone-400 text-sm sm:text-base max-w-xl mx-auto font-normal">
+
+            Our Proxy Dashboard and Proxy API help resellers manage and distribute proxies efficiently.
+          </p>
+          <button className="bg-gradient-to-r from-orange-600 to-orange-500 px-8 py-4 rounded-xl font-bold text-white shadow-lg shadow-orange-900/20 hover:scale-105 transition-transform mb-12 mt-5">
+            Explore B2B products
+          </button>
+        </div>
 
         {/* Row 1: Easy Client Management */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -30,7 +47,7 @@ const ClientManagement = () => {
 
           {/* Text Side */}
           <div className="space-y-6">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+            <h2 className="text-[28px] md:text-5xl font-medium tracking-tight">
               Easy Client Management
             </h2>
             <p className="text-gray-400 text-lg leading-relaxed">
@@ -43,7 +60,7 @@ const ClientManagement = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Text Side (Order Reversed on Large Screens) */}
           <div className="order-2 lg:order-1 space-y-6">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+            <h2 className="text-[28px] md:text-5xl font-medium tracking-tight">
               Quick Proxy Delivery
             </h2>
             <p className="text-gray-400 text-lg leading-relaxed">

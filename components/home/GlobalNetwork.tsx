@@ -28,16 +28,19 @@ const GlobalNetwork = () => {
 
   return (
     <section className="bg-[#0a0a0a] text-white py-24 px-6 relative min-h-[800px]">
-      <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 tracking-tight">
+      <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3 text-center ">
+        Use cases
+      </span>
+      <h2 className="text-[42px] md:text-5xl font-medium text-center mb-16 tracking-tight">
         Strong global IP network
       </h2>
 
       <div className="max-w-7xl mx-auto relative h-[500px]">
         {/* Important: Set width/height on the container */}
         <div className="w-full h-full">
-          <ComposableMap 
-            projectionConfig={{ scale: 140 }} 
-            width={800} 
+          <ComposableMap
+            projectionConfig={{ scale: 140 }}
+            width={800}
             height={400}
             style={{ width: "100%", height: "auto" }}
           >
@@ -46,7 +49,7 @@ const GlobalNetwork = () => {
                 geographies.map((geo) => {
                   const countryName = geo.properties.name;
                   const isHoveredSpecific = countryProxyData[countryName];
-                  
+
                   return (
                     <Geography
                       key={geo.rsmKey}
@@ -75,18 +78,18 @@ const GlobalNetwork = () => {
 
         {/* Stats Section */}
         <div className="absolute bottom-0 left-0 space-y-8">
-            <div>
-                <div className="text-orange-500 text-6xl font-bold">
-                    <CountUp end={100000000} separator="'" duration={3} enableScrollSpy scrollSpyOnce />
-                </div>
-                <p className="text-gray-500 uppercase text-xs tracking-widest mt-2">Proxies</p>
+          <div>
+            <div className="text-orange-500 text-[34px] font-semi-bold">
+              <CountUp end={100000000} separator="'" duration={3} enableScrollSpy scrollSpyOnce />
             </div>
-            <div>
-                <div className="text-orange-500 text-6xl font-bold">
-                    <CountUp end={190} suffix="+" duration={3} enableScrollSpy scrollSpyOnce />
-                </div>
-                <p className="text-gray-500 uppercase text-xs tracking-widest mt-2">Countries around the globe</p>
+            <p className="text-gray-500 text-[16px] font-regular tracking-widest mt-2">Proxies</p>
+          </div>
+          <div>
+            <div className="text-orange-500 text-[34px] font-semi-bold">
+              <CountUp end={190} suffix="+" duration={3} enableScrollSpy scrollSpyOnce />
             </div>
+            <p className="text-gray-500 text-[16px] font-regular tracking-widest mt-2">Countries around the globe</p>
+          </div>
         </div>
       </div>
     </section>

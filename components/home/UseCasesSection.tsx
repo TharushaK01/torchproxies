@@ -708,7 +708,7 @@ const UseCasesSection = () => {
   return (
     <section className="bg-[#0a0a0a] text-white py-24 px-6">
       <div className="text-center mb-16">
-        <span className="text-[#FE4A01] text-xs font-medium tracking-wider block mb-3">
+        <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
           Use cases
         </span>
         <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white mb-4">

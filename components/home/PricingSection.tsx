@@ -15,7 +15,7 @@ const PricingSection = () => {
       name: "Standard",
       desc: "Perfect for everyday online tasks.",
       price: "From $4/GB per month",
-      icon: "🟠",
+      icon: "/images/Standard.svg", // ✅ Updated to your public media directory path
       features: [
         "Premium residential IPs",
         "Rotating and sticky sessions",
@@ -31,7 +31,7 @@ const PricingSection = () => {
       desc: "For demanding users and businesses.",
       price: "From $4.5/GB per month",
       highlight: "Best Value",
-      icon: "🟧",
+      icon: "/images/Premium.svg", // ✅ Updated to your public media directory path
       featured: true,
       features: [
         "Premium residential IPs",
@@ -47,7 +47,7 @@ const PricingSection = () => {
       name: "Plan X",
       desc: "Perfect for top tier performance.",
       price: "From $5/GB per month",
-      icon: "💠",
+      icon: "/images/PlanX.svg", // ✅ Updated to your public media directory path
       features: [
         "Authentic residential proxies with dedicated ISP pools",
         "Rotating and sticky sessions",
@@ -62,14 +62,14 @@ const PricingSection = () => {
 
   return (
     <section className="bg-[#0a0a0a] text-white py-20 px-6 -mt-[80px]">
-<div className="flex flex-col items-center text-center w-full">
-  <span className="text-orange-500 font-medium text-sm mb-4 tracking-widest flex items-center justify-center gap-2">
-    Our products
-  </span>
-  <h2 className="text-8xl md:text-5xl font-bold mb-6 max-w-4xl">
-    Choose your Residential & ISP Proxy Plan
-  </h2>
-</div>
+      <div className="flex flex-col items-center text-center w-full">
+        <span className="text-orange-500 font-regular text-[16px] mb-4 tracking-widest flex items-center justify-center gap-2">
+          Our products
+        </span>
+        <h2 className="text-[42px] md:text-5xl font-medium mb-6 max-w-4xl">
+          Choose your Residential & ISP Proxy Plan
+        </h2>
+      </div>
 
       {/* Top Bar Features */}
       <div className="flex flex-wrap justify-center gap-6 mb-16 text-sm font-medium text-gray-300">
@@ -77,7 +77,6 @@ const PricingSection = () => {
           <div key={i} className="flex items-center gap-2">
             <Check className="text-orange-500 w-4 h-4" /> {f}
           </div>
-
         ))}
       </div>
 
@@ -86,16 +85,24 @@ const PricingSection = () => {
         {plans.map((plan, i) => (
           <div
             key={i}
-            className={`relative p-8 rounded-2xl border-2 flex flex-col justify-between transition-all ${plan.featured
+            className={`relative p-8 rounded-2xl border-2 flex flex-col justify-between transition-all ${
+              plan.featured
                 ? 'border-orange-600 bg-gradient-to-b from-[#1a0d00] to-black shadow-[0_0_30px_rgba(234,88,12,0.2)]'
                 : 'border-gray-800 bg-[#0a0a0a]'
-              }`}
+            }`}
           >
             <div>
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center text-2xl">
-                  {plan.icon}
+                
+                {/* ── Updated Icon Box (Handles image files instead of raw string text emojis) ── */}
+                <div className="w-20 h-20 rounded-xl flex items-center justify-center p-2.5 shrink-0">
+                  <img 
+                    src={plan.icon} 
+                    alt={`${plan.name} plan icon`} 
+                    className="w-full h-full object-contain filter brightness-110" 
+                  />
                 </div>
+                
                 <div>
                   <h3 className="text-xl font-bold">{plan.name}</h3>
                   <p className="text-gray-400 text-sm">{plan.desc}</p>
@@ -123,12 +130,12 @@ const PricingSection = () => {
               </ul>
             </div>
 
-            {/* Dynamic UI Button Layout Assignment */}
             <button
-              className={`w-full py-3.5 px-6 font-bold rounded-xl transition-all duration-200 ${plan.featured
+              className={`w-full py-3.5 px-6 font-bold rounded-xl transition-all duration-200 ${
+                plan.featured
                   ? 'bg-orange-600 text-white hover:bg-orange-500 shadow-[0_4px_20px_rgba(234,88,12,0.3)]'
                   : 'bg-transparent text-gray-200 border border-gray-700 hover:border-gray-500 hover:bg-white/5'
-                }`}
+              }`}
             >
               Try for free
             </button>
@@ -143,7 +150,13 @@ const PricingSection = () => {
           <div>
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center text-2xl">⚡</div>
+                <div className="w-15 h-15 rounded-xl flex items-center justify-center text-2xl shrink-0">
+                  <img 
+                    src="/images/ISP.svg" 
+                    alt="ISP plan icon" 
+                    className="w-full h-full object-contain filter brightness-110" 
+                  />
+                </div>
                 <div>
                   <h3 className="text-xl font-bold">ISP</h3>
                   <p className="text-gray-400 text-sm">Static residential proxies with unlimited data.</p>
