@@ -159,9 +159,15 @@ export default function TorchProxiesLandingPage() {
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
             <header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 overflow-hidden">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(234,88,12,0.2)_0%,transparent_60%)] pointer-events-none" />
-                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(234,88,12,0.05)_0%,transparent_70%)] pointer-events-none" />
-
+                 <div className="absolute inset-x-0 bottom-40 h-[600px] z-0 pointer-events-none select-none">
+                     <Image
+                         src="/images/hero_back.png"
+                         alt=""
+                         fill
+                         priority
+                         className="object-cover object-bottom opacity-100"
+                     />
+                 </div>
                 <div className="max-w-6xl mx-auto text-center z-10">
                     <div className="flex items-center justify-center mb-6">
                         <img
