@@ -815,14 +815,7 @@ export default function TorchProxiesLandingPage() {
                     {/* --- COMPARISON MATRIX GRID --- */}
                     <div className="w-full overflow-x-auto">
                         <table className="w-full min-w-[960px] border-collapse text-center table-fixed">
-                            <colgroup>
-                                <col className="w-[16%] text-left" />
-                                <col className="w-[16%]" />
-                                <col className="w-[16%]" />
-                                <col className="w-[20%]" /> {/* Slightly wider highlighted brand box */}
-                                <col className="w-[16%]" />
-                                <col className="w-[16%]" />
-                            </colgroup>
+                            <colgroup><col className="w-[16%] text-left" /><col className="w-[16%]" /><col className="w-[16%]" /><col className="w-[20%]" /><col className="w-[16%]" /><col className="w-[16%]" /></colgroup>
 
                             <thead>
                                 <tr className="align-middle">
@@ -994,52 +987,65 @@ export default function TorchProxiesLandingPage() {
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             {/* FAQ SECTION */}
-            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden">
-                <div className="max-w-4xl mx-auto">
-                    {/* Header */}
-                    <div className="text-center mb-16">
-                        <span className="text-[#FE4A01] text-xs font-medium tracking-widest block mb-3">
-                            FAQ
-                        </span>
-                        <h2 className="text-4xl sm:text-5xl font_regular tracking-tight text-white">
-                            Frequently asked questions
-                        </h2>
-                    </div>
-
-                    {/* FAQ Items */}
-                    <div className="space-y-px">
-                        {faqData.map((faq, index) => {
-                            const isOpen = activeFaq === index;
-                            return (
-                                <div
-                                    key={index}
-                                    className="border-b border-stone-800 last:border-none group"
-                                >
-                                    <button
-                                        onClick={() => setActiveFaq(isOpen ? null : index)}
-                                        className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors"
-                                    >
-                                        <span>{faq.q}</span>
-                                        <ChevronDown
-                                            className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
-                                        />
-                                    </button>
-
-                                    {/* Answer */}
-                                    <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
-                                        <p className="text-stone-400 text-[15px] leading-relaxed pr-10">
-                                            {faq.a}
-                                        </p>
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
-
-                {/* Bottom Gradient Overlay - Matches the image */}
-                <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#3a1f00] to-transparent pointer-events-none" />
-            </section>
+             <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden">
+ 
+                 {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
+                 <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
+                     <Image
+                         src="/images/contact-bg.png" /* Using the same glow asset path */
+                         alt=""
+                         fill
+                         priority
+                         className="object-cover object-bottom opacity-100"
+                     />
+                 </div>
+ 
+                 {/* ── Content Wrapper (Added 'relative z-10' so it sits above the background glow) ── */}
+                 <div className="max-w-4xl mx-auto relative z-10">
+                     {/* Header */}
+                     <div className="text-center mb-16">
+                         <span className="text-[#FE4A01] text-xs font-medium tracking-widest block mb-3">
+                             FAQ
+                         </span>
+                         <h2 className="text-4xl sm:text-5xl font_regular tracking-tight text-white">
+                             Frequently asked questions
+                         </h2>
+                     </div>
+ 
+                     {/* FAQ Items */}
+                     <div className="space-y-px">
+                         {faqData.map((faq, index) => {
+                             const isOpen = activeFaq === index;
+                             return (
+                                 <div
+                                     key={index}
+                                     className="border-b border-stone-800 last:border-none group"
+                                 >
+                                     <button
+                                         onClick={() => setActiveFaq(isOpen ? null : index)}
+                                         className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors"
+                                     >
+                                         <span>{faq.q}</span>
+                                         <ChevronDown
+                                             className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
+                                         />
+                                     </button>
+ 
+                                     {/* Answer */}
+                                     <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
+                                         <p className="text-stone-400 text-[15px] leading-relaxed pr-10">
+                                             {faq.a}
+                                         </p>
+                                     </div>
+                                 </div>
+                             );
+                         })}
+                     </div>
+                 </div>
+ 
+                 {/* Bottom Gradient Overlay - Blends beautifully with your new image background */}
+                 <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent pointer-events-none z-0" />
+             </section>
 
         </div>
     );

@@ -4,6 +4,7 @@ import { Check, ChevronDown, Shield, Zap, Globe, BarChart3, Activity, Sliders } 
 import Flag from 'react-world-flags';
 import { Database, RefreshCw, Layers, ShieldCheck, Infinity, Tag, CreditCard } from 'lucide-react';
 import UseCasesSection from '@/components/home/UseCasesSection';
+import Image from 'next/image';
 
 
 
@@ -164,53 +165,63 @@ export default function TorchProxiesLandingPage() {
         <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-            <header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-1 overflow-hidden">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(234,88,12,0.2)_0%,transparent_60%)] pointer-events-none" />
-                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(234,88,12,0.05)_0%,transparent_70%)] pointer-events-none" />
+{/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
+<header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-1 overflow-hidden bg-[#0a0a0a]">
+    
+    {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
+ <div className="absolute inset-x-0 bottom-35 h-[600px] z-0 pointer-events-none select-none">
+    <Image
+        src="/images/hero_back.png"
+        alt=""
+        fill
+        priority
+        className="object-cover object-bottom opacity-100"
+    />
+</div>
+    {/* Foreground content grid wrapper (Kept relative z-10) */}
+    <div className="max-w-6xl mx-auto text-center z-10">
+        <div className="flex items-center justify-center mb-6">
+            <img
+                src="/images/TrustPiolet.png"
+                alt="Excellent 5-star rating on Trustpilot"
+                className="h-6 w-auto object-contain"
+                loading="lazy"
+            />
+        </div>
 
-                <div className="max-w-6xl mx-auto text-center z-10">
-                    <div className="flex items-center justify-center mb-6">
-                        <img
-                            src="/images/TrustPiolet.png"
-                            alt="Excellent 5-star rating on Trustpilot"
-                            className="h-6 w-auto object-contain"
-                            loading="lazy"
-                        />
-                    </div>
+        <h1 className="text-[60px] sm:text-6xl lg:text-7xl font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
+            ISP Proxies Built for Speed <br />
+            <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">& Reliability</span>
+        </h1>
 
-                    <h1 className="text-[60px] sm:text-6xl lg:text-7xl font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
-                        ISP Proxies Built for Speed <br />
-                        <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">& Reliability</span>
-                    </h1>
+        <p className="max-w-3xl mx-auto text-stone-400 text-[18px] sm:text-xl mb-10 leading-relaxed">
+            ISP proxies offer residential trust with datacenter speed perfect for fast, reliable, and stealthy long sessions.
+        </p>
 
-                    <p className="max-w-3xl mx-auto text-stone-400 text-[18px] sm:text-xl mb-10 leading-relaxed">
-                        ISP proxies offer residential trust with datacenter speed perfect for fast, reliable, and stealthy long sessions.
-                    </p>
+        <div className="mt-[-50px] py-10 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-[16px] font-regular">
+            <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Pricing starts from $3.9/GB</div>
+            <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Money back guarantee</div>
+            <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Dedicated support</div>
+        </div>
 
-                    <div className="mt-[-50px] py-10 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-[16px] font-regular">
-                        <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Pricing starts from $3.9/GB</div>
-                        <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Money back guarantee</div>
-                        <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Dedicated support</div>
-                    </div>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
+            <button className="w-full sm:w-60 px-8 py-4 bg-orange-600 hover:bg-orange-500 text-[18px] text-white font-semi-bold rounded-xl transition-all duration-200 shadow-[0_0_30px_rgba(234,88,12,0.4)] hover:scale-[1.01]">
+                Start free with 1 GB
+            </button>
+            <button className="w-full sm:w-60 px-8 py-4 bg-stone-900 hover:bg-stone-800 border text-[18px] border-stone-800 text-stone-200 font-semi-bold rounded-xl transition-all duration-200">
+                View Pricing
+            </button>
+        </div>
+        <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide py-6">
+            <CreditCard className="w-4 h-4 text-stone-500" />
+            <span>No credit card needed. Instant access</span>
+        </div>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
-                        <button className="w-full sm:w-60 px-8 py-4 bg-orange-600 hover:bg-orange-500 text-[18px] text-white font-semi-bold rounded-xl transition-all duration-200 shadow-[0_0_30px_rgba(234,88,12,0.4)] hover:scale-[1.01]">
-                            Start free with 1 GB
-                        </button>
-                        <button className="w-full sm:w-60 px-8 py-4 bg-stone-900 hover:bg-stone-800 border text-[18px] border-stone-800 text-stone-200 font-semi-bold rounded-xl transition-all duration-200">
-                            View Pricing
-                        </button>
-                    </div>
-                    <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide py-6">
-                        <CreditCard className="w-4 h-4 text-stone-500" />
-                        <span>No credit card needed. Instant access</span>
-                    </div>
-
-                    <div className="relative z-10 -mt-40 w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-                        <Marquee />
-                    </div>
-                </div>
-            </header>
+        <div className="relative z-10 -mt-40 w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+            <Marquee />
+        </div>
+    </div>
+</header>
 
             {/* ── SECTION 3: Residential Proxies ────────────────────── */}
             <section className="py-24 -mt-[100px] bg-[#0a0a0a] text-white relative overflow-hidden">
@@ -600,7 +611,20 @@ export default function TorchProxiesLandingPage() {
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             {/* FAQ SECTION */}
             <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden">
-                <div className="max-w-4xl mx-auto">
+
+                {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
+                <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
+                    <Image
+                        src="/images/contact-bg.png" /* Using the same glow asset path */
+                        alt=""
+                        fill
+                        priority
+                        className="object-cover object-bottom opacity-100"
+                    />
+                </div>
+
+                {/* ── Content Wrapper (Added 'relative z-10' so it sits above the background glow) ── */}
+                <div className="max-w-4xl mx-auto relative z-10">
                     {/* Header */}
                     <div className="text-center mb-16">
                         <span className="text-[#FE4A01] text-xs font-medium tracking-widest block mb-3">
@@ -642,8 +666,8 @@ export default function TorchProxiesLandingPage() {
                     </div>
                 </div>
 
-                {/* Bottom Gradient Overlay - Matches the image */}
-                <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#3a1f00] to-transparent pointer-events-none" />
+                {/* Bottom Gradient Overlay - Blends beautifully with your new image background */}
+                <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent pointer-events-none z-0" />
             </section>
 
         </div>

@@ -1007,7 +1007,20 @@ export default function TorchProxiesLandingPage() {
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             {/* FAQ SECTION */}
             <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden">
-                <div className="max-w-4xl mx-auto">
+
+                {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
+                <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
+                    <Image
+                        src="/images/contact-bg.png" /* Using the same glow asset path */
+                        alt=""
+                        fill
+                        priority
+                        className="object-cover object-bottom opacity-100"
+                    />
+                </div>
+
+                {/* ── Content Wrapper (Added 'relative z-10' so it sits above the background glow) ── */}
+                <div className="max-w-4xl mx-auto relative z-10">
                     {/* Header */}
                     <div className="text-center mb-16">
                         <span className="text-[#FE4A01] text-xs font-medium tracking-widest block mb-3">
@@ -1049,8 +1062,8 @@ export default function TorchProxiesLandingPage() {
                     </div>
                 </div>
 
-                {/* Bottom Gradient Overlay - Matches the image */}
-                <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#3a1f00] to-transparent pointer-events-none" />
+                {/* Bottom Gradient Overlay - Blends beautifully with your new image background */}
+                <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent pointer-events-none z-0" />
             </section>
 
         </div>
