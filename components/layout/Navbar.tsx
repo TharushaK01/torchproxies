@@ -186,8 +186,8 @@ export default function Navbar() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-            ? "bg-transparent"
-            : "bg-transparent"
+          ? "bg-transparent"
+          : "bg-transparent"
           }`}
       >
         <nav className="max-w-[1400px] mx-auto px-6 py-4 h-auto flex items-center justify-between">
@@ -225,8 +225,8 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     className={`flex items-center gap-1 px-3.5 py-1.5 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap ${pathname.startsWith(link.href)
-                        ? "text-stone-200 bg-white/5"
-                        : "text-stone-400 hover:text-white hover:bg-white/5"
+                      ? "text-stone-200 bg-white/5"
+                      : "text-stone-400 hover:text-white hover:bg-white/5"
                       }`}
                   >
                     {link.label}
@@ -242,10 +242,10 @@ export default function Navbar() {
                   {/* Dropdown Card Components Selector */}
                   {link.dropdown && openDropdown === link.label && (
                     <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 ${link.menuType === "products-mega" ? "w-[540px]" :
-                        link.menuType === "locations-grid" ? "w-[620px]" :
-                          link.menuType === "reseller-mega" ? "w-[720px]" :
-                            link.menuType === "usecases-mega" ? "w-[580px]" :
-                              link.menuType === "resources-mega" ? "w-[680px]" : "w-52"
+                      link.menuType === "locations-grid" ? "w-[620px]" :
+                        link.menuType === "reseller-mega" ? "w-[720px]" :
+                          link.menuType === "usecases-mega" ? "w-[580px]" :
+                            link.menuType === "resources-mega" ? "w-[680px]" : "w-52"
                       }`}>
                       <div className="bg-[#0D0D0D] border border-white/10 rounded-2xl shadow-[0_24px_70px_rgba(0,0,0,0.8)] overflow-hidden p-5">
 
@@ -313,9 +313,9 @@ export default function Navbar() {
                                 >
                                   <div className="flex items-center gap-3.5">
                                     <Flag
-  code={country.code.toUpperCase()}
-  style={{ width: 28, height: 20, borderRadius: 3, objectFit: 'cover' }}
-/>
+                                      code={country.code.toUpperCase()}
+                                      style={{ width: 55, height: 55, borderRadius: 3, objectFit: 'cover' }}
+                                    />
                                     <div className="flex flex-col">
                                       <span className="text-sm font-bold text-stone-200 group-hover:text-white transition-colors">
                                         {country.name}
