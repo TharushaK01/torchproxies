@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Flag from 'react-world-flags';
 
 const NAV_LINKS = [
   {
@@ -54,7 +55,7 @@ const NAV_LINKS = [
     dropdown: {
       section: "Residential Proxies",
       countries: [
-        { name: "United States", ips: "4,429,824 IPs", code: "us", href: "/locations/us" },
+        { name: "United States", ips: "4,429,824 IPs", code: "us", href: "/united-states" },
         { name: "Germany", ips: "4,429,824 IPs", code: "de", href: "/locations/de" },
         { name: "United Kingdom", ips: "4,429,824 IPs", code: "gb", href: "/locations/uk" },
         { name: "Australia", ips: "4,429,824 IPs", code: "au", href: "/locations/au" },
@@ -311,7 +312,10 @@ export default function Navbar() {
                                   className="flex items-center justify-between p-2 rounded-xl hover:bg-white/[0.03] transition-all duration-150 group"
                                 >
                                   <div className="flex items-center gap-3.5">
-                                    <CountryFlagMock code={country.code} />
+                                    <Flag
+  code={country.code.toUpperCase()}
+  style={{ width: 28, height: 20, borderRadius: 3, objectFit: 'cover' }}
+/>
                                     <div className="flex flex-col">
                                       <span className="text-sm font-bold text-stone-200 group-hover:text-white transition-colors">
                                         {country.name}

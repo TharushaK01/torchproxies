@@ -1,6 +1,15 @@
 import { getPostBySlug, getAllPosts } from "@/lib/wordpress";
 import { WPPost } from "@/types/wordpress";
 import { notFound } from "next/navigation";
+// 1. Import the font from Next.js Google Fonts
+import { Work_Sans } from "next/font/google";
+
+// 2. Configure the font (you can specify weights or subsets)
+const workSans = Work_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"], // Add the weights you need
+  display: "swap",
+});
 
 export async function generateStaticParams() {
   try {
@@ -47,28 +56,22 @@ export default async function BlogPostPage({
 
   if (!post) notFound();
 
-  const featuredImage = post._embedded?.["wp:featuredmedia"]?.[0];
-  const author = post._embedded?.author?.[0];
-  const categories = post._embedded?.["wp:term"]?.[0];
+  // Note: cleanContent variable was declared but not used in your original snippet.
+  // Kept it or you can use it below in dangerouslySetInnerHTML.
 
-  const cleanContent = post.content.rendered
-    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "");
   return (
-    <main className="bg-[#0a0a0a] min-h-screen text-stone-100 relative"
+    /* 3. Add workSans.className to the main element */
+    <main 
+      className={`${workSans.className} bg-[#0a0a0a] min-h-screen text-stone-100 relative font-worksans`}
       style={{ paddingTop: "80px" }}
-      suppressHydrationWarning>
+      suppressHydrationWarning
+    >
       <div
         className="wp-post-content"
         dangerouslySetInnerHTML={{
           __html: post.content.rendered
-            .replace(
-              /<script\b[^>]*src=[^>]*><\/script>/gi,  // ← external scripts only
-              ""
-            )
-            .replace(
-              /<script\b[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, // ← JSON-LD schema
-              ""
-            ),
+            .replace(/<script\b[^>]*src=[^>]*><\/script>/gi, "") 
+            .replace(/<script\b[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, ""),
         }}
       />
     </main>

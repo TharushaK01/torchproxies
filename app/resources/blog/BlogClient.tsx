@@ -33,7 +33,7 @@ export default function BlogClient({ posts, categories }: BlogClientProps) {
   const hasMore = visibleCount < filtered.length;
 
   return (
-    <main className="bg-[#0a0a0a] min-h-screen text-stone-100">
+    <main className="font-worksans bg-[#0a0a0a] min-h-screen text-stone-100">
 
       {/* ── Hero ──────────────────────────────────────────── */}
       <header className="text-center py-20 sm:py-28 px-6 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(160,40,5,0.5),transparent)]">

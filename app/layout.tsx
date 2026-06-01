@@ -3,6 +3,9 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { LazyMotion, domAnimation } from "framer-motion";
+import { Work_Sans } from 'next/font/google';
+
+
 
 export const metadata: Metadata = {
   title: {
@@ -57,6 +60,7 @@ export default function RootLayout({
     href="https://torchproxies.com/wp-content/uploads/elementor/css/custom-widget-icon-list.min.css" />
   <link rel="stylesheet"
     href="https://torchproxies.com/wp-content/uploads/elementor/css/custom-frontend.min.css" />
+    
 </head>
 
 
