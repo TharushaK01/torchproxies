@@ -55,7 +55,7 @@ export default function YourSectionComponent() {
           alt=""
           fill
           priority
-          className="object-cover opacity-80"
+          className="object-cover opacity-100%"
         />
       </div>
 
