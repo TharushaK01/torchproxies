@@ -296,11 +296,12 @@ function WebScrapingMockup() {
           height: 100%;
         }
         .flame-svg {
-          width: 44px;
-          height: 44px;
-          fill: #FF6A1A;
-          filter: drop-shadow(0 0 20px rgba(255,106,26,0.8)) drop-shadow(0 0 36px rgba(255,106,26,0.4));
-          animation: flicker 1.3s infinite ease-in-out alternate;
+          content: url("/images/nav_logo.svg"); 
+  
+  width: 44px;
+  height: 44px;
+  filter: drop-shadow(0 0 20px rgba(255,106,26,0.8)) drop-shadow(0 0 36px rgba(255,106,26,0.4));
+  animation: flicker 1.3s infinite ease-in-out alternate;
         }
         @keyframes flicker {
           0% { transform: scale(1) rotate(-1deg); opacity: 0.95; }
@@ -329,9 +330,7 @@ function WebScrapingMockup() {
       `}</style>
       <div className="node node-left">
         <div className="icon-wrap">
-          <svg className="flame-svg" viewBox="0 0 24 24">
-            <path d="M12 2S9.38 5.61 9.38 8.46c0 1.7.97 3.32 2.62 4.11 1.65-.79 2.62-2.41 2.62-4.11C14.62 5.61 12 2 12 2zm1 14.18c2.28-.56 4-2.46 4-4.82 0-3.32-3-5.36-3-5.36s-.74 1.33-1.63 2.94c-.7 1.27-1.37 2.76-1.37 4.15 0 2.36 1.72 4.26 4 4.82zM12 22c4.42 0 8-3.58 8-8 0-3.69-2.5-6.8-5.88-7.75C13.44 8.44 12 10.22 12 12c0 1.93 1.57 3.5 3.5 3.5S19 13.93 19 12c0-.39-.07-.77-.18-1.12C19.54 11.83 20 12.86 20 14c0 4.41-3.59 8-8 8s-8-3.59-8-8c0-2.44 1.1-4.63 2.83-6.13C6.31 9.07 6 10.5 6 12c0 4.42 3.58 8 8 8z" />
-          </svg>
+          <div className="flame-svg relative z-10" />
         </div>
       </div>
 

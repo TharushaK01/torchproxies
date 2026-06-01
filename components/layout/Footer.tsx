@@ -155,7 +155,7 @@ function FooterColumn({ groups }: { groups: (typeof FOOTER_COLUMNS)[number][] })
 
 export default function Footer() {
   return (
-    <footer className="bg-[#050505] border-t border-white/5 relative overflow-hidden w-full">
+    <footer className="bg-[#0a0a0a] border-t border-white/5 relative overflow-hidden w-full">
       
       {/* ── Main content layout container ─────────────────── */}
       <div className="relative z-10 max-w-[1400px] mx-auto px-8 pt-16 pb-12">
@@ -228,16 +228,17 @@ export default function Footer() {
       </div>
 
       {/* ── Perfected "TORCH LABS" Watermark Background ── */}
+      
 <span
-  className="absolute left-1/2 translate-x-[-35%] select-none pointer-events-none whitespace-nowrap font-black tracking-normal uppercase text-white opacity-10 z-0 bottom-[-15%] pt-6"
+  className="absolute left-1/2 translate-x-[-50%] select-none pointer-events-none whitespace-nowrap font-black tracking-normal uppercase text-white opacity-10 z-0 bottom-[-15%] pt-6"
   style={{
-    fontSize: "clamp(180px, 24vw, 440px)",
+    fontSize: "clamp(180px, 14vw, 440px)",
     lineHeight: "1.0",
     maskImage: "linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,1) 90%, rgba(0,0,0,1) 100%)",
     WebkitMaskImage: "linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,1) 90%, rgba(0,0,0,1) 100%)",
   }}
 >
-  TORCH LABS
+  TORCHPROXIES
 </span>
 
     </footer>

@@ -59,7 +59,7 @@ const FeaturesGrid = () => {
 
         {/* Panel 1: Connect Worldwide */}
         <div className="bg-[#0a0a0a] border border-gray-800 rounded-3xl p-10 overflow-hidden relative min-h-[500px]">
-          <h3 className="text-3xl font-bold mb-4 max-w-[300px] leading-tight text-white">
+          <h3 className="text-3xl font-medium mb-4 max-w-[300px] leading-tight text-white">
             Connect worldwide, down to any city.
           </h3>
           <p className="text-gray-400 text-base mb-8 max-w-[380px] relative z-10">
@@ -79,7 +79,7 @@ const FeaturesGrid = () => {
         {/* Panel 2: Infrastructure Status */}
 <div className="bg-[#0a0a0a] border border-gray-800 rounded-3xl p-8 flex flex-col justify-between">
   <div>
-    <h3 className="text-2xl font-bold mb-2">No drops, no delays. Steady connections every time</h3>
+    <h3 className="text-2xl font-medium mb-2">No drops, no delays. Steady connections every time</h3>
     <p className="text-gray-400 text-sm mb-6">Enjoy a stable connection with 99.6% uptime for smooth, reliable use.</p>
   </div>
 
@@ -207,7 +207,7 @@ const FeaturesGrid = () => {
           className="bg-[#0a0a0a] border border-gray-800 rounded-3xl p-8 flex flex-col justify-between overflow-hidden min-h-[520px] group"
         >
           <div>
-            <h3 className="text-2xl font-bold mb-2 text-white">A wide range of proxies to fit every need.</h3>
+            <h3 className="text-2xl font-medium mb-2 text-white">A wide range of proxies to fit every need.</h3>
             <p className="text-gray-400 text-sm mb-4">Choose from residential and ISP proxies for reliable, tailored connections.</p>
           </div>
 
@@ -250,17 +250,13 @@ const FeaturesGrid = () => {
               </div>
 
               {[
-                { name: 'Standard Residential', sub: 'Perfect for everyday online tasks.', price: 'From $4/GB', img: 'Frame-1000004310.svg' },
-                { name: 'Premium Residential', sub: 'For demanding users and businesses.', price: 'From $4.5/GB', img: 'Frame-1000004310-1.svg' },
-                { name: 'Plan X Residential', sub: 'High performance with flexible limits.', price: 'From $5/GB', img: 'Frame-1000004310-2.svg' }
+                { name: 'Standard Residential', sub: 'Perfect for everyday online tasks.', price: 'From $4/GB', },
+                { name: 'Premium Residential', sub: 'For demanding users and businesses.', price: 'From $4.5/GB', },
+                { name: 'Plan X Residential', sub: 'High performance with flexible limits.', price: 'From $5/GB', }
               ].map((product, idx) => (
                 <div key={idx} className="grid grid-cols-[auto_1fr_auto] items-center gap-4 p-4 border border-[#2a2e35] rounded-xl bg-[#0E0E11] hover:border-gray-700 transition-colors duration-200">
-                  <div className="w-[52px] h-[52px] flex items-center justify-center rounded-xl overflow-hidden bg-[#16171b]">
-                    <img 
-                      src={`https://v4.trytorchlabs.com/wp-content/uploads/2025/09/${product.img}`} 
-                      alt="" 
-                      className="w-full h-full object-contain"
-                    />
+                  <div className="w-[52px] h-[52px] flex items-center justify-center rounded-xl overflow-hidden bg-[#0E0E11]">
+
                   </div>
                   <div className="flex flex-col">
                     <span className="text-lg font-normal text-[#E6E9ED]">{product.name}</span>
@@ -278,7 +274,7 @@ const FeaturesGrid = () => {
         {/* Panel 4: Support UI - High Fidelity Modern Remake */}
         <div className="bg-[#0a0a0a] border border-gray-800 rounded-3xl p-8 flex flex-col justify-between min-h-[520px]">
           <div>
-            <h3 className="text-2xl font-bold mb-4 text-white">Get expert help anytime anywhere.</h3>
+            <h3 className="text-2xl font-medium mb-4 text-white">Get expert help anytime anywhere.</h3>
             <p className="text-gray-400 text-sm mb-[48px]">Reach us via Discord or email for quick, reliable support whenever you need it.</p>
           </div>
 

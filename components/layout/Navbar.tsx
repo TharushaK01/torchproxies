@@ -184,39 +184,36 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-transparent backdrop-blur-xl border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+            ? "bg-transparent"
             : "bg-transparent"
-        }`}
+          }`}
       >
         <nav className="max-w-[1400px] mx-auto px-6 py-4 h-auto flex items-center justify-between">
-          
+
           {/* ── Logo ──────────────────────────────────────── */}
-          <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
+          <Link href="/" className="flex items-center gap-0 group shrink-0">
             <div className="relative w-8 h-8 flex items-center justify-center">
+              {/* Animated Orange background glow frame */}
               <div className="absolute inset-0 bg-orange-500 rounded-full opacity-20 blur-md group-hover:opacity-35 transition-opacity duration-300" />
-              <svg width="22" height="26" viewBox="0 0 22 26" fill="none" className="relative z-10">
-                <path d="M11 0C11 0 6 6 6 12C6 15.3 8.2 18 11 18C13.8 18 16 15.3 16 12C16 6 11 0 11 0Z" fill="url(#flameGrad)" />
-                <path d="M11 10C11 10 8.5 12.5 8.5 14.5C8.5 15.9 9.6 17 11 17C12.4 17 13.5 15.9 13.5 14.5C13.5 12.5 11 10 11 10Z" fill="white" opacity="0.9" />
-                <rect x="9.5" y="17" width="3" height="4" rx="1.5" fill="#f97316" opacity="0.8"/>
-                <defs>
-                  <linearGradient id="flameGrad" x1="11" y1="0" x2="11" y2="18" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stopColor="#fb923c"/>
-                    <stop offset="100%" stopColor="#ea580c"/>
-                  </linearGradient>
-                </defs>
-              </svg>
+
+              {/* ── Your Custom SVG File ────────────────────── */}
+              <img
+                src="/images/nav_logo.svg"
+                alt="TorchProxies Logo"
+                className="relative z-10 w-6 h-6 object-contain"
+              />
             </div>
-            <span className="text-white font-bold text-lg tracking-tight">
-              <span className="text-orange-500">Torch</span>Proxies
+
+            <span className="text-white ">
+              <span className="text-orange-500 font-bold text-lg tracking-tight">Torch</span><span className="font-thin text-lg tracking-tight">Proxies</span>
             </span>
           </Link>
 
           {/* ── Center Navigation Pill ─────────────────────── */}
           <div className="hidden lg:flex items-center">
             <div className="flex items-center gap-0.5 bg-[#FFFFFF0A] backdrop-blur-md border border-white/5 rounded-xl px-1.5 py-1.5">
-              
+
               {NAV_LINKS.map((link) => (
                 <div
                   key={link.label}
@@ -226,34 +223,31 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    className={`flex items-center gap-1 px-3.5 py-1.5 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap ${
-                      pathname.startsWith(link.href)
+                    className={`flex items-center gap-1 px-3.5 py-1.5 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap ${pathname.startsWith(link.href)
                         ? "text-stone-200 bg-white/5"
                         : "text-stone-400 hover:text-white hover:bg-white/5"
-                    }`}
+                      }`}
                   >
                     {link.label}
                     <svg
                       width="11" height="11" viewBox="0 0 12 12" fill="none"
-                      className={`transition-transform duration-200 opacity-50 ${
-                        openDropdown === link.label ? "rotate-180" : ""
-                      }`}
+                      className={`transition-transform duration-200 opacity-50 ${openDropdown === link.label ? "rotate-180" : ""
+                        }`}
                     >
-                      <path d="M2 4L6 8L10 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M2 4L6 8L10 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </Link>
 
                   {/* Dropdown Card Components Selector */}
                   {link.dropdown && openDropdown === link.label && (
-                    <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 ${
-                      link.menuType === "products-mega" ? "w-[540px]" : 
-                      link.menuType === "locations-grid" ? "w-[620px]" :
-                      link.menuType === "reseller-mega" ? "w-[720px]" :
-                      link.menuType === "usecases-mega" ? "w-[580px]" :
-                      link.menuType === "resources-mega" ? "w-[680px]" : "w-52"
-                    }`}>
+                    <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 ${link.menuType === "products-mega" ? "w-[540px]" :
+                        link.menuType === "locations-grid" ? "w-[620px]" :
+                          link.menuType === "reseller-mega" ? "w-[720px]" :
+                            link.menuType === "usecases-mega" ? "w-[580px]" :
+                              link.menuType === "resources-mega" ? "w-[680px]" : "w-52"
+                      }`}>
                       <div className="bg-[#0D0D0D] border border-white/10 rounded-2xl shadow-[0_24px_70px_rgba(0,0,0,0.8)] overflow-hidden p-5">
-                        
+
                         {/* CASE 1: Products Layout */}
                         {link.menuType === "products-mega" && Array.isArray(link.dropdown) && (
                           <div className="space-y-5">
@@ -350,7 +344,7 @@ export default function Navbar() {
                                   <Link href={item.href} key={idx} className="block group p-1 rounded-xl hover:bg-white/[0.01]">
                                     <div className="flex items-start gap-3.5">
                                       <div className="w-10 h-10 rounded-xl bg-orange-600/90 flex items-center justify-center flex-shrink-0 text-white shadow-md mt-0.5">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="3" width="20" height="14" rx="2" strokeLinecap="round"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="3" width="20" height="14" rx="2" strokeLinecap="round" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg>
                                       </div>
                                       <div className="flex-1 space-y-1">
                                         <div className="flex items-center justify-between gap-2">
@@ -422,7 +416,7 @@ export default function Navbar() {
                                   {item.section && <h5 className="text-[11px] uppercase font-semibold text-stone-500 tracking-wider mb-1">{item.section}</h5>}
                                   <Link href={item.href} className="flex items-center gap-3.5 p-2 rounded-xl hover:bg-white/[0.03] text-stone-200 hover:text-white group transition-all">
                                     <div className="w-10 h-10 rounded-xl bg-orange-600 flex items-center justify-center text-white flex-shrink-0 shadow-inner">
-                                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V3.5A2.5 2.5 0 0 1 6.5 1H20v21H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg>
+                                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V3.5A2.5 2.5 0 0 1 6.5 1H20v21H6.5A2.5 2.5 0 0 1 4 19.5z" /></svg>
                                     </div>
                                     <span className="text-sm font-bold tracking-wide">{item.label}</span>
                                   </Link>

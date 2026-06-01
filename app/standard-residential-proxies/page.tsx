@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import { Check, ChevronDown, Shield, Zap, Globe, BarChart3, Activity, Sliders } from 'lucide-react';
 import { p } from 'framer-motion/m';
 import Flag from 'react-world-flags';
-import { Database, RefreshCw, Layers, ShieldCheck, Infinity, Tag, CreditCard  } from 'lucide-react';
+import { Database, RefreshCw, Layers, ShieldCheck, Infinity, Tag, CreditCard } from 'lucide-react';
 import UseCasesSection from '@/components/home/UseCasesSection';
+import Image from "next/image";
 
 
 
@@ -126,6 +127,33 @@ export default function TorchProxiesLandingPage() {
         { name: "Sarah M.", role: "DevOps Architect", text: "IP targeting is granular down to city targets. The latency levels are significantly lower than competitive alternatives." },
         { name: "David L.", role: "Automated Data Analyst", text: "Top tier network infrastructure. The standard volume tier setups maintain premium speeds without bottleneck dropouts." },
     ];
+
+    const faqData = [
+        {
+            q: "What are residential proxies?",
+            a: "Residential proxies are IP addresses assigned by Internet Service Providers (ISPs) to homeowners. They act as intermediaries between your device and the internet, allowing you to browse anonymously and access geo-restricted content."
+        },
+        {
+            q: "How do residential proxies work and how are they different?",
+            a: "Residential proxies route your internet traffic through real residential IP addresses, making them appear as normal users to websites. Unlike datacenter proxies, they have higher trust scores and are much harder to detect and block."
+        },
+        {
+            q: "What makes Torch Proxies's residential proxies better than other proxy providers?",
+            a: "Our residential proxy network offers unmatched speed, stability, ethical sourcing, and city-level targeting with 24/7 support and transparent pricing."
+        },
+        {
+            q: "What are the ideal use cases for the Standard Residential plan?",
+            a: "Perfect for general web scraping, social media management, market research, sneaker copping, and everyday automation tasks."
+        },
+        {
+            q: "Are residential proxies legal to use?",
+            a: "Yes, residential proxies are completely legal when used responsibly and in compliance with website terms of service."
+        },
+        {
+            q: "Do you offer free trials?",
+            a: "Yes, we offer a free 1GB trial so you can test our network performance before committing."
+        },
+    ];
     return (
         <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
 
@@ -200,7 +228,7 @@ export default function TorchProxiesLandingPage() {
 
                         {/* Text Side */}
                         <div className="space-y-6">
-                            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+                            <h2 className="text-[42px] md:text-5xl font-medium tracking-tight">
                                 Perfect for Everyday Scraping & Automation
                             </h2>
                             <p className="text-gray-400 text-lg leading-relaxed">
@@ -223,10 +251,10 @@ export default function TorchProxiesLandingPage() {
 
                     {/* ── TOP HEADER SUB-LABELS ───────────────────────────────── */}
                     <div className="text-center mb-16">
-                        <span className="text-[#FE4A01] text-xs font-bold uppercase tracking-wider block mb-3">
+                        <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
                             Residential proxies
                         </span>
-                        <h2 className="text-3xl sm:text-5xl font-bold tracking-tight mb-6">
+                        <h2 className="text-[42px] md:text-5xl font-medium tracking-tight mb-6">
                             Buy standard residential proxies
                         </h2>
 
@@ -356,10 +384,10 @@ export default function TorchProxiesLandingPage() {
                 />
 
                 <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-                    <span className="text-orange-500 font-medium text-sm mb-4 block uppercase tracking-widest">
+                    <span className="text-orange-500 font-regular text-[16px] mb-4 block tracking-widest">
                         Locations
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                    <h2 className="text-[42px] md:text-5xl font-medium mb-6">
                         Available in 195+ countries
                     </h2>
                     <p className="text-gray-400 max-w-2xl mx-auto mb-16">
@@ -401,10 +429,10 @@ export default function TorchProxiesLandingPage() {
 
                     {/* ── TOP HEADER SECTION ───────────────────────────────────── */}
                     <div className="text-center mb-16">
-                        <span className="text-[#FE4A01] text-xs font-bold uppercase tracking-wider block mb-3">
+                        <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
                             Features
                         </span>
-                        <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white mb-4">
+                        <h2 className="text-[42px] sm:text-5xl font-medium tracking-tight text-white mb-4">
                             Why choose Torch Proxies?
                         </h2>
                         <p className="text-stone-400 text-sm sm:text-base max-w-xl mx-auto font-normal">
@@ -532,10 +560,10 @@ export default function TorchProxiesLandingPage() {
             <section className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white">
                 {/* ── HEADER ─────────────────────────────────────────────── */}
                 <div className="text-center mb-20">
-                    <span className="text-[#FE4A01] text-xs font-bold uppercase tracking-wider block mb-3">
+                    <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
                         Features
                     </span>
-                    <h2 className="text-3xl sm:text-[40px] font-bold tracking-tight mb-4 text-white">
+                    <h2 className="text-[42px] sm:text-[40px] font-medium tracking-tight mb-4 text-white">
                         Core Features for Everyday Use
                     </h2>
                     <p className="text-stone-400 text-sm sm:text-base max-w-2xl mx-auto font-normal leading-relaxed">
@@ -569,17 +597,35 @@ export default function TorchProxiesLandingPage() {
             </section>
 
             {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
-            <section className="py-16 px-6 max-w-6xl mx-auto">
-                <div className="relative rounded-3xl bg-gradient-to-b from-orange-600 to-amber-700 p-8 sm:p-12 text-center overflow-hidden shadow-2xl">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(0,0,0,0.4)_0%,transparent_70%)]" />
-                    <div className="relative z-10 max-w-2xl mx-auto">
-                        <h2 className="text-3xl sm:text-5xl font-black text-white mb-4 tracking-tight">Start your efficient proxy and scraping journey</h2>
-                        <p className="text-orange-100 text-sm sm:text-base mb-8 opacity-90">
-                            Deploy your automated data processing stacks with elite network infrastructure node speeds starting immediately today.
-                        </p>
-                        <button className="px-8 py-4 bg-white hover:bg-stone-50 text-orange-700 font-extrabold text-base rounded-xl transition-all shadow-xl">
-                            Get 1GB Allocation Free
-                        </button>
+            <section className="bg-[#0a0a0a] py-20 px-6">
+                <div className="max-w-7xl mx-auto">
+                    <div className="relative overflow-hidden bg-[#0a0a0a] rounded-[40px] px-8 py-8 text-center">
+
+                        {/* Subtle Radial Glows */}
+                        <div
+                            className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden"
+                            style={{
+                                background: 'linear-gradient(135deg, #ff3c006c 0%, #0a0a0a 30%, #0a0a0a 80%, #ff3c006c 100%)',
+
+                            }}
+                        >
+
+                            <div className="relative z-10 max-w-3xl mx-auto">
+                                <h2 className="text-[48px] md:text-[48px] font-medium tracking-tight mb-8 leading-[1.1]">
+                                    Start Your Simple & Reliable Scraping Journey
+                                </h2>
+
+                                <p className="text-gray-400 text-[18px] font-regular md:text-xl leading-relaxed mb-12">
+                                    Get dependable, easy to use residential proxies built for everyday automation, testing, and data collection.
+                                </p>
+
+                                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                                    <button className="bg-[#ffffff] hover:bg-[#e63e00] md:text-[16px] text-black px-10 py-4 rounded-xl font-bold transition-all shadow-lg shadow-orange-900/20">
+                                        Get Started Now
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -742,7 +788,7 @@ export default function TorchProxiesLandingPage() {
             <section className="py-24 bg-stone-950/20 border-t border-stone-900">
                 <div className="max-w-6xl mx-auto px-6">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl sm:text-5xl font-black mb-4">Customer Reviews</h2>
+                        <h2 className="text-[42px] sm:text-5xl font-medium mb-4">Customer Reviews</h2>
                         <p className="text-stone-400">See how developer engineering nodes rate our overall connectivity network performance.</p>
                     </div>
 
@@ -779,38 +825,64 @@ export default function TorchProxiesLandingPage() {
             </section>
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
-            <section className="py-24 max-w-4xl mx-auto px-6 border-t border-stone-900 mb-12">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl sm:text-5xl font-black mb-4">Frequently Asked Questions</h2>
-                    <p className="text-stone-400 text-sm">Clear, direct explanations regarding operational deployment rules.</p>
+            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden">
+
+                {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
+                <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
+                    <Image
+                        src="/images/contact-bg.png" /* Using the same glow asset path */
+                        alt=""
+                        fill
+                        priority
+                        className="object-cover object-bottom opacity-100"
+                    />
                 </div>
 
-                <div className="space-y-4">
-                    {[
-                        { q: "What exactly are standard residential proxies?", a: "Standard residential proxies represent real, physical IP configurations leased out directly from consumer internet service providers globally. They possess elite reputation metrics to ensure your automated tracking routines remain unblocked." },
-                        { q: "Does the bandwidth volume pool expire at the end of the month?", a: "No, bandwidth balances acquired on individual packages remain completely active up to your utilization limits. Top up anytime." },
-                        { q: "Can I filter targeting pools down to distinct cities?", a: "Yes, our operational configuration routes endpoints down across country, state, or city-level parameters instantly inside your panel workspace." },
-                        { q: "What communication format protocols are supported natively?", a: "Our nodes support transparent dual HTTP and secure SOCKS5 network request paths automatically without requiring special setup conversions." },
-                    ].map((faq, index) => {
-                        const isOpen = activeFaq === index;
-                        return (
-                            <div key={index} className="bg-stone-900/30 border border-stone-800 rounded-xl overflow-hidden transition-all">
-                                <button
-                                    onClick={() => setActiveFaq(isOpen ? null : index)}
-                                    className="w-full text-left p-5 flex items-center justify-between font-bold text-sm text-stone-200 hover:text-white"
+                {/* ── Content Wrapper (Added 'relative z-10' so it sits above the background glow) ── */}
+                <div className="max-w-4xl mx-auto relative z-10">
+                    {/* Header */}
+                    <div className="text-center mb-16">
+                        <span className="text-[#FE4A01] text-xs font-medium tracking-widest block mb-3">
+                            FAQ
+                        </span>
+                        <h2 className="text-4xl sm:text-5xl font_regular tracking-tight text-white">
+                            Frequently asked questions
+                        </h2>
+                    </div>
+
+                    {/* FAQ Items */}
+                    <div className="space-y-px">
+                        {faqData.map((faq, index) => {
+                            const isOpen = activeFaq === index;
+                            return (
+                                <div
+                                    key={index}
+                                    className="border-b border-stone-800 last:border-none group"
                                 >
-                                    <span>{faq.q}</span>
-                                    <ChevronDown className={`w-4 h-4 text-stone-500 transition-transform duration-200 ${isOpen ? 'rotate-180 text-orange-500' : ''}`} />
-                                </button>
-                                {isOpen && (
-                                    <div className="px-5 pb-5 text-xs leading-relaxed text-stone-400 border-t border-stone-800/40 pt-3">
-                                        {faq.a}
+                                    <button
+                                        onClick={() => setActiveFaq(isOpen ? null : index)}
+                                        className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors"
+                                    >
+                                        <span>{faq.q}</span>
+                                        <ChevronDown
+                                            className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
+                                        />
+                                    </button>
+
+                                    {/* Answer */}
+                                    <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
+                                        <p className="text-stone-400 text-[15px] leading-relaxed pr-10">
+                                            {faq.a}
+                                        </p>
                                     </div>
-                                )}
-                            </div>
-                        );
-                    })}
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
+
+                {/* Bottom Gradient Overlay - Blends beautifully with your new image background */}
+                <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent pointer-events-none z-0" />
             </section>
 
         </div>
