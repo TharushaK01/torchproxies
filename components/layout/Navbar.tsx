@@ -314,7 +314,7 @@ export default function Navbar() {
                                   <div className="flex items-center gap-3.5">
                                     <Flag
                                       code={country.code.toUpperCase()}
-                                      style={{ width: 55, height: 55, borderRadius: 3, objectFit: 'cover' }}
+                                      style={{ width: 35, height: 35, borderRadius: 3, objectFit: 'cover' }}
                                     />
                                     <div className="flex flex-col">
                                       <span className="text-sm font-bold text-stone-200 group-hover:text-white transition-colors">
