@@ -118,7 +118,7 @@ const NAV_LINKS = [
       {
         section: "Scraping",
         items: [
-          { label: "Web Scraping", href: "/use-cases/web-scraping", icon: "/images/icon/webscraping.svg" }
+          { label: "Web Scraping", href: "/web-scraping", icon: "/images/icon/webscraping.svg" }
         ]
       },
       {

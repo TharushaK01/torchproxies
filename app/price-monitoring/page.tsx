@@ -529,16 +529,17 @@ export default function TorchProxiesLandingPage() {
                         {features.map((item, index) => (
                             <div key={index} className="flex flex-col items-start text-left">
 
-                                {/* Flame Icon Container */}
-                                <div className="w-10 h-10 rounded-full bg-[#FF4F00] flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(255,79,0,0.2)]">
-                                    {/* SVG Flame Icon */}
-                                    <svg
-                                        className="w-5 h-5 text-white fill-current"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path d="M12 23c-4.42 0-8-3.58-8-8 0-4.14 3.75-8.48 7.37-12.09.4-.4 1.05-.28 1.28.23.82 1.83 2.15 4.39 3.2 6.53.31.63-.44 1.3-1.04.88-1.57-1.12-2.82-2.45-3.5-3.33-.19-.24-.55-.13-.58.18-.32 3.17 1.05 6.03 3.65 7.64.44.27.42.94-.03 1.18C13.25 14.82 12 16.27 12 18c0 1.66 1.34 3 3 3 .81 0 1.54-.32 2.08-.85.39-.39 1.04-.21 1.18.33C19.06 21.05 15.75 23 12 23z" />
-                                    </svg>
-                                </div>
+                            <div className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden relative mb-5">
+  {/* Replacing SVG with Next.js Image Component */}
+  <Image
+    src="/images/icon/Flame.svg" // <-- Change this to your exact path inside the public/ directory
+    alt="Flame Icon"
+    width={20} // <-- Matches the w-5 (20px) from your original SVG
+    height={20} // <-- Matches the h-5 (20px) from your original SVG
+    className="object-contain w-full h-full"
+    priority
+  />
+</div>
 
                                 {/* Feature Title */}
                                 <h3 className="text-white text-[20px] font-medium tracking-tight mb-3">
