@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Flag from 'react-world-flags';
+import Image from 'next/image';
 
 const NAV_LINKS = [
   {
@@ -19,12 +20,14 @@ const NAV_LINKS = [
             description: "Perfect for everyday online tasks.",
             href: "/standard-residential-proxies",
             price: "$2.9/GB",
+            icon: "/images/icon/Standard.svg",
           },
           {
             label: "Premium Residential",
             description: "For demanding users and businesses.",
             href: "/premium-residential-proxies",
             price: "$3.4/GB",
+            icon: "/images/icon/Premium.svg",
           },
           {
             label: "Plan X Residential",
@@ -32,6 +35,7 @@ const NAV_LINKS = [
             href: "/plan-x-residential",
             price: "$3.9/GB",
             badge: "Most Popular",
+            icon: "/images/icon/PlanX.svg",
           },
         ],
       },
@@ -43,6 +47,7 @@ const NAV_LINKS = [
             description: "Static residential proxies with unlimited data.",
             href: "/isp-proxies",
             price: "$2.3/IP",
+            icon: "/images/icon/ISP.svg",
           },
         ],
       },
@@ -78,6 +83,7 @@ const NAV_LINKS = [
           href: "/b2b-dashboard",
           tag: "Starting at $0",
           tagColor: "text-orange-400 bg-orange-950/40 border border-orange-900/50",
+          icon: "/images/icon/b2b.svg", // Add path to your SVG
         },
         {
           label: "Proxy API",
@@ -85,6 +91,7 @@ const NAV_LINKS = [
           href: "/proxy-api",
           tag: "Developer friendly",
           tagColor: "text-emerald-400 bg-emerald-950/40 border border-emerald-900/50",
+          icon: "/images/icon/proxyapi.svg", // Add path to your SVG
         }
       ],
       rightCard: {
@@ -103,27 +110,27 @@ const NAV_LINKS = [
       {
         section: "Market Research",
         items: [
-          { label: "Price Monitoring", href: "/price-monitoring" },
-          { label: "SEO Monitoring", href: "/seo-monitoring" },
-          { label: "Ad Verifications", href: "/ad-verification" },
+          { label: "Price Monitoring", href: "/price-monitoring", icon: "/icon/Price.svg" },
+          { label: "SEO Monitoring", href: "/seo-monitoring", icon: "/icon/SEO.svg" },
+          { label: "Ad Verifications", href: "/ad-verification", icon: "/icon/Ad.svg" },
         ]
       },
       {
         section: "Scraping",
         items: [
-          { label: "Web Scraping", href: "/use-cases/web-scraping" }
+          { label: "Web Scraping", href: "/use-cases/web-scraping", icon: "/icon/Scraping.svg" }
         ]
       },
       {
         section: "Sneaker",
         items: [
-          { label: "Sneaker Proxies", href: "/use-cases/sneaker-proxies" }
+          { label: "Sneaker Proxies", href: "/use-cases/sneaker-proxies", icon: "/icon/Sneaker.svg" }
         ]
       },
       {
         section: "Tickets",
         items: [
-          { label: "Ticketmaster", href: "/use-cases/ticketmaster" }
+          { label: "Ticketmaster", href: "/use-cases/ticketmaster", icon: "/icon/Tickets.svg" }
         ]
       }
     ]
@@ -264,10 +271,22 @@ export default function Navbar() {
                                       href={item.href}
                                       className="flex items-center justify-between p-2 rounded-xl hover:bg-white/[0.03] transition-colors duration-150 group"
                                     >
-                                      <div className="flex items-center gap-3">
-                                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center flex-shrink-0 shadow-inner">
-                                          <div className="w-4 h-4 bg-white/30 rounded-sm transform rotate-45 group-hover:scale-110 transition-transform" />
+                                      {/* Left Side: Icon and Text Content */}
+                                      <div className="flex items-center gap-3 flex-1">
+                                        {/* Dynamically Render Custom Icon from Public Folder */}
+                                        {/* Icon Container Block */}
+                                        <div className="w-18 h-18 rounded-xl flex items-center justify-center flex-shrink-0 shadow-inner overflow-hidden relative p-2.5">
+                                          {item.icon ? (
+                                            <img
+                                              src={item.icon}
+                                              alt={item.label}
+                                              className="object-contain w-full h-full group-hover:scale-110 transition-transform duration-150"
+                                            />
+                                          ) : (
+                                            <div className="w-4 h-4 bg-white/30 rounded-sm transform rotate-45" />
+                                          )}
                                         </div>
+
                                         <div>
                                           <div className="flex items-center gap-2">
                                             <span className="text-sm font-semibold text-stone-200 group-hover:text-white">
@@ -284,12 +303,17 @@ export default function Navbar() {
                                           </p>
                                         </div>
                                       </div>
-                                      <div className="text-right flex flex-col items-end gap-0.5 pr-2">
-                                        <span className="text-[10px] uppercase text-stone-500 tracking-wider font-medium">From</span>
-                                        <span className="text-xs font-bold text-orange-400 bg-orange-500/10 border border-orange-500/20 px-2.5 py-1 rounded-md">
-                                          {item.price}
-                                        </span>
+
+                                      {/* Right Side: Clean Alignment & Vertical Divider */}
+                                      <div className="flex items-center h-12 pl-4 border-l border-white/[0.08]">
+                                        <div className="text-right flex flex-col items-end gap-1 w-20">
+                                          <span className="text-[10px] uppercase text-stone-500 tracking-wider font-medium">From</span>
+                                          <span className="text-xs font-bold text-stone-100 bg-[#2b1a14] border border-[#44281e] px-3 py-1.5 rounded-md min-w-[72px] text-center">
+                                            {item.price}
+                                          </span>
+                                        </div>
                                       </div>
+
                                     </Link>
                                   ))}
                                 </div>
@@ -340,36 +364,80 @@ export default function Navbar() {
 
                         {/* CASE 3: B2B Reseller Board Layout */}
                         {link.menuType === "reseller-mega" && !Array.isArray(link.dropdown) && (
-                          <div className="grid grid-cols-12 gap-5">
-                            <div className="col-span-7 space-y-5">
-                              <h4 className="text-stone-400 font-semibold text-xs tracking-wider uppercase opacity-50 px-1">Reseller Products</h4>
+                          <div className="grid grid-cols-12 gap-5 items-stretch">
+                            {/* Left Column: Reseller Products */}
+                            <div className="col-span-7 flex flex-col justify-between py-1">
                               <div className="space-y-4">
-                                {(link.dropdown as any).leftItems.map((item: any, idx: number) => (
-                                  <Link href={item.href} key={idx} className="block group p-1 rounded-xl hover:bg-white/[0.01]">
-                                    <div className="flex items-start gap-3.5">
-                                      <div className="w-10 h-10 rounded-xl bg-orange-600/90 flex items-center justify-center flex-shrink-0 text-white shadow-md mt-0.5">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="3" width="20" height="14" rx="2" strokeLinecap="round" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg>
-                                      </div>
-                                      <div className="flex-1 space-y-1">
-                                        <div className="flex items-center justify-between gap-2">
-                                          <span className="text-sm font-bold text-stone-200 group-hover:text-orange-400 transition-colors">{item.label}</span>
-                                          <span className={`text-[11px] font-medium px-2 py-0.5 rounded-md ${item.tagColor}`}>{item.tag}</span>
+                                <h4 className="text-stone-400 font-semibold text-xs tracking-wider uppercase opacity-60 px-1">
+                                  Reseller Products
+                                </h4>
+                                <div className="space-y-5">
+                                  {(link.dropdown as any).leftItems.map((item: any, idx: number) => (
+                                    <Link
+                                      href={item.href}
+                                      key={idx}
+                                      className="block group p-2 rounded-xl hover:bg-white/[0.03] transition-colors duration-150"
+                                    >
+                                      <div className="flex items-start gap-4">
+                                        {/* Dynamically Render Custom Icon from Public Folder */}
+                                        <div className="w-18 h-18 rounded-xl flex items-center justify-center flex-shrink-0 shadow-inner overflow-hidden relative p-2.5">
+                                          {item.icon ? (
+                                            <Image
+                                              src={item.icon}
+                                              alt={item.label}
+                                              width={24}
+                                              height={24}
+                                              className="object-contain w-full h-full group-hover:scale-110 transition-transform duration-150"
+                                              priority
+                                            />
+                                          ) : (
+                                            /* Fallback if no icon is specified */
+                                            <div className="w-4 h-4 bg-white/30 rounded-sm transform rotate-45" />
+                                          )}
                                         </div>
-                                        <p className="text-xs text-stone-400 leading-relaxed font-light">{item.description}</p>
+
+                                        {/* Content Block: Label, Badge and Description */}
+                                        <div className="flex-1 space-y-1.5">
+                                          <div className="flex items-center gap-2.5">
+                                            <span className="text-sm font-semibold text-stone-200 group-hover:text-white transition-colors">
+                                              {item.label}
+                                            </span>
+                                            <span className={`text-[10px] font-medium px-2 py-0.5 rounded-md ${item.tagColor}`}>
+                                              {item.tag}
+                                            </span>
+                                          </div>
+                                          <p className="text-xs text-stone-400 leading-normal font-normal max-w-[340px]">
+                                            {item.description}
+                                          </p>
+                                        </div>
                                       </div>
-                                    </div>
-                                  </Link>
-                                ))}
+                                    </Link>
+                                  ))}
+                                </div>
                               </div>
                             </div>
-                            <div className="col-span-5 bg-[#231510] border border-orange-950/40 rounded-2xl p-5 flex flex-col justify-between space-y-4">
-                              <div className="space-y-2">
-                                <h4 className="text-stone-100 font-bold text-base leading-snug">{(link.dropdown as any).rightCard.title}</h4>
-                                <p className="text-xs text-stone-400 leading-relaxed font-light">{(link.dropdown as any).rightCard.description}</p>
-                              </div>
+
+                            {/* Right Column: Featured Callout Card */}
+                            <div className="col-span-5 bg-[#21140f] border border-orange-950/30 rounded-2xl p-6 flex flex-col justify-between space-y-6">
                               <div className="space-y-2.5">
-                                <span className="block text-xs font-semibold text-orange-400">{(link.dropdown as any).rightCard.priceTag}</span>
-                                <Link href={(link.dropdown as any).rightCard.href} className="block w-full text-center text-xs font-semibold text-stone-300 border border-stone-700 hover:border-stone-500 bg-transparent py-2.5 rounded-xl transition-all">
+                                <h4 className="text-stone-100 font-bold text-lg leading-snug">
+                                  {(link.dropdown as any).rightCard.title}
+                                </h4>
+                                <p className="text-xs text-stone-400 leading-relaxed font-normal">
+                                  {(link.dropdown as any).rightCard.description}
+                                </p>
+                              </div>
+
+                              <div className="space-y-3">
+                                <div>
+                                  <span className="inline-block text-xs font-bold text-orange-400 bg-orange-500/10 border border-orange-500/20 px-3 py-1.5 rounded-md text-center">
+                                    {(link.dropdown as any).rightCard.priceTag}
+                                  </span>
+                                </div>
+                                <Link
+                                  href={(link.dropdown as any).rightCard.href}
+                                  className="block w-full text-center text-xs font-semibold text-stone-200 border border-stone-700 hover:border-stone-500 bg-transparent py-2.5 rounded-xl transition-all"
+                                >
                                   Learn more
                                 </Link>
                               </div>
@@ -379,17 +447,41 @@ export default function Navbar() {
 
                         {/* CASE 4: Use Cases Layout */}
                         {link.menuType === "usecases-mega" && Array.isArray(link.dropdown) && (
-                          <div className="grid grid-cols-2 gap-x-8 gap-y-5">
+                          <div className="grid grid-cols-2 gap-x-8 gap-y-4">
                             {(link.dropdown as any[]).map((col, idx) => (
                               <div key={idx} className="space-y-2">
-                                <h4 className="text-stone-500 font-medium text-xs tracking-wide border-b border-white/5 pb-1 mb-1.5">{col.section}</h4>
+                                {/* Updated Heading: Removed rigid underline style to match Screenshot 2 */}
+                                <h4 className="text-stone-400 font-semibold text-xs tracking-wider px-1">
+                                  {col.section}
+                                </h4>
+
                                 <div className="space-y-1">
                                   {col.items.map((item: any, iIdx: number) => (
-                                    <Link href={item.href} key={iIdx} className="flex items-center gap-3.5 p-2 rounded-xl hover:bg-white/[0.03] text-stone-300 hover:text-white transition-all group">
-                                      <div className="w-[38px] h-[38px] rounded-xl bg-white flex items-center justify-center flex-shrink-0 shadow-md shadow-black/50">
-                                        <div className="w-4 h-4 rounded-md bg-orange-600 group-hover:scale-110 transition-transform" />
+                                    <Link
+                                      href={item.href}
+                                      key={iIdx}
+                                      className="flex items-center gap-3.5 p-2 rounded-xl hover:bg-white/[0.03] text-stone-200 hover:text-white transition-all group"
+                                    >
+                                      {/* White Icon Canvas */}
+                                      <div className="w-[42px] h-[42px] rounded-xl bg-white flex items-center justify-center flex-shrink-0 shadow-md shadow-black/20 overflow-hidden relative p-2">
+                                        {item.icon ? (
+                                          <Image
+                                            src={item.icon}
+                                            alt={item.label}
+                                            width={22}
+                                            height={22}
+                                            className="object-contain w-full h-full group-hover:scale-110 transition-transform duration-150"
+                                            priority
+                                          />
+                                        ) : (
+                                          /* Fallback fallback box design if icon image path is missing */
+                                          <div className="w-4 h-4 rounded-md bg-orange-600" />
+                                        )}
                                       </div>
-                                      <span className="text-sm font-bold tracking-wide">{item.label}</span>
+
+                                      <span className="text-sm font-semibold tracking-wide">
+                                        {item.label}
+                                      </span>
                                     </Link>
                                   ))}
                                 </div>
