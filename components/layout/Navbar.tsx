@@ -110,27 +110,27 @@ const NAV_LINKS = [
       {
         section: "Market Research",
         items: [
-          { label: "Price Monitoring", href: "/price-monitoring", icon: "/icon/Price.svg" },
-          { label: "SEO Monitoring", href: "/seo-monitoring", icon: "/icon/SEO.svg" },
-          { label: "Ad Verifications", href: "/ad-verification", icon: "/icon/Ad.svg" },
+          { label: "Price Monitoring", href: "/price-monitoring", icon: "/images/icon/pricemonitoring.svg" },
+          { label: "SEO Monitoring", href: "/seo-monitoring", icon: "/images/icon/seomonitoring.svg" },
+          { label: "Ad Verifications", href: "/ad-verification", icon: "/images/icon/adverification.svg" },
         ]
       },
       {
         section: "Scraping",
         items: [
-          { label: "Web Scraping", href: "/use-cases/web-scraping", icon: "/icon/Scraping.svg" }
+          { label: "Web Scraping", href: "/use-cases/web-scraping", icon: "/images/icon/webscraping.svg" }
         ]
       },
       {
         section: "Sneaker",
         items: [
-          { label: "Sneaker Proxies", href: "/use-cases/sneaker-proxies", icon: "/icon/Sneaker.svg" }
+          { label: "Sneaker Proxies", href: "/use-cases/sneaker-proxies", icon: "/images/icon/sneakerproxies.svg" }
         ]
       },
       {
         section: "Tickets",
         items: [
-          { label: "Ticketmaster", href: "/use-cases/ticketmaster", icon: "/icon/Tickets.svg" }
+          { label: "Ticketmaster", href: "/use-cases/ticketmaster", icon: "/images/icon/ticketmaster.svg" }
         ]
       }
     ]
@@ -153,8 +153,18 @@ const NAV_LINKS = [
         }
       ],
       rightSide: [
-        { section: "Residential Proxies", label: "Blog", href: "/resources/blog" },
-        { section: "", label: "Documentation", href: "/resources/docs" }
+        {
+          section: "Residential Proxies",
+          label: "Blog",
+          href: "/resources/blog",
+          icon: "/images/icon/blog.svg" 
+        },
+        {
+          section: "",
+          label: "Documentation",
+          href: "/resources/docs",
+          icon: "/images/icon/documentation.svg" 
+        }
       ]
     }
   },
@@ -335,11 +345,20 @@ export default function Navbar() {
                                   key={idx}
                                   className="flex items-center justify-between p-2 rounded-xl hover:bg-white/[0.03] transition-all duration-150 group"
                                 >
-                                  <div className="flex items-center gap-3.5">
-                                    <Flag
-                                      code={country.code.toUpperCase()}
-                                      style={{ width: 35, height: 35, borderRadius: 3, objectFit: 'cover' }}
-                                    />
+                                  <div className="flex items-center gap-4">
+                                    {/* Wrapper to control sizes perfectly without distorting or cropping */}
+                                    <div className="w-12 flex items-center justify-center flex-shrink-0">
+                                      <Flag
+                                        code={country.code.toUpperCase()}
+                                        style={{
+                                          width: '100%',
+                                          height: 'auto',
+                                          borderRadius: 4,
+                                          objectFit: 'contain'
+                                        }}
+                                      />
+                                    </div>
+
                                     <div className="flex flex-col">
                                       <span className="text-sm font-bold text-stone-200 group-hover:text-white transition-colors">
                                         {country.name}
@@ -349,6 +368,7 @@ export default function Navbar() {
                                       </span>
                                     </div>
                                   </div>
+
                                   <svg
                                     width="14" height="14" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
@@ -463,7 +483,7 @@ export default function Navbar() {
                                       className="flex items-center gap-3.5 p-2 rounded-xl hover:bg-white/[0.03] text-stone-200 hover:text-white transition-all group"
                                     >
                                       {/* White Icon Canvas */}
-                                      <div className="w-[42px] h-[42px] rounded-xl bg-white flex items-center justify-center flex-shrink-0 shadow-md shadow-black/20 overflow-hidden relative p-2">
+                                      <div className="w-18 h-18 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md shadow-black/20 overflow-hidden relative p-2">
                                         {item.icon ? (
                                           <Image
                                             src={item.icon}
@@ -493,6 +513,7 @@ export default function Navbar() {
                         {/* CASE 5: Resources Column Splits Layout */}
                         {link.menuType === "resources-mega" && !Array.isArray(link.dropdown) && (
                           <div className="grid grid-cols-12 gap-6">
+                            {/* Left Side: Programs */}
                             <div className="col-span-7 space-y-7">
                               {(link.dropdown as any).leftSide.map((program: any, idx: number) => (
                                 <div key={idx} className="space-y-3">
@@ -506,14 +527,37 @@ export default function Navbar() {
                                 </div>
                               ))}
                             </div>
+
+                            {/* Right Side: Links with Images */}
                             <div className="col-span-5 space-y-4 border-l border-white/5 pl-5">
                               {(link.dropdown as any).rightSide.map((item: any, idx: number) => (
                                 <div key={idx} className="space-y-2">
-                                  {item.section && <h5 className="text-[11px] uppercase font-semibold text-stone-500 tracking-wider mb-1">{item.section}</h5>}
+                                  {item.section && (
+                                    <h5 className="text-[11px] uppercase font-semibold text-stone-500 tracking-wider mb-1">
+                                      {item.section}
+                                    </h5>
+                                  )}
                                   <Link href={item.href} className="flex items-center gap-3.5 p-2 rounded-xl hover:bg-white/[0.03] text-stone-200 hover:text-white group transition-all">
-                                    <div className="w-10 h-10 rounded-xl bg-orange-600 flex items-center justify-center text-white flex-shrink-0 shadow-inner">
-                                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V3.5A2.5 2.5 0 0 1 6.5 1H20v21H6.5A2.5 2.5 0 0 1 4 19.5z" /></svg>
+
+                                    {/* White or Gradient Canvas for Image/Icon */}
+                                    <div className="w-18 h-18 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md overflow-hidden relative p-2">
+                                      {item.icon ? (
+                                        <Image
+                                          src={item.icon}
+                                          alt={item.label}
+                                          width={22}
+                                          height={22}
+                                          className="object-contain w-full h-full group-hover:scale-110 transition-transform duration-150"
+                                          priority
+                                        />
+                                      ) : (
+                                        /* Fallback default SVG book icon if item.icon is missing */
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-stone-700">
+                                          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V3.5A2.5 2.5 0 0 1 6.5 1H20v21H6.5A2.5 2.5 0 0 1 4 19.5z" />
+                                        </svg>
+                                      )}
                                     </div>
+
                                     <span className="text-sm font-bold tracking-wide">{item.label}</span>
                                   </Link>
                                 </div>
