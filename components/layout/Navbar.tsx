@@ -124,13 +124,13 @@ const NAV_LINKS = [
       {
         section: "Sneaker",
         items: [
-          { label: "Sneaker Proxies", href: "/use-cases/sneaker-proxies", icon: "/images/icon/sneakerproxies.svg" }
+          { label: "Sneaker Proxies", href: "/sneaker-proxies", icon: "/images/icon/sneakerproxies.svg" }
         ]
       },
       {
         section: "Tickets",
         items: [
-          { label: "Ticketmaster", href: "/use-cases/ticketmaster", icon: "/images/icon/ticketmaster.svg" }
+          { label: "Ticketmaster", href: "/ticketmaster", icon: "/images/icon/ticketmaster.svg" }
         ]
       }
     ]
