@@ -56,13 +56,13 @@ const NAV_LINKS = [
       section: "Residential Proxies",
       countries: [
         { name: "United States", ips: "4,429,824 IPs", code: "us", href: "/united-states" },
-        { name: "Germany", ips: "4,429,824 IPs", code: "de", href: "/locations/de" },
-        { name: "United Kingdom", ips: "4,429,824 IPs", code: "gb", href: "/locations/uk" },
-        { name: "Australia", ips: "4,429,824 IPs", code: "au", href: "/locations/au" },
-        { name: "Canada", ips: "4,429,824 IPs", code: "ca", href: "/locations/ca" },
-        { name: "Mexico", ips: "4,429,824 IPs", code: "mx", href: "/locations/mx" },
-        { name: "China", ips: "4,429,824 IPs", code: "cn", href: "/locations/cn" },
-        { name: "France", ips: "4,429,824 IPs", code: "fr", href: "/locations/fr" },
+        { name: "Germany", ips: "4,429,824 IPs", code: "de", href: "/germany" },
+        { name: "United Kingdom", ips: "4,429,824 IPs", code: "gb", href: "/united-kingdom" },
+        { name: "Australia", ips: "4,429,824 IPs", code: "au", href: "/australia" },
+        { name: "Canada", ips: "4,429,824 IPs", code: "ca", href: "/canada" },
+        { name: "Mexico", ips: "4,429,824 IPs", code: "mx", href: "/mexico" },
+        { name: "China", ips: "4,429,824 IPs", code: "cn", href: "/china" },
+        { name: "France", ips: "4,429,824 IPs", code: "fr", href: "/france" },
       ]
     }
   },
