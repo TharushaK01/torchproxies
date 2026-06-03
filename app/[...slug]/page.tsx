@@ -18,25 +18,53 @@ export default async function CountryPage({ params }: PageProps) {
 
   try {
     // 1. Authenticate with Google
-    const formattedPrivateKey = process.env.GOOGLE_PRIVATE_KEY && !process.env.GOOGLE_PRIVATE_KEY.includes('\n')
-  ? process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n')
-  : process.env.GOOGLE_PRIVATE_KEY;
+//     const formattedPrivateKey = process.env.GOOGLE_PRIVATE_KEY && !process.env.GOOGLE_PRIVATE_KEY.includes('\n')
+//   ? process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n')
+//   : process.env.GOOGLE_PRIVATE_KEY;
+
+// const auth = new google.auth.GoogleAuth({
+//   credentials: {
+//     client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+//     private_key: formattedPrivateKey,
+//   },
+//   scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
+// });
+
+//     const sheets = google.sheets({ version: 'v4', auth });
+
+//     // 2. Fetch data from your Sheet
+//     const response = await sheets.spreadsheets.values.get({
+//       spreadsheetId: process.env.GOOGLE_SHEET_ID,
+//       range: 'Sheet1!A2:D', // Adjust range/sheet name to match your layout
+//     });
+
+
+
+const formattedPrivateKey = process.env.GOOGLE_PRIVATE_KEY
+  ? process.env.GOOGLE_PRIVATE_KEY
+      .replace(/\\n/g, '\n')       // Fixes your local single-line literal "\n" strings
+      .replace(/"/g, '')          // Removes the surrounding double quotes you have on your key
+      .replace(/ /g, '\n')        // If Vercel collapses line breaks into spaces, restore them
+      .replace(/-----BEGIN\nPRIVATE\nKEY-----/g, '-----BEGIN PRIVATE KEY-----') // Repair headers
+      .replace(/-----END\nPRIVATE\nKEY-----/g, '-----END PRIVATE KEY-----')     // Repair footers
+      .trim()
+  : undefined;
 
 const auth = new google.auth.GoogleAuth({
   credentials: {
-    client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-    private_key: formattedPrivateKey,
+    client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL, // Automatically reads torchproxies@torchproxies-automation...
+    private_key: formattedPrivateKey,                        // Automatically reads your parsed private key string
   },
   scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
 });
 
-    const sheets = google.sheets({ version: 'v4', auth });
+const sheets = google.sheets({ version: 'v4', auth });
 
-    // 2. Fetch data from your Sheet
-    const response = await sheets.spreadsheets.values.get({
-      spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: 'Sheet1!A2:D', // Adjust range/sheet name to match your layout
-    });
+// 2. Fetch data from your Sheet
+const response = await sheets.spreadsheets.values.get({
+  spreadsheetId: process.env.GOOGLE_SHEET_ID,               // Automatically reads 12B1-Z9FGS7Q_CyZviq8zrEa4...
+  range: 'Sheet1!A2:D', 
+});
 
     const rows = response.data.values;
 
