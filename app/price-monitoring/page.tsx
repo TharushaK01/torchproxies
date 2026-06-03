@@ -910,7 +910,7 @@ export default function TorchProxiesLandingPage() {
 
             {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
             {/* Upgrade CTA Banner */}
-            <section className="py-16 px-6">
+<section className="py-16 px-6">
                 <div className="max-w-6xl mx-auto">
                     <div
                         className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden"
@@ -931,30 +931,37 @@ export default function TorchProxiesLandingPage() {
                                 Join 200+ data teams who switched to Torch Proxies for their critical e commerce intelligence.
                             </p>
 
-                            <button className="px-10 py-4 bg-[#FE4A01] text-black font-medium rounded-2xl text-lg hover:bg-stone-100 transition-all active:scale-95">
+                            <button className="px-10 py-4 bg-[#FE4A01] text-white font-medium rounded-2xl text-lg hover:bg-stone-100 transition-all active:scale-95">
                                 Get started now
                             </button>
                         </div>
-                         {/* Features Inline List */}
-                        <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 items-center mb-10 mt-10 text-[16px] font-regular sm:text-sm text-zinc-200">
+
+                        <div className="relative z-10 flex flex-wrap justify-center gap-x-6 gap-y-3 items-center mb-10 mt-10 text-[16px] font-regular sm:text-sm text-white">
+                            
                             <div className="flex items-center gap-1.5">
-                                <svg className="w-4 h-4 text-[#FFF6EC] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+                                <svg className="w-4 h-4 text-[#FE4A01] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                 </svg>
                                 <span>Real-Time Price Accuracy </span>
                             </div>
+                            
                             <div className="flex items-center gap-1.5">
-                                <svg className="w-4 h-4 text-[#FFF6EC] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+                                <svg className="w-4 h-4 text-[#FE4A01] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                 </svg>
                                 <span>99% Success Rates</span>
                             </div>
+                            
                             <div className="flex items-center gap-1.5">
-                                <svg className="w-4 h-4 text-[#FFF6EC] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+                                <svg className="w-4 h-4 text-[#FE4A01] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                 </svg>
                                 <span>120M+ IPs Across 195 Countries</span>
                             </div>
+
                         </div>
                     </div>
                 </div>

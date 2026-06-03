@@ -236,21 +236,20 @@ export default function TorchProxiesLandingPage() {
     const features = [
         {
             icon: <Database className="text-white w-4 h-4" />,
-            title: "IP Reputation Blacklisting",
-            desc: "Datacenter and low-quality residential IPs are pre-flagged. Entire ASN ranges are blocked before your request is even processed."
+            title: "Browser Fingerprinting Detection",
+            desc: "Ticketmaster checks 50+ browser signals. If your fingerprint doesn’t match your IP type, you’re blocked instantly."
         },
         {
             icon: <RefreshCw className="text-white w-4 h-4" />,
-            title: "Detection Beyond IPs",
-            desc: "Modern sites analyze TLS fingerprints, request headers, and session behavior. Automation patterns trigger blocks even with rotating IPs."
+            title: "IP Reputation Scoring",
+            desc: "Akamai and Cloudflare score every IP. Datacenter and overused residential IPs are flagged before the queue even loads."
         },
         {
             icon: <Layers className="text-white w-4 h-4" />,
-            title: "CAPTCHA & Retry Traps",
-            desc: "Blocked requests lead to endless CAPTCHAs and retries, inflating costs while returning unusable data."
+            title: "Behavioral & Queue Monitoring",
+            desc: "Queue-IT tracks clicks, timing, and refresh behavior. Move too fast or too early, and your session gets reset."
         },
     ];
-    const useCases = ["Amazon", "eBay", "Shopify", "Craigslist", "Coupang", "Google", "LinkedIn", "Social Media"];
     const [activeTab, setActiveTab] = useState<'premium' | 'planX'>('premium');
 
     const reviews = [
@@ -404,21 +403,12 @@ export default function TorchProxiesLandingPage() {
 
                         {/* Heading */}
                         <h1 className="text-[60px] sm:text-5xl lg:text-[56px] font-regular tracking-tight leading-[1.1] max-w-xl text-white mb-1">
-                            Best Hybrid Proxies for Web Scraping
+                            Best Ticketmaster Proxies. Never Miss Out on Tickets Again
                         </h1>
 
                         {/* Subheading with colored emphasis */}
                         <p className="text-zinc-500 text-base md:text-lg max-w-xl mb-2 font-normal leading-relaxed select-none">
-                            Scrape{' '}
-                            <span
-                                className={`text-[#FF4F00] font-medium inline-block transition-all duration-300 transform ${fadeState === 'fade-in'
-                                    ? 'opacity-100 translate-y-0'
-                                    : 'opacity-0 -translate-y-1'
-                                    }`}
-                            >
-                                {words[currentWordIndex]}
-                            </span>{' '}
-                            without bans, CAPTCHAs or wasted retries
+                            Get Past Ticketmaster Bans Without Breaking Your Session
                         </p>
 
                         {/* Features Inline List */}
@@ -427,28 +417,28 @@ export default function TorchProxiesLandingPage() {
                                 <svg className="w-4 h-4 text-[#FF4F00] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                 </svg>
-                                <span>Clean & undetectable IPs</span>
+                                <span>97% IP Quality</span>
                             </div>
                             <div className="flex items-center gap-1.5">
                                 <svg className="w-4 h-4 text-[#FF4F00] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                 </svg>
-                                <span>99%+ Success Rate </span>
+                                <span>99.9% Success Rate</span>
                             </div>
                             <div className="flex items-center gap-1.5">
                                 <svg className="w-4 h-4 text-[#FF4F00] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                 </svg>
-                                <span>120M+ IPs across 195 countries</span>
+                                <span>Unlimited Bandwidth</span>
                             </div>
                         </div>
 
                         {/* Dual Action Buttons */}
                         <div className="flex flex-wrap gap-4 items-center w-full sm:w-auto">
                             <button className="w-full sm:w-auto px-8 py-3.5 bg-[#FF4F00] hover:bg-[#e04600] text-white font-medium text-sm rounded-xl transition duration-150 active:scale-[0.98] shadow-[0_10px_35px_rgba(255,79,0,0.25)]">
-                                Start free with 1GB
+                                Start a free trail
                             </button>
-                            <button className="w-full sm:w-50 px-8 py-3.5 bg-transparent border border-zinc-800 hover:border-zinc-700 hover:bg-zinc-900/40 text-zinc-300 hover:text-white font-medium text-sm rounded-xl transition duration-150 active:scale-[0.98]">
+                            <button className="w-full sm:w-45 px-8 py-3.5 bg-transparent border border-zinc-800 hover:border-zinc-700 hover:bg-zinc-900/40 text-zinc-300 hover:text-white font-medium text-sm rounded-xl transition duration-150 active:scale-[0.98]">
                                 View pricing
                             </button>
                         </div>
@@ -465,7 +455,7 @@ export default function TorchProxiesLandingPage() {
 
                         <div className="relative w-full max-w-[480px] aspect-[4/3]">
                             <Image
-                                src="/images/WebScraping.png" // Replace this with your actual image file path
+                                src="/images/tickets_again.png" // Replace this with your actual image file path
                                 alt="Proxy Network Infrastructure Ad Verification Illustration"
                                 fill
                                 priority
@@ -482,12 +472,12 @@ export default function TorchProxiesLandingPage() {
                 <div className="max-w-7xl mx-auto">
 
                     {/* --- HEADER SECTION --- */}
-                    <div className="text-center max-w-5xl mx-auto mb-16">
+                    <div className="text-center max-w-7xl mx-auto mb-16">
                         <h2 className="text-3xl md:text-[42px] font-medium tracking-tight text-white mb-4 leading-tight">
-                            Why Most Web Scraping Setups Fail
+                            Why Do You Keep Getting “Access Denied” on Ticketmaster?
                         </h2>
-                        <p className="text-zinc-500 text-[18px] md:text-base font-regular max-w-4xl mx-auto leading-relaxed">
-                            Most scraping failures aren’t caused by code, they’re caused by IP reputation, detection patterns and unstable sessions.                        </p>
+                        <p className="text-zinc-500 text-[18px] md:text-base font-regular max-w-5xl mx-auto leading-relaxed">
+                            Most ticket failures aren’t caused by your bot. They’re caused by IP reputation, fingerprint detection and unstable queue sessions.                        </p>
                     </div>
 
                     {/* --- FEATURES GRID --- */}
@@ -540,7 +530,7 @@ export default function TorchProxiesLandingPage() {
                                 <div className="bg-[#050505] rounded-2xl border border-gray-900/50 overflow-hidden flex items-center justify-center">
 
                                     <img
-                                        src="/images/ScrapingAccuracy.png"
+                                        src="/images/ticket_chances.png"
                                         alt="Perfect for Everyday Scraping & Automation"
                                         className="w-full h-auto object-cover rounded-2xl"
                                     />
@@ -551,25 +541,25 @@ export default function TorchProxiesLandingPage() {
                         {/* Text Side */}
                         <div className="space-y-6">
                             <h2 className="text-[42px] md:text-5xl md:leading-snug font-medium tracking-tight">
-                                Why Detection Ruins Scraping Accuracy
+                                Why Detection Ruins Your Ticket Chances
                             </h2>
                             <h4 className="text-[20px] font-medium text-stone-200 mb-4">
-                                Incomplete or Fake Data
+                                Incomplete or Killed Sessions
                             </h4>
                             <p className="text-gray-400 text-[16px] font-regular leading-relaxed">
-                                Blocked sessions return CAPTCHA pages, redirects or placeholders instead of real content.
+                                If your IP is flagged, your queue session is invalidated instantly even seconds before checkout.
                             </p>
                             <h4 className="text-[20px] font-medium text-stone-200 mb-4">
-                                Runaway Infrastructure Costs
+                                Forced Queue Re-entry
                             </h4>
                             <p className="text-gray-400 text-[16px] font-regular leading-relaxed">
-                                Retries, proxy rotation and CAPTCHA solving multiply costs without improving results.
+                                Fail a reputation check and you’re pushed back or removed from the queue. In high-demand drops, one reset means lost tickets.
                             </p>
                             <h4 className="text-[20px] font-medium text-stone-200 mb-4">
-                                Missed Coverage at Scale
+                                Checkout Timing Loss
                             </h4>
                             <p className="text-gray-400 text-[16px] font-regular leading-relaxed">
-                                Unstable proxies make it impossible to scrape consistently across regions, categories or time windows.
+                                Any delay, flag, or extra verification slows you down — and inventory sells out before you complete payment.
                             </p>
 
                         </div>
@@ -582,10 +572,10 @@ export default function TorchProxiesLandingPage() {
             {/* ── TOP HEADER SECTION ───────────────────────────────────── */}
             <div className="text-center mb-16">
                 <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white mb-4">
-                    One Proxy Built for Reliable Web Scraping
+                    One Proxy Built for High on Demand Sales
                 </h2>
                 <p className="text-stone-400 text-sm sm:text-base max-w-4xl mx-auto font-normal">
-                    A single proxy solution designed for teams that scrape at scale and can’t afford blocks, retries, or wasted spend.
+                    A single clean ISP IP can outperform 20 low quality residential IPs.
                 </p>
             </div>
             <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px]">
@@ -599,16 +589,16 @@ export default function TorchProxiesLandingPage() {
                             {/* Text Side */}
                             <div className="space-y-6">
                                 <h2 className="text-[42px] md:text-5xl font-regular tracking-tight">
-                                    Hybrid Proxies for Web Scraping
+                                    What are Ticketmaster Proxies?
                                 </h2>
                                 <p className="text-gray-400 text-lg leading-relaxed">
-                                    Built for modern scraping environments where detection resistance, consistency and cost control matter more than raw bandwidth.
+                                    Ticketmaster proxies mask your real IP address when accessing Ticketmaster, AXS, SeatGeek or See Tickets.
                                 </p>
                                 <ul className="text-gray-400 text-lg leading-relaxed">
-                                    <li>&#9679; Fewer blocks, fewer retries, cleaner data</li>
-                                    <li>&#9679; Stable sessions for complex scraping workflows</li>
-                                    <li>&#9679; One proxy type that works across all targets</li>
-                                    <li>&#9679; Better ROI at high request volumes</li>
+                                    <li>&#9679; Bypass IP-based restrictions</li>
+                                    <li>&#9679; Enter multiple queue positions</li>
+                                    <li>&#9679; Avoid geo-blocks</li>
+                                    <li>&#9679; Maintain session stability</li>
                                 </ul>
 
                             </div>
@@ -617,7 +607,7 @@ export default function TorchProxiesLandingPage() {
                             <div className="bg-[#050505] rounded-2xl border border-gray-900/50 overflow-hidden flex items-center justify-center">
 
                                 <img
-                                    src="/images/HybridProxiesforWebScraping.png"
+                                    src="/images/ticketmaster_proxies.png"
                                     alt="Perfect for Everyday Scraping & Automation"
                                     className="w-full h-auto object-cover rounded-2xl"
                                 />
@@ -631,35 +621,65 @@ export default function TorchProxiesLandingPage() {
 
 
             <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px]">
-                <div className="max-w-7xl mx-auto">
-                    <h2 className="text-3xl md:text-[42px] font-medium text-white mb-4 text-center">
-                        Why Hybrid Proxies Work for Web Scraping</h2>
-                    <p className="text-gray-400 text-[16px] leading-relaxed text-center max-w-3xl mx-auto mb-16 font">
-                        Hybrid proxies combine real residential identity with high-performance infrastructure so your scraping runs longer, costs less and fails less often.                        </p>
-                </div>
-                <div className="max-w-8xl mx-auto -mt-[100px]">
-                    <FeaturesTabSection />
+                <div className="max-w-7xl mx-auto space-y-32">
+
+                    {/* Row 1: Easy Client Management */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        {/* Visual Side */}
+                        <div className="bg-[#0d0d0d] border border-gray-800 rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
+                            <div className="bg-[#050505] rounded-2xl border border-gray-900/50 overflow-hidden flex items-center justify-center">
+
+                                <img
+                                    src="/images/win_on_ticketmaster.png"
+                                    alt="Perfect for Everyday Scraping & Automation"
+                                    className="w-full h-auto object-cover rounded-2xl"
+                                />
+                            </div>
+                        </div>
+                        <div className="relative group">
+                            {/* Text Side */}
+                            <div className="space-y-6">
+                                <h2 className="text-[42px] md:text-5xl font-regular tracking-tight">
+                                    Why Our ISP Proxies Win on Ticketmaster
+                                </h2>
+                                <p className="text-gray-400 text-lg leading-relaxed">
+                                    Ticketmaster blocks standard proxies in seconds. Our ISP proxies use real ISP assigned IPs that pass residential verification while delivering true datacenter level speed  so your session stays stable from queue to checkout.
+                                </p>
+                                <ul className="text-gray-400 text-lg leading-relaxed">
+                                    <li>&#9679; Pass Akamai and Cloudflare residential checks without triggering fraud filters.</li>
+                                    <li>&#9679; 0.12s response time fast enough to compete during high-demand on-sales.</li>
+                                    <li>&#9679; No mid queue IP rotation. Your position stays locked until checkout.</li>
+                                    <li>&#9679; Flagged IPs are removed immediately to maintain consistent pass rates.</li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
                 </div>
             </section>
 
-<section className="bg-[#0a0a0a] text-white py-24 px-4 md:px-8 font-sans -mt-[200px] flex flex-col items-center justify-center min-h-screen">
+
+<section className="bg-[#0a0a0a] text-white py-24 px-4 md:px-8 font-sans -mt-[100px] flex flex-col items-center justify-center min-h-screen">
     <div className="w-full max-w-7xl mx-auto">
 
                     {/* --- HEADER --- */}
 <div className="text-center max-w-4xl mx-auto mb-16">
             <h2 className="text-3xl md:text-[42px] font-medium tracking-tight text-white mb-4">
-                The Right Proxies for Sneaker Botting
+                The Right Proxies for Ticketmaster Drops
             </h2>
             <p className="text-zinc-500 text-sm md:text-base font-normal leading-relaxed">
-                Select the proxy type that matches your drop frequency, target platforms and tolerance for failed checkouts
+                Select the proxy type built for high demand on sales, queue stability and zero session resets.
             </p>
         </div>
 
                     {/* --- MAIN 2-COLUMN ROW SIDE-BY-SIDE --- */}
-                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-5xl mx-auto">
+                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-15 lg:gap-20 items-center max-w-7xl mx-auto">
 
                         {/* LEFT COLUMN: THE PRICING CARD */}
-                        <div className="bg-[#0A0A0A] border border-zinc-900 rounded-2xl p-6 md:p-8 flex flex-col justify-between transition-all duration-200 hover:border-zinc-800 w-full min-h-[580px]">
+                        <div className="bg-[#0A0A0A] border border-zinc-900 rounded-2xl p-6 md:p-8 flex flex-col justify-between transition-all duration-200 hover:border-zinc-800 w-[591px] min-h-[580px]">
                             <div>
                                 {/* Top Row: Icon & Badge */}
                                 <div className="flex items-center justify-between mb-6">
@@ -677,16 +697,16 @@ export default function TorchProxiesLandingPage() {
 
                                 {/* Card Title & Description */}
                                 <h3 className="text-[24px] font-medium text-white mb-1.5 tracking-tight">
-                                    Premium Residential Proxies
+                                    Hybrid Proxies
                                 </h3>
                                 <p className="text-zinc-500 text-sm font-normal mb-6 leading-relaxed max-w-sm">
-                                    Best for lightweight and regional ad checks
+                                    Built specifically for Ticketmaster, AXS  and high traffic Queue-IT events.
                                 </p>
 
                                 {/* Pricing Block */}
                                 <div className="flex items-baseline gap-2 mb-8">
                                     <span className="text-3xl md:text-4xl font-semibold text-white tracking-tight">
-                                        $4/GB
+                                        $2.2/IP
                                     </span>
                                     <span className="text-zinc-600 text-xs">per month</span>
                                 </div>
@@ -697,31 +717,37 @@ export default function TorchProxiesLandingPage() {
                                         <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span>Real residential IPs for authentic ad views</span>
+                                        <span>60% cheaper than residential proxies with better Ticketmaster pass rates</span>
                                     </li>
                                     <li className="flex items-start gap-3 text-zinc-400 text-sm font-normal leading-relaxed">
                                         <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span>Reliable for smaller verification workloads</span>
+                                        <span>20x better ROI than datacenter proxies </span>
                                     </li>
                                     <li className="flex items-start gap-3 text-zinc-400 text-sm font-normal leading-relaxed">
                                         <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span>Predictable pricing with no enterprise overhead</span>
+                                        <span>99.9% success rate</span>
                                     </li>
                                     <li className="flex items-start gap-3 text-zinc-400 text-sm font-normal leading-relaxed">
                                         <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span>Simple setup with automatic rotation</span>
+                                        <span>Sticky sessions hold your place in Queue-IT without IP rotation mid-session</span>
                                     </li>
                                     <li className="flex items-start gap-3 text-zinc-400 text-sm font-normal leading-relaxed">
                                         <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span>Ideal for spot checks, regional compliance, and creative validation</span>
+                                        <span>ISP assigned IPs to  pass Akamai Bot Manager & Cloudflare's verification</span>
+                                    </li>
+                                     <li className="flex items-start gap-3 text-zinc-400 text-sm font-normal leading-relaxed">
+                                        <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <span>0.12s response time</span>
                                     </li>
                                 </ul>
                             </div>
@@ -751,7 +777,7 @@ export default function TorchProxiesLandingPage() {
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                         </svg>
                                     </div>
-                                    <span>More successful requests per GB</span>
+                                    <span>More queue positions that actually hold</span>
                                 </li>
 
                                 <li className="flex items-center gap-3 text-zinc-300 text-sm md:text-base font-normal">
@@ -765,7 +791,7 @@ export default function TorchProxiesLandingPage() {
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                         </svg>
                                     </div>
-                                    <span>Fewer retries, blocks and CAPTCHA loops</span>
+                                    <span>Fewer blocks, resets and restriction errors</span>
                                 </li>
 
                                 <li className="flex items-center gap-3 text-zinc-300 text-sm md:text-base font-normal">
@@ -779,7 +805,7 @@ export default function TorchProxiesLandingPage() {
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                         </svg>
                                     </div>
-                                    <span>Lower cost per usable dataset</span>
+                                    <span>Faster checkout during high demand events</span>
                                 </li>
                             </ul>
 
@@ -791,7 +817,7 @@ export default function TorchProxiesLandingPage() {
 
                                 {/* Flex Logo Wrap matching your mockup configuration */}
                                 <div className="flex flex-wrap items-center justify-center">
-                                    <Image src="/images/icon/logo.svg" alt="Amazon" width={385} height={54} className="object-contain" />
+                                    <Image src="/images/icon/ticketmaster_logo.svg" alt="Amazon" width={385} height={54} className="object-contain" />
                                 </div>
                             </div>
                         </div>
@@ -913,56 +939,60 @@ export default function TorchProxiesLandingPage() {
 
 
             {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
-            {/* Upgrade CTA Banner */}
-            <section className="py-16 px-6">
-                <div className="max-w-6xl mx-auto">
-                    <div
-                        className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden"
-                        style={{
-                            background: 'linear-gradient(135deg, #ff3c006c 0%, #0a0a0a 30%, #0a0a0a 80%, #ff3c006c 100%)',
+<section className="py-16 px-6">
+    <div className="max-w-6xl mx-auto">
+        <div
+            className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden"
+            style={{
+                background: 'linear-gradient(135deg, #ff3c006c 0%, #0a0a0a 30%, #0a0a0a 80%, #ff3c006c 100%)',
+            }}
+        >
+            {/* Subtle overlay for depth */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40 rounded-3xl" />
 
-                        }}
-                    >
-                        {/* Optional subtle overlay for more depth */}
-                        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40 rounded-3xl" />
+            <div className="relative z-10 max-w-4xl mx-auto">
+                <h2 className="text-4xl md:text-5xl font-regular tracking-tight mb-6 text-white">
+                    Join users who secure tickets without getting blocked
+                </h2>
 
-                        <div className="relative z-10 max-w-4xl mx-auto">
-                            <h2 className="text-4xl md:text-5xl font-regular tracking-tight mb-6 text-white">
-                                Join teams that scrape websites without getting blocked
-                            </h2>
+                <p className="text-stone-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+                    Avoid bans. Hold your queue position. Beat the crowd.
+                </p>
 
-                            <p className="text-stone-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-                                Avoid blocks, retries and wasted data by using hybrid proxies built for steady, large-scale web scraping on both protected and open websites.
-                            </p>
+                <button className="px-10 py-4 bg-[#FE4A01] text-white font-medium rounded-2xl text-lg hover:bg-stone-100 hover:text-black transition-all active:scale-95">
+                    Start Now with ISP Proxies
+                </button>
+            </div>
 
-                            <button className="px-10 py-4 bg-[#FE4A01] text-white font-medium rounded-2xl text-lg hover:bg-stone-100 transition-all active:scale-95">
-                                Start free with 1GB
-                            </button>
-                        </div>
-                        {/* Features Inline List */}
-                        <div className="relative z-10 flex flex-wrap justify-center gap-x-6 gap-y-3 items-center mb-10 mt-10 text-[16px] font-regular sm:text-sm text-white">
-                            <div className="flex items-center gap-1.5">
-                                <svg className="w-4 h-4 text-[#FE4A01] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>No Credit Card Required </span>
-                            </div>
-                            <div className="flex items-center gap-1.5">
-                               <svg className="w-4 h-4 text-[#FE4A01] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>Set up in minutes</span>
-                            </div>
-                            <div className="flex items-center gap-1.5">
-                                <svg className="w-4 h-4 text-[#FE4A01] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>Works in 195+ countries</span>
-                            </div>
-                        </div>
-                    </div>
+            {/* Features Inline List - FIXED: Added relative, z-10, and text-white */}
+            <div className="relative z-10 flex flex-wrap justify-center gap-x-6 gap-y-3 items-center mb-10 mt-10 text-[16px] font-regular sm:text-sm text-white">
+                <div className="flex items-center gap-1.5">
+                    {/* FIXED: Changed text color to your bright red/orange brand color */}
+                    <svg className="w-4 h-4 text-[#FE4A01] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>No Credit Card Required</span>
                 </div>
-            </section>
+                
+                <div className="flex items-center gap-1.5">
+                    {/* FIXED: Changed text color to your bright red/orange brand color */}
+                    <svg className="w-4 h-4 text-[#FE4A01] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Set up in minutes</span>
+                </div>
+                
+                <div className="flex items-center gap-1.5">
+                    {/* FIXED: Changed text color to your bright red/orange brand color */}
+                    <svg className="w-4 h-4 text-[#FE4A01] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Works in 195+ countries</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             {/* FAQ SECTION */}

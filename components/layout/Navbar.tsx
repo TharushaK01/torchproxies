@@ -130,7 +130,7 @@ const NAV_LINKS = [
       {
         section: "Tickets",
         items: [
-          { label: "Ticketmaster", href: "/ticketmaster", icon: "/images/icon/ticketmaster.svg" }
+          { label: "Ticketmaster", href: "/ticketmaster-proxies", icon: "/images/icon/ticketmaster.svg" }
         ]
       }
     ]
