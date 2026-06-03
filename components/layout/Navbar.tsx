@@ -73,7 +73,7 @@ const NAV_LINKS = [
   },
   {
     label: "B2B Reseller",
-    href: "/reseller",
+    href: "/b2b-reseller",
     menuType: "reseller-mega",
     dropdown: {
       leftItems: [
