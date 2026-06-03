@@ -2,6 +2,7 @@ import React from 'react';
 import { google } from 'googleapis';
 import CountryPageClient from '@/app/[...slug]/CountryPageClient'; // We will create this next
 import { notFound } from 'next/navigation';
+export const dynamic = 'force-dynamic';
 
 interface PageProps {
   params: Promise<{ slug: string[] }>;
