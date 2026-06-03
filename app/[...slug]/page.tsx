@@ -66,6 +66,10 @@ const response = await sheets.spreadsheets.values.get({
   range: 'Sheet1!A2:D', 
 });
 
+
+
+
+
     const rows = response.data.values;
 
     if (rows && rows.length > 0) {
