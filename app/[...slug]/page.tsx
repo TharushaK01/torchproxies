@@ -41,8 +41,15 @@ const auth = new google.auth.GoogleAuth({
     const rows = response.data.values;
 
     if (rows && rows.length > 0) {
-      // Find the row matching the current active URL path slug
-      const match = rows.find((row: string[]) => row[0] === slugPath);
+  // Clean up the URL slug path: trim leading/trailing slashes and lowercase it
+  const cleanSlugPath = slugPath.replace(/^\/+|\/+$/g, '').toLowerCase().trim();
+
+  const match = rows.find((row: string[]) => {
+    if (!row[0]) return false;
+    // Clean up the Google Sheet cell value exactly the same way
+    const cleanSheetValue = row[0].replace(/^\/+|\/+$/g, '').toLowerCase().trim();
+    return cleanSheetValue === cleanSlugPath;
+  });
       
       if (match) {
         countryData = {
@@ -53,10 +60,16 @@ const auth = new google.auth.GoogleAuth({
         };
       }
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error('Failed to fetch data from Google Sheets:', error);
+    // TEMPORARY: Render the error on screen to read what Vercel sees
+    return (
+      <div style={{ padding: 40, background: '#111', color: 'red', fontFamily: 'monospace', zIndex: 99999, position: 'relative' }}>
+        <h3>🚨 Google Sheets Connection Error:</h3>
+        <p>{error.message || JSON.stringify(error)}</p>
+      </div>
+    );
   }
-
   // If no matching country row was found in your Google Sheet, trigger 404
   if (!countryData) {
     notFound();
