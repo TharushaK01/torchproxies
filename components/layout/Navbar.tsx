@@ -144,7 +144,7 @@ const NAV_LINKS = [
         {
           label: "Affiliate Program",
           description: "Industry leading commissions, fast payouts and lifetime earnings. It's time to monetise your traffic like never before",
-          href: "/resources/affiliate"
+          href: "/affiliate"
         },
         {
           label: "Reseller Program",
