@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import { useHasMounted } from "@/hooks/useHasMounted";
 import { m, type Variants, AnimatePresence } from "framer-motion";
+import { Link } from "lucide-react";
+import { useRouter } from 'next/navigation';
 
 const BRANDS = [
   {
@@ -102,6 +104,7 @@ const stagger = {
 export default function HeroSection() {
   const hasMounted = useHasMounted();
   const [index, setIndex] = useState(0);
+  const router = useRouter();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -274,19 +277,39 @@ export default function HeroSection() {
         }}
         className="relative z-10 flex items-center justify-center w-full mb-20 px-4"
       >
-        <button
-          className="
-            w-full max-w-[290px] sm:max-w-[320px] py-4 px-8 
-            bg-orange-600 hover:bg-orange-500 text-white 
-            font-bold text-base rounded-2xl tracking-[0.2px]
-            transition-all duration-200 ease-out text-center
-            shadow-[0_4px_30px_rgba(234,88,12,0.45)]
-            hover:shadow-[0_6px_35px_rgba(234,88,12,0.6)]
-            hover:scale-[1.01] active:scale-[0.99]
-          "
-        >
-          Start free with 1 GB
-        </button>
+
+
+
+<button
+  onClick={() => router.push('https://dashboard.torchproxies.com/')} 
+  className="
+    group relative overflow-hidden
+    w-full max-w-[290px] sm:max-w-[320px] h-[56px] px-8 
+    bg-orange-600 hover:bg-orange-500 text-white 
+    font-bold text-base rounded-2xl tracking-[0.2px]
+    text-center transition-all duration-200 ease-out
+    shadow-[0_4px_30px_rgba(234,88,12,0.45)]
+    hover:shadow-[0_6px_35px_rgba(234,88,12,0.6)]
+    hover:scale-[1.01] active:scale-[0.99]
+    cursor-pointer
+  "
+>
+  {/* Snappy 3D text track wrapper */}
+  <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+    
+    {/* Default State Text (Visible Initially) */}
+    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+      Start free with 1 GB
+    </span>
+    
+    {/* Hover State Text (Rolls in cleanly from below) */}
+    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/95">
+      Start free with 1 GB
+    </span>
+    
+  </div>
+</button>
+        
       </m.div>
 
       {/* ── Brands ───────────────────────────────── */}

@@ -1,6 +1,10 @@
+"use client";
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import Flag from 'react-world-flags'; 
+
 const LocationsSection = () => {
+  const router = useRouter();
   const locations = [
     { code: 'US', name: 'United States', ips: '4,429,824' },
     { code: 'GB', name: 'United Kingdom', ips: '1,449,139' },
@@ -36,9 +40,32 @@ const LocationsSection = () => {
                         We provide you access to a global network of ethical sourced proxy nodes from around the world.
                     </p>
                     
-                    <button className="bg-gradient-to-r from-orange-600 to-orange-500 px-8 py-4 rounded-xl font-bold text-white shadow-lg shadow-orange-900/20 hover:scale-105 transition-transform mb-12">
-                        View all locations
-                    </button>
+<button 
+  onClick={() => router.push('/locations')} 
+  className="
+    group relative overflow-hidden
+    bg-gradient-to-r from-orange-600 to-orange-500 
+    px-8 h-[56px] rounded-xl font-bold text-white 
+    shadow-lg shadow-orange-900/20 
+     transition-all duration-200 ease-out
+    cursor-pointer mb-12 w-60 h-50
+  "
+>
+  {/* Snappy 3D text track wrapper */}
+  <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+    
+    {/* Default State Text (Visible Initially) */}
+    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+      View all locations
+    </span>
+    
+    {/* Hover State Text (Rolls in cleanly from below) */}
+    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/95">
+      View all locations
+    </span>
+    
+  </div>
+</button>
 
                     {/* Locations Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">

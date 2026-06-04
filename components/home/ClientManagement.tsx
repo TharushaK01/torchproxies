@@ -1,7 +1,11 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
 
 const ClientManagement = () => {
+  const router = useRouter();
   return (
     <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden">
 
@@ -18,8 +22,30 @@ const ClientManagement = () => {
 
             Our Proxy Dashboard and Proxy API help resellers manage and distribute proxies efficiently.
           </p>
-          <button className="bg-gradient-to-r from-orange-600 to-orange-500 px-8 py-4 rounded-xl font-bold text-white shadow-lg shadow-orange-900/20 hover:scale-105 transition-transform mb-12 mt-5">
-            Explore B2B products
+          <button
+            onClick={() => router.push('/locations')}
+            className="
+    group relative overflow-hidden 
+    bg-gradient-to-r from-orange-600 to-orange-500 
+    px-8 rounded-xl font-bold text-white shadow-lg shadow-orange-900/20 
+    mb-12 mt-5 w-[240px] h-[56px] cursor-pointer
+    hover:scale-[1.01] active:scale-[0.99] transition-all duration-200
+  "
+          >
+            {/* 🛠️ FIXED: Changed group-hover to rotateX(-90deg) */}
+            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(-90deg)]">
+
+              {/* Default State Text (Visible Initially) */}
+              <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                Explore B2B products
+              </span>
+
+              {/* 🛠️ FIXED: Changed waiting layer starting position to rotateX(90deg) */}
+              <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(90deg)_translateZ(12px)] text-white/95">
+                Explore B2B products
+              </span>
+
+            </div>
           </button>
         </div>
 

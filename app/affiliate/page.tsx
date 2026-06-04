@@ -47,27 +47,27 @@ const Marquee: React.FC = () => (
 
 
 interface Step {
-  id: string;
-  title: string;
-  description: string;
+    id: string;
+    title: string;
+    description: string;
 }
 
 const steps: Step[] = [
-  {
-    id: '01',
-    title: 'Step One',
-    description: 'Create your affiliate account and access your unique refferal link.',
-  },
-  {
-    id: '02',
-    title: 'Step Two',
-    description: 'Share it across your content, community or ads. We’ll track every click and sale.',
-  },
-  {
-    id: '03',
-    title: 'Step Three',
-    description: 'Earn commission from every sale. Payouts are processed every 30 days.',
-  },
+    {
+        id: '01',
+        title: 'Step One',
+        description: 'Create your affiliate account and access your unique refferal link.',
+    },
+    {
+        id: '02',
+        title: 'Step Two',
+        description: 'Share it across your content, community or ads. We’ll track every click and sale.',
+    },
+    {
+        id: '03',
+        title: 'Step Three',
+        description: 'Earn commission from every sale. Payouts are processed every 30 days.',
+    },
 ];
 
 
@@ -184,15 +184,15 @@ export default function TorchProxiesLandingPage() {
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
             <header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 overflow-hidden">
- <div className="absolute inset-x-0 bottom-35 h-[600px] z-0 pointer-events-none select-none">
-    <Image
-        src="/images/hero_back.png"
-        alt=""
-        fill
-        priority
-        className="object-cover object-bottom opacity-100"
-    />
-</div>
+                <div className="absolute inset-x-0 bottom-35 h-[600px] z-0 pointer-events-none select-none">
+                    <Image
+                        src="/images/hero_back.png"
+                        alt=""
+                        fill
+                        priority
+                        className="object-cover object-bottom opacity-100"
+                    />
+                </div>
                 <div className="max-w-6xl mx-auto text-center z-10">
                     <div className="flex items-center justify-center mb-6">
                         <img
@@ -219,47 +219,47 @@ export default function TorchProxiesLandingPage() {
                         <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> No payout limits</div>
                     </div>
 
-<div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
-  
-  {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-  <button className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
-    
-    {/* Fast 3D text track wrapper */}
-    <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-      
-      {/* Default State Text */}
-      <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-        Start earning now
-      </span>
-      
-      {/* Hover State Text */}
-      <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
-        Start earning now
-      </span>
-      
-    </div>
-  </button>
-  
-  {/* --- SECONDARY BUTTON: ROLLING TEXT + BORDER INDENT --- */}
-  <button className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-700 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
-    
-    {/* Fast 3D text track wrapper */}
-    <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-      
-      {/* Default State Text */}
-      <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-        View program
-      </span>
-      
-      {/* Hover State Text */}
-      <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
-        View program
-      </span>
-      
-    </div>
-  </button>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
 
-</div>
+                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
+                        <button className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+
+                            {/* Fast 3D text track wrapper */}
+                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+                                {/* Default State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                    Start earning now
+                                </span>
+
+                                {/* Hover State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+                                    Start earning now
+                                </span>
+
+                            </div>
+                        </button>
+
+                        {/* --- SECONDARY BUTTON: ROLLING TEXT + BORDER INDENT --- */}
+                        <button className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-700 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
+
+                            {/* Fast 3D text track wrapper */}
+                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+                                {/* Default State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                    View program
+                                </span>
+
+                                {/* Hover State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
+                                    View program
+                                </span>
+
+                            </div>
+                        </button>
+
+                    </div>
 
                     <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide py-6">
                         <CreditCard className="w-4 h-4 text-stone-500" />
@@ -298,7 +298,7 @@ export default function TorchProxiesLandingPage() {
                                 Unlock Exceptional Earnings with Industry Leading Commissions
                             </h2>
                             <p className="text-gray-400 text-lg leading-relaxed">
-                               Join the TorchLabs Affiliate Program and earn more with every referral. Build sustainable income while promoting top-tier proxy solutions trusted by professionals.
+                                Join the TorchLabs Affiliate Program and earn more with every referral. Build sustainable income while promoting top-tier proxy solutions trusted by professionals.
                             </p>
                             <ul className="text-gray-400 text-lg leading-relaxed">
                                 <li>&#9679; Every 30 days payout frequency</li>
@@ -324,233 +324,233 @@ export default function TorchProxiesLandingPage() {
                         A program that rewards growth
                     </h2>
                     <p className="text-stone-400 text-sm sm:text-base max-w-2xl mx-auto font-normal leading-relaxed">
-                       Whether you're just starting out or scaling fast, TorchLabs supports you with a tiered system designed to maximize your earnings.
+                        Whether you're just starting out or scaling fast, TorchLabs supports you with a tiered system designed to maximize your earnings.
                     </p>
                 </div>
 
-<div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-    
-    {/* Card 1: Starter */}
-    <div className="border border-stone-800 bg-[#0a0a0a]/50 rounded-3xl p-10 flex flex-col items-center">
-        {/* Container wrapping your public folder image asset */}
-        <div className="w-24 h-24 relative flex items-center justify-center mb-6">
-            <Image 
-                src="/images/starter.png" // Path relative to your public folder
-                alt="Starter Trophy"
-                width={96}   // Matches your w-24 layout constraints
-                height={96}  // Matches your h-24 layout constraints
-                className="object-contain"
-                priority
-            />
-        </div>
-        <h3 className="text-xl font-medium text-white mb-3">Starter</h3>
-        <p className="text-stone-400 text-sm leading-relaxed max-w-[240px]">
-            Get paid with automatic payouts released every thirty days.
-        </p>
-    </div>
+                <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
 
-    {/* Card 2: Rising */}
-    <div className="border border-stone-800 bg-[#0a0a0a]/50 rounded-3xl p-10 flex flex-col items-center">
-        {/* Container wrapping your public folder image asset */}
-        <div className="w-24 h-24 relative flex items-center justify-center mb-6">
-            <Image 
-                src="/images/rising.png" // Path relative to your public folder
-                alt="Rising Trophy"
-                width={96} 
-                height={96}
-                className="object-contain"
-                priority
-            />
-        </div>
-        <h3 className="text-xl font-medium text-white mb-3">Rising</h3>
-        <p className="text-stone-400 text-sm leading-relaxed max-w-[240px]">
-            Level up your earnings with better commissions as performance grows.
-        </p>
-    </div>
-
-    {/* Card 3: Pro */}
-    <div className="border border-stone-800 bg-[#0a0a0a]/50 rounded-3xl p-10 flex flex-col items-center">
-        {/* Container wrapping your public folder image asset */}
-        <div className="w-24 h-24 relative flex items-center justify-center mb-6">
-            <Image 
-                src="/images/pro.png" // Path relative to your public folder
-                alt="Pro Trophy"
-                width={96} 
-                height={96}
-                className="object-contain drop-shadow-[0_0_12px_rgba(254,74,1,0.4)]" // Keeps the glowing neon effect on the image container
-                priority
-            />
-        </div>
-        <h3 className="text-xl font-medium text-white mb-3">Pro</h3>
-        <p className="text-stone-400 text-sm leading-relaxed max-w-[240px]">
-            Maximize your profits with elite-level commissions and perks.
-        </p>
-    </div>
-
-</div>
-
-
-<div className="mt-16 w-full overflow-x-auto rounded-3xl border border-stone-800 bg-[#0a0a0a]/30 backdrop-blur-sm">
-    <table className="w-full min-w-[768px] border-collapse text-left text-sm text-stone-300">
-        
-        {/* Table Header */}
-        <thead>
-            <tr className="border-b border-stone-800 bg-black/40">
-                {/* Empty top-left corner cell */}
-                <th className="p-6 w-1/4"></th>
-                
-                {/* Starter Header */}
-                <th className="p-6 w-1/4 font-normal text-white">
-                    <div className="flex items-center gap-2">
-                        <Image 
-                            src="/images/starter_.png" // Path to your public folder asset
-                            alt="Starter Trophy"
-                            width={20} 
-                            height={20}
-                            className="object-contain"
-                        />
-                        <span className="font-medium">Starter</span>
-                        <span className="text-xs text-stone-500">(Tier 1)</span>
+                    {/* Card 1: Starter */}
+                    <div className="border border-stone-800 bg-[#0a0a0a]/50 rounded-3xl p-10 flex flex-col items-center">
+                        {/* Container wrapping your public folder image asset */}
+                        <div className="w-24 h-24 relative flex items-center justify-center mb-6">
+                            <Image
+                                src="/images/starter.png" // Path relative to your public folder
+                                alt="Starter Trophy"
+                                width={96}   // Matches your w-24 layout constraints
+                                height={96}  // Matches your h-24 layout constraints
+                                className="object-contain"
+                                priority
+                            />
+                        </div>
+                        <h3 className="text-xl font-medium text-white mb-3">Starter</h3>
+                        <p className="text-stone-400 text-sm leading-relaxed max-w-[240px]">
+                            Get paid with automatic payouts released every thirty days.
+                        </p>
                     </div>
-                </th>
-                
-                {/* Rising Header */}
-                <th className="p-6 w-1/4 font-normal text-white">
-                    <div className="flex items-center gap-2">
-                        <Image 
-                            src="/images/rising_.png" // Path to your public folder asset
-                            alt="Rising Trophy"
-                            width={20} 
-                            height={20}
-                            className="object-contain"
-                        />
-                        <span className="font-medium">Rising</span>
-                        <span className="text-xs text-stone-500">(Tier 2)</span>
+
+                    {/* Card 2: Rising */}
+                    <div className="border border-stone-800 bg-[#0a0a0a]/50 rounded-3xl p-10 flex flex-col items-center">
+                        {/* Container wrapping your public folder image asset */}
+                        <div className="w-24 h-24 relative flex items-center justify-center mb-6">
+                            <Image
+                                src="/images/rising.png" // Path relative to your public folder
+                                alt="Rising Trophy"
+                                width={96}
+                                height={96}
+                                className="object-contain"
+                                priority
+                            />
+                        </div>
+                        <h3 className="text-xl font-medium text-white mb-3">Rising</h3>
+                        <p className="text-stone-400 text-sm leading-relaxed max-w-[240px]">
+                            Level up your earnings with better commissions as performance grows.
+                        </p>
                     </div>
-                </th>
-                
-                {/* Pro Header */}
-                <th className="p-6 w-1/4 font-normal text-white">
-                    <div className="flex items-center gap-2">
-                        <Image 
-                            src="/images/pro_.png" // Path to your public folder asset
-                            alt="Pro Trophy"
-                            width={20} 
-                            height={20}
-                            className="object-contain"
-                        />
-                        <span className="font-medium">Pro</span>
-                        <span className="text-xs text-stone-500">(Tier 3)</span>
+
+                    {/* Card 3: Pro */}
+                    <div className="border border-stone-800 bg-[#0a0a0a]/50 rounded-3xl p-10 flex flex-col items-center">
+                        {/* Container wrapping your public folder image asset */}
+                        <div className="w-24 h-24 relative flex items-center justify-center mb-6">
+                            <Image
+                                src="/images/pro.png" // Path relative to your public folder
+                                alt="Pro Trophy"
+                                width={96}
+                                height={96}
+                                className="object-contain drop-shadow-[0_0_12px_rgba(254,74,1,0.4)]" // Keeps the glowing neon effect on the image container
+                                priority
+                            />
+                        </div>
+                        <h3 className="text-xl font-medium text-white mb-3">Pro</h3>
+                        <p className="text-stone-400 text-sm leading-relaxed max-w-[240px]">
+                            Maximize your profits with elite-level commissions and perks.
+                        </p>
                     </div>
-                </th>
-            </tr>
-        </thead>
 
-        {/* Table Body */}
-        <tbody className="divide-y divide-stone-900">
-            
-            {/* Row 1: First Purchase Commission */}
-            <tr>
-                <td className="p-6 font-medium text-stone-400 bg-black/10">First Purchase Commission</td>
-                <td className="p-6 text-white font-medium">15%</td>
-                <td className="p-6 text-white font-medium">20%</td>
-                <td className="p-6 text-white font-medium">25%</td>
-            </tr>
+                </div>
 
-            {/* Row 2: Recurring Commission */}
-            <tr>
-                <td className="p-6 font-medium text-stone-400 bg-black/10">Recurring Commission</td>
-                <td className="p-6 text-white font-medium">8%</td>
-                <td className="p-6 text-white font-medium">10%</td>
-                <td className="p-6 text-white font-medium">12%</td>
-            </tr>
 
-            {/* Row 3: Benchmark Revenue */}
-            <tr>
-                <td className="p-6 font-medium text-stone-400 bg-black/10">Benchmark Revenue (30 Days)</td>
-                <td className="p-6 text-emerald-500 font-medium">(No minimum)</td>
-                <td className="p-6 text-emerald-500 font-medium">$5000</td>
-                <td className="p-6 text-emerald-500 font-medium">$10,000</td>
-            </tr>
+                <div className="mt-16 w-full overflow-x-auto rounded-3xl border border-stone-800 bg-[#0a0a0a]/30 backdrop-blur-sm">
+                    <table className="w-full min-w-[768px] border-collapse text-left text-sm text-stone-300">
 
-            {/* Row 4: Payouts */}
-            <tr>
-                <td className="p-6 font-medium text-stone-400 bg-black/10">Payouts</td>
-                <td className="p-6 text-stone-300">Every 30 days</td>
-                <td className="p-6 text-stone-300">Every 30 days</td>
-                <td className="p-6 text-stone-300">Every 30 days</td>
-            </tr>
+                        {/* Table Header */}
+                        <thead>
+                            <tr className="border-b border-stone-800 bg-black/40">
+                                {/* Empty top-left corner cell */}
+                                <th className="p-6 w-1/4"></th>
 
-        </tbody>
-    </table>
-</div>
+                                {/* Starter Header */}
+                                <th className="p-6 w-1/4 font-normal text-white">
+                                    <div className="flex items-center gap-2">
+                                        <Image
+                                            src="/images/starter_.png" // Path to your public folder asset
+                                            alt="Starter Trophy"
+                                            width={20}
+                                            height={20}
+                                            className="object-contain"
+                                        />
+                                        <span className="font-medium">Starter</span>
+                                        <span className="text-xs text-stone-500">(Tier 1)</span>
+                                    </div>
+                                </th>
+
+                                {/* Rising Header */}
+                                <th className="p-6 w-1/4 font-normal text-white">
+                                    <div className="flex items-center gap-2">
+                                        <Image
+                                            src="/images/rising_.png" // Path to your public folder asset
+                                            alt="Rising Trophy"
+                                            width={20}
+                                            height={20}
+                                            className="object-contain"
+                                        />
+                                        <span className="font-medium">Rising</span>
+                                        <span className="text-xs text-stone-500">(Tier 2)</span>
+                                    </div>
+                                </th>
+
+                                {/* Pro Header */}
+                                <th className="p-6 w-1/4 font-normal text-white">
+                                    <div className="flex items-center gap-2">
+                                        <Image
+                                            src="/images/pro_.png" // Path to your public folder asset
+                                            alt="Pro Trophy"
+                                            width={20}
+                                            height={20}
+                                            className="object-contain"
+                                        />
+                                        <span className="font-medium">Pro</span>
+                                        <span className="text-xs text-stone-500">(Tier 3)</span>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+
+                        {/* Table Body */}
+                        <tbody className="divide-y divide-stone-900">
+
+                            {/* Row 1: First Purchase Commission */}
+                            <tr>
+                                <td className="p-6 font-medium text-stone-400 bg-black/10">First Purchase Commission</td>
+                                <td className="p-6 text-white font-medium">15%</td>
+                                <td className="p-6 text-white font-medium">20%</td>
+                                <td className="p-6 text-white font-medium">25%</td>
+                            </tr>
+
+                            {/* Row 2: Recurring Commission */}
+                            <tr>
+                                <td className="p-6 font-medium text-stone-400 bg-black/10">Recurring Commission</td>
+                                <td className="p-6 text-white font-medium">8%</td>
+                                <td className="p-6 text-white font-medium">10%</td>
+                                <td className="p-6 text-white font-medium">12%</td>
+                            </tr>
+
+                            {/* Row 3: Benchmark Revenue */}
+                            <tr>
+                                <td className="p-6 font-medium text-stone-400 bg-black/10">Benchmark Revenue (30 Days)</td>
+                                <td className="p-6 text-emerald-500 font-medium">(No minimum)</td>
+                                <td className="p-6 text-emerald-500 font-medium">$5000</td>
+                                <td className="p-6 text-emerald-500 font-medium">$10,000</td>
+                            </tr>
+
+                            {/* Row 4: Payouts */}
+                            <tr>
+                                <td className="p-6 font-medium text-stone-400 bg-black/10">Payouts</td>
+                                <td className="p-6 text-stone-300">Every 30 days</td>
+                                <td className="p-6 text-stone-300">Every 30 days</td>
+                                <td className="p-6 text-stone-300">Every 30 days</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
 
 
             </section>
 
 
 
-<section className="bg-[#0a0a0a] text-white py-20 px-4 md:px-8 font-sans overflow-hidden">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
-        
-        {/* --- LEFT COLUMN: HEADLINE & CALL TO ACTION --- */}
-        {/* 👉 FIXED: Changed `sticky` to `lg:sticky` and `h-full` to `lg:h-full` */}
-        <div className="lg:col-span-5 flex flex-col justify-center h-auto lg:h-full lg:sticky top-24">
-          <span className="text-[#FF4F00] text-[16px] font-regular tracking-wider mb-3">
-            How it works
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-[42px] font-medium tracking-tight leading-[1.15] text-white max-w-md">
-            Start earning in 3 simple steps. no experience Needed
-          </h2>
-          <p className="text-zinc-500 text-[18px] md:text-base mt-4 max-w-md font-regular leading-relaxed">
-            From signup to payouts, we made the process effortless so you can focus on what matters, promoting and profiting
-          </p>
-          <div className="mt-8">
-            <button className="inline-flex items-center justify-center px-6 py-3.5 bg-[#FF4F00] hover:bg-[#e04600] text-white font-semi-bold text-[18px] rounded-xl transition duration-150 active:scale-[0.98] shadow-[0_8px_30px_rgb(255,79,0,0.2)]">
-              Become an affiliate now
-            </button>
-          </div>
-        </div>
+            <section className="bg-[#0a0a0a] text-white py-20 px-4 md:px-8 font-sans overflow-hidden">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
 
-        {/* --- RIGHT COLUMN: TIMELINE STEPS --- */}
-        <div className="lg:col-span-7 relative pl-2 sm:pl-6 lg:pl-12 w-full">
-          
-          {/* Vertical Center Connecting Line */}
-          {/* 👉 BONUS FIX: Added `hidden lg:block` or adjusted responsive left positions to keep the timeline track centered behind the orbs on mobile */}
-          <div 
-            className="absolute left-[34px] sm:left-[50px] lg:left-[74px] top-8 bottom-8 w-[1px] bg-zinc-900" 
-            aria-hidden="true" 
-          />
+                    {/* --- LEFT COLUMN: HEADLINE & CALL TO ACTION --- */}
+                    {/* 👉 FIXED: Changed `sticky` to `lg:sticky` and `h-full` to `lg:h-full` */}
+                    <div className="lg:col-span-5 flex flex-col justify-center h-auto lg:h-full lg:sticky top-24">
+                        <span className="text-[#FF4F00] text-[16px] font-regular tracking-wider mb-3">
+                            How it works
+                        </span>
+                        <h2 className="text-3xl md:text-4xl lg:text-[42px] font-medium tracking-tight leading-[1.15] text-white max-w-md">
+                            Start earning in 3 simple steps. no experience Needed
+                        </h2>
+                        <p className="text-zinc-500 text-[18px] md:text-base mt-4 max-w-md font-regular leading-relaxed">
+                            From signup to payouts, we made the process effortless so you can focus on what matters, promoting and profiting
+                        </p>
+                        <div className="mt-8">
+                            <button className="inline-flex items-center justify-center px-6 py-3.5 bg-[#FF4F00] hover:bg-[#e04600] text-white font-semi-bold text-[18px] rounded-xl transition duration-150 active:scale-[0.98] shadow-[0_8px_30px_rgb(255,79,0,0.2)]">
+                                Become an affiliate now
+                            </button>
+                        </div>
+                    </div>
 
-          <div className="space-y-12 relative">
-            {steps.map((step) => (
-              <div key={step.id} className="flex gap-6 sm:gap-8 items-start group">
-                
-                {/* Number Orb */}
-                <div className="relative z-10 flex items-center justify-center min-w-[52px] h-[52px] rounded-full bg-[#050505] border border-zinc-900 shadow-[0_0_15px_rgba(255,255,255,0.02)] transition duration-300 group-hover:border-zinc-800">
-                  <span className="text-white text-[24px] font-semibold tracking-wide font-mono">
-                    {step.id}
-                  </span>
+                    {/* --- RIGHT COLUMN: TIMELINE STEPS --- */}
+                    <div className="lg:col-span-7 relative pl-2 sm:pl-6 lg:pl-12 w-full">
+
+                        {/* Vertical Center Connecting Line */}
+                        {/* 👉 BONUS FIX: Added `hidden lg:block` or adjusted responsive left positions to keep the timeline track centered behind the orbs on mobile */}
+                        <div
+                            className="absolute left-[34px] sm:left-[50px] lg:left-[74px] top-8 bottom-8 w-[1px] bg-zinc-900"
+                            aria-hidden="true"
+                        />
+
+                        <div className="space-y-12 relative">
+                            {steps.map((step) => (
+                                <div key={step.id} className="flex gap-6 sm:gap-8 items-start group">
+
+                                    {/* Number Orb */}
+                                    <div className="relative z-10 flex items-center justify-center min-w-[52px] h-[52px] rounded-full bg-[#050505] border border-zinc-900 shadow-[0_0_15px_rgba(255,255,255,0.02)] transition duration-300 group-hover:border-zinc-800">
+                                        <span className="text-white text-[24px] font-semibold tracking-wide font-mono">
+                                            {step.id}
+                                        </span>
+                                    </div>
+
+                                    {/* Text Block Content */}
+                                    <div className="pt-2">
+                                        <h3 className="text-white text-[24px] font-medium tracking-tight mb-2">
+                                            {step.title}
+                                        </h3>
+                                        <p className="text-zinc-500 text-[18px] font-regular leading-relaxed max-w-lg">
+                                            {step.description}
+                                        </p>
+                                    </div>
+
+                                </div>
+                            ))}
+                        </div>
+
+                    </div>
+
                 </div>
-
-                {/* Text Block Content */}
-                <div className="pt-2">
-                  <h3 className="text-white text-[24px] font-medium tracking-tight mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-zinc-500 text-[18px] font-regular leading-relaxed max-w-lg">
-                    {step.description}
-                  </p>
-                </div>
-
-              </div>
-            ))}
-          </div>
-
-        </div>
-
-      </div>
-    </section>
+            </section>
 
 
             {/* ── SECTION 6: CORE FEATURES ─────────────────────────────────── */}
@@ -564,87 +564,87 @@ export default function TorchProxiesLandingPage() {
                         What Makes TorchLabs Stand Out
                     </h2>
                     <p className="text-stone-400 text-sm sm:text-base max-w-2xl mx-auto font-normal leading-relaxed">
-                       We’ve built our affiliate program to outperform typical industry standards, with better payouts, faster rewards and tools that help you succeed long term.
+                        We’ve built our affiliate program to outperform typical industry standards, with better payouts, faster rewards and tools that help you succeed long term.
                     </p>
                 </div>
 
-{/* --- START OF PROGRAM COMPARISON TABLE SECTION --- */}
-<div className="mt-16 w-full overflow-x-auto rounded-3xl border border-stone-800 bg-[#0a0a0a]/30 backdrop-blur-sm">
-    <table className="w-full min-w-[768px] border-collapse text-left text-sm text-stone-300">
-        
-        {/* Table Header */}
-        <thead>
-            <tr className="border-b border-stone-800 bg-black/40">
-                {/* Empty top-left cell */}
-                <th className="p-6 w-[34%]"></th>
-                
-                {/* Typical Programs Column */}
-                <th className="p-6 w-[33%] font-normal">
-                    <div className="flex flex-col gap-1">
-                        <span className="text-lg font-medium text-white tracking-tight">Typical Programs</span>
-                        <span className="text-xs text-stone-500">Average commission rates</span>
-                    </div>
-                </th>
-                
-                {/* Torchlabs Affiliate Column */}
-                <th className="p-6 w-[33%] font-normal">
-                    <div className="flex flex-col gap-1">
-                        {/* Brand Orange Accent Color */}
-                        <span className="text-lg font-medium text-[#FE4A01] tracking-tight">Torchlabs Affiliate</span>
-                        <span className="text-xs text-stone-500">High commission rates</span>
-                    </div>
-                </th>
-            </tr>
-        </thead>
+                {/* --- START OF PROGRAM COMPARISON TABLE SECTION --- */}
+                <div className="mt-16 w-full overflow-x-auto rounded-3xl border border-stone-800 bg-[#0a0a0a]/30 backdrop-blur-sm">
+                    <table className="w-full min-w-[768px] border-collapse text-left text-sm text-stone-300">
 
-        {/* Table Body */}
-        <tbody className="divide-y divide-stone-900">
-            
-            {/* Row 1: Max first commission */}
-            <tr>
-                <td className="p-6 font-medium text-stone-400 bg-black/10">Max first commission</td>
-                <td className="p-6 text-stone-400">10 - 20%</td>
-                <td className="p-6 text-white font-medium">Up to 25%</td>
-            </tr>
+                        {/* Table Header */}
+                        <thead>
+                            <tr className="border-b border-stone-800 bg-black/40">
+                                {/* Empty top-left cell */}
+                                <th className="p-6 w-[34%]"></th>
 
-            {/* Row 2: Recurring Commission */}
-            <tr>
-                <td className="p-6 font-medium text-stone-400 bg-black/10">Recurring Commission</td>
-                <td className="p-6 text-stone-400">5 - 10%</td>
-                <td className="p-6 text-white font-medium">Up to 12%</td>
-            </tr>
+                                {/* Typical Programs Column */}
+                                <th className="p-6 w-[33%] font-normal">
+                                    <div className="flex flex-col gap-1">
+                                        <span className="text-lg font-medium text-white tracking-tight">Typical Programs</span>
+                                        <span className="text-xs text-stone-500">Average commission rates</span>
+                                    </div>
+                                </th>
 
-            {/* Row 3: Cookie Duration */}
-            <tr>
-                <td className="p-6 font-medium text-stone-400 bg-black/10">Cookie Duration</td>
-                <td className="p-6 text-stone-400">30 days or less</td>
-                <td className="p-6 text-white font-medium">60 days</td>
-            </tr>
+                                {/* Torchlabs Affiliate Column */}
+                                <th className="p-6 w-[33%] font-normal">
+                                    <div className="flex flex-col gap-1">
+                                        {/* Brand Orange Accent Color */}
+                                        <span className="text-lg font-medium text-[#FE4A01] tracking-tight">Torchlabs Affiliate</span>
+                                        <span className="text-xs text-stone-500">High commission rates</span>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
 
-            {/* Row 4: Payouts */}
-            <tr>
-                <td className="p-6 font-medium text-stone-400 bg-black/10">Payouts</td>
-                <td className="p-6 text-stone-400">35 - 50 days</td>
-                <td className="p-6 text-white font-medium">Every 30 days</td>
-            </tr>
+                        {/* Table Body */}
+                        <tbody className="divide-y divide-stone-900">
 
-            {/* Row 5: Bonus incentives */}
-            <tr>
-                <td className="p-6 font-medium text-stone-400 bg-black/10">Bonus incentives</td>
-                <td className="p-6 text-stone-400">Rare or none</td>
-                <td className="p-6 text-white font-medium">Top 3 monthly</td>
-            </tr>
+                            {/* Row 1: Max first commission */}
+                            <tr>
+                                <td className="p-6 font-medium text-stone-400 bg-black/10">Max first commission</td>
+                                <td className="p-6 text-stone-400">10 - 20%</td>
+                                <td className="p-6 text-white font-medium">Up to 25%</td>
+                            </tr>
 
-            {/* Row 6: Marketing Assets */}
-            <tr>
-                <td className="p-6 font-medium text-stone-400 bg-black/10">Marketing Assets</td>
-                <td className="p-6 text-stone-400">Often unavailable</td>
-                <td className="p-6 text-white font-medium">Monthly packs</td>
-            </tr>
+                            {/* Row 2: Recurring Commission */}
+                            <tr>
+                                <td className="p-6 font-medium text-stone-400 bg-black/10">Recurring Commission</td>
+                                <td className="p-6 text-stone-400">5 - 10%</td>
+                                <td className="p-6 text-white font-medium">Up to 12%</td>
+                            </tr>
 
-        </tbody>
-    </table>
-</div>
+                            {/* Row 3: Cookie Duration */}
+                            <tr>
+                                <td className="p-6 font-medium text-stone-400 bg-black/10">Cookie Duration</td>
+                                <td className="p-6 text-stone-400">30 days or less</td>
+                                <td className="p-6 text-white font-medium">60 days</td>
+                            </tr>
+
+                            {/* Row 4: Payouts */}
+                            <tr>
+                                <td className="p-6 font-medium text-stone-400 bg-black/10">Payouts</td>
+                                <td className="p-6 text-stone-400">35 - 50 days</td>
+                                <td className="p-6 text-white font-medium">Every 30 days</td>
+                            </tr>
+
+                            {/* Row 5: Bonus incentives */}
+                            <tr>
+                                <td className="p-6 font-medium text-stone-400 bg-black/10">Bonus incentives</td>
+                                <td className="p-6 text-stone-400">Rare or none</td>
+                                <td className="p-6 text-white font-medium">Top 3 monthly</td>
+                            </tr>
+
+                            {/* Row 6: Marketing Assets */}
+                            <tr>
+                                <td className="p-6 font-medium text-stone-400 bg-black/10">Marketing Assets</td>
+                                <td className="p-6 text-stone-400">Often unavailable</td>
+                                <td className="p-6 text-white font-medium">Monthly packs</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
             </section>
 
 
@@ -659,7 +659,7 @@ export default function TorchProxiesLandingPage() {
                         Why Partner with TorchLabs?
                     </h2>
                     <p className="text-stone-400 text-sm sm:text-base max-w-2xl mx-auto font-normal leading-relaxed">
-                       Built for long term earners, not one time promoters. Here’s what makes our affiliate program stand out
+                        Built for long term earners, not one time promoters. Here’s what makes our affiliate program stand out
                     </p>
                 </div>
 

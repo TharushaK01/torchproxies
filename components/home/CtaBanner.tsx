@@ -1,8 +1,11 @@
-"use client";
+'use client';
+
+import { useRouter } from 'next/navigation';
 
 import React from 'react';
 
 const CtaBanner = () => {
+  const router = useRouter();
   return (
     <section className="bg-[#0a0a0a] py-20 px-6">
       <div className="max-w-7xl mx-auto">
@@ -27,8 +30,31 @@ const CtaBanner = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button className="bg-[#ffffff] hover:bg-[#e63e00] md:text-[16px] text-black px-10 py-4 rounded-xl font-bold transition-all shadow-lg shadow-orange-900/20">
-                  Get Started Now
+                <button
+                  onClick={() => router.push('/locations')}
+                  className="
+    group relative overflow-hidden cursor-pointer
+    w-[240px] h-[56px] px-10 rounded-xl font-bold 
+    bg-white text-black text-base
+    shadow-lg shadow-orange-900/20 
+    hover:scale-[1.01] active:scale-[0.99] 
+    transition-all duration-200
+  "
+                >
+                  {/* Snappy 3D text track wrapper */}
+                  <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(-90deg)]">
+
+                    {/* Default State Text (Visible Initially) */}
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)] text-black">
+                      Get Started Now
+                    </span>
+
+                    {/* 🛠️ FIXED: Changed from text-white/95 to text-stone-900 so it remains visible on the white button */}
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(90deg)_translateZ(12px)] text-black">
+                      Get Started Now
+                    </span>
+
+                  </div>
                 </button>
               </div>
             </div>

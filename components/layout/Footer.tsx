@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from 'next/image';
 
 const FOOTER_COLUMNS = [
   {
@@ -163,7 +164,7 @@ export default function Footer() {
 
           {/* ── Brand column ──────────────────────────────── */}
           <div className="flex flex-col gap-5">
-            <Link href="/" className="flex items-center gap-2.5">
+            {/* <Link href="/" className="flex items-center gap-2.5">
               <div className="w-8 h-8 flex items-center justify-center relative">
                 <div className="absolute inset-0 bg-orange-500 rounded-full opacity-20 blur-md" />
                 <svg width="22" height="26" viewBox="0 0 22 26" fill="none" className="relative z-10">
@@ -181,7 +182,18 @@ export default function Footer() {
               <span className="text-white font-bold text-lg tracking-tight">
                 <span className="text-orange-500">Torch</span>Proxies
               </span>
-            </Link>
+            </Link> */}
+            <Link href="/" className="flex items-center">
+  <div className="relative w-36 h-9"> {/* Easily adjust width and height to fit your exact logo's aspect ratio */}
+    <Image
+      src="/images/footerlogo.svg" // Path relative to your public folder
+      alt="Torchlabs Logo"
+      fill
+      className="object-contain object-left"
+      priority
+    />
+  </div>
+</Link>
 
             {/* Status indicators */}
             <div className="flex items-center gap-2">

@@ -1,7 +1,10 @@
+'use client';
 import React from 'react';
 import { Check } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const PricingSection = () => {
+  const router = useRouter();
   const topFeatures = [
     "HTTP & Socks",
     "Secure checkout with SSL encryption",
@@ -15,7 +18,7 @@ const PricingSection = () => {
       name: "Standard",
       desc: "Perfect for everyday online tasks.",
       price: "From $4/GB per month",
-      icon: "/images/Standard.svg", // ✅ Updated to your public media directory path
+      icon: "/images/Standard.svg",
       features: [
         "Premium residential IPs",
         "Rotating and sticky sessions",
@@ -31,7 +34,7 @@ const PricingSection = () => {
       desc: "For demanding users and businesses.",
       price: "From $4.5/GB per month",
       highlight: "Best Value",
-      icon: "/images/Premium.svg", // ✅ Updated to your public media directory path
+      icon: "/images/Premium.svg",
       featured: true,
       features: [
         "Premium residential IPs",
@@ -47,7 +50,7 @@ const PricingSection = () => {
       name: "Plan X",
       desc: "Perfect for top tier performance.",
       price: "From $5/GB per month",
-      icon: "/images/PlanX.svg", // ✅ Updated to your public media directory path
+      icon: "/images/PlanX.svg",
       features: [
         "Authentic residential proxies with dedicated ISP pools",
         "Rotating and sticky sessions",
@@ -85,24 +88,23 @@ const PricingSection = () => {
         {plans.map((plan, i) => (
           <div
             key={i}
-            className={`relative p-8 rounded-2xl border-2 flex flex-col justify-between transition-all ${
-              plan.featured
+            className={`relative p-8 rounded-2xl border-2 flex flex-col justify-between transition-all ${plan.featured
                 ? 'border-orange-600 bg-gradient-to-b from-[#1a0d00] to-black shadow-[0_0_30px_rgba(234,88,12,0.2)]'
                 : 'border-gray-800 bg-[#0a0a0a]'
-            }`}
+              }`}
           >
             <div>
               <div className="flex items-center gap-4 mb-4">
-                
+
                 {/* ── Updated Icon Box (Handles image files instead of raw string text emojis) ── */}
                 <div className="w-20 h-20 rounded-xl flex items-center justify-center p-2.5 shrink-0">
-                  <img 
-                    src={plan.icon} 
-                    alt={`${plan.name} plan icon`} 
-                    className="w-full h-full object-contain filter brightness-110" 
+                  <img
+                    src={plan.icon}
+                    alt={`${plan.name} plan icon`}
+                    className="w-full h-full object-contain filter brightness-110"
                   />
                 </div>
-                
+
                 <div>
                   <h3 className="text-xl font-bold">{plan.name}</h3>
                   <p className="text-gray-400 text-sm">{plan.desc}</p>
@@ -131,13 +133,33 @@ const PricingSection = () => {
             </div>
 
             <button
-              className={`w-full py-3.5 px-6 font-bold rounded-xl transition-all duration-200 ${
-                plan.featured
-                  ? 'bg-orange-600 text-white hover:bg-orange-500 shadow-[0_4px_20px_rgba(234,88,12,0.3)]'
+              onClick={() => {
+                if (plan.featured) {
+                  router.push('https://dashboard.torchproxies.com/');
+                } else {
+                  router.push('https://dashboard.torchproxies.com/');
+                }
+              }}
+              className={`group relative overflow-hidden w-full h-[52px] px-6 font-bold rounded-xl transition-all duration-200 ease-out hover:scale-[1.01] active:scale-[0.99] cursor-pointer ${plan.featured
+                  ? 'bg-orange-600 text-white hover:bg-orange-500 shadow-[0_4px_20px_rgba(234,88,12,0.3)] hover:shadow-[0_6px_25px_rgba(234,88,12,0.45)]'
                   : 'bg-transparent text-gray-200 border border-gray-700 hover:border-gray-500 hover:bg-white/5'
-              }`}
+                }`}
             >
-              Try for free
+              {/* Snappy 3D text track wrapper */}
+              <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+                {/* Default State Text */}
+                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                  Try for free
+                </span>
+
+                {/* Hover State Text */}
+                <span className={`absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] ${plan.featured ? 'text-white/95' : 'text-white'
+                  }`}>
+                  Try for free
+                </span>
+
+              </div>
             </button>
           </div>
         ))}
@@ -151,10 +173,10 @@ const PricingSection = () => {
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-4">
                 <div className="w-15 h-15 rounded-xl flex items-center justify-center text-2xl shrink-0">
-                  <img 
-                    src="/images/ISP.svg" 
-                    alt="ISP plan icon" 
-                    className="w-full h-full object-contain filter brightness-110" 
+                  <img
+                    src="/images/ISP.svg"
+                    alt="ISP plan icon"
+                    className="w-full h-full object-contain filter brightness-110"
                   />
                 </div>
                 <div>
@@ -182,8 +204,31 @@ const PricingSection = () => {
             </div>
           </div>
 
-          <button className="w-full bg-transparent text-gray-200 border border-gray-700 hover:border-gray-500 py-3.5 rounded-xl font-bold hover:bg-white/5 transition-all">
-            Try for free
+          <button
+            onClick={() => router.push('https://dashboard.torchproxies.com/')}
+            className="
+    group relative overflow-hidden
+    w-full h-[52px] px-6
+    bg-transparent text-gray-200 border border-gray-700 
+    hover:border-gray-500 font-bold rounded-xl 
+    hover:bg-white/5 transition-all duration-200 ease-out 
+    hover:scale-[1.01] active:scale-[0.99] cursor-pointer
+  "
+          >
+            {/* Snappy 3D text track wrapper */}
+            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+              {/* Default State Text (Visible Initially) */}
+              <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)] text-gray-200">
+                Try for free
+              </span>
+
+              {/* Hover State Text (Rolls in cleanly from below, slightly brighter white) */}
+              <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
+                Try for free
+              </span>
+
+            </div>
           </button>
         </div>
 
@@ -197,8 +242,31 @@ const PricingSection = () => {
               For enterprise that needs additional data, security, control and more support
             </div>
           </div>
-          <button className="w-full bg-transparent text-gray-200 border border-gray-700 hover:border-gray-500 py-3.5 rounded-xl font-bold hover:bg-white/5 transition-all">
-            Get a quote
+          <button
+            onClick={() => router.push('https://dashboard.torchproxies.com/')}
+            className="
+    group relative overflow-hidden
+    w-full h-[52px] px-6
+    bg-transparent text-gray-200 border border-gray-700 
+    hover:border-gray-500 font-bold rounded-xl 
+    hover:bg-white/5 transition-all duration-200 ease-out 
+    hover:scale-[1.01] active:scale-[0.99] cursor-pointer
+  "
+          >
+            {/* Snappy 3D text track wrapper */}
+            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+              {/* Default State Text (Visible Initially) */}
+              <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)] text-gray-200">
+                Get a quote
+              </span>
+
+              {/* Hover State Text (Rolls in cleanly from below) */}
+              <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
+                Get a quote
+              </span>
+
+            </div>
           </button>
         </div>
       </div>

@@ -1,12 +1,13 @@
 "use client";
+import { useRouter } from 'next/navigation';
 import Image from "next/image";
 import React from 'react';
 
 const ContactSection = () => {
+  const router = useRouter();
   return (
 
     <section className="relative overflow-hidden bg-[#0a0a0a] text-white py-24 px-6">
-
 
       <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
         <Image
@@ -14,12 +15,10 @@ const ContactSection = () => {
           alt=""
           fill
           priority
-          /* Changed object-contain to object-cover and added object-bottom */
           className="object-cover object-bottom opacity-100"
         />
       </div>
 
-      {/* 3. ── Content Grid Layer (Kept purely for structure layout) ── */}
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
 
         {/* Left Side: Contact Info */}
@@ -47,6 +46,7 @@ const ContactSection = () => {
         {/* Right Side: Contact Form */}
         <div className="lg:col-span-8 bg-[#0a0a0a]/90 backdrop-blur-sm border border-gray-800 rounded-[32px] p-8 md:p-12">
           <form className="space-y-10" onSubmit={(e) => e.preventDefault()}>
+
             {/* Top Row: Name and Email */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               <div className="relative group">
@@ -95,12 +95,14 @@ const ContactSection = () => {
               />
             </div>
 
-            {/* Submit Button */}
+            {/* 🛠️ Submit Button (Isolated Hover Scope) */}
             <button
               type="submit"
-              className="w-full bg-[#ff4500] hover:bg-[#e63e00] text-white py-3 rounded-2xl font-medium text-lg transition-all shadow-lg shadow-orange-900/20 active:scale-[0.98]"
-            >
-              Send message
+              className="overflow-hidden cursor-pointer
+    w-full h-[52px] rounded-2xl font-semibold text-base text-white
+    bg-[#ff4500] shadow-lg shadow-orange-900/20 
+  ">
+                  Send message
             </button>
           </form>
         </div>
