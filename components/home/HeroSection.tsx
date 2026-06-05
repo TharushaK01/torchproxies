@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import { useHasMounted } from "@/hooks/useHasMounted";
 import { m, type Variants, AnimatePresence } from "framer-motion";
-import { Link } from "lucide-react";
 import { useRouter } from 'next/navigation';
 
 const BRANDS = [
@@ -102,6 +101,7 @@ const stagger = {
 };
 
 export default function HeroSection() {
+  
   const hasMounted = useHasMounted();
   const [index, setIndex] = useState(0);
   const router = useRouter();

@@ -162,7 +162,7 @@ const NAV_LINKS = [
         {
           section: "",
           label: "Documentation",
-          href: "/resources/docs",
+          href: "/documentation",
           icon: "/images/icon/documentation.svg" 
         }
       ]
@@ -574,7 +574,7 @@ export default function Navbar() {
 
               {/* Dashboard Action */}
               <Link
-                href="https://dashboard.torchproxies.com"
+                href="https://dashboard.torchproxies.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="ml-1 px-4 py-1.5 rounded-lg text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 transition-all duration-200 shadow-[0_0_16px_rgba(234,88,12,0.4)] whitespace-nowrap"

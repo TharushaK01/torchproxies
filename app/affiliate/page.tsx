@@ -1,10 +1,9 @@
 "use client";
 import React, { useState } from 'react';
-import { Check, ChevronDown, Shield, Zap, Globe, BarChart3, Activity, Sliders } from 'lucide-react';
-import Flag from 'react-world-flags';
+import { Check, ChevronDown } from 'lucide-react';
 import { Database, RefreshCw, Layers, ShieldCheck, Infinity, Tag, CreditCard } from 'lucide-react';
-import UseCasesSection from '@/components/home/UseCasesSection';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 
 const Marquee: React.FC = () => (
@@ -73,45 +72,9 @@ const steps: Step[] = [
 
 
 export default function TorchProxiesLandingPage() {
+    const router = useRouter();
     const [activeFaq, setActiveFaq] = useState<number | null>(null);
-    const [selectedTier, setSelectedTier] = useState<string>("5GB");
 
-    const barConfigs = Array.from({ length: 32 }, (_, i) => ({
-        id: i,
-        isActive: true,
-        isDimmed: i >= 30
-    }));
-    const locations = [
-        { code: 'US', name: 'United States', ips: '4,429,824' },
-        { code: 'GB', name: 'United Kingdom', ips: '1,449,139' },
-        { code: 'DE', name: 'Germany', ips: '1,431,960' },
-        { code: 'AU', name: 'Australia', ips: '452,720' },
-        { code: 'CA', name: 'Canada', ips: '815,658' },
-        { code: 'MX', name: 'Mexico', ips: '4,429,824' },
-        { code: 'CN', name: 'China', ips: '4,429,824' },
-        { code: 'FR', name: 'France', ips: '4,429,824' },
-    ];
-
-
-    const pricingData = {
-        "1GB": { price: "$4.00", total: "$4.00", perGb: "$4/GB" },
-        "5GB": { price: "$3.80", total: "$19.00", perGb: "$3.80/GB", popular: true },
-        "25GB": { price: "$3.50", total: "$87.50", perGb: "$3.50/GB" },
-        "100GB": { price: "$3.00", total: "$300.00", perGb: "$3.00/GB" },
-        "500GB": { price: "$2.50", total: "$1,250.00", perGb: "$2.50/GB" },
-        "1000GB": { price: "$2.00", total: "$2,000.00", perGb: "$2.00/GB" },
-    };
-    const [selectedPlan, setSelectedPlan] = useState('1GB');
-
-    // Hardcoded pricing tiers matching the design exactly
-    const tiers = [
-        { id: '1GB', size: '1GB', price: '$ 5', discount: '0% OFF' },
-        { id: '5GB', size: '5GB', price: '$ 4.75', discount: '5.56% OFF' },
-        { id: '25GB', size: '25GB', price: '$ 4.50', discount: '11.11% OFF' },
-        { id: '100GB', size: '100GB', price: '$ 4.25', discount: '16.67% OFF' },
-        { id: '500GB', size: '500GB', price: '$ 4.00', discount: '22.22% OFF' },
-        { id: '1000GB', size: '1000GB', price: '$ 3.90', discount: '24.44% OFF' },
-    ];
     const features = [
         {
             icon: <Database className="text-white w-4 h-4" />,
@@ -144,8 +107,6 @@ export default function TorchProxiesLandingPage() {
             desc: "Access fresh creative assets monthly to support stronger promotions."
         }
     ];
-    const useCases = ["Social Media", "Web Scraping", "Gaming", "Online Market", "Sneaker"];
-    const [activeTab, setActiveTab] = useState<'premium' | 'planX'>('premium');
 
     const reviews = [
         { name: "Alex K.", role: "Lead Scraping Engineer", text: "Absolute game changer for parsing target inventory updates. The success parameters are consistently stable." },
@@ -222,7 +183,7 @@ export default function TorchProxiesLandingPage() {
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
 
                         {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                        <button className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
 
                             {/* Fast 3D text track wrapper */}
                             <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
