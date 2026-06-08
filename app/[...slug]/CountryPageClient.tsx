@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import { Check, ChevronDown, Database, RefreshCw, Layers, ShieldCheck, CreditCard } from 'lucide-react';
-import Flag from 'react-world-flags';
 import Image from "next/image";
+import { useRouter } from 'next/navigation';
 
 interface CountryPageClientProps {
   data: {
@@ -51,6 +51,7 @@ const Marquee: React.FC = () => {
 
 // ── MAIN EXPORTABLE INTERFACE MODULE ───────────────────────────────────
 export default function CountryPageClient({ data }: CountryPageClientProps) {
+    const router = useRouter();
     const { countryName, countryCode, ispCount } = data;
     const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
@@ -186,9 +187,38 @@ export default function CountryPageClient({ data }: CountryPageClientProps) {
                     </div>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
-                        <button className="px-8 py-3 bg-orange-600 hover:bg-orange-500 text-white font-semibold rounded-xl transition-all duration-200 shadow-[0_0_30px_rgba(234,88,12,0.4)] hover:scale-[1.01] whitespace-nowrap">
+                         <button
+                        onClick={() => router.push('https://dashboard.torchproxies.com/')}
+                        className="
+    group relative overflow-hidden
+    w-full max-w-[400px] sm:max-w-[400px] h-[56px] px-8 
+    bg-orange-600 hover:bg-orange-500 text-white 
+    font-bold text-base rounded-2xl tracking-[0.2px]
+    text-center transition-all duration-200 ease-out
+    shadow-[0_4px_30px_rgba(234,88,12,0.45)]
+    hover:shadow-[0_6px_35px_rgba(234,88,12,0.6)]
+    hover:scale-[1.01] active:scale-[0.99]
+    cursor-pointer
+  "
+                    >
+                        {/* Snappy 3D text track wrapper */}
+                        <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+                            {/* Default State Text (Visible Initially) */}
+                            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                Buy {countryName} Residential Proxies
+                            </span>
+
+                            {/* Hover State Text (Rolls in cleanly from below) */}
+                            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/95">
+                                Buy {countryName} Residential Proxies
+                            </span>
+
+                        </div>
+                    </button>
+                        {/* <button className="px-8 py-3 bg-orange-600 hover:bg-orange-500 text-white font-semibold rounded-xl transition-all duration-200 shadow-[0_0_30px_rgba(234,88,12,0.4)] hover:scale-[1.01] whitespace-nowrap">
                             Buy {countryName} Residential Proxies
-                        </button>
+                        </button> */}
                     </div>
 
                     <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide py-6">
@@ -244,8 +274,34 @@ export default function CountryPageClient({ data }: CountryPageClientProps) {
                                     ))}
                                 </ul>
                             </div>
-                            <button className={`w-full py-3.5 px-6 font-bold rounded-xl transition-all duration-200 ${plan.featured ? 'bg-orange-600 text-white hover:bg-orange-500 shadow-[0_4px_20px_rgba(234,88,12,0.3)]' : 'bg-transparent text-gray-200 border border-gray-700 hover:border-gray-500 hover:bg-white/5'}`}>
-                                Try for free
+                            <button
+                                onClick={() => {
+                                    if (plan.featured) {
+                                        router.push('https://dashboard.torchproxies.com/');
+                                    } else {
+                                        router.push('https://dashboard.torchproxies.com/');
+                                    }
+                                }}
+                                className={`group relative overflow-hidden w-full h-[52px] px-6 font-bold rounded-xl transition-all duration-200 ease-out hover:scale-[1.01] active:scale-[0.99] cursor-pointer ${plan.featured
+                                    ? 'bg-orange-600 text-white hover:bg-orange-500 shadow-[0_4px_20px_rgba(234,88,12,0.3)] hover:shadow-[0_6px_25px_rgba(234,88,12,0.45)]'
+                                    : 'bg-transparent text-gray-200 border border-gray-700 hover:border-gray-500 hover:bg-white/5'
+                                    }`}
+                            >
+                                {/* Snappy 3D text track wrapper */}
+                                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+                                    {/* Default State Text */}
+                                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                        Try for free
+                                    </span>
+
+                                    {/* Hover State Text */}
+                                    <span className={`absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] ${plan.featured ? 'text-white/95' : 'text-white'
+                                        }`}>
+                                        Try for free
+                                    </span>
+
+                                </div>
                             </button>
                         </div>
                     ))}
