@@ -782,10 +782,27 @@ export default function TorchProxiesLandingPage() {
                                 </ul>
                             </div>
 
-                            {/* Action Button */}
-                            <button className="w-full py-3.5 px-4 bg-[#FF4F00] hover:bg-[#e04600] text-white font-medium text-sm rounded-xl transition duration-150 active:scale-[0.98]">
-                                Try risk free now
-                            </button>
+                                           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
+
+                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
+                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative w-full h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+
+                            {/* Fast 3D text track wrapper */}
+                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+                                {/* Default State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                   Try risk free now
+                                </span>
+
+                                {/* Hover State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+                                    Try risk free now
+                                </span>
+
+                            </div>
+                        </button>
+                        </div>
                         </div>
 
                         {/* RIGHT COLUMN: INFORMATION DISPLAY & TARGET LOGOS */}
@@ -988,10 +1005,31 @@ export default function TorchProxiesLandingPage() {
                 <p className="text-stone-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
                     Avoid bans. Hold your queue position. Beat the crowd.
                 </p>
+                                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
 
-                <button className="px-10 py-4 bg-[#FE4A01] text-white font-medium rounded-2xl text-lg hover:bg-stone-100 hover:text-black transition-all active:scale-95">
+                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
+                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative  w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+
+                            {/* Fast 3D text track wrapper */}
+                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+                                {/* Default State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                   Start Now with ISP Proxies
+                                </span>
+
+                                {/* Hover State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+                                    Start Now with ISP Proxies
+                                </span>
+
+                            </div>
+                        </button>
+                        </div>
+
+                {/* <button className="px-10 py-4 bg-[#FE4A01] text-white font-medium rounded-2xl text-lg hover:bg-stone-100 hover:text-black transition-all active:scale-95">
                     Start Now with ISP Proxies
-                </button>
+                </button> */}
             </div>
 
             {/* Features Inline List - FIXED: Added relative, z-10, and text-white */}

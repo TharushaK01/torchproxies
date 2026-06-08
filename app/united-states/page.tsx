@@ -1,11 +1,9 @@
 "use client";
 import React, { useState } from 'react';
-import { Check, ChevronDown, Shield, Zap, Globe, BarChart3, Activity, Sliders } from 'lucide-react';
-import { p } from 'framer-motion/m';
-import Flag from 'react-world-flags';
-import { Database, RefreshCw, Layers, ShieldCheck, Infinity, Tag, CreditCard } from 'lucide-react';
-import UseCasesSection from '@/components/home/UseCasesSection';
+import { Check, ChevronDown, } from 'lucide-react';
+import { Database, RefreshCw, Layers, ShieldCheck, CreditCard } from 'lucide-react';
 import Image from "next/image";
+import { useRouter } from 'next/navigation';
 
 
 
@@ -48,6 +46,7 @@ const Marquee: React.FC = () => (
 );
 
 export default function TorchProxiesLandingPage() {
+    const router = useRouter();
     const [activeFaq, setActiveFaq] = useState<number | null>(null);
     const [selectedTier, setSelectedTier] = useState<string>("5GB");
 
@@ -113,7 +112,7 @@ export default function TorchProxiesLandingPage() {
             title: "Unrestricted Access",
             desc: "Bypass regional restrictions on streaming, apps, or websites. With United States residential IPs, TorchLabs proxies give you seamless access to local content."
         },
-                {
+        {
             icon: <ShieldCheck className="text-white w-4 h-4 text-regular" />,
             title: "Market Research",
             desc: "United States has strict internet rules, so residential proxies add extra anonymity. TorchLabs United States residential proxies hide your IP and prevent detection, ideal for social media, SEO, and marketing."
@@ -155,55 +154,55 @@ export default function TorchProxiesLandingPage() {
             a: "Yes, we offer a free 1GB trial so you can test our network performance before committing."
         },
     ];
-     const plans = [
-    {
-      name: "Standard",
-      desc: "Perfect for everyday online tasks.",
-      price: "From $4/GB per month",
-      icon: "/images/Standard.svg", // ✅ Updated to your public media directory path
-      features: [
-        "Premium residential IPs",
-        "Rotating and sticky sessions",
-        "Target country, state, and city-level",
-        "Suitable for general web scraping",
-        "Unlimited concurrent sessions",
-        "30M+ ethically sourced unique IPs in 195 countries",
-        "Easy API access for integration",
-      ],
-    },
-    {
-      name: "Premium",
-      desc: "For demanding users and businesses.",
-      price: "From $4.5/GB per month",
-      highlight: "Best Value",
-      icon: "/images/Premium.svg", // ✅ Updated to your public media directory path
-      featured: true,
-      features: [
-        "Premium residential IPs",
-        "Rotating and sticky sessions",
-        "Target country, state, and city-level",
-        "Suitable for general web scraping",
-        "Unlimited concurrent sessions",
-        "90M+ ethically sourced unique IPs in 195 countries",
-        "Easy API access for integration",
-      ],
-    },
-    {
-      name: "Plan X",
-      desc: "Perfect for top tier performance.",
-      price: "From $5/GB per month",
-      icon: "/images/PlanX.svg", // ✅ Updated to your public media directory path
-      features: [
-        "Authentic residential proxies with dedicated ISP pools",
-        "Rotating and sticky sessions",
-        "Target country, state, and city-level",
-        "Suitable for general web scraping",
-        "Unlimited concurrent sessions",
-        "120M+ ethically sourced unique IPs in 195 countries",
-        "Easy API access for integration",
-      ],
-    },
-  ];
+    const plans = [
+        {
+            name: "Standard",
+            desc: "Perfect for everyday online tasks.",
+            price: "From $4/GB per month",
+            icon: "/images/Standard.svg", // ✅ Updated to your public media directory path
+            features: [
+                "Premium residential IPs",
+                "Rotating and sticky sessions",
+                "Target country, state, and city-level",
+                "Suitable for general web scraping",
+                "Unlimited concurrent sessions",
+                "30M+ ethically sourced unique IPs in 195 countries",
+                "Easy API access for integration",
+            ],
+        },
+        {
+            name: "Premium",
+            desc: "For demanding users and businesses.",
+            price: "From $4.5/GB per month",
+            highlight: "Best Value",
+            icon: "/images/Premium.svg", // ✅ Updated to your public media directory path
+            featured: true,
+            features: [
+                "Premium residential IPs",
+                "Rotating and sticky sessions",
+                "Target country, state, and city-level",
+                "Suitable for general web scraping",
+                "Unlimited concurrent sessions",
+                "90M+ ethically sourced unique IPs in 195 countries",
+                "Easy API access for integration",
+            ],
+        },
+        {
+            name: "Plan X",
+            desc: "Perfect for top tier performance.",
+            price: "From $5/GB per month",
+            icon: "/images/PlanX.svg", // ✅ Updated to your public media directory path
+            features: [
+                "Authentic residential proxies with dedicated ISP pools",
+                "Rotating and sticky sessions",
+                "Target country, state, and city-level",
+                "Suitable for general web scraping",
+                "Unlimited concurrent sessions",
+                "120M+ ethically sourced unique IPs in 195 countries",
+                "Easy API access for integration",
+            ],
+        },
+    ];
 
     return (
         <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
@@ -243,11 +242,42 @@ export default function TorchProxiesLandingPage() {
                         <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Dedicated Support</div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
+
+                    <button
+                        onClick={() => router.push('https://dashboard.torchproxies.com/')}
+                        className="
+    group relative overflow-hidden
+    w-full max-w-[400px] sm:max-w-[400px] h-[56px] px-8 
+    bg-orange-600 hover:bg-orange-500 text-white 
+    font-bold text-base rounded-2xl tracking-[0.2px]
+    text-center transition-all duration-200 ease-out
+    shadow-[0_4px_30px_rgba(234,88,12,0.45)]
+    hover:shadow-[0_6px_35px_rgba(234,88,12,0.6)]
+    hover:scale-[1.01] active:scale-[0.99]
+    cursor-pointer
+  "
+                    >
+                        {/* Snappy 3D text track wrapper */}
+                        <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+                            {/* Default State Text (Visible Initially) */}
+                            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                Buy United States Residential Proxies
+                            </span>
+
+                            {/* Hover State Text (Rolls in cleanly from below) */}
+                            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/95">
+                                Buy United States Residential Proxies
+                            </span>
+
+                        </div>
+                    </button>
+
+                    {/* <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
                         <button className="px-8 py-3 bg-orange-600 hover:bg-orange-500 text-white font-semi-bold rounded-xl transition-all duration-200 shadow-[0_0_30px_rgba(234,88,12,0.4)] hover:scale-[1.01] whitespace-nowrap">
                             Buy United States Residential Proxies
                         </button>
-                    </div>
+                    </div> */}
 
                     <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide py-6">
                         <CreditCard className="w-4 h-4 text-stone-500" />
@@ -260,89 +290,107 @@ export default function TorchProxiesLandingPage() {
             </header>
 
             {/* ── SECTION 2: pricing ─────────── */}
-    <section className="bg-[#0a0a0a] text-white py-20 px-6 -mt-[80px]">
-      <div className="flex flex-col items-center text-center w-full">
-        <span className="text-orange-500 font-regular text-[16px] mb-4 tracking-widest flex items-center justify-center gap-2">
-          Our products
-        </span>
-        <h2 className="text-[42px] md:text-5xl font-medium mb-6 max-w-4xl">
-          Buy United States Residential Proxies
-        </h2>
-      </div>
-
-      {/* Top Bar Features */}
-      <div className="flex flex-wrap justify-center gap-6 mb-16 text-sm font-regular text-gray-300">
-        {topFeatures.map((f, i) => (
-          <div key={i} className="flex items-center gap-2">
-            <Check className="text-orange-500 w-4 h-4" /> {f}
-          </div>
-        ))}
-      </div>
-
-      {/* Pricing Cards Grid */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-        {plans.map((plan, i) => (
-          <div
-            key={i}
-            className={`relative p-8 rounded-2xl border-2 flex flex-col justify-between transition-all ${
-              plan.featured
-                ? 'border-orange-600 bg-gradient-to-b from-[#1a0d00] to-black shadow-[0_0_30px_rgba(234,88,12,0.2)]'
-                : 'border-gray-800 bg-[#0a0a0a]'
-            }`}
-          >
-            <div>
-              <div className="flex items-center gap-4 mb-4">
-                
-                {/* ── Updated Icon Box (Handles image files instead of raw string text emojis) ── */}
-                <div className="w-20 h-20 rounded-xl flex items-center justify-center p-2.5 shrink-0">
-                  <img 
-                    src={plan.icon} 
-                    alt={`${plan.name} plan icon`} 
-                    className="w-full h-full object-contain filter brightness-110" 
-                  />
+            <section className="bg-[#0a0a0a] text-white py-20 px-6 -mt-[80px]">
+                <div className="flex flex-col items-center text-center w-full">
+                    <span className="text-orange-500 font-regular text-[16px] mb-4 tracking-widest flex items-center justify-center gap-2">
+                        Our products
+                    </span>
+                    <h2 className="text-[42px] md:text-5xl font-medium mb-6 max-w-4xl">
+                        Buy United States Residential Proxies
+                    </h2>
                 </div>
-                
-                <div>
-                  <h3 className="text-xl font-bold">{plan.name}</h3>
-                  <p className="text-gray-400 text-sm">{plan.desc}</p>
+
+                {/* Top Bar Features */}
+                <div className="flex flex-wrap justify-center gap-6 mb-16 text-sm font-regular text-gray-300">
+                    {topFeatures.map((f, i) => (
+                        <div key={i} className="flex items-center gap-2">
+                            <Check className="text-orange-500 w-4 h-4" /> {f}
+                        </div>
+                    ))}
                 </div>
-              </div>
 
-              <div className="flex items-center gap-3 mb-8">
-                <span className="bg-[#2a1200] text-orange-500 px-4 py-2 rounded-lg font-bold text-sm">
-                  {plan.price}
-                </span>
-                {plan.highlight && (
-                  <span className="bg-[#001a11] text-green-500 px-4 py-2 rounded-lg text-sm font-bold border border-green-900">
-                    {plan.highlight}
-                  </span>
-                )}
-              </div>
+                {/* Pricing Cards Grid */}
+                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                    {plans.map((plan, i) => (
+                        <div
+                            key={i}
+                            className={`relative p-8 rounded-2xl border-2 flex flex-col justify-between transition-all ${plan.featured
+                                ? 'border-orange-600 bg-gradient-to-b from-[#1a0d00] to-black shadow-[0_0_30px_rgba(234,88,12,0.2)]'
+                                : 'border-gray-800 bg-[#0a0a0a]'
+                                }`}
+                        >
+                            <div>
+                                <div className="flex items-center gap-4 mb-4">
 
-              <ul className="space-y-4 mb-8">
-                {plan.features.map((feat, idx) => (
-                  <li key={idx} className="flex gap-3 text-sm text-gray-300 leading-tight">
-                    <Check className="text-orange-500 w-4 h-4 shrink-0 mt-0.5" />
-                    {feat}
-                  </li>
-                ))}
-              </ul>
-            </div>
+                                    {/* ── Updated Icon Box (Handles image files instead of raw string text emojis) ── */}
+                                    <div className="w-20 h-20 rounded-xl flex items-center justify-center p-2.5 shrink-0">
+                                        <img
+                                            src={plan.icon}
+                                            alt={`${plan.name} plan icon`}
+                                            className="w-full h-full object-contain filter brightness-110"
+                                        />
+                                    </div>
 
-            <button
-              className={`w-full py-3.5 px-6 font-bold rounded-xl transition-all duration-200 ${
-                plan.featured
-                  ? 'bg-orange-600 text-white hover:bg-orange-500 shadow-[0_4px_20px_rgba(234,88,12,0.3)]'
-                  : 'bg-transparent text-gray-200 border border-gray-700 hover:border-gray-500 hover:bg-white/5'
-              }`}
-            >
-              Try for free
-            </button>
-          </div>
-        ))}
-      </div>
+                                    <div>
+                                        <h3 className="text-xl font-bold">{plan.name}</h3>
+                                        <p className="text-gray-400 text-sm">{plan.desc}</p>
+                                    </div>
+                                </div>
 
-    </section>
+                                <div className="flex items-center gap-3 mb-8">
+                                    <span className="bg-[#2a1200] text-orange-500 px-4 py-2 rounded-lg font-bold text-sm">
+                                        {plan.price}
+                                    </span>
+                                    {plan.highlight && (
+                                        <span className="bg-[#001a11] text-green-500 px-4 py-2 rounded-lg text-sm font-bold border border-green-900">
+                                            {plan.highlight}
+                                        </span>
+                                    )}
+                                </div>
+
+                                <ul className="space-y-4 mb-8">
+                                    {plan.features.map((feat, idx) => (
+                                        <li key={idx} className="flex gap-3 text-sm text-gray-300 leading-tight">
+                                            <Check className="text-orange-500 w-4 h-4 shrink-0 mt-0.5" />
+                                            {feat}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <button
+                                onClick={() => {
+                                    if (plan.featured) {
+                                        router.push('https://dashboard.torchproxies.com/');
+                                    } else {
+                                        router.push('https://dashboard.torchproxies.com/');
+                                    }
+                                }}
+                                className={`group relative overflow-hidden w-full h-[52px] px-6 font-bold rounded-xl transition-all duration-200 ease-out hover:scale-[1.01] active:scale-[0.99] cursor-pointer ${plan.featured
+                                    ? 'bg-orange-600 text-white hover:bg-orange-500 shadow-[0_4px_20px_rgba(234,88,12,0.3)] hover:shadow-[0_6px_25px_rgba(234,88,12,0.45)]'
+                                    : 'bg-transparent text-gray-200 border border-gray-700 hover:border-gray-500 hover:bg-white/5'
+                                    }`}
+                            >
+                                {/* Snappy 3D text track wrapper */}
+                                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+                                    {/* Default State Text */}
+                                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                        Try for free
+                                    </span>
+
+                                    {/* Hover State Text */}
+                                    <span className={`absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] ${plan.featured ? 'text-white/95' : 'text-white'
+                                        }`}>
+                                        Try for free
+                                    </span>
+
+                                </div>
+                            </button>
+                        </div>
+                    ))}
+                </div>
+
+            </section>
 
 
 
@@ -374,12 +422,12 @@ export default function TorchProxiesLandingPage() {
                             <p className="text-gray-400 text-[16px] font-regular leading-relaxed">
                                 TorchLabs' United States proxies are among the fastest in the market. Reliable, stable, and highly anonymous United States proxies allow you to scrape complex targets at any scale. Get your web scraping and automation tasks done faster with TorchLabs' United States proxy IPs.
                             </p>
-                        
-                                 <ul className="text-gray-400 text-lg leading-relaxed">
-                                    <li>&#9679; High uptime (up to 99.9%)</li>
-                                    <li>&#9679; Pre selected and thoroughly tested proxies</li>
-                                    <li>&#9679; Minimal risk of IP blocks</li>
-                                </ul>
+
+                            <ul className="text-gray-400 text-lg leading-relaxed">
+                                <li>&#9679; High uptime (up to 99.9%)</li>
+                                <li>&#9679; Pre selected and thoroughly tested proxies</li>
+                                <li>&#9679; Minimal risk of IP blocks</li>
+                            </ul>
 
                         </div>
                     </div>
@@ -398,7 +446,7 @@ export default function TorchProxiesLandingPage() {
                         Why Use a United States Residential Proxies?
                     </h2>
                     <p className="text-stone-400 text-sm sm:text-base max-w-[850px] mx-auto font-normal leading-relaxed">
-                        There are countless ways to utilize a United States IP address. Whether you’re accessing local market data, bypassing regional restrictions, or testing apps and games on local servers, our United States proxy servers let you do it all without being physically present. 
+                        There are countless ways to utilize a United States IP address. Whether you’re accessing local market data, bypassing regional restrictions, or testing apps and games on local servers, our United States proxy servers let you do it all without being physically present.
                     </p>
                 </div>
 
@@ -450,34 +498,50 @@ export default function TorchProxiesLandingPage() {
                                     Effortlessly test, deploy, and scale your projects with user-friendly, high quality and cost effective residential proxy infrastructure tailored for any use case
                                 </p>
 
-                                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                                    <button className="bg-[#ffffff] hover:bg-[#e63e00] md:text-[16px] text-black px-10 py-4 rounded-xl font-bold transition-all shadow-lg shadow-orange-900/20">
-                                        Get Started Now
-                                    </button>
-                                </div>
+                      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
+
+                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
+                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#ffffff] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:scale-[1.02] active:scale-[0.99]">
+
+                            {/* Fast 3D text track wrapper */}
+                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+                                {/* Default State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]  text-black">
+                                     Get Started Now
+                                </span>
+
+                                {/* Hover State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-black">
+                                     Get Started Now
+                                </span>
+
+                            </div>
+                        </button>
+                        </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-<section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px]">
-    <div className="max-w-7xl mx-auto space-y-32">
-        <h2 className="text-[42px] sm:text-5xl font-regular tracking-tight text-white">
-            Experience the Advantage of TorchLabs <br/>United States Residential Proxies
-        </h2>
-        <p className="text-gray-400 text-[18px] max-w-full font-regular md:text-xl  mb-12 text-left -mt-[100px]">
-            Free proxies may seem tempting, but they often lack security and reliability. TorchLabs United States residential proxies ensure fast, secure and stable connections, protecting your data while maintaining high performance.
-        </p>
-         <p className="text-gray-400 text-[18px] max-w-full font-regular md:text-xl leading-relaxed mb-12 text-left">
-            Our premium United States IP addresses are continuously refreshed, offer city-level targeting and come with 24/7 support. Whether you need datacenter or residential proxies, TorchLabs provides trusted, high-speed infrastructure for personal or business use.
-        </p>
-        <p className="text-gray-400 text-[18px] max-w-full font-regular md:text-xl leading-relaxed mb-12 text-left">
-           TorchLabs United States proxies provide unmatched reliability and performance. With continuously updated IPs, high-speed connections, and full customer support, you can confidently carry out personal or business operations without interruptions.
-        </p>
-    </div>
+            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px]">
+                <div className="max-w-7xl mx-auto space-y-32">
+                    <h2 className="text-[42px] sm:text-5xl font-regular tracking-tight text-white">
+                        Experience the Advantage of TorchLabs <br />United States Residential Proxies
+                    </h2>
+                    <p className="text-gray-400 text-[18px] max-w-full font-regular md:text-xl  mb-12 text-left -mt-[100px]">
+                        Free proxies may seem tempting, but they often lack security and reliability. TorchLabs United States residential proxies ensure fast, secure and stable connections, protecting your data while maintaining high performance.
+                    </p>
+                    <p className="text-gray-400 text-[18px] max-w-full font-regular md:text-xl leading-relaxed mb-12 text-left">
+                        Our premium United States IP addresses are continuously refreshed, offer city-level targeting and come with 24/7 support. Whether you need datacenter or residential proxies, TorchLabs provides trusted, high-speed infrastructure for personal or business use.
+                    </p>
+                    <p className="text-gray-400 text-[18px] max-w-full font-regular md:text-xl leading-relaxed mb-12 text-left">
+                        TorchLabs United States proxies provide unmatched reliability and performance. With continuously updated IPs, high-speed connections, and full customer support, you can confidently carry out personal or business operations without interruptions.
+                    </p>
+                </div>
 
-</section>
+            </section>
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden -mt-[100px]">

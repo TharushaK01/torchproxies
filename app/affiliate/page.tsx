@@ -466,11 +466,34 @@ export default function TorchProxiesLandingPage() {
                         <p className="text-zinc-500 text-[18px] md:text-base mt-4 max-w-md font-regular leading-relaxed">
                             From signup to payouts, we made the process effortless so you can focus on what matters, promoting and profiting
                         </p>
-                        <div className="mt-8">
+                                                        {/* Action Button at the bottom */}
+                        <div className="flex flex-col sm:flex-row items-left justify-left gap-4 mb-2 mt-8">
+
+                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
+                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative w-[260px] h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+
+                            {/* Fast 3D text track wrapper */}
+                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+                                {/* Default State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                   Become an affiliate now
+                                </span>
+
+                                {/* Hover State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+                                    Become an affiliate now
+                                </span>
+
+                            </div>
+                        </button>
+                        </div>
+                        
+                        {/* <div className="mt-8">
                             <button className="inline-flex items-center justify-center px-6 py-3.5 bg-[#FF4F00] hover:bg-[#e04600] text-white font-semi-bold text-[18px] rounded-xl transition duration-150 active:scale-[0.98] shadow-[0_8px_30px_rgb(255,79,0,0.2)]">
                                 Become an affiliate now
                             </button>
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* --- RIGHT COLUMN: TIMELINE STEPS --- */}
@@ -673,10 +696,31 @@ export default function TorchProxiesLandingPage() {
                             <p className="text-stone-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
                                 Join the TorchLabs Affiliate Program and get paid for every customer you bring in. Fast payouts. High commissions. Zero hassle.
                             </p>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
 
-                            <button className="px-10 py-4 bg-white text-black font-medium rounded-2xl text-lg hover:bg-stone-100 transition-all active:scale-95">
+                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
+                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#ffffff] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:scale-[1.02] active:scale-[0.99]">
+
+                            {/* Fast 3D text track wrapper */}
+                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+                                {/* Default State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]  text-black">
+                                    Start earning now
+                                </span>
+
+                                {/* Hover State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-black">
+                                    Start earning now
+                                </span>
+
+                            </div>
+                        </button>
+                        </div>
+
+                            {/* <button className="px-10 py-4 bg-white text-black font-medium rounded-2xl text-lg hover:bg-stone-100 transition-all active:scale-95">
                                 Start earning now
-                            </button>
+                            </button> */}
                         </div>
                     </div>
                 </div>

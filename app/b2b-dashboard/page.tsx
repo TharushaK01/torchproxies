@@ -55,8 +55,8 @@ interface Plan {
 
 const plans: Plan[] = [
     { name: 'FREE', price: { monthly: '$0', yearly: '$0' } },
-    { name: 'BASIC', price: { monthly: '$100', yearly: '$80' } },
-    { name: 'PREMIUM', price: { monthly: '$160', yearly: '$130' } },
+    { name: 'BASIC', price: { monthly: '$100', yearly: '$1000' } },
+    { name: 'PREMIUM', price: { monthly: '$160', yearly: '$1600' } },
 ];
 interface FeatureRow {
     title: string;
@@ -256,7 +256,7 @@ export default function TorchProxiesLandingPage() {
         <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-            <header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-1 overflow-hidden">
+            <header id='hero' className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-1 overflow-hidden">
                  <div className="absolute inset-x-0 bottom-35 h-[600px] z-0 pointer-events-none select-none">
                     <Image
                         src="/images/hero_back.png"
@@ -677,7 +677,9 @@ export default function TorchProxiesLandingPage() {
                             <p className="text-gray-400 text-lg leading-relaxed">
                                 We handle the layout, structure and UX so you can stay focused on bringing in traffic and growing your customer base.
                             </p>
-                            <button className="w-[271px] h-[50px] mt-5 py-2.5 px-4 bg-[#FF4F00] hover:bg-[#e04600] text-white font-medium text-xs rounded-xl transition duration-150 active:scale-[0.98]">
+                            <button onClick={() => {
+        document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' });
+    }} className="w-[271px] h-[50px] mt-5 py-2.5 px-4 bg-[#FF4F00] text-white font-semi-bold text-[16px] rounded-xl transition duration-150 active:scale-[0.98] shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
                                 Request Landing Page Design
                             </button>
                         </div>

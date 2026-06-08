@@ -1,10 +1,9 @@
 "use client";
 import React, { useState } from 'react';
-import { Check, ChevronDown, Shield, Zap, Globe, BarChart3, Activity, Sliders } from 'lucide-react';
-import Flag from 'react-world-flags';
-import { Database, RefreshCw, Layers, ShieldCheck, Infinity, Tag, CreditCard } from 'lucide-react';
-import UseCasesSection from '@/components/home/UseCasesSection';
+import { Check, ChevronDown,} from 'lucide-react';
+import { Database, RefreshCw, Layers, ShieldCheck, Infinity, Tag,} from 'lucide-react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 
 
@@ -113,6 +112,7 @@ const FeatureCard = ({ title, description, imageSrc, imageAlt }: FeatureCardProp
 
 
 export default function TorchProxiesLandingPage() {
+    const router = useRouter();
     const [activeFaq, setActiveFaq] = useState<number | null>(null);
     const [selectedTier, setSelectedTier] = useState<string>("5GB");
 
@@ -275,12 +275,33 @@ export default function TorchProxiesLandingPage() {
                         <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Money back guarantee</div>
                         <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Dedicated Support</div>
                     </div>
+                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
+                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
+                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+
+                            {/* Fast 3D text track wrapper */}
+                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+                                {/* Default State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                   Explore B2B products
+                                </span>
+
+                                {/* Hover State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+                                    Explore B2B products
+                                </span>
+
+                            </div>
+                        </button>
+                        </div>
+
+                    {/* <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
                         <button className="w-full sm:w-60 px-8 py-4 bg-orange-600 hover:bg-orange-500 text-white font-semi-bold rounded-xl transition-all duration-200 shadow-[0_0_30px_rgba(234,88,12,0.4)] hover:scale-[1.01]">
                             Explore B2B products
                         </button>
-                    </div>
+                    </div> */}
 
                     <div className="relative z-10 -mt-30 w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
                         <Marquee />
@@ -335,10 +356,31 @@ export default function TorchProxiesLandingPage() {
                             <p className="text-stone-400 text-lg md:text-xl mb-10 max-w-3xl mx-auto">
                                 We build tailored proxy dashboards for resellers, giving them the tools to track inventory, monitor client usage, and manage distribution with ease.
                             </p>
+<div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
 
+                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
+                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#ffffff] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:scale-[1.02] active:scale-[0.99]">
+
+                            {/* Fast 3D text track wrapper */}
+                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+                                {/* Default State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]  text-black">
+                                     Get started now
+                                </span>
+
+                                {/* Hover State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-black">
+                                    Get started now
+                                </span>
+
+                            </div>
+                        </button>
+                        </div>
+{/* 
                             <button className="px-10 py-4 bg-white text-black font-medium rounded-2xl text-lg hover:bg-stone-100 transition-all active:scale-95">
                                 Get started now
-                            </button>
+                            </button> */}
                         </div>
                     </div>
                 </div>

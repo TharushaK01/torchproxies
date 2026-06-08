@@ -149,7 +149,7 @@ const NAV_LINKS = [
         {
           label: "Reseller Program",
           description: "Grow your own proxy business with our reseller API and dashboard. Automate delivery, manage clients and scale with enterprise grade reliability.",
-          href: "/reseller/program"
+          href: "/b2b-reseller"
         }
       ],
       rightSide: [
