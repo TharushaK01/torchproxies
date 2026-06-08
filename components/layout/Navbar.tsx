@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Flag from 'react-world-flags';
 import Image from 'next/image';
+import ContactSection from '../contact/ContactSection';
 
 const NAV_LINKS = [
   {
@@ -183,6 +184,12 @@ function CountryFlagMock({ code }: { code: string }) {
 }
 
 export default function Navbar() {
+  const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -585,14 +592,48 @@ export default function Navbar() {
           </div>
 
           {/* ── Contact Us Button ──────────────────────────── */}
-          <div className="hidden lg:flex items-center">
-            <Link
+         <div className="hidden lg:flex items-center">
+  <button
+    onClick={() => setIsContactOpen(true)}
+    className="
+      group/navbtn relative overflow-hidden cursor-pointer
+      w-[124px] h-[42px] rounded-xl font-semibold text-sm text-white
+      border border-stone-800 bg-stone-900/50 hover:bg-stone-900 
+      hover:border-stone-600 transition-all duration-200 ease-out
+      hover:scale-[1.02] active:scale-[0.98]
+    "
+  >
+    {isMounted ? (
+      <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover/navbtn:[transform:rotateX(-90deg)]">
+        
+        {/* Default State Text (Visible Initially) */}
+        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(10px)] text-gray-200 whitespace-nowrap">
+          Contact Us
+        </span>
+        
+        {/* Hover State Text (Rolls up cleanly from below) */}
+        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(90deg)_translateZ(10px)] text-white whitespace-nowrap">
+          Contact Us
+        </span>
+        
+      </div>
+    ) : (
+      <span className="whitespace-nowrap">Contact Us</span>
+    )}
+  </button>
+</div>
+      {/* ─── RENDER CONTACT MODAL SHELL CONDITIONALLY ─── */}
+      <ContactSection 
+        isOpen={isContactOpen} 
+        onClose={() => setIsContactOpen(false)} // 👈 Closes the modal cleanly when '✕' is clicked
+      />
+            {/* <Link
               href="/contact"
               className="px-5 py-2 text-sm font-semibold text-white rounded-lg border border-white/20 hover:border-white/40 hover:bg-white/5 transition-all duration-200 whitespace-nowrap"
             >
               Contact Us
-            </Link>
-          </div>
+            </Link> */}
+        
 
           {/* ── Mobile Hamburger Action ────────────────────── */}
           <button
