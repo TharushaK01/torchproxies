@@ -157,7 +157,7 @@ const NAV_LINKS = [
         {
           section: "Residential Proxies",
           label: "Blog",
-          href: "/resources/blog",
+          href: "/blog",
           icon: "/images/icon/blog.svg" 
         },
         {

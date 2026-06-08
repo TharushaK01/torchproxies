@@ -38,7 +38,7 @@ export default function BlogClient({ posts, categories }: BlogClientProps) {
 
       {/* ── Hero ──────────────────────────────────────────── */}
       <header className="text-center py-20 sm:py-28 px-6 relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 overflow-hidden -mt-[250px]">
-                         <div className="absolute inset-x-0  h-[600px] z-0 pointer-events-none select-none">
+                         <div className="absolute inset-x-0  h-[400px] z-0 pointer-events-none select-none">
                              <Image
                                  src="/images/hero_back.png"
                                  alt=""
@@ -66,7 +66,7 @@ export default function BlogClient({ posts, categories }: BlogClientProps) {
       </header>
 
       {/* ── Category Filter ───────────────────────────────── */}
-      <div className="flex gap-3 px-12 mb-10 flex-wrap justify-center -mt-10">
+      <div className="flex gap-3 px-12 mb-10 flex-wrap justify-center -mt-30">
         <button
           onClick={() => handleCategoryChange(null)}
           className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300
