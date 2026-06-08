@@ -259,7 +259,7 @@ export default async function BlogPage() {
     // ← shows error on screen instead of 404
     console.error("Blog fetch error:", error);
     return (
-      <main className="font-worksans bg-[#0a0a0a] min-h-screen flex items-center justify-center">
+      <main className="bg-[#0a0a0a] min-h-screen flex items-center justify-center">
         <div className="text-center">
           <p className="text-red-400 text-sm mb-2">Failed to load blog</p>
           <p className="text-stone-600 text-xs">{String(error)}</p>

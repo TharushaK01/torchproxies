@@ -3,6 +3,7 @@
 import { useState } from "react";
 import BlogCard from "@/components/BlogCard";
 import { WPPost, WPCategory } from "@/types/wordpress";
+import Image from "next/image";
 
 interface BlogClientProps {
   posts: WPPost[];
@@ -36,17 +37,36 @@ export default function BlogClient({ posts, categories }: BlogClientProps) {
     <main className="font-worksans bg-[#0a0a0a] min-h-screen text-stone-100">
 
       {/* ── Hero ──────────────────────────────────────────── */}
-      <header className="text-center py-20 sm:py-28 px-6 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(160,40,5,0.5),transparent)]">
-        <h1 className="font-serif text-5xl font-normal tracking-tight mb-4">
+      <header className="text-center py-20 sm:py-28 px-6 relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 overflow-hidden -mt-[250px]">
+                         <div className="absolute inset-x-0  h-[600px] z-0 pointer-events-none select-none">
+                             <Image
+                                 src="/images/hero_back.png"
+                                 alt=""
+                                 fill
+                                 priority
+                                 className="object-cover object-bottom opacity-100"
+                             />
+                         </div>
+                        <div className="max-w-6xl mx-auto text-center z-10 mt-[20px]">
+                            <div className="flex items-center justify-center mb-6">
+                                <img
+                                    src="/images/TrustPiolet.png"
+                                    alt="Excellent 5-star rating on Trustpilot"
+                                    className="h-6 w-auto object-contain"
+                                    loading="lazy"
+                                />
+                            </div>
+                            </div>
+        <h1 className="text-5xl font-normal tracking-tight">
           TorchProxies Blogs
         </h1>
         <p className="text-stone-400 text-base max-w-md mx-auto leading-relaxed">
-          Valuable information about proxies, data scraping and other use cases
+          Here you can find valuable Information about topics surrounding proxies, data scraping and other use cases
         </p>
       </header>
 
       {/* ── Category Filter ───────────────────────────────── */}
-      <div className="flex gap-3 px-12 mb-10 flex-wrap justify-center">
+      <div className="flex gap-3 px-12 mb-10 flex-wrap justify-center -mt-10">
         <button
           onClick={() => handleCategoryChange(null)}
           className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300

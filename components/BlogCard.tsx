@@ -61,7 +61,7 @@ export default function BlogCard({ post }: BlogCardProps) {
       <div className="flex flex-col gap-3 p-5 flex-1">
         {/* Title */}
         <h2
-          className="font-serif text-base font-semibold text-stone-100 
+          className=" text-base font-semibold text-stone-100 
                      leading-snug tracking-tight"
           dangerouslySetInnerHTML={{ __html: post.title.rendered }}
         />

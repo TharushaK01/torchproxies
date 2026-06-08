@@ -131,11 +131,55 @@ export default function TorchProxiesLandingPage() {
     const useCases = ["Social Media", "Web Scraping", "Gaming", "Online Market", "Sneaker"];
     const [activeTab, setActiveTab] = useState<'premium' | 'planX'>('premium');
 
-    const reviews = [
-        { name: "Alex K.", role: "Lead Scraping Engineer", text: "Absolute game changer for parsing target inventory updates. The success parameters are consistently stable." },
-        { name: "Sarah M.", role: "DevOps Architect", text: "IP targeting is granular down to city targets. The latency levels are significantly lower than competitive alternatives." },
-        { name: "David L.", role: "Automated Data Analyst", text: "Top tier network infrastructure. The standard volume tier setups maintain premium speeds without bottleneck dropouts." },
-    ];
+ 
+
+ const reviews = [
+  {
+    name: "Black Bear",
+    role: "Verified Customer",
+    text: "If you are buy proxies anywhere you should buy them here. Nice guys who work hard. Communication is good and there is always help where needed. Can't recommend a better company for proxies.",
+    stars: 5,
+    avatar: "/images/avatars/black-bear.png" // Path to your custom pixel bear photo
+  },
+  {
+    name: "Ishak",
+    role: "Verified Customer",
+    text: "Torchlabs offers a fantastic proxy service at a very competitive price. The connection speeds are fast, and the service is incredibly reliable. I've had a positive experience with their customer support as well.",
+    stars: 5,
+    initials: "IS", // Fallback for a soft green initial circle
+    avatar: null
+  },
+  {
+    name: "Edith Shamaiah",
+    role: "Verified Customer",
+    text: "Best proxies in the market! Top notch customer experience!",
+    stars: 4,
+    initials: "E", // Fallback for a purple initial circle
+    avatar: null
+  }
+];
+  
+
+const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
+  return (
+    <div className="flex gap-[3px] mb-4">
+      {[...Array(5)].map((_, index) => (
+        <div
+          key={index}
+          className={`w-[18px] h-[18px] flex items-center justify-center rounded-[3px] text-[11px] font-bold transition-colors duration-200 ${
+            index < rating 
+              ? "bg-[#00b67a] text-white" // Active Trustpilot Green box with White Star
+              : "bg-stone-800 text-stone-600" // Inactive Dark box with Muted Gray Star
+          }`}
+        >
+          ★
+        </div>
+      ))}
+    </div>
+  );
+};
+
+
 
     const faqData = [
         {
@@ -651,49 +695,123 @@ export default function TorchProxiesLandingPage() {
             </main>
 
             {/* ── SECTION 10: TESTIMONIALS ─────────────────────────────────── */}
-            <section className="py-24 bg-stone-950/20 border-t border-stone-900">
-                <div className="text-center mb-16">
-                    <span className="text-[#FE4A01] text-xs font-medium tracking-wider block mb-3">
-                        Testimonials
-                    </span>
-                    <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white mb-4">
-                        Customers prefer Torch Proxies over <br />
-                        other proxy brands
-                    </h2>
+<section className="py-24 bg-stone-950/20 border-t border-stone-900 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6">
+        
+        {/* Section Header Text Nodes */}
+        <div className="text-center mb-16">
+          <h2 className="text-[42px] sm:text-5xl font-medium mb-4 tracking-tight text-white">
+            Customer Reviews
+          </h2>
+          <p className="text-stone-400">
+            See how developer engineering nodes rate our overall connectivity network performance.
+          </p>
+        </div>
+
+        {/* Outer Infinite Slider Container Track */}
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,transparent_0%,black_10%,black_90%,transparent_100%)]">
+          <div className="flex gap-6 animate-marquee whitespace-normal">
+            
+            {/* Render 1st Array Instance */}
+            {reviews.map((review, i) => (
+              <div
+                key={i}
+                className="flex flex-col justify-between bg-[#070707] border border-stone-900 p-8 rounded-[24px] min-w-[340px] max-w-[360px] md:min-w-[380px] h-[280px]"
+              >
+                <div>
+                  {/* Title & Trustpilot Star Row Block */}
+                  <div className="text-white font-bold text-[15px] mb-2 tracking-tight line-clamp-1">
+                    {review.text.split('.')[0]}
+                  </div>
+                  <TrustpilotStars rating={review.stars} />
+                  
+                  {/* Feedback Text Area */}
+                  <p className="text-stone-300 text-[13px] leading-relaxed line-clamp-4 font-normal">
+                    "{review.text}"
+                  </p>
                 </div>
-                <div className="max-w-6xl mx-auto px-6">
 
-                    {/* Testimonial Slider */}
-                    <div className="overflow-hidden">
-                        <div className="flex gap-6 animate-marquee">
-                            {reviews.map((review, i) => (
-                                <div
-                                    key={i}
-                                    className="bg-stone-900/40 border border-stone-800 p-6 rounded-2xl min-w-[340px] md:min-w-[380px]"
-                                >
-                                    <div className="text-amber-500 text-lg mb-3">★★★★★</div>
-                                    <p className="text-stone-300 text-xs leading-relaxed italic mb-4">"{review.text}"</p>
-                                    <div className="text-stone-100 font-bold text-xs">{review.name}</div>
-                                    <div className="text-stone-500 text-[10px]">{review.role}</div>
-                                </div>
-                            ))}
-
-                            {/* Duplicate for seamless infinite scrolling */}
-                            {reviews.map((review, i) => (
-                                <div
-                                    key={`dup-${i}`}
-                                    className="bg-stone-900/40 border border-stone-800 p-6 rounded-2xl min-w-[340px] md:min-w-[380px]"
-                                >
-                                    <div className="text-amber-500 text-lg mb-3">★★★★★</div>
-                                    <p className="text-stone-300 text-xs leading-relaxed italic mb-4">"{review.text}"</p>
-                                    <div className="text-stone-100 font-bold text-xs">{review.name}</div>
-                                    <div className="text-stone-500 text-[10px]">{review.role}</div>
-                                </div>
-                            ))}
-                        </div>
+                {/* ─── CLIENT AVATAR & METADATA FOOTER ─── */}
+                <div className="flex items-center gap-3 pt-4 border-t border-stone-900/50">
+                  {review.avatar ? (
+                    // Render image block if profile image exists
+                    <div className="relative w-11 h-11 rounded-full overflow-hidden border border-stone-800 bg-stone-900">
+                      <Image
+                        src={review.avatar}
+                        alt={review.name}
+                        fill
+                        className="object-cover"
+                      />
                     </div>
+                  ) : (
+                    // Fallback to stylized custom Initial Circles from your design requirements
+                    <div 
+                      className={`w-11 h-11 flex items-center justify-center rounded-full text-stone-950 font-bold text-sm tracking-wider uppercase ${
+                        review.initials === "IS" ? "bg-[#c6f6d5]" : "bg-[#7f9cf5] text-white"
+                      }`}
+                    >
+                      {review.initials}
+                    </div>
+                  )}
+                  
+                  {/* User Account String Node Labels */}
+                  <div className="flex flex-col">
+                    <span className="text-stone-200 font-semibold text-[13px] tracking-tight">
+                      {review.name}
+                    </span>
+                    <span className="text-stone-500 text-[11px]">
+                      {review.role}
+                    </span>
+                  </div>
                 </div>
-            </section>
+
+              </div>
+            ))}
+
+            {/* Duplicate Array Map Loop Instance for Infinite Slider Continuity */}
+            {reviews.map((review, i) => (
+              <div
+                key={`dup-${i}`}
+                className="flex flex-col justify-between bg-[#070707] border border-stone-900 p-8 rounded-[24px] min-w-[340px] max-w-[360px] md:min-w-[380px] h-[280px]"
+              >
+                <div>
+                  <div className="text-white font-bold text-[15px] mb-2 tracking-tight line-clamp-1">
+                    {review.text.split('.')[0]}
+                  </div>
+                  <TrustpilotStars rating={review.stars} />
+                  <p className="text-stone-300 text-[13px] leading-relaxed line-clamp-4 font-normal">
+                    "{review.text}"
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3 pt-4 border-t border-stone-900/50">
+                  {review.avatar ? (
+                    <div className="relative w-11 h-11 rounded-full overflow-hidden border border-stone-800 bg-stone-900">
+                      <Image src={review.avatar} alt={review.name} fill className="object-cover" />
+                    </div>
+                  ) : (
+                    <div className={`w-11 h-11 flex items-center justify-center rounded-full text-stone-950 font-bold text-sm tracking-wider ${review.initials === "IS" ? "bg-[#c6f6d5]" : "bg-[#7f9cf5] text-white"}`}>
+                      {review.initials}
+                    </div>
+                  )}
+                  <div className="flex flex-col">
+                    <span className="text-stone-200 font-semibold text-[13px]">
+                      {review.name}
+                    </span>
+                    <span className="text-stone-500 text-[11px]">
+                      {review.role}
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+            ))}
+
+          </div>
+        </div>
+
+      </div>
+    </section>
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             {/* FAQ SECTION */}
