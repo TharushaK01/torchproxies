@@ -376,9 +376,27 @@ export default function CountryPageClient({ data }: CountryPageClientProps) {
                                 <p className="text-gray-400 text-[18px] max-w-4xl font-regular md:text-xl leading-relaxed mb-12 mx-auto">
                                     Effortlessly test, deploy, and scale your projects with user-friendly, high quality and cost effective residential proxy infrastructure tailored for any use case.
                                 </p>
-                                <button className="bg-[#ffffff] hover:bg-[#e63e00] md:text-[16px] text-black px-10 py-4 rounded-xl font-bold transition-all shadow-lg hover:text-white">
-                                    Get Started Now
-                                </button>
+                                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
+
+                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
+                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#ffffff] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:scale-[1.02] active:scale-[0.99]">
+
+                            {/* Fast 3D text track wrapper */}
+                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+                                {/* Default State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]  text-black">
+                                     Get Started Now
+                                </span>
+
+                                {/* Hover State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-black">
+                                     Get Started Now
+                                </span>
+
+                            </div>
+                        </button>
+                        </div>
                             </div>
                         </div>
                     </div>
