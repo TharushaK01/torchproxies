@@ -56,7 +56,7 @@ const NAV_LINKS = [
   },
   {
     label: "Locations",
-    href: "/locations",
+    href: "/countries",
     menuType: "locations-grid",
     dropdown: {
       section: "Residential Proxies",

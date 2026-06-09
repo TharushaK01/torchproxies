@@ -1,0 +1,336 @@
+"use client";
+import React, { useState } from 'react';
+import { Check } from 'lucide-react';
+import Image from "next/image";
+import { useRouter } from 'next/navigation';
+import Flag from 'react-world-flags';
+
+interface LocationData {
+  country: string;
+  ips: string;
+  code: string; 
+}
+
+interface LocationDataSet {
+  residential: LocationData[];
+  isp: LocationData[];
+}
+
+interface CountryItem {
+  name: string;
+  ips: string;
+  code: string; 
+}
+
+interface LocationsData {
+  residential: CountryItem[];
+  isp: CountryItem[];
+}
+
+const Marquee: React.FC = () => (
+    <div className="w-full overflow-hidden bg-[#FE4A01] py-3 mt-50 whitespace-nowrap select-none flex">
+        <div className="flex animate-marquee text-xs font-semibold tracking-wider text-white uppercase">
+            <div className="flex items-center space-x-8 pr-8">
+                <span>• 99.9% uptime guaranteed</span>
+                <span>• Blazing fast proxy speeds</span>
+                <span>• Global geo targeting support</span>
+                <span>• Secure & anonymous connections</span>
+                <span>• Unlimited sessions & rotations</span>
+                <span>• Built for scraping & automation</span>
+            </div>
+            <div className="flex items-center space-x-8 pr-8" aria-hidden="true">
+                <span>• 99.9% uptime guaranteed</span>
+                <span>• Blazing fast proxy speeds</span>
+                <span>• Global geo targeting support</span>
+                <span>• Secure & anonymous connections</span>
+                <span>• Unlimited sessions & rotations</span>
+                <span>• Built for scraping & automation</span>
+            </div>
+        </div>
+
+        <style jsx global>{`
+          @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-marquee {
+            animation: marquee 25s linear infinite;
+          }
+        `}</style>
+    </div>
+);
+
+export default function TorchProxiesLandingPage() {
+  const router = useRouter();
+    
+  // ── SEPARATED STATES TO FIX LOCKING TOGGLE BUG ──────────────────
+  const [topLocationsTab, setTopLocationsTab] = useState<'residential' | 'isp'>('residential');
+  const [otherLocationsTab, setOtherLocationsTab] = useState<'residential' | 'isp'>('residential');
+
+  const locationsData: LocationDataSet = {
+    residential: [
+      { country: "United States", ips: "4,421,924 IPs", code: "US" },
+      { country: "United Kingdom", ips: "549,121 IPs", code: "GB" },
+      { country: "Germany", ips: "1,421,960 IPs", code: "DE" },
+      { country: "Australia", ips: "452,720 IPs", code: "AU" },
+      { country: "Canada", ips: "815,558 IPs", code: "CA" },
+      { country: "Mexico", ips: "4,421,924 IPs", code: "MX" },
+      { country: "China", ips: "4,421,924 IPs", code: "CN" },
+      { country: "France", ips: "4,421,924 IPs", code: "FR" },
+    ],
+    isp: [
+      { country: "United States", ips: "1,250,400 IPs", code: "US" },
+      { country: "United Kingdom", ips: "185,200 IPs", code: "GB" },
+      { country: "Germany", ips: "430,150 IPs", code: "DE" },
+      { country: "Australia", ips: "92,400 IPs", code: "AU" },
+      { country: "Canada", ips: "210,900 IPs", code: "CA" },
+      { country: "Mexico", ips: "312,000 IPs", code: "MX" },
+      { country: "China", ips: "890,500 IPs", code: "CN" },
+      { country: "France", ips: "520,300 IPs", code: "FR" },
+    ],
+  };
+
+  const locations: LocationsData = {
+    residential: [
+      { name: "South Korea", ips: "4,421,924 IPs", code: "KR" },
+      { name: "Ireland", ips: "4,421,924 IPs", code: "IE" },
+      { name: "Iran", ips: "4,421,924 IPs", code: "IR" },
+      { name: "Chile", ips: "4,421,924 IPs", code: "CL" },
+      { name: "Argentina", ips: "4,421,924 IPs", code: "AR" },
+      { name: "Brazil", ips: "1,421,960 IPs", code: "BR" },
+      { name: "Belgium", ips: "155,240 IPs", code: "BE" },
+      { name: "Czechia", ips: "210,500 IPs", code: "CZ" },
+      { name: "Israel", ips: "4,421,924 IPs", code: "IL" },
+      { name: "Italy", ips: "4,421,924 IPs", code: "IT" },
+      { name: "Japan", ips: "4,421,924 IPs", code: "JP" },
+      { name: "Malaysia", ips: "4,421,924 IPs", code: "MY" },
+      { name: "Nigeria", ips: "4,421,924 IPs", code: "NG" },
+      { name: "Norway", ips: "4,421,924 IPs", code: "NO" },
+      { name: "Pakistan", ips: "4,421,924 IPs", code: "PK" },
+      { name: "Peru", ips: "4,421,924 IPs", code: "PE" },
+      { name: "Philippines", ips: "4,421,924 IPs", code: "PH" },
+      { name: "Poland", ips: "4,421,924 IPs", code: "PL" },
+      { name: "Portugal", ips: "4,421,924 IPs", code: "PT" },
+      { name: "Russia", ips: "4,421,924 IPs", code: "RU" },
+      { name: "Singapore", ips: "4,421,924 IPs", code: "SG" },
+      { name: "Switzerland", ips: "4,421,924 IPs", code: "CH" },
+      { name: "United Arab Emirates", ips: "4,421,924 IPs", code: "AE" },
+      { name: "Thailand", ips: "4,421,924 IPs", code: "TH" },
+      { name: "Turkey", ips: "4,421,924 IPs", code: "TR" },
+      { name: "Ukraine", ips: "4,421,924 IPs", code: "UA" },
+      { name: "Vietnam", ips: "4,421,924 IPs", code: "VN" },
+      { name: "Venezuela", ips: "4,421,924 IPs", code: "VE" },
+      { name: "Netherlands", ips: "4,421,924 IPs", code: "NL" },
+      { name: "Finland", ips: "4,421,924 IPs", code: "FI" },
+      { name: "Denmark", ips: "4,421,924 IPs", code: "DK" },
+      { name: "Indonesia", ips: "4,421,924 IPs", code: "ID" }
+    ],
+    isp: [
+      { name: "South Korea", ips: "4,421,924 IPs", code: "KR" },
+      { name: "Ireland", ips: "4,421,924 IPs", code: "IE" },
+      { name: "Iran", ips: "4,421,924 IPs", code: "IR" },
+      { name: "Chile", ips: "4,421,924 IPs", code: "CL" },
+      { name: "Argentina", ips: "4,421,924 IPs", code: "AR" },
+      { name: "Brazil", ips: "1,421,960 IPs", code: "BR" },
+      { name: "Belgium", ips: "155,240 IPs", code: "BE" },
+      { name: "Czechia", ips: "210,500 IPs", code: "CZ" },
+      { name: "Israel", ips: "4,421,924 IPs", code: "IL" },
+      { name: "Italy", ips: "4,421,924 IPs", code: "IT" },
+      { name: "Japan", ips: "4,421,924 IPs", code: "JP" },
+      { name: "Malaysia", ips: "4,421,924 IPs", code: "MY" },
+      { name: "Nigeria", ips: "4,421,924 IPs", code: "NG" },
+      { name: "Norway", ips: "4,421,924 IPs", code: "NO" },
+      { name: "Pakistan", ips: "4,421,924 IPs", code: "PK" },
+      { name: "Peru", ips: "4,421,924 IPs", code: "PE" },
+      { name: "Philippines", ips: "4,421,924 IPs", code: "PH" },
+      { name: "Poland", ips: "4,421,924 IPs", code: "PL" },
+      { name: "Portugal", ips: "4,421,924 IPs", code: "PT" },
+      { name: "Russia", ips: "4,421,924 IPs", code: "RU" },
+      { name: "Singapore", ips: "4,421,924 IPs", code: "SG" },
+      { name: "Switzerland", ips: "4,421,924 IPs", code: "CH" },
+      { name: "United Arab Emirates", ips: "4,421,924 IPs", code: "AE" },
+      { name: "Thailand", ips: "4,421,924 IPs", code: "TH" },
+      { name: "Turkey", ips: "4,421,924 IPs", code: "TR" },
+      { name: "Ukraine", ips: "4,421,924 IPs", code: "UA" },
+      { name: "Vietnam", ips: "4,421,924 IPs", code: "VN" },
+      { name: "Venezuela", ips: "4,421,924 IPs", code: "VE" },
+      { name: "Netherlands", ips: "4,421,924 IPs", code: "NL" },
+      { name: "Finland", ips: "4,421,924 IPs", code: "FI" },
+      { name: "Denmark", ips: "4,421,924 IPs", code: "DK" },
+      { name: "Indonesia", ips: "4,421,924 IPs", code: "ID" }
+    ]
+  };
+
+  const activeList = locations[otherLocationsTab] || [];
+  
+  return (
+    <div className="bg-[#0a0a0a] text-white font-urbanist antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
+
+        {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
+        <header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-4 overflow-hidden">
+             <div className="absolute inset-x-0 bottom-40 h-[600px] z-0 pointer-events-none select-none">
+                 <Image
+                     src="/images/hero_back.png"
+                     alt=""
+                     fill
+                     priority
+                     className="object-cover object-bottom opacity-100"
+                 />
+             </div>
+            <div className="max-w-6xl mx-auto text-center z-10">
+                <div className="flex items-center justify-center mb-6">
+                    <img
+                        src="/images/TrustPiolet.png"
+                        alt="Excellent 5-star rating on Trustpilot"
+                        className="h-6 w-auto object-contain"
+                        loading="lazy"
+                    />
+                </div>
+
+                <h1 className="text-[60px] sm:text-6xl lg:text-7xl font-normal tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
+                    Available in 190+ countries <br />
+                    <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">worldwide </span>
+                </h1>
+
+                <p className="max-w-3xl mx-auto text-stone-400 text-[18px] sm:text-xl mb-10 leading-relaxed">
+                    Power your online activities with fast, secure and reliable proxies that work seamlessly across regions worldwide, keeping you connected no matter where you are.
+                </p>
+
+                <div className="mt-[-50px] py-10 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 font-medium">
+                    <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Pay as you go pricing</div>
+                    <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Money back guarantee</div>
+                    <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Dedicated Support</div>
+                </div>
+                <div className="relative z-10 -mt-20 w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+                    <Marquee />
+                </div>
+            </div>
+        </header>
+
+        {/* ── SECTION 2: TOP LOCATIONS (Uses topLocationsTab) ────────────────── */}
+        <section className="py-24 px-6 bg-[#0a0a0a] text-white relative overflow-hidden">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[radial-gradient(circle_at_center,rgba(254,74,1,0.02)_0%,transparent_70%)] pointer-events-none" />
+
+          <div className="max-w-6xl mx-auto relative z-10 flex flex-col items-center">
+            
+            <h2 className="text-[42px] md:text-[42px] font-medium tracking-tight text-center mb-10 text-white">
+              Top locations
+            </h2>
+
+            <div className="inline-flex bg-[#0f0f11] border border-stone-900 rounded-full p-1.5 mb-16 select-none">
+              <button
+                onClick={() => setTopLocationsTab('residential')}
+                className={`px-6 py-2.5 rounded-full text-[14px] font-normal tracking-wide transition-all duration-200 ${
+                  topLocationsTab === 'residential'
+                    ? 'bg-[#FE4A01] text-white shadow-[0_4px_12px_rgba(254,74,1,0.2)]'
+                    : 'text-stone-400 hover:text-stone-200'
+                }`}
+              >
+                Residential Proxies
+              </button>
+              <button
+                onClick={() => setTopLocationsTab('isp')}
+                className={`px-6 py-2.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 ${
+                  topLocationsTab === 'isp'
+                    ? 'bg-[#FE4A01] text-white shadow-[0_4px_12px_rgba(254,74,1,0.2)]'
+                    : 'text-stone-400 hover:text-stone-200'
+                }`}
+              >
+                ISP Proxies
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+              {locationsData[topLocationsTab].map((loc, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-4 bg-[#0d0d0f]/40 border border-stone-900/80 rounded-[16px] p-5 hover:border-stone-800 hover:bg-[#0e0e12]/80 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-11 h-9 relative overflow-hidden rounded-md flex-shrink-0 bg-stone-950 transition-transform duration-300 group-hover:scale-105 shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
+                    <Flag 
+                      code={loc.code} 
+                      className="w-full h-full object-cover" 
+                      fallback={<span className="text-xs text-stone-600">🏳️</span>}
+                    />
+                  </div>
+
+                  <div className="flex flex-col min-w-0">
+                    <span className="text-[20px] font-semibold text-stone-200 tracking-tight group-hover:text-white transition-colors">
+                      {loc.country}
+                    </span>
+                    <span className="text-[16px] text-stone-500 font-normal tracking-wide mt-0.5">
+                      {loc.ips}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </section>
+
+        {/* ── SECTION 3: OTHER LOCATIONS (Uses otherLocationsTab) ────────────────── */}
+        <section className="py-20 px-6 bg-[#0a0a0a] text-white relative overflow-hidden">
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[350px] bg-[radial-gradient(ellipse_at_bottom,rgba(254,74,1,0.04)_0%,transparent_70%)] pointer-events-none select-none" />
+
+          <div className="max-w-6xl mx-auto relative z-10 flex flex-col items-center">
+            
+            <h2 className="text-4xl md:text-[42px] font-medium tracking-tight text-center mb-10 text-stone-100">
+              Other Locations
+            </h2>
+
+            <div className="inline-flex bg-[#0f0f11] border border-stone-900/90 rounded-full p-1.5 mb-14 select-none">
+              <button
+                onClick={() => setOtherLocationsTab('residential')}
+                className={`px-5 py-2 rounded-full text-[14px] font-normal tracking-wider transition-all duration-200 ${
+                  otherLocationsTab === 'residential'
+                    ? 'bg-[#FE4A01] text-white shadow-[0_3px_10px_rgba(254,74,1,0.25)]'
+                    : 'text-stone-500 hover:text-stone-300'
+                }`}
+              >
+                Residential Proxies
+              </button>
+              <button
+                onClick={() => setOtherLocationsTab('isp')}
+                className={`px-5 py-2 rounded-full text-[11px] font-bold tracking-wider uppercase transition-all duration-200 ${
+                  otherLocationsTab === 'isp'
+                    ? 'bg-[#FE4A01] text-white shadow-[0_3px_10px_rgba(254,74,1,0.25)]'
+                    : 'text-stone-500 hover:text-stone-300'
+                }`}
+              >
+                ISP Proxies
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full">
+              {activeList.map((loc, index) => (
+                <div
+                  key={`${otherLocationsTab}-${loc.code}-${index}`}
+                  className="flex items-center gap-3.5 bg-[#0b0b0d]/30 border border-stone-900/60 rounded-[12px] p-4 hover:border-stone-800/80 hover:bg-[#0e0e12]/60 transition-all duration-200 group cursor-pointer"
+                >
+                  <div className="w-11 h-9 relative overflow-hidden rounded-[3px] flex-shrink-0 bg-stone-950 shadow-[0_1px_3px_rgba(0,0,0,0.5)] border border-stone-900/20">
+                    <Flag 
+                      code={loc.code} 
+                      className="w-full h-full object-cover" 
+                      fallback={<span className="text-[10px] text-stone-600">🏳️</span>}
+                    />
+                  </div>
+
+                  <div className="flex flex-col min-w-0 leading-tight">
+                    <span className="text-[20px] font-semibold text-stone-300 tracking-tight group-hover:text-white transition-colors truncate">
+                      {loc.name}
+                    </span>
+                    <span className="text-[16px] text-stone-600 font-normal mt-0.5 tracking-wide">
+                      {loc.ips}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </section>
+
+    </div>
+  );
+}
