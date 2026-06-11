@@ -6,16 +6,15 @@ import Flag from 'react-world-flags';
 const LocationsSection = () => {
   const router = useRouter();
   const locations = [
-    { code: 'US', name: 'United States', ips: '4,429,824' },
-    { code: 'GB', name: 'United Kingdom', ips: '1,449,139' },
-    { code: 'DE', name: 'Germany', ips: '1,431,960' },
-    { code: 'AU', name: 'Australia', ips: '452,720' },
-    { code: 'CA', name: 'Canada', ips: '815,658' },
-    { code: 'MX', name: 'Mexico', ips: '4,429,824' },
-    { code: 'CN', name: 'China', ips: '4,429,824' },
-    { code: 'FR', name: 'France', ips: '4,429,824' },
-  ];
-
+  { code: 'US', name: 'United States', ips: '4,429,824', url: '/united-states' },
+  { code: 'GB', name: 'United Kingdom', ips: '1,449,139', url: '/united-kingdom' },
+  { code: 'DE', name: 'Germany', ips: '1,431,960', url: '/germany' },
+  { code: 'AU', name: 'Australia', ips: '452,720', url: '/australia' },
+  { code: 'CA', name: 'Canada', ips: '815,658', url: '/canada' },
+  { code: 'MX', name: 'Mexico', ips: '4,429,824', url: '/mexico' },
+  { code: 'CN', name: 'China', ips: '4,429,824', url: '/china' },
+  { code: 'FR', name: 'France', ips: '4,429,824', url: '/france' },
+];
   return (
             <section className="relative bg-[#0a0a0a] text-white py-24 overflow-hidden">
 
@@ -68,7 +67,7 @@ const LocationsSection = () => {
 </button>
 
                     {/* Locations Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+                    {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
                         {locations.map((loc, index) => (
                             <div
                                 key={index}
@@ -89,7 +88,36 @@ const LocationsSection = () => {
                                 </div>
                             </div>
                         ))}
-                    </div>
+                    </div> */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full">
+  {locations.map((loc, index) => (
+    <div
+      key={`${loc.code}-${index}`}
+      // ── CLICK NAVIGATION HANDLER ──
+      onClick={() => router.push(loc.url)}
+      className="flex items-center gap-3.5 bg-[#0b0b0d]/30 border border-stone-900/60 rounded-[12px] p-4 hover:border-stone-800/80 hover:bg-[#0e0e12]/60 transition-all duration-200 group cursor-pointer"
+    >
+      {/* Flag Container */}
+      <div className="w-11 h-9 relative overflow-hidden rounded-[3px] flex-shrink-0 bg-stone-950 shadow-[0_1px_3px_rgba(0,0,0,0.5)] border border-stone-900/20">
+        <Flag 
+          code={loc.code} 
+          className="w-full h-full object-cover" 
+          fallback={<span className="text-[10px] text-stone-600">🏳️</span>}
+        />
+      </div>
+
+      {/* Data Labels Container */}
+      <div className="flex flex-col min-w-0 leading-tight">
+        <span className="text-[20px] font-semibold text-stone-300 tracking-tight group-hover:text-white transition-colors truncate">
+          {loc.name}
+        </span>
+        <span className="text-[16px] text-stone-600 font-normal mt-0.5 tracking-wide">
+          {loc.ips} IPs
+        </span>
+      </div>
+    </div>
+  ))}
+</div>
 
                 </div>
             </section>
