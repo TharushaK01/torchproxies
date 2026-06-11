@@ -10,7 +10,7 @@ import ContactSection from '../contact/ContactSection';
 const NAV_LINKS = [
   {
     label: "Products",
-    href: "/products",
+    href: "/#",
     menuType: "products-mega",
     dropdown: [
       {
@@ -209,40 +209,36 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+        className={`fixed top-0 left-0 right-0 z-50 overflow-visible transition-all duration-300 ${scrolled
           ? "bg-transparent"
           : "bg-transparent"
           }`}
       >
-        <nav className="max-w-[1400px] mx-auto px-6 py-4 h-auto flex items-center justify-between">
+        <nav className="max-w-[1400px] mx-auto px-6 py-4 h-auto flex items-center justify-between overflow-visible">
 
           {/* ── Logo ──────────────────────────────────────── */}
           <Link href="/" className="flex items-center gap-0 group shrink-0">
-            <div className="relative w-8 h-8 flex items-center justify-center">
+            <div className="relative w-[141px] h-[27px] flex items-center justify-center">
               {/* Animated Orange background glow frame */}
-              <div className="absolute inset-0 bg-orange-500 rounded-full opacity-20 blur-md group-hover:opacity-35 transition-opacity duration-300" />
+              <div className="absolute inset-0 rounded-full opacity-20 blur-md group-hover:opacity-35 transition-opacity duration-300" />
 
               {/* ── Your Custom SVG File ────────────────────── */}
               <img
-                src="/images/nav_logo.svg"
+                src="/images/navlogo.svg"
                 alt="TorchProxies Logo"
-                className="relative z-10 w-6 h-6 object-contain"
+                className="relative z-10 w-[141px] h-[27px] object-contain"
               />
             </div>
-
-            <span className="text-white ">
-              <span className="text-orange-500 font-bold text-lg tracking-tight">Torch</span><span className="font-thin text-lg tracking-tight">Proxies</span>
-            </span>
           </Link>
 
           {/* ── Center Navigation Pill ─────────────────────── */}
-          <div className="hidden lg:flex items-center">
-            <div className="flex items-center gap-0.5 bg-[#FFFFFF0A] backdrop-blur-md border border-white/5 rounded-xl px-1.5 py-1.5">
+          <div className="hidden lg:flex items-center overflow-visible">
+            <div className="flex items-center gap-0.5 bg-[#FFFFFF0A] backdropkey={link.label}-blur-md border border-white/5 rounded-xl px-1.5 py-1.5 overflow-visible">
 
               {NAV_LINKS.map((link) => (
                 <div
                   key={link.label}
-                  className="relative"
+                  className="relative overflow-visible"
                   onMouseEnter={() => setOpenDropdown(link.label)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
@@ -324,7 +320,7 @@ export default function Navbar() {
                                       {/* Right Side: Clean Alignment & Vertical Divider */}
                                       <div className="flex items-center h-12 pl-4 border-l border-white/[0.08]">
                                         <div className="text-right flex flex-col items-end gap-1 w-20">
-                                          <span className="text-[10px] uppercase text-stone-500 tracking-wider font-medium">From</span>
+                                          <span className="text-[14px] text-stone-200 tracking-wider font-medium">From</span>
                                           <span className="text-xs font-bold text-stone-100 bg-[#2b1a14] border border-[#44281e] px-3 py-1.5 rounded-md min-w-[72px] text-center">
                                             {item.price}
                                           </span>
@@ -592,7 +588,7 @@ export default function Navbar() {
           </div>
 
           {/* ── Contact Us Button ──────────────────────────── */}
-         <div className="hidden lg:flex items-center">
+         <div className="hidden lg:flex items-center overflow-visible">
   <button
     onClick={() => setIsContactOpen(true)}
     className="

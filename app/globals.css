@@ -68,7 +68,9 @@ body {
   .wp-post-content header {
     display: none !important;
   }
-
+header {
+  overflow: visible !important;
+}
   /* Layout wrapper */
   .wp-post-content {
     width: 100%;

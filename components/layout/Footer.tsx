@@ -232,7 +232,7 @@ export default function Footer() {
         </div>
 
         {/* ── Bottom copyright bar ──────────────────────── */}
-        <div className="mt-24 text-center relative z-20">
+        <div className="mt-24 text-center relative z-10">
           <p className="text-xs text-stone-600 font-medium tracking-wide">
             © Copyright {new Date().getFullYear()} Torch Labs Software. All Rights Reserved
           </p>
@@ -242,7 +242,7 @@ export default function Footer() {
       {/* ── Perfected "TORCH LABS" Watermark Background ── */}
       
 <span
-  className="absolute left-1/2 translate-x-[-50%] select-none pointer-events-none whitespace-nowrap font-black tracking-normal uppercase text-white opacity-10 z-0 bottom-[-15%] pt-6"
+  className="absolute left-1/2 translate-x-[-50%] select-none pointer-events-none whitespace-nowrap font-black tracking-normal uppercase text-white opacity-10 z-10 bottom-[-15%] pt-6"
   style={{
     fontSize: "clamp(180px, 14vw, 440px)",
     lineHeight: "1.0",
