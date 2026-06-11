@@ -9,7 +9,7 @@ const Marquee = () => {
   ];
 
   return (
-    <div className="w-full overflow-hidden bg-[#FF4500] py-4">
+    <div className="w-full overflow-hidden bg-[#FF4500] py-4 space-y-6 font-['Urbanist']">
         <div className="animate-marquee-infinite">
       <div className="flex animate-marquee whitespace-nowrap">
         {/* We loop twice to create the infinite scroll effect */}
@@ -18,7 +18,7 @@ const Marquee = () => {
             {items.map((item, index) => (
               <div key={index} className="flex items-center mx-6">
                 <div className="w-2 h-2 bg-white rounded-full mr-4" />
-                <span className="text-white font-bold uppercase text-sm tracking-widest">
+                <span className="text-white font-medium uppercase text-[14px] tracking-widest">
                   {item}
                 </span>
               </div>

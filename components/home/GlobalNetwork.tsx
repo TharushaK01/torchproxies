@@ -29,7 +29,7 @@ const GlobalNetwork = () => {
   return (
     <section className="bg-[#0a0a0a] text-white py-24 px-6 relative min-h-[800px]">
       <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3 text-center ">
-        Use cases
+        Worldwide
       </span>
       <h2 className="text-[42px] md:text-5xl font-medium text-center mb-16 tracking-tight">
         Strong global IP network

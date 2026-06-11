@@ -23,7 +23,7 @@ const ClientManagement = () => {
             Our Proxy Dashboard and Proxy API help resellers manage and distribute proxies efficiently.
           </p>
           <button
-            onClick={() => router.push('/locations')}
+            onClick={() => router.push('/b2b-dashboard')}
             className="
     group relative overflow-hidden 
     bg-gradient-to-r from-orange-600 to-orange-500 

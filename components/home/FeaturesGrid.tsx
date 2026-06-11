@@ -55,6 +55,15 @@ const FeaturesGrid = () => {
 
   return (
     <section className="bg-[#0a0a0a] text-white py-20 px-6">
+              <div className="relative z-10 max-w-7xl mx-auto px-6 text-center mb-[64px]">
+                    <span className="text-orange-500 font-regular text-[16px] mb-4 block tracking-widest">
+                        Features
+                    </span>
+
+                    <h2 className="text-4xl md:text-5xl font-regular mb-6">
+                        Why choose Torchlabs?
+                    </h2>
+                    </div>
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
 
         {/* Panel 1: Connect Worldwide */}
@@ -333,7 +342,7 @@ const FeaturesGrid = () => {
               <div className="relative h-16 md:h-20 xl:h-[96px] bg-[#14161A] border border-[#24272D] rounded-[26px] flex items-center justify-between px-5" style={{ boxShadow: '0 12px 28px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.02)' }}>
                 <span className="w-1.5 h-[34px] md:h-[42px] xl:h-[46px] rounded-lg mr-3.5 bg-[#FF6A1A]" style={{ boxShadow: '0 0 18px rgba(255,106,26,.6)' }} />
                 
-                <div className="flex-1 flex items-center min-w-0 text-[#E9EDF0] text-sm md:text-lg xl:text-xl font-normal tracking-[0.2px] whitespace-nowrap overflow-hidden">
+                <div className="flex-1 flex items-center min-w-0 text-[#E9EDF0] text-[14px] md:text-[14px] xl:text-[16px] font-normal tracking-[0.2px] whitespace-nowrap overflow-hidden">
                   <span className="truncate">{typedText}</span>
                   <span className="text-[#FF6A1A] font-light animate-[pulse_1s_steps(2,start)_infinite]">|</span>
                 </div>

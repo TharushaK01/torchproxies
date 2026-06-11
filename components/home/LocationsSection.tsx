@@ -40,7 +40,7 @@ const LocationsSection = () => {
                     </p>
                     
 <button 
-  onClick={() => router.push('/locations')} 
+  onClick={() => router.push('/countries')} 
   className="
     group relative overflow-hidden
     bg-gradient-to-r from-orange-600 to-orange-500 

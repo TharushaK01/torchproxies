@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { useRouter } from 'next/navigation';
+import router from "next/router";
 
 type ProxyStatus = "verifying" | "blocked" | "applied" | "queued";
 
@@ -595,6 +597,7 @@ function SneakerMockup() {
     const gap = 10;
     return currentIndex * (item.clientHeight + gap);
   };
+ const router = useRouter();
 
   return (
     <div className="sb-outer-card w-full h-full p-3 bg-[#0b0b0b]">
@@ -746,9 +749,12 @@ const UseCasesSection = () => {
             From streaming and market research to SEO, ad verification and travel
             data gathering. Whatever your use case, we have you covered.
           </p>
-          <button className="self-start px-20 py-3 bg-transparent text-white rounded-xl font-medium border border-white/20 hover:border-white/60 hover:bg-white/5 transition-all duration-300">
-            View other use cases
-          </button>
+          <button 
+  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+  className="self-start px-20 py-3 bg-transparent text-white rounded-xl font-medium border border-white/20 hover:border-white/60 hover:bg-white/5 transition-all duration-300"
+>
+  View other use cases
+</button>
         </div>
       </div>
     </section>
