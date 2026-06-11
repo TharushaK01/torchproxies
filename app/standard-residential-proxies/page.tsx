@@ -577,84 +577,84 @@ export default function TorchProxiesLandingPage() {
                         </p>
                     </div>
 
-{/* ── BENTO BOX GRID LAYOUT ────────────────────────────────── */}
-{/* Changed grid layout to flex on desktop to enforce exact, explicit layout pixel widths */}
-<div className="flex flex-col lg:flex-row gap-6 items-stretch justify-center w-full max-w-[1204px] mx-auto">
+                    {/* ── BENTO BOX GRID LAYOUT ────────────────────────────────── */}
+                    {/* Changed grid layout to flex on desktop to enforce exact, explicit layout pixel widths */}
+                    <div className="flex flex-col lg:flex-row gap-6 items-stretch justify-center w-full max-w-[1204px] mx-auto">
 
-    {/* CARD 1: TARGET ANY COUNTRY (Left Column - Locked at exactly 591px wide) */}
-    <div className="w-full lg:w-[591px] flex-shrink-0 bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col justify-between overflow-hidden min-h-[540px]">
-        <div className="mb-6">
-            <h3 className="text-[28px] font-medium tracking-tight text-stone-200 mb-3">
-                Target Any Country, State or City
-            </h3>
-            <p className="text-stone-400 text-[18px] leading-relaxed font-regular">
-                Reach your audience anywhere with pinpoint geographic precision.
-            </p>
-        </div>
+                        {/* CARD 1: TARGET ANY COUNTRY (Left Column - Locked at exactly 591px wide) */}
+                        <div className="w-full lg:w-[591px] flex-shrink-0 bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col justify-between overflow-hidden min-h-[540px]">
+                            <div className="mb-6">
+                                <h3 className="text-[28px] font-medium tracking-tight text-stone-200 mb-3">
+                                    Target Any Country, State or City
+                                </h3>
+                                <p className="text-stone-400 text-[18px] leading-relaxed font-regular">
+                                    Reach your audience anywhere with pinpoint geographic precision.
+                                </p>
+                            </div>
 
-        {/* Visual Image / Mockup Area */}
-        <div className="relative w-full h-full max-h-[473px]">
-            <Image
-                src="/images/targetanycountry.png"
-                alt="Proxy Dashboard Mockup"
-                fill
-                className="object-contain"
-                priority={false}
-            />
-        </div>
-    </div>
+                            {/* Visual Image / Mockup Area */}
+                            <div className="relative w-full h-full max-h-[473px]">
+                                <Image
+                                    src="/images/targetanycountry.png"
+                                    alt="Proxy Dashboard Mockup"
+                                    fill
+                                    className="object-contain"
+                                    priority={false}
+                                />
+                            </div>
+                        </div>
 
-    {/* RIGHT SIDE CONTAINER GROUP (Right Column - Locked at exactly 589px wide) */}
-    <div className="w-full lg:w-[589px] flex-shrink-0 flex flex-col gap-6">
+                        {/* RIGHT SIDE CONTAINER GROUP (Right Column - Locked at exactly 589px wide) */}
+                        <div className="w-full lg:w-[589px] flex-shrink-0 flex flex-col gap-6">
 
-        {/* CARD 2: TRACK MANAGE & CONTROL (Top Right Row) */}
-        <div className="bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col gap-6 justify-between items-start overflow-hidden min-h-[258px]">
-            <div className="max-w-xl shrink-0">
-                <h3 className="text-[28px] font-medium tracking-tight text-stone-200 mb-3">
-                    Track Manage & Stay in Control
-                </h3>
-                <p className="text-stone-400 text-[18px] leading-relaxed font-regular">
-                    Monitor usage, switch locations, and stay fully in command of your network.
-                </p>
-            </div>
-            
-            <div className="relative w-full h-[136px]">
-                <Image
-                    src="/images/trackmanage.png"
-                    alt="Proxy Dashboard Mockup"
-                    fill
-                    className="object-contain"
-                    priority={false} 
-                />
-            </div>
-        </div>
+                            {/* CARD 2: TRACK MANAGE & CONTROL (Top Right Row) */}
+                            <div className="bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col gap-6 justify-between items-start overflow-hidden min-h-[258px]">
+                                <div className="max-w-xl shrink-0">
+                                    <h3 className="text-[28px] font-medium tracking-tight text-stone-200 mb-3">
+                                        Track Manage & Stay in Control
+                                    </h3>
+                                    <p className="text-stone-400 text-[18px] leading-relaxed font-regular">
+                                        Monitor usage, switch locations, and stay fully in command of your network.
+                                    </p>
+                                </div>
 
-        {/* CARD 3: DEVELOPER FRIENDLY SETUP (Bottom Right Row) */}
-        <div className="bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col gap-6 justify-between items-start overflow-hidden min-h-[258px]">
-            <div className="max-w-xl shrink-0">
-                <h3 className="text-[28px] font-medium tracking-tight text-stone-200 mb-3">
-                    Fast, Developer Friendly Setup
-                </h3>
-                <p className="text-stone-400 text-[18px] leading-relaxed font-regular">
-                    Get started in minutes with simple integration and powerful API tools.
-                </p>
-            </div>
+                                <div className="relative w-full h-[136px]">
+                                    <Image
+                                        src="/images/trackmanage.png"
+                                        alt="Proxy Dashboard Mockup"
+                                        fill
+                                        className="object-contain"
+                                        priority={false}
+                                    />
+                                </div>
+                            </div>
 
-            {/* Visual Image / Mockup Area */}
-            <div className="relative w-full h-[136px]">
-                <Image
-                    src="/images/fastdeveloper.png"
-                    alt="Proxy Dashboard Mockup"
-                    fill
-                    className="object-contain"
-                    priority={false} 
-                />
-            </div>
-        </div>
+                            {/* CARD 3: DEVELOPER FRIENDLY SETUP (Bottom Right Row) */}
+                            <div className="bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col gap-6 justify-between items-start overflow-hidden min-h-[258px]">
+                                <div className="max-w-xl shrink-0">
+                                    <h3 className="text-[28px] font-medium tracking-tight text-stone-200 mb-3">
+                                        Fast, Developer Friendly Setup
+                                    </h3>
+                                    <p className="text-stone-400 text-[18px] leading-relaxed font-regular">
+                                        Get started in minutes with simple integration and powerful API tools.
+                                    </p>
+                                </div>
 
-    </div>
+                                {/* Visual Image / Mockup Area */}
+                                <div className="relative w-full h-[136px]">
+                                    <Image
+                                        src="/images/fastdeveloper.png"
+                                        alt="Proxy Dashboard Mockup"
+                                        fill
+                                        className="object-contain"
+                                        priority={false}
+                                    />
+                                </div>
+                            </div>
 
-</div>
+                        </div>
+
+                    </div>
 
                 </div>
             </section>
@@ -675,38 +675,38 @@ export default function TorchProxiesLandingPage() {
                 </div>
 
                 {/* ── FEATURES GRID ──────────────────────────────────────── */}
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16 max-w-6xl mx-auto">
-    {features.map((feat, i) => (
-        <div key={i} className="flex items-start gap-4 group">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16 max-w-6xl mx-auto">
+                    {features.map((feat, i) => (
+                        <div key={i} className="flex items-start gap-4 group">
 
-            {/* Round Solid Orange Icon Badge */}
-            <div className="rounded-full bg-[#FE4A01] flex items-center justify-center shrink-0 shadow-[0_4px_14px_rgba(254,74,1,0.2)] transition-transform duration-200 group-hover:scale-105">
-                
-                {/* ✨ Custom SVG Image Implementation wrapper */}
-                <div className="relative w-[56px] h-[56px]">
-                    <Image
-                        src={feat.icon}
-                        alt={`${feat.title} Icon`}
-                        fill
-                        className="object-contain inverted-icon-color" // Optional filter if you need to force custom colors
-                    />
+                            {/* Round Solid Orange Icon Badge */}
+                            <div className="rounded-full bg-[#FE4A01] flex items-center justify-center shrink-0 shadow-[0_4px_14px_rgba(254,74,1,0.2)] transition-transform duration-200 group-hover:scale-105">
+
+                                {/* ✨ Custom SVG Image Implementation wrapper */}
+                                <div className="relative w-[56px] h-[56px]">
+                                    <Image
+                                        src={feat.icon}
+                                        alt={`${feat.title} Icon`}
+                                        fill
+                                        className="object-contain inverted-icon-color" // Optional filter if you need to force custom colors
+                                    />
+                                </div>
+
+                            </div>
+
+                            {/* Text Information Elements */}
+                            <div className="space-y-1.5">
+                                <h4 className="text-[23px] font-medium text-white tracking-tight">
+                                    {feat.title}
+                                </h4>
+                                <p className="text-stone-400 text-[16px] sm:text-[16px] leading-relaxed font-regular">
+                                    {feat.desc}
+                                </p>
+                            </div>
+
+                        </div>
+                    ))}
                 </div>
-
-            </div>
-
-            {/* Text Information Elements */}
-            <div className="space-y-1.5">
-                <h4 className="text-[23px] font-medium text-white tracking-tight">
-                    {feat.title}
-                </h4>
-                <p className="text-stone-400 text-[16px] sm:text-[16px] leading-relaxed font-regular">
-                    {feat.desc}
-                </p>
-            </div>
-
-        </div>
-    ))}
-</div>
             </section>
 
             {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
@@ -725,12 +725,12 @@ export default function TorchProxiesLandingPage() {
 
                             <div className="max-w-5xl relative z-10  mx-auto">
                                 <h2 className="max-w-5xl text-[48px] md:text-[48px] font-medium tracking-tight mb-2 leading-[1.1] text-[#FFF6EC]">
-    Start Your Simple & Reliable Scraping Journey
-</h2>
+                                    Start Your Simple & Reliable Scraping Journey
+                                </h2>
                                 {/* Added mx-auto to center the block container itself */}
-<p className="max-w-3xl mx-auto text-gray-400 text-[18px] font-regular md:text-xl leading-relaxed mb-6 text-center">
-    Get dependable, easy to use residential proxies built for everyday automation, testing, and data collection.
-</p>
+                                <p className="max-w-3xl mx-auto text-gray-400 text-[18px] font-regular md:text-xl leading-relaxed mb-6 text-center">
+                                    Get dependable, easy to use residential proxies built for everyday automation, testing, and data collection.
+                                </p>
 
 
                                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
@@ -791,30 +791,28 @@ export default function TorchProxiesLandingPage() {
                     </div>
 
                     {/* ── NAV TAB SYSTEM ──────────────────────────────────────── */}
-<div className="flex border-b border-stone-900 w-full mb-16">
-    <button
-        onClick={() => setActiveTab('premium')}
-        className={`flex-1 pb-4 px-8 text-sm font-medium transition-all relative ${
-            activeTab === 'premium' ? 'text-[#FE4A01]' : 'text-stone-500 hover:text-stone-300'
-        }`}
-    >
-        Premium Residential Proxies
-        {activeTab === 'premium' && (
-            <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#FE4A01]" />
-        )}
-    </button>
-    <button
-        onClick={() => setActiveTab('planX')}
-        className={`flex-1 pb-4 px-8 text-sm font-medium transition-all relative ${
-            activeTab === 'planX' ? 'text-[#FE4A01]' : 'text-stone-500 hover:text-stone-300'
-        }`}
-    >
-        Plan X Residential Proxies
-        {activeTab === 'planX' && (
-            <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#FE4A01]" />
-        )}
-    </button>
-</div>
+                    <div className="flex border-b border-stone-900 w-full mb-16">
+                        <button
+                            onClick={() => setActiveTab('premium')}
+                            className={`flex-1 pb-4 px-8 text-sm font-medium transition-all relative ${activeTab === 'premium' ? 'text-[#FE4A01]' : 'text-stone-500 hover:text-stone-300'
+                                }`}
+                        >
+                            Premium Residential Proxies
+                            {activeTab === 'premium' && (
+                                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#FE4A01]" />
+                            )}
+                        </button>
+                        <button
+                            onClick={() => setActiveTab('planX')}
+                            className={`flex-1 pb-4 px-8 text-sm font-medium transition-all relative ${activeTab === 'planX' ? 'text-[#FE4A01]' : 'text-stone-500 hover:text-stone-300'
+                                }`}
+                        >
+                            Plan X Residential Proxies
+                            {activeTab === 'planX' && (
+                                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#FE4A01]" />
+                            )}
+                        </button>
+                    </div>
 
                     {/* ── TAB DYNAMIC VIEW CONTENT ────────────────────────────── */}
                     {activeTab === 'premium' ? (
@@ -826,9 +824,9 @@ export default function TorchProxiesLandingPage() {
                                     <h3 className="text-[40px] font-medium tracking-tight text-white leading-tight text-white">
                                         Premium Residential  <br />Proxies
                                     </h3>
-                                     <span className="absolute -top-3 -right-50 bg-[#FE4A01]/10 border border-[#FE4A01]/20 text-[#FE4A01] text-[14px] font-medium px-2.5 py-1 rounded-md">
-        From $4.5/GB
-    </span>
+                                    <span className="absolute -top-3 -right-50 bg-[#FE4A01]/10 border border-[#FE4A01]/20 text-[#FE4A01] text-[14px] font-medium px-2.5 py-1 rounded-md">
+                                        From $4.5/GB
+                                    </span>
                                 </div>
                                 <p className="text-stone-400 text-[16px] font-regular leading-relaxed">
                                     Enhanced speed and reliability with rotating residential proxies and static sessions ideal for demanding users and businesses.
@@ -867,18 +865,18 @@ export default function TorchProxiesLandingPage() {
                                 </button> */}
                             </div>
 
-{/* Right Image Column */}
-<div className="lg:col-span-5 bg-[#0b0b0d] border border-stone-900 rounded-3xl overflow-hidden min-h-[380px]">
-    <img
-        src="/images/sr5.png"
-        alt="Premium Residential Proxies"
-        className="w-full h-full object-cover"
-    />
-</div>
+                            {/* Right Image Column */}
+                            <div className="lg:col-span-5 bg-[#0b0b0d] border border-stone-900 rounded-3xl overflow-hidden min-h-[380px]">
+                                <img
+                                    src="/images/sr5.png"
+                                    alt="Premium Residential Proxies"
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
 
                         </div>
                     ) : (
-                       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
                             {/* Left Info Column */}
                             <div className="lg:col-span-7 space-y-6">
@@ -886,9 +884,9 @@ export default function TorchProxiesLandingPage() {
                                     <h3 className="text-[40px] font-medium tracking-tight text-white leading-tight text-white">
                                         Plan X Residential <br />Proxies
                                     </h3>
-                                     <span className="absolute -top-3 -right-50 bg-[#FE4A01]/10 border border-[#FE4A01]/20 text-[#FE4A01] text-[14px] font-medium px-2.5 py-1 rounded-md">
-        From $4.5/GB
-    </span>
+                                    <span className="absolute -top-3 -right-50 bg-[#FE4A01]/10 border border-[#FE4A01]/20 text-[#FE4A01] text-[14px] font-medium px-2.5 py-1 rounded-md">
+                                        From $4.5/GB
+                                    </span>
                                 </div>
                                 <p className="text-stone-400 text-[16px] font-regular leading-relaxed max-w-xl">
                                     Reliable and affordable with rotating residential proxies and optional static sessions perfect for everyday online tasks.
@@ -928,14 +926,14 @@ export default function TorchProxiesLandingPage() {
                                 </button> */}
                             </div>
 
-{/* Right Image Column */}
-<div className="lg:col-span-5 bg-[#0b0b0d] border border-stone-900 rounded-3xl overflow-hidden min-h-[380px]">
-    <img
-        src="/images/why_plan_x.png"
-        alt="Premium Residential Proxies"
-        className="w-full h-full object-cover"
-    />
-</div>
+                            {/* Right Image Column */}
+                            <div className="lg:col-span-5 bg-[#0b0b0d] border border-stone-900 rounded-3xl overflow-hidden min-h-[380px]">
+                                <img
+                                    src="/images/why_plan_x.png"
+                                    alt="Premium Residential Proxies"
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
 
                         </div>
                     )}
@@ -946,14 +944,14 @@ export default function TorchProxiesLandingPage() {
             {/* ── SECTION 10: TESTIMONIALS ─────────────────────────────────── */}
             <section className="py-24 bg-stone-950/20  overflow-hidden space-y-6 font-['Urbanist']">
                 <div className="max-w-6xl mx-auto px-6">
-                      <span className="text-center text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
-                              Testimonials
-                          </span>
+                    <span className="text-center text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
+                        Testimonials
+                    </span>
 
                     {/* Section Header Text Nodes */}
                     <div className="text-center mb-16">
                         <h2 className="text-[42px] sm:text-5xl font-medium mb-4 tracking-tight text-white">
-                           Customers prefer Torchlabs over other<br/> proxy brands
+                            Customers prefer Torchlabs over other<br /> proxy brands
                         </h2>
                     </div>
 
