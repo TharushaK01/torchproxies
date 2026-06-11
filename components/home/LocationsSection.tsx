@@ -16,7 +16,7 @@ const LocationsSection = () => {
   { code: 'FR', name: 'France', ips: '4,429,824', url: '/france' },
 ];
   return (
-            <section className="relative bg-[#0a0a0a] text-white py-24 overflow-hidden">
+            <section className="relative bg-[#0a0a0a] text-white py-24 overflow-hidden space-y-6 font-['Urbanist']">
 
                 {/* Background Vector */}
                 <div

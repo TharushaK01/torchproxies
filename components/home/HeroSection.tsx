@@ -128,6 +128,7 @@ export default function HeroSection() {
         px-4 sm:px-6 lg:px-8
         pt-16 sm:pt-20
         pb-24 sm:pb-28
+        space-y-6 font-['Urbanist']
       "
     >
       {/* ── Background Glow ───────────────────────── */}

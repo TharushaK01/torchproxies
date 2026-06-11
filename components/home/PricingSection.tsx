@@ -64,7 +64,7 @@ const PricingSection = () => {
   ];
 
   return (
-    <section className="bg-[#0a0a0a] text-white py-20 px-6 -mt-[80px]">
+    <section className="bg-[#0a0a0a] text-white py-20 px-6 -mt-[80px] space-y-6 font-['Urbanist']">
       <div className="flex flex-col items-center text-center w-full">
         <span className="text-orange-500 font-regular text-[16px] mb-4 tracking-widest flex items-center justify-center gap-2">
           Our products

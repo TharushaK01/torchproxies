@@ -7,7 +7,7 @@ import { CheckCircle2 } from 'lucide-react';
 const ClientManagement = () => {
   const router = useRouter();
   return (
-    <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden">
+    <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden space-y-6 font-['Urbanist']">
 
       <div className="max-w-7xl mx-auto space-y-32">
 
