@@ -156,10 +156,10 @@ function FooterColumn({ groups }: { groups: (typeof FOOTER_COLUMNS)[number][] })
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0a0a0a] border-t border-white/5 relative overflow-hidden w-full">
+    <footer className="bg-[#0a0a0a] border-t border-white/5 relative overflow-hidden w-full font-['Urbanist']">
       
       {/* ── Main content layout container ─────────────────── */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-8 pt-16 pb-12">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-8 pt-16 pb-12 font-['Urbanist']">
         <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-12">
 
           {/* ── Brand column ──────────────────────────────── */}
@@ -242,7 +242,7 @@ export default function Footer() {
       {/* ── Perfected "TORCH LABS" Watermark Background ── */}
       
 <span
-  className="absolute left-1/2 translate-x-[-50%] select-none pointer-events-none whitespace-nowrap font-black tracking-normal uppercase text-white opacity-10 z-10 bottom-[-15%] pt-6"
+  className="absolute left-1/2 translate-x-[-50%] select-none pointer-events-none whitespace-nowrap font-black tracking-normal uppercase text-white opacity-10 z-10 bottom-[-15%] pt-6 font-['Urbanist']"
   style={{
     fontSize: "clamp(180px, 14vw, 440px)",
     lineHeight: "1.0",

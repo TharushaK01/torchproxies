@@ -92,17 +92,37 @@ export default function CountryPageClient({ data }: CountryPageClientProps) {
 
     const faqData = [
         {
-            q: `What are ${countryName} residential proxies?`,
-            a: `${countryName} residential proxies are high-grade IP addresses assigned by legitimate Internet Service Providers (ISPs) to homeowners within ${countryName}. They serve as dedicated network intermediaries, ensuring your automated threads appear completely indistinguishable from organic local traffic.`
+            q: "What are location-based proxies?",
+            a: "Location-based proxies are proxies with IP addresses assigned to specific geographical locations. They allow users to appear as if they are accessing the internet from a particular country, city, or region."
         },
         {
-            q: "How do residential proxies work and how are they different?",
-            a: "Residential proxies route requests directly through physical home-router network nodes rather than server data facilities. This approach yields pristine trust scores and blocks typical datacenter range detection markers completely."
+            q: "Why is the location of a proxy important?",
+            a: "The location of a proxy is important for several reasons, including accessing geo-restricted content, conducting location-specific market research, performing localized SEO analysis, and ensuring compliance with regional data privacy laws."
         },
         {
-            q: "What makes Torch Proxies's residential proxies better than other proxy providers?",
-            a: `Our ${countryName} cluster utilizes prioritized routing protocols, giving you lower average responses, high pool multi-threading stability, and city-granular targeted configurations backed by 24/7 technical monitoring.`
-        }
+            q: "How can location-based proxies help with accessing geo-restricted content?",
+            a: "Location-based proxies can mask your actual IP address and make it appear as if you are browsing from a specific location. This allows you to access content, services, and websites that are restricted to certain regions."
+        },
+        {
+            q: "How do location-based proxies aid in localized SEO efforts?",
+            a: "They allow businesses to see how their website ranks in search engines in different locations, check local competition, and ensure that their SEO strategies are effective across various regions."
+        },
+        {
+            q: "What types of location-based proxies do you offer?",
+            a: "We offer a variety of location-based proxies, including:<br/>Country-specific Proxies – IP addresses assigned to specific countries.<br/>City-specific Proxies – IP addresses from specific cities within a country.<br/>Regional Proxies – IP addresses assigned to broader regions within a country.<br/>We offer a variety of location-based proxies, including:<br/>Country-specific Proxies – IP addresses assigned to specific countries.<br/>City-specific Proxies – IP addresses from specific cities within a country.<br/>Regional Proxies – IP addresses assigned to broader regions within a country."
+        },
+        {
+            q: "How do I select the location of a proxy?",
+            a: "You can select the location of a proxy through our proxy dashboard or API. Simply choose the desired country, city, or region from the available options."
+        },
+        {
+            q: "How reliable are location-based proxies?",
+            a: "Our location-based proxies are highly reliable, offering consistent performance and uptime. They are sourced from reputable providers and are regularly monitored to ensure they meet quality standards."
+        },
+        {
+            q: "What kind of speed and latency can I expect from location-based proxies?",
+            a: "The speed and latency of location-based proxies can vary depending on the specific location and the distance from your actual location. However, we strive to provide high-speed and low-latency connections for optimal performance."
+        },
     ];
 
     const plans = [
@@ -156,14 +176,14 @@ export default function CountryPageClient({ data }: CountryPageClientProps) {
     ];
 
     return (
-        <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
+        <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden font-['Urbanist']">
             
             {/* ── FLAG BADGE AREA ─────────────────────────────────────────── */}
-            <div className="max-w-md mx-auto pt-24 px-4 text-center z-20 relative">
+            <div className="max-w-md mx-auto pt-24 px-4 text-center z-20 relative font-['Urbanist']">
             </div>
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-            <header className="relative min-h-[85vh] flex flex-col items-center justify-center px-6 pb-16 overflow-hidden">
+            <header className="relative min-h-[85vh] flex flex-col items-center justify-center px-6 pb-16 overflow-hidden font-['Urbanist']">
                 <div className="absolute inset-x-0 bottom-40 h-[600px] z-0 pointer-events-none select-none">
                     <Image src="/images/hero_back.png" alt="" fill priority className="object-cover object-bottom opacity-100" />
                 </div>
@@ -232,7 +252,7 @@ export default function CountryPageClient({ data }: CountryPageClientProps) {
             </header>
 
             {/* ── SECTION 2: PRICING GRIDS ─────────────────────────────────── */}
-            <section className="bg-[#0a0a0a] text-white py-20 px-6 -mt-[80px]">
+            <section className="bg-[#0a0a0a] text-white py-20 px-6 -mt-[80px] font-['Urbanist']">
                 <div className="flex flex-col items-center text-center w-full">
                     <span className="text-orange-500 font-regular text-[16px] mb-4 tracking-widest flex items-center justify-center gap-2">Our products</span>
                     <h2 className="text-[42px] md:text-5xl font-medium mb-6 max-w-4xl">Buy {countryName} Residential Proxies</h2>
@@ -309,7 +329,7 @@ export default function CountryPageClient({ data }: CountryPageClientProps) {
             </section>
 
             {/* ── SECTION 3: INDUSTRY LEADER INFORMATION ─────────────────────── */}
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px]">
+            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div className="relative group">
@@ -338,7 +358,7 @@ export default function CountryPageClient({ data }: CountryPageClientProps) {
             </section>
 
             {/* ── SECTION 4: BENEFITS BLOCK ─────────────────────────────────── */}
-            <section className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white -mt-[100px]">
+            <section className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white -mt-[100px] font-['Urbanist']">
                 <div className="text-center mb-20">
                     <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">Features</span>
                     <h2 className="text-[42px] sm:text-[40px] font-medium tracking-tight mb-4 text-white">
@@ -365,7 +385,7 @@ export default function CountryPageClient({ data }: CountryPageClientProps) {
             </section>
 
             {/* ── SECTION 5: CALL TO ACTION BANNER ──────────────────────────── */}
-            <section className="bg-[#0a0a0a] py-20 px-6 mt-[-100px] relative overflow-hidden">
+            <section className="bg-[#0a0a0a] py-20 px-6 mt-[-100px] relative overflow-hidden font-['Urbanist']">
                 <div className="max-w-7xl mx-auto">
                     <div className="relative overflow-hidden bg-[#0a0a0a] rounded-[40px] px-8 py-8 text-center">
                         <div className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden" style={{ background: 'linear-gradient(135deg, #ff3c006c 0%, #0a0a0a 30%, #0a0a0a 80%, #ff3c006c 100%)' }}>
@@ -404,7 +424,7 @@ export default function CountryPageClient({ data }: CountryPageClientProps) {
             </section>
 
             {/* ── SECTION 6: SEO OVERVIEW TEXT BLOCK ────────────────────────── */}
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px]">
+            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-12">
                     <h2 className="text-[42px] sm:text-5xl font-regular tracking-tight text-white">
                         Experience the Advantage of TorchLabs <br />{countryName} Residential Proxies
@@ -422,7 +442,7 @@ export default function CountryPageClient({ data }: CountryPageClientProps) {
             </section>
 
             {/* ── SECTION 7: FAQ ACCORDION ────────────────────────── */}
-            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden -mt-[100px]">
+            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden -mt-[100px] font-['Urbanist']">
                 <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
                     <Image src="/images/contact-bg.png" alt="" fill priority className="object-cover object-bottom opacity-100" />
                 </div>

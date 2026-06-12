@@ -209,12 +209,12 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-100 overflow-visible transition-all duration-300 ${scrolled
+        className={`fixed top-0 left-0 right-0 z-100 overflow-visible transition-all duration-300 font-['Urbanist'] ${scrolled
           ? "bg-transparent"
           : "bg-transparent"
           }`}
       >
-        <nav className="max-w-[1400px] mx-auto px-6 py-4 h-auto flex items-center justify-between overflow-visible">
+        <nav className="max-w-[1400px] mx-auto px-6 py-4 h-auto flex items-center justify-between overflow-visible font-['Urbanist']">
 
           {/* ── Logo ──────────────────────────────────────── */}
           <Link href="/" className="flex items-center gap-0 group shrink-0">
@@ -644,7 +644,7 @@ export default function Navbar() {
         </nav>
 
         {/* ── Mobile Context Drawer ───────────────────────── */}
-        <div className={`lg:hidden transition-all duration-300 overflow-hidden ${mobileOpen ? "max-h-screen" : "max-h-0"}`}>
+        <div className={`lg:hidden transition-all duration-300 overflow-hidden font-['Urbanist'] ${mobileOpen ? "max-h-screen" : "max-h-0"}`}>
           <div className="bg-black/95 backdrop-blur-xl border-t border-white/5 px-6 py-4 space-y-1 max-h-[85vh] overflow-y-auto">
             {NAV_LINKS.map((link) => (
               <div key={link.label} className="border-b border-white/[0.03] last:border-none pb-2 mb-2">

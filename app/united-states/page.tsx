@@ -6,43 +6,56 @@ import Image from "next/image";
 import { useRouter } from 'next/navigation';
 
 
+const MARQUEE_ITEMS = [
+  "99.9% uptime guaranteed",
+  "Blazing fast proxy speeds",
+  "Global geo targeting support",
+  "Secure & anonymous connections",
+  "Unlimited sessions & rotations",
+  "Built for scraping & automation"
+];
+
 
 const Marquee: React.FC = () => (
-    <div className="w-full overflow-hidden bg-[#FE4A01] py-3 mt-50 whitespace-nowrap select-none flex">
-        {/* Wrapping container that holds both sets of text */}
-        <div className="flex animate-marquee text-xs font-semibold tracking-wider text-white uppercase">
-            {/* Original Content */}
-            <div className="flex items-center space-x-8 pr-8">
-                <span>• 99.9% uptime guaranteed</span>
-                <span>• Blazing fast proxy speeds</span>
-                <span>• Global geo targeting support</span>
-                <span>• Secure & anonymous connections</span>
-                <span>• Unlimited sessions & rotations</span>
-                <span>• Built for scraping & automation</span>
-            </div>
+    
+  <div className="w-full overflow-hidden bg-[#FE4A01] py-3.5 whitespace-nowrap select-none flex font-['Urbanist']">
+    
+{/* Infinite track containing multiple data blocks to prevent viewport gaps */}
+    <div className="flex min-w-full shrink-0 animate-marquee items-center justify-around text-[14px] font-medium tracking-wider text-white font-['Urbanist']">
+      
+      {/* Block 1 (Original) */}
+      <div className="flex shrink-0 items-center space-x-12 pr-12">
+        {MARQUEE_ITEMS.map((item, index) => (
+          <span key={`orig-${index}`} className="flex items-center gap-3.5">
+            {/* Perfectly sized, smooth CSS custom bullet circle */}
+            <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" aria-hidden="true" />
+            <span>{item}</span>
+          </span>
+        ))}
+      </div>
 
-            {/* Duplicated Content for Seamless Loop */}
-            <div className="flex items-center space-x-8 pr-8" aria-hidden="true">
-                <span>• 99.9% uptime guaranteed</span>
-                <span>• Blazing fast proxy speeds</span>
-                <span>• Global geo targeting support</span>
-                <span>• Secure & anonymous connections</span>
-                <span>• Unlimited sessions & rotations</span>
-                <span>• Built for scraping & automation</span>
-            </div>
-        </div>
+{/* Block 2 (Duplicate) */}
+<div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
+  {MARQUEE_ITEMS.map((item, index) => (
+    <span key={`dup1-${index}`} className="flex items-center gap-3.5">
+      <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
+      <span>{item}</span>
+    </span>
+  ))}
+</div>
 
-        {/* CSS Keyframe for a flawless seamless loop */}
-        <style jsx global>{`
-      @keyframes marquee {
-        0% { transform: translateX(0%); }
-        100% { transform: translateX(-50%); }
-      }
-      .animate-marquee {
-        animation: marquee 25s linear infinite;
-      }
-    `}</style>
+{/* Block 3 (Extra Duplicate) */}
+<div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
+  {MARQUEE_ITEMS.map((item, index) => (
+    <span key={`dup2-${index}`} className="flex items-center gap-3.5">
+      <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
+      <span>{item}</span>
+    </span>
+  ))}
+</div>
+      
     </div>
+  </div>
 );
 
 export default function TorchProxiesLandingPage() {
@@ -130,28 +143,36 @@ export default function TorchProxiesLandingPage() {
 
     const faqData = [
         {
-            q: "What are residential proxies?",
-            a: "Residential proxies are IP addresses assigned by Internet Service Providers (ISPs) to homeowners. They act as intermediaries between your device and the internet, allowing you to browse anonymously and access geo-restricted content."
+            q: "What are location-based proxies?",
+            a: "Location-based proxies are proxies with IP addresses assigned to specific geographical locations. They allow users to appear as if they are accessing the internet from a particular country, city, or region."
         },
         {
-            q: "How do residential proxies work and how are they different?",
-            a: "Residential proxies route your internet traffic through real residential IP addresses, making them appear as normal users to websites. Unlike datacenter proxies, they have higher trust scores and are much harder to detect and block."
+            q: "Why is the location of a proxy important?",
+            a: "The location of a proxy is important for several reasons, including accessing geo-restricted content, conducting location-specific market research, performing localized SEO analysis, and ensuring compliance with regional data privacy laws."
         },
         {
-            q: "What makes Torch Proxies's residential proxies better than other proxy providers?",
-            a: "Our residential proxy network offers unmatched speed, stability, ethical sourcing, and city-level targeting with 24/7 support and transparent pricing."
+            q: "How can location-based proxies help with accessing geo-restricted content?",
+            a: "Location-based proxies can mask your actual IP address and make it appear as if you are browsing from a specific location. This allows you to access content, services, and websites that are restricted to certain regions."
         },
         {
-            q: "What are the ideal use cases for the Standard Residential plan?",
-            a: "Perfect for general web scraping, social media management, market research, sneaker copping, and everyday automation tasks."
+            q: "How do location-based proxies aid in localized SEO efforts?",
+            a: "They allow businesses to see how their website ranks in search engines in different locations, check local competition, and ensure that their SEO strategies are effective across various regions."
         },
         {
-            q: "Are residential proxies legal to use?",
-            a: "Yes, residential proxies are completely legal when used responsibly and in compliance with website terms of service."
+            q: "What types of location-based proxies do you offer?",
+            a: "We offer a variety of location-based proxies, including:<br/>Country-specific Proxies – IP addresses assigned to specific countries.<br/>City-specific Proxies – IP addresses from specific cities within a country.<br/>Regional Proxies – IP addresses assigned to broader regions within a country.<br/>We offer a variety of location-based proxies, including:<br/>Country-specific Proxies – IP addresses assigned to specific countries.<br/>City-specific Proxies – IP addresses from specific cities within a country.<br/>Regional Proxies – IP addresses assigned to broader regions within a country."
         },
         {
-            q: "Do you offer free trials?",
-            a: "Yes, we offer a free 1GB trial so you can test our network performance before committing."
+            q: "How do I select the location of a proxy?",
+            a: "You can select the location of a proxy through our proxy dashboard or API. Simply choose the desired country, city, or region from the available options."
+        },
+        {
+            q: "How reliable are location-based proxies?",
+            a: "Our location-based proxies are highly reliable, offering consistent performance and uptime. They are sourced from reputable providers and are regularly monitored to ensure they meet quality standards."
+        },
+        {
+            q: "What kind of speed and latency can I expect from location-based proxies?",
+            a: "The speed and latency of location-based proxies can vary depending on the specific location and the distance from your actual location. However, we strive to provide high-speed and low-latency connections for optimal performance."
         },
     ];
     const plans = [
@@ -205,20 +226,27 @@ export default function TorchProxiesLandingPage() {
     ];
 
     return (
-        <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
+        <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden font-['Urbanist']">
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-            <header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 overflow-hidden">
-                <div className="absolute inset-x-0 bottom-40 h-[600px] z-0 pointer-events-none select-none">
-                    <Image
-                        src="/images/hero_back.png"
-                        alt=""
-                        fill
-                        priority
-                        className="object-cover object-bottom opacity-100"
-                    />
-                </div>
-                <div className="max-w-6xl mx-auto text-center z-10">
+            <header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 overflow-hidden font-['Urbanist']">
+              <div className="absolute bottom-0 left-0 right-0 h-[60vh] z-0">
+
+    <Image
+        src="/images/hero_back.png"
+        alt=""
+        fill
+        priority
+        className="object-cover object-bottom"
+    />
+
+    {/* Marquee at bottom of image */}
+    <div className="absolute bottom-0 left-0 w-full z-10">
+        <Marquee />
+    </div>
+
+</div>
+                <div className="max-w-6xl mx-auto text-center z-10 font-['Urbanist']">
                     <div className="flex items-center justify-center mb-6">
                         <img
                             src="/images/TrustPiolet.png"
@@ -283,14 +311,12 @@ export default function TorchProxiesLandingPage() {
                         <CreditCard className="w-4 h-4 text-stone-500" />
                         <span>No credit card needed. Instant access</span>
                     </div>
-                    <div className="relative z-10 -mt-34 w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-                        <Marquee />
-                    </div>
+
                 </div>
             </header>
 
             {/* ── SECTION 2: pricing ─────────── */}
-            <section className="bg-[#0a0a0a] text-white py-20 px-6 -mt-[80px]">
+            <section className="bg-[#0a0a0a] text-white py-20 px-6 -mt-[20px] font-['Urbanist']">
                 <div className="flex flex-col items-center text-center w-full">
                     <span className="text-orange-500 font-regular text-[16px] mb-4 tracking-widest flex items-center justify-center gap-2">
                         Our products
@@ -395,7 +421,7 @@ export default function TorchProxiesLandingPage() {
 
 
 
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px]">
+            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-32">
 
                     {/* Row 1: Easy Client Management */}
@@ -436,7 +462,7 @@ export default function TorchProxiesLandingPage() {
 
 
             {/* ── SECTION 6: CORE FEATURES ─────────────────────────────────── */}
-            <section className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white -mt-[100px]">
+            <section className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white -mt-[100px] font-['Urbanist']">
                 {/* ── HEADER ─────────────────────────────────────────────── */}
                 <div className="text-center mb-20">
                     <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
@@ -476,7 +502,7 @@ export default function TorchProxiesLandingPage() {
             </section>
 
             {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
-            <section className="bg-[#0a0a0a] py-20 px-6 mt-[-100px] relative overflow-hidden">
+            <section className="bg-[#0a0a0a] py-20 px-6 mt-[-100px] relative overflow-hidden font-['Urbanist']">
                 <div className="max-w-7xl mx-auto">
                     <div className="relative overflow-hidden bg-[#0a0a0a] rounded-[40px] px-8 py-8 text-center">
 
@@ -525,7 +551,7 @@ export default function TorchProxiesLandingPage() {
                 </div>
             </section>
 
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px]">
+            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-32">
                     <h2 className="text-[42px] sm:text-5xl font-regular tracking-tight text-white">
                         Experience the Advantage of TorchLabs <br />United States Residential Proxies
@@ -544,7 +570,7 @@ export default function TorchProxiesLandingPage() {
             </section>
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
-            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden -mt-[100px]">
+            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden -mt-[100px] font-['Urbanist']">
 
                 {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
                 <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
@@ -589,11 +615,16 @@ export default function TorchProxiesLandingPage() {
                                     </button>
 
                                     {/* Answer */}
-                                    <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
-                                        <p className="text-stone-400 text-[15px] leading-relaxed pr-10">
-                                            {faq.a}
-                                        </p>
-                                    </div>
+                                   <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
+    <p className="text-stone-400 text-[15px] leading-relaxed pr-10">
+        {faq.a.split("<br/>").map((line, i, arr) => (
+            <React.Fragment key={i}>
+                {line}
+                {i < arr.length - 1 && <br />}
+            </React.Fragment>
+        ))}
+    </p>
+</div>
                                 </div>
                             );
                         })}
