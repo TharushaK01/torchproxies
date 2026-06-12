@@ -74,7 +74,9 @@ export default function RootLayout({
             {children}
           </LazyMotion>
         </div>
-        <Footer />
+        <div className="relative z-0 isolate ..."> 
+  <Footer />
+</div>
       </body>
     </html>
   );

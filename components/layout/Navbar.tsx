@@ -209,7 +209,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 overflow-visible transition-all duration-300 ${scrolled
+        className={`fixed top-0 left-0 right-0 z-100 overflow-visible transition-all duration-300 ${scrolled
           ? "bg-transparent"
           : "bg-transparent"
           }`}
@@ -261,7 +261,7 @@ export default function Navbar() {
 
                   {/* Dropdown Card Components Selector */}
                   {link.dropdown && openDropdown === link.label && (
-                    <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 ${link.menuType === "products-mega" ? "w-[540px]" :
+                    <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 z-[200] ${link.menuType === "products-mega" ? "w-[540px]" :
                       link.menuType === "locations-grid" ? "w-[620px]" :
                         link.menuType === "reseller-mega" ? "w-[720px]" :
                           link.menuType === "usecases-mega" ? "w-[580px]" :
