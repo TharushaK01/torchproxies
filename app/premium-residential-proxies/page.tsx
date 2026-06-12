@@ -9,42 +9,56 @@ import { useRouter } from 'next/navigation';
 
 
 
+const MARQUEE_ITEMS = [
+  "99.9% uptime guaranteed",
+  "Blazing fast proxy speeds",
+  "Global geo targeting support",
+  "Secure & anonymous connections",
+  "Unlimited sessions & rotations",
+  "Built for scraping & automation"
+];
+
+
 const Marquee: React.FC = () => (
-    <div className="w-full overflow-hidden bg-[#FE4A01] py-3 mt-50 whitespace-nowrap select-none flex">
-        {/* Wrapping container that holds both sets of text */}
-        <div className="flex animate-marquee text-xs font-semibold tracking-wider text-white uppercase">
-            {/* Original Content */}
-            <div className="flex items-center space-x-8 pr-8">
-                <span>• 99.9% uptime guaranteed</span>
-                <span>• Blazing fast proxy speeds</span>
-                <span>• Global geo targeting support</span>
-                <span>• Secure & anonymous connections</span>
-                <span>• Unlimited sessions & rotations</span>
-                <span>• Built for scraping & automation</span>
-            </div>
+    
+  <div className="w-full overflow-hidden bg-[#FE4A01] py-3.5 whitespace-nowrap select-none flex">
+    
+{/* Infinite track containing multiple data blocks to prevent viewport gaps */}
+    <div className="flex min-w-full shrink-0 animate-marquee items-center justify-around text-[14px] font-medium tracking-wider text-white font-archivo">
+      
+      {/* Block 1 (Original) */}
+      <div className="flex shrink-0 items-center space-x-12 pr-12">
+        {MARQUEE_ITEMS.map((item, index) => (
+          <span key={`orig-${index}`} className="flex items-center gap-3.5">
+            {/* Perfectly sized, smooth CSS custom bullet circle */}
+            <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" aria-hidden="true" />
+            <span>{item}</span>
+          </span>
+        ))}
+      </div>
 
-            {/* Duplicated Content for Seamless Loop */}
-            <div className="flex items-center space-x-8 pr-8" aria-hidden="true">
-                <span>• 99.9% uptime guaranteed</span>
-                <span>• Blazing fast proxy speeds</span>
-                <span>• Global geo targeting support</span>
-                <span>• Secure & anonymous connections</span>
-                <span>• Unlimited sessions & rotations</span>
-                <span>• Built for scraping & automation</span>
-            </div>
-        </div>
+{/* Block 2 (Duplicate) */}
+<div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
+  {MARQUEE_ITEMS.map((item, index) => (
+    <span key={`dup1-${index}`} className="flex items-center gap-3.5">
+      <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
+      <span>{item}</span>
+    </span>
+  ))}
+</div>
 
-        {/* CSS Keyframe for a flawless seamless loop */}
-        <style jsx global>{`
-      @keyframes marquee {
-        0% { transform: translateX(0%); }
-        100% { transform: translateX(-50%); }
-      }
-      .animate-marquee {
-        animation: marquee 25s linear infinite;
-      }
-    `}</style>
+{/* Block 3 (Extra Duplicate) */}
+<div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
+  {MARQUEE_ITEMS.map((item, index) => (
+    <span key={`dup2-${index}`} className="flex items-center gap-3.5">
+      <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
+      <span>{item}</span>
+    </span>
+  ))}
+</div>
+      
     </div>
+  </div>
 );
 
 export default function TorchProxiesLandingPage() {
@@ -200,15 +214,22 @@ export default function TorchProxiesLandingPage() {
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
             <header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 overflow-hidden">
-                <div className="absolute inset-x-0 bottom-40 h-[600px] z-0 pointer-events-none select-none">
-                    <Image
-                        src="/images/hero_back.png"
-                        alt=""
-                        fill
-                        priority
-                        className="object-cover object-bottom opacity-100"
-                    />
-                </div>
+<div className="absolute bottom-0 left-0 right-0 h-[60vh] z-0">
+
+    <Image
+        src="/images/hero_back.png"
+        alt=""
+        fill
+        priority
+        className="object-cover object-bottom"
+    />
+
+    {/* Marquee at bottom of image */}
+    <div className="absolute bottom-0 left-0 w-full z-10">
+        <Marquee />
+    </div>
+
+</div>
                 <div className="max-w-6xl mx-auto text-center z-10">
                     <div className="flex items-center justify-center mb-6">
                         <img
@@ -283,9 +304,6 @@ export default function TorchProxiesLandingPage() {
                         <span>No credit card needed. Instant access</span>
                     </div>
 
-                    <div className="relative z-10 -mt-40 w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-                        <Marquee />
-                    </div>
                 </div>
             </header>
 
@@ -1065,7 +1083,7 @@ export default function TorchProxiesLandingPage() {
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             {/* FAQ SECTION */}
-            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden">
+            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
 
                 {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
                 <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">

@@ -18,7 +18,7 @@ const Marquee = () => {
             {items.map((item, index) => (
               <div key={index} className="flex items-center mx-6">
                 <div className="w-2 h-2 bg-white rounded-full mr-4" />
-                <span className="text-white font-medium uppercase text-[14px] tracking-widest">
+                <span className="text-white font-medium text-[14px] tracking-widest">
                   {item}
                 </span>
               </div>

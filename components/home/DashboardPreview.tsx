@@ -9,11 +9,13 @@ const MARQUEE_ITEMS = [
   "Built for scraping & automation"
 ];
 
+
 const Marquee: React.FC = () => (
+    
   <div className="w-full overflow-hidden bg-[#FE4A01] py-3.5 whitespace-nowrap select-none flex">
     
 {/* Infinite track containing multiple data blocks to prevent viewport gaps */}
-    <div className="flex min-w-full shrink-0 animate-marquee items-center justify-around text-xs font-bold tracking-wider text-white uppercase font-archivo">
+    <div className="flex min-w-full shrink-0 animate-marquee items-center justify-around text-[14px] font-medium tracking-wider text-white font-archivo">
       
       {/* Block 1 (Original) */}
       <div className="flex shrink-0 items-center space-x-12 pr-12">
@@ -26,19 +28,25 @@ const Marquee: React.FC = () => (
         ))}
       </div>
 
-      {/* Block 2 (Duplicate) */}
-      <div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
-        {MARQUEE_ITEMS.map((item, index) => (
-          <span key={`dup1-${index}`}>• {item}</span>
-        ))}
-      </div>
+{/* Block 2 (Duplicate) */}
+<div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
+  {MARQUEE_ITEMS.map((item, index) => (
+    <span key={`dup1-${index}`} className="flex items-center gap-3.5">
+      <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
+      <span>{item}</span>
+    </span>
+  ))}
+</div>
 
-      {/* Block 3 (Extra Duplicate - Safely fills extra wide/4K viewports) */}
-      <div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
-        {MARQUEE_ITEMS.map((item, index) => (
-          <span key={`dup2-${index}`}>• {item}</span>
-        ))}
-      </div>
+{/* Block 3 (Extra Duplicate) */}
+<div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
+  {MARQUEE_ITEMS.map((item, index) => (
+    <span key={`dup2-${index}`} className="flex items-center gap-3.5">
+      <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
+      <span>{item}</span>
+    </span>
+  ))}
+</div>
       
     </div>
   </div>
