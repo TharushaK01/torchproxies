@@ -198,7 +198,8 @@ export default function TorchProxiesLandingPage() {
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
             <header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 overflow-hidden space-y-6 font-['Urbanist']">
-<div className="absolute bottom-40 left-0 right-0 h-[60vh] z-0">
+<div className="absolute bottom-0 left-0 right-0 h-[60vh] z-0">
+
     <Image
         src="/images/hero_back.png"
         alt=""
@@ -206,6 +207,12 @@ export default function TorchProxiesLandingPage() {
         priority
         className="object-cover object-bottom"
     />
+
+    {/* Marquee at bottom of image */}
+    <div className="absolute bottom-0 left-0 w-full z-10">
+        <Marquee />
+    </div>
+
 </div>
                 <div className="max-w-6xl mx-auto text-center z-10">
                     <div className="flex items-center justify-center mb-6">
@@ -280,9 +287,9 @@ export default function TorchProxiesLandingPage() {
                         <CreditCard className="w-4 h-4 text-stone-500" />
                         <span>No credit card needed. Instant access</span>
                     </div>
-                    <div className="relative z-10 -mt-40 w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+                    {/* <div className="relative z-10 -mt-40 w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
                         <Marquee />
-                    </div>
+                    </div> */}
                 </div>
             </header>
 
