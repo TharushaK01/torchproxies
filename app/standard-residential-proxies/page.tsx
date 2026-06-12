@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { Check, ChevronDown, Globe, Database, RefreshCw, Layers, ShieldCheck, Infinity, Tag, CreditCard } from 'lucide-react';
+import { Check, ChevronDown, CreditCard } from 'lucide-react';
 import Flag from 'react-world-flags';
 import UseCasesSection from '@/components/home/UseCasesSection';
 import Image from "next/image";

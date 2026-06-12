@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from 'react';
-import { Check, ChevronDown, Shield, Zap, Globe, BarChart3, Activity, Sliders } from 'lucide-react';
+import { Check, ChevronDown } from 'lucide-react';
 import Flag from 'react-world-flags';
-import { Database, RefreshCw, Layers, ShieldCheck, Infinity, Tag, CreditCard } from 'lucide-react';
+import { CreditCard } from 'lucide-react';
 import UseCasesSection from '@/components/home/UseCasesSection';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -10,39 +10,42 @@ import { useRouter } from 'next/navigation';
 
 
 const Marquee: React.FC = () => (
-    <div className="w-full overflow-hidden bg-[#FE4A01] py-3 mt-50 whitespace-nowrap select-none flex">
-        {/* Wrapping container that holds both sets of elements */}
-        <div className="flex animate-marquee">
+    // Removed mt-50 completely so it doesn't push itself out of view
+    <div className="w-full overflow-hidden bg-[#FE4A01] py-3.5 whitespace-nowrap select-none relative">
+        
+        {/* The horizontal track container holding both sets */}
+        <div className="flex w-max animate-marquee">
+            
             {/* Original Content */}
-            <div className="flex items-center space-x-8 pr-8 shrink-0">
-                <img src="/images/logo/vodafone.png" alt="99.9% uptime guaranteed" className="h-5 w-auto object-contain" />
-                <img src="/images/logo/att.png" alt="Blazing fast proxy speeds" className="h-5 w-auto object-contain" />
-                <img src="/images/logo/vocus.png" alt="Global geo targeting support" className="h-5 w-auto object-contain" />
-                <img src="/images/logo/virgin.png" alt="Secure & anonymous connections" className="h-5 w-auto object-contain" />
-                <img src="/images/logo/t.png" alt="Unlimited sessions & rotations" className="h-5 w-auto object-contain" />
-                <img src="/images/logo/comcast.png" alt="Built for scraping & automation" className="h-5 w-auto object-contain" />
-                <img src="/images/logo/verizon.png" alt="Built for scraping & automation" className="h-5 w-auto object-contain" />
-                <img src="/images/logo/colt.png" alt="Built for scraping & automation" className="h-5 w-auto object-contain" />
-                <img src="/images/logo/sparkle.png" alt="Built for scraping & automation" className="h-5 w-auto object-contain" />
-                <img src="/images/logo/orange.png" alt="Built for scraping & automation" className="h-5 w-auto object-contain" />
+            <div className="flex items-center space-x-12 pr-12 shrink-0 min-w-full justify-around">
+                <img src="/images/logo/vodafone.png" alt="Vodafone" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/att.png" alt="AT&T" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/vocus.png" alt="Vocus" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/virgin.png" alt="Virgin" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/t.png" alt="T-Mobile" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/comcast.png" alt="Comcast" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/verizon.png" alt="Verizon" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/colt.png" alt="Colt" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/sparkle.png" alt="Sparkle" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/orange.png" alt="Orange" className="h-5 w-auto object-contain" />
             </div>
 
             {/* Duplicated Content for Seamless Loop */}
-            <div className="flex items-center space-x-8 pr-8 shrink-0" aria-hidden="true">
-                <img src="/images/logo/vodafone.png" alt="99.9% uptime guaranteed" className="h-5 w-auto object-contain" />
-                <img src="/images/logo/att.png" alt="Blazing fast proxy speeds" className="h-5 w-auto object-contain" />
-                <img src="/images/logo/vocus.png" alt="Global geo targeting support" className="h-5 w-auto object-contain" />
-                <img src="/images/logo/virgin.png" alt="Secure & anonymous connections" className="h-5 w-auto object-contain" />
-                <img src="/images/logo/t.png" alt="Unlimited sessions & rotations" className="h-5 w-auto object-contain" />
-                <img src="/images/logo/comcast.png" alt="Built for scraping & automation" className="h-5 w-auto object-contain" />
-                <img src="/images/logo/verizon.png" alt="Built for scraping & automation" className="h-5 w-auto object-contain" />
-                <img src="/images/logo/colt.png" alt="Built for scraping & automation" className="h-5 w-auto object-contain" />
-                <img src="/images/logo/sparkle.png" alt="Built for scraping & automation" className="h-5 w-auto object-contain" />
-                <img src="/images/logo/orange.png" alt="Built for scraping & automation" className="h-5 w-auto object-contain" />
+            <div className="flex items-center space-x-12 pr-12 shrink-0 min-w-full justify-around" aria-hidden="true">
+                <img src="/images/logo/vodafone.png" alt="Vodafone" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/att.png" alt="AT&T" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/vocus.png" alt="Vocus" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/virgin.png" alt="Virgin" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/t.png" alt="T-Mobile" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/comcast.png" alt="Comcast" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/verizon.png" alt="Verizon" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/colt.png" alt="Colt" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/sparkle.png" alt="Sparkle" className="h-5 w-auto object-contain" />
+                <img src="/images/logo/orange.png" alt="Orange" className="h-5 w-auto object-contain" />
             </div>
         </div>
 
-        {/* CSS Keyframe for a flawless seamless loop */}
+        {/* CSS Keyframe for flawless seamless loop */}
         <style jsx global>{`
             @keyframes marquee {
                 0% { transform: translateX(0%); }
@@ -66,14 +69,14 @@ export default function TorchProxiesLandingPage() {
         isDimmed: i >= 30
     }));
     const locations = [
-        { code: 'US', name: 'United States', ips: '4,429,824' },
-        { code: 'GB', name: 'United Kingdom', ips: '1,449,139' },
-        { code: 'DE', name: 'Germany', ips: '1,431,960' },
-        { code: 'AU', name: 'Australia', ips: '452,720' },
-        { code: 'CA', name: 'Canada', ips: '815,658' },
-        { code: 'MX', name: 'Mexico', ips: '4,429,824' },
-        { code: 'CN', name: 'China', ips: '4,429,824' },
-        { code: 'FR', name: 'France', ips: '4,429,824' },
+        { code: 'US', name: 'United States', ips: '4,429,824', url: '/locations/us' },
+        { code: 'GB', name: 'United Kingdom', ips: '1,449,139', url: '/locations/gb' },
+        { code: 'DE', name: 'Germany', ips: '1,431,960', url: '/locations/de' },
+        { code: 'AU', name: 'Australia', ips: '452,720', url: '/locations/au' },
+        { code: 'CA', name: 'Canada', ips: '815,658', url: '/locations/ca' },
+        { code: 'MX', name: 'Mexico', ips: '4,429,824', url: '/locations/mx' },
+        { code: 'CN', name: 'China', ips: '4,429,824', url: '/locations/cn' },
+        { code: 'FR', name: 'France', ips: '4,429,824', url: '/locations/fr' },
     ];
 
 
@@ -96,34 +99,34 @@ export default function TorchProxiesLandingPage() {
         { id: '500GB', size: '200 ISP', price: '$ 2.3', discount: '4.17% OFF' },
         { id: '1000GB', size: '254 ISP', price: '$ 2.3', discount: '4.17% OFF' },
     ];
-    const features = [
+     const features = [
         {
-            icon: <Database className="text-white w-4 h-4" />,
+            icon: "/images/isp1.svg",
             title: "Financial Market Insights",
             desc: "Track stocks, forex, and crypto markets in real time with precision"
         },
         {
-            icon: <RefreshCw className="text-white w-4 h-4" />,
+            icon: "/images/isp2.svg",
             title: "Enhanced Gaming ",
             desc: "Enjoy seamless, low-latency gaming with high-speed proxy support"
         },
         {
-            icon: <Layers className="text-white w-4 h-4" />,
+            icon: "/images/isp3.svg",
             title: "Advanced Online Privacy",
             desc: "Maintain session persistence across complex workflows and long tasks"
         },
         {
-            icon: <ShieldCheck className="text-white w-4 h-4" />,
+            icon: "/images/isp4.svg",
             title: "Global Content Access",
             desc: "Unblock and explore global content with fast, stable connections"
         },
         {
-            icon: <Infinity className="text-white w-4 h-4" />,
+            icon: "/images/isp5.svg",
             title: "Compliance Monitoring",
             desc: "Handle massive concurrent requests with zero rate limits or throttling"
         },
         {
-            icon: <Tag className="text-white w-4 h-4" />,
+            icon: "/images/isp6.svg",
             title: "Business Intelligence",
             desc: "Get real-time data to power smart, competitive business decisions"
         }
@@ -211,18 +214,25 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
         <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-{/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-<header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-1 overflow-hidden bg-[#0a0a0a]">
+
+<header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-1 overflow-hidden bg-[#0a0a0a] font-['Urbanist']">
     
     {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
- <div className="absolute inset-x-0 bottom-35 h-[600px] z-0 pointer-events-none select-none">
+
+
+<div className="absolute bottom-0 left-0 right-0 h-[40vh] sm:h-[60vh] z-10 pointer-events-none select-none">
     <Image
         src="/images/hero_back.png"
         alt=""
         fill
         priority
-        className="object-cover object-bottom opacity-100"
+        className="object-cover object-bottom"
     />
+
+    {/* Marquee pinned cleanly to the bottom of the image container */}
+    <div className="absolute bottom-0 left-0 w-full z-20 pointer-events-auto">
+        <Marquee />
+    </div>
 </div>
     {/* Foreground content grid wrapper (Kept relative z-10) */}
     <div className="max-w-6xl mx-auto text-center z-10">
@@ -297,30 +307,26 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             <CreditCard className="w-4 h-4 text-stone-500" />
             <span>No credit card needed. Instant access</span>
         </div>
-
-        <div className="relative z-10 -mt-40 w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-            <Marquee />
-        </div>
     </div>
 </header>
 
             {/* ── SECTION 3: Residential Proxies ────────────────────── */}
-            <section className="py-24 -mt-[100px] bg-[#0a0a0a] text-white relative overflow-hidden">
+            <section id="pricing" className="py-24 bg-[#0a0a0a] text-white relative overflow-hidden space-y-6 font-['Urbanist']">
                 <div className="max-w-7xl mx-auto px-6">
 
                     {/* ── TOP HEADER SUB-LABELS ───────────────────────────────── */}
                     <div className="text-center mb-16">
-                        <span className="text-[#FE4A01] text-xs font-regular tracking-wider block mb-3">
+                        <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
                             ISP Proxies
                         </span>
-                        <h2 className="text-3xl sm:text-5xl font-regular tracking-tight mb-6">
+                        <h2 className="text-[42px] md:text-5xl font-medium tracking-tight mb-6">
                             Buy ISP proxies
                         </h2>
 
                         {/* Top Trust Badges */}
                         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-stone-400 text-xs sm:text-sm font-medium">
                             <span className="flex items-center gap-1.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Secure checkout with SSL encryption</span>
-                            <span className="flex items-center gap-1.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Pay As You Go Pricing </span>
+                            <span className="flex items-center gap-1.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Pay As You Go Pricing</span>
                             <span className="flex items-center gap-1.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Reliable & stable connection</span>
                             <span className="flex items-center gap-1.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Support both card & crypto</span>
                         </div>
@@ -330,27 +336,34 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mt-4">
 
                         {/* LEFT PANEL: PRODUCT META & SPECIFICATIONS */}
-                        <div className="lg:col-span-6 space-y-6 lg:pr-8">
+                        <div className="lg:col-span-6 space-y-2 lg:pr-8">
                             <div className="flex items-center gap-4">
                                 {/* Product Badge Logo Block */}
-                                <div className="w-14 h-14 rounded-xl bg-[#FE4A01] flex items-center justify-center shadow-[0_10px_30px_rgba(254,74,1,.2)]">
-                                    <div className="flex items-center gap-[3px] w-6">
-                                        <span className="w-[4px] h-3 bg-white rounded-full block"></span>
-                                        <span className="w-[4px] h-5 bg-white rounded-full block"></span>
-                                        <span className="w-[4px] h-3 bg-white rounded-full block"></span>
-                                    </div>
+
+                                <div className="relative w-[84px] h-[84px]">
+                                    <Image
+                                        src="/images/ispproxies.svg" // Path relative to your public folder
+                                        alt="Feature Icon"
+                                        fill
+                                        className="object-contain"
+                                    />
                                 </div>
+
                                 <div>
-                                    <h3 className="text-[36px] sm:text-3xl font-bold tracking-tight text-stone-200">
+                                    <h3 className="text-[36px] sm:text-[36px] font-bold tracking-tight text-stone-200 leading-none">
                                         ISP Proxies
                                     </h3>
-
                                 </div>
                             </div>
 
-                            <p className="text-stone-400 text-sm sm:text-base leading-relaxed">
-                                Static residential proxies with unlimited data. <span className="text-[#FE4A01]">Ideal for sneaker botting, scraping and automation.</span>
+                            <p className="text-stone-400 text-[16px] sm:text-base leading-relaxed">
+                                Static residential proxies with unlimited data <span className="text-[#FE4A01]"> Ideal for sneaker botting, scraping and automation.</span>
                             </p>
+
+                            {/* Custom Micro Pill Badge */}
+                            {/* <div className="inline-block bg-[#FE4A01]/10 border border-[#FE4A01]/20 px-3 py-1 rounded-md">
+                                <span className="text-[#FE4A01] text-[14px] font-semi-bold tracking-wide">From $4/GB per month</span>
+                            </div> */}
 
                             {/* Feature Checklist */}
                             <ul className="space-y-3.5 pt-4 text-stone-400 text-[16px] font-regular">
@@ -364,80 +377,85 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                                 <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Low Block & CAPTCHA Rates</li>
                                 <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Ideal for Always-On Monitors & Long Sessions</li>
                                 <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Works seamlessly for scraping, automation tools and stable account sessions across supported regions</li>
-
-
                             </ul>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-left gap-4 mb-2">
+                            {/* Main Primary CTA Button */}
 
-                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
 
-                            {/* Fast 3D text track wrapper */}
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                            <div className="flex flex-col sm:flex-row items-center justify-left gap-4 mb-2 mt-[32px]">
 
-                                {/* Default State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                    Start free with 1 GB
-                                </span>
+                                {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
+                                <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
 
-                                {/* Hover State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
-                                    Start free with 1 GB
-                                </span>
+                                    {/* Fast 3D text track wrapper */}
+                                    <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
 
+                                        {/* Default State Text */}
+                                        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                            Start for free
+                                        </span>
+
+                                        {/* Hover State Text */}
+                                        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+                                            Start for free
+                                        </span>
+
+                                    </div>
+                                </button>
                             </div>
-                        </button>
-                        </div>
+                            {/* <div className="pt-4">
+                                <button className="w-full sm:w-auto px-10 py-4 bg-[#FE4A01] hover:bg-[#e04201] text-white font-bold rounded-xl transition-all shadow-[0_15px_35px_rgba(254,74,1,.25)] text-sm">
+                                    Start free with 1 GB
+                                </button>
+                            </div> */}
 
                             {/* Gateway Merchant Footnote Icons */}
-                            <div className="pt-4 flex items-center gap-3 text-xs text-stone-500 font-medium select-none">
+                            <div className="pt-4 flex items-center gap-3 text-[14px] text-stone-500 font-medium select-none">
                                 <span>We Support</span>
-                                <div className="flex items-center justify-center">
-                                    <img
-                                        src="/images/support_logo.png"
-                                        alt="Supported Payment Methods"
-                                        className="h-10 w-auto object-contain opacity-100 px-4 py-2 rounded grayscale brightness-120 hover:opacity-100 transition-opacity"
-                                        loading="lazy"
-                                    />
 
+                                <div className="relative w-[217px] h-[20px] flex-shrink-0 opacity-80 hover:opacity-100 transition-opacity">
+                                    <Image
+                                        src="/images/supports.svg"
+                                        alt="Visa"
+                                        fill
+                                        className="object-contain"
+                                    />
                                 </div>
                                 <span>& more</span>
                             </div>
                         </div>
 
                         {/* RIGHT PANEL: GRID OF PRICING CARDS */}
-                        <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-2 gap-y-4 gap-x-[200px] w-fit ml-[188px]">
                             {tiers.map((tier) => {
                                 const isSelected = selectedPlan === tier.id;
                                 return (
                                     <div
                                         key={tier.id}
                                         onClick={() => setSelectedPlan(tier.id)}
-                                        className={`border rounded-2xl p-6 relative cursor-pointer select-none transition-all duration-200 flex flex-col justify-between min-h-[140px] ${isSelected
+                                        className={`w-[180px] h-[171px] border rounded-2xl p-5 relative cursor-pointer select-none transition-all duration-200 flex flex-col justify-between ${isSelected
                                             ? 'bg-stone-900/40 border-[#FE4A01] shadow-[0_0_25px_rgba(254,74,1,.1)]'
                                             : 'bg-[#0b0b0d]/50 border-stone-900 hover:border-stone-800/80'
                                             }`}
                                     >
                                         {/* Floating Green Percentage Label */}
-                                        <div className="absolute top-4 right-4 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[12px] font-bold px-2 py-0.5 rounded">
+                                        <div className="absolute top-4 right-4 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded">
                                             {tier.discount}
                                         </div>
 
                                         {/* Volume Metric Display */}
-                                        <div className="mt-2">
+                                        <div className="mt-15">
                                             <span className="text-[32px] font-medium tracking-tight text-stone-200">
                                                 {tier.size}
                                             </span>
                                         </div>
 
                                         {/* Price Metric Formula */}
-                                        <div className="mt-4 flex items-baseline gap-1">
-                                            <span className="text-[#FE4A01] font-semi-bold text-[24px]">
+                                        <div className="mb-2 flex items-baseline gap-1">
+                                            <span className="text-[#FE4A01] font-bold text-xl">
                                                 {tier.price}
                                             </span>
-
-                                            <span className="text-[#FE4A01] text-[14px] font-regular self-start">
+                                            <span className="text-stone-500 text-xs font-medium">
                                                 per GB
                                             </span>
                                         </div>
@@ -452,9 +470,8 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </section>
 
             {/* ── SECTION 4: GLOBAL LOCATIONS ──────────────────────────────── */}
-            <section className="relative bg-[#0a0a0a] text-white py-24 overflow-hidden">
-
-                {/* Background Vector */}
+            <section className="relative bg-[#0a0a0a] text-white py-24 overflow-hidden space-y-6 font-['Urbanist']">
+                {/* Background Map Overlay */}
                 <div
                     className="absolute inset-0 opacity-40 bg-center bg-no-repeat bg-contain pointer-events-none"
                     style={{
@@ -462,45 +479,18 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                     }}
                 />
 
+
                 <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-                    <span className="text-orange-500 font-medium text-sm mb-4 block tracking-widest">
+                    <span className="text-orange-500 font-regular text-[16px] mb-4 block tracking-widest">
                         Locations
                     </span>
-
-                    <h2 className="text-4xl md:text-5xl font-regular mb-6">
+                    <h2 className="text-[42px] md:text-5xl font-medium mb-6">
                         Available in 195+ countries
                     </h2>
-
-                    <p className="text-gray-400 max-w-2xl mx-auto mb-16">
+                    <p className="text-gray-400 max-w-3xl mx-auto mb-16">
                         We provide you access to a global network of ethical sourced proxy nodes from around the world.
                     </p>
-
-                    {/* Locations Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-                        {locations.map((loc, index) => (
-                            <div
-                                key={index}
-                                className="flex items-center gap-4 bg-[#0a0a0a]/80 border border-gray-800 p-5 rounded-2xl hover:border-orange-500/50 transition-all group"
-                            >
-                                <div className="w-12 h-8 overflow-hidden rounded shadow-sm">
-                                    <Flag code={loc.code} className="w-full h-full object-cover" />
-                                </div>
-
-                                <div className="text-left">
-                                    <h3 className="font-bold text-sm group-hover:text-orange-500 transition-colors">
-                                        {loc.name}
-                                    </h3>
-
-                                    <p className="text-xs text-gray-500">
-                                        {loc.ips} IPs
-                                    </p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
-
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2 -mt-[40px]">
                         {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
                         <button onClick={() => router.push('/locations')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
 
@@ -516,27 +506,59 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                                 <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
                                     View all locations
                                 </span>
-
                             </div>
                         </button>
-                        </div>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full mt-[64px]">
+                        {locations.map((loc, index) => (
+                            <div
+                                key={`${loc.code}-${index}`}
+                                // ── CLICK NAVIGATION HANDLER ──
+                                onClick={() => router.push(loc.url)}
+                                className="flex items-center gap-3.5 bg-[#0b0b0d]/30 border border-stone-900/60 rounded-[12px] p-4 hover:border-stone-800/80 hover:bg-[#0e0e12]/60 transition-all duration-200 group cursor-pointer"
+                            >
+                                {/* Flag Container */}
+                                <div className="w-11 h-9 relative overflow-hidden rounded-[3px] flex-shrink-0 bg-stone-950 shadow-[0_1px_3px_rgba(0,0,0,0.5)] border border-stone-900/20">
+                                    <Flag
+                                        code={loc.code}
+                                        className="w-full h-full object-cover"
+                                        fallback={<span className="text-[10px] text-stone-600">🏳️</span>}
+                                    />
+                                </div>
+
+                                {/* Data Labels Container */}
+                                <div className="flex flex-col min-w-0 leading-tight">
+                                    <span className="text-[20px] font-semibold text-stone-300 tracking-tight group-hover:text-white transition-colors truncate">
+                                        {loc.name}
+                                    </span>
+                                    <span className="text-[16px] text-stone-600 font-normal mt-0.5 tracking-wide">
+                                        {loc.ips} IPs
+                                    </span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    {/* Call to Action */}
+                    {/* <button className="bg-gradient-to-r from-orange-600 to-orange-500 px-8 py-4 rounded-xl font-bold text-white shadow-lg shadow-orange-900/20 hover:scale-105 transition-transform">
+                        View all locations
+                    </button> */}
                 </div>
             </section>
 
             {/* ── SECTION 5: WHY CHOOSETORCHPROXIES ──────────────────────────────── */}
-            <section className="py-24 bg-[#0a0a0a] text-white relative">
+            <section className="py-24 bg-[#0a0a0a] text-white relative font-['Urbanist']">
                 <div className="max-w-7xl mx-auto px-6">
 
                     {/* ── TOP HEADER SECTION ───────────────────────────────────── */}
                     <div className="text-center mb-16">
-                        <span className="text-[#FE4A01] text-xs font-bold tracking-wider block mb-3">
+                        <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
                             Features
                         </span>
                         <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white mb-4">
                             Simple Ways to Get ISP Proxies
                         </h2>
-                        <p className="text-stone-400 text-sm sm:text-base max-w-xl mx-auto font-normal">
-                            Get enterprise grade ISP proxies the way that fits your workflow. Whether you prefer a simple dashboard or full API automation, TorchLabs makes it effortless.
+                        <p className="text-stone-400 text-sm sm:text-base max-w-2xl mx-auto font-normal">
+                           Get enterprise grade ISP proxies the way that fits your workflow. Whether you prefer a simple dashboard or full API automation, TorchLabs makes it effortless.
                         </p>
                     </div>
 
@@ -597,17 +619,17 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </section>
 
             {/* ── SECTION 6: CORE FEATURES ─────────────────────────────────── */}
-            <section className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white">
+            <section className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white space-y-6 font-['Urbanist']">
                 {/* ── HEADER ─────────────────────────────────────────────── */}
                 <div className="text-center mb-20">
-                    <span className="text-[#FE4A01] text-xs font-bold tracking-wider block mb-3">
+                    <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
                         Features
                     </span>
-                    <h2 className="text-3xl sm:text-[40px] font-regular tracking-tight mb-4 text-white">
-                        Enhanced Features for Heavy & Strict Workloads
+                    <h2 className="text-[42px] sm:text-[40px] font-medium tracking-tight mb-4 text-white">
+                        Core Features for Everyday Use
                     </h2>
-                    <p className="text-stone-400 text-sm sm:text-base max-w-2xl mx-auto font-normal leading-relaxed">
-                        Upgraded performance, smarter rotation, and stronger stability built for high-volume scraping and stricter websites.
+                    <p className="text-stone-400 text-[18px] sm:text-base max-w-2xl mx-auto font-regular leading-relaxed">
+                        Reliable, easy-to-use features designed for general scraping, basic automation and small-scale tasks.
                     </p>
                 </div>
 
@@ -617,16 +639,26 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                         <div key={i} className="flex items-start gap-4 group">
 
                             {/* Round Solid Orange Icon Badge */}
-                            <div className="w-11 h-11 rounded-full bg-[#FE4A01] flex items-center justify-center shrink-0 shadow-[0_4px_14px_rgba(254,74,1,0.2)] transition-transform duration-200 group-hover:scale-105">
-                                {feat.icon}
+                            <div className="rounded-full bg-[#FE4A01] flex items-center justify-center shrink-0 shadow-[0_4px_14px_rgba(254,74,1,0.2)] transition-transform duration-200 group-hover:scale-105">
+
+                                {/* ✨ Custom SVG Image Implementation wrapper */}
+                                <div className="relative w-[56px] h-[56px]">
+                                    <Image
+                                        src={feat.icon}
+                                        alt={`${feat.title} Icon`}
+                                        fill
+                                        className="object-contain inverted-icon-color" // Optional filter if you need to force custom colors
+                                    />
+                                </div>
+
                             </div>
 
                             {/* Text Information Elements */}
                             <div className="space-y-1.5">
-                                <h4 className="text-lg font-regular text-white tracking-tight">
+                                <h4 className="text-[23px] font-medium text-white tracking-tight">
                                     {feat.title}
                                 </h4>
-                                <p className="text-stone-400 text-[13px] sm:text-sm leading-relaxed font-normal">
+                                <p className="text-stone-400 text-[16px] sm:text-[16px] leading-relaxed font-regular">
                                     {feat.desc}
                                 </p>
                             </div>
@@ -638,8 +670,8 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
             {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
             {/* Upgrade CTA Banner */}
-            <section className="py-16 px-6">
-                <div className="max-w-6xl mx-auto">
+            <section className="py-16 px-6 font-['Urbanist']">
+                <div className="max-w-6xl mx-auto font-['Urbanist']">
                     <div
                         className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden"
                         style={{
@@ -652,11 +684,10 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
                         <div className="relative z-10 max-w-4xl mx-auto">
                             <h2 className="text-4xl md:text-5xl font-regular tracking-tight mb-6 text-white">
-                                Get started with Plan X residential proxies<br className="hidden md:block" />
+                                Get started with ISP proxies<br className="hidden md:block" />
                             </h2>
 
-                            <p className="text-stone-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-                                Unlock premium speed, stability and higher success rates for demanding or strict websites.
+                            <p className="text-stone-300 text-[18px] md:text-[18px] mb-10 max-w-3xl mx-auto">Unlock premium speed, stability and higher success rates for demanding or strict websites.Unlock premium speed, stability and higher success rates for demanding or strict websites.
                             </p>
                       <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
 
@@ -685,7 +716,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </section>
 
             {/* ── SECTION 8: USE CASES ─────────────────────────────────────── */}
-            <main className="bg-[#0a0a0a] min-h-screen text-white">
+            <main className="bg-[#0a0a0a] min-h-screen text-white font-['Urbanist']">
                 {/* Other sections can go here */}
 
                 {/* ── YOUR NEW USE CASES SECTION ── */}
@@ -695,7 +726,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </main>
 
             {/* ── SECTION 10: TESTIMONIALS ─────────────────────────────────── */}
-<section className="py-24 bg-stone-950/20 border-t border-stone-900 overflow-hidden">
+<section className="py-24 bg-stone-950/20 border-t border-stone-900 overflow-hidden font-['Urbanist']">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Section Header Text Nodes */}
@@ -815,7 +846,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             {/* FAQ SECTION */}
-            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden">
+            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
 
                 {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
                 <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
@@ -832,7 +863,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                 <div className="max-w-4xl mx-auto relative z-10">
                     {/* Header */}
                     <div className="text-center mb-16">
-                        <span className="text-[#FE4A01] text-xs font-medium tracking-widest block mb-3">
+                        <span className="text-[#FE4A01] text]16px font-medium tracking-widest block mb-3">
                             FAQ
                         </span>
                         <h2 className="text-4xl sm:text-5xl font_regular tracking-tight text-white">

@@ -4,11 +4,13 @@ import { Check } from 'lucide-react';
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import Flag from 'react-world-flags';
+import Link from 'next/link';
 
 interface LocationData {
   country: string;
   ips: string;
-  code: string; 
+  code: string;
+  url: string;
 }
 
 interface LocationDataSet {
@@ -27,37 +29,56 @@ interface LocationsData {
   isp: CountryItem[];
 }
 
-const Marquee: React.FC = () => (
-    <div className="w-full overflow-hidden bg-[#FE4A01] py-3 mt-50 whitespace-nowrap select-none flex">
-        <div className="flex animate-marquee text-xs font-semibold tracking-wider text-white uppercase">
-            <div className="flex items-center space-x-8 pr-8">
-                <span>• 99.9% uptime guaranteed</span>
-                <span>• Blazing fast proxy speeds</span>
-                <span>• Global geo targeting support</span>
-                <span>• Secure & anonymous connections</span>
-                <span>• Unlimited sessions & rotations</span>
-                <span>• Built for scraping & automation</span>
-            </div>
-            <div className="flex items-center space-x-8 pr-8" aria-hidden="true">
-                <span>• 99.9% uptime guaranteed</span>
-                <span>• Blazing fast proxy speeds</span>
-                <span>• Global geo targeting support</span>
-                <span>• Secure & anonymous connections</span>
-                <span>• Unlimited sessions & rotations</span>
-                <span>• Built for scraping & automation</span>
-            </div>
-        </div>
+const MARQUEE_ITEMS = [
+  "99.9% uptime guaranteed",
+  "Blazing fast proxy speeds",
+  "Global geo targeting support",
+  "Secure & anonymous connections",
+  "Unlimited sessions & rotations",
+  "Built for scraping & automation"
+];
 
-        <style jsx global>{`
-          @keyframes marquee {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-50%); }
-          }
-          .animate-marquee {
-            animation: marquee 25s linear infinite;
-          }
-        `}</style>
+
+const Marquee: React.FC = () => (
+    
+  <div className="w-full overflow-hidden bg-[#FE4A01] py-3.5 whitespace-nowrap select-none flex font-['Urbanist']">
+    
+{/* Infinite track containing multiple data blocks to prevent viewport gaps */}
+    <div className="flex min-w-full shrink-0 animate-marquee items-center justify-around text-[14px] font-medium tracking-wider text-white font-['Urbanist']">
+      
+      {/* Block 1 (Original) */}
+      <div className="flex shrink-0 items-center space-x-12 pr-12">
+        {MARQUEE_ITEMS.map((item, index) => (
+          <span key={`orig-${index}`} className="flex items-center gap-3.5">
+            {/* Perfectly sized, smooth CSS custom bullet circle */}
+            <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" aria-hidden="true" />
+            <span>{item}</span>
+          </span>
+        ))}
+      </div>
+
+{/* Block 2 (Duplicate) */}
+<div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
+  {MARQUEE_ITEMS.map((item, index) => (
+    <span key={`dup1-${index}`} className="flex items-center gap-3.5">
+      <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
+      <span>{item}</span>
+    </span>
+  ))}
+</div>
+
+{/* Block 3 (Extra Duplicate) */}
+<div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
+  {MARQUEE_ITEMS.map((item, index) => (
+    <span key={`dup2-${index}`} className="flex items-center gap-3.5">
+      <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
+      <span>{item}</span>
+    </span>
+  ))}
+</div>
+      
     </div>
+  </div>
 );
 
 export default function TorchProxiesLandingPage() {
@@ -69,24 +90,24 @@ export default function TorchProxiesLandingPage() {
 
   const locationsData: LocationDataSet = {
     residential: [
-      { country: "United States", ips: "4,421,924 IPs", code: "US" },
-      { country: "United Kingdom", ips: "549,121 IPs", code: "GB" },
-      { country: "Germany", ips: "1,421,960 IPs", code: "DE" },
-      { country: "Australia", ips: "452,720 IPs", code: "AU" },
-      { country: "Canada", ips: "815,558 IPs", code: "CA" },
-      { country: "Mexico", ips: "4,421,924 IPs", code: "MX" },
-      { country: "China", ips: "4,421,924 IPs", code: "CN" },
-      { country: "France", ips: "4,421,924 IPs", code: "FR" },
+      { country: "United States", ips: "4,421,924 IPs", code: "US", url: '/united-states' },
+      { country: "United Kingdom", ips: "549,121 IPs", code: "GB", url: '/united-kingdom' },
+      { country: "Germany", ips: "1,421,960 IPs", code: "DE",  url: '/germany' },
+      { country: "Australia", ips: "452,720 IPs", code: "AU", url: '/australia' },
+      { country: "Canada", ips: "815,558 IPs", code: "CA", url: '/canada' },
+      { country: "Mexico", ips: "4,421,924 IPs", code: "MX", url: '/mexico' },
+      { country: "China", ips: "4,421,924 IPs", code: "CN", url: '/china' },
+      { country: "France", ips: "4,421,924 IPs", code: "FR", url: '/france'  },
     ],
     isp: [
-      { country: "United States", ips: "1,250,400 IPs", code: "US" },
-      { country: "United Kingdom", ips: "185,200 IPs", code: "GB" },
-      { country: "Germany", ips: "430,150 IPs", code: "DE" },
-      { country: "Australia", ips: "92,400 IPs", code: "AU" },
-      { country: "Canada", ips: "210,900 IPs", code: "CA" },
-      { country: "Mexico", ips: "312,000 IPs", code: "MX" },
-      { country: "China", ips: "890,500 IPs", code: "CN" },
-      { country: "France", ips: "520,300 IPs", code: "FR" },
+      { country: "United States", ips: "1,250,400 IPs", code: "US",  url: '/united-states' },
+      { country: "United Kingdom", ips: "185,200 IPs", code: "GB", url: '/united-kingdom' },
+      { country: "Germany", ips: "430,150 IPs", code: "DE",  url: '/germany' },
+      { country: "Australia", ips: "92,400 IPs", code: "AU", url: '/australia'  },
+      { country: "Canada", ips: "210,900 IPs", code: "CA", url: '/canada' },
+      { country: "Mexico", ips: "312,000 IPs", code: "MX", url: '/mexico' },
+      { country: "China", ips: "890,500 IPs", code: "CN", url: '/china' },
+      { country: "France", ips: "520,300 IPs", code: "FR", url: '/france'  },
     ],
   };
 
@@ -160,23 +181,31 @@ export default function TorchProxiesLandingPage() {
       { name: "Indonesia", ips: "4,421,924 IPs", code: "ID" }
     ]
   };
+  const [activeTab, setActiveTab] = useState<'residential' | 'isp'>('residential');
 
   const activeList = locations[otherLocationsTab] || [];
   
   return (
-    <div className="bg-[#0a0a0a] text-white font-urbanist antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
+    <div className="bg-[#0a0a0a] text-white font-urbanist antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden font-['Urbanist']">
 
         {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
         <header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-4 overflow-hidden">
-             <div className="absolute inset-x-0 bottom-40 h-[600px] z-0 pointer-events-none select-none">
-                 <Image
-                     src="/images/hero_back.png"
-                     alt=""
-                     fill
-                     priority
-                     className="object-cover object-bottom opacity-100"
-                 />
-             </div>
+<div className="absolute bottom-0 left-0 right-0 h-[60vh] z-0">
+
+    <Image
+        src="/images/hero_back.png"
+        alt=""
+        fill
+        priority
+        className="object-cover object-bottom"
+    />
+
+    {/* Marquee at bottom of image */}
+    <div className="absolute bottom-0 left-0 w-full z-10">
+        <Marquee />
+    </div>
+
+</div>
             <div className="max-w-6xl mx-auto text-center z-10">
                 <div className="flex items-center justify-center mb-6">
                     <img
@@ -201,73 +230,77 @@ export default function TorchProxiesLandingPage() {
                     <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Money back guarantee</div>
                     <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Dedicated Support</div>
                 </div>
-                <div className="relative z-10 -mt-20 w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-                    <Marquee />
-                </div>
+
             </div>
         </header>
 
         {/* ── SECTION 2: TOP LOCATIONS (Uses topLocationsTab) ────────────────── */}
-        <section className="py-24 px-6 bg-[#0a0a0a] text-white relative overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[radial-gradient(circle_at_center,rgba(254,74,1,0.02)_0%,transparent_70%)] pointer-events-none" />
+<section className="py-24 px-6 bg-[#0a0a0a] text-white relative overflow-hidden">
+  {/* Radial glow background effect */}
+  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[radial-gradient(circle_at_center,rgba(254,74,1,0.02)_0%,transparent_70%)] pointer-events-none" />
 
-          <div className="max-w-6xl mx-auto relative z-10 flex flex-col items-center">
-            
-            <h2 className="text-[42px] md:text-[42px] font-medium tracking-tight text-center mb-10 text-white">
-              Top locations
-            </h2>
+  <div className="max-w-6xl mx-auto relative z-10 flex flex-col items-center">
+    
+    <h2 className="text-4xl md:text-[42px] font-medium tracking-tight text-center mb-10 text-white">
+      Top locations
+    </h2>
 
-            <div className="inline-flex bg-[#0f0f11] border border-stone-900 rounded-full p-1.5 mb-16 select-none">
-              <button
-                onClick={() => setTopLocationsTab('residential')}
-                className={`px-6 py-2.5 rounded-full text-[14px] font-normal tracking-wide transition-all duration-200 ${
-                  topLocationsTab === 'residential'
-                    ? 'bg-[#FE4A01] text-white shadow-[0_4px_12px_rgba(254,74,1,0.2)]'
-                    : 'text-stone-400 hover:text-stone-200'
-                }`}
-              >
-                Residential Proxies
-              </button>
-              <button
-                onClick={() => setTopLocationsTab('isp')}
-                className={`px-6 py-2.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 ${
-                  topLocationsTab === 'isp'
-                    ? 'bg-[#FE4A01] text-white shadow-[0_4px_12px_rgba(254,74,1,0.2)]'
-                    : 'text-stone-400 hover:text-stone-200'
-                }`}
-              >
-                ISP Proxies
-              </button>
-            </div>
+    {/* Tab Toggles */}
+    <div className="inline-flex bg-[#0f0f11] border border-stone-900 rounded-full p-1.5 mb-16 select-none">
+      <button
+        onClick={() => setTopLocationsTab('residential')}
+        className={`px-6 py-2.5 rounded-full text-[14px] font-normal tracking-wide transition-all duration-200 ${
+          topLocationsTab === 'residential'
+            ? 'bg-[#FE4A01] text-white shadow-[0_4px_12px_rgba(254,74,1,0.2)]'
+            : 'text-stone-400 hover:text-stone-200'
+        }`}
+      >
+        Residential Proxies
+      </button>
+      <button
+        onClick={() => setTopLocationsTab('isp')}
+        className={`px-6 py-2.5 rounded-full text-[14px] font-normal tracking-wide transition-all duration-200 ${
+          topLocationsTab === 'isp'
+            ? 'bg-[#FE4A01] text-white shadow-[0_4px_12px_rgba(254,74,1,0.2)]'
+            : 'text-stone-400 hover:text-stone-200'
+        }`}
+      >
+        ISP Proxies
+      </button>
+    </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
-              {locationsData[topLocationsTab].map((loc, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-4 bg-[#0d0d0f]/40 border border-stone-900/80 rounded-[16px] p-5 hover:border-stone-800 hover:bg-[#0e0e12]/80 transition-all duration-300 group cursor-pointer"
-                >
-                  <div className="w-11 h-9 relative overflow-hidden rounded-md flex-shrink-0 bg-stone-950 transition-transform duration-300 group-hover:scale-105 shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
-                    <Flag 
-                      code={loc.code} 
-                      className="w-full h-full object-cover" 
-                      fallback={<span className="text-xs text-stone-600">🏳️</span>}
-                    />
-                  </div>
-
-                  <div className="flex flex-col min-w-0">
-                    <span className="text-[20px] font-semibold text-stone-200 tracking-tight group-hover:text-white transition-colors">
-                      {loc.country}
-                    </span>
-                    <span className="text-[16px] text-stone-500 font-normal tracking-wide mt-0.5">
-                      {loc.ips}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-
+    {/* Dynamic & Clickable Grid */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+      {locationsData[topLocationsTab].map((loc, index) => (
+        <Link
+          key={index}
+          href={loc.url || '#'}
+          className="flex items-center gap-4 bg-[#0d0d0f]/40 border border-stone-900/80 rounded-[16px] p-5 hover:border-[#FE4A01]/30 hover:bg-[#0e0e12]/90 transition-all duration-300 group cursor-pointer hover:scale-[1.02] hover:shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
+        >
+          {/* Flag Wrapper */}
+          <div className="w-11 h-9 relative overflow-hidden rounded-md flex-shrink-0 bg-stone-950 transition-transform duration-300 group-hover:scale-105 shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
+            <Flag 
+              code={loc.code} 
+              className="w-full h-full object-cover" 
+              fallback={<span className="text-xs text-stone-600">🏳️</span>}
+            />
           </div>
-        </section>
+
+          {/* Location Content */}
+          <div className="flex flex-col min-w-0 text-left">
+            <span className="text-[20px] font-semibold text-stone-200 tracking-tight group-hover:text-white transition-colors truncate">
+              {loc.country}
+            </span>
+            <span className="text-[16px] text-stone-500 group-hover:text-[#FE4A01]/90 font-normal tracking-wide mt-0.5 transition-colors">
+              {loc.ips}
+            </span>
+          </div>
+        </Link>
+      ))}
+    </div>
+
+  </div>
+</section>
 
         {/* ── SECTION 3: OTHER LOCATIONS (Uses otherLocationsTab) ────────────────── */}
         <section className="py-20 px-6 bg-[#0a0a0a] text-white relative overflow-hidden">
