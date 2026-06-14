@@ -12,6 +12,15 @@ interface CountryPageClientProps {
     countryCode: string;
     ispCount: string;
   };
+    dynamicDescriptions: {
+    feat1: string;
+    feat2: string;
+    feat3: string;
+    feat4: string;
+    feat5: string;
+    feat6: string;
+    // Add more if you have more than 3 features
+  };
 }
 
 // ── MARQUEE ANIMATION COMPONENT ──────────────────────────────────────
@@ -49,8 +58,10 @@ const Marquee: React.FC = () => {
     );
 };
 
+
+
 // ── MAIN EXPORTABLE INTERFACE MODULE ───────────────────────────────────
-export default function CountryPageClient({ data }: CountryPageClientProps) {
+export default function CountryPageClient({ data, dynamicDescriptions }: CountryPageClientProps) {
     const router = useRouter();
     const { countryName, countryCode, ispCount } = data;
     const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -59,32 +70,32 @@ export default function CountryPageClient({ data }: CountryPageClientProps) {
         {
             icon: <Database className="text-white w-4 h-4 text-regular" />,
             title: "Enhanced Privacy",
-            desc: `${countryName} has specific internet frameworks, so residential proxies add vital layers of anonymity. TorchLabs ${countryName} residential proxies mask your connection footprint and prevent direct signature tracking, making them ideal for high-volume social media, multi-account SEO auditing, and market positioning.`
+            desc: dynamicDescriptions?.feat1 || "Fallback description"
         },
         {
             icon: <RefreshCw className="text-white w-4 h-4 text-regular" />,
             title: "Data Access & Analysis",
-            desc: `TorchLabs ${countryName} residential proxies let you access geo-specific local market data points quickly and reliably, enabling data engines to compile accurate research, capture real pricing indexes, and minimize baseline latency anomalies.`
+            desc: dynamicDescriptions?.feat2 || "Fallback description"
         },
         {
             icon: <Layers className="text-white w-4 h-4 text-regular" />,
             title: "Content Control",
-            desc: `Residential proxies give automated architectures and personal platform users the capability to distribute operational traffic paths safely, bypassing edge networks or testing network response profiles seamlessly.`
+            desc: dynamicDescriptions?.feat3 || "Fallback description"
         },
         {
             icon: <ShieldCheck className="text-white w-4 h-4 text-regular" />,
             title: "Social Media Management",
-            desc: `Access complex platforms native to ${countryName} regions for targeted digital outreach. TorchLabs ${countryName} residential proxy channels ensure stable node connections, mitigating standard account rate-limit restrictions.`
+            desc: dynamicDescriptions?.feat4 || "Fallback description"
         },
         {
             icon: <ShieldCheck className="text-white w-4 h-4 text-regular" />,
             title: "Unrestricted Access",
-            desc: `Assess local edge deployments or global applications accurately. With fully verified ${countryName} residential IPs, TorchLabs lets you check local CDN rendering variants without encountering cloud challenges.`
+            desc: dynamicDescriptions?.feat5 || "Fallback description"
         },
         {
             icon: <ShieldCheck className="text-white w-4 h-4 text-regular" />,
             title: "Market Research",
-            desc: `Gather critical endpoint intelligence accurately. Our native ${countryName} residential pools provide organic interaction metrics, giving your analytical configurations pristine scraping surfaces on target infrastructure.`
+            desc: dynamicDescriptions?.feat6 || "Fallback description"
         },
     ];
 
@@ -396,7 +407,7 @@ export default function CountryPageClient({ data }: CountryPageClientProps) {
                                 <p className="text-gray-400 text-[18px] max-w-4xl font-regular md:text-xl leading-relaxed mb-12 mx-auto">
                                     Effortlessly test, deploy, and scale your projects with user-friendly, high quality and cost effective residential proxy infrastructure tailored for any use case.
                                 </p>
-                                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
+                      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
 
                         {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
                         <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#ffffff] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:scale-[1.02] active:scale-[0.99]">
