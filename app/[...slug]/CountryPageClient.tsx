@@ -68,32 +68,32 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
 
     const features = [
         {
-            icon: <Database className="text-white w-4 h-4 text-regular" />,
+            icon: "/images/country.svg",
             title: "Enhanced Privacy",
             desc: dynamicDescriptions?.feat1 || "Fallback description"
         },
         {
-            icon: <RefreshCw className="text-white w-4 h-4 text-regular" />,
+            icon: "/images/country.svg",
             title: "Data Access & Analysis",
             desc: dynamicDescriptions?.feat2 || "Fallback description"
         },
         {
-            icon: <Layers className="text-white w-4 h-4 text-regular" />,
+            icon: "/images/country.svg",
             title: "Content Control",
             desc: dynamicDescriptions?.feat3 || "Fallback description"
         },
         {
-            icon: <ShieldCheck className="text-white w-4 h-4 text-regular" />,
+            icon: "/images/country.svg",
             title: "Social Media Management",
             desc: dynamicDescriptions?.feat4 || "Fallback description"
         },
         {
-            icon: <ShieldCheck className="text-white w-4 h-4 text-regular" />,
+            icon: "/images/country.svg",
             title: "Unrestricted Access",
             desc: dynamicDescriptions?.feat5 || "Fallback description"
         },
         {
-            icon: <ShieldCheck className="text-white w-4 h-4 text-regular" />,
+            icon: "/images/country.svg",
             title: "Market Research",
             desc: dynamicDescriptions?.feat6 || "Fallback description"
         },
@@ -381,18 +381,22 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16 max-w-6xl mx-auto">
-                    {features.map((feat, i) => (
-                        <div key={i} className="flex items-start gap-4 group">
-                            <div className="w-11 h-11 rounded-full bg-[#FE4A01] flex items-center justify-center shrink-0 shadow-[0_4px_14px_rgba(254,74,1,0.2)] transition-transform duration-200 group-hover:scale-105">
-                                {feat.icon}
-                            </div>
-                            <div className="space-y-1.5">
-                                <h4 className="text-[23px] font-medium text-white tracking-tight">{feat.title}</h4>
-                                <p className="text-stone-400 text-[13px] sm:text-sm leading-relaxed font-regular">{feat.desc}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+    {features.map((feat, i) => (
+        <div key={i} className="flex items-start gap-4 group">
+            {/* Icon Wrapper */}
+            <div className="w-11 h-11 rounded-full bg-[#FE4A01] flex items-center justify-center shrink-0 shadow-[0_4px_14px_rgba(254,74,1,0.2)] transition-transform duration-200 group-hover:scale-105">
+                {/* Updated this line to render the image path properly */}
+                <img src={feat.icon} alt={feat.title} className="w-25 h-25 object-contain" />
+            </div>
+            
+            {/* Content */}
+            <div className="space-y-1.5">
+                <h4 className="text-[23px] font-medium text-white tracking-tight">{feat.title}</h4>
+                <p className="text-stone-400 text-[13px] sm:text-sm leading-relaxed font-regular">{feat.desc}</p>
+            </div>
+        </div>
+    ))}
+</div>
             </section>
 
             {/* ── SECTION 5: CALL TO ACTION BANNER ──────────────────────────── */}

@@ -105,7 +105,7 @@ const NAV_LINKS = [
   },
   {
     label: "Usecases",
-    href: "/use-cases",
+    href: "/#",
     menuType: "usecases-mega",
     dropdown: [
       {
@@ -158,13 +158,13 @@ const NAV_LINKS = [
           section: "Residential Proxies",
           label: "Blog",
           href: "/blog",
-          icon: "/images/icon/blog.svg" 
+          icon: "/images/icon/blog.svg"
         },
         {
           section: "",
           label: "Documentation",
           href: "/documentation",
-          icon: "/images/icon/documentation.svg" 
+          icon: "/images/icon/documentation.svg"
         }
       ]
     }
@@ -470,49 +470,76 @@ export default function Navbar() {
 
                         {/* CASE 4: Use Cases Layout */}
                         {link.menuType === "usecases-mega" && Array.isArray(link.dropdown) && (
-                          <div className="grid grid-cols-2 gap-x-8 gap-y-4">
-                            {(link.dropdown as any[]).map((col, idx) => (
-                              <div key={idx} className="space-y-2">
-                                {/* Updated Heading: Removed rigid underline style to match Screenshot 2 */}
-                                <h4 className="text-stone-400 font-semibold text-xs tracking-wider px-1">
-                                  {col.section}
+                          <div className="grid grid-cols-2 gap-x-12 p-8 rounded-[24px] max-w-2xl text-left select-none">
+
+                            {/* ── LEFT COLUMN: Market Research (Index 0) ── */}
+                            {link.dropdown[0] && (
+                              <div className="space-y-4">
+                                <h4 className="text-stone-500 font-medium text-[13px] tracking-wide pl-1">
+                                  {link.dropdown[0].section}
                                 </h4>
-
-                                <div className="space-y-1">
-                                  {col.items.map((item: any, iIdx: number) => (
+                                <div className="flex flex-col gap-y-3">
+                                  {link.dropdown[0].items.map((item: any, idx: number) => (
                                     <Link
+                                      key={idx}
                                       href={item.href}
-                                      key={iIdx}
-                                      className="flex items-center gap-3.5 p-2 rounded-xl hover:bg-white/[0.03] text-stone-200 hover:text-white transition-all group"
+                                      className="flex items-center gap-4 p-1 rounded-xl transition-all group"
                                     >
-                                      {/* White Icon Canvas */}
-                                      <div className="w-18 h-18 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md shadow-black/20 overflow-hidden relative p-2">
-                                        {item.icon ? (
-                                          <Image
-                                            src={item.icon}
-                                            alt={item.label}
-                                            width={22}
-                                            height={22}
-                                            className="object-contain w-full h-full group-hover:scale-110 transition-transform duration-150"
-                                            priority
-                                          />
-                                        ) : (
-                                          /* Fallback fallback box design if icon image path is missing */
-                                          <div className="w-4 h-4 rounded-md bg-orange-600" />
-                                        )}
+                                      {/* White Soft-Shadow Icon Box */}
+                                      <div className="w-18 h-18 rounded-[14px] flex items-center justify-center flex-shrink-0 shadow-[0_5px_14px_rgba(0,0,0,0.4),inset_0_-2px_4px_rgba(0,0,0,0.15)] relative p-2.5 transition-transform duration-200 group-hover:scale-105">
+                                        <Image
+                                          src={item.icon}
+                                          alt={item.label}
+                                          width={24}
+                                          height={24}
+                                          className="object-contain w-full h-full"
+                                          priority
+                                        />
                                       </div>
-
-                                      <span className="text-sm font-semibold tracking-wide">
+                                      <span className="text-[15px] font-bold text-white tracking-wide">
                                         {item.label}
                                       </span>
                                     </Link>
                                   ))}
                                 </div>
                               </div>
-                            ))}
+                            )}
+
+                            {/* ── RIGHT COLUMN: Split Sub-sections (Index 1 onwards) ── */}
+                            <div className="flex flex-col gap-y-6">
+                              {link.dropdown.slice(1).map((subSection: any, idx: number) => (
+                                <div key={idx} className="space-y-3">
+                                  <h4 className="text-stone-500 font-medium text-[13px] tracking-wide pl-1">
+                                    {subSection.section}
+                                  </h4>
+                                  {subSection.items.map((item: any, iIdx: number) => (
+                                    <Link
+                                      key={iIdx}
+                                      href={item.href}
+                                      className="flex items-center gap-4 p-1 rounded-xl transition-all group"
+                                    >
+                                      {/* White Soft-Shadow Icon Box */}
+                                      <div className="w-18 h-18 rounded-[14px] flex items-center justify-center flex-shrink-0 shadow-[0_5px_14px_rgba(0,0,0,0.4),inset_0_-2px_4px_rgba(0,0,0,0.15)] relative p-2.5 transition-transform duration-200 group-hover:scale-105">
+                                        <Image
+                                          src={item.icon}
+                                          alt={item.label}
+                                          width={24}
+                                          height={24}
+                                          className="object-contain w-full h-full"
+                                          priority
+                                        />
+                                      </div>
+                                      <span className="text-[15px] font-bold text-white tracking-wide">
+                                        {item.label}
+                                      </span>
+                                    </Link>
+                                  ))}
+                                </div>
+                              ))}
+                            </div>
+
                           </div>
                         )}
-
                         {/* CASE 5: Resources Column Splits Layout */}
                         {link.menuType === "resources-mega" && !Array.isArray(link.dropdown) && (
                           <div className="grid grid-cols-12 gap-6">
@@ -588,48 +615,48 @@ export default function Navbar() {
           </div>
 
           {/* ── Contact Us Button ──────────────────────────── */}
-         <div className="hidden lg:flex items-center overflow-visible">
-  <button
-    onClick={() => setIsContactOpen(true)}
-    className="
+          <div className="hidden lg:flex items-center overflow-visible">
+            <button
+              onClick={() => setIsContactOpen(true)}
+              className="
       group/navbtn relative overflow-hidden cursor-pointer
       w-[124px] h-[42px] rounded-xl font-semibold text-sm text-white
       border border-stone-800 bg-stone-900/50 hover:bg-stone-900 
       hover:border-stone-600 transition-all duration-200 ease-out
       hover:scale-[1.02] active:scale-[0.98]
     "
-  >
-    {isMounted ? (
-      <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover/navbtn:[transform:rotateX(-90deg)]">
-        
-        {/* Default State Text (Visible Initially) */}
-        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(10px)] text-gray-200 whitespace-nowrap">
-          Contact Us
-        </span>
-        
-        {/* Hover State Text (Rolls up cleanly from below) */}
-        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(90deg)_translateZ(10px)] text-white whitespace-nowrap">
-          Contact Us
-        </span>
-        
-      </div>
-    ) : (
-      <span className="whitespace-nowrap">Contact Us</span>
-    )}
-  </button>
-</div>
-      {/* ─── RENDER CONTACT MODAL SHELL CONDITIONALLY ─── */}
-      <ContactSection 
-        isOpen={isContactOpen} 
-        onClose={() => setIsContactOpen(false)} // 👈 Closes the modal cleanly when '✕' is clicked
-      />
-            {/* <Link
+            >
+              {isMounted ? (
+                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover/navbtn:[transform:rotateX(-90deg)]">
+
+                  {/* Default State Text (Visible Initially) */}
+                  <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(10px)] text-gray-200 whitespace-nowrap">
+                    Contact Us
+                  </span>
+
+                  {/* Hover State Text (Rolls up cleanly from below) */}
+                  <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(90deg)_translateZ(10px)] text-white whitespace-nowrap">
+                    Contact Us
+                  </span>
+
+                </div>
+              ) : (
+                <span className="whitespace-nowrap">Contact Us</span>
+              )}
+            </button>
+          </div>
+          {/* ─── RENDER CONTACT MODAL SHELL CONDITIONALLY ─── */}
+          <ContactSection
+            isOpen={isContactOpen}
+            onClose={() => setIsContactOpen(false)} // 👈 Closes the modal cleanly when '✕' is clicked
+          />
+          {/* <Link
               href="/contact"
               className="px-5 py-2 text-sm font-semibold text-white rounded-lg border border-white/20 hover:border-white/40 hover:bg-white/5 transition-all duration-200 whitespace-nowrap"
             >
               Contact Us
             </Link> */}
-        
+
 
           {/* ── Mobile Hamburger Action ────────────────────── */}
           <button

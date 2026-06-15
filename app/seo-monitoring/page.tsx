@@ -146,7 +146,7 @@ const proxyCards: ProxyCard[] = [
         description: 'The easiest and most affordable way to monitor SEO rankings at small to mid scale.',
         price: '$4/GB',
         badge: { text: 'Most Popular', variant: 'popular' },
-        iconType: 'hybrid',
+        iconType: '/images/srp.svg',
         features: [
             '95–97% success rates with minimal failed requests',
             'Most popular choice for SEO monitoring',
@@ -160,7 +160,7 @@ const proxyCards: ProxyCard[] = [
         description: 'Designed for enterprise SEO operations that need maximum success at massive scale.',
         price: '$5/GB',
         badge: { text: 'Enterprise', variant: 'enterprise' },
-        iconType: 'residential',
+        iconType: '/images/pr.svg',
         features: [
             '99% success rate for zero-tolerance operations',
             'Datacenter speed with residential authenticity',
@@ -387,9 +387,9 @@ export default function TorchProxiesLandingPage() {
 
 
     return (
-        <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
+        <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden font-['Urbanist']">
 
-            <section className="relative bg-[#0a0a0a] text-white min-h-[650px] flex items-center py-20 px-4 md:px-8 overflow-hidden font-sans mt-[100px]">
+            <section className="relative bg-[#0a0a0a] text-white min-h-[650px] flex items-center py-20 px-4 md:px-8 overflow-hidden font-sans mt-[100px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
                     {/* --- LEFT COLUMN: CONTENT & CALL TO ACTION --- */}
@@ -453,7 +453,7 @@ export default function TorchProxiesLandingPage() {
                         <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
 
                             {/* Fast 3D text track wrapper */}
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                            <div className="cursor-pointer relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
 
                                 {/* Default State Text */}
                                 <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
@@ -468,24 +468,28 @@ export default function TorchProxiesLandingPage() {
                             </div>
                         </button>
 
-                        {/* --- SECONDARY BUTTON: ROLLING TEXT + BORDER INDENT --- */}
-                        <button className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-700 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
+{/* --- SECONDARY BUTTON: ROLLING TEXT + BORDER INDENT --- */}
+<button 
+    onClick={() => {
+        document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' });
+    }}
+    className=" cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-700 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]"
+>
+    {/* Fast 3D text track wrapper */}
+    <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
 
-                            {/* Fast 3D text track wrapper */}
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+        {/* Default State Text */}
+        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+            View Pricing
+        </span>
 
-                                {/* Default State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                    View Pricing
-                                </span>
+        {/* Hover State Text */}
+        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
+            View Pricing
+        </span>
 
-                                {/* Hover State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
-                                    View Pricing
-                                </span>
-
-                            </div>
-                        </button>
+    </div>
+</button>
 
                     </div>
 
@@ -514,12 +518,12 @@ export default function TorchProxiesLandingPage() {
             </section>
 
 
-            <section className="bg-[#0a0a0a] text-white py-24 px-4 md:px-8 font-sans">
+            <section className="bg-[#0a0a0a] text-white py-24 px-4 md:px-8 font-sans font-['Urbanist']">
                 <div className="max-w-7xl mx-auto">
 
                     {/* --- HEADER SECTION --- */}
                     <div className="text-center max-w-5xl mx-auto mb-16">
-                        <h2 className="text-3xl md:text-[42px] font-medium tracking-tight text-white mb-4 leading-tight">
+                        <h2 className="text-3xl md:text-[42px] font-medium tracking-tight text-white mb-4 leading-tight font-['Urbanist']">
                             Why Your Rank Tracker Keeps Getting Flagged
                         </h2>
                         <p className="text-zinc-500 text-[18px] md:text-base font-regular max-w-[905px] mx-auto leading-relaxed">
@@ -545,7 +549,7 @@ export default function TorchProxiesLandingPage() {
 </div>
 
                                 {/* Feature Title */}
-                                <h3 className="text-white text-[20px] font-medium tracking-tight mb-3">
+                                <h3 className="text-white text-[20px] font-medium tracking-tight mb-3 font-['Urbanist']">
                                     {item.title}
                                 </h3>
 
@@ -565,15 +569,15 @@ export default function TorchProxiesLandingPage() {
 
 
 
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px]">
+            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-32">
 
                     {/* Row 1: Easy Client Management */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         {/* Visual Side */}
                         <div className="relative group">
-                            <div className="bg-[#0d0d0d] border border-gray-800 rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
-                                <div className="bg-[#050505] rounded-2xl border border-gray-900/50 overflow-hidden flex items-center justify-center">
+                            <div className="bg-[#0d0d0d] rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
+                                <div className="bg-[#050505] rounded-2xl overflow-hidden flex items-center justify-center">
 
                                     <img
                                         src="/images/Why_CAPTCHA.png"
@@ -586,7 +590,7 @@ export default function TorchProxiesLandingPage() {
 
                         {/* Text Side */}
                         <div className="space-y-6">
-                            <h2 className="text-[42px] md:text-5xl md:leading-snug font-medium tracking-tight">
+                            <h2 className="text-[42px] md:text-5xl md:leading-snug font-medium tracking-tight font-['Urbanist']">
                                 Why CAPTCHA Detection Costs You More
                             </h2>
                             <h4 className="text-[20px] font-medium text-stone-200 mb-4">
@@ -610,15 +614,15 @@ export default function TorchProxiesLandingPage() {
 
 
             {/* ── TOP HEADER SECTION ───────────────────────────────────── */}
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 font-['Urbanist']">
                 <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white mb-4">
                     Our SEO Monitoring Solutions
                 </h2>
-                <p className="text-stone-400 text-sm sm:text-base max-w-3xl mx-auto font-normal">
+                <p className="text-stone-400 text-[16px] sm:text-base max-w-3xl mx-auto font-normal">
                     We offer two proxy solutions optimized for different SEO monitoring scales and accuracy requirements. Choose based on your keyword volume, budget, and tolerance for failed data.
                 </p>
             </div>
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px]">
+            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-32">
 
                     {/* Row 1: Easy Client Management */}
@@ -643,7 +647,7 @@ export default function TorchProxiesLandingPage() {
 
                             </div>
                         </div>
-                        <div className="bg-[#0d0d0d] border border-gray-800 rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
+                        <div className="bg-[#0d0d0d] rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
                             <div className="bg-[#050505] rounded-2xl border border-gray-900/50 overflow-hidden flex items-center justify-center">
 
                                 <img
@@ -660,14 +664,14 @@ export default function TorchProxiesLandingPage() {
             </section>
 
 
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px]">
+            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-32">
 
                     {/* Row 1: Easy Client Management */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         {/* Visual Side */}
                         <div className="relative group">
-                            <div className="bg-[#0d0d0d] border border-gray-800 rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
+                            <div className="bg-[#0d0d0d] rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
                                 <div className="bg-[#050505] rounded-2xl border border-gray-900/50 overflow-hidden flex items-center justify-center">
 
                                     <img
@@ -698,12 +702,12 @@ export default function TorchProxiesLandingPage() {
             </section>
 
 
-            <section className="bg-[#0a0a0a] text-white py-24 px-4 md:px-8 font-sans">
+            <section id="pricing-section" className="bg-[#0a0a0a] text-white py-24 px-4 md:px-8 font-sans font-['Urbanist']">
                 <div className="max-w-7xl mx-auto">
 
                     {/* --- HEADER --- */}
                     <div className="text-center max-w-4xl mx-auto mb-16">
-                        <h2 className="text-3xl md:text-[42px] font-medium tracking-tight text-white mb-4">
+                        <h2 className="text-3xl md:text-[42px] font-medium tracking-tight text-white mb-4 font-['Urbanist']">
                             The Right Proxies for SEO Monitoring
                         </h2>
                         <p className="text-zinc-500 text-sm md:text-base font-normal leading-relaxed">
@@ -712,210 +716,190 @@ export default function TorchProxiesLandingPage() {
                     </div>
 
                     {/* --- CARDS GRID --- */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
-                        {proxyCards.map((card, index) => (
-                            <div
-                                key={index}
-                                className="relative bg-[#0A0A0A] border border-zinc-900 rounded-2xl p-6 md:p-8 flex flex-col justify-between transition-all duration-200 hover:border-zinc-800"
-                            >
-                                <div>
-                                    {/* Top Row: Icon & Badge */}
-                                    <div className="flex items-center justify-between mb-6">
-                                        {/* Custom Brand Orange Icon Container */}
-                                        <div className="w-12 h-12 rounded-xl bg-[#FF4F00] flex items-center justify-center text-white">
-                                            {card.iconType === 'residential' ? (
-                                                // Custom Icon 1: Residential geometric knot shape
-                                                <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
-                                                    <path d="M12 2L4 9v11a2 2 0 002 2h12a2 2 0 002-2V9L12 2zm0 3.8l6 5.25V20H6v-8.95L12 5.8zM11 13h2v4h-2v-4z" />
-                                                </svg>
-                                            ) : (
-                                                // Custom Icon 2: Hybrid multi-node grid shape
-                                                <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
-                                                    <path d="M7 3h4v4H7V3zm6 0h4v4h-4V3zM7 9h4v4H7V9zm6 0h4v4h-4V9zM7 15h4v4H7v-4zm6 0h4v4h-4v-4z" />
-                                                </svg>
-                                            )}
-                                        </div>
-
-                                        {/* Context-Specific Badge */}
-                                        {card.badge && (
-                                            <span
-                                                className={`text-[11px] font-medium tracking-wide px-3 py-1 rounded-md ${card.badge.variant === 'popular'
-                                                    ? 'bg-[#002B1B] text-[#00B67A]' // Subtle deep green badge
-                                                    : 'bg-[#1C1600] text-[#FFB800]' // Subtle deep gold/bronze badge
-                                                    }`}
-                                            >
-                                                {card.badge.text}
-                                            </span>
-                                        )}
-                                    </div>
-
-                                    {/* Card Title & Description */}
-                                    <h3 className="text-[24px] font-medium text-white mb-1.5 tracking-tight">
-                                        {card.title}
-                                    </h3>
-                                    <p className="text-zinc-500 text-[18px] font-regular mb-6">
-                                        {card.description}
-                                    </p>
-
-                                    {/* Pricing Block */}
-                                    <div className="flex items-baseline gap-2 mb-8">
-                                        <span className="text-3xl md:text-4xl font-semibold text-white tracking-tight">
-                                            {card.price}
-                                        </span>
-                                        <span className="text-zinc-600 text-xs">per month</span>
-                                    </div>
-
-                                    {/* Features Checklist */}
-                                    <ul className="space-y-4 mb-10">
-                                        {card.features.map((feature, idx) => (
-                                            <li key={idx} className="flex items-start gap-3 text-zinc-400 text-[16px] font-regular leading-relaxed">
-                                                {/* Crisp Orange Checkmark */}
-                                                <svg
-                                                    className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]"
-                                                    fill="none"
-                                                    viewBox="0 0 24 24"
-                                                    stroke="currentColor"
-                                                >
-                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                                </svg>
-                                                <span>{feature}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-
-                                {/* Action Button at the bottom */}
-                                           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
-
-                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative w-full h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
-
-                            {/* Fast 3D text track wrapper */}
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-
-                                {/* Default State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                   Try risk free now
-                                </span>
-
-                                {/* Hover State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
-                                    Try risk free now
-                                </span>
-
-                            </div>
-                        </button>
-                        </div>
-                            </div>
-                        ))}
+<div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch font-['Urbanist']">
+    {proxyCards.map((card, index) => (
+        <div
+            key={index}
+            className="relative bg-[#0A0A0A] border border-zinc-900 rounded-2xl p-6 md:p-8 flex flex-col justify-between transition-all duration-200 hover:border-zinc-800"
+        >
+            <div>
+                {/* Top Row: Icon & Badge */}
+                <div className="flex items-center justify-between mb-6">
+                    
+                    {/* ── UPDATED ICON CONTAINER ── */}
+                    {/* Added 'relative overflow-hidden' so the custom vector asset fits cleanly */}
+                    <div className="w-20 h-20 rounded-xl flex items-center justify-center p-2.5 relative overflow-hidden">
+                        <Image 
+                            src={card.iconType} 
+                            alt={`${card.title} Icon`}
+                            fill
+                            className="object-contain p-2.5" 
+                        />
                     </div>
+
+                    {/* Context-Specific Badge */}
+                    {card.badge && (
+                        <span
+                            className={`text-[11px] font-medium tracking-wide px-3 py-1 rounded-md ${card.badge.variant === 'popular'
+                                ? 'bg-[#002B1B] text-[#00B67A]' // Subtle deep green badge
+                                : 'bg-[#1C1600] text-[#FFB800]' // Subtle deep gold/bronze badge
+                            }`}
+                        >
+                            {card.badge.text}
+                        </span>
+                    )}
+                </div>
+
+                {/* Card Title & Description */}
+                <h3 className="text-[24px] font-medium text-white mb-1.5 tracking-tight font-['Urbanist']">
+                    {card.title}
+                </h3>
+                <p className="text-zinc-500 text-[18px] font-regular mb-6 font-['Urbanist']">
+                    {card.description}
+                </p>
+
+                {/* Pricing Block */}
+                <div className="flex items-baseline gap-2 mb-8">
+                    <span className="text-[36px] md:text-[36px] font-semibold text-white tracking-tight font-['Urbanist']">
+                        {card.price}
+                    </span>
+                    <span className="text-zinc-600 text-xs">per month</span>
+                </div>
+
+                {/* Features Checklist */}
+                <ul className="space-y-4 mb-10">
+                    {card.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start gap-3 text-zinc-400 text-[16px] font-regular leading-relaxed">
+                            {/* Crisp Orange Checkmark */}
+                            <svg
+                                className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>{feature}</span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+            {/* Action Button at the bottom */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
+                {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
+                <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative w-full h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99] cursor-pointer">
+                    {/* Fast 3D text track wrapper */}
+                    <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                        {/* Default State Text */}
+                        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)] font-['Urbanist']">
+                            Try risk free now
+                        </span>
+                        {/* Hover State Text */}
+                        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90 font-['Urbanist']">
+                            Try risk free now
+                        </span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    ))}
+</div>
 
                 </div>
             </section>
 
 
-            <section className="bg-[#0A0A0A] text-white py-24 px-4 md:px-8 font-sans overflow-hidden">
+            <section className="bg-[#0A0A0A] text-white py-24 px-4 md:px-8 font-sans overflow-hidden font-['Urbanist']">
                 <div className="max-w-[1200px] mx-auto">
 
                     {/* --- HEADER --- */}
                     <div className="text-center max-w-3xl mx-auto mb-20">
-                        <h2 className="text-3xl md:text-[42px] font-medium tracking-tight text-white mb-4">
+                        <h2 className="text-3xl md:text-[42px] font-medium tracking-tight text-white mb-4 font-['Urbanist']">
                             See how we compare with others
                         </h2>
-                        <p className="text-zinc-500 text-[18px] md:text-base font-regular tracking-wide">
+                        <p className="text-zinc-500 text-[18px] md:text-base font-regular tracking-wide font-['Urbanist']">
                             Proof why we are the best option for your use case
                         </p>
                     </div>
 
-                    {/* --- COMPARISON MATRIX GRID --- */}
-                    <div className="w-full overflow-x-auto">
-                        <table className="w-full min-w-[960px] border-collapse text-center table-fixed">
-                            <colgroup><col className="w-[16%] text-left" /><col className="w-[16%]" /><col className="w-[16%]" /><col className="w-[20%]" /><col className="w-[16%]" /><col className="w-[16%]" /></colgroup>
+{/* --- COMPARISON MATRIX GRID --- */}
+<div className="w-full font-['Urbanist']">
+    <div className="relative w-full font-['Urbanist']">
+        
+<table className="w-full border-collapse text-center table-fixed relative z-10 font-['Urbanist']">
+    <colgroup><col className="w-[18%] text-left" /><col className="w-[16%]" /><col className="w-[16%]" /><col className="w-[18%]" /> {/* Highlighted Column */}<col className="w-[16%]" /><col className="w-[16%]" /></colgroup>
 
-                            <thead>
-                                <tr className="align-middle">
-                                    {/* Empty corner metric cell */}
-                                    <th className="pb-10"></th>
+    <thead>
+        <tr className="align-middle">
+            <th className="pb-10"></th>
 
-                                    {/* Bright Data Logo */}
-                                    <th className="pb-10 px-2">
-                                        <div className="relative h-7 w-[200px] max-w-[200px] mx-auto opacity-70 hover:opacity-100 transition">
-                                            <Image src="/images/table/1.png" alt="Bright Data Logo" fill className="object-contain" />
-                                        </div>
-                                    </th>
+            <th className="pb-10 px-1">
+                <div className="relative h-6 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition">
+                    <Image src="/images/table/1.png" alt="Bright Data Logo" fill className="object-contain" />
+                </div>
+            </th>
 
-                                    {/* Oxylabs Logo */}
-                                    <th className="pb-10 px-2">
-                                        <div className="relative h-7 w-[200px] max-w-[200px] mx-auto opacity-70 hover:opacity-100 transition">
-                                            <Image src="/images/table/2.png" alt="Oxylabs Logo" fill className="object-contain" />
-                                        </div>
-                                    </th>
+            <th className="pb-10 px-1">
+                <div className="relative h-6 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition">
+                    <Image src="/images/table/2.png" alt="Oxylabs Logo" fill className="object-contain" />
+                </div>
+            </th>
 
-                                    {/* Highlighted Column Header: TorchProxies */}
-                                    <th className="pb-6 px-2 relative">
-                                        {/* Floating backdrop card boundary matching image anchor */}
-                                        <div className="absolute top-0 left-0 right-0 bottom-[-320px] bg-[#0A0A0A] border border-zinc-900 rounded-2xl z-0 pointer-events-none" />
+            {/* ── Highlighted Column Header ── */}
+            <th className="pb-10 px-1 relative">
+                <div className="absolute top-[-16px] left-0 right-0 h-[calc(100%+380px)] bg-[#0c0c0e] border border-zinc-800/80 rounded-2xl z-0 pointer-events-none shadow-[0_20px_50px_rgba(0,0,0,0.6)]" />
 
-                                        <div className="relative h-7 w-[200px] max-w-[200px] mx-auto opacity-70 hover:opacity-100 transition">
-                                            <Image src="/images/table/torchproxies.png" alt="TorchProxies Logo" fill className="object-contain" />
-                                        </div>
-                                    </th>
+                <div className="relative h-6 w-full max-w-[120px] mx-auto opacity-100 transition z-10">
+                    <Image src="/images/table/torchproxies.png" alt="TorchProxies Logo" fill className="object-contain" />
+                </div>
+            </th>
 
-                                    {/* Proxy Empire Logo */}
-                                    <th className="pb-10 px-2">
-                                        <div className="relative h-7 w-[200px] max-w-[200px] mx-auto opacity-70 hover:opacity-100 transition">
-                                            <Image src="/images/table/3.png" alt="Proxy Empire Logo" fill className="object-contain" />
-                                        </div>
-                                    </th>
+            <th className="pb-10 px-1">
+                <div className="relative h-6 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition">
+                    <Image src="/images/table/3.png" alt="Proxy Empire Logo" fill className="object-contain" />
+                </div>
+            </th>
 
-                                    {/* Node Maven Logo */}
-                                    <th className="pb-10 px-2">
-                                        <div className="relative h-7 w-[200px] max-w-[200px] mx-auto opacity-70 hover:opacity-100 transition">
-                                            <Image src="/images/table/4.png" alt="Node Maven Logo" fill className="object-contain" />
-                                        </div>
-                                    </th>
-                                </tr>
-                            </thead>
+            <th className="pb-10 px-1">
+                <div className="relative h-6 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition">
+                    <Image src="/images/table/4.png" alt="Node Maven Logo" fill className="object-contain" />
+                </div>
+            </th>
+        </tr>
+    </thead>
 
-                            <tbody className="relative z-10">
-                                {comparisonData.map((row, idx) => (
-                                    <tr key={idx} className="align-middle">
-
-                                        {/* Left Column: Metric Label */}
-                                        <td className="py-7 px-2 text-left text-white text-[18px] font-regular tracking-tight border-b border-zinc-900/40">
-                                            {row.metric}
-                                        </td>
-
-                                        {/* Competitor: Bright Data */}
-                                        <td className="py-7 px-2 border-b border-zinc-900/40">
-                                            {renderCellContent(row.brightData)}
-                                        </td>
-
-                                        {/* Competitor: Oxylabs */}
-                                        <td className="py-7 px-2 border-b border-zinc-900/40">
-                                            {renderCellContent(row.oxylabs)}
-                                        </td>
-
-                                        {/* Highlighted: TorchProxies Content */}
-                                        <td className="py-7 px-2 border-b border-zinc-900/40 relative z-10">
-                                            {renderCellContent(row.torchProxies, true)}
-                                        </td>
-
-                                        {/* Competitor: Proxy Empire */}
-                                        <td className="py-7 px-2 border-b border-zinc-900/40">
-                                            {renderCellContent(row.proxyEmpire)}
-                                        </td>
-
-                                        {/* Competitor: Node Maven */}
-                                        <td className="py-7 px-2 border-b border-zinc-900/40">
-                                            {renderCellContent(row.nodeMaven)}
-                                        </td>
-
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
+    <tbody>
+        {comparisonData.map((row, idx) => (
+            <tr key={idx} className="align-middle">
+                {/* Borders removed from all td elements below */}
+                <td className="py-5 px-1 text-left text-stone-300 text-[15px] font-medium">
+                    {row.metric}
+                </td>
+                <td className="py-5 px-1 text-stone-400 text-[14px]">
+                    {renderCellContent(row.brightData)}
+                </td>
+                <td className="py-5 px-1 text-stone-400 text-[14px]">
+                    {renderCellContent(row.oxylabs)}
+                </td>
+                
+                {/* ── TorchProxies Content Cell ── */}
+                <td className="py-5 px-1 text-white text-[14px] font-medium relative z-10">
+                    {renderCellContent(row.torchProxies, true)}
+                </td>
+                
+                <td className="py-5 px-1 text-stone-400 text-[14px]">
+                    {renderCellContent(row.proxyEmpire)}
+                </td>
+                <td className="py-5 px-1 text-stone-400 text-[14px]">
+                    {renderCellContent(row.nodeMaven)}
+                </td>
+            </tr>
+        ))}
+    </tbody>
+</table>
+    </div>
+</div>
 
                 </div>
             </section>
@@ -926,7 +910,7 @@ export default function TorchProxiesLandingPage() {
 
             {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
             {/* Upgrade CTA Banner */}
-            <section className="py-16 px-6">
+            <section className="py-16 px-6 font-['Urbanist']">
                 <div className="max-w-6xl mx-auto">
                     <div
                         className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden"
@@ -939,18 +923,18 @@ export default function TorchProxiesLandingPage() {
                         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40 rounded-3xl" />
 
                         <div className="relative z-10 max-w-4xl mx-auto">
-                            <h2 className="text-4xl md:text-5xl font-regular tracking-tight mb-6 text-white">
+                            <h2 className="text-[48px] md:text-[48px] font-regular leading-tight tracking-tight mb-6 text-white">
                                 Stop Guessing Rankings. <br/>Start Monitoring SERPs Reliably.
                             </h2>
 
-                            <p className="text-stone-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+                            <p className="text-stone-300 text-[18px] md:text-[18px] mb-10 max-w-4xl mx-auto">
                                 Monitor rankings, local results and SERP features at scale without triggering “unusual traffic” warnings.
                             </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
 
                         {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative  w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className=" cursor-pointer group relative  w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
 
                             {/* Fast 3D text track wrapper */}
                             <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
@@ -997,7 +981,7 @@ export default function TorchProxiesLandingPage() {
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             {/* FAQ SECTION */}
-            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden">
+            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
 
                 {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
                 <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">

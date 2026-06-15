@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import Flag from 'react-world-flags';
 import Link from 'next/link';
 
+
 interface LocationData {
   country: string;
   ips: string;
@@ -21,7 +22,8 @@ interface LocationDataSet {
 interface CountryItem {
   name: string;
   ips: string;
-  code: string; 
+  code: string;
+  url: string;
 }
 
 interface LocationsData {
@@ -111,76 +113,76 @@ export default function TorchProxiesLandingPage() {
     ],
   };
 
-  const locations: LocationsData = {
+ const locations: LocationsData = {
     residential: [
-      { name: "South Korea", ips: "4,421,924 IPs", code: "KR" },
-      { name: "Ireland", ips: "4,421,924 IPs", code: "IE" },
-      { name: "Iran", ips: "4,421,924 IPs", code: "IR" },
-      { name: "Chile", ips: "4,421,924 IPs", code: "CL" },
-      { name: "Argentina", ips: "4,421,924 IPs", code: "AR" },
-      { name: "Brazil", ips: "1,421,960 IPs", code: "BR" },
-      { name: "Belgium", ips: "155,240 IPs", code: "BE" },
-      { name: "Czechia", ips: "210,500 IPs", code: "CZ" },
-      { name: "Israel", ips: "4,421,924 IPs", code: "IL" },
-      { name: "Italy", ips: "4,421,924 IPs", code: "IT" },
-      { name: "Japan", ips: "4,421,924 IPs", code: "JP" },
-      { name: "Malaysia", ips: "4,421,924 IPs", code: "MY" },
-      { name: "Nigeria", ips: "4,421,924 IPs", code: "NG" },
-      { name: "Norway", ips: "4,421,924 IPs", code: "NO" },
-      { name: "Pakistan", ips: "4,421,924 IPs", code: "PK" },
-      { name: "Peru", ips: "4,421,924 IPs", code: "PE" },
-      { name: "Philippines", ips: "4,421,924 IPs", code: "PH" },
-      { name: "Poland", ips: "4,421,924 IPs", code: "PL" },
-      { name: "Portugal", ips: "4,421,924 IPs", code: "PT" },
-      { name: "Russia", ips: "4,421,924 IPs", code: "RU" },
-      { name: "Singapore", ips: "4,421,924 IPs", code: "SG" },
-      { name: "Switzerland", ips: "4,421,924 IPs", code: "CH" },
-      { name: "United Arab Emirates", ips: "4,421,924 IPs", code: "AE" },
-      { name: "Thailand", ips: "4,421,924 IPs", code: "TH" },
-      { name: "Turkey", ips: "4,421,924 IPs", code: "TR" },
-      { name: "Ukraine", ips: "4,421,924 IPs", code: "UA" },
-      { name: "Vietnam", ips: "4,421,924 IPs", code: "VN" },
-      { name: "Venezuela", ips: "4,421,924 IPs", code: "VE" },
-      { name: "Netherlands", ips: "4,421,924 IPs", code: "NL" },
-      { name: "Finland", ips: "4,421,924 IPs", code: "FI" },
-      { name: "Denmark", ips: "4,421,924 IPs", code: "DK" },
-      { name: "Indonesia", ips: "4,421,924 IPs", code: "ID" }
+      { name: "South Korea", ips: "4,421,924 IPs", code: "KR", url: '/south-korea' },
+      { name: "Ireland", ips: "4,421,924 IPs", code: "IE", url: '/ireland'  },
+      { name: "Iran", ips: "4,421,924 IPs", code: "IR", url: '/iran'  },
+      { name: "Chile", ips: "4,421,924 IPs", code: "CL", url: '/chile'  },
+      { name: "Argentina", ips: "4,421,924 IPs", code: "AR", url: '/argentina'  },
+      { name: "Brazil", ips: "1,421,960 IPs", code: "BR" , url: '/brazil' },
+      { name: "Belgium", ips: "155,240 IPs", code: "BE", url: '/belgium'  },
+      { name: "Czechia", ips: "210,500 IPs", code: "CZ" , url: '/czechia' },
+      { name: "Israel", ips: "4,421,924 IPs", code: "IL", url: '/israel'  },
+      { name: "Italy", ips: "4,421,924 IPs", code: "IT" , url: '/italy' },
+      { name: "kenya", ips: "4,421,924 IPs", code: "KE", url: '/kenya'  },
+      { name: "Malaysia", ips: "4,421,924 IPs", code: "MY", url: '/malaysia'  },
+      { name: "Nigeria", ips: "4,421,924 IPs", code: "NG", url: '/nigeria'  },
+      { name: "Norway", ips: "4,421,924 IPs", code: "NO", url: '/norway'  },
+      { name: "Pakistan", ips: "4,421,924 IPs", code: "PK", url: '/pakistan'  },
+      { name: "Peru", ips: "4,421,924 IPs", code: "PE", url: '/peru'  },
+      { name: "Philippines", ips: "4,421,924 IPs", code: "PH", url: '/philippines'  },
+      { name: "Poland", ips: "4,421,924 IPs", code: "PL", url: '/poland'  },
+      { name: "Portugal", ips: "4,421,924 IPs", code: "PT", url: '/portugal'  },
+      { name: "Russia", ips: "4,421,924 IPs", code: "RU", url: '/russia'  },
+      { name: "Singapore", ips: "4,421,924 IPs", code: "SG", url: '/singapore'  },
+      { name: "Switzerland", ips: "4,421,924 IPs", code: "CH", url: '/switzerland'  },
+      { name: "Taiwan", ips: "4,421,924 IPs", code: "TW", url: '/taiwan'  },
+      { name: "Thailand", ips: "4,421,924 IPs", code: "TH", url: '/thailand'  },
+      { name: "Turkey", ips: "4,421,924 IPs", code: "TR" , url: '/turkey' },
+      { name: "Ukraine", ips: "4,421,924 IPs", code: "UA", url: '/ukraine'  },
+      { name: "Vietnam", ips: "4,421,924 IPs", code: "VN", url: '/vietnam'  },
+      { name: "Venezuela", ips: "4,421,924 IPs", code: "VE", url: '/venezuela'  },
+      { name: "Netherlands", ips: "4,421,924 IPs", code: "NL", url: '/netherlands'  },
+      { name: "Finland", ips: "4,421,924 IPs", code: "FI", url: '/finland'  },
+      { name: "Denmark", ips: "4,421,924 IPs", code: "DK", url: '/denmark'  },
+      { name: "Indonesia", ips: "4,421,924 IPs", code: "ID" , url: '/indonesia' }
     ],
     isp: [
-      { name: "South Korea", ips: "4,421,924 IPs", code: "KR" },
-      { name: "Ireland", ips: "4,421,924 IPs", code: "IE" },
-      { name: "Iran", ips: "4,421,924 IPs", code: "IR" },
-      { name: "Chile", ips: "4,421,924 IPs", code: "CL" },
-      { name: "Argentina", ips: "4,421,924 IPs", code: "AR" },
-      { name: "Brazil", ips: "1,421,960 IPs", code: "BR" },
-      { name: "Belgium", ips: "155,240 IPs", code: "BE" },
-      { name: "Czechia", ips: "210,500 IPs", code: "CZ" },
-      { name: "Israel", ips: "4,421,924 IPs", code: "IL" },
-      { name: "Italy", ips: "4,421,924 IPs", code: "IT" },
-      { name: "Japan", ips: "4,421,924 IPs", code: "JP" },
-      { name: "Malaysia", ips: "4,421,924 IPs", code: "MY" },
-      { name: "Nigeria", ips: "4,421,924 IPs", code: "NG" },
-      { name: "Norway", ips: "4,421,924 IPs", code: "NO" },
-      { name: "Pakistan", ips: "4,421,924 IPs", code: "PK" },
-      { name: "Peru", ips: "4,421,924 IPs", code: "PE" },
-      { name: "Philippines", ips: "4,421,924 IPs", code: "PH" },
-      { name: "Poland", ips: "4,421,924 IPs", code: "PL" },
-      { name: "Portugal", ips: "4,421,924 IPs", code: "PT" },
-      { name: "Russia", ips: "4,421,924 IPs", code: "RU" },
-      { name: "Singapore", ips: "4,421,924 IPs", code: "SG" },
-      { name: "Switzerland", ips: "4,421,924 IPs", code: "CH" },
-      { name: "United Arab Emirates", ips: "4,421,924 IPs", code: "AE" },
-      { name: "Thailand", ips: "4,421,924 IPs", code: "TH" },
-      { name: "Turkey", ips: "4,421,924 IPs", code: "TR" },
-      { name: "Ukraine", ips: "4,421,924 IPs", code: "UA" },
-      { name: "Vietnam", ips: "4,421,924 IPs", code: "VN" },
-      { name: "Venezuela", ips: "4,421,924 IPs", code: "VE" },
-      { name: "Netherlands", ips: "4,421,924 IPs", code: "NL" },
-      { name: "Finland", ips: "4,421,924 IPs", code: "FI" },
-      { name: "Denmark", ips: "4,421,924 IPs", code: "DK" },
-      { name: "Indonesia", ips: "4,421,924 IPs", code: "ID" }
+      { name: "South Korea", ips: "4,421,924 IPs", code: "KR" , url: '/south-korea' },
+      { name: "Ireland", ips: "4,421,924 IPs", code: "IE" , url: '/ireland' },
+      { name: "Iran", ips: "4,421,924 IPs", code: "IR" , url: '/iran' },
+      { name: "Chile", ips: "4,421,924 IPs", code: "CL" , url: '/chile' },
+      { name: "Argentina", ips: "4,421,924 IPs", code: "AR", url: '/argentina'  },
+      { name: "Brazil", ips: "1,421,960 IPs", code: "BR", url: '/brazil'  },
+      { name: "Belgium", ips: "155,240 IPs", code: "BE", url: '/belgium'  },
+      { name: "Czechia", ips: "210,500 IPs", code: "CZ", url: '/czechia'  },
+      { name: "Israel", ips: "4,421,924 IPs", code: "IL" , url: '/israel' },
+      { name: "Italy", ips: "4,421,924 IPs", code: "IT" , url: '/italy' },
+      { name: "Kenya", ips: "4,421,924 IPs", code: "KE", url: '/kenya'  },
+      { name: "Malaysia", ips: "4,421,924 IPs", code: "MY", url: '/malaysia'  },
+      { name: "Nigeria", ips: "4,421,924 IPs", code: "NG", url: '/nigeria'  },
+      { name: "Norway", ips: "4,421,924 IPs", code: "NO", url: '/norway'  },
+      { name: "Pakistan", ips: "4,421,924 IPs", code: "PK", url: '/pakistan'  },
+      { name: "Peru", ips: "4,421,924 IPs", code: "PE", url: '/peru'  },
+      { name: "Philippines", ips: "4,421,924 IPs", code: "PH", url: '/philippines'  },
+      { name: "Poland", ips: "4,421,924 IPs", code: "PL", url: '/poland'  },
+      { name: "Portugal", ips: "4,421,924 IPs", code: "PT" , url: '/portugal' },
+      { name: "Russia", ips: "4,421,924 IPs", code: "RU", url: '/russia'  },
+      { name: "Singapore", ips: "4,421,924 IPs", code: "ES", url: '/spain'  },
+      { name: "Switzerland", ips: "4,421,924 IPs", code: "CH", url: '/switzerland'  },
+      { name: "Taiwan", ips: "4,421,924 IPs", code: " TW" , url: '/taiwan' },
+      { name: "Thailand", ips: "4,421,924 IPs", code: "TH", url: '/thailand'  },
+      { name: "Turkey", ips: "4,421,924 IPs", code: "TR", url: '/turkey'  },
+      { name: "Ukraine", ips: "4,421,924 IPs", code: "UA", url: '/ukraine'  },
+      { name: "Vietnam", ips: "4,421,924 IPs", code: "VN" , url: '/vietnam' },
+      { name: "Venezuela", ips: "4,421,924 IPs", code: "VE", url: '/venezuela'  },
+      { name: "Netherlands", ips: "4,421,924 IPs", code: "NL" , url: '/netherlands' },
+      { name: "Finland", ips: "4,421,924 IPs", code: "FI", url: '/finland'  },
+      { name: "Denmark", ips: "4,421,924 IPs", code: "DK", url: '/denmark'  },
+      { name: "Indonesia", ips: "4,421,924 IPs", code: "ID", url: '/indonesia'  }
     ]
-  };
+};
   const [activeTab, setActiveTab] = useState<'residential' | 'isp'>('residential');
 
   const activeList = locations[otherLocationsTab] || [];
@@ -303,66 +305,82 @@ export default function TorchProxiesLandingPage() {
 </section>
 
         {/* ── SECTION 3: OTHER LOCATIONS (Uses otherLocationsTab) ────────────────── */}
-        <section className="py-20 px-6 bg-[#0a0a0a] text-white relative overflow-hidden">
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[350px] bg-[radial-gradient(ellipse_at_bottom,rgba(254,74,1,0.04)_0%,transparent_70%)] pointer-events-none select-none" />
+  <section className="py-20 px-6 bg-[#0a0a0a] text-white relative overflow-hidden">
+  {/* 1. Radial glow asset */}
+  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[350px] bg-[radial-gradient(ellipse_at_bottom,rgba(254,74,1,0.04)_0%,transparent_70%)] pointer-events-none select-none" />
 
-          <div className="max-w-6xl mx-auto relative z-10 flex flex-col items-center">
-            
-            <h2 className="text-4xl md:text-[42px] font-medium tracking-tight text-center mb-10 text-stone-100">
-              Other Locations
-            </h2>
+  {/* 2. Full-Width Background Image Asset (Moved here) */}
+  <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
+    <Image
+      src="/images/contact-bg.png"
+      alt=""
+      fill
+      priority
+      className="object-cover object-bottom opacity-100"
+    />
+  </div>
 
-            <div className="inline-flex bg-[#0f0f11] border border-stone-900/90 rounded-full p-1.5 mb-14 select-none">
-              <button
-                onClick={() => setOtherLocationsTab('residential')}
-                className={`px-5 py-2 rounded-full text-[14px] font-normal tracking-wider transition-all duration-200 ${
-                  otherLocationsTab === 'residential'
-                    ? 'bg-[#FE4A01] text-white shadow-[0_3px_10px_rgba(254,74,1,0.25)]'
-                    : 'text-stone-500 hover:text-stone-300'
-                }`}
-              >
-                Residential Proxies
-              </button>
-              <button
-                onClick={() => setOtherLocationsTab('isp')}
-                className={`px-5 py-2 rounded-full text-[11px] font-bold tracking-wider uppercase transition-all duration-200 ${
-                  otherLocationsTab === 'isp'
-                    ? 'bg-[#FE4A01] text-white shadow-[0_3px_10px_rgba(254,74,1,0.25)]'
-                    : 'text-stone-500 hover:text-stone-300'
-                }`}
-              >
-                ISP Proxies
-              </button>
-            </div>
+  {/* 3. Centered Content Container */}
+  <div className="max-w-6xl mx-auto relative z-10 flex flex-col items-center">
+    
+    <h2 className="text-4xl md:text-[42px] font-medium tracking-tight text-center mb-10 text-stone-100">
+      Other Locations
+    </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full">
-              {activeList.map((loc, index) => (
-                <div
-                  key={`${otherLocationsTab}-${loc.code}-${index}`}
-                  className="flex items-center gap-3.5 bg-[#0b0b0d]/30 border border-stone-900/60 rounded-[12px] p-4 hover:border-stone-800/80 hover:bg-[#0e0e12]/60 transition-all duration-200 group cursor-pointer"
-                >
-                  <div className="w-11 h-9 relative overflow-hidden rounded-[3px] flex-shrink-0 bg-stone-950 shadow-[0_1px_3px_rgba(0,0,0,0.5)] border border-stone-900/20">
-                    <Flag 
-                      code={loc.code} 
-                      className="w-full h-full object-cover" 
-                      fallback={<span className="text-[10px] text-stone-600">🏳️</span>}
-                    />
-                  </div>
+    {/* Tabs wrapper */}
+    <div className="inline-flex bg-[#0f0f11] border border-stone-900/90 rounded-full p-1.5 mb-14 select-none">
+      <button
+        onClick={() => setOtherLocationsTab('residential')}
+        className={`px-5 py-2 rounded-full text-[14px] font-normal tracking-wider transition-all duration-200 ${
+          otherLocationsTab === 'residential'
+            ? 'bg-[#FE4A01] text-white shadow-[0_3px_10px_rgba(254,74,1,0.25)]'
+            : 'text-stone-500 hover:text-stone-300'
+        }`}
+      >
+        Residential Proxies
+      </button>
+      <button
+        onClick={() => setOtherLocationsTab('isp')}
+        className={`px-5 py-2 rounded-full text-[11px] font-bold tracking-wider uppercase transition-all duration-200 ${
+          otherLocationsTab === 'isp'
+            ? 'bg-[#FE4A01] text-white shadow-[0_3px_10px_rgba(254,74,1,0.25)]'
+            : 'text-stone-500 hover:text-stone-300'
+        }`}
+      >
+        ISP Proxies
+      </button>
+    </div>
 
-                  <div className="flex flex-col min-w-0 leading-tight">
-                    <span className="text-[20px] font-semibold text-stone-300 tracking-tight group-hover:text-white transition-colors truncate">
-                      {loc.name}
-                    </span>
-                    <span className="text-[16px] text-stone-600 font-normal mt-0.5 tracking-wide">
-                      {loc.ips}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-
+    {/* Locations Grid layout */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full">
+      {activeList.map((loc, index) => (
+        <Link
+          href={loc.url}
+          key={`${otherLocationsTab}-${loc.code}-${index}`}
+          className="flex items-center gap-3.5 bg-[#0b0b0d]/30 border border-stone-900/60 rounded-[12px] p-4 hover:border-stone-800/80 hover:bg-[#0e0e12]/60 transition-all duration-200 group cursor-pointer block"
+        >
+          <div className="w-11 h-9 relative overflow-hidden rounded-[3px] flex-shrink-0 bg-stone-950 shadow-[0_1px_3px_rgba(0,0,0,0.5)] border border-stone-900/20">
+            <Flag 
+              code={loc.code} 
+              className="w-full h-full object-cover" 
+              fallback={<span className="text-[10px] text-stone-600">🏳️</span>}
+            />
           </div>
-        </section>
+
+          <div className="flex flex-col min-w-0 leading-tight">
+            <span className="text-[20px] font-semibold text-stone-300 tracking-tight group-hover:text-white transition-colors truncate">
+              {loc.name}
+            </span>
+            <span className="text-[16px] text-stone-600 font-normal mt-0.5 tracking-wide">
+              {loc.ips}
+            </span>
+          </div>
+        </Link>
+      ))}
+    </div>
+
+  </div>
+</section>
 
     </div>
   );

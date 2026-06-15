@@ -1087,6 +1087,7 @@ export default function TorchProxiesLandingPage() {
 
                 {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
                 <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
+                    
                     <Image
                         src="/images/contact-bg.png" /* Using the same glow asset path */
                         alt=""
