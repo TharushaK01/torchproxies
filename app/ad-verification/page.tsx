@@ -415,9 +415,9 @@ export default function TorchProxiesLandingPage() {
 
 
     return (
-        <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
+        <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden font-['Urbanist']">
 
-            <section className="relative bg-[#0a0a0a] text-white min-h-[650px] flex items-center py-20 px-4 md:px-8 overflow-hidden font-sans mt-[100px]">
+            <section className="relative bg-[#0a0a0a] text-white min-h-[650px] flex items-center py-20 px-4 md:px-8 overflow-hidden font-sans mt-[100px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
                     {/* --- LEFT COLUMN: CONTENT & CALL TO ACTION --- */}
@@ -497,7 +497,10 @@ export default function TorchProxiesLandingPage() {
                         </button>
 
                         {/* --- SECONDARY BUTTON: ROLLING TEXT + BORDER INDENT --- */}
-                        <button className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-700 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
+                        <button  onClick={() => {
+        document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' });
+    }} 
+                        className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-700 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
 
                             {/* Fast 3D text track wrapper */}
                             <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
@@ -542,12 +545,12 @@ export default function TorchProxiesLandingPage() {
             </section>
 
 
-            <section className="bg-[#0a0a0a] text-white py-24 px-4 md:px-8 font-sans">
+            <section className="bg-[#0a0a0a] text-white py-24 px-4 md:px-8 font-sans font-['Urbanist']">
                 <div className="max-w-7xl mx-auto">
 
                     {/* --- HEADER SECTION --- */}
-                    <div className="text-center max-w-5xl mx-auto mb-16">
-                        <h2 className="text-3xl md:text-[42px] font-medium tracking-tight text-white mb-4 leading-tight">
+                    <div className="text-center max-w-5xl mx-auto mb-16 font-['Urbanist']">
+                        <h2 className="text-[42px] md:text-[42px] font-medium tracking-tight text-white mb-4 leading-tight">
                             Why Your Ad Verification Tools Keep Getting Detected
                         </h2>
                         <p className="text-zinc-500 text-[18px] md:text-base font-regular max-w-4xl mx-auto leading-relaxed">
@@ -573,12 +576,12 @@ export default function TorchProxiesLandingPage() {
                                </div>
 
                                 {/* Feature Title */}
-                                <h3 className="text-white text-[20px] font-medium tracking-tight mb-3">
+                                <h3 className="text-white text-[20px] font-medium tracking-tight mb-3 font-['Urbanist']">
                                     {item.title}
                                 </h3>
 
                                 {/* Feature Description */}
-                                <p className="text-zinc-500 text-[16px] font-regular leading-relaxed">
+                                <p className="text-zinc-500 text-[16px] font-regular leading-relaxed font-['Urbanist']">
                                     {item.desc}
                                 </p>
 
@@ -593,15 +596,15 @@ export default function TorchProxiesLandingPage() {
 
 
 
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px]">
+            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-32">
 
                     {/* Row 1: Easy Client Management */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         {/* Visual Side */}
                         <div className="relative group">
-                            <div className="bg-[#0d0d0d] border border-gray-800 rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
-                                <div className="bg-[#050505] rounded-2xl border border-gray-900/50 overflow-hidden flex items-center justify-center">
+                            <div className="bg-[#0d0d0d] rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
+                                <div className="bg-[#050505] rounded-2xl  overflow-hidden flex items-center justify-center">
 
                                     <img
                                         src="/images/detection_breaks.png"
@@ -614,7 +617,7 @@ export default function TorchProxiesLandingPage() {
 
                         {/* Text Side */}
                         <div className="space-y-6">
-                            <h2 className="text-[42px] md:text-5xl md:leading-snug font-medium tracking-tight">
+                            <h2 className="text-[42px] md:text-5xl md:leading-snug font-medium leading-tight tracking-tight">
                                 Why Detection Breaks Ad Verification Accuracy
                             </h2>
                             <h4 className="text-[20px] font-medium text-stone-200 mb-4">
@@ -644,7 +647,7 @@ export default function TorchProxiesLandingPage() {
 
 
             {/* ── TOP HEADER SECTION ───────────────────────────────────── */}
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 font-['Urbanist']">
                 <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white mb-4">
                     Our Ad Verification Solutions
                 </h2>
@@ -652,7 +655,7 @@ export default function TorchProxiesLandingPage() {
                     We offer two proxy solutions optimized for different ad verification scales and enforcement levels. Choose based on platform strictness, impression volume, and compliance requirements.
                 </p>
             </div>
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px]">
+            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-32">
 
                     {/* Row 1: Easy Client Management */}
@@ -677,8 +680,8 @@ export default function TorchProxiesLandingPage() {
 
                             </div>
                         </div>
-                        <div className="bg-[#0d0d0d] border border-gray-800 rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
-                            <div className="bg-[#050505] rounded-2xl border border-gray-900/50 overflow-hidden flex items-center justify-center">
+                        <div className="bg-[#0d0d0d] rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
+                            <div className="bg-[#050505] rounded-2xl overflow-hidden flex items-center justify-center">
 
                                 <img
                                     src="/images/enterprise_scale.png"
@@ -694,15 +697,15 @@ export default function TorchProxiesLandingPage() {
             </section>
 
 
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px]">
+            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-32">
 
                     {/* Row 1: Easy Client Management */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         {/* Visual Side */}
                         <div className="relative group">
-                            <div className="bg-[#0d0d0d] border border-gray-800 rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
-                                <div className="bg-[#050505] rounded-2xl border border-gray-900/50 overflow-hidden flex items-center justify-center">
+                            <div className="bg-[#0d0d0d] rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
+                                <div className="bg-[#050505] rounded-2xl overflow-hidden flex items-center justify-center">
 
                                     <img
                                         src="/images/medium_scale.png"
@@ -734,12 +737,12 @@ export default function TorchProxiesLandingPage() {
             </section>
 
 
-            <section className="bg-[#0a0a0a] text-white py-24 px-4 md:px-8 font-sans">
+            <section id="pricing-section" className="bg-[#0a0a0a] text-white py-24 px-4 md:px-8 font-sans font-['Urbanist']">
                 <div className="max-w-7xl mx-auto">
 
                     {/* --- HEADER --- */}
                     <div className="text-center max-w-4xl mx-auto mb-16">
-                        <h2 className="text-3xl md:text-[42px] font-medium tracking-tight text-white mb-4">
+                        <h2 className="text-[42px] md:text-[42px] font-medium tracking-tight text-white mb-4 font-['Urbanist']">
                             The Right Proxies for Ad Verification
                         </h2>
                         <p className="text-zinc-500 text-sm md:text-base font-normal leading-relaxed">
@@ -786,16 +789,16 @@ export default function TorchProxiesLandingPage() {
                                     </div>
 
                                     {/* Card Title & Description */}
-                                    <h3 className="text-[24px] font-medium text-white mb-1.5 tracking-tight">
+                                    <h3 className="text-[24px] font-medium text-white mb-1.5 tracking-tight font-['Urbanist']">
                                         {card.title}
                                     </h3>
-                                    <p className="text-zinc-500 text-[18px] font-regular mb-6">
+                                    <p className="text-zinc-500 text-[18px] font-regular mb-6 font-['Urbanist']">
                                         {card.description}
                                     </p>
 
                                     {/* Pricing Block */}
                                     <div className="flex items-baseline gap-2 mb-8">
-                                        <span className="text-3xl md:text-4xl font-semibold text-white tracking-tight">
+                                        <span className="text-3xl md:text-4xl font-semibold text-white tracking-tight font-['Urbanist']">
                                             {card.price}
                                         </span>
                                         <span className="text-zinc-600 text-xs">per month</span>
@@ -850,7 +853,7 @@ export default function TorchProxiesLandingPage() {
             </section>
 
 
-            <section className="bg-[#0A0A0A] text-white py-24 px-4 md:px-8 font-sans overflow-hidden">
+            <section className="bg-[#0A0A0A] text-white py-24 px-4 md:px-8 font-sans overflow-hidden font-['Urbanist']">
                 <div className="max-w-[1200px] mx-auto">
 
                     {/* --- HEADER --- */}
@@ -962,7 +965,7 @@ export default function TorchProxiesLandingPage() {
 
             {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
             {/* Upgrade CTA Banner */}
-            <section className="py-16 px-6">
+            <section className="py-16 px-6 font-['Urbanist']">
                 <div className="max-w-6xl mx-auto">
                     <div
                         className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden"
@@ -1010,7 +1013,7 @@ export default function TorchProxiesLandingPage() {
             </section>
 
             {/* ── SECTION 10: TESTIMONIALS ─────────────────────────────────── */}
-            <section className="py-24 bg-stone-950/20">
+            <section className="py-24 bg-stone-950/20 font-['Urbanist']">
                 <div className="text-center mb-16">
                     <span className="text-[#FE4A01] text-xs font-medium tracking-wider block mb-3">
                         Testimonials
@@ -1056,7 +1059,7 @@ export default function TorchProxiesLandingPage() {
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             {/* FAQ SECTION */}
-             <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden">
+             <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
  
                  {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
                  <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">

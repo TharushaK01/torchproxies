@@ -406,12 +406,12 @@ export default function TorchProxiesLandingPage() {
                         </div>
 
                         {/* Heading */}
-                        <h1 className="text-[60px] sm:text-5xl lg:text-[56px] font-regular tracking-tight leading-[1.1] max-w-xl text-white mb-1">
+                        <h1 className="text-[60px] sm:text-5xl lg:text-[56px] font-regular tracking-tight leading-[1.1] max-w-xl text-white mb-[14px]">
                            Best Proxies for SEO Monitoring
                         </h1>
 
                         {/* Subheading with colored emphasis */}
-                        <p className="text-zinc-500 text-base md:text-lg max-w-xl mb-2 font-normal leading-relaxed select-none">
+                        <p className="text-zinc-500 text-base md:text-lg max-w-xl mb-2 font-normal leading-relaxed select-none mb-[32px]">
                             Scrape{' '}
                             <span
                                 className={`text-[#FF4F00] font-medium inline-block transition-all duration-300 transform ${fadeState === 'fade-in'
@@ -425,7 +425,7 @@ export default function TorchProxiesLandingPage() {
                         </p>
 
                         {/* Features Inline List */}
-                        <div className="flex flex-wrap gap-x-6 gap-y-3 items-center mb-10 text-[16px] font-regular sm:text-sm text-zinc-300">
+                        <div className="flex flex-wrap gap-x-6 gap-y-3 items-center mb-10 text-[16px] font-regular sm:text-sm text-zinc-300 mb-[34px]">
                             <div className="flex items-center gap-1.5">
                                 <svg className="w-4 h-4 text-[#FF4F00] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -590,16 +590,16 @@ export default function TorchProxiesLandingPage() {
 
                         {/* Text Side */}
                         <div className="space-y-6">
-                            <h2 className="text-[42px] md:text-5xl md:leading-snug font-medium tracking-tight font-['Urbanist']">
+                            <h2 className="text-[42px] md:text-5xl md:leading-snug font-medium tracking-tight font-['Urbanist'] mb-[34px]">
                                 Why CAPTCHA Detection Costs You More
                             </h2>
-                            <h4 className="text-[20px] font-medium text-stone-200 mb-4">
+                            <h4 className="text-[20px] font-medium text-stone-200 mb-4 mb-[14px]">
                                 Poisoned Ranking Data
                             </h4>
-                            <p className="text-gray-400 text-[16px] font-regular leading-relaxed">
+                            <p className="text-gray-400 text-[16px] font-regular leading-relaxed mb-[34px]">
                                 When traffic is detected, Google serves bot-altered SERPs.SEO decisions are then based on rankings real users never see.
                             </p>
-                            <h4 className="text-[20px] font-medium text-stone-200 mb-4">
+                            <h4 className="text-[20px] font-medium text-stone-200 mb-4 mb-[14px]">
                                 Incomplete SEO Visibility
                             </h4>
                             <p className="text-gray-400 text-[16px] font-regular leading-relaxed">
@@ -632,10 +632,10 @@ export default function TorchProxiesLandingPage() {
                         <div className="relative group">
                             {/* Text Side */}
                             <div className="space-y-6">
-                                <h2 className="text-[42px] md:text-5xl font-regular tracking-tight">
+                                <h2 className="text-[42px] md:text-5xl font-regular tracking-tight mb-[34px]">
                                     Hybrid Proxies for Enterprise Operations
                                 </h2>
-                                <p className="text-gray-400 text-lg leading-relaxed">
+                                <p className="text-gray-400 text-lg leading-relaxed mb-[14px]">
                                    Designed for high volume SEO monitoring and advanced SERP intelligence, where scale, speed and accuracy are non negotiable.
                                 </p>
                                 <ul className="text-gray-400 text-lg leading-relaxed">
@@ -685,10 +685,10 @@ export default function TorchProxiesLandingPage() {
 
                         {/* Text Side */}
                         <div className="space-y-6">
-                            <h2 className="text-4xl md:text-5xl font-regular tracking-tight">
+                            <h2 className="text-4xl md:text-5xl font-regular tracking-tight mb-[34px]">
                                 Standard Proxies for Small to Medium Scale Monitoring
                             </h2>
-                            <p className="text-gray-400 text-lg leading-relaxed">
+                            <p className="text-gray-400 text-lg leading-relaxed mb-[14px]">
                                 Designed for reliable monitoring on sites with lighter enforcement and predictable behavior.
                             </p>
                             <ul className="text-gray-400 text-lg leading-relaxed">

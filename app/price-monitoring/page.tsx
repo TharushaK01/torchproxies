@@ -143,30 +143,30 @@ interface ProxyCard {
 const proxyCards: ProxyCard[] = [
     {
         title: 'Hybrid Proxies',
-        description: 'Best for enterprise-grade ad verification',
+        description: 'Built to operate reliably on sites with advanced bot detection and strict traffic controls.',
         price: '$5/GB',
         badge: { text: 'Most Popular', variant: 'popular' },
         iconType: '/images/hp.svg',
         features: [
-            '99% success rate on strict ad platforms',
-            'ISP-sourced IPs that look like real users',
-            'Stable sessions for accurate ad rendering',
-            'Scales to 50,000+ verified impressions efficiently',
-            'Best ROI for compliance-critical operations',
+            'Built for Cloudflare, Akamai & PerimeterX',
+            '99%+ success rates on protected sites',
+            'Ideal for 24/7 high-frequency monitoring',
+            'Handles large catalogs (10,000+ products) reliably',
+            '20–50× better ROI than datacenter proxies (retries included)',
         ],
     },
     {
         title: 'Premium Residential Proxies',
-        description: 'Best for lightweight and regional ad checks',
+        description: 'Designed for simpler environments and steady monitoring as you scale.',
         price: '$4.5/GB',
         badge: { text: 'For Startups', variant: 'enterprise' },
         iconType: '/images/pr.svg',
         features: [
-            'Real residential IPs for authentic ad views',
-            'Reliable for smaller verification workloads',
-            'Predictable pricing with no enterprise overhead',
+            'Real residential IPs for non-Cloudflare sites',
+            'Perfect for regional retailers & marketplaces',
+            'Designed for first-time price monitoring setups',
+            'Reliable for 100–5,000 products',
             'Simple setup with automatic rotation',
-            'Ideal for spot checks, regional compliance, and creative validation',
         ],
     },
     
@@ -477,12 +477,12 @@ const renderCellContent = (value: string | boolean, isHighlighted = false) => {
                         </div>
 
                         {/* Heading */}
-                        <h1 className="text-[60px] sm:text-5xl lg:text-[56px] font-regular tracking-tight leading-[1.1] max-w-xl text-white mb-1">
+                        <h1 className="text-[60px] sm:text-[60px] lg:text-[56px] font-regular tracking-tight leading-[1.1] max-w-xl text-white mb-[14px]">
                            Best Proxies for Price Monitoring
                         </h1>
 
                         {/* Subheading with colored emphasis */}
-                        <p className="text-zinc-500 text-base md:text-lg max-w-xl mb-2 font-normal leading-relaxed select-none">
+                        <p className="text-zinc-500 text-base md:text-lg max-w-xl mb-2 font-normal leading-relaxed select-none mb-[14px]">
                             Scrape{' '}
                             <span
                                 className={`text-[#FF4F00] font-medium inline-block transition-all duration-300 transform ${fadeState === 'fade-in'
@@ -661,16 +661,16 @@ const renderCellContent = (value: string | boolean, isHighlighted = false) => {
 
                         {/* Text Side */}
                         <div className="space-y-6">
-                            <h2 className="text-[42px] md:text-[42px] md:leading-snug font-medium leading-tight tracking-tight">
+                            <h2 className="text-[42px] md:text-[42px] md:leading-snug font-medium leading-tight tracking-tight mb-[34px]">
                                 Why “Cheap” Proxies Cost You More
                             </h2>
-                            <h4 className="text-[20px] font-medium text-stone-200 mb-4">
+                            <h4 className="text-[20px] font-medium text-stone-200 mb-[14px]">
                                 Poisoned Price Data
                             </h4>
-                            <p className="text-gray-400 text-[16px] font-regular leading-relaxed">
+                            <p className="text-gray-400 text-[16px] font-regular leading-relaxed mb-[34px]">
                                 If you scrape a CAPTCHA page or regional redirect instead of the real price, your repricer can push prices to $0 or spike them to unrealistic levels.
                             </p>
-                            <h4 className="text-[20px] font-medium text-stone-200 mb-4">
+                            <h4 className="text-[20px] font-medium text-stone-200 mb-[14px]">
                                 Missed Flash Sales
                             </h4>
                             <p className="text-gray-400 text-[16px] font-regular leading-relaxed">
@@ -703,10 +703,10 @@ const renderCellContent = (value: string | boolean, isHighlighted = false) => {
                         <div className="relative group">
                             {/* Text Side */}
                             <div className="space-y-6">
-                                <h2 className="text-[42px] md:text-5xl font-regular tracking-tight">
+                                <h2 className="text-[42px] md:text-5xl font-regular tracking-tight mb-[34px]">
                                     Hybrid Proxies Built for Strict Detection Systems
                                 </h2>
-                                <p className="text-gray-400 text-lg leading-relaxed">
+                                <p className="text-gray-400 text-lg leading-relaxed mb-[14px]">
                                     Built for environments where traffic is actively analyzed and blocked if it doesn’t look real.
                                 </p>
                                 <ul className="text-gray-400 text-lg leading-relaxed">
@@ -754,10 +754,10 @@ const renderCellContent = (value: string | boolean, isHighlighted = false) => {
 
                         {/* Text Side */}
                         <div className="space-y-6">
-                            <h2 className="text-4xl md:text-5xl font-regular tracking-tight">
+                            <h2 className="text-4xl md:text-5xl font-regular tracking-tight mb-[34px]">
                                 Premium Proxies for Easier Monitoring Targets
                             </h2>
-                            <p className="text-gray-400 text-lg leading-relaxed">
+                            <p className="text-gray-400 text-lg leading-relaxed mb-[14px]">
                                 Designed for reliable monitoring on sites with lighter enforcement and predictable behavior.
                             </p>
                             <ul className="text-gray-400 text-lg leading-relaxed">
@@ -771,7 +771,7 @@ const renderCellContent = (value: string | boolean, isHighlighted = false) => {
             </section>
 
 
-            <section  id="pricing-section" className="bg-[#0a0a0a] text-white py-24 px-4 md:px-8 font-sans font-['Urbanist']">
+            <section  id="pricing-section" className="bg-[#0a0a0a] text-white py-24 px-4 md:px-8 font-['Urbanist']">
                 <div className="max-w-7xl mx-auto">
 
                     {/* --- HEADER --- */}
