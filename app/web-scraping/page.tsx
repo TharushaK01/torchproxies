@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { ChevronDown,  Database, RefreshCw, Layers  } from 'lucide-react';
+import { ChevronDown, Database, RefreshCw, Layers } from 'lucide-react';
 import Image from 'next/image';
 import FeaturesTabSection from '@/app/web-scraping/FeaturesTabSectio';
 import { useRouter } from 'next/navigation';
@@ -383,9 +383,9 @@ export default function TorchProxiesLandingPage() {
 
 
     return (
-        <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
+        <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden font-['Urbanist']">
 
-            <section className="relative bg-[#0a0a0a] text-white min-h-[650px] flex items-center py-20 px-4 md:px-8 overflow-hidden font-sans mt-[100px]">
+            <section className="relative bg-[#0a0a0a] text-white min-h-[650px] flex items-center py-20 px-4 md:px-8 overflow-hidden font-sans mt-[100px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
                     {/* --- LEFT COLUMN: CONTENT & CALL TO ACTION --- */}
@@ -402,12 +402,12 @@ export default function TorchProxiesLandingPage() {
                         </div>
 
                         {/* Heading */}
-                        <h1 className="text-[60px] sm:text-5xl lg:text-[56px] font-regular tracking-tight leading-[1.1] max-w-xl text-white mb-1">
+                        <h1 className="text-[60px] sm:text-5xl lg:text-[56px] font-regular tracking-tight leading-[1.1] max-w-xl text-white mb-[14px]">
                             Best Hybrid Proxies for Web Scraping
                         </h1>
 
                         {/* Subheading with colored emphasis */}
-                        <p className="text-zinc-500 text-base md:text-lg max-w-xl mb-2 font-normal leading-relaxed select-none">
+                        <p className="text-zinc-500 text-base md:text-lg max-w-xl mb-2 font-normal leading-relaxed select-none mb-[32px]">
                             Scrape{' '}
                             <span
                                 className={`text-[#FF4F00] font-medium inline-block transition-all duration-300 transform ${fadeState === 'fade-in'
@@ -421,7 +421,7 @@ export default function TorchProxiesLandingPage() {
                         </p>
 
                         {/* Features Inline List */}
-                        <div className="flex flex-wrap gap-x-6 gap-y-3 items-center mb-10 text-[16px] font-regular sm:text-sm text-zinc-300">
+                        <div className="flex flex-wrap gap-x-6 gap-y-3 items-center mb-10 text-[16px] font-regular sm:text-sm text-zinc-300 mb-[34px]">
                             <div className="flex items-center gap-1.5">
                                 <svg className="w-4 h-4 text-[#FF4F00] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -442,47 +442,50 @@ export default function TorchProxiesLandingPage() {
                             </div>
                         </div>
 
-           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
 
-                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+                            {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
+                            <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
 
-                            {/* Fast 3D text track wrapper */}
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                                {/* Fast 3D text track wrapper */}
+                                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
 
-                                {/* Default State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                    Start free with 1 GB
-                                </span>
+                                    {/* Default State Text */}
+                                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                        Start free with 1 GB
+                                    </span>
 
-                                {/* Hover State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
-                                    Start free with 1 GB
-                                </span>
+                                    {/* Hover State Text */}
+                                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+                                        Start free with 1 GB
+                                    </span>
 
-                            </div>
-                        </button>
+                                </div>
+                            </button>
 
-                        {/* --- SECONDARY BUTTON: ROLLING TEXT + BORDER INDENT --- */}
-                        <button className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-700 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
+                            {/* --- SECONDARY BUTTON: ROLLING TEXT + BORDER INDENT --- */}
+                            <button onClick={() => {
+                                document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
+                                className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-700 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
 
-                            {/* Fast 3D text track wrapper */}
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                                {/* Fast 3D text track wrapper */}
+                                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
 
-                                {/* Default State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                    View Pricing
-                                </span>
+                                    {/* Default State Text */}
+                                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                        View Pricing
+                                    </span>
 
-                                {/* Hover State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
-                                    View Pricing
-                                </span>
+                                    {/* Hover State Text */}
+                                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
+                                        View Pricing
+                                    </span>
 
-                            </div>
-                        </button>
+                                </div>
+                            </button>
 
-                    </div>
+                        </div>
 
                     </div>
 
@@ -509,7 +512,7 @@ export default function TorchProxiesLandingPage() {
             </section>
 
 
-            <section className="bg-[#0a0a0a] text-white py-24 px-4 md:px-8 font-sans">
+            <section className="bg-[#0a0a0a] text-white py-24 px-4 md:px-8 font-['Urbanist']">
                 <div className="max-w-7xl mx-auto">
 
                     {/* --- HEADER SECTION --- */}
@@ -560,15 +563,15 @@ export default function TorchProxiesLandingPage() {
 
 
 
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px]">
+            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-32">
 
                     {/* Row 1: Easy Client Management */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         {/* Visual Side */}
                         <div className="relative group">
-                            <div className="bg-[#0d0d0d] border border-gray-800 rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
-                                <div className="bg-[#050505] rounded-2xl border border-gray-900/50 overflow-hidden flex items-center justify-center">
+                            <div className="bg-[#0d0d0d] rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
+                                <div className="bg-[#050505] rounded-2xl  overflow-hidden flex items-center justify-center">
 
                                     <img
                                         src="/images/ScrapingAccuracy.png"
@@ -581,25 +584,25 @@ export default function TorchProxiesLandingPage() {
 
                         {/* Text Side */}
                         <div className="space-y-6">
-                            <h2 className="text-[42px] md:text-5xl md:leading-snug font-medium tracking-tight">
+                            <h2 className="text-[42px] md:text-5xl md:leading-snug font-medium tracking-tight mb-[34px]">
                                 Why Detection Ruins Scraping Accuracy
                             </h2>
-                            <h4 className="text-[20px] font-medium text-stone-200 mb-4">
+                            <h4 className="text-[20px] font-medium text-stone-200 mb-[14px]">
                                 Incomplete or Fake Data
                             </h4>
-                            <p className="text-gray-400 text-[16px] font-regular leading-relaxed">
+                            <p className="text-gray-400 text-[16px] font-regular leading-relaxed mb-[34px]">
                                 Blocked sessions return CAPTCHA pages, redirects or placeholders instead of real content.
                             </p>
-                            <h4 className="text-[20px] font-medium text-stone-200 mb-4">
+                            <h4 className="text-[20px] font-medium text-stone-200 mb-[14px]">
                                 Runaway Infrastructure Costs
                             </h4>
-                            <p className="text-gray-400 text-[16px] font-regular leading-relaxed">
+                            <p className="text-gray-400 text-[16px] font-regular leading-relaxed mb-[34px]">
                                 Retries, proxy rotation and CAPTCHA solving multiply costs without improving results.
                             </p>
-                            <h4 className="text-[20px] font-medium text-stone-200 mb-4">
+                            <h4 className="text-[20px] font-medium text-stone-200 mb-[14px]">
                                 Missed Coverage at Scale
                             </h4>
-                            <p className="text-gray-400 text-[16px] font-regular leading-relaxed">
+                            <p className="text-gray-400 text-[16px] font-regular leading-relaxed ">
                                 Unstable proxies make it impossible to scrape consistently across regions, categories or time windows.
                             </p>
 
@@ -611,7 +614,7 @@ export default function TorchProxiesLandingPage() {
 
 
             {/* ── TOP HEADER SECTION ───────────────────────────────────── */}
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 font-['Urbanist']">
                 <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white mb-4">
                     One Proxy Built for Reliable Web Scraping
                 </h2>
@@ -619,7 +622,7 @@ export default function TorchProxiesLandingPage() {
                     A single proxy solution designed for teams that scrape at scale and can’t afford blocks, retries, or wasted spend.
                 </p>
             </div>
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px]">
+            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-32">
 
                     {/* Row 1: Easy Client Management */}
@@ -629,10 +632,10 @@ export default function TorchProxiesLandingPage() {
                         <div className="relative group">
                             {/* Text Side */}
                             <div className="space-y-6">
-                                <h2 className="text-[42px] md:text-5xl font-regular tracking-tight">
+                                <h2 className="text-[42px] md:text-5xl font-regular tracking-tight mb-[34px]">
                                     Hybrid Proxies for Web Scraping
                                 </h2>
-                                <p className="text-gray-400 text-lg leading-relaxed">
+                                <p className="text-gray-400 text-lg leading-relaxed mb-[14px]">
                                     Built for modern scraping environments where detection resistance, consistency and cost control matter more than raw bandwidth.
                                 </p>
                                 <ul className="text-gray-400 text-lg leading-relaxed">
@@ -644,8 +647,8 @@ export default function TorchProxiesLandingPage() {
 
                             </div>
                         </div>
-                        <div className="bg-[#0d0d0d] border border-gray-800 rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
-                            <div className="bg-[#050505] rounded-2xl border border-gray-900/50 overflow-hidden flex items-center justify-center">
+                        <div className="bg-[#0d0d0d] rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
+                            <div className="bg-[#050505] rounded-2xl overflow-hidden flex items-center justify-center">
 
                                 <img
                                     src="/images/HybridProxiesforWebScraping.png"
@@ -661,7 +664,7 @@ export default function TorchProxiesLandingPage() {
             </section>
 
 
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px]">
+            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto">
                     <h2 className="text-3xl md:text-[42px] font-medium text-white mb-4 text-center">
                         Why Hybrid Proxies Work for Web Scraping</h2>
@@ -673,33 +676,35 @@ export default function TorchProxiesLandingPage() {
                 </div>
             </section>
 
-<section className="bg-[#0a0a0a] text-white py-24 px-4 md:px-8 font-sans -mt-[200px] flex flex-col items-center justify-center min-h-screen">
-    <div className="w-full max-w-7xl mx-auto">
+            <section className="bg-[#0a0a0a] text-white py-24 px-4 md:px-8 font-sans -mt-[200px] flex flex-col items-center justify-center min-h-screen font-['Urbanist']">
+                <div className="w-full max-w-7xl mx-auto">
 
                     {/* --- HEADER --- */}
-<div className="text-center max-w-4xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-[42px] font-medium tracking-tight text-white mb-4">
-                The Right Proxies for Sneaker Botting
-            </h2>
-            <p className="text-zinc-500 text-sm md:text-base font-normal leading-relaxed">
-                Select the proxy type that matches your drop frequency, target platforms and tolerance for failed checkouts
-            </p>
-        </div>
+                    <div id="pricing-section" className="text-center max-w-4xl mx-auto mb-16">
+                        <h2 className="text-3xl md:text-[42px] font-medium tracking-tight text-white mb-4  font-['Urbanist']">
+                            The Right Proxies for Sneaker Botting
+                        </h2>
+                        <p className="text-zinc-500 text-sm md:text-base font-normal leading-relaxed">
+                            Select the proxy type that matches your drop frequency, target platforms and tolerance for failed checkouts
+                        </p>
+                    </div>
 
                     {/* --- MAIN 2-COLUMN ROW SIDE-BY-SIDE --- */}
-                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-5xl mx-auto">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-5xl mx-auto">
 
                         {/* LEFT COLUMN: THE PRICING CARD */}
                         <div className="bg-[#0A0A0A] border border-zinc-900 rounded-2xl p-6 md:p-8 flex flex-col justify-between transition-all duration-200 hover:border-zinc-800 w-full min-h-[580px]">
                             <div>
                                 {/* Top Row: Icon & Badge */}
                                 <div className="flex items-center justify-between mb-6">
-                                    <div className="w-12 h-12 rounded-xl bg-[#FF4F00] flex items-center justify-center text-white">
-                                        {/* Defaulting to residential icon structure as per array fallback */}
-                                        <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
-                                            <path d="M12 2L4 9v11a2 2 0 002 2h12a2 2 0 002-2V9L12 2zm0 3.8l6 5.25V20H6v-8.95L12 5.8zM11 13h2v4h-2v-4z" />
-                                        </svg>
-                                    </div>
+<div className="w-15 h-15 rounded-xl flex items-center justify-center text-white">
+    {/* Defaulting to residential icon structure as per array fallback */}
+    <img
+        src='/images/pr.svg'
+        alt="Description of image"
+        className="w-15 h-15 object-contain"
+    />
+</div>
 
                                     <span className="text-[11px] font-medium tracking-wide px-3 py-1 rounded-md bg-[#002B1B] text-[#00B67A]">
                                         Most Popular
@@ -707,17 +712,17 @@ export default function TorchProxiesLandingPage() {
                                 </div>
 
                                 {/* Card Title & Description */}
-                                <h3 className="text-[24px] font-medium text-white mb-1.5 tracking-tight">
-                                    Premium Residential Proxies
+                                <h3 className="text-[24px] font-medium text-white mb-1.5 tracking-tight font-['Urbanist']">
+                                    Hybrid Proxies
                                 </h3>
-                                <p className="text-zinc-500 text-sm font-normal mb-6 leading-relaxed max-w-sm">
-                                    Best for lightweight and regional ad checks
+                                <p className="text-zinc-500 text-[18px] font-regular mb-6 leading-relaxed max-w-sm">
+                                    Built for high volume scraping on both protected and unprotected targets
                                 </p>
 
                                 {/* Pricing Block */}
                                 <div className="flex items-baseline gap-2 mb-8">
                                     <span className="text-3xl md:text-4xl font-semibold text-white tracking-tight">
-                                        $4/GB
+                                        $5/GB
                                     </span>
                                     <span className="text-zinc-600 text-xs">per month</span>
                                 </div>
@@ -728,63 +733,63 @@ export default function TorchProxiesLandingPage() {
                                         <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span>Real residential IPs for authentic ad views</span>
+                                        <span>99% success rate on protected and high-friction sites</span>
                                     </li>
                                     <li className="flex items-start gap-3 text-zinc-400 text-sm font-normal leading-relaxed">
                                         <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span>Reliable for smaller verification workloads</span>
+                                        <span>ISP sourced residential IPs that pass anti-bot checkss</span>
                                     </li>
                                     <li className="flex items-start gap-3 text-zinc-400 text-sm font-normal leading-relaxed">
                                         <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span>Predictable pricing with no enterprise overhead</span>
+                                        <span>Stable sessions for consistent, large scale scraping</span>
                                     </li>
                                     <li className="flex items-start gap-3 text-zinc-400 text-sm font-normal leading-relaxed">
                                         <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span>Simple setup with automatic rotation</span>
+                                        <span>Easy API integration for rapid deployment</span>
                                     </li>
                                     <li className="flex items-start gap-3 text-zinc-400 text-sm font-normal leading-relaxed">
                                         <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span>Ideal for spot checks, regional compliance, and creative validation</span>
+                                        <span>Best price-performance at scale</span>
                                     </li>
                                 </ul>
                             </div>
 
                             {/* Action Button */}
-                                {/* Action Button at the bottom */}
-                                           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
+                            {/* Action Button at the bottom */}
+                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
 
-                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative w-full h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+                                {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
+                                <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative w-full h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
 
-                            {/* Fast 3D text track wrapper */}
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                                    {/* Fast 3D text track wrapper */}
+                                    <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
 
-                                {/* Default State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                   Try risk free now
-                                </span>
+                                        {/* Default State Text */}
+                                        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                            Try risk free now
+                                        </span>
 
-                                {/* Hover State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
-                                    Try risk free now
-                                </span>
+                                        {/* Hover State Text */}
+                                        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+                                            Try risk free now
+                                        </span>
 
+                                    </div>
+                                </button>
                             </div>
-                        </button>
-                        </div>
                         </div>
 
                         {/* RIGHT COLUMN: INFORMATION DISPLAY & TARGET LOGOS */}
                         <div className="flex flex-col justify-center py-4">
-                            <h4 className="text-2xl md:text-[28px] font-medium tracking-tight text-white mb-8">
+                            <h4 className="text-2xl md:text-[28px] font-medium tracking-tight text-white mb-8 font-['Urbanist']">
                                 What this means for you?
                             </h4>
 
@@ -852,12 +857,12 @@ export default function TorchProxiesLandingPage() {
             </section>
 
 
-            <section className="bg-[#0A0A0A] text-white py-24 px-4 md:px-8 font-sans overflow-hidden">
+            <section className="bg-[#0A0A0A] text-white py-24 px-4 md:px-8 font-sans overflow-hidden font-['Urbanist']">
                 <div className="max-w-[1200px] mx-auto">
 
                     {/* --- HEADER --- */}
                     <div className="text-center max-w-3xl mx-auto mb-20">
-                        <h2 className="text-3xl md:text-[42px] font-medium tracking-tight text-white mb-4">
+                        <h2 className="text-3xl md:text-[42px] font-medium tracking-tight text-white mb-4 font-['Urbanist']">
                             See how we compare with others
                         </h2>
                         <p className="text-zinc-500 text-[18px] md:text-base font-regular tracking-wide">
@@ -866,94 +871,82 @@ export default function TorchProxiesLandingPage() {
                     </div>
 
                     {/* --- COMPARISON MATRIX GRID --- */}
-                    <div className="w-full overflow-x-auto">
-                        <table className="w-full min-w-[960px] border-collapse text-center table-fixed">
-                            <colgroup><col className="w-[16%] text-left" /><col className="w-[16%]" /><col className="w-[16%]" /><col className="w-[20%]" /><col className="w-[16%]" /><col className="w-[16%]" /></colgroup>
+<div className="w-full font-['Urbanist']">
+    <div className="relative w-full font-['Urbanist']">
+        
+<table className="w-full border-collapse text-center table-fixed relative z-10 font-['Urbanist']">
+    <colgroup><col className="w-[18%] text-left" /><col className="w-[16%]" /><col className="w-[16%]" /><col className="w-[18%]" /> {/* Highlighted Column */}<col className="w-[16%]" /><col className="w-[16%]" /></colgroup>
 
-                            <thead>
-                                <tr className="align-middle">
-                                    {/* Empty corner metric cell */}
-                                    <th className="pb-10"></th>
+    <thead>
+        <tr className="align-middle">
+            <th className="pb-10"></th>
 
-                                    {/* Bright Data Logo */}
-                                    <th className="pb-10 px-2">
-                                        <div className="relative h-7 w-[200px] max-w-[200px] mx-auto opacity-70 hover:opacity-100 transition">
-                                            <Image src="/images/table/1.png" alt="Bright Data Logo" fill className="object-contain" />
-                                        </div>
-                                    </th>
+            <th className="pb-10 px-1">
+                <div className="relative h-6 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition">
+                    <Image src="/images/table/1.png" alt="Bright Data Logo" fill className="object-contain" />
+                </div>
+            </th>
 
-                                    {/* Oxylabs Logo */}
-                                    <th className="pb-10 px-2">
-                                        <div className="relative h-7 w-[200px] max-w-[200px] mx-auto opacity-70 hover:opacity-100 transition">
-                                            <Image src="/images/table/2.png" alt="Oxylabs Logo" fill className="object-contain" />
-                                        </div>
-                                    </th>
+            <th className="pb-10 px-1">
+                <div className="relative h-6 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition">
+                    <Image src="/images/table/2.png" alt="Oxylabs Logo" fill className="object-contain" />
+                </div>
+            </th>
 
-                                    {/* Highlighted Column Header: TorchProxies */}
-                                    <th className="pb-6 px-2 relative">
-                                        {/* Floating backdrop card boundary matching image anchor */}
-                                        <div className="absolute top-0 left-0 right-0 bottom-[-320px] bg-[#0A0A0A] border border-zinc-900 rounded-2xl z-0 pointer-events-none" />
+            {/* ── Highlighted Column Header ── */}
+            <th className="pb-10 px-1 relative">
+                <div className="absolute top-[-16px] left-0 right-0 h-[calc(100%+380px)] bg-[#0c0c0e] border border-zinc-800/80 rounded-2xl z-0 pointer-events-none shadow-[0_20px_50px_rgba(0,0,0,0.6)]" />
 
-                                        <div className="relative h-7 w-[200px] max-w-[200px] mx-auto opacity-70 hover:opacity-100 transition">
-                                            <Image src="/images/table/torchproxies.png" alt="TorchProxies Logo" fill className="object-contain" />
-                                        </div>
-                                    </th>
+                <div className="relative h-6 w-full max-w-[120px] mx-auto opacity-100 transition z-10">
+                    <Image src="/images/table/torchproxies.png" alt="TorchProxies Logo" fill className="object-contain" />
+                </div>
+            </th>
 
-                                    {/* Proxy Empire Logo */}
-                                    <th className="pb-10 px-2">
-                                        <div className="relative h-7 w-[200px] max-w-[200px] mx-auto opacity-70 hover:opacity-100 transition">
-                                            <Image src="/images/table/3.png" alt="Proxy Empire Logo" fill className="object-contain" />
-                                        </div>
-                                    </th>
+            <th className="pb-10 px-1">
+                <div className="relative h-6 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition">
+                    <Image src="/images/table/3.png" alt="Proxy Empire Logo" fill className="object-contain" />
+                </div>
+            </th>
 
-                                    {/* Node Maven Logo */}
-                                    <th className="pb-10 px-2">
-                                        <div className="relative h-7 w-[200px] max-w-[200px] mx-auto opacity-70 hover:opacity-100 transition">
-                                            <Image src="/images/table/4.png" alt="Node Maven Logo" fill className="object-contain" />
-                                        </div>
-                                    </th>
-                                </tr>
-                            </thead>
+            <th className="pb-10 px-1">
+                <div className="relative h-6 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition">
+                    <Image src="/images/table/4.png" alt="Node Maven Logo" fill className="object-contain" />
+                </div>
+            </th>
+        </tr>
+    </thead>
 
-                            <tbody className="relative z-10">
-                                {comparisonData.map((row, idx) => (
-                                    <tr key={idx} className="align-middle">
-
-                                        {/* Left Column: Metric Label */}
-                                        <td className="py-7 px-2 text-left text-white text-[18px] font-regular tracking-tight border-b border-zinc-900/40">
-                                            {row.metric}
-                                        </td>
-
-                                        {/* Competitor: Bright Data */}
-                                        <td className="py-7 px-2 border-b border-zinc-900/40">
-                                            {renderCellContent(row.brightData)}
-                                        </td>
-
-                                        {/* Competitor: Oxylabs */}
-                                        <td className="py-7 px-2 border-b border-zinc-900/40">
-                                            {renderCellContent(row.oxylabs)}
-                                        </td>
-
-                                        {/* Highlighted: TorchProxies Content */}
-                                        <td className="py-7 px-2 border-b border-zinc-900/40 relative z-10">
-                                            {renderCellContent(row.torchProxies, true)}
-                                        </td>
-
-                                        {/* Competitor: Proxy Empire */}
-                                        <td className="py-7 px-2 border-b border-zinc-900/40">
-                                            {renderCellContent(row.proxyEmpire)}
-                                        </td>
-
-                                        {/* Competitor: Node Maven */}
-                                        <td className="py-7 px-2 border-b border-zinc-900/40">
-                                            {renderCellContent(row.nodeMaven)}
-                                        </td>
-
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
+    <tbody>
+        {comparisonData.map((row, idx) => (
+            <tr key={idx} className="align-middle">
+                {/* Borders removed from all td elements below */}
+                <td className="py-5 px-1 text-left text-stone-300 text-[15px] font-medium">
+                    {row.metric}
+                </td>
+                <td className="py-5 px-1 text-stone-400 text-[14px]">
+                    {renderCellContent(row.brightData)}
+                </td>
+                <td className="py-5 px-1 text-stone-400 text-[14px]">
+                    {renderCellContent(row.oxylabs)}
+                </td>
+                
+                {/* ── TorchProxies Content Cell ── */}
+                <td className="py-5 px-1 text-white text-[14px] font-medium relative z-10">
+                    {renderCellContent(row.torchProxies, true)}
+                </td>
+                
+                <td className="py-5 px-1 text-stone-400 text-[14px]">
+                    {renderCellContent(row.proxyEmpire)}
+                </td>
+                <td className="py-5 px-1 text-stone-400 text-[14px]">
+                    {renderCellContent(row.nodeMaven)}
+                </td>
+            </tr>
+        ))}
+    </tbody>
+</table>
+    </div>
+</div>
 
                 </div>
             </section>
@@ -964,7 +957,7 @@ export default function TorchProxiesLandingPage() {
 
             {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
             {/* Upgrade CTA Banner */}
-            <section className="py-16 px-6">
+            <section className="py-16 px-6 font-['Urbanist']">
                 <div className="max-w-6xl mx-auto">
                     <div
                         className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden"
@@ -984,27 +977,27 @@ export default function TorchProxiesLandingPage() {
                             <p className="text-stone-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
                                 Avoid blocks, retries and wasted data by using hybrid proxies built for steady, large-scale web scraping on both protected and open websites.
                             </p>
-                                                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
+                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
 
-                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative  w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+                                {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
+                                <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative  w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
 
-                            {/* Fast 3D text track wrapper */}
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                                    {/* Fast 3D text track wrapper */}
+                                    <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
 
-                                {/* Default State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                   Start free with 1GB
-                                </span>
+                                        {/* Default State Text */}
+                                        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                            Start free with 1GB
+                                        </span>
 
-                                {/* Hover State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
-                                    Start free with 1GB
-                                </span>
+                                        {/* Hover State Text */}
+                                        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+                                            Start free with 1GB
+                                        </span>
 
+                                    </div>
+                                </button>
                             </div>
-                        </button>
-                        </div>
 
                             {/* <button className="px-10 py-4 bg-[#FE4A01] text-white font-medium rounded-2xl text-lg hover:bg-stone-100 transition-all active:scale-95">
                                 Start free with 1GB
@@ -1019,7 +1012,7 @@ export default function TorchProxiesLandingPage() {
                                 <span>No Credit Card Required </span>
                             </div>
                             <div className="flex items-center gap-1.5">
-                               <svg className="w-4 h-4 text-[#FE4A01] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg className="w-4 h-4 text-[#FE4A01] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                 </svg>
                                 <span>Set up in minutes</span>
@@ -1037,7 +1030,7 @@ export default function TorchProxiesLandingPage() {
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             {/* FAQ SECTION */}
-            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden">
+            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
 
                 {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
                 <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">

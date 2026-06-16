@@ -593,7 +593,7 @@ export default function TorchProxiesLandingPage() {
                             <h2 className="text-[42px] md:text-5xl md:leading-snug font-medium tracking-tight font-['Urbanist'] mb-[34px]">
                                 Why CAPTCHA Detection Costs You More
                             </h2>
-                            <h4 className="text-[20px] font-medium text-stone-200 mb-4 mb-[14px]">
+                            <h4 className="text-[20px] font-medium text-stone-200 mb-[14px]">
                                 Poisoned Ranking Data
                             </h4>
                             <p className="text-gray-400 text-[16px] font-regular leading-relaxed mb-[34px]">
