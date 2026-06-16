@@ -113,34 +113,37 @@ export default function FeaturesTabSection() {
         </div>
 
         {/* Right Side: Dynamic Content Display Panel */}
-        <div className="col-span-1 md:col-span-8 space-y-6 min-h-[280px] flex flex-col justify-between transition-opacity duration-150">
-          
-          {/* Main Headings */}
-          <div className="space-y-3">
-            <h3 className="text-stone-100 font-regular text-[16px] md:text-xl leading-snug">
-              {currentTab.content.heading}
-            </h3>
-          </div>
+<div className="col-span-1 md:col-span-8 flex flex-col transition-opacity duration-150 min-h-[280px]">
+  
+  {/* 1. Main Heading */}
+  <div>
+    <h3 className="text-stone-100 font-regular text-[16px] md:text-xl leading-snug">
+      {currentTab.content.heading}
+    </h3>
+  </div>
 
-          {/* Bulleted Functional Offerings */}
-          <ul className="space-y-3.5 py-2 -mt-40">
-            {currentTab.content.bullets.map((bullet, idx) => (
-              <li key={idx} className="flex items-start gap-3 text-stone-300 text-[16px] font-normal">
-                {/* Custom Minimalist Orange Dot Marker */}
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FFFFFF] font-regular mt-1 flex-shrink-0 shadow-[0_0_8px_#FF4F00]" />
-                <span className="leading-normal">{bullet}</span>
-              </li>
-            ))}
-          </ul>
+  {/* 2. Bulleted Functional Offerings (Margin-top controls gap between heading and list) */}
+  <ul className="mt-5 space-y-3.5">
+    {currentTab.content.bullets.map((bullet, idx) => (
+      <li key={idx} className="flex items-start gap-3 text-stone-300 text-[16px] font-normal">
+        {/* Custom Minimalist White Dot Marker */}
+        <span className="w-1.5 h-1.5 rounded-full bg-[#FFFFFF] mt-2 flex-shrink-0" />
+        <span className="leading-normal">{bullet}</span>
+      </li>
+    ))}
+  </ul>
 
-            <h5 className="font-regular text-[16px] text-[#878B91] tracking-wider -mt-40">
-              {currentTab.content.footerQuestion}
-            </h5>
-            <p className="text-[16px] font-regular text-[#FFFFFF] leading-relaxed -mt-50">
-              {currentTab.content.footerAnswer}
-            </p>
+  {/* 3. Footer Question (Push down or uniform gap) */}
+  <h5 className="mt-6 font-regular text-[16px] text-[#878B91] tracking-wider">
+    {currentTab.content.footerQuestion}
+  </h5>
 
-        </div>
+  {/* 4. Footer Answer */}
+  <p className="mt-2 text-[16px] font-regular text-[#FFFFFF] leading-relaxed">
+    {currentTab.content.footerAnswer}
+  </p>
+
+</div>
       </div>
     </section>
   );

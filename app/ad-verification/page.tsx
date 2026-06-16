@@ -267,18 +267,18 @@ export default function TorchProxiesLandingPage() {
     const features = [
         {
             icon: <Database className="text-white w-4 h-4" />,
-            title: "Financial Market Insights",
-            desc: "Track stocks, forex, and crypto markets in real time with precision"
+            title: "Device Fingerprinting Beyond IPss",
+            desc: "Ad platforms analyze Canvas, WebGL, audio context, and font rendering. Headless browsers and automation leave fingerprints real users don’t"
         },
         {
             icon: <RefreshCw className="text-white w-4 h-4" />,
-            title: "Enhanced Gaming ",
-            desc: "Enjoy seamless, low-latency gaming with high-speed proxy support"
+            title: "Behavioral Signal Analysis ",
+            desc: "Real users scroll, pause, hesitate, and browse naturally. Verification bots generate perfect timing and zero interaction, instant detection."
         },
         {
             icon: <Layers className="text-white w-4 h-4" />,
-            title: "Advanced Online Privacy",
-            desc: "Maintain session persistence across complex workflows and long tasks"
+            title: "IP Reputation & ASN Databases",
+            desc: "Google Ads and Meta cross-check IPs against MaxMind, IPQualityScore, and internal ASN lists.Datacenter are flagged in real time."
         },
     ];
     const useCases = ["Social Media", "Web Scraping", "Gaming", "Online Market", "Sneaker"];
@@ -959,11 +959,11 @@ export default function TorchProxiesLandingPage() {
 
                         <div className="relative z-10 max-w-4xl mx-auto">
                             <h2 className="text-4xl md:text-5xl font-regular tracking-tight mb-6 text-white">
-                                Get started with Plan X residential proxies<br className="hidden md:block" />
+                                Stop Verifying Blind. Start Seeing Real Ads.<br className="hidden md:block" />
                             </h2>
 
                             <p className="text-stone-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-                                Unlock premium speed, stability and higher success rates for demanding or strict websites.
+                                Join teams that rely on Torch Proxies to verify creatives, placements, and compliance without detection or cloaking.
                             </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
@@ -987,6 +987,26 @@ export default function TorchProxiesLandingPage() {
                             </div>
                         </button>
                         </div>
+                        </div>
+                                                <div className="relative z-10 flex flex-wrap justify-center gap-x-6 gap-y-3 items-center mb-10 mt-10 text-[16px] font-regular sm:text-sm text-white">
+                            <div className="flex items-center gap-1.5">
+                                <svg className="w-4 h-4 text-[#FE4A01] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>No Credit Card Required </span>
+                            </div>
+                            <div className="flex items-center gap-1.5">
+                                <svg className="w-4 h-4 text-[#FE4A01] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Set up in minutes</span>
+                            </div>
+                            <div className="flex items-center gap-1.5">
+                                <svg className="w-4 h-4 text-[#FE4A01] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Works in 195+ countries</span>
+                            </div>
                         </div>
                     </div>
                 </div>

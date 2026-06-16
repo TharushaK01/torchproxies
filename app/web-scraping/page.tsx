@@ -260,28 +260,24 @@ export default function TorchProxiesLandingPage() {
 
     const faqData = [
         {
-            q: "What are residential proxies?",
+            q: "How do your proxies work?",
             a: "Residential proxies are IP addresses assigned by Internet Service Providers (ISPs) to homeowners. They act as intermediaries between your device and the internet, allowing you to browse anonymously and access geo-restricted content."
         },
         {
-            q: "How do residential proxies work and how are they different?",
+            q: "Do you offer a free trial?",
             a: "Residential proxies route your internet traffic through real residential IP addresses, making them appear as normal users to websites. Unlike datacenter proxies, they have higher trust scores and are much harder to detect and block."
         },
         {
-            q: "What makes Torch Proxies's residential proxies better than other proxy providers?",
+            q: "What payment methods do you accept?",
             a: "Our residential proxy network offers unmatched speed, stability, ethical sourcing, and city-level targeting with 24/7 support and transparent pricing."
         },
         {
-            q: "What are the ideal use cases for the Standard Residential plan?",
+            q: "How Torchlabs is different from competitors?",
             a: "Perfect for general web scraping, social media management, market research, sneaker copping, and everyday automation tasks."
         },
         {
-            q: "Are residential proxies legal to use?",
+            q: "Can I try your service before purchasing?",
             a: "Yes, residential proxies are completely legal when used responsibly and in compliance with website terms of service."
-        },
-        {
-            q: "Do you offer free trials?",
-            a: "Yes, we offer a free 1GB trial so you can test our network performance before committing."
         },
     ];
     const BRAND_LOGOS = [
@@ -445,7 +441,7 @@ export default function TorchProxiesLandingPage() {
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
 
                             {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                            <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+                            <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99] cursor-pointer">
 
                                 {/* Fast 3D text track wrapper */}
                                 <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
@@ -467,7 +463,7 @@ export default function TorchProxiesLandingPage() {
                             <button onClick={() => {
                                 document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' });
                             }}
-                                className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-700 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
+                                className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-700 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96] cursor-pointer">
 
                                 {/* Fast 3D text track wrapper */}
                                 <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
@@ -682,7 +678,7 @@ export default function TorchProxiesLandingPage() {
                     {/* --- HEADER --- */}
                     <div id="pricing-section" className="text-center max-w-4xl mx-auto mb-16">
                         <h2 className="text-3xl md:text-[42px] font-medium tracking-tight text-white mb-4  font-['Urbanist']">
-                            The Right Proxies for Sneaker Botting
+                           The Right Proxies for Sneaker Botting
                         </h2>
                         <p className="text-zinc-500 text-sm md:text-base font-normal leading-relaxed">
                             Select the proxy type that matches your drop frequency, target platforms and tolerance for failed checkouts
@@ -728,7 +724,7 @@ export default function TorchProxiesLandingPage() {
                                 </div>
 
                                 {/* Features Checklist */}
-                                <ul className="space-y-4 mb-10">
+                                <ul className="space-y-4 mb-10  font-['Urbanist']">
                                     <li className="flex items-start gap-3 text-zinc-400 text-sm font-normal leading-relaxed">
                                         <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -767,7 +763,7 @@ export default function TorchProxiesLandingPage() {
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
 
                                 {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                                <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative w-full h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+                                <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative w-full h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99] cursor-pointer">
 
                                     {/* Fast 3D text track wrapper */}
                                     <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
@@ -980,7 +976,7 @@ export default function TorchProxiesLandingPage() {
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
 
                                 {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                                <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative  w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+                                <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative  w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99] cursor-pointer">
 
                                     {/* Fast 3D text track wrapper */}
                                     <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
@@ -1066,7 +1062,7 @@ export default function TorchProxiesLandingPage() {
                                 >
                                     <button
                                         onClick={() => setActiveFaq(isOpen ? null : index)}
-                                        className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors"
+                                        className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors cursor-pointer"
                                     >
                                         <span>{faq.q}</span>
                                         <ChevronDown
