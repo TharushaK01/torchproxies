@@ -135,7 +135,7 @@ export default function TorchProxiesLandingPage() {
       { name: "Poland", ips: "4,421,924 IPs", code: "PL", url: '/poland'  },
       { name: "Portugal", ips: "4,421,924 IPs", code: "PT", url: '/portugal'  },
       { name: "Russia", ips: "4,421,924 IPs", code: "RU", url: '/russia'  },
-      { name: "Singapore", ips: "4,421,924 IPs", code: "SG", url: '/singapore'  },
+      { name: "Spain", ips: "4,421,924 IPs", code: "SG", url: '/spain'  },
       { name: "Switzerland", ips: "4,421,924 IPs", code: "CH", url: '/switzerland'  },
       { name: "Taiwan", ips: "4,421,924 IPs", code: "TW", url: '/taiwan'  },
       { name: "Thailand", ips: "4,421,924 IPs", code: "TH", url: '/thailand'  },
@@ -169,7 +169,7 @@ export default function TorchProxiesLandingPage() {
       { name: "Poland", ips: "4,421,924 IPs", code: "PL", url: '/poland'  },
       { name: "Portugal", ips: "4,421,924 IPs", code: "PT" , url: '/portugal' },
       { name: "Russia", ips: "4,421,924 IPs", code: "RU", url: '/russia'  },
-      { name: "Singapore", ips: "4,421,924 IPs", code: "ES", url: '/spain'  },
+      { name: "Spain", ips: "4,421,924 IPs", code: "ES", url: '/spain'  },
       { name: "Switzerland", ips: "4,421,924 IPs", code: "CH", url: '/switzerland'  },
       { name: "Taiwan", ips: "4,421,924 IPs", code: " TW" , url: '/taiwan' },
       { name: "Thailand", ips: "4,421,924 IPs", code: "TH", url: '/thailand'  },
@@ -279,14 +279,16 @@ export default function TorchProxiesLandingPage() {
           href={loc.url || '#'}
           className="flex items-center gap-4 bg-[#0d0d0f]/40 border border-stone-900/80 rounded-[16px] p-5 hover:border-[#FE4A01]/30 hover:bg-[#0e0e12]/90 transition-all duration-300 group cursor-pointer hover:scale-[1.02] hover:shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
         >
-          {/* Flag Wrapper */}
-          <div className="w-11 h-9 relative overflow-hidden rounded-md flex-shrink-0 bg-stone-950 transition-transform duration-300 group-hover:scale-105 shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
-            <Flag 
-              code={loc.code} 
-              className="w-full h-full object-cover" 
-              fallback={<span className="text-xs text-stone-600">🏳️</span>}
-            />
-          </div>
+{/* Flag Wrapper */}
+{/* 🛠️ Changed w-15 to w-16 or w-20 to give it a wider aspect ratio */}
+<div className="w-16 h-10 relative overflow-hidden rounded-md flex-shrink-0 bg-stone-950/40 transition-transform duration-300 group-hover:scale-105 shadow-[0_2px_8px_rgba(0,0,0,0.4)] flex items-center justify-center">
+  <Flag 
+    code={loc.code} 
+    /* 🛠️ Changed object-cover to object-contain so it never crops */
+    className="max-w-full max-h-full object-contain" 
+    fallback={<span className="text-xs text-stone-600">🏳️</span>}
+  />
+</div>
 
           {/* Location Content */}
           <div className="flex flex-col min-w-0 text-left">
@@ -359,13 +361,16 @@ export default function TorchProxiesLandingPage() {
           key={`${otherLocationsTab}-${loc.code}-${index}`}
           className="flex items-center gap-3.5 bg-[#0b0b0d]/30 border border-stone-900/60 rounded-[12px] p-4 hover:border-stone-800/80 hover:bg-[#0e0e12]/60 transition-all duration-200 group cursor-pointer block"
         >
-          <div className="w-11 h-9 relative overflow-hidden rounded-[3px] flex-shrink-0 bg-stone-950 shadow-[0_1px_3px_rgba(0,0,0,0.5)] border border-stone-900/20">
-            <Flag 
-              code={loc.code} 
-              className="w-full h-full object-cover" 
-              fallback={<span className="text-[10px] text-stone-600">🏳️</span>}
-            />
-          </div>
+{/* Flag Wrapper */}
+{/* 🛠️ Changed w-15 to w-16 or w-20 to give it a wider aspect ratio */}
+<div className="w-16 h-10 relative overflow-hidden rounded-md flex-shrink-0  transition-transform duration-300 group-hover:scale-105 flex items-center justify-center">
+  <Flag 
+    code={loc.code} 
+    /* 🛠️ Changed object-cover to object-contain so it never crops */
+    className="max-w-full max-h-full object-contain" 
+    fallback={<span className="text-xs text-stone-600">🏳️</span>}
+  />
+</div>
 
           <div className="flex flex-col min-w-0 leading-tight">
             <span className="text-[20px] font-semibold text-stone-300 tracking-tight group-hover:text-white transition-colors truncate">
