@@ -194,10 +194,23 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
             </div>
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-            <header className="relative min-h-[85vh] flex flex-col items-center justify-center px-6 pb-16 overflow-hidden font-['Urbanist']">
-                <div className="absolute inset-x-0 bottom-40 h-[600px] z-0 pointer-events-none select-none">
-                    <Image src="/images/hero_back.png" alt="" fill priority className="object-cover object-bottom opacity-100" />
-                </div>
+            <header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 overflow-hidden font-['Urbanist']">
+              <div className="absolute bottom-0 left-0 right-0 h-[60vh] z-0">
+
+    <Image
+        src="/images/hero_back.png"
+        alt=""
+        fill
+        priority
+        className="object-cover object-bottom"
+    />
+
+    {/* Marquee at bottom of image */}
+    <div className="absolute bottom-0 left-0 w-full z-10">
+        <Marquee />
+    </div>
+
+</div>
                 <div className="max-w-6xl mx-auto text-center z-10 -mt-12">
                     <div className="flex items-center justify-center mb-6">
                         <img src="/images/TrustPiolet.png" alt="Excellent 5-star rating on Trustpilot" className="h-6 w-auto object-contain" loading="lazy" />
@@ -255,9 +268,6 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
                     <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide py-6">
                         <CreditCard className="w-4 h-4 text-stone-500" />
                         <span>No credit card needed. Instant access</span>
-                    </div>
-                    <div className="relative z-10 -mt-30 w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-                        <Marquee />
                     </div>
                 </div>
             </header>
