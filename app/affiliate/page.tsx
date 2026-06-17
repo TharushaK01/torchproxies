@@ -182,96 +182,113 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
     ];
     return (
         <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
+{/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
+<header className="relative min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-28 pb-12 overflow-hidden space-y-6 font-['Urbanist']">
 
-            {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-            <header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 overflow-hidden">
-                <div className="absolute inset-x-0 bottom-35 h-[600px] z-0 pointer-events-none select-none">
-                    <Image
-                        src="/images/hero_back.png"
-                        alt=""
-                        fill
-                        priority
-                        className="object-cover object-bottom opacity-100"
-                    />
+    <div className="absolute bottom-0 left-0 w-full h-[65vh] z-0">
+        <Image
+            src="/images/hero_back.png"
+            alt=""
+            fill
+            priority
+            className="object-cover object-bottom"
+        />
+
+        {/* Marquee at bottom of image */}
+        <div className="absolute -bottom-8 left-0 w-full z-10">
+            <Marquee />
+        </div>
+    </div>
+
+    <div className="max-w-6xl mx-auto text-center z-10">
+        <div className="flex items-center justify-center mb-6">
+            <img
+                src="/images/TrustPiolet.png"
+                alt="Excellent 5-star rating on Trustpilot"
+                className="h-6 w-auto object-contain"
+                loading="lazy"
+            />
+        </div>
+
+        <h1 className="text-[60px] sm:text-6xl lg:text-7xl font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
+            Join our affiliate program &<br />
+            <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">
+                start earning with every click
+            </span>
+        </h1>
+
+        <p className="max-w-2xl mx-auto text-[18px] sm:text-xl text-stone-400 mb-4 leading-relaxed">
+            Industry leading commissions, fast payouts and lifetime earnings. It’s time to monetise your traffic like never before
+        </p>
+
+        <div className="py-4 max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-[10px] text-stone-200 text-sm font-regular">
+            <div className="flex items-center justify-center gap-2">
+                <Check className="text-orange-500 w-4 h-4" />
+                High commission rates
+            </div>
+
+            <div className="flex items-center justify-center gap-2">
+                <Check className="text-orange-500 w-4 h-4" />
+                Fast payouts
+            </div>
+
+            <div className="flex items-center justify-center gap-2">
+                <Check className="text-orange-500 w-4 h-4" />
+                Recurring Earnings
+            </div>
+
+            <div className="flex items-center justify-center gap-2">
+                <Check className="text-orange-500 w-4 h-4" />
+                No payout limits
+            </div>
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
+
+            {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
+            <button
+                onClick={() => router.push('https://dashboard.torchproxies.com/')}
+                className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]"
+            >
+
+                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                        Start earning now
+                    </span>
+
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+                        Start earning now
+                    </span>
+
                 </div>
-                <div className="max-w-6xl mx-auto text-center z-10">
-                    <div className="flex items-center justify-center mb-6">
-                        <img
-                            src="/images/TrustPiolet.png"
-                            alt="Excellent 5-star rating on Trustpilot"
-                            className="h-6 w-auto object-contain"
-                            loading="lazy"
-                        />
-                    </div>
+            </button>
 
-                    <h1 className="text-[60px] sm:text-6xl lg:text-7xl font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
-                        Join our affiliate program &<br />
-                        <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">start earning with every click</span>
-                    </h1>
+            {/* --- SECONDARY BUTTON: ROLLING TEXT + BORDER INDENT --- */}
+            <button className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-700 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
 
-                    <p className="max-w-2xl mx-auto text-[18px] sm:text-xl text-stone-400 mb-10 leading-relaxed">
-                        Industry leading commissions, fast payouts and lifetime earnings. It’s time to monetise your traffic like never before
-                    </p>
+                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
 
-                    <div className="mt-[-50px] py-10 max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-[10px] text-stone-200 text-sm font-regular">
-                        <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> High commission rates</div>
-                        <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Fast payouts</div>
-                        <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Recurring Earnings</div>
-                        <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> No payout limits</div>
-                    </div>
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                        View program
+                    </span>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
+                        View program
+                    </span>
 
-                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
-
-                            {/* Fast 3D text track wrapper */}
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-
-                                {/* Default State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                    Start earning now
-                                </span>
-
-                                {/* Hover State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
-                                    Start earning now
-                                </span>
-
-                            </div>
-                        </button>
-
-                        {/* --- SECONDARY BUTTON: ROLLING TEXT + BORDER INDENT --- */}
-                        <button className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-700 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
-
-                            {/* Fast 3D text track wrapper */}
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-
-                                {/* Default State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                    View program
-                                </span>
-
-                                {/* Hover State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
-                                    View program
-                                </span>
-
-                            </div>
-                        </button>
-
-                    </div>
-
-                    <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide py-6">
-                        <CreditCard className="w-4 h-4 text-stone-500" />
-                        <span>No credit card needed. Instant access</span>
-                    </div>
-
-                    <div className="relative z-10 -mt-30 w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-                        <Marquee />
-                    </div>
                 </div>
-            </header>
+            </button>
+
+        </div>
+
+        <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide pt-4 pb-2">
+            <CreditCard className="w-4 h-4 text-stone-500" />
+            <span>No credit card needed. Instant access</span>
+        </div>
+    </div>
+
+</header>
 
             {/* ── SECTION 2: Perfect for Every Scraping & Animations ─────────── */}
             <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden">
