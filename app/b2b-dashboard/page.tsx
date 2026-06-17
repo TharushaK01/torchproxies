@@ -260,7 +260,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
         },
     ];
     const BRAND_LOGOS = [
-        { name: "Shield Proxies", src: "/images/business/shield.png" },
+        { name: "Shield Proxies", src: "/images/business/sheild.png" },
         { name: "Boiling Proxies", src: "/images/business/boiling.png" },
         { name: "Sugar Proxies", src: "/images/business/sugar.png" },
         { name: "Malice Proxies", src: "/images/business/malke.png" },
@@ -344,17 +344,17 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
         <div className="py-4 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-[16px] font-regular">
             <div className="flex items-center justify-center gap-2">
                 <Check className="text-orange-500 w-4 h-4" />
-                Free plan available
+                Pay as you go pricing
             </div>
 
             <div className="flex items-center justify-center gap-2">
                 <Check className="text-orange-500 w-4 h-4" />
-                No minimum spend
+                Money back guarantee
             </div>
 
             <div className="flex items-center justify-center gap-2">
                 <Check className="text-orange-500 w-4 h-4" />
-                No infrastructure needed
+                Dedicated Support
             </div>
         </div>
 
@@ -384,16 +384,16 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </div>
         </div>
 
-        <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide pt-4 pb-2">
+        {/* <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide pt-4 pb-2">
             <CreditCard className="w-4 h-4 text-stone-500" />
             <span>No credit card needed. Instant access</span>
-        </div>
+        </div> */}
     </div>
 
 </header>
 
 
-            <section className="bg-[#0a0a0a] -mt-[90px] text-white py-25 px-6 border-t border-stone-950">
+            <section className="bg-[#0a0a0a] -mt-[60px] text-white py-25 px-6 border-t border-stone-950">
                 <div className="max-w-6xl mx-auto text-center">
 
                     {/* Section Heading */}
