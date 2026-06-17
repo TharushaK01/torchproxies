@@ -273,7 +273,7 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
             </header>
 
             {/* ── SECTION 2: PRICING GRIDS ─────────────────────────────────── */}
-            <section className="bg-[#0a0a0a] text-white py-20 px-6 -mt-[80px] font-['Urbanist']">
+            <section className="bg-[#0a0a0a] text-white py-20 px-6  font-['Urbanist']">
                 <div className="flex flex-col items-center text-center w-full">
                     <span className="text-orange-500 font-regular text-[16px] mb-4 tracking-widest flex items-center justify-center gap-2">Our products</span>
                     <h2 className="text-[42px] md:text-5xl font-medium mb-6 max-w-4xl">Buy {countryName} Residential Proxies</h2>

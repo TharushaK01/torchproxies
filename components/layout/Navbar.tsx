@@ -385,88 +385,103 @@ export default function Navbar() {
                           </div>
                         )}
 
-                        {/* CASE 3: B2B Reseller Board Layout */}
-                        {link.menuType === "reseller-mega" && !Array.isArray(link.dropdown) && (
-                          <div className="grid grid-cols-12 gap-5 items-stretch">
-                            {/* Left Column: Reseller Products */}
-                            <div className="col-span-7 flex flex-col justify-between py-1">
-                              <div className="space-y-4">
-                                <h4 className="text-stone-400 font-semibold text-xs tracking-wider uppercase opacity-60 px-1">
-                                  Reseller Products
-                                </h4>
-                                <div className="space-y-5">
-                                  {(link.dropdown as any).leftItems.map((item: any, idx: number) => (
-                                    <Link
-                                      href={item.href}
-                                      key={idx}
-                                      className="block group p-2 rounded-xl hover:bg-white/[0.03] transition-colors duration-150"
-                                    >
-                                      <div className="flex items-start gap-4">
-                                        {/* Dynamically Render Custom Icon from Public Folder */}
-                                        <div className="w-18 h-18 rounded-xl flex items-center justify-center flex-shrink-0 shadow-inner overflow-hidden relative p-2.5">
-                                          {item.icon ? (
-                                            <Image
-                                              src={item.icon}
-                                              alt={item.label}
-                                              width={24}
-                                              height={24}
-                                              className="object-contain w-full h-full group-hover:scale-110 transition-transform duration-150"
-                                              priority
-                                            />
-                                          ) : (
-                                            /* Fallback if no icon is specified */
-                                            <div className="w-4 h-4 bg-white/30 rounded-sm transform rotate-45" />
-                                          )}
-                                        </div>
+{/* ── CASE 3: B2B Reseller Board Layout ────────────────────────────────── */}
+{link.menuType === "reseller-mega" && !Array.isArray(link.dropdown) && (
+  /* Adjusted layout structure container grid sizing and gap alignments */
+  <div className="grid grid-cols-12 gap-6 items-stretch p-2 bg-[#0d0d0f]">
+    
+    {/* Left Column Container: Reseller Products List */}
+    <div className="col-span-7 flex flex-col justify-between py-1">
+      <div className="space-y-4">
+        <h4 className="text-stone-500 font-medium text-xs tracking-wider uppercase px-1">
+          Reseller Products
+        </h4>
+        
+        <div className="space-y-3">
+          {(link.dropdown as any).leftItems.map((item: any, idx: number) => (
+            <Link
+              href={item.href}
+              key={idx}
+              className="relative block group p-4 rounded-2xl hover:bg-white/[0.02] bg-[#0d0d0f]/50 border border-transparent hover:border-white/[0.05] transition-all duration-150"
+            >
+              {/* Corner Positioned Status Tag Badges */}
+              <span className={`absolute top-4 right-4 text-[11px] font-medium px-2.5 py-0.5 rounded-md ${
+                item.tag.includes('$0')
+                  ? 'bg-orange-950/40 text-[#FF4F00] border border-orange-900/30'
+                  : 'bg-emerald-950/40 text-emerald-400 border border-emerald-900/30'
+              }`}>
+                {item.tag}
+              </span>
 
-                                        {/* Content Block: Label, Badge and Description */}
-                                        <div className="flex-1 space-y-1.5">
-                                          <div className="flex items-center gap-2.5">
-                                            <span className="text-sm font-semibold text-stone-200 group-hover:text-white transition-colors">
-                                              {item.label}
-                                            </span>
-                                            <span className={`text-[10px] font-medium px-2 py-0.5 rounded-md ${item.tagColor}`}>
-                                              {item.tag}
-                                            </span>
-                                          </div>
-                                          <p className="text-xs text-stone-400 leading-normal font-normal max-w-[340px]">
-                                            {item.description}
-                                          </p>
-                                        </div>
-                                      </div>
-                                    </Link>
-                                  ))}
-                                </div>
-                              </div>
-                            </div>
+              {/* Stacked Vertical Content Track */}
+              <div className="flex flex-col items-start gap-3.5">
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 relative">
+                  {item.icon ? (
+                    <Image
+                      src={item.icon}
+                      alt={item.label}
+                      width={48}
+                      height={48}
+                      className="object-contain w-full h-full"
+                      priority
+                    />
+                  ) : (
+                    <div className="w-6 h-6 bg-white/10 rounded-lg" />
+                  )}
+                </div>
 
-                            {/* Right Column: Featured Callout Card */}
-                            <div className="col-span-5 bg-[#21140f] border border-orange-950/30 rounded-2xl p-6 flex flex-col justify-between space-y-6">
-                              <div className="space-y-2.5">
-                                <h4 className="text-stone-100 font-bold text-lg leading-snug">
-                                  {(link.dropdown as any).rightCard.title}
-                                </h4>
-                                <p className="text-xs text-stone-400 leading-relaxed font-normal">
-                                  {(link.dropdown as any).rightCard.description}
-                                </p>
-                              </div>
+                <div className="space-y-1">
+                  <span className="block text-[15px] font-semibold text-white tracking-tight">
+                    {item.label}
+                  </span>
+                  <p className="text-[13px] text-stone-400 leading-normal font-normal max-w-[340px]">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
 
-                              <div className="space-y-3">
-                                <div>
-                                  <span className="inline-block text-xs font-bold text-orange-400 bg-orange-500/10 border border-orange-500/20 px-3 py-1.5 rounded-md text-center">
-                                    {(link.dropdown as any).rightCard.priceTag}
-                                  </span>
-                                </div>
-                                <Link
-                                  href={(link.dropdown as any).rightCard.href}
-                                  className="block w-full text-center text-xs font-semibold text-stone-200 border border-stone-700 hover:border-stone-500 bg-transparent py-2.5 rounded-xl transition-all"
-                                >
-                                  Learn more
-                                </Link>
-                              </div>
-                            </div>
-                          </div>
-                        )}
+    {/* Right Column Container: Featured Callout Card Panel Layout */}
+    {/* Styled to exactly resemble the uploaded image asset specifications */}
+    {(link.dropdown as any).rightCard && (
+      <div className="col-span-5 bg-[#40281e] rounded-[24px] p-8 flex flex-col justify-between min-h-[380px]">
+        
+        {/* Upper Heading Text Block */}
+        <div className="space-y-4">
+          <h4 className="text-white font-semi-bold text-[22px] tracking-tight leading-[1.2]">
+            {(link.dropdown as any).rightCard.title}
+          </h4>
+          <p className="text-[14px] text-stone-300 leading-relaxed font-normal opacity-90">
+            {(link.dropdown as any).rightCard.description}
+          </p>
+        </div>
+
+        {/* Lower Actions Section */}
+        <div className="space-y-4 pt-4">
+          <div>
+            {/* Outline Styled Dark Contrast Badge */}
+            <span className="inline-block text-[13px] font-semibold text-[#FF4F00] bg-[#2a1710] border border-[#FF4F00] px-4 py-2 rounded-xl text-center">
+              {(link.dropdown as any).rightCard.priceTag}
+            </span>
+          </div>
+          
+          {/* Outlined Action Link Trigger */}
+          <Link
+            href={(link.dropdown as any).rightCard.href}
+            className="block w-full text-center text-[15px] font-medium text-white border border-stone-400 hover:border-white bg-transparent py-3.5 rounded-xl transition-colors duration-150"
+          >
+            Learn more
+          </Link>
+        </div>
+
+      </div>
+    )}
+  </div>
+)}
 
                         {/* CASE 4: Use Cases Layout */}
                         {link.menuType === "usecases-mega" && Array.isArray(link.dropdown) && (
@@ -672,22 +687,22 @@ export default function Navbar() {
 
         {/* ── Mobile Context Drawer ───────────────────────── */}
         <div className={`lg:hidden transition-all duration-300 overflow-hidden font-['Urbanist'] ${mobileOpen ? "max-h-screen" : "max-h-0"}`}>
-          <div className="bg-black/95 backdrop-blur-xl border-t border-white/5 px-6 py-4 space-y-1 max-h-[85vh] overflow-y-auto">
+          <div className="bg-black/95 backdrop-blur-xl border-t border-white/5 px-6 py-4 space-y-1 max-h-[85vh] overflow-y-auto font-['Urbanist']">
             {NAV_LINKS.map((link) => (
               <div key={link.label} className="border-b border-white/[0.03] last:border-none pb-2 mb-2">
-                <div className="text-stone-200 font-semibold text-xs tracking-wider px-3 py-2 uppercase opacity-60">
+                <div className="text-stone-200 font-semibold text-xs tracking-wider px-3 py-2 uppercase opacity-60 font-['Urbanist']">
                   {link.label}
                 </div>
-                <div className="ml-2 space-y-0.5">
+                <div className="ml-2 space-y-0.5 font-['Urbanist']">
                   {link.menuType === "products-mega" && Array.isArray(link.dropdown) ? (
                     (link.dropdown as any[]).flatMap((s) => s.items).map((item: any) => (
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-stone-400 hover:text-white"
+                        className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-stone-400 hover:text-white font-['Urbanist']"
                       >
                         <span>{item.label}</span>
-                        <span className="text-xs font-bold text-orange-400">{item.price}</span>
+                        <span className="text-xs font-bold text-orange-400 font-['Urbanist']">{item.price}</span>
                       </Link>
                     ))
                   ) : link.menuType === "locations-grid" && !Array.isArray(link.dropdown) ? (
@@ -695,10 +710,10 @@ export default function Navbar() {
                       <Link
                         key={country.href}
                         href={country.href}
-                        className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-stone-400 hover:text-white"
+                        className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-stone-400 hover:text-white font-['Urbanist']"
                       >
                         <span>{country.name}</span>
-                        <span className="text-xs opacity-50">{country.ips}</span>
+                        <span className="text-xs opacity-50 font-['Urbanist']">{country.ips}</span>
                       </Link>
                     ))
                   ) : link.menuType === "usecases-mega" && Array.isArray(link.dropdown) ? (
@@ -706,7 +721,7 @@ export default function Navbar() {
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-stone-400 hover:text-white"
+                        className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-stone-400 hover:text-white font-['Urbanist']"
                       >
                         {item.label}
                       </Link>
@@ -716,7 +731,7 @@ export default function Navbar() {
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-stone-400 hover:text-white"
+                        className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-stone-400 hover:text-white font-['Urbanist']"
                       >
                         {item.label}
                       </Link>
@@ -726,7 +741,7 @@ export default function Navbar() {
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-stone-400 hover:text-white"
+                        className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-stone-400 hover:text-white font-['Urbanist']"
                       >
                         {item.label}
                       </Link>
@@ -736,11 +751,11 @@ export default function Navbar() {
               </div>
             ))}
 
-            <div className="pt-4 flex flex-col gap-2 border-t border-white/5 mt-2">
-              <Link href="https://dashboard.torchproxies.com" className="px-4 py-3 text-sm font-semibold text-center text-white rounded-xl bg-orange-500">
+            <div className="pt-4 flex flex-col gap-2 border-t border-white/5 mt-2 font-['Urbanist']">
+              <Link href="https://dashboard.torchproxies.com" className="px-4 py-3 text-sm font-semibold text-center text-white rounded-xl bg-orange-500 font-['Urbanist']">
                 Dashboard
               </Link>
-              <Link href="/contact" className="px-4 py-3 text-sm font-semibold text-center text-white rounded-xl border border-white/20">
+              <Link href="/contact" className="px-4 py-3 text-sm font-semibold text-center text-white rounded-xl border border-white/20 font-['Urbanist']">
                 Contact Us
               </Link>
             </div>
