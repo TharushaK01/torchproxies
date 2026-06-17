@@ -136,7 +136,7 @@ interface ProxyCard {
         text: string;
         variant: 'popular' | 'enterprise';
     };
-    iconType: 'residential' | 'hybrid';
+    iconType: "residential" | "hybrid" | string; 
     features: string[];
 }
 
