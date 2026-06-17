@@ -112,38 +112,38 @@ export default function TorchProxiesLandingPage() {
         { id: '500GB', size: '500GB', price: '$ 4.00', discount: '22.22% OFF' },
         { id: '1000GB', size: '1000GB', price: '$ 3.90', discount: '24.44% OFF' },
     ];
-    const features = [
-        {
-            icon: <Database className="text-white w-4 h-4" />,
-            title: "High Data Collection",
-            desc: "Capture high-volume data with precision, speed & zero compromise"
-        },
-        {
-            icon: <RefreshCw className="text-white w-4 h-4" />,
-            title: "Smart IP Rotation",
-            desc: "Smart rotation with advanced logic to avoid toughest blocks"
-        },
-        {
-            icon: <Layers className="text-white w-4 h-4" />,
-            title: "Advanced Sticky Sessions",
-            desc: "Maintain session persistence across complex workflows and long tasks"
-        },
-        {
-            icon: <ShieldCheck className="text-white w-4 h-4" />,
-            title: "SOCKS5 & HTTPS Support",
-            desc: "Supports SOCKS5, HTTPS, and advanced tunneling for total flexibility"
-        },
-        {
-            icon: <Infinity className="text-white w-4 h-4" />,
-            title: "Unlimited Sessions",
-            desc: "Handle massive concurrent requests with zero rate limits or throttling"
-        },
-        {
-            icon: <Tag className="text-white w-4 h-4" />,
-            title: "Cost Effective",
-            desc: "Premium reliability and customization for high-stakes operations"
-        }
-    ];
+const features = [
+    {
+        icon: "/images/api2.svg", // Path matching public/icons/reseller.svg
+        title: "Customised for Resellers",
+        desc: "Empower your business with an API and dashboard built specifically for resellers."
+    },
+    {
+        icon: "/images/api3.svg",
+        title: "Reliable Proxy Supply",
+        desc: "We fully control our inventory, ensuring proxies are always available when needed."
+    },
+    {
+        icon: "/images/api4.svg",
+        title: "Pay as You Go",
+        desc: "Only pay for what you use no monthly fees or commitments required."
+    },
+    {
+        icon: "/images/api5.svg",
+        title: "Customer Focused Approach",
+        desc: "Get expert support to help you launch, scale and succeed with ease."
+    },
+    {
+        icon: "/images/api6.svg",
+        title: "Proxy Pool Control",
+        desc: "Handle massive concurrent requests with zero rate limits or throttling"
+    },
+    {
+        icon: "/images/api7.svg",
+        title: "Growing Global Pools",
+        desc: "Access residential, ISP and datacenter with SOCKS5/HTTPS support."
+    }
+];
     const useCases = ["Social Media", "Web Scraping", "Gaming", "Online Market", "Sneaker"];
     const [activeTab, setActiveTab] = useState<'premium' | 'planX'>('premium');
 
@@ -225,7 +225,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
 <header className="relative min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-28 pb-12 overflow-hidden space-y-6 font-['Urbanist']">
 
-    <div className="absolute bottom-0 left-0 w-full h-[65vh] z-0">
+    <div className="absolute bottom-0 left-0 w-full h-[65vh] z-0 font-['Urbanist']">
         <Image
             src="/images/hero_back.png"
             alt=""
@@ -240,7 +240,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
         </div>
     </div>
 
-    <div className="max-w-6xl mx-auto text-center z-10">
+    <div className="max-w-6xl mx-auto text-center z-10 font-['Urbanist']">
         <div className="flex items-center justify-center mb-6">
             <img
                 src="/images/TrustPiolet.png"
@@ -278,7 +278,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4 mt-8">
 
             {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
             <button
@@ -316,16 +316,16 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
         </div>
 
-        <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide pt-4 pb-2">
+        {/* <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide pt-4 pb-2">
             <CreditCard className="w-4 h-4 text-stone-500" />
             <span>No credit card needed. Instant access</span>
-        </div>
+        </div> */}
     </div>
 
 </header>
 
             {/* ── SECTION 2: Perfect for Every Scraping & Animations ─────────── */}
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden">
+            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-32">
 
                     {/* Row 1: Easy Client Management */}
@@ -369,7 +369,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </section>
 
 
-<section className="bg-[#0a0a0a] text-white py-20 px-4 md:px-8 font-sans overflow-hidden">
+<section className="bg-[#0a0a0a] text-white py-20 px-4 md:px-8 font-sans overflow-hidden font-['Urbanist']">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
         
         {/* --- LEFT COLUMN: HEADLINE & CALL TO ACTION --- */}
@@ -377,7 +377,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
           <span className="text-[#FF4F00] text-[16px] font-regular tracking-wider mb-3">
             How it works
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-[42px] font-medium tracking-tight leading-[1.15] text-white max-w-md">
+          <h2 className="text-3xl md:text-4xl lg:text-[42px] font-medium tracking-tight leading-[1.15] text-white max-w-md font-['Urbanist']">
             Launch Your Own Proxy Business with TorchLabs in Just three Simple Steps
           </h2>
           <p className="text-zinc-500 text-[18px] md:text-base mt-4 max-w-md font-regular leading-relaxed">
@@ -389,7 +389,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                         <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
 
                             {/* Fast 3D text track wrapper */}
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)] font-['Urbanist']">
 
                                 {/* Default State Text */}
                                 <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
@@ -407,7 +407,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
         </div>
 
         {/* --- RIGHT COLUMN: TIMELINE STEPS --- */}
-        <div className="lg:col-span-7 relative pl-2 sm:pl-6 lg:pl-12 w-full">
+        <div className="lg:col-span-7 relative pl-2 sm:pl-6 lg:pl-12 w-full font-['Urbanist']">
           
           {/* Vertical Center Connecting Line */}
           <div 
@@ -415,16 +415,21 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             aria-hidden="true" 
           />
 
-          <div className="space-y-12 relative">
+          <div className="space-y-12 relative font-['Urbanist']">
             {steps.map((step) => (
               <div key={step.id} className="flex gap-6 sm:gap-8 items-start group">
                 
-                {/* Number Orb */}
-                <div className="relative z-10 flex items-center justify-center min-w-[52px] h-[52px] rounded-full bg-[#050505] border border-zinc-900 shadow-[0_0_15px_rgba(255,255,255,0.02)] transition duration-300 group-hover:border-zinc-800">
-                  <span className="text-white text-[24px] font-semibold tracking-wide font-mono">
-                    {step.id}
-                  </span>
-                </div>
+{/* Number Orb */}
+<div className="relative z-10 flex items-center justify-center min-w-[56px] h-[56px] rounded-full bg-[#16161a] border border-[#18181B0F] shadow-inner transition duration-300 group-hover:border-zinc-700 font-['Urbanist']">
+ <span 
+  className="text-white text-[24px] font-thin tracking-tight font-['Urbanist']"
+  style={{
+    textShadow: '-1.5px 0px 0px rgba(0, 229, 255, 0.8), 1.5px 0px 0px rgba(255, 152, 0, 0.8)'
+  }}
+>
+  {parseInt(step.id, 10)}
+</span>
+</div>
 
                 {/* Text Block Content */}
                 <div className="pt-2">
@@ -448,49 +453,53 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
 
             {/* ── SECTION 6: CORE FEATURES ─────────────────────────────────── */}
-            <section className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white">
+            <section className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white font-['Urbanist']">
                 {/* ── HEADER ─────────────────────────────────────────────── */}
                 <div className="text-center mb-20">
                     <span className="text-[#FE4A01] text-xs font-bold tracking-wider block mb-3">
                         Features
                     </span>
                     <h2 className="text-3xl sm:text-[40px] font-regular tracking-tight mb-4 text-white">
-                        Enhanced Features for Heavy & Strict Workloads
+                       Why choose Torchlabs?
                     </h2>
-                    <p className="text-stone-400 text-sm sm:text-base max-w-2xl mx-auto font-normal leading-relaxed">
-                       Upgraded performance, smarter rotation, and stronger stability built for high-volume scraping and stricter websites.
-                    </p>
                 </div>
 
                 {/* ── FEATURES GRID ──────────────────────────────────────── */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16 max-w-6xl mx-auto">
-                    {features.map((feat, i) => (
-                        <div key={i} className="flex items-start gap-4 group">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16 max-w-6xl mx-auto">
+    {features.map((feat, i) => (
+        <div key={i} className="flex items-start gap-4 group">
 
-                            {/* Round Solid Orange Icon Badge */}
-                            <div className="w-11 h-11 rounded-full bg-[#FE4A01] flex items-center justify-center shrink-0 shadow-[0_4px_14px_rgba(254,74,1,0.2)] transition-transform duration-200 group-hover:scale-105">
-                                {feat.icon}
-                            </div>
+            {/* Round Solid Orange Icon Badge */}
+            <div className="w-11 h-11 rounded-full bg-[#FE4A01] flex items-center justify-center shrink-0 shadow-[0_4px_14px_rgba(254,74,1,0.2)] transition-transform duration-200 group-hover:scale-105">
+                {/* 🛠️ Render the SVG asset cleanly using an image tag */}
+                <img 
+                    src={feat.icon} 
+                    alt="" 
+                    className="w-5 h-5 object-contain brightness-0 invert" 
+                    // Note: 'brightness-0 invert' forces the SVG graphic to turn pure white 
+                    // if it isn't white already in the source file.
+                />
+            </div>
 
-                            {/* Text Information Elements */}
-                            <div className="space-y-1.5">
-                                <h4 className="text-lg font-regular text-white tracking-tight">
-                                    {feat.title}
-                                </h4>
-                                <p className="text-stone-400 text-[13px] sm:text-sm leading-relaxed font-normal">
-                                    {feat.desc}
-                                </p>
-                            </div>
+            {/* Text Information Elements */}
+            <div className="space-y-1.5">
+                <h4 className="text-lg font-regular text-white tracking-tight">
+                    {feat.title}
+                </h4>
+                <p className="text-stone-400 text-[13px] sm:text-sm leading-relaxed font-normal">
+                    {feat.desc}
+                </p>
+            </div>
 
-                        </div>
-                    ))}
-                </div>
+        </div>
+    ))}
+</div>
             </section>
 
 
 
             {/* ── SECTION 2: Perfect for Every Scraping & Animations ─────────── */}
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden">
+            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-32">
 
                     {/* Row 1: Easy Client Management */}
@@ -536,7 +545,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
             {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
             {/* Upgrade CTA Banner */}
-            <section className="py-16 px-6">
+            <section className="py-16 px-6 font-['Urbanist']">
                 <div className="max-w-6xl mx-auto">
                     <div
                         className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden"
@@ -584,7 +593,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </section>
 
             {/* ── SECTION 10: TESTIMONIALS ─────────────────────────────────── */}
-<section className="py-24 bg-stone-950/20 border-t border-stone-900 overflow-hidden">
+<section className="py-24 bg-stone-950/20 border-t border-stone-900 overflow-hidden font-['Urbanist']">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Section Header Text Nodes */}
@@ -704,7 +713,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             {/* FAQ SECTION */}
-            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden">
+            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
 
                 {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
                 <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">

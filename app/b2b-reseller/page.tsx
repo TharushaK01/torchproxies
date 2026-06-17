@@ -281,7 +281,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
         <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
 {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
 <header className="relative z-20 min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-28 pb-12 overflow-visible space-y-6 font-['Urbanist']">
-    <div className="absolute bottom-0 left-0 w-full h-[65vh] z-0">
+    <div className="absolute bottom-0 left-0 w-full h-[65vh] z-0 font-['Urbanist']">
         <Image
             src="/images/hero_back.png"
             alt=""
@@ -296,7 +296,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 </div>
     </div>
 
-    <div className="max-w-6xl mx-auto text-center z-10">
+    <div className="max-w-6xl mx-auto text-center z-10 font-['Urbanist']">
         <div className="flex items-center justify-center mb-6">
             <img
                 src="/images/TrustPiolet.png"
@@ -361,7 +361,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
 </header>
 
-            <section className="py-20 px-6 bg-[#0a0a0a] relative overflow-hidden">
+            <section className="py-20 px-6 bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
                 {/* Background Ambient Glow Accent */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(254,74,1,0.02)_0%,transparent_75%)] pointer-events-none" />
 
@@ -384,7 +384,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
             {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
             {/* Upgrade CTA Banner */}
-            <section className="py-16 px-6">
+            <section className="py-16 px-6 font-['Urbanist']">
                 <div className="max-w-6xl mx-auto">
                     <div
                         className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden"
@@ -435,7 +435,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </section>
 
             {/* ── SECTION 10: TESTIMONIALS ─────────────────────────────────── */}
-<section className="py-24 bg-stone-950/20 border-t border-stone-900 overflow-hidden">
+<section className="py-24 bg-stone-950/20 border-t border-stone-900 overflow-hidden font-['Urbanist']">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Section Header Text Nodes */}
@@ -555,7 +555,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             {/* FAQ SECTION */}
-            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden">
+            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
 
                 {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
                 <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">

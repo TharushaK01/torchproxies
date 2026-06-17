@@ -320,7 +320,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
         </div>
     </div>
 
-    <div className="max-w-6xl mx-auto text-center z-10">
+    <div className="max-w-6xl mx-auto text-center z-10 font-['Urbanist']">
         <div className="flex items-center justify-center mb-6">
             <img
                 src="/images/TrustPiolet.png"
@@ -358,7 +358,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2 mt-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4 mt-8">
             <div
                 onClick={() => router.push('https://dashboard.torchproxies.com/')}
                 className="cursor-pointer flex flex-col sm:flex-row items-center justify-center gap-4"
@@ -393,7 +393,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 </header>
 
 
-            <section className="bg-[#0a0a0a] -mt-[60px] text-white py-25 px-6 border-t border-stone-950">
+            <section className="bg-[#0a0a0a] -mt-[60px] text-white py-25 px-6 border-t border-stone-950 font-['Urbanist']">
                 <div className="max-w-6xl mx-auto text-center">
 
                     {/* Section Heading */}
@@ -428,7 +428,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                 </div>
             </section>
 
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px]">
+            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-32">
 
                     {/* Row 1: Easy Client Management */}
@@ -464,7 +464,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </section>
 
             {/* ── SECTION 5: WHY CHOOSETORCHPROXIES ──────────────────────────────── */}
-            <section className="py-24 bg-[#0a0a0a] text-white relative">
+            <section className="py-24 bg-[#0a0a0a] text-white relative font-['Urbanist']">
                 <div className="max-w-7xl mx-auto px-6">
 
                     {/* ── TOP HEADER SECTION ───────────────────────────────────── */}
@@ -595,7 +595,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
 
 
-            <section className="bg-[#0a0a0a] text-white py-40 px-4 md:px-8 font-sans -mt-[150px]">
+            <section className="bg-[#0a0a0a] text-white py-40 px-4 md:px-8 font-sans -mt-[150px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
 
                     {/* --- LEFT SIDE: TITLE & TOGGLE --- */}
@@ -663,7 +663,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
 
 
-            <div className="bg-[#0a0a0a] py-32 px-4 md:px-8 -mt-[250px]">
+            <div className="bg-[#0a0a0a] py-32 px-4 md:px-8 -mt-[250px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto overflow-x-auto border border-zinc-900 rounded-xl bg-[#050505]">
 
                     <table className="w-full min-w-[900px] border-collapse text-left table-fixed">
@@ -709,7 +709,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </div>
 
 
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px]">
+            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-32">
 
                     {/* Row 1: Easy Client Management */}
@@ -752,7 +752,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
             {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
             {/* Upgrade CTA Banner */}
-            <section className="py-16 px-6">
+            <section className="py-16 px-6 font-['Urbanist']">
                 <div className="max-w-6xl mx-auto">
                     <div
                         className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden"
@@ -799,7 +799,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </section>
 
             {/* ── SECTION 10: TESTIMONIALS ─────────────────────────────────── */}
-<section className="py-24 bg-stone-950/20 border-t border-stone-900 overflow-hidden">
+<section className="py-24 bg-stone-950/20 border-t border-stone-900 overflow-hidden font-['Urbanist']">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Section Header Text Nodes */}
@@ -919,7 +919,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             {/* FAQ SECTION */}
-            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden">
+            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
 
                 {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
                 <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
