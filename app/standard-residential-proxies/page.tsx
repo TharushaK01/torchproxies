@@ -211,8 +211,8 @@ export default function TorchProxiesLandingPage() {
         <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden space-y-6 font-['Urbanist']">
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-            <header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 overflow-hidden space-y-6 font-['Urbanist']">
-<div className="absolute bottom-0 left-0 right-0 h-[60vh] z-0">
+            <header className="relative min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-28 pb-12 overflow-hidden space-y-6 font-['Urbanist']">
+<div className="absolute bottom-0 left-0 w-full h-[65vh] z-0">
 
     <Image
         src="/images/hero_back.png"
@@ -223,9 +223,10 @@ export default function TorchProxiesLandingPage() {
     />
 
     {/* Marquee at bottom of image */}
-    <div className="absolute bottom-0 left-0 w-full z-10">
-        <Marquee />
-    </div>
+<div className="absolute -bottom-12 left-0 w-full z-10">
+    <Marquee />
+</div>
+
 
 </div>
                 <div className="max-w-6xl mx-auto text-center z-10 font-['Urbanist']">
@@ -243,11 +244,11 @@ export default function TorchProxiesLandingPage() {
                         <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">Access 30M+ Global IPs</span>
                     </h1>
 
-                    <p className="max-w-3xl mx-auto text-stone-400 text-base text-[18px] sm:text-xl mb-10 leading-relaxed">
+                    <p className="max-w-3xl mx-auto text-stone-400 text-base text-[18px] sm:text-xl mb-4 leading-relaxed">
                         Reliable and steady residential proxies perfect for everyday tasks.A balanced choice to get the job done without breaking the bank.
                     </p>
 
-                    <div className="mt-[-50px] py-10 max-w-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-sm font-medium">
+                    <div className="py-4 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-sm font-medium">
                         <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Rotating & Static IPs</div>
                         <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Unlimited Concurrency</div>
                         <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> 195+ Countries Network</div>
@@ -297,7 +298,7 @@ export default function TorchProxiesLandingPage() {
 
                     </div>
 
-                    <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide py-6">
+                    <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide pt-4 pb-2">
                         <CreditCard className="w-4 h-4 text-stone-500" />
                         <span>No credit card needed. Instant access</span>
                     </div>

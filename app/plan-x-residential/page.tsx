@@ -217,8 +217,8 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
         <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden space-y-6 font-['Urbanist']">
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-            <header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 overflow-hidden">
-<div className="absolute bottom-0 left-0 right-0 h-[60vh] z-0">
+            <header className="relative min-h-[85vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-24 pb-16 overflow-hidden">
+<div className="absolute bottom-0 left-0 right-0 h-[35vh] z-0 transform translate-y-12">
 
     <Image
         src="/images/hero_back.png"
@@ -253,7 +253,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                         Built for speed and scale  X Residential Proxies offer top-tier performance, unmatched reliability and limitless potential.
                     </p>
 
-                    <div className="mt-[-50px] py-10 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-sm font-medium">
+                    <div className="py-4 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-sm font-medium">
                         <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Pricing starts from $3.9/GB</div>
                         <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Residential with dedicated ISP pools</div>
                         <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> 24 hour refund policy</div>

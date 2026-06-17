@@ -213,8 +213,8 @@ export default function TorchProxiesLandingPage() {
         <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden space-y-6 font-['Urbanist']">
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-            <header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 overflow-hidden">
-<div className="absolute bottom-0 left-0 right-0 h-[60vh] z-0">
+            <header className="relative min-h-[85vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-28 pb-12 overflow-hidden">
+<div className="absolute bottom-0 left-0 right-0 h-[35vh] z-0 transform translate-y-12">
 
     <Image
         src="/images/hero_back.png"
@@ -245,11 +245,11 @@ export default function TorchProxiesLandingPage() {
                         <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">Proxy. Access 100M+ Global IPs</span>
                     </h1>
 
-                    <p className="max-w-2xl mx-auto text-stone-400 text-base text-[18px] mb-10 leading-relaxed">
+                    <p className="max-w-2xl mx-auto text-stone-400 text-base text-[18px] mb-6 leading-relaxed">
                         Experience faster speeds and enhanced performance. Premium Residential Proxies is built for those who need a little extra power to stay productive and efficient.
                     </p>
 
-                    <div className="mt-[-50px] py-10 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-400 text-[16px] font-regular">
+                    <div className="py-4 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-400 text-[16px] font-regular">
                         <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Pricing starts from $3.4/GB</div>
                         <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> For demanding users & businesses</div>
                         <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> 24 hour refund policy</div>

@@ -211,16 +211,15 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
         },
     ];
     return (
-        <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
+        <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-visible">
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
 
-<header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-1 overflow-hidden bg-[#0a0a0a] font-['Urbanist']">
-    
+<header className="relative z-20 min-h-[85vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-24 pb-1 overflow-visible bg-[#0a0a0a] font-['Urbanist']">
     {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
 
 
-<div className="absolute bottom-0 left-0 right-0 h-[40vh] sm:h-[60vh] z-10 pointer-events-none select-none">
+<div className="absolute bottom-0 left-0 right-0 h-[35vh] z-0 -bottom-32">
     <Image
         src="/images/hero_back.png"
         alt=""
@@ -229,14 +228,13 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
         className="object-cover object-bottom"
     />
 
-    {/* Marquee pinned cleanly to the bottom of the image container */}
-    <div className="absolute bottom-0 left-0 w-full z-20 pointer-events-auto">
-        <Marquee />
-    </div>
+<div className="absolute -bottom-12 left-0 right-0 z-[999] border border-red-500">
+    <Marquee />
+</div>
 </div>
     {/* Foreground content grid wrapper (Kept relative z-10) */}
     <div className="max-w-6xl mx-auto text-center z-10">
-        <div className="flex items-center justify-center mb-6">
+        <div className="flex items-center justify-center mb-2">
             <img
                 src="/images/TrustPiolet.png"
                 alt="Excellent 5-star rating on Trustpilot"
@@ -250,11 +248,11 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">& Reliability</span>
         </h1>
 
-        <p className="max-w-3xl mx-auto text-stone-400 text-[18px] sm:text-xl mb-10 leading-relaxed">
+        <p className="max-w-2xl mx-auto text-stone-400 text-[18px] sm:text-xl mb-10 leading-relaxed">
             ISP proxies offer residential trust with datacenter speed perfect for fast, reliable, and stealthy long sessions.
         </p>
 
-        <div className="mt-[-50px] py-10 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-[16px] font-regular">
+        <div className="py-4 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-[16px] font-regular">
             <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Pricing starts from $3.9/GB</div>
             <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Money back guarantee</div>
             <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Dedicated support</div>
