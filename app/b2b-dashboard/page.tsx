@@ -282,13 +282,14 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                 </div>
             ) : (
                 // Circular Dimmed Cross Close Icon
-                <div className="flex justify-center">
-                    <div className="w-5 h-5 rounded-full border border-zinc-800 flex items-center justify-center text-zinc-600">
-                        <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </div>
-                </div>
+<div className="flex justify-center">
+    {/* 🛠️ FIX: Changed border-zinc-400 to border-zinc-700/60 for a cleaner dark-mode blend, and text-zinc-600 to text-zinc-200 for a near-white icon */}
+    <div className="w-5 h-5 rounded-full border border-zinc-700/60 flex items-center justify-center text-zinc-200">
+        <svg className="w-2.5 h-2.5 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </div>
+</div>
             );
         }
 
@@ -596,19 +597,19 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
 
             <section className="bg-[#0a0a0a] text-white py-40 px-4 md:px-8 font-sans -mt-[150px] font-['Urbanist']">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-end font-['Urbanist']">
 
                     {/* --- LEFT SIDE: TITLE & TOGGLE --- */}
-                    <div className="lg:col-span-5">
-                        <span className="text-zinc-500 text-xs font-semibold tracking-wider uppercase block mb-2">
+                    <div className="lg:col-span-5 font-['Urbanist']">
+                        <span className="text-zinc-500 text-xs font-semibold tracking-wider uppercase block mb-2 font-['Urbanist']">
                             Plans
                         </span>
-                        <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-white mb-6">
+                        <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-white mb-6 font-['Urbanist']">
                             Compare our plans
                         </h2>
 
                         {/* Toggle Switch */}
-                        <div className="inline-flex rounded-full bg-black border border-zinc-800 p-1">
+                        <div className="inline-flex rounded-full bg-black border border-zinc-800 p-1 font-['Urbanist']">
                             <button
                                 onClick={() => setIsMonthly(true)}
                                 className={`px-6 py-2 rounded-full text-xs font-semibold transition-all duration-200 ${isMonthly
@@ -631,21 +632,21 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                     </div>
 
                     {/* --- RIGHT SIDE: PRICING CARDS --- */}
-                    <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
+                    <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4 w-full font-['Urbanist']">
                         {plans.map((plan) => (
                             <div
                                 key={plan.name}
-                                className="bg-[#0A0A0A] border border-zinc-900 rounded-2xl p-6 flex flex-col justify-between min-h-[175px] transition-all hover:border-zinc-800"
+                                className="bg-[#0A0A0A] border border-zinc-900 rounded-2xl p-6 flex flex-col justify-between min-h-[175px] transition-all hover:border-zinc-800 font-['Urbanist']"
                             >
                                 {/* Card Label and Price */}
                                 <div>
-                                    <p className="text-zinc-500 text-xs font-medium tracking-wider uppercase">
+                                    <p className="text-zinc-500 text-xs font-medium tracking-wider uppercase font-['Urbanist']">
                                         {plan.name}
                                     </p>
-                                    <p className="text-4xl font-semibold mt-1.5 text-white tracking-tight">
+                                    <p className="text-4xl font-semibold mt-1.5 text-white tracking-tight font-['Urbanist']">
                                         {isMonthly ? plan.price.monthly : plan.price.yearly}
                                     </p>
-                                    <p className="text-zinc-600 text-[11px] mt-0.5">
+                                    <p className="text-zinc-500 text-[11px] mt-0.5 font-['Urbanist']">
                                         {isMonthly ? 'per month' : 'per month, billed yearly'}
                                     </p>
                                 </div>

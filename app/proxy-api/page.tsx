@@ -469,17 +469,14 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
     {features.map((feat, i) => (
         <div key={i} className="flex items-start gap-4 group">
 
-            {/* Round Solid Orange Icon Badge */}
-            <div className="w-11 h-11 rounded-full bg-[#FE4A01] flex items-center justify-center shrink-0 shadow-[0_4px_14px_rgba(254,74,1,0.2)] transition-transform duration-200 group-hover:scale-105">
-                {/* 🛠️ Render the SVG asset cleanly using an image tag */}
-                <img 
-                    src={feat.icon} 
-                    alt="" 
-                    className="w-5 h-5 object-contain brightness-0 invert" 
-                    // Note: 'brightness-0 invert' forces the SVG graphic to turn pure white 
-                    // if it isn't white already in the source file.
-                />
-            </div>
+ {/* Round Solid Orange Icon Badge */}
+<div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-105">
+    <img 
+        src={feat.icon} 
+        alt="" 
+        className="w-12 h-12 object-contain" 
+    />
+</div>
 
             {/* Text Information Elements */}
             <div className="space-y-1.5">
@@ -559,11 +556,11 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
                         <div className="relative z-10 max-w-4xl mx-auto">
                             <h2 className="text-4xl md:text-5xl font-regular tracking-tight mb-6 text-white">
-                                Get started with Plan X residential proxies<br className="hidden md:block" />
+                                Create a Fully Branded Proxy Service With TorchLabs API<br className="hidden md:block" />
                             </h2>
 
                             <p className="text-stone-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-                                Unlock premium speed, stability and higher success rates for demanding or strict websites.
+                                Build your own dashboard, choose your margins, and offer multiple proxy types under your own brand using our open, flexible API.
                             </p>
 
                       <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
@@ -593,12 +590,12 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </section>
 
             {/* ── SECTION 10: TESTIMONIALS ─────────────────────────────────── */}
-<section className="py-24 bg-stone-950/20 border-t border-stone-900 overflow-hidden font-['Urbanist']">
+<section className="py-24 bg-stone-950/20 overflow-hidden font-['Urbanist']">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Section Header Text Nodes */}
         <div className="text-center mb-16">
-          <h2 className="text-[42px] sm:text-5xl font-medium mb-4 tracking-tight text-white">
+          <h2 className="text-[42px] sm:text-5xl font-medium mb-4 tracking-tight text-white font-['Urbanist']">
             Customer Reviews
           </h2>
           <p className="text-stone-400">
