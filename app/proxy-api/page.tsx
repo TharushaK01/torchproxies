@@ -223,93 +223,106 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
         <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-            <header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 overflow-hidden">
- <div className="absolute inset-x-0 bottom-35 h-[600px] z-0 pointer-events-none select-none">
-    <Image
-        src="/images/hero_back.png"
-        alt=""
-        fill
-        priority
-        className="object-cover object-bottom opacity-100"
-    />
-</div>
-                <div className="max-w-6xl mx-auto text-center z-10">
-                    <div className="flex items-center justify-center mb-6">
-                        <img
-                            src="/images/TrustPiolet.png"
-                            alt="Excellent 5-star rating on Trustpilot"
-                            className="h-6 w-auto object-contain"
-                            loading="lazy"
-                        />
-                    </div>
+<header className="relative min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-28 pb-12 overflow-hidden space-y-6 font-['Urbanist']">
 
-                    <h1 className="text-[60px] sm:text-6xl lg:text-7xl font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
-                        The Backend infrastructure <br />
-                        <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">behind your proxy business</span>
-                    </h1>
+    <div className="absolute bottom-0 left-0 w-full h-[65vh] z-0">
+        <Image
+            src="/images/hero_back.png"
+            alt=""
+            fill
+            priority
+            className="object-cover object-bottom"
+        />
 
-                    <p className="max-w-2xl mx-auto text-[18px] sm:text-xl text-stone-400 mb-10 leading-relaxed">
-                        Use our Proxy API to create sub users, assign data, generate proxies and build your own reseller dashboard or proxy storefront with full control over pricing and UI.
-                    </p>
+        {/* Marquee at bottom of image */}
+        <div className="absolute -bottom-8 left-0 w-full z-10">
+            <Marquee />
+        </div>
+    </div>
 
-                    <div className="mt-[-50px] py-10 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-sm font-regular">
-                        <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Manage sub users instantly</div>
-                        <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Unified access to multiple proxy networks</div>
-                        <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Automate Traffic & Subscription Controls</div>
-                    </div>
+    <div className="max-w-6xl mx-auto text-center z-10">
+        <div className="flex items-center justify-center mb-6">
+            <img
+                src="/images/TrustPiolet.png"
+                alt="Excellent 5-star rating on Trustpilot"
+                className="h-6 w-auto object-contain"
+                loading="lazy"
+            />
+        </div>
 
-           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
+        <h1 className="text-[60px] sm:text-6xl lg:text-7xl font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
+            The Backend infrastructure <br />
+            <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">
+                behind your proxy business
+            </span>
+        </h1>
 
-                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+        <p className="max-w-2xl mx-auto text-[18px] sm:text-xl text-stone-400 mb-4 leading-relaxed">
+            Use our Proxy API to create sub users, assign data, generate proxies and build your own reseller dashboard or proxy storefront with full control over pricing and UI.
+        </p>
 
-                            {/* Fast 3D text track wrapper */}
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+        <div className="py-4 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-sm font-regular">
+            <div className="flex items-center justify-center gap-2">
+                <Check className="text-orange-500 w-4 h-4" />
+                Manage sub users instantly
+            </div>
 
-                                {/* Default State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                    Get API access
-                                </span>
+            <div className="flex items-center justify-center gap-2">
+                <Check className="text-orange-500 w-4 h-4" />
+                Unified access to multiple proxy networks
+            </div>
 
-                                {/* Hover State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
-                                   Get API access
-                                </span>
+            <div className="flex items-center justify-center gap-2">
+                <Check className="text-orange-500 w-4 h-4" />
+                Automate Traffic & Subscription Controls
+            </div>
+        </div>
 
-                            </div>
-                        </button>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
 
-                        {/* --- SECONDARY BUTTON: ROLLING TEXT + BORDER INDENT --- */}
-                        <button className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-700 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
+            {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
+            <button
+                onClick={() => router.push('https://dashboard.torchproxies.com/')}
+                className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]"
+            >
+                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
 
-                            {/* Fast 3D text track wrapper */}
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                        Get API access
+                    </span>
 
-                                {/* Default State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                    View API docs
-                                </span>
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+                        Get API access
+                    </span>
 
-                                {/* Hover State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
-                                    View API docs
-                                </span>
-
-                            </div>
-                        </button>
-
-                    </div>
-
-                    <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide py-6">
-                        <CreditCard className="w-4 h-4 text-stone-500" />
-                        <span>No credit card needed. Instant access</span>
-                    </div>
-
-                    <div className="relative z-10 -mt-40 w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-                        <Marquee />
-                    </div>
                 </div>
-            </header>
+            </button>
+
+            {/* --- SECONDARY BUTTON: ROLLING TEXT + BORDER INDENT --- */}
+            <button className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-700 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
+
+                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                        View API docs
+                    </span>
+
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
+                        View API docs
+                    </span>
+
+                </div>
+            </button>
+
+        </div>
+
+        <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide pt-4 pb-2">
+            <CreditCard className="w-4 h-4 text-stone-500" />
+            <span>No credit card needed. Instant access</span>
+        </div>
+    </div>
+
+</header>
 
             {/* ── SECTION 2: Perfect for Every Scraping & Animations ─────────── */}
             <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden">

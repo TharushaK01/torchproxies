@@ -213,99 +213,87 @@ export default function TorchProxiesLandingPage() {
         <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden space-y-6 font-['Urbanist']">
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-            <header className="relative min-h-[85vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-28 pb-12 overflow-hidden">
-<div className="absolute bottom-0 left-0 right-0 h-[35vh] z-0 transform translate-y-12">
+    <header className="relative min-h-[85vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-28 pb-12 overflow-hidden bg-[#0a0a0a] font-['Urbanist']">
+    
+    {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
+    {/* 🛠️ FIX: Removed 'translate-y-12' and replaced it with a negative translation or custom offset to lift it up */}
+    <div className="absolute bottom-0 left-0 right-0 h-[35vh] z-0 transform translate-y-4">
 
-    <Image
-        src="/images/hero_back.png"
-        alt=""
-        fill
-        priority
-        className="object-cover object-bottom"
-    />
+        <Image
+            src="/images/hero_back.png"
+            alt=""
+            fill
+            priority
+            className="object-cover object-bottom"
+        />
 
-    {/* Marquee at bottom of image */}
-    <div className="absolute bottom-0 left-0 w-full z-10">
-        <Marquee />
+        {/* Marquee pinned cleanly to the bottom baseline of the raised image container */}
+        <div className="absolute bottom-0 left-0 w-full z-10">
+            <Marquee />
+        </div>
+
     </div>
 
-</div>
-                <div className="max-w-6xl mx-auto text-center z-10">
-                    <div className="flex items-center justify-center mb-6">
-                        <img
-                            src="/images/TrustPiolet.png"
-                            alt="Excellent 5-star rating on Trustpilot"
-                            className="h-6 w-auto object-contain"
-                            loading="lazy"
-                        />
-                    </div>
+    {/* Foreground content grid wrapper (Kept relative z-10) */}
+    <div className="max-w-6xl mx-auto text-center z-10">
+        <div className="flex items-center justify-center mb-6">
+            <img
+                src="/images/TrustPiolet.png"
+                alt="Excellent 5-star rating on Trustpilot"
+                className="h-6 w-auto object-contain"
+                loading="lazy"
+            />
+        </div>
 
-                    <h1 className="text-[60px] sm:text-6xl lg:text-7xl font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
-                        Best Premium Residential   <br />
-                        <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">Proxy. Access 100M+ Global IPs</span>
-                    </h1>
+        <h1 className="text-[60px] sm:text-6xl lg:text-7xl font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
+            Best Premium Residential <br />
+            <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">Proxy. Access 100M+ Global IPs</span>
+        </h1>
 
-                    <p className="max-w-2xl mx-auto text-stone-400 text-base text-[18px] mb-6 leading-relaxed">
-                        Experience faster speeds and enhanced performance. Premium Residential Proxies is built for those who need a little extra power to stay productive and efficient.
-                    </p>
+        <p className="max-w-2xl mx-auto text-stone-400 text-base text-[18px] mb-6 leading-relaxed">
+            Experience faster speeds and enhanced performance. Premium Residential Proxies is built for those who need a little extra power to stay productive and efficient.
+        </p>
 
-                    <div className="py-4 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-400 text-[16px] font-regular">
-                        <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Pricing starts from $3.4/GB</div>
-                        <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> For demanding users & businesses</div>
-                        <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> 24 hour refund policy</div>
-                    </div>
+        <div className="py-4 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-400 text-[16px] font-regular">
+            <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Pricing starts from $3.4/GB</div>
+            <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> For demanding users & businesses</div>
+            <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> 24 hour refund policy</div>
+        </div>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
-
-                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
-
-                            {/* Fast 3D text track wrapper */}
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-
-                                {/* Default State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                    Start free with 1 GB
-                                </span>
-
-                                {/* Hover State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
-                                    Start free with 1 GB
-                                </span>
-
-                            </div>
-                        </button>
-
-                        {/* --- SECONDARY BUTTON: ROLLING TEXT + BORDER INDENT --- */}
-                        <button onClick={() => {
-                            document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
-                        }} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-400 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
-
-                            {/* Fast 3D text track wrapper */}
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-
-                                {/* Default State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                    View Pricing
-                                </span>
-
-                                {/* Hover State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
-                                    View Pricing
-                                </span>
-
-                            </div>
-                        </button>
-
-                    </div>
-
-                    <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide py-6">
-                        <CreditCard className="w-4 h-4 text-stone-500" />
-                        <span>No credit card needed. Instant access</span>
-                    </div>
-
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
+            {/* --- PRIMARY BUTTON --- */}
+            <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                        Start free with 1 GB
+                    </span>
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+                        Start free with 1 GB
+                    </span>
                 </div>
-            </header>
+            </button>
+
+            {/* --- SECONDARY BUTTON --- */}
+            <button onClick={() => {
+                document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
+            }} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-400 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
+                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                        View Pricing
+                    </span>
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
+                        View Pricing
+                    </span>
+                </div>
+            </button>
+        </div>
+
+        <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide py-6">
+            <CreditCard className="w-4 h-4 text-stone-500" />
+            <span>No credit card needed. Instant access</span>
+        </div>
+    </div>
+</header>
 
             {/* ── SECTION 2: Perfect for Every Scraping & Animations ─────────── */}
             <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden">

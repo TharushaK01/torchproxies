@@ -193,84 +193,101 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
             <div className="max-w-md mx-auto pt-24 px-4 text-center z-20 relative font-['Urbanist']">
             </div>
 
-            {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-            <header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 overflow-hidden font-['Urbanist']">
-              <div className="absolute bottom-0 left-0 right-0 h-[60vh] z-0">
+{/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
+<header className="relative min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-28 pb-12 overflow-hidden space-y-6 font-['Urbanist']">
 
-    <Image
-        src="/images/hero_back.png"
-        alt=""
-        fill
-        priority
-        className="object-cover object-bottom"
-    />
+    <div className="absolute bottom-0 left-0 w-full h-[65vh] z-0">
 
-    {/* Marquee at bottom of image */}
-    <div className="absolute bottom-0 left-0 w-full z-10">
-        <Marquee />
+        <Image
+            src="/images/hero_back.png"
+            alt=""
+            fill
+            priority
+            className="object-cover object-bottom"
+        />
+
+        {/* Marquee at bottom of image */}
+        <div className="absolute -bottom-8 left-0 w-full z-10">
+            <Marquee />
+        </div>
+
     </div>
 
-</div>
-                <div className="max-w-6xl mx-auto text-center z-10 -mt-12">
-                    <div className="flex items-center justify-center mb-6">
-                        <img src="/images/TrustPiolet.png" alt="Excellent 5-star rating on Trustpilot" className="h-6 w-auto object-contain" loading="lazy" />
-                    </div>
+    <div className="max-w-6xl mx-auto text-center z-10 font-['Urbanist']">
 
-                    <h1 className="max-w-[1600px] mx-auto sm:text-[40px] text-[40px] lg:text-[55px] font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">
-                        Fast and Secure {countryName} Residential Proxies at Your Fingertips <br />
-                    </h1>
+        <div className="flex items-center justify-center mb-6">
+            <img
+                src="/images/TrustPiolet.png"
+                alt="Excellent 5-star rating on Trustpilot"
+                className="h-6 w-auto object-contain"
+                loading="lazy"
+            />
+        </div>
 
-                    <p className="max-w-[1600px] mx-auto text-stone-400 text-base text-[18px] sm:text-xl mb-10 leading-relaxed">
-                        Effortlessly connect to authentic, ethically sourced residential IPs in {countryName}, giving you the freedom to browse, test, and manage your projects without interruptions.
-                    </p>
+        <h1 className="max-w-[1600px] mx-auto sm:text-[40px] text-[40px] lg:text-[55px] font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">
+            Fast and Secure {countryName} Residential Proxies at Your Fingertips <br />
+        </h1>
 
-                    <div className="mt-[-30px] py-6 max-w-xl mx-auto flex flex-wrap justify-center gap-6 text-stone-200 text-sm font-medium">
-                        <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Pay as you go pricing</div>
-                        <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Money back guarantee</div>
-                        <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Dedicated Support</div>
-                    </div>
+        <p className="max-w-[1600px] mx-auto text-stone-400 text-[18px] sm:text-xl mb-4 leading-relaxed">
+            Effortlessly connect to authentic, ethically sourced residential IPs in {countryName}, giving you the freedom to browse, test, and manage your projects without interruptions.
+        </p>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
-                         <button
-                        onClick={() => router.push('https://dashboard.torchproxies.com/')}
-                        className="
-    group relative overflow-hidden
-    w-full max-w-[400px] sm:max-w-[400px] h-[56px] px-8 
-    bg-orange-600 hover:bg-orange-500 text-white 
-    font-bold text-base rounded-2xl tracking-[0.2px]
-    text-center transition-all duration-200 ease-out
-    shadow-[0_4px_30px_rgba(234,88,12,0.45)]
-    hover:shadow-[0_6px_35px_rgba(234,88,12,0.6)]
-    hover:scale-[1.01] active:scale-[0.99]
-    cursor-pointer
-  "
-                    >
-                        {/* Snappy 3D text track wrapper */}
-                        <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+        <div className="py-4 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-sm font-medium">
+            <div className="flex items-center justify-center gap-2">
+                <Check className="text-orange-500 w-4 h-4" />
+                Pay as you go pricing
+            </div>
 
-                            {/* Default State Text (Visible Initially) */}
-                            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                Buy {countryName} Residential Proxies
-                            </span>
+            <div className="flex items-center justify-center gap-2">
+                <Check className="text-orange-500 w-4 h-4" />
+                Money back guarantee
+            </div>
 
-                            {/* Hover State Text (Rolls in cleanly from below) */}
-                            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/95">
-                                Buy {countryName} Residential Proxies
-                            </span>
+            <div className="flex items-center justify-center gap-2">
+                <Check className="text-orange-500 w-4 h-4" />
+                Dedicated Support
+            </div>
+        </div>
 
-                        </div>
-                    </button>
-                        {/* <button className="px-8 py-3 bg-orange-600 hover:bg-orange-500 text-white font-semibold rounded-xl transition-all duration-200 shadow-[0_0_30px_rgba(234,88,12,0.4)] hover:scale-[1.01] whitespace-nowrap">
-                            Buy {countryName} Residential Proxies
-                        </button> */}
-                    </div>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
 
-                    <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide py-6">
-                        <CreditCard className="w-4 h-4 text-stone-500" />
-                        <span>No credit card needed. Instant access</span>
-                    </div>
+            <button
+                onClick={() => router.push('https://dashboard.torchproxies.com/')}
+                className="
+                    group relative overflow-hidden
+                    w-full max-w-[400px] sm:max-w-[400px] h-[56px] px-8
+                    bg-orange-600 hover:bg-orange-500 text-white
+                    font-bold text-base rounded-2xl tracking-[0.2px]
+                    text-center transition-all duration-200 ease-out
+                    shadow-[0_4px_30px_rgba(234,88,12,0.45)]
+                    hover:shadow-[0_6px_35px_rgba(234,88,12,0.6)]
+                    hover:scale-[1.01] active:scale-[0.99]
+                    cursor-pointer
+                "
+            >
+                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                        Buy {countryName} Residential Proxies
+                    </span>
+
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/95">
+                        Buy {countryName} Residential Proxies
+                    </span>
+
                 </div>
-            </header>
+            </button>
+
+        </div>
+
+        <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide pt-4 pb-2">
+            <CreditCard className="w-4 h-4 text-stone-500" />
+            <span>No credit card needed. Instant access</span>
+        </div>
+
+    </div>
+
+</header>
 
             {/* ── SECTION 2: PRICING GRIDS ─────────────────────────────────── */}
             <section className="bg-[#0a0a0a] text-white py-20 px-6  font-['Urbanist']">
