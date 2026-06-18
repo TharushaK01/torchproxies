@@ -77,32 +77,32 @@ export default function TorchProxiesLandingPage() {
 
     const features = [
         {
-            icon: <Database className="text-white w-4 h-4" />,
+            icon: "/images/api2.svg",
             title: "60 Day Cookie Window",
             desc: "Tracks referrals longer to help you earn even after delayed purchases."
         },
         {
-            icon: <RefreshCw className="text-white w-4 h-4" />,
+            icon: "/images/api3.svg",
             title: "High Commission Rates",
             desc: "Earn higher commissions on every first-time sale you successfully refer."
         },
         {
-            icon: <Layers className="text-white w-4 h-4" />,
+            icon: "/images/api4.svg",
             title: "Recurring Lifetime Earnings",
             desc: "Keep earning continuously whenever your referred users renew."
         },
         {
-            icon: <ShieldCheck className="text-white w-4 h-4" />,
+            icon: "/images/api5.svg",
             title: "Fast 30-Day Payouts",
             desc: "Receive automatic payouts every month without manual follow ups."
         },
         {
-            icon: <Infinity className="text-white w-4 h-4" />,
+            icon: "/images/api6.svg",
             title: "Tiered Commission Boost",
             desc: "Unlock better earning rates as your referral revenue grows monthly."
         },
         {
-            icon: <Tag className="text-white w-4 h-4" />,
+            icon: "/images/api7.svg",
             title: "Monthly Promo Packs",
             desc: "Access fresh creative assets monthly to support stronger promotions."
         }
@@ -185,7 +185,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
 <header className="relative min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-28 pb-12 overflow-hidden space-y-6 font-['Urbanist']">
 
-    <div className="absolute bottom-0 left-0 w-full h-[65vh] z-0">
+    <div className="absolute bottom-0 left-0 w-full h-[65vh] z-0 font-['Urbanist']">
         <Image
             src="/images/hero_back.png"
             alt=""
@@ -200,7 +200,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
         </div>
     </div>
 
-    <div className="max-w-6xl mx-auto text-center z-10">
+    <div className="max-w-6xl mx-auto text-center z-10 font-['Urbanist']">
         <div className="flex items-center justify-center mb-6">
             <img
                 src="/images/TrustPiolet.png"
@@ -264,21 +264,25 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                 </div>
             </button>
 
-            {/* --- SECONDARY BUTTON: ROLLING TEXT + BORDER INDENT --- */}
-            <button className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-700 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
+<button onClick={() => {
+                            document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
+                        }} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-400 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
 
-                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                            {/* Fast 3D text track wrapper */}
+                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
 
-                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                        View program
-                    </span>
+                                {/* Default State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                      View program
+                                </span>
 
-                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
-                        View program
-                    </span>
+                                {/* Hover State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
+                                      View program
+                                </span>
 
-                </div>
-            </button>
+                            </div>
+                        </button>
 
         </div>
 
@@ -291,7 +295,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 </header>
 
             {/* ── SECTION 2: Perfect for Every Scraping & Animations ─────────── */}
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden">
+            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-32">
 
                     {/* Row 1: Easy Client Management */}
@@ -332,10 +336,10 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
 
             {/* ── SECTION 6: CORE FEATURES ─────────────────────────────────── */}
-            <section className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white">
+            <section id="pricing" className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white font-['Urbanist']">
                 {/* ── HEADER ─────────────────────────────────────────────── */}
                 <div className="text-center mb-20">
-                    <span className="text-[#FE4A01] text-xs font-bold tracking-wider block mb-3">
+                    <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
                         Our Process
                     </span>
                     <h2 className="text-3xl sm:text-[40px] font-regular tracking-tight mb-4 text-white">
@@ -465,11 +469,11 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                         </thead>
 
                         {/* Table Body */}
-                        <tbody className="divide-y divide-stone-900">
+                        <tbody className="divide-y divide-stone-900 font-['Urbanist']">
 
                             {/* Row 1: First Purchase Commission */}
                             <tr>
-                                <td className="p-6 font-medium text-stone-400 bg-black/10">First Purchase Commission</td>
+                                <td className="p-6 font-bold text-stone-400 bg-black/10">First Purchase Commission</td>
                                 <td className="p-6 text-white font-medium">15%</td>
                                 <td className="p-6 text-white font-medium">20%</td>
                                 <td className="p-6 text-white font-medium">25%</td>
@@ -508,8 +512,8 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
 
 
-            <section className="bg-[#0a0a0a] text-white py-20 px-4 md:px-8 font-sans overflow-hidden">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
+            <section className="bg-[#0a0a0a] text-white py-20 px-4 md:px-8 font-sans overflow-hidden font-['Urbanist']">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start font-['Urbanist']">
 
                     {/* --- LEFT COLUMN: HEADLINE & CALL TO ACTION --- */}
                     {/* 👉 FIXED: Changed `sticky` to `lg:sticky` and `h-full` to `lg:h-full` */}
@@ -517,17 +521,17 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                         <span className="text-[#FF4F00] text-[16px] font-regular tracking-wider mb-3">
                             How it works
                         </span>
-                        <h2 className="text-3xl md:text-4xl lg:text-[42px] font-medium tracking-tight leading-[1.15] text-white max-w-md">
+                        <h2 className="text-3xl md:text-4xl lg:text-[42px] font-medium tracking-tight leading-[1.15] text-white max-w-md font-['Urbanist']">
                             Start earning in 3 simple steps. no experience Needed
                         </h2>
-                        <p className="text-zinc-500 text-[18px] md:text-base mt-4 max-w-md font-regular leading-relaxed">
+                        <p className="text-zinc-500 text-[18px] md:text-base mt-4 max-w-md font-regular leading-relaxed font-['Urbanist']">
                             From signup to payouts, we made the process effortless so you can focus on what matters, promoting and profiting
                         </p>
                                                         {/* Action Button at the bottom */}
                         <div className="flex flex-col sm:flex-row items-left justify-left gap-4 mb-2 mt-8">
 
                         {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative w-[260px] h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+                        <button onClick={() => router.push('https://affiliate.torchlabs.xyz/register ')} className=" cursor-pointer group relative w-[260px] h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
 
                             {/* Fast 3D text track wrapper */}
                             <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
@@ -568,11 +572,16 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                                 <div key={step.id} className="flex gap-6 sm:gap-8 items-start group">
 
                                     {/* Number Orb */}
-                                    <div className="relative z-10 flex items-center justify-center min-w-[52px] h-[52px] rounded-full bg-[#050505] border border-zinc-900 shadow-[0_0_15px_rgba(255,255,255,0.02)] transition duration-300 group-hover:border-zinc-800">
-                                        <span className="text-white text-[24px] font-semibold tracking-wide font-mono">
-                                            {step.id}
-                                        </span>
-                                    </div>
+                                    <div className="relative z-10 flex items-center justify-center min-w-[56px] h-[56px] rounded-full bg-[#16161a] border border-[#18181B0F] shadow-inner transition duration-300 group-hover:border-zinc-700 font-['Urbanist']">
+ <span 
+  className="text-white text-[24px] font-thin tracking-tight font-['Urbanist']"
+  style={{
+    textShadow: '-1.5px 0px 0px rgba(0, 229, 255, 0.8), 1.5px 0px 0px rgba(255, 152, 0, 0.8)'
+  }}
+>
+  {parseInt(step.id, 10)}
+</span>
+</div>
 
                                     {/* Text Block Content */}
                                     <div className="pt-2">
@@ -595,10 +604,10 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
 
             {/* ── SECTION 6: CORE FEATURES ─────────────────────────────────── */}
-            <section className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white">
+            <section className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white font-['Urbanist']">
                 {/* ── HEADER ─────────────────────────────────────────────── */}
                 <div className="text-center mb-20">
-                    <span className="text-[#FE4A01] text-xs font-bold tracking-wider block mb-3">
+                    <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3 font-['Urbanist']">
                         Why us
                     </span>
                     <h2 className="text-3xl sm:text-[40px] font-regular tracking-tight mb-4 text-white">
@@ -610,90 +619,98 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                 </div>
 
                 {/* --- START OF PROGRAM COMPARISON TABLE SECTION --- */}
-                <div className="mt-16 w-full overflow-x-auto rounded-3xl border border-stone-800 bg-[#0a0a0a]/30 backdrop-blur-sm">
-                    <table className="w-full min-w-[768px] border-collapse text-left text-sm text-stone-300">
+<div className="mt-16 w-full overflow-x-auto rounded-3xl border border-zinc-900 bg-[#050505]">
+    <table className="w-full min-w-[900px] border-collapse text-left text-sm table-fixed">
+        
+        {/* Defining exact column width distributions */}
+        <colgroup>
+            <col className="w-[25%]" />
+            <col className="w-[25%]" />
+            <col className="w-[25%]" />
+            <col className="w-[25%]" />
+        </colgroup>
 
-                        {/* Table Header */}
-                        <thead>
-                            <tr className="border-b border-stone-800 bg-black/40">
-                                {/* Empty top-left cell */}
-                                <th className="p-6 w-[34%]"></th>
+        {/* ── Table Header ──────────────────────────────────────────────── */}
+        <thead>
+            <tr className="border-b border-zinc-900">
+                {/* 🛠️ Added border-r to separate columns vertically */}
+                <th className="p-6 border-r border-zinc-900"></th>
 
-                                {/* Typical Programs Column */}
-                                <th className="p-6 w-[33%] font-normal">
-                                    <div className="flex flex-col gap-1">
-                                        <span className="text-lg font-medium text-white tracking-tight">Typical Programs</span>
-                                        <span className="text-xs text-stone-500">Average commission rates</span>
-                                    </div>
-                                </th>
+                <th className="p-6 font-normal border-r border-zinc-900">
+                    <div className="flex flex-col gap-1">
+                        <span className="text-base font-bold text-[#FF4F00] tracking-tight">Torch Proxies Affiliate</span>
+                        <span className="text-[13px] text-zinc-500 font-normal">Avarage commission rates</span>
+                    </div>
+                </th>
 
-                                {/* Torchlabs Affiliate Column */}
-                                <th className="p-6 w-[33%] font-normal">
-                                    <div className="flex flex-col gap-1">
-                                        {/* Brand Orange Accent Color */}
-                                        <span className="text-lg font-medium text-[#FE4A01] tracking-tight">Torchlabs Affiliate</span>
-                                        <span className="text-xs text-stone-500">High commission rates</span>
-                                    </div>
-                                </th>
-                            </tr>
-                        </thead>
+                <th className="p-6 font-normal border-r border-zinc-900">
+                    <div className="flex flex-col gap-1">
+                        <span className="text-base font-bold text-white tracking-tight">Typical Programs</span>
+                        <span className="text-[13px] text-zinc-500 font-normal">Avarage commission rates</span>
+                    </div>
+                </th>
 
-                        {/* Table Body */}
-                        <tbody className="divide-y divide-stone-900">
+                {/* Last column doesn't need a right border */}
+                <th className="p-6 font-normal align-middle">
+                    <span className="text-base font-bold text-white tracking-tight">Max first commission</span>
+                </th>
+            </tr>
+        </thead>
 
-                            {/* Row 1: Max first commission */}
-                            <tr>
-                                <td className="p-6 font-medium text-stone-400 bg-black/10">Max first commission</td>
-                                <td className="p-6 text-stone-400">10 - 20%</td>
-                                <td className="p-6 text-white font-medium">Up to 25%</td>
-                            </tr>
+        {/* ── Table Body Rows ───────────────────────────────────────────── */}
+        <tbody className="divide-y divide-zinc-900 text-zinc-200">
 
-                            {/* Row 2: Recurring Commission */}
-                            <tr>
-                                <td className="p-6 font-medium text-stone-400 bg-black/10">Recurring Commission</td>
-                                <td className="p-6 text-stone-400">5 - 10%</td>
-                                <td className="p-6 text-white font-medium">Up to 12%</td>
-                            </tr>
+            {/* Row 1 */}
+            <tr>
+                <td className="p-6 font-medium text-white border-r border-zinc-900">Up to 25%</td>
+                <td className="p-6 text-zinc-300 border-r border-zinc-900">10 - 20%</td>
+                <td className="p-6 text-zinc-300 border-r border-zinc-900">Recurring Commision</td>
+                <td className="p-6 text-zinc-300">Up to 12%</td>
+            </tr>
 
-                            {/* Row 3: Cookie Duration */}
-                            <tr>
-                                <td className="p-6 font-medium text-stone-400 bg-black/10">Cookie Duration</td>
-                                <td className="p-6 text-stone-400">30 days or less</td>
-                                <td className="p-6 text-white font-medium">60 days</td>
-                            </tr>
+            {/* Row 2 */}
+            <tr>
+                <td className="p-6 font-medium text-white border-r border-zinc-900">5 - 10%</td>
+                <td className="p-6 text-zinc-300 border-r border-zinc-900">Cookie Duration</td>
+                <td className="p-6 text-zinc-300 border-r border-zinc-900">60 days</td>
+                <td className="p-6 text-zinc-300">30 days or less</td>
+            </tr>
 
-                            {/* Row 4: Payouts */}
-                            <tr>
-                                <td className="p-6 font-medium text-stone-400 bg-black/10">Payouts</td>
-                                <td className="p-6 text-stone-400">35 - 50 days</td>
-                                <td className="p-6 text-white font-medium">Every 30 days</td>
-                            </tr>
+            {/* Row 3 */}
+            <tr>
+                <td className="p-6 font-medium text-white border-r border-zinc-900">Payouts</td>
+                <td className="p-6 text-zinc-300 border-r border-zinc-900">Every 30 days</td>
+                <td className="p-6 text-zinc-300 border-r border-zinc-900">35 - 50 days</td>
+                <td className="p-6 text-zinc-300">Bonus incentives</td>
+            </tr>
 
-                            {/* Row 5: Bonus incentives */}
-                            <tr>
-                                <td className="p-6 font-medium text-stone-400 bg-black/10">Bonus incentives</td>
-                                <td className="p-6 text-stone-400">Rare or none</td>
-                                <td className="p-6 text-white font-medium">Top 3 monthly</td>
-                            </tr>
+            {/* Row 4 */}
+            <tr>
+                <td className="p-6 font-medium text-white border-r border-zinc-900">Top 3 monthly</td>
+                <td className="p-6 text-zinc-300 border-r border-zinc-900">Rare or none</td>
+                <td className="p-6 text-zinc-300 border-r border-zinc-900">Marketing Assets</td>
+                <td className="p-6 text-zinc-300">Monthly packs</td>
+            </tr>
 
-                            {/* Row 6: Marketing Assets */}
-                            <tr>
-                                <td className="p-6 font-medium text-stone-400 bg-black/10">Marketing Assets</td>
-                                <td className="p-6 text-stone-400">Often unavailable</td>
-                                <td className="p-6 text-white font-medium">Monthly packs</td>
-                            </tr>
+            {/* Row 5 */}
+            <tr className="last:border-b-0">
+                <td className="p-6 font-medium text-white border-r border-zinc-900">Often unavailable</td>
+                <td className="p-6 border-r border-zinc-900"></td>
+                <td className="p-6 border-r border-zinc-900"></td>
+                <td className="p-6"></td>
+            </tr>
 
-                        </tbody>
-                    </table>
-                </div>
+        </tbody>
+    </table>
+</div>
             </section>
 
 
             {/* ── SECTION 6: CORE FEATURES ─────────────────────────────────── */}
-            <section className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white">
+            <section className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white font-['Urbanist']">
                 {/* ── HEADER ─────────────────────────────────────────────── */}
                 <div className="text-center mb-20">
-                    <span className="text-[#FE4A01] text-xs font-bold tracking-wider block mb-3">
+                    <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
                         Features
                     </span>
                     <h2 className="text-3xl sm:text-[40px] font-regular tracking-tight mb-4 text-white">
@@ -705,35 +722,39 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                 </div>
 
                 {/* ── FEATURES GRID ──────────────────────────────────────── */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16 max-w-6xl mx-auto">
-                    {features.map((feat, i) => (
-                        <div key={i} className="flex items-start gap-4 group">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16 max-w-6xl mx-auto">
+    {features.map((feat, i) => (
+        <div key={i} className="flex items-start gap-4 group">
 
-                            {/* Round Solid Orange Icon Badge */}
-                            <div className="w-11 h-11 rounded-full bg-[#FE4A01] flex items-center justify-center shrink-0 shadow-[0_4px_14px_rgba(254,74,1,0.2)] transition-transform duration-200 group-hover:scale-105">
-                                {feat.icon}
-                            </div>
+ {/* Round Solid Orange Icon Badge */}
+<div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-105">
+    <img 
+        src={feat.icon} 
+        alt="" 
+        className="w-12 h-12 object-contain" 
+    />
+</div>
 
-                            {/* Text Information Elements */}
-                            <div className="space-y-1.5">
-                                <h4 className="text-lg font-regular text-white tracking-tight">
-                                    {feat.title}
-                                </h4>
-                                <p className="text-stone-400 text-[13px] sm:text-sm leading-relaxed font-normal">
-                                    {feat.desc}
-                                </p>
-                            </div>
+            {/* Text Information Elements */}
+            <div className="space-y-1.5">
+                <h4 className="text-lg font-regular text-white tracking-tight">
+                    {feat.title}
+                </h4>
+                <p className="text-stone-400 text-[13px] sm:text-sm leading-relaxed font-normal">
+                    {feat.desc}
+                </p>
+            </div>
 
-                        </div>
-                    ))}
-                </div>
+        </div>
+    ))}
+</div>
             </section>
 
 
 
             {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
             {/* Upgrade CTA Banner */}
-            <section className="py-16 px-6">
+            <section className="py-16 px-6 font-['Urbanist']">
                 <div className="max-w-6xl mx-auto">
                     <div
                         className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden"
@@ -756,7 +777,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
 
                         {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#ffffff] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:scale-[1.02] active:scale-[0.99]">
+                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className=" cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#ffffff] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:scale-[1.02] active:scale-[0.99]">
 
                             {/* Fast 3D text track wrapper */}
                             <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
@@ -784,7 +805,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </section>
 
             {/* ── SECTION 10: TESTIMONIALS ─────────────────────────────────── */}
-<section className="py-24 bg-stone-950/20 border-t border-stone-900 overflow-hidden">
+<section className="py-24 bg-stone-950/20 border-t border-stone-900 overflow-hidden font-['Urbanist']">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Section Header Text Nodes */}
@@ -904,7 +925,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             {/* FAQ SECTION */}
-            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden">
+            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
 
                 {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
                 <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">

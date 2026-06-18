@@ -176,11 +176,11 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
     }
   ];
     return (
-        <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
+        <div className="bg-[#0a0a0a] text-white antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden font-['Urbanist']">
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-            <header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 overflow-hidden">
-  <div className="absolute inset-x-0 bottom-40 h-[600px] z-0 pointer-events-none select-none">
+            <header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 overflow-hidden font-['Urbanist']">
+  <div className="absolute inset-x-0 bottom-40 h-[400px] z-0 pointer-events-none select-none">
      <Image
          src="/images/hero_back.png"
          alt=""
@@ -199,75 +199,17 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                         />
                     </div>
 
-                    <h1 className="text-[60px] sm:text-6xl lg:text-7xl font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
-                        Best Premium Residential   <br />
-                        <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">Proxy. Access 100M+ Global IPs</span>
+                    <h1 className="text-[60px] sm:text-[60px] lg:text-[60px] font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b text-white bg-clip-text text-transparent font-['Urbanist']">
+                        Documentation & Support  <br />
                     </h1>
 
                     <p className="max-w-2xl mx-auto text-stone-400 text-base text-[18px] mb-10 leading-relaxed">
-                        Experience faster speeds and enhanced performance. Premium Residential Proxies is built for those who need a little extra power to stay productive and efficient.
+                        Get started fast with step-by-step docs, API guides, and 24/7 support via email or Discord. Everything you need to make Torch Proxies work for you.
                     </p>
-
-                    <div className="mt-[-50px] py-10 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-400 text-[16px] font-regular">
-                        <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Pricing starts from $3.4/GB</div>
-                        <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> For demanding users & businesses</div>
-                        <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> 24 hour refund policy</div>
-                    </div>
-
-                                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
-
-                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                        <button className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
-
-                            {/* Fast 3D text track wrapper */}
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-
-                                {/* Default State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                    Start free with 1 GB
-                                </span>
-
-                                {/* Hover State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
-                                   Start free with 1 GB
-                                </span>
-
-                            </div>
-                        </button>
-
-                        {/* --- SECONDARY BUTTON: ROLLING TEXT + BORDER INDENT --- */}
-                        <button className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-700 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
-
-                            {/* Fast 3D text track wrapper */}
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-
-                                {/* Default State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                    View Pricing
-                                </span>
-
-                                {/* Hover State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
-                                    View Pricing
-                                </span>
-
-                            </div>
-                        </button>
-
-                    </div>
-
-                    <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide py-6">
-                        <CreditCard className="w-4 h-4 text-stone-500" />
-                        <span>No credit card needed. Instant access</span>
-                    </div>
-
-                    <div className="relative z-10 -mt-40 w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-                        <Marquee />
-                    </div>
                 </div>
             </header>
 
-<section className="py-16 px-6 bg-[#0a0a0a]">
+<section className="py-16 px-6 bg-[#0a0a0a] font-['Urbanist']">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {resources.map((resource, index) => (
@@ -286,22 +228,24 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
 
             {/* ── SECTION 10: TESTIMONIALS ─────────────────────────────────── */}
-<section className="py-24 bg-stone-950/20 border-t border-stone-900 overflow-hidden">
+<section className="py-24 bg-stone-950/20 border-t border-stone-900 overflow-hidden font-['Urbanist']">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Section Header Text Nodes */}
-        <div className="text-center mb-16">
-          <h2 className="text-[42px] sm:text-5xl font-medium mb-4 tracking-tight text-white">
-            Customer Reviews
+        <div className="text-center font-['Urbanist']">
+                        <span className="text-[#FE4A01] text-[16px] font-regular tracking-widest block font-['Urbanist']">
+                            Testimonials
+                        </span>
+                    </div>
+        <div className="text-center mb-16 font-['Urbanist']">
+          <h2 className="text-[42px] sm:text-[42px] font-regular mb-4 tracking-tight leading-[42px] text-white">
+            Customers prefer Torch Proxies <br/>over other proxy brands
           </h2>
-          <p className="text-stone-400">
-            See how developer engineering nodes rate our overall connectivity network performance.
-          </p>
         </div>
 
         {/* Outer Infinite Slider Container Track */}
-        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,transparent_0%,black_10%,black_90%,transparent_100%)]">
-          <div className="flex gap-6 animate-marquee whitespace-normal">
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,transparent_0%,black_10%,black_90%,transparent_100%)] font-['Urbanist']">
+          <div className="flex gap-6 animate-marquee whitespace-normal font-['Urbanist']">
             
             {/* Render 1st Array Instance */}
             {reviews.map((review, i) => (
@@ -406,10 +350,10 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             {/* FAQ SECTION */}
-            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden">
+            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
 
                 {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
-                <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
+                <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none font-['Urbanist']">
                     <Image
                         src="/images/contact-bg.png" /* Using the same glow asset path */
                         alt=""
@@ -422,17 +366,17 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                 {/* ── Content Wrapper (Added 'relative z-10' so it sits above the background glow) ── */}
                 <div className="max-w-4xl mx-auto relative z-10">
                     {/* Header */}
-                    <div className="text-center mb-16">
-                        <span className="text-[#FE4A01] text-xs font-medium tracking-widest block mb-3">
+                    <div className="text-center mb-16 font-['Urbanist']">
+                        <span className="text-[#FE4A01] text-[16px] font-regular tracking-widest block mb-3 font-['Urbanist']">
                             FAQ
                         </span>
-                        <h2 className="text-4xl sm:text-5xl font_regular tracking-tight text-white">
+                        <h2 className="text-4xl sm:text-5xl font_regular tracking-tight text-white font-['Urbanist']">
                             Frequently asked questions
                         </h2>
                     </div>
 
                     {/* FAQ Items */}
-                    <div className="space-y-px">
+                    <div className="space-y-px font-['Urbanist']">
                         {faqData.map((faq, index) => {
                             const isOpen = activeFaq === index;
                             return (

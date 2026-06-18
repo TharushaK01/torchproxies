@@ -307,9 +307,9 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
         </div>
 
         <h1 className="text-[60px] sm:text-6xl lg:text-7xl font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
-            B2B reseller solutionsB2B <br />
+            B2B reseller solutions <br />
             <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">
-                reseller solutions
+                
             </span>
         </h1>
 

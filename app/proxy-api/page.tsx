@@ -298,21 +298,27 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                 </div>
             </button>
 
-            {/* --- SECONDARY BUTTON: ROLLING TEXT + BORDER INDENT --- */}
-            <button className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-700 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
 
-                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
 
-                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                        View API docs
-                    </span>
+                        {/* --- SECONDARY BUTTON: ROLLING TEXT + BORDER INDENT --- */}
+                        <button onClick={() => router.push('https://api.playground.torchproxies.com/introduction/')}
+                         className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-400 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
 
-                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
-                        View API docs
-                    </span>
+                            {/* Fast 3D text track wrapper */}
+                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
 
-                </div>
-            </button>
+                                {/* Default State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                    View API docs
+                                </span>
+
+                                {/* Hover State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
+                                    View API docs
+                                </span>
+
+                            </div>
+                        </button>
 
         </div>
 
@@ -456,7 +462,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             <section className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white font-['Urbanist']">
                 {/* ── HEADER ─────────────────────────────────────────────── */}
                 <div className="text-center mb-20">
-                    <span className="text-[#FE4A01] text-xs font-bold tracking-wider block mb-3">
+                    <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
                         Features
                     </span>
                     <h2 className="text-3xl sm:text-[40px] font-regular tracking-tight mb-4 text-white">
