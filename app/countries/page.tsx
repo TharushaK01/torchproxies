@@ -191,50 +191,61 @@ export default function TorchProxiesLandingPage() {
     <div className="bg-[#0a0a0a] text-white font-urbanist antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden font-['Urbanist']">
 
         {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-        <header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-4 overflow-hidden">
-<div className="absolute bottom-0 left-0 right-0 h-[60vh] z-0">
+<header className="relative z-20 min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-28 pb-12 overflow-visible font-['Urbanist']">
 
-    <Image
-        src="/images/hero_back.png"
-        alt=""
-        fill
-        priority
-        className="object-cover object-bottom"
-    />
+    <div className="absolute bottom-0 left-0 w-full h-[65vh] z-0">
 
-    {/* Marquee at bottom of image */}
-    <div className="absolute bottom-0 left-0 w-full z-10">
-        <Marquee />
+        <Image
+            src="/images/hero_back.png"
+            alt=""
+            fill
+            priority
+            className="object-cover object-bottom"
+        />
+
+        {/* Marquee at bottom of image */}
+        <div className="absolute -bottom-12 left-0 w-full z-[999]">
+            <Marquee />
+        </div>
+
     </div>
 
-</div>
-            <div className="max-w-6xl mx-auto text-center z-10">
-                <div className="flex items-center justify-center mb-6">
-                    <img
-                        src="/images/TrustPiolet.png"
-                        alt="Excellent 5-star rating on Trustpilot"
-                        className="h-6 w-auto object-contain"
-                        loading="lazy"
-                    />
-                </div>
+    <div className="max-w-6xl mx-auto text-center z-10">
+        <div className="flex items-center justify-center mb-6">
+            <img
+                src="/images/TrustPiolet.png"
+                alt="Excellent 5-star rating on Trustpilot"
+                className="h-6 w-auto object-contain"
+                loading="lazy"
+            />
+        </div>
 
-                <h1 className="text-[60px] sm:text-6xl lg:text-7xl font-normal tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
-                    Available in 190+ countries <br />
-                    <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">worldwide </span>
-                </h1>
+        <h1 className="text-[60px] sm:text-6xl lg:text-7xl font-normal tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
+            Available in 190+ countries <br />
+            <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">
+                worldwide
+            </span>
+        </h1>
 
-                <p className="max-w-3xl mx-auto text-stone-400 text-[18px] sm:text-xl mb-10 leading-relaxed">
-                    Power your online activities with fast, secure and reliable proxies that work seamlessly across regions worldwide, keeping you connected no matter where you are.
-                </p>
+        <p className="max-w-3xl mx-auto text-stone-400 text-[18px] sm:text-xl mb-10 leading-relaxed">
+            Power your online activities with fast, secure and reliable proxies that work seamlessly across regions worldwide, keeping you connected no matter where you are.
+        </p>
 
-                <div className="mt-[-50px] py-10 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 font-medium">
-                    <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Pay as you go pricing</div>
-                    <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Money back guarantee</div>
-                    <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Dedicated Support</div>
-                </div>
-
+        <div className="py-4 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 font-medium">
+            <div className="flex items-center justify-center gap-2">
+                <Check className="text-orange-500 w-4 h-4" /> Pay as you go pricing
             </div>
-        </header>
+            <div className="flex items-center justify-center gap-2">
+                <Check className="text-orange-500 w-4 h-4" /> Money back guarantee
+            </div>
+            <div className="flex items-center justify-center gap-2">
+                <Check className="text-orange-500 w-4 h-4" /> Dedicated Support
+            </div>
+        </div>
+
+    </div>
+
+</header>
 
         {/* ── SECTION 2: TOP LOCATIONS (Uses topLocationsTab) ────────────────── */}
 <section className="py-24 px-6 bg-[#0a0a0a] text-white relative overflow-hidden">
