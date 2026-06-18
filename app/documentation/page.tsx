@@ -154,25 +154,25 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
       title: "Dashboard Documentation",
       description: "Set up your account, manage proxies, and use the dashboard with clear step-by-step guides for a smooth experience.",
       buttonText: "View guides",
-      href: "/docs/dashboard"
+      href: "https://api.playground.torchproxies.com/introduction/"
     },
     {
       title: "API Documentation",
       description: "Quickly integrate proxies with simple API examples, detailed references and developer friendly instructions.",
       buttonText: "View guides",
-      href: "/docs/api"
+      href: "https://docs.proxiesapi.xyz/"
     },
     {
       title: "Email Us",
       description: "Have questions or issues? Email our support team and get quick, helpful responses to keep everything working smoothly.",
       buttonText: "View guides",
-      href: "mailto:support@torchproxies.com"
+      href: "mailto:help@torchlabs.xyz"
     },
     {
       title: "Discord Support",
       description: "Have questions or issues? Email our support team and get quick, helpful responses to keep everything working smoothly.",
       buttonText: "View guides",
-      href: "https://discord.gg/torchproxies"
+      href: "https://discord.com/invite/JSxDs3fDgV"
     }
   ];
     return (
