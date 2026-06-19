@@ -229,7 +229,8 @@ export default function HeroSection() {
             text-stone-400
           "
         >
-          Residential & isp proxies for Shopify, sneaker, ticket sites with city<br />
+          
+Residential & isp proxies for Shopify, sneaker, ticket sites with city<br />
           targeting, asn diversity, auto retry, real 10 gbps lines.
         </m.p>
       </m.div>
@@ -256,7 +257,7 @@ export default function HeroSection() {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="3"
-                className="text-orange-500 shrink-0"
+                className="text-[#07CC99] shrink-0"
               >
                 <path
                   d="M5 13l4 4L19 7"

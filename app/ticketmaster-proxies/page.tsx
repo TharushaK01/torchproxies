@@ -497,7 +497,7 @@ export default function TorchProxiesLandingPage() {
             </section>
 
 
-            <section className="bg-[#0a0a0a] text-white py-24 px-4 md:px-8 font-['Urbanist']">
+            <section className="bg-[#0a0a0a] text-white pb-[80px] sm:pb-[80px] mx-[120px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto">
 
                     {/* --- HEADER SECTION --- */}
@@ -548,7 +548,7 @@ export default function TorchProxiesLandingPage() {
 
 
 
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
+            <section className="bg-[#0a0a0a] text-white overflow-hidden pb-[80px] sm:pb-[80px] mx-[120px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-32">
 
                     {/* Row 1: Easy Client Management */}
@@ -599,7 +599,7 @@ export default function TorchProxiesLandingPage() {
 
 
             {/* ── TOP HEADER SECTION ───────────────────────────────────── */}
-            <div className="text-center mb-16 font-['Urbanist']">
+            <div className="text-center pb-[80px] sm:pb-[80px] mx-[120px] font-['Urbanist']">
                 <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white mb-4">
                     One Proxy Built for High on Demand Sales
                 </h2>
@@ -607,7 +607,7 @@ export default function TorchProxiesLandingPage() {
                     A single clean ISP IP can outperform 20 low quality residential IPs.
                 </p>
             </div>
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
+            <section className="bg-[#0a0a0a] text-white overflow-hidden pb-[80px] sm:pb-[80px] mx-[120px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-32">
 
                     {/* Row 1: Easy Client Management */}
@@ -649,7 +649,7 @@ export default function TorchProxiesLandingPage() {
             </section>
 
 
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
+            <section className="bg-[#0a0a0a] text-white overflow-hidden pb-[80px] sm:pb-[80px] mx-[120px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-32">
 
                     {/* Row 1: Easy Client Management */}
@@ -691,7 +691,7 @@ export default function TorchProxiesLandingPage() {
             </section>
 
 
-<section id="pricing-section" className="bg-[#0a0a0a] text-white py-24 px-4 md:px-8 font-sans -mt-[100px] flex flex-col items-center justify-center min-h-screen font-['Urbanist']">
+<section id="pricing-section" className="bg-[#0a0a0a] text-white pb-[80px] sm:pb-[80px] mx-[120px] flex flex-col items-center justify-center min-h-screen font-['Urbanist']">
     <div className="w-full max-w-7xl mx-auto">
 
                     {/* --- HEADER --- */}
@@ -876,7 +876,7 @@ export default function TorchProxiesLandingPage() {
             </section>
 
 
-            <section className="bg-[#0A0A0A] text-white py-24 px-4 md:px-8 font-sans overflow-hidden font-['Urbanist']">
+            <section className="bg-[#0A0A0A] text-white pb-[80px] sm:pb-[80px] mx-[120px] overflow-hidden font-['Urbanist']">
                 <div className="max-w-[1200px] mx-auto">
 
                     {/* --- HEADER --- */}
@@ -975,7 +975,7 @@ export default function TorchProxiesLandingPage() {
 
 
             {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
-<section className="py-16 px-6 font-['Urbanist']">
+<section className="pb-[80px] sm:pb-[80px] mx-[120px] font-['Urbanist']">
     <div className="max-w-6xl mx-auto">
         <div
             className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden"
@@ -1053,7 +1053,7 @@ export default function TorchProxiesLandingPage() {
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             {/* FAQ SECTION */}
-            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
+            <section className="pb-[80px] sm:pb-[80px] mx-[120px] bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
 
                 {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
                 <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">

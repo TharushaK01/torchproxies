@@ -61,7 +61,7 @@ const FeaturesGrid = () => {
                     </span>
 
                     <h2 className="text-4xl md:text-5xl font-regular mb-6">
-                        Why choose Torchlabs?
+                        Why Choose Torchlabs?
                     </h2>
                     </div>
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">

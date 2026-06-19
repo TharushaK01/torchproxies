@@ -367,7 +367,7 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
             </section>
 
             {/* ── SECTION 3: INDUSTRY LEADER INFORMATION ─────────────────────── */}
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
+            <section className="bg-[#0a0a0a] text-white pb-24 sm:pb-28 mx-[120px] overflow-hidden  font-['Urbanist']">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div className="relative group">
@@ -396,7 +396,7 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
             </section>
 
             {/* ── SECTION 4: BENEFITS BLOCK ─────────────────────────────────── */}
-            <section className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white -mt-[100px] font-['Urbanist']">
+            <section className=" max-w-7xl mx-auto pb-24 sm:pb-28 mx-[120px] bg-[#0a0a0a] text-white  font-['Urbanist']">
                 <div className="text-center mb-20">
                     <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">Features</span>
                     <h2 className="text-[42px] sm:text-[40px] font-medium tracking-tight mb-4 text-white">
@@ -427,7 +427,7 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
             </section>
 
             {/* ── SECTION 5: CALL TO ACTION BANNER ──────────────────────────── */}
-            <section className="bg-[#0a0a0a] py-20 px-6 mt-[-100px] relative overflow-hidden font-['Urbanist']">
+            <section className="bg-[#0a0a0a] pb-24 sm:pb-28 mx-[120px] relative overflow-hidden font-['Urbanist']">
                 <div className="max-w-7xl mx-auto">
                     <div className="relative overflow-hidden bg-[#0a0a0a] rounded-[40px] px-8 py-8 text-center">
                         <div className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden" style={{ background: 'linear-gradient(135deg, #ff3c006c 0%, #0a0a0a 30%, #0a0a0a 80%, #ff3c006c 100%)' }}>
@@ -466,7 +466,7 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
             </section>
 
             {/* ── SECTION 6: SEO OVERVIEW TEXT BLOCK ────────────────────────── */}
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
+            <section className="bg-[#0a0a0a] text-white pb-24 sm:pb-28 mx-[120px] overflow-hidden font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-12">
                     <h2 className="text-[42px] sm:text-5xl font-regular tracking-tight text-white">
                         Experience the Advantage of TorchLabs <br />{countryName} Residential Proxies
@@ -484,7 +484,7 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
             </section>
 
             {/* ── SECTION 7: FAQ ACCORDION ────────────────────────── */}
-            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden -mt-[100px] font-['Urbanist']">
+            <section className="pb-24 sm:pb-28 mx-[120px] bg-[#0a0a0a] relative overflow-hidden  font-['Urbanist']">
                 <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
                     <Image src="/images/contact-bg.png" alt="" fill priority className="object-cover object-bottom opacity-100" />
                 </div>

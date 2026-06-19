@@ -461,7 +461,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             <section className="relative bg-[#0a0a0a] text-white pt-[80px] sm:pt-[80px] mx-[120px] overflow-hidden space-y-6 font-['Urbanist']">
                 {/* Background Map Overlay */}
                 <div
-                    className="absolute inset-0 opacity-40 bg-center bg-no-repeat bg-contain pointer-events-none"
+                    className="pt-[80px] sm:pt-[80px] absolute inset-0 opacity-40 bg-center bg-no-repeat bg-contain pointer-events-none"
                     style={{
                         backgroundImage: "url('/images/world-map.png')",
                     }}
@@ -714,7 +714,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </main>
 
             {/* ── SECTION 10: TESTIMONIALS ─────────────────────────────────── */}
-<section className="pt-[80px] sm:pt-[80px] mx-[120px] bg-stone-950/20 border-t border-stone-900 overflow-hidden font-['Urbanist']">
+<section className="pt-[80px] sm:pt-[80px] mx-[120px] bg-stone-950/20 overflow-hidden font-['Urbanist']">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Section Header Text Nodes */}

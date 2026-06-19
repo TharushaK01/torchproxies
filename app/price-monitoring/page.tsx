@@ -458,9 +458,9 @@ const renderCellContent = (value: string | boolean, isHighlighted = false) => {
 
 
     return (
-        <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden font-['Urbanist']">
+        <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden font-['Urbanist'] ">
 
-            <section className="relative bg-[#0a0a0a] text-white min-h-[650px] flex items-center py-20 px-4 md:px-8 overflow-hidden font-sans mt-[100px] font-['Urbanist']">
+            <section className="relative bg-[#0a0a0a] text-white min-h-[650px] flex items-center pb-24 sm:pb-28 mx-[120px] overflow-hidden font-sans mt-[100px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
                     {/* --- LEFT COLUMN: CONTENT & CALL TO ACTION --- */}
@@ -589,7 +589,7 @@ const renderCellContent = (value: string | boolean, isHighlighted = false) => {
             </section>
 
 
-            <section className="bg-[#0a0a0a] text-white py-24 px-4 md:px-8 font-sans font-['Urbanist']">
+            <section className="bg-[#0a0a0a] text-white pb-24 sm:pb-28 mx-[120px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto">
 
                     {/* --- HEADER SECTION --- */}
@@ -640,7 +640,7 @@ const renderCellContent = (value: string | boolean, isHighlighted = false) => {
 
 
 
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
+            <section className="bg-[#0a0a0a] text-white pb-24 sm:pb-28 mx-[120px] overflow-hidden font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-32">
 
                     {/* Row 1: Easy Client Management */}
@@ -685,7 +685,7 @@ const renderCellContent = (value: string | boolean, isHighlighted = false) => {
 
 
             {/* ── TOP HEADER SECTION ───────────────────────────────────── */}
-            <div className="text-center mb-16 font-['Urbanist']">
+            <div className="text-center pb-24 sm:pb-28 mx-[120px] font-['Urbanist']">
                 <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white mb-4">
                     Our Price Monitoring Solutions
                 </h2>
@@ -693,7 +693,7 @@ const renderCellContent = (value: string | boolean, isHighlighted = false) => {
                     We offer two proxy solutions optimized for different price monitoring needs and data accuracy requirements.Choose based on your product volume, budget and tolerance for missing or delayed price updates.
                 </p>
             </div>
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
+            <section className="bg-[#0a0a0a] text-white pb-24 sm:pb-28 mx-[120px] overflow-hidden font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-32">
 
                     {/* Row 1: Easy Client Management */}
@@ -733,7 +733,7 @@ const renderCellContent = (value: string | boolean, isHighlighted = false) => {
             </section>
 
 
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
+            <section className="bg-[#0a0a0a] text-white pb-24 sm:pb-28 mx-[120px] overflow-hidden font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-32">
 
                     {/* Row 1: Easy Client Management */}
@@ -771,7 +771,7 @@ const renderCellContent = (value: string | boolean, isHighlighted = false) => {
             </section>
 
 
-            <section  id="pricing-section" className="bg-[#0a0a0a] text-white py-24 px-4 md:px-8 font-['Urbanist']">
+            <section  id="pricing-section" className="bg-[#0a0a0a] text-white pb-24 sm:pb-28 mx-[120px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto">
 
                     {/* --- HEADER --- */}
@@ -878,7 +878,7 @@ const renderCellContent = (value: string | boolean, isHighlighted = false) => {
             </section>
 
 
-<section className="bg-[#0A0A0A] text-white py-24 px-4 md:px-8 font-sans overflow-hidden font-['Urbanist']">
+<section className="bg-[#0A0A0A] text-white pb-24 sm:pb-28 mx-[120px] font-sans overflow-hidden font-['Urbanist']">
     <div className="max-w-[1100px] mx-auto w-full">
 
         {/* --- HEADER --- */}
@@ -978,7 +978,7 @@ const renderCellContent = (value: string | boolean, isHighlighted = false) => {
 
             {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
             {/* Upgrade CTA Banner */}
-<section className="py-16 px-6 font-['Urbanist']">
+<section className="pb-24 sm:pb-28 mx-[120px] font-['Urbanist']">
                 <div className="max-w-6xl mx-auto">
                     <div
                         className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden"
@@ -1058,7 +1058,7 @@ const renderCellContent = (value: string | boolean, isHighlighted = false) => {
             </section>
 
             {/* ── SECTION 10: TESTIMONIALS ─────────────────────────────────── */}
-<section className="py-24 bg-stone-950/20 border-t border-stone-900 overflow-hidden font-['Urbanist']">
+<section className="pb-24 sm:pb-28 mx-[120px] bg-stone-950/20 overflow-hidden font-['Urbanist']">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Section Header Text Nodes */}
@@ -1178,7 +1178,7 @@ const renderCellContent = (value: string | boolean, isHighlighted = false) => {
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             {/* FAQ SECTION */}
-            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
+            <section className="pb-24 sm:pb-28 mx-[120px] bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
 
                 {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
                 <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">

@@ -32,39 +32,14 @@ const LocationsSection = () => {
                     </span>
 
                     <h2 className="text-4xl md:text-5xl font-regular mb-6">
-                        Available in 195+ countries
+                        Available in 195+ Countries
                     </h2>
 
                     <p className="text-gray-400 max-w-3xl mx-auto mb-16">
                         We provide you access to a global network of ethical sourced proxy nodes from around the world.
                     </p>
                     
-<button 
-  onClick={() => router.push('/countries')} 
-  className="
-    group relative overflow-hidden
-    bg-gradient-to-r from-orange-600 to-orange-500 
-    px-8 h-[56px] rounded-xl font-bold text-white 
-    shadow-lg shadow-orange-900/20 
-     transition-all duration-200 ease-out
-    cursor-pointer mb-12 w-60 h-50
-  "
->
-  {/* Snappy 3D text track wrapper */}
-  <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-    
-    {/* Default State Text (Visible Initially) */}
-    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-      View all locations
-    </span>
-    
-    {/* Hover State Text (Rolls in cleanly from below) */}
-    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/95">
-      View all locations
-    </span>
-    
-  </div>
-</button>
+
 
                     {/* Locations Grid */}
                     {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
@@ -89,7 +64,7 @@ const LocationsSection = () => {
                             </div>
                         ))}
                     </div> */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full">
+                    <div className="-mt-[20px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full">
   {locations.map((loc, index) => (
     <div
       key={`${loc.code}-${index}`}
@@ -98,7 +73,7 @@ const LocationsSection = () => {
       className="flex items-center gap-3.5 bg-[#0b0b0d]/30 border border-stone-900/60 rounded-[12px] p-4 hover:border-stone-800/80 hover:bg-[#0e0e12]/60 transition-all duration-200 group cursor-pointer"
     >
       {/* Flag Container */}
-      <div className="w-11 h-9 relative overflow-hidden rounded-[3px] flex-shrink-0 bg-stone-950 shadow-[0_1px_3px_rgba(0,0,0,0.5)] border border-stone-900/20">
+      <div className="w-14 h-9 relative overflow-hidden rounded-[3px] flex-shrink-0 bg-stone-950 shadow-[0_1px_3px_rgba(0,0,0,0.5)] border border-stone-900/20">
         <Flag 
           code={loc.code} 
           className="w-full h-full object-cover" 
@@ -118,6 +93,33 @@ const LocationsSection = () => {
     </div>
   ))}
 </div>
+
+<button 
+  onClick={() => router.push('/countries')} 
+  className="
+    group relative overflow-hidden
+    bg-gradient-to-r from-orange-600 to-orange-500 
+    px-8 h-[56px] rounded-xl font-bold text-white 
+    shadow-lg shadow-orange-900/20 
+     transition-all duration-200 ease-out
+    cursor-pointer mb-12 w-60 h-50 mt-[40px]
+  "
+>
+  {/* Snappy 3D text track wrapper */}
+  <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+    
+    {/* Default State Text (Visible Initially) */}
+    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+      View all locations
+    </span>
+    
+    {/* Hover State Text (Rolls in cleanly from below) */}
+    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/95">
+      View all locations
+    </span>
+    
+  </div>
+</button>
 
                 </div>
             </section>

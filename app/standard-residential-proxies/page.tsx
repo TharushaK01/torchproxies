@@ -804,7 +804,7 @@ export default function TorchProxiesLandingPage() {
 
                     {/* ── TOP HEADLINE SECTION ────────────────────────────────── */}
                     <div className="text-center mb-12">
-                        <h2 className="text-[42px] sm:text-[42px] font-medium tracking-tight text-white mb-2">
+                        <h2 className="text-[42px] sm:text-[42px] font-medium tracking-tight text-white mb-2 font-['Urbanist']">
                             Looking for more power?
                         </h2>
                         <p className="text-stone-400 text-[18px] font-regular">
@@ -816,7 +816,7 @@ export default function TorchProxiesLandingPage() {
                     <div className="flex border-b border-stone-900 w-full mb-16">
                         <button
                             onClick={() => setActiveTab('premium')}
-                            className={`flex-1 pb-4 px-8 text-sm font-medium transition-all relative ${activeTab === 'premium' ? 'text-[#FE4A01]' : 'text-stone-500 hover:text-stone-300'
+                            className={` font-['Urbanist'] flex-1 pb-4 px-8 text-sm font-medium transition-all relative ${activeTab === 'premium' ? 'text-[#FE4A01]' : 'text-stone-500 hover:text-stone-300'
                                 }`}
                         >
                             Premium Residential Proxies
@@ -843,10 +843,10 @@ export default function TorchProxiesLandingPage() {
                             {/* Left Info Column */}
                             <div className="lg:col-span-7 space-y-6">
                                 <div className="relative inline-block">
-                                    <h3 className="text-[40px] font-medium tracking-tight text-white leading-tight text-white">
+                                    <h3 className="text-[40px] font-medium tracking-tight text-white leading-tight text-white font-['Urbanist']">
                                         Premium Residential  <br />Proxies
                                     </h3>
-                                    <span className="absolute -top-3 -right-50 bg-[#FE4A01]/10 border border-[#FE4A01]/20 text-[#FE4A01] text-[14px] font-medium px-2.5 py-1 rounded-md">
+                                    <span className="absolute -top-3 -right-50 bg-[#FE4A01]/10 border border-[#FE4A01]/20 text-[#FE4A01] text-[14px] font-medium px-2.5 py-1 rounded-md font-['Urbanist']">
                                         From $4.5/GB
                                     </span>
                                 </div>
@@ -867,7 +867,7 @@ export default function TorchProxiesLandingPage() {
                                     <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-[403px] h-[46px] overflow-hidden bg-[#FF4F00] text-white text-[16px] font-medium rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
 
                                         {/* Fast 3D text track wrapper */}
-                                        <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                                        <div className="font-['Urbanist'] relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
 
                                             {/* Default State Text */}
                                             <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">

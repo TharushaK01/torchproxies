@@ -18,7 +18,7 @@ const PricingSection = () => {
       name: "Standard",
       desc: "Perfect for everyday online tasks.",
       price: "From $4/GB per month",
-      icon: "/images/Standard.svg",
+      icon: "/images/Premium.svg",
       features: [
         "Premium residential IPs",
         "Rotating and sticky sessions",
@@ -34,7 +34,7 @@ const PricingSection = () => {
       desc: "For demanding users and businesses.",
       price: "From $4.5/GB per month",
       highlight: "Best Value",
-      icon: "/images/Premium.svg",
+      icon: "/images/ISP.svg",
       featured: true,
       features: [
         "Premium residential IPs",
@@ -50,7 +50,7 @@ const PricingSection = () => {
       name: "Plan X",
       desc: "Perfect for top tier performance.",
       price: "From $5/GB per month",
-      icon: "/images/PlanX.svg",
+      icon: "/images/Standard.svg",
       features: [
         "Authentic residential proxies with dedicated ISP pools",
         "Rotating and sticky sessions",
@@ -67,10 +67,10 @@ const PricingSection = () => {
     <section className="bg-[#0a0a0a] text-white py-20 px-6 pt-[80px] sm:pt-[80px] space-y-6 font-['Urbanist'] mx-[120px]">
       <div className="flex flex-col items-center text-center w-full">
         <span className="text-orange-500 font-regular text-[16px] mb-4 tracking-widest flex items-center justify-center gap-2">
-          Our products
+          Our Products
         </span>
         <h2 className="text-[42px] md:text-5xl font-medium mb-6 max-w-4xl">
-          Choose your Residential & ISP Proxy Plan
+          Choose Your Residential & ISP Proxy Plan
         </h2>
       </div>
 
@@ -174,7 +174,7 @@ const PricingSection = () => {
               <div className="flex items-center gap-4">
                 <div className="w-15 h-15 rounded-xl flex items-center justify-center text-2xl shrink-0">
                   <img
-                    src="/images/ISP.svg"
+                    src="/images/PlanX.svg"
                     alt="ISP plan icon"
                     className="w-full h-full object-contain filter brightness-110"
                   />
@@ -184,7 +184,7 @@ const PricingSection = () => {
                   <p className="text-gray-400 text-sm">Static residential proxies with unlimited data.</p>
                 </div>
               </div>
-              <span className="bg-[#2a1200] text-orange-500 px-4 py-2 rounded-lg font-bold text-sm">From $2.3/IP</span>
+              <span className="bg-[#2a1200] text-orange-500 px-4 py-2 rounded-lg font-bold text-sm">From $2.3/GB per IP</span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 mb-8">
@@ -236,7 +236,7 @@ const PricingSection = () => {
         <div className="lg:col-span-2 bg-[#0a0a0a] border-2 border-gray-800 rounded-2xl p-8 flex flex-col justify-between">
           <div>
             <h2 className="text-5xl font-bold mb-4">Need a <br /> custom plan?</h2>
-            <p className="text-gray-400 mb-8">No worries, we'll build your Residential & ISP proxy plan today.</p>
+            <p className="text-gray-400 mb-8 text-[24px]">No worries, we'll build your Residential & ISP proxy plan today.</p>
             <div className="flex gap-3 text-sm text-gray-300 mb-8">
               <Check className="text-[#07CC99] w-4 h-4 shrink-0 mt-0.5" />
               For enterprise that needs additional data, security, control and more support

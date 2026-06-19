@@ -336,7 +336,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
 
             {/* ── SECTION 6: CORE FEATURES ─────────────────────────────────── */}
-            <section id="pricing" className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white font-['Urbanist']">
+            <section id="pricing" className="pb-[80px] sm:pb-[80px] mx-[120px] max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white font-['Urbanist']">
                 {/* ── HEADER ─────────────────────────────────────────────── */}
                 <div className="text-center mb-20">
                     <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
@@ -512,7 +512,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
 
 
-            <section className="bg-[#0a0a0a] text-white py-20 px-4 md:px-8 font-sans overflow-hidden font-['Urbanist']">
+            <section className="bg-[#0a0a0a] text-white pb-[80px] sm:pb-[80px] mx-[120px] overflow-hidden font-['Urbanist']">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start font-['Urbanist']">
 
                     {/* --- LEFT COLUMN: HEADLINE & CALL TO ACTION --- */}
@@ -604,7 +604,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
 
             {/* ── SECTION 6: CORE FEATURES ─────────────────────────────────── */}
-            <section className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white font-['Urbanist']">
+            <section className="pb-[80px] sm:pb-[80px] mx-[120px] max-w-7xl mx-auto  bg-[#0a0a0a] text-white font-['Urbanist']">
                 {/* ── HEADER ─────────────────────────────────────────────── */}
                 <div className="text-center mb-20">
                     <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3 font-['Urbanist']">
@@ -707,7 +707,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
 
             {/* ── SECTION 6: CORE FEATURES ─────────────────────────────────── */}
-            <section className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white font-['Urbanist']">
+            <section className="pb-[80px] sm:pb-[80px] mx-[120px] max-w-7xl mx-auto  bg-[#0a0a0a] text-white font-['Urbanist']">
                 {/* ── HEADER ─────────────────────────────────────────────── */}
                 <div className="text-center mb-20">
                     <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
@@ -754,7 +754,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
             {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
             {/* Upgrade CTA Banner */}
-            <section className="py-16 px-6 font-['Urbanist']">
+            <section className="pb-[80px] sm:pb-[80px] mx-[120px] font-['Urbanist']">
                 <div className="max-w-6xl mx-auto">
                     <div
                         className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden"
@@ -805,7 +805,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </section>
 
             {/* ── SECTION 10: TESTIMONIALS ─────────────────────────────────── */}
-<section className="py-24 bg-stone-950/20 border-t border-stone-900 overflow-hidden font-['Urbanist']">
+<section className="pb-[80px] sm:pb-[80px] mx-[120px] bg-stone-950/20 overflow-hidden font-['Urbanist']">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Section Header Text Nodes */}
@@ -925,7 +925,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             {/* FAQ SECTION */}
-            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
+            <section className="pb-[80px] sm:pb-[80px] mx-[120px] bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
 
                 {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
                 <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
