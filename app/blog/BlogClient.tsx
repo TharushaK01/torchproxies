@@ -66,32 +66,32 @@ export default function BlogClient({ posts, categories }: BlogClientProps) {
       </header>
 
       {/* ── Category Filter ───────────────────────────────── */}
-      <div className="flex gap-3 px-12 mb-10 flex-wrap justify-center -mt-30">
-        <button
-          onClick={() => handleCategoryChange(null)}
-          className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300
-            ${activeCategory === null
-              ? "bg-orange-500 text-white"
-              : "border border-white/10 text-stone-400 hover:border-orange-500 hover:text-white"
-            }`}
-        >
-          All
-        </button>
+<div className="relative z-20 flex gap-3 px-12 mb-10 flex-wrap justify-center -mt-12">
+  <button
+    onClick={() => handleCategoryChange(null)}
+    className={`px-5 py-2 rounded-full text-sm font-medium cursor-pointer transition-all duration-300
+      ${activeCategory === null
+        ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20"
+        : "border border-white/10 text-stone-400 hover:border-orange-500 hover:text-white"
+      }`}
+  >
+    All
+  </button>
 
-        {categories.map((cat) => (
-          <button
-            key={cat.id}
-            onClick={() => handleCategoryChange(cat.id)}
-            className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300
-              ${activeCategory === cat.id
-                ? "bg-orange-500 text-white"
-                : "border border-white/10 text-stone-400 hover:border-orange-500 hover:text-white"
-              }`}
-          >
-            {cat.name}
-          </button>
-        ))}
-      </div>
+  {categories.map((cat) => (
+    <button
+      key={cat.id}
+      onClick={() => handleCategoryChange(cat.id)}
+      className={`px-5 py-2 rounded-full text-sm font-medium cursor-pointer transition-all duration-300
+        ${activeCategory === cat.id
+          ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20"
+          : "border border-white/10 text-stone-400 hover:border-orange-500 hover:text-white"
+        }`}
+    >
+      {cat.name}
+    </button>
+  ))}
+</div>
 
       {/* ── Blog Grid ─────────────────────────────────────── */}
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-12 max-w-7xl mx-auto">
