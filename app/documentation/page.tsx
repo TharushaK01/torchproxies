@@ -179,35 +179,36 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
         <div className="bg-[#0a0a0a] text-white antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden font-['Urbanist']">
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-            <header className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 overflow-hidden font-['Urbanist']">
-  <div className="absolute inset-x-0 bottom-40 h-[400px] z-0 pointer-events-none select-none">
-     <Image
-         src="/images/hero_back.png"
-         alt=""
-         fill
-         priority
-         className="object-cover object-bottom opacity-100"
-     />
- </div>
-                <div className="max-w-6xl mx-auto text-center z-10">
-                    <div className="flex items-center justify-center mb-6">
-                        <img
-                            src="/images/TrustPiolet.png"
-                            alt="Excellent 5-star rating on Trustpilot"
-                            className="h-6 w-auto object-contain"
-                            loading="lazy"
-                        />
-                    </div>
+<header className="relative flex flex-col items-center justify-center px-6 pt-32 pb-24 overflow-hidden font-['Urbanist']">
+    
+    {/* Cleaned up background wrapper */}
+    <div className="absolute bottom-0 left-0 w-full z-0 pointer-events-none select-none">
+        <img
+            src="/images/hero_back.png"
+            alt=""
+            className="w-full h-auto object-bottom opacity-100"
+        />
+    </div>
+    
+    <div className="max-w-6xl mx-auto text-center z-10">
+        <div className="flex items-center justify-center mb-6">
+            <img
+                src="/images/TrustPiolet.png"
+                alt="Excellent 5-star rating on Trustpilot"
+                className="h-6 w-auto object-contain"
+                loading="lazy"
+            />
+        </div>
 
-                    <h1 className="text-[60px] sm:text-[60px] lg:text-[60px] font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b text-white bg-clip-text text-transparent font-['Urbanist']">
-                        Documentation & Support  <br />
-                    </h1>
+        <h1 className="text-[48px] sm:text-[60px] font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b text-white bg-clip-text text-transparent font-['Urbanist']">
+            Documentation & Support <br />
+        </h1>
 
-                    <p className="max-w-2xl mx-auto text-stone-400 text-base text-[18px] mb-10 leading-relaxed">
-                        Get started fast with step-by-step docs, API guides, and 24/7 support via email or Discord. Everything you need to make Torch Proxies work for you.
-                    </p>
-                </div>
-            </header>
+        <p className="max-w-2xl mx-auto text-stone-400 text-[18px] mb-0 leading-relaxed">
+            Get started fast with step-by-step docs, API guides, and 24/7 support via email or Discord. Everything you need to make Torch Proxies work for you.
+        </p>
+    </div>
+</header>
 
 <section className="py-16 px-6 bg-[#0a0a0a] font-['Urbanist']">
       <div className="max-w-7xl mx-auto">
