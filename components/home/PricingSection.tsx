@@ -64,7 +64,7 @@ const PricingSection = () => {
   ];
 
   return (
-    <section className="bg-[#0a0a0a] text-white py-20 px-6 -mt-[80px] space-y-6 font-['Urbanist']">
+    <section className="bg-[#0a0a0a] text-white py-20 px-6 pt-[80px] sm:pt-[80px] space-y-6 font-['Urbanist'] mx-[120px]">
       <div className="flex flex-col items-center text-center w-full">
         <span className="text-orange-500 font-regular text-[16px] mb-4 tracking-widest flex items-center justify-center gap-2">
           Our products
@@ -78,7 +78,7 @@ const PricingSection = () => {
       <div className="flex flex-wrap justify-center gap-6 mb-16 text-sm font-medium text-gray-300">
         {topFeatures.map((f, i) => (
           <div key={i} className="flex items-center gap-2">
-            <Check className="text-orange-500 w-4 h-4" /> {f}
+            <Check className="text-[#07CC99] w-4 h-4" /> {f}
           </div>
         ))}
       </div>
@@ -112,7 +112,7 @@ const PricingSection = () => {
               </div>
 
               <div className="flex items-center gap-3 mb-8">
-                <span className="bg-[#2a1200] text-orange-500 px-4 py-2 rounded-lg font-bold text-sm">
+                <span className="bg-[#2a1200] text-[orange-500] px-4 py-2 rounded-lg font-bold text-sm">
                   {plan.price}
                 </span>
                 {plan.highlight && (
@@ -125,7 +125,7 @@ const PricingSection = () => {
               <ul className="space-y-4 mb-8">
                 {plan.features.map((feat, idx) => (
                   <li key={idx} className="flex gap-3 text-sm text-gray-300 leading-tight">
-                    <Check className="text-orange-500 w-4 h-4 shrink-0 mt-0.5" />
+                    <Check className="text-[#07CC99] w-4 h-4 shrink-0 mt-0.5" />
                     {feat}
                   </li>
                 ))}
@@ -198,7 +198,7 @@ const PricingSection = () => {
                 "Global Coverage with Regional Optimization"
               ].map((text, i) => (
                 <div key={i} className="flex gap-3 text-sm text-gray-300">
-                  <Check className="text-orange-500 w-4 h-4 shrink-0 mt-0.5" /> {text}
+                  <Check className="text-[#07CC99] w-4 h-4 shrink-0 mt-0.5" /> {text}
                 </div>
               ))}
             </div>
@@ -238,7 +238,7 @@ const PricingSection = () => {
             <h2 className="text-5xl font-bold mb-4">Need a <br /> custom plan?</h2>
             <p className="text-gray-400 mb-8">No worries, we'll build your Residential & ISP proxy plan today.</p>
             <div className="flex gap-3 text-sm text-gray-300 mb-8">
-              <Check className="text-orange-500 w-4 h-4 shrink-0 mt-0.5" />
+              <Check className="text-[#07CC99] w-4 h-4 shrink-0 mt-0.5" />
               For enterprise that needs additional data, security, control and more support
             </div>
           </div>

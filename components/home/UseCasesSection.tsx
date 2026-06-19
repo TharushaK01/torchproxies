@@ -232,7 +232,7 @@ function WebScrapingMockup() {
   }, []);
 
   return (
-    <div className="proxy-flow-wrapper w-full h-full relative p-5 space-y-6 font-['Urbanist']">
+    <div className="proxy-flow-wrapper w-full h-full relative p-5 space-y-6 font-['Urbanist'] pb-24 sm:pb-28">
       <style>{`
         .proxy-flow-wrapper * { box-sizing: border-box; }
         .node {

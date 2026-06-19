@@ -104,7 +104,7 @@ const NAV_LINKS = [
     }
   },
   {
-    label: "Usecases",
+    label: "Use cases",
     href: "/#",
     menuType: "usecases-mega",
     dropdown: [

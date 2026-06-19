@@ -299,7 +299,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 </header>
 
             {/* ── SECTION 3: Residential Proxies ────────────────────── */}
-            <section id="pricing" className="py-24 bg-[#0a0a0a] text-white relative overflow-hidden space-y-6 font-['Urbanist']">
+            <section id="pricing" className="pt-[80px] sm:pt-[80px] mx-[120px] bg-[#0a0a0a] text-white relative overflow-hidden space-y-6 font-['Urbanist']">
                 <div className="max-w-7xl mx-auto px-6">
 
                     {/* ── TOP HEADER SUB-LABELS ───────────────────────────────── */}
@@ -458,7 +458,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </section>
 
             {/* ── SECTION 4: GLOBAL LOCATIONS ──────────────────────────────── */}
-            <section className="relative bg-[#0a0a0a] text-white py-24 overflow-hidden space-y-6 font-['Urbanist']">
+            <section className="relative bg-[#0a0a0a] text-white pt-[80px] sm:pt-[80px] mx-[120px] overflow-hidden space-y-6 font-['Urbanist']">
                 {/* Background Map Overlay */}
                 <div
                     className="absolute inset-0 opacity-40 bg-center bg-no-repeat bg-contain pointer-events-none"
@@ -534,7 +534,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </section>
 
             {/* ── SECTION 5: WHY CHOOSETORCHPROXIES ──────────────────────────────── */}
-            <section className="py-24 bg-[#0a0a0a] text-white relative font-['Urbanist']">
+            <section className="pt-[80px] sm:pt-[80px] mx-[120px] bg-[#0a0a0a] text-white relative font-['Urbanist']">
                 <div className="max-w-7xl mx-auto px-6">
 
                     {/* ── TOP HEADER SECTION ───────────────────────────────────── */}
@@ -607,7 +607,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </section>
 
             {/* ── SECTION 6: CORE FEATURES ─────────────────────────────────── */}
-            <section className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white space-y-6 font-['Urbanist']">
+            <section className="pt-[80px] sm:pt-[80px] mx-[120px] max-w-7xl mx-auto bg-[#0a0a0a] text-white space-y-6 font-['Urbanist']">
                 {/* ── HEADER ─────────────────────────────────────────────── */}
                 <div className="text-center mb-20">
                     <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
@@ -658,7 +658,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
             {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
             {/* Upgrade CTA Banner */}
-            <section className="py-16 px-6 font-['Urbanist']">
+            <section className="pt-[80px] sm:pt-[80px] mx-[120px] font-['Urbanist']">
                 <div className="max-w-6xl mx-auto font-['Urbanist']">
                     <div
                         className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden"
@@ -704,7 +704,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </section>
 
             {/* ── SECTION 8: USE CASES ─────────────────────────────────────── */}
-            <main className="bg-[#0a0a0a] min-h-screen text-white font-['Urbanist']">
+            <main className="bg-[#0a0a0a] min-h-screen text-white font-['Urbanist'] pt-[80px] sm:pt-[80px] mx-[120px]">
                 {/* Other sections can go here */}
 
                 {/* ── YOUR NEW USE CASES SECTION ── */}
@@ -714,7 +714,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </main>
 
             {/* ── SECTION 10: TESTIMONIALS ─────────────────────────────────── */}
-<section className="py-24 bg-stone-950/20 border-t border-stone-900 overflow-hidden font-['Urbanist']">
+<section className="pt-[80px] sm:pt-[80px] mx-[120px] bg-stone-950/20 border-t border-stone-900 overflow-hidden font-['Urbanist']">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Section Header Text Nodes */}
@@ -834,7 +834,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             {/* FAQ SECTION */}
-            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
+            <section className="pt-[80px] sm:pt-[80px] mx-[120px] bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
 
                 {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
                 <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">

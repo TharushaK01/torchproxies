@@ -7,7 +7,7 @@ import React from 'react';
 const CtaBanner = () => {
   const router = useRouter();
   return (
-    <section className="bg-[#0a0a0a] py-20 px-6 space-y-6 font-['Urbanist']">
+    <section className="bg-[#0a0a0a] py-20 px-6 space-y-6 font-['Urbanist'] pb-24 sm:pb-28 mx-[120px]">
       <div className="max-w-7xl mx-auto">
         <div className="relative overflow-hidden bg-[#0a0a0a] rounded-[40px] px-8 py-8 text-center">
 

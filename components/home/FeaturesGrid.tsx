@@ -54,7 +54,7 @@ const FeaturesGrid = () => {
   }, []);
 
   return (
-    <section className="bg-[#0a0a0a] text-white py-20 px-6 space-y-6 font-['Urbanist']">
+    <section className="bg-[#0a0a0a] text-white py-20 px-6 space-y-6 font-['Urbanist'] pb-24 sm:pb-28 mx-[120px]">
               <div className="relative z-10 max-w-7xl mx-auto px-6 text-center mb-[64px]">
                     <span className="text-orange-500 font-regular text-[16px] mb-4 block tracking-widest">
                         Features

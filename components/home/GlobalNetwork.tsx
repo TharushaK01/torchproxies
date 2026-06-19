@@ -27,7 +27,7 @@ const GlobalNetwork = () => {
   if (!mounted) return <div className="h-[600px] bg-black" />;
 
   return (
-    <section className="bg-[#0a0a0a] text-white py-24 px-6 relative min-h-[800px] space-y-6 font-['Urbanist']">
+    <section className="bg-[#0a0a0a] text-white py-24 px-6 relative min-h-[800px] space-y-6 font-['Urbanist'] pb-24 sm:pb-28">
       <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3 text-center ">
         Worldwide
       </span>

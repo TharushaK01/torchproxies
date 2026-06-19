@@ -7,7 +7,7 @@ const ContactSection = () => {
   const router = useRouter();
   return (
 
-    <section className="relative overflow-hidden bg-[#0a0a0a] text-white py-24 px-6 space-y-6 font-['Urbanist']">
+    <section className="relative overflow-hidden bg-[#0a0a0a] text-white py-24 px-6 space-y-6 font-['Urbanist'] pb-24 sm:pb-28 mx-[120px]">
 
       <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
         <Image

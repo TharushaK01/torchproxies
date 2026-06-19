@@ -126,9 +126,9 @@ export default function HeroSection() {
         min-h-screen
         flex flex-col items-center justify-center
         px-4 sm:px-6 lg:px-8
-        pt-16 sm:pt-20
-        pb-24 sm:pb-28
+        pt-[80px] sm:pt-[80px]
         space-y-6 font-['Urbanist']
+        mx-[120px]
       "
     >
       {/* ── Background Glow ───────────────────────── */}
@@ -147,12 +147,18 @@ export default function HeroSection() {
 
       {/* ── Trustpilot ───────────────────────────── */}
       <div className="flex items-center justify-center mt-[50px]">
-        <img
-          src="/images/TrustPiolet.png"
-          alt="Excellent 5-star rating on Trustpilot"
-          className="h-8 w-auto object-contain"
-          loading="lazy"
-        />
+        <a href="https://www.trustpilot.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="cursor-pointer"
+>
+  <img
+    src="/images/TrustPiolet.png"
+    alt="Excellent 5-star rating on Trustpilot"
+    className="h-8 w-auto object-contain"
+    loading="lazy"
+  />
+</a>
       </div>
 
       {/* ── Hero Content ─────────────────────────── */}

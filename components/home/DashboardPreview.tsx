@@ -54,7 +54,7 @@ const Marquee: React.FC = () => (
 
 export default function YourSectionComponent() {
   return (
-    <section className="relative bg-[#0a0a0a] py-16 sm:py-40 -mt-[280px] px-4 sm:px-6 overflow-hidden space-y-6 font-['Urbanist']">
+    <section className="relative bg-[#0a0a0a] py-16 sm:py-40 -mt-[280px] px-4 sm:px-6 overflow-hidden space-y-6 font-['Urbanist'] pb-24 sm:pb-28 mx-[120px]">
       
       {/* Background Layer */}
       <div className="absolute inset-x-0 bottom-0 -top-[45px] h-[calc(90%+0px)] z-0 pointer-events-none select-none">

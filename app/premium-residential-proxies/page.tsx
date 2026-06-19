@@ -210,7 +210,7 @@ export default function TorchProxiesLandingPage() {
         },
     ];
     return (
-        <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden space-y-6 font-['Urbanist']">
+        <div className="bg-[#0a0a0a] text-white antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden space-y-6 font-['Urbanist'] ">
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
     <header className="relative min-h-[85vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-28 pb-12 overflow-hidden bg-[#0a0a0a] font-['Urbanist']">
@@ -296,7 +296,7 @@ export default function TorchProxiesLandingPage() {
 </header>
 
             {/* ── SECTION 2: Perfect for Every Scraping & Animations ─────────── */}
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden">
+            <section className="bg-[#0a0a0a] text-white pt-[80px] sm:pt-[80px] mx-[120px] overflow-hidden">
                 <div className="max-w-7xl mx-auto space-y-32">
 
                     {/* Row 1: Easy Client Management */}
@@ -335,7 +335,7 @@ export default function TorchProxiesLandingPage() {
             </section>
 
             {/* ── SECTION 3: Residential Proxies ────────────────────── */}
-            <section id="pricing" className="py-24 bg-[#0a0a0a] text-white relative overflow-hidden">
+            <section id="pricing" className="pt-[80px] sm:pt-[80px] mx-[120px] bg-[#0a0a0a] text-white relative overflow-hidden">
                 <div className="max-w-7xl mx-auto px-6">
 
                     {/* ── TOP HEADER SUB-LABELS ───────────────────────────────── */}
@@ -495,7 +495,7 @@ export default function TorchProxiesLandingPage() {
             </section>
 
             {/* ── SECTION 4: GLOBAL LOCATIONS ──────────────────────────────── */}
-            <section className="relative bg-[#0a0a0a] text-white py-24 overflow-hidden space-y-6 font-['Urbanist']">
+            <section className="relative bg-[#0a0a0a] text-white pt-[80px] sm:pt-[80px] mx-[120px] overflow-hidden font-['Urbanist']">
                 {/* Background Map Overlay */}
                 <div
                     className="absolute inset-0 opacity-40 bg-center bg-no-repeat bg-contain pointer-events-none"
@@ -571,7 +571,7 @@ export default function TorchProxiesLandingPage() {
             </section>
 
             {/* ── SECTION 5: WHY CHOOSETORCHPROXIES ──────────────────────────────── */}
-            <section className="py-24 bg-[#0a0a0a] text-white relative space-y-6 font-['Urbanist']">
+            <section className="pt-[80px] sm:pt-[80px] mx-[120px] bg-[#0a0a0a] text-white relative space-y-6 font-['Urbanist']">
                 <div className="max-w-7xl mx-auto px-6">
 
                     {/* ── TOP HEADER SECTION ───────────────────────────────────── */}
@@ -670,7 +670,7 @@ export default function TorchProxiesLandingPage() {
             </section>
 
             {/* ── SECTION 6: CORE FEATURES ─────────────────────────────────── */}
-            <section className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white space-y-6 font-['Urbanist']">
+            <section className="pt-[80px] sm:pt-[80px] mx-[120px] max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white space-y-6 font-['Urbanist']">
                 {/* ── HEADER ─────────────────────────────────────────────── */}
                 <div className="text-center mb-20">
                     <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
@@ -720,7 +720,7 @@ export default function TorchProxiesLandingPage() {
             </section>
 
             {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
-            <section className="bg-[#0a0a0a] py-20 px-6 space-y-6 font-['Urbanist']">
+            <section className="bg-[#0a0a0a] pt-[80px] sm:pt-[80px] mx-[120px] space-y-6 font-['Urbanist']">
                 <div className="max-w-7xl mx-auto">
                     <div className="relative overflow-hidden bg-[#0a0a0a] rounded-[40px] px-8 py-8 text-center">
 
@@ -777,7 +777,7 @@ export default function TorchProxiesLandingPage() {
             </section>
 
             {/* ── SECTION 8: USE CASES ─────────────────────────────────────── */}
-            <main className="bg-[#0a0a0a] min-h-screen text-white">
+            <main className="bg-[#0a0a0a] min-h-screen text-white pt-[80px] sm:pt-[80px] mx-[120px]">
                 {/* Other sections can go here */}
 
                 {/* ── YOUR NEW USE CASES SECTION ── */}
@@ -787,7 +787,7 @@ export default function TorchProxiesLandingPage() {
             </main>
 
             {/* ── SECTION 9: UPSELL CARDS ──────────────────────────────────── */}
-            <section className="py-24 bg-[#0a0a0a] text-white">
+            <section className="py-24 bg-[#0a0a0a] text-white pt-[80px] sm:pt-[80px] mx-[120px]">
                 <div className="max-w-[1240px] mx-auto px-6">
 
                     {/* ── TOP HEADLINE SECTION ────────────────────────────────── */}
@@ -953,7 +953,7 @@ export default function TorchProxiesLandingPage() {
 
 
             {/* ── SECTION 10: TESTIMONIALS ─────────────────────────────────── */}
-            <section className="py-24 bg-stone-950/20  overflow-hidden space-y-6 font-['Urbanist']">
+            <section className="pt-[80px] sm:pt-[80px] mx-[120px] bg-stone-950/20  overflow-hidden space-y-6 font-['Urbanist']">
                 <div className="max-w-6xl mx-auto px-6">
                     <span className="text-center text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
                         Testimonials
@@ -1071,7 +1071,7 @@ export default function TorchProxiesLandingPage() {
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             {/* FAQ SECTION */}
-            <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
+            <section className="pt-[80px] sm:pt-[80px] mx-[120px] bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
 
                 {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
                 <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
