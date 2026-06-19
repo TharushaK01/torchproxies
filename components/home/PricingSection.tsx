@@ -236,7 +236,7 @@ const PricingSection = () => {
         <div className="lg:col-span-2 bg-[#0a0a0a] border-2 border-gray-800 rounded-2xl p-8 flex flex-col justify-between">
           <div>
             <h2 className="text-5xl font-bold mb-4">Need a <br /> custom plan?</h2>
-            <p className="text-gray-400 mb-8 text-[24px]">No worries, we'll build your Residential & ISP proxy plan today.</p>
+            <p className="text-gray-400 mb-8 text-[24px] leading-tight">No worries, we'll build your Residential & ISP proxy plan today.</p>
             <div className="flex gap-3 text-sm text-gray-300 mb-8">
               <Check className="text-[#07CC99] w-4 h-4 shrink-0 mt-0.5" />
               For enterprise that needs additional data, security, control and more support

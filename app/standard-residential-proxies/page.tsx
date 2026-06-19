@@ -10,55 +10,55 @@ import { useRouter } from 'next/navigation';
 
 
 const MARQUEE_ITEMS = [
-  "99.9% uptime guaranteed",
-  "Blazing fast proxy speeds",
-  "Global geo targeting support",
-  "Secure & anonymous connections",
-  "Unlimited sessions & rotations",
-  "Built for scraping & automation"
+    "99.9% uptime guaranteed",
+    "Blazing fast proxy speeds",
+    "Global geo targeting support",
+    "Secure & anonymous connections",
+    "Unlimited sessions & rotations",
+    "Built for scraping & automation"
 ];
 
 
 const Marquee: React.FC = () => (
-    
-  <div className="w-full overflow-hidden bg-[#FE4A01] py-3.5 whitespace-nowrap select-none flex font-['Urbanist']">
-    
-{/* Infinite track containing multiple data blocks to prevent viewport gaps */}
-    <div className="flex min-w-full shrink-0 animate-marquee items-center justify-around text-[14px] font-medium tracking-wider text-white font-['Urbanist']">
-      
-      {/* Block 1 (Original) */}
-      <div className="flex shrink-0 items-center space-x-12 pr-12">
-        {MARQUEE_ITEMS.map((item, index) => (
-          <span key={`orig-${index}`} className="flex items-center gap-3.5">
-            {/* Perfectly sized, smooth CSS custom bullet circle */}
-            <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" aria-hidden="true" />
-            <span>{item}</span>
-          </span>
-        ))}
-      </div>
 
-{/* Block 2 (Duplicate) */}
-<div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
-  {MARQUEE_ITEMS.map((item, index) => (
-    <span key={`dup1-${index}`} className="flex items-center gap-3.5">
-      <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
-      <span>{item}</span>
-    </span>
-  ))}
-</div>
+    <div className="w-full overflow-hidden bg-[#FE4A01] py-3.5 whitespace-nowrap select-none flex font-['Urbanist']">
 
-{/* Block 3 (Extra Duplicate) */}
-<div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
-  {MARQUEE_ITEMS.map((item, index) => (
-    <span key={`dup2-${index}`} className="flex items-center gap-3.5">
-      <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
-      <span>{item}</span>
-    </span>
-  ))}
-</div>
-      
+        {/* Infinite track containing multiple data blocks to prevent viewport gaps */}
+        <div className="flex min-w-full shrink-0 animate-marquee items-center justify-around text-[14px] font-medium tracking-wider text-white font-['Urbanist']">
+
+            {/* Block 1 (Original) */}
+            <div className="flex shrink-0 items-center space-x-12 pr-12">
+                {MARQUEE_ITEMS.map((item, index) => (
+                    <span key={`orig-${index}`} className="flex items-center gap-3.5">
+                        {/* Perfectly sized, smooth CSS custom bullet circle */}
+                        <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" aria-hidden="true" />
+                        <span>{item}</span>
+                    </span>
+                ))}
+            </div>
+
+            {/* Block 2 (Duplicate) */}
+            <div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
+                {MARQUEE_ITEMS.map((item, index) => (
+                    <span key={`dup1-${index}`} className="flex items-center gap-3.5">
+                        <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
+                        <span>{item}</span>
+                    </span>
+                ))}
+            </div>
+
+            {/* Block 3 (Extra Duplicate) */}
+            <div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
+                {MARQUEE_ITEMS.map((item, index) => (
+                    <span key={`dup2-${index}`} className="flex items-center gap-3.5">
+                        <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
+                        <span>{item}</span>
+                    </span>
+                ))}
+            </div>
+
+        </div>
     </div>
-  </div>
 );
 
 export default function TorchProxiesLandingPage() {
@@ -95,7 +95,7 @@ export default function TorchProxiesLandingPage() {
 
     // Hardcoded pricing tiers matching the design exactly
     const tiers = [
-        { id: '1GB', size: '1GB', price: '$ 4', },
+        { id: '1GB', size: '1GB', price: '$ 4' },
         { id: '5GB', size: '5GB', price: '$ 3.75', discount: '6.25% OFF' },
         { id: '25GB', size: '25GB', price: '$ 3.5', discount: '12.50% OFF' },
         { id: '100GB', size: '100GB', price: '$ 3.25', discount: '18.75% OFF' },
@@ -143,7 +143,7 @@ export default function TorchProxiesLandingPage() {
             role: "Verified Customer",
             text: "If you are buy proxies anywhere you should buy them here. Nice guys who work hard. Communication is good and there is always help where needed. Can't recommend a better company for proxies.",
             stars: 5,
-            avatar: "/images/avatars/black-bear.png" // Path to your custom pixel bear photo
+            avatar: null// Path to your custom pixel bear photo
         },
         {
             name: "Ishak",
@@ -211,35 +211,41 @@ export default function TorchProxiesLandingPage() {
         <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden space-y-6 font-['Urbanist']">
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-            <header className="relative min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-28 pb-12 overflow-hidden space-y-6 font-['Urbanist']">
-<div className="absolute bottom-0 left-0 w-full h-[65vh] z-0">
+            <header className="relative min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-[190px] pb-12 overflow-hidden space-y-6 font-['Urbanist']">
+                <div className="absolute bottom-0 left-0 w-full h-[65vh] z-0">
 
-    <Image
-        src="/images/hero_back.png"
-        alt=""
-        fill
-        priority
-        className="object-cover object-bottom"
-    />
+                    <Image
+                        src="/images/hero_back.png"
+                        alt=""
+                        fill
+                        priority
+                        className="object-cover object-bottom"
+                    />
 
-    {/* Marquee at bottom of image */}
-<div className="absolute -bottom-12 left-0 w-full z-10">
-    <Marquee />
-</div>
-
-
-</div>
-                <div className="max-w-6xl mx-auto text-center z-10 font-['Urbanist']">
-                    <div className="flex items-center justify-center mb-6">
-                        <img
-                            src="/images/TrustPiolet.png"
-                            alt="Excellent 5-star rating on Trustpilot"
-                            className="h-6 w-auto object-contain"
-                            loading="lazy"
-                        />
+                    {/* Marquee at bottom of image */}
+                    <div className="absolute -bottom-12 left-0 w-full z-10">
+                        <Marquee />
                     </div>
 
-                    <h1 className="text-[60px] sm:text-6xl lg:text-7xl font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
+
+                </div>
+                <div className="max-w-6xl mx-auto text-center z-10 font-['Urbanist']">
+                    <div className="flex items-center justify-center mb-6">
+                        <a href="https://www.trustpilot.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="cursor-pointer"
+                        >
+                            <img
+                                src="/images/TrustPiolet.png"
+                                alt="Excellent 5-star rating on Trustpilot"
+                                className="h-8 w-auto object-contain"
+                                loading="lazy"
+                            />
+                        </a>
+                    </div>
+
+                    <h1 className="text-[60px] sm:text-[60px] lg:text-[60px] font-regular tracking-tight leading-[72px] mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
                         Best Standard Residential Proxies <br />
                         <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">Access 30M+ Global IPs</span>
                     </h1>
@@ -248,7 +254,7 @@ export default function TorchProxiesLandingPage() {
                         Reliable and steady residential proxies perfect for everyday tasks.A balanced choice to get the job done without breaking the bank.
                     </p>
 
-                    <div className="py-4 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-sm font-medium">
+                    <div className="py-8 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-[16px] font-medium">
                         <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Rotating & Static IPs</div>
                         <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Unlimited Concurrency</div>
                         <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> 195+ Countries Network</div>
@@ -298,7 +304,7 @@ export default function TorchProxiesLandingPage() {
 
                     </div>
 
-                    <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide pt-4 pb-2">
+                    <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide pt-4 pb-15">
                         <CreditCard className="w-4 h-4 text-stone-500" />
                         <span>No credit card needed. Instant access</span>
                     </div>
@@ -395,13 +401,13 @@ export default function TorchProxiesLandingPage() {
                                 </div>
                             </div>
 
-                            <p className="text-stone-400 text-[16px] sm:text-base leading-relaxed">
+                            <p className="text-stone-400 text-[16px] sm:text-base leading-relaxed mb-[24px] mt-[12px]">
                                 Reliable and affordable with rotating residential proxies and optional static sessions <span className="text-[#FE4A01]">perfect for everyday online tasks.</span>
                             </p>
 
                             {/* Custom Micro Pill Badge */}
-                            <div className="inline-block bg-[#FE4A01]/10 border border-[#FE4A01]/20 px-3 py-1 rounded-md">
-                                <span className="text-[#FE4A01] text-[14px] font-semi-bold tracking-wide">From $4/GB per month</span>
+                            <div className="inline-block bg-[#FE4A01]/10 border border-[#FE4A01]/20 px-3 py-1 rounded-md mb-[24px]">
+                                <span className="text-[#FE4A01] text-[14px] font-semi-bold tracking-wide ">From $4/GB per month</span>
                             </div>
 
                             {/* Feature Checklist */}
@@ -463,43 +469,45 @@ export default function TorchProxiesLandingPage() {
                         </div>
 
                         {/* RIGHT PANEL: GRID OF PRICING CARDS */}
-                        <div className="grid grid-cols-2 gap-y-4 gap-x-[200px] w-fit ml-[188px]">
-                            {tiers.map((tier) => {
-                                const isSelected = selectedPlan === tier.id;
-                                return (
-                                    <div
-                                        key={tier.id}
-                                        onClick={() => setSelectedPlan(tier.id)}
-                                        className={`w-[180px] h-[171px] border rounded-2xl p-5 relative cursor-pointer select-none transition-all duration-200 flex flex-col justify-between ${isSelected
-                                            ? 'bg-stone-900/40 border-[#FE4A01] shadow-[0_0_25px_rgba(254,74,1,.1)]'
-                                            : 'bg-[#0b0b0d]/50 border-stone-900 hover:border-stone-800/80'
-                                            }`}
-                                    >
-                                        {/* Floating Green Percentage Label */}
-                                        <div className="absolute top-4 right-4 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded">
-                                            {tier.discount}
-                                        </div>
+<div className="grid grid-cols-2 gap-y-4 gap-x-[200px] w-fit ml-[188px]">
+    {tiers.map((tier) => {
+        const isSelected = selectedPlan === tier.id;
+        return (
+            <div
+                key={tier.id}
+                onClick={() => setSelectedPlan(tier.id)}
+                className={`w-[180px] h-[171px] border rounded-2xl p-5 relative cursor-pointer select-none transition-all duration-200 flex flex-col justify-between ${isSelected
+                    ? 'bg-stone-900/40 border-[#FE4A01] shadow-[0_0_25px_rgba(254,74,1,.1)]'
+                    : 'bg-[#0b0b0d]/50 border-stone-900 hover:border-stone-800/80'
+                }`}
+            >
+                {/* Floating Green Percentage Label - Only renders if tier.discount exists */}
+                {tier.discount && (
+                    <div className="absolute top-4 right-4 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded">
+                        {tier.discount}
+                    </div>
+                )}
 
-                                        {/* Volume Metric Display */}
-                                        <div className="mt-15">
-                                            <span className="text-[32px] font-medium tracking-tight text-stone-200">
-                                                {tier.size}
-                                            </span>
-                                        </div>
+                {/* Volume Metric Display */}
+                <div className="mt-15">
+                    <span className="text-[32px] font-medium tracking-tight text-stone-200">
+                        {tier.size}
+                    </span>
+                </div>
 
-                                        {/* Price Metric Formula */}
-                                        <div className="mb-2 flex items-baseline gap-1">
-                                            <span className="text-[#FE4A01] font-bold text-xl">
-                                                {tier.price}
-                                            </span>
-                                            <span className="text-stone-500 text-xs font-medium">
-                                                per GB
-                                            </span>
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                        </div>
+                {/* Price Metric Formula */}
+                <div className="mb-2 flex items-baseline gap-1">
+                    <span className="text-[#FE4A01] font-bold text-[24px] font-['Urbanist']">
+                        {tier.price}
+                    </span>
+                    <span className="text-[#FE4A01] text-[14px] font-medium font-['Urbanist']">
+                        per GB
+                    </span>
+                </div>
+            </div>
+        );
+    })}
+</div>
 
                     </div>
 
@@ -527,26 +535,8 @@ export default function TorchProxiesLandingPage() {
                     <p className="text-gray-400 max-w-3xl mx-auto mb-16">
                         We provide you access to a global network of ethical sourced proxy nodes from around the world.
                     </p>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2 -mt-[40px]">
-                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                        <button onClick={() => router.push('/locations')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
 
-                            {/* Fast 3D text track wrapper */}
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-
-                                {/* Default State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                    View all locations
-                                </span>
-
-                                {/* Hover State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
-                                    View all locations
-                                </span>
-                            </div>
-                        </button>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full mt-[64px]">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full mb-[100px]">
                         {locations.map((loc, index) => (
                             <div
                                 key={`${loc.code}-${index}`}
@@ -555,7 +545,7 @@ export default function TorchProxiesLandingPage() {
                                 className="flex items-center gap-3.5 bg-[#0b0b0d]/30 border border-stone-900/60 rounded-[12px] p-4 hover:border-stone-800/80 hover:bg-[#0e0e12]/60 transition-all duration-200 group cursor-pointer"
                             >
                                 {/* Flag Container */}
-                                <div className="w-11 h-9 relative overflow-hidden rounded-[3px] flex-shrink-0 bg-stone-950 shadow-[0_1px_3px_rgba(0,0,0,0.5)] border border-stone-900/20">
+                                <div className="w-14 h-9 relative overflow-hidden rounded-[3px] flex-shrink-0 bg-stone-950 shadow-[0_1px_3px_rgba(0,0,0,0.5)] border border-stone-900/20">
                                     <Flag
                                         code={loc.code}
                                         className="w-full h-full object-cover"
@@ -575,11 +565,32 @@ export default function TorchProxiesLandingPage() {
                             </div>
                         ))}
                     </div>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2 -mt-[40px]">
+                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
+                        <button onClick={() => router.push('/locations')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+
+                            {/* Fast 3D text track wrapper */}
+                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+                                {/* Default State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                    View all locations
+                                </span>
+
+                                {/* Hover State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+                                    View all locations
+                                </span>
+                            </div>
+                        </button>
+                    </div>{/*  */}
+
                     {/* Call to Action */}
                     {/* <button className="bg-gradient-to-r from-orange-600 to-orange-500 px-8 py-4 rounded-xl font-bold text-white shadow-lg shadow-orange-900/20 hover:scale-105 transition-transform">
                         View all locations
                     </button> */}
                 </div>
+
             </section>
 
             {/* ── SECTION 5: WHY CHOOSETORCHPROXIES ──────────────────────────────── */}
