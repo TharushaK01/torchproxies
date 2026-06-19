@@ -62,13 +62,12 @@ export default function BlogClient({ posts, categories }: BlogClientProps) {
           </div>
 
           <h1 className="text-[36px] sm:text-[48px] md:text-[60px] font-regular tracking-tight leading-[1.15] mb-5 bg-gradient-to-b from-white to-white/80 bg-clip-text text-transparent font-['Urbanist'] px-2">
-            Documentation & Support
+            TorchProxies Blogs
           </h1>
 
           <p className="max-w-xl md:max-w-2xl mx-auto text-stone-400 text-[15px] sm:text-[16px] md:text-[18px] px-4 leading-relaxed">
-            Get started fast with step-by-step docs, API guides, and 24/7
-            support via email or Discord. Everything you need to make Torch
-            Proxies work for you.
+            Here you can find valuable Information about topics surrounding proxies, data
+scraping and other use cases
           </p>
         </div>
       </header>
