@@ -336,13 +336,13 @@ export default function TorchProxiesLandingPage() {
 
                         {/* Text Side */}
                         <div className="space-y-6 font-['Urbanist']">
-                            <h2 className="text-[42px] md:text-5xl font-medium tracking-tight">
+                            <h2 className="text-[42px] md:text-[42px] font-medium tracking-tight">
                                 Perfect for Everyday Scraping & Automation
                             </h2>
-                            <p className="text-gray-400 text-lg leading-relaxed">
+                            <p className="text-gray-400 text-[18px] leading-relaxed">
                                 TorchProxies’ Standard Residential proxies provide a simple, reliable solution for routine web tasks. With a large global IP pool and stable performance, this plan is ideal for users who need consistent access for day-to-day scraping, monitoring, and basic automation without the complexity or cost of higher-tier options.
                             </p>
-                            <ul className='text-gray-400'>
+                            <ul className='text-gray-400 text-[16px] leading-relaxed'>
                                 <li>&#9679; Large, diverse residential IP pool</li>
                                 <li>&#9679; Reliable performance for common websites</li>
                                 <li>&#9679; Easy rotating & sticky session support</li>
@@ -361,12 +361,12 @@ export default function TorchProxiesLandingPage() {
                         <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
                             Residential proxies
                         </span>
-                        <h2 className="text-[42px] md:text-5xl font-medium tracking-tight mb-6">
+                        <h2 className="text-[42px] md:text-[42px] font-medium tracking-tight mb-6">
                             Buy Standard Residential Proxies
                         </h2>
 
                         {/* Top Trust Badges */}
-                        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-stone-400 text-xs sm:text-sm font-medium">
+                        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-stone-400 text-[16px] sm:text-[16px] font-medium">
                             <span className="flex items-center gap-1.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Secure checkout with SSL encryption</span>
                             <span className="flex items-center gap-1.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Pay As You Go Pricing</span>
                             <span className="flex items-center gap-1.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Authentic IPs</span>
@@ -428,7 +428,7 @@ export default function TorchProxiesLandingPage() {
                             <div className="flex flex-col sm:flex-row items-center justify-left gap-4 mb-2 mt-[32px]">
 
                                 {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                                <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+                                <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="font-['Urbanist'] cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
 
                                     {/* Fast 3D text track wrapper */}
                                     <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
@@ -594,7 +594,7 @@ export default function TorchProxiesLandingPage() {
             </section>
 
             {/* ── SECTION 5: WHY CHOOSETORCHPROXIES ──────────────────────────────── */}
-            <section className="py-24 bg-[#0a0a0a] text-white relative space-y-6 font-['Urbanist']">
+            <section className="pt-[80px] sm:pt-[80px] mx-[120px] bg-[#0a0a0a] text-white relative space-y-6 font-['Urbanist']">
                 <div className="max-w-7xl mx-auto px-6">
 
                     {/* ── TOP HEADER SECTION ───────────────────────────────────── */}
@@ -602,10 +602,10 @@ export default function TorchProxiesLandingPage() {
                         <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
                             Features
                         </span>
-                        <h2 className="text-[42px] sm:text-5xl font-medium tracking-tight text-white mb-4">
+                        <h2 className="text-[42px] sm:text-[42px] font-medium tracking-tight text-white mb-4">
                             Built for you dashboard
                         </h2>
-                        <p className="text-stone-400 text-sm sm:text-base max-w-2xl mx-auto font-normal">
+                        <p className="text-stone-400 text-[18px] sm:text-base max-w-2xl mx-auto font-normal">
                             Easily manage, monitor and optimize your proxy operations with a user centric dashboard.
                         </p>
                     </div>
@@ -693,7 +693,7 @@ export default function TorchProxiesLandingPage() {
             </section>
 
             {/* ── SECTION 6: CORE FEATURES ─────────────────────────────────── */}
-            <section className="py-24 max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white space-y-6 font-['Urbanist']">
+            <section className="pt-[80px] sm:pt-[80px] mx-[120px] max-w-7xl mx-auto px-6 bg-[#0a0a0a] text-white space-y-6 font-['Urbanist']">
                 {/* ── HEADER ─────────────────────────────────────────────── */}
                 <div className="text-center mb-20">
                     <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
@@ -743,7 +743,7 @@ export default function TorchProxiesLandingPage() {
             </section>
 
             {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
-            <section className="bg-[#0a0a0a] py-20 px-6 space-y-6 font-['Urbanist']">
+            <section className="bg-[#0a0a0a] pt-[80px] sm:pt-[80px] mx-[120px] space-y-6 font-['Urbanist']">
                 <div className="max-w-7xl mx-auto">
                     <div className="relative overflow-hidden bg-[#0a0a0a] rounded-[40px] px-8 py-8 text-center">
 
@@ -800,7 +800,7 @@ export default function TorchProxiesLandingPage() {
             </section>
 
             {/* ── SECTION 8: USE CASES ─────────────────────────────────────── */}
-            <main className="bg-[#0a0a0a] min-h-screen text-white space-y-6 font-['Urbanist']">
+            <main className="bg-[#0a0a0a] min-h-screen text-white text-white pt-[80px] sm:pt-[80px] mx-[120px] font-['Urbanist']">
                 {/* Other sections can go here */}
 
                 {/* ── YOUR NEW USE CASES SECTION ── */}
@@ -810,7 +810,7 @@ export default function TorchProxiesLandingPage() {
             </main>
 
             {/* ── SECTION 9: UPSELL CARDS ──────────────────────────────────── */}
-            <section className="py-24 bg-[#0a0a0a] text-white">
+            <section className="bg-[#0a0a0a] text-white pt-[80px] sm:pt-[80px] mx-[120px]">
                 <div className="max-w-[1240px] mx-auto px-6">
 
                     {/* ── TOP HEADLINE SECTION ────────────────────────────────── */}

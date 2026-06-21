@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from 'react';
-import { Check, ChevronDown, Globe, } from 'lucide-react';
+import { Check, ChevronDown, } from 'lucide-react';
 import Flag from 'react-world-flags';
-import { Database, RefreshCw, Layers, ShieldCheck, Infinity, Tag, CreditCard } from 'lucide-react';
+import { CreditCard } from 'lucide-react';
 import UseCasesSection from '@/components/home/UseCasesSection';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -72,14 +72,14 @@ export default function TorchProxiesLandingPage() {
         isDimmed: i >= 30
     }));
     const locations = [
-        { code: 'US', name: 'United States', ips: '4,429,824' },
-        { code: 'GB', name: 'United Kingdom', ips: '1,449,139' },
-        { code: 'DE', name: 'Germany', ips: '1,431,960' },
-        { code: 'AU', name: 'Australia', ips: '452,720' },
-        { code: 'CA', name: 'Canada', ips: '815,658' },
-        { code: 'MX', name: 'Mexico', ips: '4,429,824' },
-        { code: 'CN', name: 'China', ips: '4,429,824' },
-        { code: 'FR', name: 'France', ips: '4,429,824' },
+        { code: 'US', name: 'United States', ips: '4,429,824', url: '/locations/us' },
+        { code: 'GB', name: 'United Kingdom', ips: '1,449,139', url: '/locations/gb' },
+        { code: 'DE', name: 'Germany', ips: '1,431,960', url: '/locations/de' },
+        { code: 'AU', name: 'Australia', ips: '452,720', url: '/locations/au' },
+        { code: 'CA', name: 'Canada', ips: '815,658', url: '/locations/ca' },
+        { code: 'MX', name: 'Mexico', ips: '4,429,824', url: '/locations/mx' },
+        { code: 'CN', name: 'China', ips: '4,429,824', url: '/locations/cn' },
+        { code: 'FR', name: 'France', ips: '4,429,824', url: '/locations/fr' },
     ];
 
 
@@ -213,11 +213,11 @@ export default function TorchProxiesLandingPage() {
         <div className="bg-[#0a0a0a] text-white antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden space-y-6 font-['Urbanist'] ">
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-    <header className="relative min-h-[85vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-28 pb-12 overflow-hidden bg-[#0a0a0a] font-['Urbanist']">
+    <header className="relative min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-[190px] pb-12 overflow-hidden bg-[#0a0a0a] space-y-6 font-['Urbanist']">
     
     {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
     {/* 🛠️ FIX: Removed 'translate-y-12' and replaced it with a negative translation or custom offset to lift it up */}
-    <div className="absolute bottom-0 left-0 right-0 h-[35vh] z-0 transform translate-y-4">
+    <div className="absolute bottom-0 left-0 right-0 h-[65vh] z-0 ">
 
         <Image
             src="/images/hero_back.png"
@@ -235,26 +235,32 @@ export default function TorchProxiesLandingPage() {
     </div>
 
     {/* Foreground content grid wrapper (Kept relative z-10) */}
-    <div className="max-w-6xl mx-auto text-center z-10">
+    <div className="max-w-6xl mx-auto text-center z-10 font-['Urbanist']">
         <div className="flex items-center justify-center mb-6">
-            <img
-                src="/images/TrustPiolet.png"
-                alt="Excellent 5-star rating on Trustpilot"
-                className="h-6 w-auto object-contain"
-                loading="lazy"
-            />
+            <a href="https://www.trustpilot.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="cursor-pointer"
+                        >
+                            <img
+                                src="/images/TrustPiolet.png"
+                                alt="Excellent 5-star rating on Trustpilot"
+                                className="h-8 w-auto object-contain"
+                                loading="lazy"
+                            />
+                        </a>
         </div>
 
-        <h1 className="text-[60px] sm:text-6xl lg:text-7xl font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
+        <h1 className="text-[60px] sm:text-[60px] lg:text-[60px] font-regular tracking-tight leading-[72px] mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
             Best Premium Residential <br />
             <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">Proxy. Access 100M+ Global IPs</span>
         </h1>
 
-        <p className="max-w-2xl mx-auto text-stone-400 text-base text-[18px] mb-6 leading-relaxed">
+        <p className="max-w-3xl mx-auto text-stone-400 text-base text-[18px] sm:text-xl mb-4 leading-relaxed">
             Experience faster speeds and enhanced performance. Premium Residential Proxies is built for those who need a little extra power to stay productive and efficient.
         </p>
 
-        <div className="py-4 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-400 text-[16px] font-regular">
+        <div className="py-8 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-[16px] font-medium">
             <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Pricing starts from $3.4/GB</div>
             <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> For demanding users & businesses</div>
             <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> 24 hour refund policy</div>
@@ -288,7 +294,7 @@ export default function TorchProxiesLandingPage() {
             </button>
         </div>
 
-        <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide py-6">
+        <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide pt-4 pb-25">
             <CreditCard className="w-4 h-4 text-stone-500" />
             <span>No credit card needed. Instant access</span>
         </div>
@@ -307,7 +313,7 @@ export default function TorchProxiesLandingPage() {
                                 <div className="bg-[#050505] rounded-2xl border border-gray-900/50 overflow-hidden flex items-center justify-center">
 
                                     <img
-                                        src="/images/Scraping.png"
+                                        src="/images/heavyscrapping.png"
                                         alt="Perfect for Everyday Scraping & Automation"
                                         className="w-full h-auto object-cover rounded-2xl"
                                     />
@@ -317,13 +323,13 @@ export default function TorchProxiesLandingPage() {
 
                         {/* Text Side */}
                         <div className="space-y-6">
-                            <h2 className="text-4xl md:text-5xl font-regular tracking-tight">
+                            <h2 className="text-[42px] md:text-[42px] font-regular tracking-tight">
                                 Built for Heavy Scraping & Stricter Websites
                             </h2>
-                            <p className="text-gray-400 text-lg leading-relaxed">
-                                Torchlabs’ Premium Residential proxies deliver faster speeds, stronger stability and higher success rates for demanding workloads. With a larger, higher-quality IP pool and improved rotation behavior, this plan is ideal for users who need better performance on strict websites, high-volume scraping, and advanced automation tasks that require more power than standard options.
+                            <p className="text-gray-400 text-[18px] leading-relaxed">
+                                Torch Proxies Premium Residential proxies deliver faster speeds, stronger stability and higher success rates for demanding workloads. With a larger, higher-quality IP pool and improved rotation behavior, this plan is ideal for users who need better performance on strict websites, high-volume scraping, and advanced automation tasks that require more power than standard options.
                             </p>
-                            <ul className="text-gray-400 text-lg leading-relaxed">
+                            <ul className="text-gray-400 text-[16px] leading-relaxed">
                                 <li>&#9679; Larger, high-quality residential IP pool</li>
                                 <li>&#9679; Faster performance with lower latency</li>
                                 <li>&#9679; Stronger success rates on strict or sensitive websites</li>
@@ -340,15 +346,15 @@ export default function TorchProxiesLandingPage() {
 
                     {/* ── TOP HEADER SUB-LABELS ───────────────────────────────── */}
                     <div className="text-center mb-16">
-                        <span className="text-[#FE4A01] text-xs font-regular tracking-wider block mb-3">
+                        <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
                             Premium Residential Proxies
                         </span>
-                        <h2 className="text-3xl sm:text-5xl font-regular tracking-tight mb-6">
+                        <h2 className="text-[42px] sm:text-[42px] font-regular tracking-tight mb-6">
                             Buy Premium Residential Proxies
                         </h2>
 
                         {/* Top Trust Badges */}
-                        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-stone-400 text-xs sm:text-sm font-medium">
+                        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-stone-400 text-[16px] sm:text-[16px] font-medium">
                             <span className="flex items-center gap-1.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Secure checkout with SSL encryption</span>
                             <span className="flex items-center gap-1.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Pay As You Go Pricing</span>
                             <span className="flex items-center gap-1.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Premium IPs</span>
@@ -365,7 +371,7 @@ export default function TorchProxiesLandingPage() {
 
                                 <div className="relative w-[84px] h-[84px]">
                                     <Image
-                                        src="/images/standardresidential.svg" // Path relative to your public folder
+                                        src="/images/ISP.svg" // Path relative to your public folder
                                         alt="Feature Icon"
                                         fill
                                         className="object-contain"
@@ -382,12 +388,12 @@ export default function TorchProxiesLandingPage() {
                                 </div>
                             </div>
 
-                            <p className="text-stone-400 text-[15px]  leading-relaxed">
+                            <p className="text-stone-400 text-[16px]  leading-relaxed mb-[24px] mt-[12px]">
                                 Enhanced speed and reliability with rotating residential proxies and static sessions  <span className="text-[#FE4A01]">ideal for demanding users and businesses.</span>
                             </p>
 
                             {/* Custom Micro Pill Badge */}
-                            <div className="inline-block bg-[#FE4A01]/10 border border-[#FE4A01]/20 px-3 py-1 rounded-md">
+                            <div className="inline-block bg-[#FE4A01]/10 border border-[#FE4A01]/20 px-3 py-1 rounded-md mb-[24px]">
                                 <span className="text-[#FE4A01] text-[14px] font-semi-bold tracking-wide">From $4/GB per month</span>
                             </div>
 
@@ -410,7 +416,7 @@ export default function TorchProxiesLandingPage() {
                             <div className="flex flex-col sm:flex-row items-center justify-left gap-4 mb-2 mt-[32px]">
 
                                 {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                                <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+                                <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="font-['Urbanist'] cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
 
                                     {/* Fast 3D text track wrapper */}
                                     <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
@@ -451,43 +457,45 @@ export default function TorchProxiesLandingPage() {
                         </div>
 
                         {/* RIGHT PANEL: GRID OF PRICING CARDS */}
-                        <div className="grid grid-cols-2 gap-y-4 gap-x-[200px] w-fit ml-[188px]">
-                            {tiers.map((tier) => {
-                                const isSelected = selectedPlan === tier.id;
-                                return (
-                                    <div
-                                        key={tier.id}
-                                        onClick={() => setSelectedPlan(tier.id)}
-                                        className={`w-[180px] h-[171px] border rounded-2xl p-5 relative cursor-pointer select-none transition-all duration-200 flex flex-col justify-between ${isSelected
-                                            ? 'bg-stone-900/40 border-[#FE4A01] shadow-[0_0_25px_rgba(254,74,1,.1)]'
-                                            : 'bg-[#0b0b0d]/50 border-stone-900 hover:border-stone-800/80'
-                                            }`}
-                                    >
-                                        {/* Floating Green Percentage Label */}
-                                        <div className="absolute top-4 right-4 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded">
-                                            {tier.discount}
-                                        </div>
+<div className="grid grid-cols-2 gap-y-4 gap-x-[200px] w-fit ml-[188px]">
+    {tiers.map((tier) => {
+        const isSelected = selectedPlan === tier.id;
+        return (
+            <div
+                key={tier.id}
+                onClick={() => setSelectedPlan(tier.id)}
+                className={`w-[180px] h-[171px] border rounded-2xl p-5 relative cursor-pointer select-none transition-all duration-200 flex flex-col justify-between ${isSelected
+                    ? 'bg-stone-900/40 border-[#FE4A01] shadow-[0_0_25px_rgba(254,74,1,.1)]'
+                    : 'bg-[#0b0b0d]/50 border-stone-900 hover:border-stone-800/80'
+                }`}
+            >
+                {/* Floating Green Percentage Label - Only renders if tier.discount exists */}
+                {tier.discount && (
+                    <div className="absolute top-4 right-4 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded">
+                        {tier.discount}
+                    </div>
+                )}
 
-                                        {/* Volume Metric Display */}
-                                        <div className="mt-15">
-                                            <span className="text-[32px] font-medium tracking-tight text-stone-200">
-                                                {tier.size}
-                                            </span>
-                                        </div>
+                {/* Volume Metric Display */}
+                <div className="mt-15">
+                    <span className="text-[32px] font-medium tracking-tight text-stone-200">
+                        {tier.size}
+                    </span>
+                </div>
 
-                                        {/* Price Metric Formula */}
-                                        <div className="mb-2 flex items-baseline gap-1">
-                                            <span className="text-[#FE4A01] font-bold text-xl">
-                                                {tier.price}
-                                            </span>
-                                            <span className="text-stone-500 text-xs font-medium">
-                                                per GB
-                                            </span>
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                        </div>
+                {/* Price Metric Formula */}
+                <div className="mb-2 flex items-baseline gap-1">
+                    <span className="text-[#FE4A01] font-bold text-[24px] font-['Urbanist']">
+                        {tier.price}
+                    </span>
+                    <span className="text-[#FE4A01] text-[14px] font-medium font-['Urbanist']">
+                        per GB
+                    </span>
+                </div>
+            </div>
+        );
+    })}
+</div>
 
                     </div>
 
@@ -495,80 +503,83 @@ export default function TorchProxiesLandingPage() {
             </section>
 
             {/* ── SECTION 4: GLOBAL LOCATIONS ──────────────────────────────── */}
-            <section className="relative bg-[#0a0a0a] text-white pt-[80px] sm:pt-[80px] mx-[120px] overflow-hidden font-['Urbanist']">
-                {/* Background Map Overlay */}
-                <div
-                    className="absolute inset-0 opacity-40 bg-center bg-no-repeat bg-contain pointer-events-none"
-                    style={{
-                        backgroundImage: "url('/images/world-map.png')",
-                    }}
-                />
-
-
-                <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-                    <span className="text-orange-500 font-regular text-[16px] mb-4 block tracking-widest">
-                        Locations
-                    </span>
-                    <h2 className="text-[42px] md:text-5xl font-medium mb-6">
-                        Available in 195+ countries
-                    </h2>
-                    <p className="text-gray-400 max-w-3xl mx-auto mb-16">
-                        We provide you access to a global network of ethical sourced proxy nodes from around the world.
-                    </p>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2 -mt-[40px]">
-                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                        <button onClick={() => router.push('/locations')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
-
-                            {/* Fast 3D text track wrapper */}
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-
-                                {/* Default State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                    View all locations
-                                </span>
-
-                                {/* Hover State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
-                                    View all locations
-                                </span>
-                            </div>
-                        </button>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full mt-[64px]">
-                        {locations.map((loc, index) => (
+                        <section className="relative bg-[#0a0a0a] text-white py-24 overflow-hidden space-y-6 font-['Urbanist']">
+                            {/* Background Map Overlay */}
                             <div
-                                key={`${loc.code}-${index}`}
-                                // ── CLICK NAVIGATION HANDLER ──
-                                onClick={() => router.push(`/locations/${loc.code}`)}
-                                className="flex items-center gap-3.5 bg-[#0b0b0d]/30 border border-stone-900/60 rounded-[12px] p-4 hover:border-stone-800/80 hover:bg-[#0e0e12]/60 transition-all duration-200 group cursor-pointer"
-                            >
-                                {/* Flag Container */}
-                                <div className="w-11 h-9 relative overflow-hidden rounded-[3px] flex-shrink-0 bg-stone-950 shadow-[0_1px_3px_rgba(0,0,0,0.5)] border border-stone-900/20">
-                                    <Flag
-                                        code={loc.code}
-                                        className="w-full h-full object-cover"
-                                        fallback={<span className="text-[10px] text-stone-600">🏳️</span>}
-                                    />
+                                className="absolute inset-0 opacity-40 bg-center bg-no-repeat bg-contain pointer-events-none"
+                                style={{
+                                    backgroundImage: "url('/images/world-map.png')",
+                                }}
+                            />
+            
+            
+                            <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+                                <span className="text-orange-500 font-regular text-[16px] mb-4 block tracking-widest">
+                                    Locations
+                                </span>
+                                <h2 className="text-[42px] md:text-5xl font-medium mb-6">
+                                    Available in 195+ countries
+                                </h2>
+                                <p className="text-gray-400 max-w-3xl mx-auto mb-16">
+                                    We provide you access to a global network of ethical sourced proxy nodes from around the world.
+                                </p>
+            
+                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full mb-[100px]">
+                                    {locations.map((loc, index) => (
+                                        <div
+                                            key={`${loc.code}-${index}`}
+                                            // ── CLICK NAVIGATION HANDLER ──
+                                            onClick={() => router.push(loc.url)}
+                                            className="flex items-center gap-3.5 bg-[#0b0b0d]/30 border border-stone-900/60 rounded-[12px] p-4 hover:border-stone-800/80 hover:bg-[#0e0e12]/60 transition-all duration-200 group cursor-pointer"
+                                        >
+                                            {/* Flag Container */}
+                                            <div className="w-14 h-9 relative overflow-hidden rounded-[3px] flex-shrink-0 bg-stone-950 shadow-[0_1px_3px_rgba(0,0,0,0.5)] border border-stone-900/20">
+                                                <Flag
+                                                    code={loc.code}
+                                                    className="w-full h-full object-cover"
+                                                    fallback={<span className="text-[10px] text-stone-600">🏳️</span>}
+                                                />
+                                            </div>
+            
+                                            {/* Data Labels Container */}
+                                            <div className="flex flex-col min-w-0 leading-tight">
+                                                <span className="text-[20px] font-semibold text-stone-300 tracking-tight group-hover:text-white transition-colors truncate">
+                                                    {loc.name}
+                                                </span>
+                                                <span className="text-[16px] text-stone-600 font-normal mt-0.5 tracking-wide">
+                                                    {loc.ips} IPs
+                                                </span>
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
-
-                                {/* Data Labels Container */}
-                                <div className="flex flex-col min-w-0 leading-tight">
-                                    <span className="text-[20px] font-semibold text-stone-300 tracking-tight group-hover:text-white transition-colors truncate">
-                                        {loc.name}
-                                    </span>
-                                    <span className="text-[16px] text-stone-600 font-normal mt-0.5 tracking-wide">
-                                        {loc.ips} IPs
-                                    </span>
-                                </div>
+                                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2 -mt-[40px]">
+                                    {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
+                                    <button onClick={() => router.push('/locations')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+            
+                                        {/* Fast 3D text track wrapper */}
+                                        <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+            
+                                            {/* Default State Text */}
+                                            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                                View all locations
+                                            </span>
+            
+                                            {/* Hover State Text */}
+                                            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+                                                View all locations
+                                            </span>
+                                        </div>
+                                    </button>
+                                </div>{/*  */}
+            
+                                {/* Call to Action */}
+                                {/* <button className="bg-gradient-to-r from-orange-600 to-orange-500 px-8 py-4 rounded-xl font-bold text-white shadow-lg shadow-orange-900/20 hover:scale-105 transition-transform">
+                                    View all locations
+                                </button> */}
                             </div>
-                        ))}
-                    </div>
-                    {/* Call to Action */}
-                    {/* <button className="bg-gradient-to-r from-orange-600 to-orange-500 px-8 py-4 rounded-xl font-bold text-white shadow-lg shadow-orange-900/20 hover:scale-105 transition-transform">
-                        View all locations
-                    </button> */}
-                </div>
-            </section>
+            
+                        </section>
 
             {/* ── SECTION 5: WHY CHOOSETORCHPROXIES ──────────────────────────────── */}
             <section className="pt-[80px] sm:pt-[80px] mx-[120px] bg-[#0a0a0a] text-white relative space-y-6 font-['Urbanist']">
@@ -579,10 +590,10 @@ export default function TorchProxiesLandingPage() {
                         <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
                             Features
                         </span>
-                        <h2 className="text-[42px] sm:text-5xl font-medium tracking-tight text-white mb-4">
+                        <h2 className="text-[42px] sm:text-[42px] font-medium tracking-tight text-white mb-4">
                             Built for you dashboard
                         </h2>
-                        <p className="text-stone-400 text-sm sm:text-base max-w-2xl mx-auto font-normal">
+                        <p className="text-stone-400 text-[18px] sm:text-base max-w-2xl mx-auto font-normal">
                             Easily manage, monitor and optimize your proxy operations with a user centric dashboard.
                         </p>
                     </div>
@@ -777,7 +788,7 @@ export default function TorchProxiesLandingPage() {
             </section>
 
             {/* ── SECTION 8: USE CASES ─────────────────────────────────────── */}
-            <main className="bg-[#0a0a0a] min-h-screen text-white pt-[80px] sm:pt-[80px] mx-[120px]">
+            <main className="bg-[#0a0a0a] min-h-screen text-white pt-[80px] sm:pt-[80px] mx-[120px] font-['Urbanist']">
                 {/* Other sections can go here */}
 
                 {/* ── YOUR NEW USE CASES SECTION ── */}
@@ -787,7 +798,7 @@ export default function TorchProxiesLandingPage() {
             </main>
 
             {/* ── SECTION 9: UPSELL CARDS ──────────────────────────────────── */}
-            <section className="py-24 bg-[#0a0a0a] text-white pt-[80px] sm:pt-[80px] mx-[120px]">
+            <section className="bg-[#0a0a0a] text-white pt-[80px] sm:pt-[80px] mx-[120px]">
                 <div className="max-w-[1240px] mx-auto px-6">
 
                     {/* ── TOP HEADLINE SECTION ────────────────────────────────── */}
