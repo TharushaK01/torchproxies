@@ -143,7 +143,7 @@ export default function TorchProxiesLandingPage() {
     role: "Verified Customer",
     text: "If you are buy proxies anywhere you should buy them here. Nice guys who work hard. Communication is good and there is always help where needed. Can't recommend a better company for proxies.",
     stars: 5,
-    avatar: "/images/avatars/black-bear.png" // Path to your custom pixel bear photo
+    avatar: null // Path to your custom pixel bear photo
   },
   {
     name: "Ishak",

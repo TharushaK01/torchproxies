@@ -143,7 +143,7 @@ export default function TorchProxiesLandingPage() {
             role: "Verified Customer",
             text: "If you are buy proxies anywhere you should buy them here. Nice guys who work hard. Communication is good and there is always help where needed. Can't recommend a better company for proxies.",
             stars: 5,
-            avatar: "/images/avatars/black-bear.png" // Path to your custom pixel bear photo
+            avatar: null // Path to your custom pixel bear photo
         },
         {
             name: "Ishak",
@@ -215,8 +215,7 @@ export default function TorchProxiesLandingPage() {
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
     <header className="relative min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-[190px] pb-12 overflow-hidden bg-[#0a0a0a] space-y-6 font-['Urbanist']">
     
-    {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
-    {/* 🛠️ FIX: Removed 'translate-y-12' and replaced it with a negative translation or custom offset to lift it up */}
+    {/* ── Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
     <div className="absolute bottom-0 left-0 right-0 h-[65vh] z-0 ">
 
         <Image
