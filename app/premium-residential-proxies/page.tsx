@@ -294,7 +294,7 @@ export default function TorchProxiesLandingPage() {
             </button>
         </div>
 
-        <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide pt-4 pb-25">
+        <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide pt-4 pb-27">
             <CreditCard className="w-4 h-4 text-stone-500" />
             <span>No credit card needed. Instant access</span>
         </div>
@@ -388,7 +388,7 @@ export default function TorchProxiesLandingPage() {
                                 </div>
                             </div>
 
-                            <p className="text-stone-400 text-[16px]  leading-relaxed mb-[24px] mt-[12px]">
+                            <p className="text-stone-400 text-[16px] leading-relaxed mb-[24px] mt-[12px]">
                                 Enhanced speed and reliability with rotating residential proxies and static sessions  <span className="text-[#FE4A01]">ideal for demanding users and businesses.</span>
                             </p>
 
@@ -397,23 +397,23 @@ export default function TorchProxiesLandingPage() {
                                 <span className="text-[#FE4A01] text-[14px] font-semi-bold tracking-wide">From $4/GB per month</span>
                             </div>
 
-                            {/* Feature Checklist */}
-                            <ul className="space-y-3.5 pt-4 text-stone-400 text-[16px] font-regular">
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Data never expires</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Can cancel anytime</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> High-quality residential IPs</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Optimized for strict and sensitive websites</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Advanced geo targeting (country, state, city)</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Unlimited concurrent sessions</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Rotating and enhanced sticky sessions</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> 90M+ ethically sourced residential IPs worldwide</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> High-volume social media automation, stricter eCommerce platforms, login-based workflows, data pipelines, API-level scraping, and large-scale research.</li>
-                            </ul>
+                           {/* Feature Checklist */}
+<ul className="space-y-3.5 pt-4 text-stone-400 text-[16px] font-regular">
+    <li className="flex items-start gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3] shrink-0 mt-1" /> Data never expires</li>
+    <li className="flex items-start gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3] shrink-0 mt-1" /> Can cancel anytime</li>
+    <li className="flex items-start gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3] shrink-0 mt-1" /> High-quality residential IPs</li>
+    <li className="flex items-start gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3] shrink-0 mt-1" /> Optimized for strict and sensitive websites</li>
+    <li className="flex items-start gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3] shrink-0 mt-1" /> Advanced geo targeting (country, state, city)</li>
+    <li className="flex items-start gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3] shrink-0 mt-1" /> Unlimited concurrent sessions</li>
+    <li className="flex items-start gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3] shrink-0 mt-1" /> Rotating and enhanced sticky sessions</li>
+    <li className="flex items-start gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3] shrink-0 mt-1" /> 90M+ ethically sourced residential IPs worldwide</li>
+    <li className="flex items-start gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3] shrink-0 mt-1" /> High-volume social media automation, stricter eCommerce platforms, login-based workflows, data pipelines, API-level scraping, and large-scale research.</li>
+</ul>
 
                             {/* Main Primary CTA Button */}
 
 
-                            <div className="flex flex-col sm:flex-row items-center justify-left gap-4 mb-2 mt-[32px]">
+                            <div className="flex flex-col sm:flex-row items-center justify-left gap-4 mb-[42px] mt-[32px]">
 
                                 {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
                                 <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="font-['Urbanist'] cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
@@ -553,26 +553,25 @@ export default function TorchProxiesLandingPage() {
                                         </div>
                                     ))}
                                 </div>
-                                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2 -mt-[40px]">
-                                    {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                                    <button onClick={() => router.push('/locations')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
-            
-                                        {/* Fast 3D text track wrapper */}
-                                        <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-            
-                                            {/* Default State Text */}
-                                            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                                View all locations
-                                            </span>
-            
-                                            {/* Hover State Text */}
-                                            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
-                                                View all locations
-                                            </span>
-                                        </div>
-                                    </button>
-                                </div>{/*  */}
-            
+                                                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2 -mt-[40px]">
+                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
+                        <button onClick={() => router.push('/countries')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+
+                            {/* Fast 3D text track wrapper */}
+                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+                                {/* Default State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                    View all locations
+                                </span>
+
+                                {/* Hover State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+                                    View all locations
+                                </span>
+                            </div>
+                        </button>
+                    </div>{/*  */}
                                 {/* Call to Action */}
                                 {/* <button className="bg-gradient-to-r from-orange-600 to-orange-500 px-8 py-4 rounded-xl font-bold text-white shadow-lg shadow-orange-900/20 hover:scale-105 transition-transform">
                                     View all locations
@@ -843,22 +842,24 @@ export default function TorchProxiesLandingPage() {
                             <div className="lg:col-span-7 space-y-6">
                                 <div className="relative inline-block">
                                     <h3 className="text-[40px] font-medium tracking-tight text-white leading-tight text-white">
-                                        Premium Residential  <br />Proxies
+                                        Standard Residential <br />Proxies
                                     </h3>
                                     <span className="absolute -top-3 -right-50 bg-[#FE4A01]/10 border border-[#FE4A01]/20 text-[#FE4A01] text-[14px] font-medium px-2.5 py-1 rounded-md">
                                         From $4.5/GB
                                     </span>
                                 </div>
                                 <p className="text-stone-400 text-[16px] font-regular leading-relaxed">
-                                    Enhanced speed and reliability with rotating residential proxies and static sessions ideal for demanding users and businesses.
+                                    Reliable and affordable with rotating residential proxies and optional static sessions perfect for everyday online tasks.
                                 </p>
                                 <ul className="space-y-3 text-stone-400 text-[16px] font-regular">
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Premium residential IPs</li>
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Rotating and sticky sessions</li>
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Target country, state, and city-level</li>
+                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Data never expires</li>
+                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Can cancel anytime</li>
+                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Authentic residential IPs</li>
                                     <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Suitable for general web scraping</li>
+                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Target any country, state and city level</li>
                                     <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Unlimited concurrent sessions</li>
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> 90M+ ethically sourced unique IPs in 195 countries</li>
+                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Rotating and sticky sessions</li>
+                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> 30M+ ethically sourced unique IPs in 195+ Countries</li>
                                 </ul>
                                 <div className="flex flex-col sm:flex-row items-center justify-left gap-4 mb-2">
 
@@ -889,7 +890,7 @@ export default function TorchProxiesLandingPage() {
                             {/* Right Image Column */}
                             <div className="lg:col-span-5 bg-[#0b0b0d] border border-stone-900 rounded-3xl overflow-hidden min-h-[380px]">
                                 <img
-                                    src="/images/sr5.png"
+                                    src="/images/Scraping.png"
                                     alt="Premium Residential Proxies"
                                     className="w-full h-full object-cover"
                                 />

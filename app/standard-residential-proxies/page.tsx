@@ -425,7 +425,7 @@ export default function TorchProxiesLandingPage() {
                             {/* Main Primary CTA Button */}
 
 
-                            <div className="flex flex-col sm:flex-row items-center justify-left gap-4 mb-2 mt-[32px]">
+                            <div className="flex flex-col sm:flex-row items-center justify-left gap-4 mb-[42px] mt-[32px]">
 
                                 {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
                                 <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="font-['Urbanist'] cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
@@ -567,7 +567,7 @@ export default function TorchProxiesLandingPage() {
                     </div>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2 -mt-[40px]">
                         {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                        <button onClick={() => router.push('/locations')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+                        <button onClick={() => router.push('/countries')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
 
                             {/* Fast 3D text track wrapper */}
                             <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
@@ -612,11 +612,11 @@ export default function TorchProxiesLandingPage() {
 
                     {/* ── BENTO BOX GRID LAYOUT ────────────────────────────────── */}
                     {/* Changed grid layout to flex on desktop to enforce exact, explicit layout pixel widths */}
-                    <div className="flex flex-col lg:flex-row gap-6 items-stretch justify-center w-full max-w-[1204px] mx-auto">
+                    <div className="flex flex-col lg:flex-row gap-6 items-stretch justify-center w-full max-w-[1240px] mx-auto">
 
                         {/* CARD 1: TARGET ANY COUNTRY (Left Column - Locked at exactly 591px wide) */}
                         <div className="w-full lg:w-[591px] flex-shrink-0 bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col justify-between overflow-hidden min-h-[540px]">
-                            <div className="mb-6">
+                            <div className="mb-[32px]">
                                 <h3 className="text-[28px] font-medium tracking-tight text-stone-200 mb-3">
                                     Target Any Country, State or City
                                 </h3>
@@ -837,7 +837,7 @@ export default function TorchProxiesLandingPage() {
                         </button>
                         <button
                             onClick={() => setActiveTab('planX')}
-                            className={`flex-1 pb-4 px-8 text-sm font-medium transition-all relative ${activeTab === 'planX' ? 'text-[#FE4A01]' : 'text-stone-500 hover:text-stone-300'
+                            className={`font-['Urbanist'] flex-1 pb-4 px-8 text-sm font-medium transition-all relative ${activeTab === 'planX' ? 'text-[#FE4A01]' : 'text-stone-500 hover:text-stone-300'
                                 }`}
                         >
                             Plan X Residential Proxies
@@ -901,7 +901,7 @@ export default function TorchProxiesLandingPage() {
                             {/* Right Image Column */}
                             <div className="lg:col-span-5 bg-[#0b0b0d] border border-stone-900 rounded-3xl overflow-hidden min-h-[380px]">
                                 <img
-                                    src="/images/sr5.png"
+                                    src="/images/heavyscrapping.png"
                                     alt="Premium Residential Proxies"
                                     className="w-full h-full object-cover"
                                 />
@@ -914,17 +914,17 @@ export default function TorchProxiesLandingPage() {
                             {/* Left Info Column */}
                             <div className="lg:col-span-7 space-y-6">
                                 <div className="relative inline-block">
-                                    <h3 className="text-[40px] font-medium tracking-tight text-white leading-tight text-white">
+                                    <h3 className="text-[40px] font-medium tracking-tight text-white leading-tight text-white font-['Urbanist']">
                                         Plan X Residential <br />Proxies
                                     </h3>
-                                    <span className="absolute -top-3 -right-50 bg-[#FE4A01]/10 border border-[#FE4A01]/20 text-[#FE4A01] text-[14px] font-medium px-2.5 py-1 rounded-md">
+                                    <span className="absolute -top-3 -right-50 bg-[#FE4A01]/10 border border-[#FE4A01]/20 text-[#FE4A01] text-[14px] font-medium px-2.5 py-1 rounded-md font-['Urbanist']">
                                         From $4.5/GB
                                     </span>
                                 </div>
-                                <p className="text-stone-400 text-[16px] font-regular leading-relaxed max-w-xl">
+                                <p className="text-stone-400 text-[16px] font-regular leading-relaxed max-w-xl font-['Urbanist']">
                                     Reliable and affordable with rotating residential proxies and optional static sessions perfect for everyday online tasks.
                                 </p>
-                                <ul className="space-y-3 text-stone-400 text-[16px] font-regular">
+                                <ul className="space-y-3 text-stone-400 text-[16px] font-regular font-['Urbanist']">
                                     <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Authentic residential proxies with dedicated ISP pools</li>
                                     <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Rotating and sticky sessions</li>
                                     <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Target country, state, and city-level</li>
@@ -936,7 +936,7 @@ export default function TorchProxiesLandingPage() {
                                 <div className="flex flex-col sm:flex-row items-center justify-left gap-4 mb-2">
 
                                     {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                                    <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-[403px] h-[46px] overflow-hidden bg-[#FF4F00] text-white text-[16px] font-medium rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+                                    <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="font-['Urbanist'] cursor-pointer group relative w-full sm:w-[403px] h-[46px] overflow-hidden bg-[#FF4F00] text-white text-[16px] font-medium rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
 
                                         {/* Fast 3D text track wrapper */}
                                         <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
