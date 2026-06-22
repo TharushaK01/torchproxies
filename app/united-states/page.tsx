@@ -226,12 +226,12 @@ export default function TorchProxiesLandingPage() {
     ];
 
     return (
-        <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden font-['Urbanist']">
+        <div className="bg-[#0a0a0a] text-white antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden font-['Urbanist']">
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-<header className="relative min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-28 pb-12 overflow-hidden space-y-6 font-['Urbanist']">
+<header className="relative min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center mt-[80px] px-6 pt-28 pb-12 overflow-hidden space-y-6 font-['Urbanist']">
 
-    <div className="absolute bottom-0 left-0 w-full h-[65vh] z-0">
+    <div className="absolute bottom-0 left-0 right-0 h-[65vh] z-0 w-full">
 
         <Image
             src="/images/hero_back.png"
@@ -250,23 +250,29 @@ export default function TorchProxiesLandingPage() {
     <div className="max-w-6xl mx-auto text-center z-10 font-['Urbanist']">
 
         <div className="flex items-center justify-center mb-6">
-            <img
-                src="/images/TrustPiolet.png"
-                alt="Excellent 5-star rating on Trustpilot"
-                className="h-6 w-auto object-contain"
-                loading="lazy"
-            />
+            <a href="https://www.trustpilot.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="cursor-pointer"
+                        >
+                            <img
+                                src="/images/TrustPiolet.png"
+                                alt="Excellent 5-star rating on Trustpilot"
+                                className="h-8 w-auto object-contain"
+                                loading="lazy"
+                            />
+                        </a>
         </div>
 
-        <h1 className="max-w-[1600px] mx-auto sm:text-[40px] text-[40px] lg:text-[55px] font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">
+        <h1 className="text-[60px] sm:text-[60px] lg:text-[60px] font-regular tracking-tight leading-[72px] mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">
             Fast and Secure United States Residential Proxies at Your Fingertips
         </h1>
 
-        <p className="max-w-[1600px] mx-auto text-stone-400 text-[18px] sm:text-xl mb-4 leading-relaxed">
+        <p className="max-w-3xl mx-auto text-stone-400 text-base text-[18px] sm:text-[18px] mb-4 leading-relaxed">
             Effortlessly connect to authentic, ethically sourced residential IPs in United States, giving you the freedom to browse, test, and manage your projects without interruptions
         </p>
 
-        <div className="py-4 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-sm font-medium">
+        <div className="py-8 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-[16px] font-medium">
             <div className="flex items-center justify-center gap-2">
                 <Check className="text-orange-500 w-4 h-4" />
                 Pay as you go pricing
@@ -298,7 +304,7 @@ export default function TorchProxiesLandingPage() {
             </div>
         </button>
 
-        <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide pt-4 pb-2">
+        <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide pt-4 pb-15">
             <CreditCard className="w-4 h-4 text-stone-500" />
             <span>No credit card needed. Instant access</span>
         </div>
