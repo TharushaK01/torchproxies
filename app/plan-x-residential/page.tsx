@@ -71,14 +71,14 @@ export default function TorchProxiesLandingPage() {
         isDimmed: i >= 30
     }));
     const locations = [
-        { code: 'US', name: 'United States', ips: '4,429,824' },
-        { code: 'GB', name: 'United Kingdom', ips: '1,449,139' },
-        { code: 'DE', name: 'Germany', ips: '1,431,960' },
-        { code: 'AU', name: 'Australia', ips: '452,720' },
-        { code: 'CA', name: 'Canada', ips: '815,658' },
-        { code: 'MX', name: 'Mexico', ips: '4,429,824' },
-        { code: 'CN', name: 'China', ips: '4,429,824' },
-        { code: 'FR', name: 'France', ips: '4,429,824' },
+        { code: 'US', name: 'United States', ips: '4,429,824', url: '/locations/us' },
+        { code: 'GB', name: 'United Kingdom', ips: '1,449,139', url: '/locations/gb' },
+        { code: 'DE', name: 'Germany', ips: '1,431,960', url: '/locations/de' },
+        { code: 'AU', name: 'Australia', ips: '452,720', url: '/locations/au' },
+        { code: 'CA', name: 'Canada', ips: '815,658', url: '/locations/ca' },
+        { code: 'MX', name: 'Mexico', ips: '4,429,824', url: '/locations/mx' },
+        { code: 'CN', name: 'China', ips: '4,429,824', url: '/locations/cn' },
+        { code: 'FR', name: 'France', ips: '4,429,824', url: '/locations/fr' },
     ];
 
 
@@ -94,7 +94,7 @@ export default function TorchProxiesLandingPage() {
 
     // Hardcoded pricing tiers matching the design exactly
     const tiers = [
-        { id: '1GB', size: '1GB', price: '$ 5', discount: '0% OFF' },
+        { id: '1GB', size: '1GB', price: '$ 5' },
         { id: '5GB', size: '5GB', price: '$ 4.75', discount: '5.56% OFF' },
         { id: '25GB', size: '25GB', price: '$ 4.50', discount: '11.11% OFF' },
         { id: '100GB', size: '100GB', price: '$ 4.25', discount: '16.67% OFF' },
@@ -217,8 +217,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
         <div className="bg-[#0a0a0a] text-white antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden space-y-6 font-['Urbanist']">
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-{/* 🛠️ FIX 1: Changed overflow-hidden to overflow-x-hidden to prevent the marquee from being cut off vertically */}
-<header className="relative min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-28 pb-12 overflow-x-hidden space-y-6 font-['Urbanist']">
+<header className="relative min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-[190px] pb-12 overflow-x-hidden space-y-6 font-['Urbanist']">
     
     <div className="absolute bottom-0 left-0 right-0 h-[65vh] z-0 w-full">
         <Image
@@ -228,67 +227,86 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             priority
             className="object-contain object-bottom w-full"
         />
-
-        {/* 🛠️ FIX 2: Swapped bottom-0 with a negative bottom value to push the marquee downwards */}
-        <div className="absolute -bottom-6 left-0 w-full z-10">
+ {/* Marquee at bottom of image */}
+        <div className="absolute -bottom-12 left-0 w-full z-10">
             <Marquee />
         </div>
     </div>
 
-    <div className="max-w-6xl mx-auto text-center z-10">
+    <div className="max-w-6xl mx-auto text-center z-10 font-['Urbanist']">
         <div className="flex items-center justify-center mb-6">
-            <img
-                src="/images/TrustPiolet.png"
-                alt="Excellent 5-star rating on Trustpilot"
-                className="h-6 w-auto object-contain"
-                loading="lazy"
-            />
+            <a href="https://www.trustpilot.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="cursor-pointer"
+                        >
+                            <img
+                                src="/images/TrustPiolet.png"
+                                alt="Excellent 5-star rating on Trustpilot"
+                                className="h-8 w-auto object-contain"
+                                loading="lazy"
+                            />
+                        </a>
         </div>
 
-        <h1 className="text-[60px] sm:text-6xl lg:text-7xl font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
+        <h1 className="text-[60px] sm:text-[60px] lg:text-[60px] font-regular tracking-tight leading-[72px] mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
             Redefining Performance <br />
             <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">with X Residential</span>
         </h1>
 
-        <p className="max-w-2xl mx-auto text-[18px] sm:text-xl text-stone-400 mb-10 leading-relaxed">
+        <p className="max-w-3xl mx-auto text-stone-400 text-base text-[18px] sm:text-[18px] mb-4 leading-relaxed">
             Built for speed and scale X Residential Proxies offer top-tier performance, unmatched reliability and limitless potential.
         </p>
 
-        <div className="py-4 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-[16px] font-medium">
+        <div className="py-8 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-[16px] font-medium">
             <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Pricing starts from $3.9/GB</div>
             <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> Residential with dedicated ISP pools</div>
             <div className="flex items-center justify-center gap-2"><Check className="text-orange-500 w-4 h-4" /> 24 hour refund policy</div>
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
-            {/* --- PRIMARY BUTTON --- */}
-            <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
-                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                        Start free with 1 GB
-                    </span>
-                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
-                        Start free with 1 GB
-                    </span>
-                </div>
-            </button>
+                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
+                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
 
-            {/* --- SECONDARY BUTTON --- */}
-            <button onClick={() => {
-                document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
-            }} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-700 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
-                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                        View Pricing
-                    </span>
-                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
-                        View Pricing
-                    </span>
-                </div>
-            </button>
+                            {/* Fast 3D text track wrapper */}
+                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+                                {/* Default State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                    Start free with 1 GB
+                                </span>
+
+                                {/* Hover State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+                                    Start free with 1 GB
+                                </span>
+
+                            </div>
+                        </button>
+
+                        {/* --- SECONDARY BUTTON: ROLLING TEXT + BORDER INDENT --- */}
+                        <button onClick={() => {
+                            document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
+                        }} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-400 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
+
+                            {/* Fast 3D text track wrapper */}
+                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+
+                                {/* Default State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                    View Pricing
+                                </span>
+
+                                {/* Hover State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
+                                    View Pricing
+                                </span>
+
+                            </div>
+                        </button>
         </div>
 
-        <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide py-6">
+        <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide pt-4 pb-15">
             <CreditCard className="w-4 h-4 text-stone-500" />
             <span>No credit card needed. Instant access</span>
         </div>
@@ -296,7 +314,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 </header>
 
             {/* ── SECTION 2: Perfect for Every Scraping & Animations ─────────── */}
-            <section className="bg-[#0a0a0a] text-white pt-[80px] sm:pt-[80px] mx-[120px] overflow-hidden">
+            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-32">
 
                     {/* Row 1: Easy Client Management */}
@@ -316,14 +334,14 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                         </div>
 
                         {/* Text Side */}
-                        <div className="space-y-6">
-                            <h2 className="text-4xl md:text-5xl font-regular tracking-tight">
+                        <div className="space-y-6 font-['Urbanist']">
+                            <h2 className="text-[42px] md:text-[42px] font-medium tracking-tight">
                                 Why Plan X Residential Proxies Stand Out
                             </h2>
-                            <p className="text-gray-400 text-lg leading-relaxed">
+                            <p className="text-gray-400 text-[18px] leading-relaxed">
                                 Plan X blends Residential IPs for authenticity with ISP IPs for speed and stability, creating a hybrid network built for high-performance scraping, automation, and content access.
                             </p>
-                            <ul className="text-gray-400 text-lg leading-relaxed">
+                            <ul className="text-gray-400 text-[16px] leading-relaxed">
                                 <li>&#9679; Fast, stable and highly reliable for demanding tasks.</li>
                                 <li>&#9679; A hybrid mix of Residential + ISP IPs for maximum versatility.</li>
                                 <li>&#9679; Engineered to support large-scale, resource-intensive workflows with ease.</li>
@@ -335,7 +353,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </section>
 
             {/* ── SECTION 3: Residential Proxies ────────────────────── */}
-            <section id="pricing" className="pt-[80px] sm:pt-[80px] mx-[120px] bg-[#0a0a0a] text-white relative overflow-hidden space-y-6 font-['Urbanist']">
+            <section id="pricing" className="py-24 bg-[#0a0a0a] text-white relative overflow-hidden space-y-6 font-['Urbanist']">
                 <div className="max-w-7xl mx-auto px-6">
 
                     {/* ── TOP HEADER SUB-LABELS ───────────────────────────────── */}
@@ -343,12 +361,12 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                         <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
                             X Residential Proxies
                         </span>
-                        <h2 className="text-3xl sm:text-5xl font-regular tracking-tight mb-6">
+                        <h2 className="text-[42px] sm:text-[42px] font-regular tracking-tight mb-6">
                             Buy X residential proxies
                         </h2>
 
                         {/* Top Trust Badges */}
-                        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-stone-400 text-xs sm:text-sm font-medium">
+                        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-stone-400 text-[16px] sm:text-[16px] font-medium">
                             <span className="flex items-center gap-1.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Secure checkout with SSL encryption</span>
                             <span className="flex items-center gap-1.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Pay As You Go Pricing</span>
                             <span className="flex items-center gap-1.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Premium IPs</span>
@@ -382,33 +400,33 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                                 </div>
                             </div>
 
-                            <p className="text-stone-400 text-[15px]  leading-relaxed">
+                            <p className="text-stone-400 text-[16px] sm:text-base leading-relaxed mb-[24px] mt-[12px]">
                                Unmatched speed, stability and flexibility with rotating residential proxies and static sessions <span className="text-[#FE4A01]">for top tier performance.</span>
                             </p>
 
                             {/* Custom Micro Pill Badge */}
-                            <div className="inline-block bg-[#FE4A01]/10 border border-[#FE4A01]/20 px-3 py-1 rounded-md">
+                            <div className="inline-block bg-[#FE4A01]/10 border border-[#FE4A01]/20 px-3 py-1 rounded-md mb-[24px]">
                                 <span className="text-[#FE4A01] text-[14px] font-semi-bold tracking-wide">From $/5GB per month</span>
                             </div>
 
                             {/* Feature Checklist */}
                             <ul className="space-y-3.5 pt-4 text-stone-400 text-[16px] font-regular">
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Data never expires</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Can cancel anytime</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Authentic residential proxies with dedicated ISP pools</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Rotating and sticky sessions</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Target country, state, and city-level</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Suitable for general web scraping</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Unlimited concurrent sessions</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> 120M+ ethically sourced unique IPs in 195 countries</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Easy API access for integration</li>
-                                <li className="flex items-center gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3]" /> Sneaker drops, ticketing queues, strict retail sites, social media anti-bot environments, flash sales, bot-driven automation, and mission-critical high-demand ops.</li>
+                                <li className="flex items-start gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3] shrink-0 mt-1" /> Data never expires</li>
+                                <li className="flex items-start gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3] shrink-0 mt-1" /> Can cancel anytime</li>
+                                <li className="flex items-start gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3] shrink-0 mt-1" /> Authentic residential proxies with dedicated ISP pools</li>
+                                <li className="flex items-start gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3] shrink-0 mt-1" /> Rotating and sticky sessions</li>
+                                <li className="flex items-start gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3] shrink-0 mt-1" /> Target country, state, and city-level</li>
+                                <li className="flex items-start gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3] shrink-0 mt-1" /> Suitable for general web scraping</li>
+                                <li className="flex items-start gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3] shrink-0 mt-1" /> Unlimited concurrent sessions</li>
+                                <li className="flex items-start gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3] shrink-0 mt-1" /> 120M+ ethically sourced unique IPs in 195 countries</li>
+                                <li className="flex items-start gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3] shrink-0 mt-1" /> Easy API access for integration</li>
+                                <li className="flex items-start gap-2.5"><Check className="text-emerald-400 w-4 h-4 stroke-[3] shrink-0 mt-1" /> Sneaker drops, ticketing queues, strict retail sites, social media anti-bot environments, flash sales, bot-driven automation, and mission-critical high-demand ops.</li>
                             </ul>
 
                             {/* Main Primary CTA Button */}
 
 
-                            <div className="flex flex-col sm:flex-row items-center justify-left gap-4 mb-2 mt-[32px]">
+                            <div className="flex flex-col sm:flex-row items-center justify-left gap-4 mb-[42px] mt-[32px]">
 
                                 {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
                                 <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
@@ -452,43 +470,46 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                         </div>
 
                         {/* RIGHT PANEL: GRID OF PRICING CARDS */}
-                        <div className="grid grid-cols-2 gap-y-4 gap-x-[200px] w-fit ml-[188px]">
-                            {tiers.map((tier) => {
-                                const isSelected = selectedPlan === tier.id;
-                                return (
-                                    <div
-                                        key={tier.id}
-                                        onClick={() => setSelectedPlan(tier.id)}
-                                        className={`w-[180px] h-[171px] border rounded-2xl p-5 relative cursor-pointer select-none transition-all duration-200 flex flex-col justify-between ${isSelected
-                                            ? 'bg-stone-900/40 border-[#FE4A01] shadow-[0_0_25px_rgba(254,74,1,.1)]'
-                                            : 'bg-[#0b0b0d]/50 border-stone-900 hover:border-stone-800/80'
-                                            }`}
-                                    >
-                                        {/* Floating Green Percentage Label */}
-                                        <div className="absolute top-4 right-4 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded">
-                                            {tier.discount}
-                                        </div>
+<div className="grid grid-cols-2 gap-y-4 gap-x-[200px] w-fit ml-[188px]">
+    {tiers.map((tier) => {
+        const isSelected = selectedPlan === tier.id;
+        return (
+            <div
+                key={tier.id}
+                onClick={() => setSelectedPlan(tier.id)}
+                className={`w-[180px] h-[171px] border rounded-2xl p-5 relative cursor-pointer select-none transition-all duration-200 flex flex-col justify-between ${isSelected
+                    ? 'bg-stone-900/40 border-[#FE4A01] shadow-[0_0_25px_rgba(254,74,1,.1)]'
+                    : 'bg-[#0b0b0d]/50 border-stone-900 hover:border-stone-800/80'
+                }`}
+            >
+                {/* Floating Green Percentage Label - Only renders if tier.discount exists */}
+                {tier.discount && (
+                    <div className="absolute top-4 right-4 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded">
+                        {tier.discount}
+                    </div>
+                )}
 
-                                        {/* Volume Metric Display */}
-                                        <div className="mt-15">
-                                            <span className="text-[32px] font-medium tracking-tight text-stone-200">
-                                                {tier.size}
-                                            </span>
-                                        </div>
+                {/* Volume Metric Display */}
+                <div className="mt-15">
+                    <span className="text-[32px] font-medium tracking-tight text-stone-200">
+                        {tier.size}
+                    </span>
+                </div>
 
-                                        {/* Price Metric Formula */}
-                                        <div className="mb-2 flex items-baseline gap-1">
-                                            <span className="text-[#FE4A01] font-bold text-xl">
-                                                {tier.price}
-                                            </span>
-                                            <span className="text-stone-500 text-xs font-medium">
-                                                per GB
-                                            </span>
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                        </div>
+                {/* Price Metric Formula */}
+                <div className="mb-2 flex items-baseline gap-1">
+                    <span className="text-[#FE4A01] font-bold text-[24px] font-['Urbanist']">
+                        {tier.price}
+                    </span>
+                    <span className="text-[#FE4A01] text-[14px] font-medium font-['Urbanist']">
+                        per GB
+                    </span>
+                </div>
+            </div>
+        );
+    })}
+</div>
+
 
                     </div>
 
@@ -496,29 +517,59 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </section>
 
             {/* ── SECTION 4: GLOBAL LOCATIONS ──────────────────────────────── */}
-            <section className="relative bg-[#0a0a0a] text-white pt-[80px] sm:pt-[80px] mx-[120px] overflow-hidden space-y-6 font-['Urbanist']">
-                {/* Background Map Overlay */}
-                <div
-                    className="absolute inset-0 opacity-40 bg-center bg-no-repeat bg-contain pointer-events-none"
-                    style={{
-                        backgroundImage: "url('/images/world-map.png')",
-                    }}
-                />
-
-
-                <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-                    <span className="text-orange-500 font-regular text-[16px] mb-4 block tracking-widest">
-                        Locations
-                    </span>
-                    <h2 className="text-[42px] md:text-5xl font-medium mb-6">
-                        Available in 195+ countries
-                    </h2>
-                    <p className="text-gray-400 max-w-3xl mx-auto mb-16">
-                        We provide you access to a global network of ethical sourced proxy nodes from around the world.
-                    </p>
+                        <section className="relative bg-[#0a0a0a] text-white py-24 overflow-hidden space-y-6 font-['Urbanist']">
+                            {/* Background Map Overlay */}
+                            <div
+                                className="absolute inset-0 opacity-40 bg-center bg-no-repeat bg-contain pointer-events-none"
+                                style={{
+                                    backgroundImage: "url('/images/world-map.png')",
+                                }}
+                            />
+            
+            
+                            <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+                                <span className="text-orange-500 font-regular text-[16px] mb-4 block tracking-widest">
+                                    Locations
+                                </span>
+                                <h2 className="text-[42px] md:text-5xl font-medium mb-6">
+                                    Available in 195+ countries
+                                </h2>
+                                <p className="text-gray-400 max-w-3xl mx-auto mb-16">
+                                    We provide you access to a global network of ethical sourced proxy nodes from around the world.
+                                </p>
+            
+                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full mb-[100px]">
+                                    {locations.map((loc, index) => (
+                                        <div
+                                            key={`${loc.code}-${index}`}
+                                            // ── CLICK NAVIGATION HANDLER ──
+                                            onClick={() => router.push(loc.url)}
+                                            className="flex items-center gap-3.5 bg-[#0b0b0d]/30 border border-stone-900/60 rounded-[12px] p-4 hover:border-stone-800/80 hover:bg-[#0e0e12]/60 transition-all duration-200 group cursor-pointer"
+                                        >
+                                            {/* Flag Container */}
+                                            <div className="w-14 h-9 relative overflow-hidden rounded-[3px] flex-shrink-0 bg-stone-950 shadow-[0_1px_3px_rgba(0,0,0,0.5)] border border-stone-900/20">
+                                                <Flag
+                                                    code={loc.code}
+                                                    className="w-full h-full object-cover"
+                                                    fallback={<span className="text-[10px] text-stone-600">🏳️</span>}
+                                                />
+                                            </div>
+            
+                                            {/* Data Labels Container */}
+                                            <div className="flex flex-col min-w-0 leading-tight">
+                                                <span className="text-[20px] font-semibold text-stone-300 tracking-tight group-hover:text-white transition-colors truncate">
+                                                    {loc.name}
+                                                </span>
+                                                <span className="text-[16px] text-stone-600 font-normal mt-0.5 tracking-wide">
+                                                    {loc.ips} IPs
+                                                </span>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2 -mt-[40px]">
                         {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                        <button onClick={() => router.push('/locations')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+                        <button onClick={() => router.push('/countries')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
 
                             {/* Fast 3D text track wrapper */}
                             <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
@@ -534,42 +585,14 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                                 </span>
                             </div>
                         </button>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full mt-[64px]">
-                        {locations.map((loc, index) => (
-                            <div
-                                key={`${loc.code}-${index}`}
-                                // ── CLICK NAVIGATION HANDLER ──
-                                onClick={() => router.push(`/locations/${loc.code}`)}
-                                className="flex items-center gap-3.5 bg-[#0b0b0d]/30 border border-stone-900/60 rounded-[12px] p-4 hover:border-stone-800/80 hover:bg-[#0e0e12]/60 transition-all duration-200 group cursor-pointer"
-                            >
-                                {/* Flag Container */}
-                                <div className="w-11 h-9 relative overflow-hidden rounded-[3px] flex-shrink-0 bg-stone-950 shadow-[0_1px_3px_rgba(0,0,0,0.5)] border border-stone-900/20">
-                                    <Flag
-                                        code={loc.code}
-                                        className="w-full h-full object-cover"
-                                        fallback={<span className="text-[10px] text-stone-600">🏳️</span>}
-                                    />
-                                </div>
-
-                                {/* Data Labels Container */}
-                                <div className="flex flex-col min-w-0 leading-tight">
-                                    <span className="text-[20px] font-semibold text-stone-300 tracking-tight group-hover:text-white transition-colors truncate">
-                                        {loc.name}
-                                    </span>
-                                    <span className="text-[16px] text-stone-600 font-normal mt-0.5 tracking-wide">
-                                        {loc.ips} IPs
-                                    </span>
-                                </div>
+                    </div>{/*  */}
+                                {/* Call to Action */}
+                                {/* <button className="bg-gradient-to-r from-orange-600 to-orange-500 px-8 py-4 rounded-xl font-bold text-white shadow-lg shadow-orange-900/20 hover:scale-105 transition-transform">
+                                    View all locations
+                                </button> */}
                             </div>
-                        ))}
-                    </div>
-                    {/* Call to Action */}
-                    {/* <button className="bg-gradient-to-r from-orange-600 to-orange-500 px-8 py-4 rounded-xl font-bold text-white shadow-lg shadow-orange-900/20 hover:scale-105 transition-transform">
-                        View all locations
-                    </button> */}
-                </div>
-            </section>
+            
+                        </section>
 
             {/* ── SECTION 5: WHY CHOOSETORCHPROXIES ──────────────────────────────── */}
             <section className="pt-[80px] sm:pt-[80px] mx-[120px] bg-[#0a0a0a] text-white relative space-y-6 font-['Urbanist']">
@@ -580,93 +603,91 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                         <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
                             Features
                         </span>
-                        <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white mb-4">
+                        <h2 className="text-[42px] sm:text-[42px] font-medium tracking-tight text-white mb-4">
                             Built for you dashboard
                         </h2>
-                        <p className="text-stone-400 text-sm sm:text-base max-w-xl mx-auto font-normal">
+                        <p className="text-stone-400 text-[18px] sm:text-base max-w-2xl mx-auto font-normal">
                             Easily manage, monitor and optimize your proxy operations with a user centric dashboard.
                         </p>
                     </div>
 
                     {/* ── BENTO BOX GRID LAYOUT ────────────────────────────────── */}
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-
-                        {/* CARD 1: TARGET ANY COUNTRY (Left Column - Spans 5 cols) */}
-                        <div className="lg:col-span-6 bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col justify-between overflow-hidden min-h-[540px]">
-                            <div className="mb-6">
-                                <h3 className="text-[28px] font-regular tracking-tight text-stone-200 mb-3">
-                                    Target Any Country, State or City
-                                </h3>
-                                <p className="text-stone-400 text-[18px] leading-relaxed font-normal">
-                                    Reach your audience anywhere with pinpoint geographic precision.
-                                </p>
-                            </div>
-
-                            {/* Visual Image Area */}
-                            <div className="w-full bg-[#111115] border border-stone-900 rounded-2xl h-auto relative overflow-hidden flex items-center justify-center p-4">
-                                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#FE4A01_1px,transparent_1px)] [background-size:16px_16px]" />
-
-                                <div className="w-full relative z-10 drop-shadow-2xl transition-transform duration-300 hover:scale-[1.01]">
-                                    <img
-                                        src="/images/proxy-generator.png"
-                                        alt="Standard Residential Proxies Generator Dashboard"
-                                        className="w-full h-auto rounded-xl object-contain"
-                                        loading="lazy"
-                                    />
+               <div className="flex flex-col lg:flex-row gap-6 items-stretch justify-center w-full max-w-[1204px] mx-auto">
+            
+                                    {/* CARD 1: TARGET ANY COUNTRY (Left Column - Locked at exactly 591px wide) */}
+                                    <div className="w-full lg:w-[591px] flex-shrink-0 bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col justify-between overflow-hidden min-h-[540px]">
+                                        <div className="mb-6">
+                                            <h3 className="text-[28px] font-medium tracking-tight text-stone-200 mb-3">
+                                                Target Any Country, State or City
+                                            </h3>
+                                            <p className="text-stone-400 text-[18px] leading-relaxed font-regular">
+                                                Reach your audience anywhere with pinpoint geographic precision.
+                                            </p>
+                                        </div>
+            
+                                        {/* Visual Image / Mockup Area */}
+                                        <div className="relative w-full h-full max-h-[473px]">
+                                            <Image
+                                                src="/images/targetanycountry.png"
+                                                alt="Proxy Dashboard Mockup"
+                                                fill
+                                                className="object-contain"
+                                                priority={false}
+                                            />
+                                        </div>
+                                    </div>
+            
+                                    {/* RIGHT SIDE CONTAINER GROUP (Right Column - Locked at exactly 589px wide) */}
+                                    <div className="w-full lg:w-[589px] flex-shrink-0 flex flex-col gap-6">
+            
+                                        {/* CARD 2: TRACK MANAGE & CONTROL (Top Right Row) */}
+                                        <div className="bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col gap-6 justify-between items-start overflow-hidden min-h-[258px]">
+                                            <div className="max-w-xl shrink-0">
+                                                <h3 className="text-[28px] font-medium tracking-tight text-stone-200 mb-3">
+                                                    Track Manage & Stay in Control
+                                                </h3>
+                                                <p className="text-stone-400 text-[18px] leading-relaxed font-regular">
+                                                    Monitor usage, switch locations, and stay fully in command of your network.
+                                                </p>
+                                            </div>
+            
+                                            <div className="relative w-full h-[136px]">
+                                                <Image
+                                                    src="/images/trackmanage.png"
+                                                    alt="Proxy Dashboard Mockup"
+                                                    fill
+                                                    className="object-contain"
+                                                    priority={false}
+                                                />
+                                            </div>
+                                        </div>
+            
+                                        {/* CARD 3: DEVELOPER FRIENDLY SETUP (Bottom Right Row) */}
+                                        <div className="bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col gap-6 justify-between items-start overflow-hidden min-h-[258px]">
+                                            <div className="max-w-xl shrink-0">
+                                                <h3 className="text-[28px] font-medium tracking-tight text-stone-200 mb-3">
+                                                    Fast, Developer Friendly Setup
+                                                </h3>
+                                                <p className="text-stone-400 text-[18px] leading-relaxed font-regular">
+                                                    Get started in minutes with simple integration and powerful API tools.
+                                                </p>
+                                            </div>
+            
+                                            {/* Visual Image / Mockup Area */}
+                                            <div className="relative w-full h-[136px]">
+                                                <Image
+                                                    src="/images/fastdeveloper.png"
+                                                    alt="Proxy Dashboard Mockup"
+                                                    fill
+                                                    className="object-contain"
+                                                    priority={false}
+                                                />
+                                            </div>
+                                        </div>
+            
+                                    </div>
+            
                                 </div>
-                            </div>
-                        </div>
-
-                        {/* RIGHT SIDE CONTAINER GROUP (Spans 7 cols) */}
-                        <div className="lg:col-span-6 flex flex-col gap-6">
-
-                            {/* CARD 2: TRACK MANAGE & CONTROL (Top Right Row) */}
-                            <div className="bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col gap-6 justify-between items-start overflow-hidden min-h-[258px]">
-                                <div>
-                                    <h3 className="text-2xl font-regular tracking-tight text-stone-200 mb-3">
-                                        Track Manage & Stay in Control
-                                    </h3>
-                                    <p className="text-stone-400 text-sm leading-relaxed font-normal">
-                                        Monitor usage, switch locations, and stay fully in command of your network.
-                                    </p>
-                                </div>
-
-                                {/* Visual Image Area */}
-                                <div className="w-full bg-[#111115] border border-stone-900 rounded-2xl p-4 h-48 relative flex items-center justify-center overflow-hidden drop-shadow-2xl">
-                                    <img
-                                        src="/images/usage-status.png"
-                                        alt="Detailed network usage statistics showing bandwidth used"
-                                        className="w-full h-auto object-contain rounded-xl"
-                                        loading="lazy"
-                                    />
-                                </div>
-                            </div>
-
-                            {/* CARD 3: DEVELOPER FRIENDLY SETUP (Bottom Right Row) */}
-                            <div className="bg-[#0b0b0d] border border-stone-900 rounded-3xl p-8 flex flex-col gap-6 justify-between items-start overflow-hidden min-h-[258px]">
-                                <div>
-                                    <h3 className="text-2xl font-regular tracking-tight text-stone-200 mb-3">
-                                        Fast, Developer Friendly Setup
-                                    </h3>
-                                    <p className="text-stone-400 text-sm leading-relaxed font-normal">
-                                        Get started in minutes with simple integration and powerful API tools.
-                                    </p>
-                                </div>
-
-                                {/* Visual Image Area */}
-                                <div className="w-full bg-[#111115] border border-stone-900 rounded-2xl p-4 h-48 relative flex items-center justify-center overflow-hidden drop-shadow-2xl">
-                                    <img
-                                        src="/images/api-setup.png"
-                                        alt="Developer friendly Swagger API documentation panel"
-                                        className="w-full h-auto object-contain rounded-xl"
-                                        loading="lazy"
-                                    />
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
 
                 </div>
             </section>
@@ -678,7 +699,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                     <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
                         Features
                     </span>
-                    <h2 className="text-[42px] sm:text-[40px] max-w-2xl font-medium mx-auto leading-tight tracking-tight mb-4 text-white">
+                    <h2 className="text-[42px] sm:text-[40px] max-w-4xl font-medium mx-auto leading-tight tracking-tight mb-4 text-white">
                         Enhanced Features for Heavy & Strict Workloads
                     </h2>
                     <p className="text-stone-400 text-[18px] sm:text-base max-w-2xl mx-auto font-regular leading-relaxed">
@@ -723,8 +744,8 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
             {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
             {/* Upgrade CTA Banner */}
-            <section className="pt-[80px] sm:pt-[80px] mx-[120px]">
-                <div className="max-w-6xl mx-auto">
+            <section className="bg-[#0a0a0a] pt-[80px] sm:pt-[80px] mx-[120px] space-y-6 font-['Urbanist']">
+                <div className="max-w-7xl mx-auto">
                     <div
                         className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden"
                         style={{
@@ -735,12 +756,12 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                         {/* Optional subtle overlay for more depth */}
                         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40 rounded-3xl" />
 
-                        <div className="relative z-10 max-w-4xl mx-auto">
-                            <h2 className="text-4xl md:text-5xl font-regular tracking-tight mb-6 text-white">
+                        <div className="max-w-5xl relative z-10  mx-auto">
+                            <h2 className="max-w-5xl text-[48px] md:text-[48px] font-medium tracking-tight mb-2 leading-[1.1] text-[#FFF6EC]">
                                 Get started with Plan X residential proxies<br className="hidden md:block" />
                             </h2>
 
-                            <p className="text-stone-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+                            <p className="max-w-3xl mx-auto text-gray-400 text-[18px] font-regular md:text-xl leading-relaxed mb-6 text-center">
                                 Unlock premium speed, stability and higher success rates for demanding or strict websites.
                             </p>
 
@@ -771,7 +792,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </section>
 
             {/* ── SECTION 8: USE CASES ─────────────────────────────────────── */}
-            <main className="bg-[#0a0a0a] min-h-screen text-white pt-[80px] sm:pt-[80px] mx-[120px]">
+            <main className="bg-[#0a0a0a] min-h-screen text-white pt-[80px] sm:pt-[80px] mx-[120px] font-['Urbanist']">
                 {/* Other sections can go here */}
 
                 {/* ── YOUR NEW USE CASES SECTION ── */}
@@ -781,7 +802,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </main>
 
             {/* ── SECTION 9: UPSELL CARDS ──────────────────────────────────── */}
-            <section className="pt-[80px] sm:pt-[80px] mx-[120px] bg-[#0a0a0a] text-white">
+            <section className="bg-[#0a0a0a] text-white pt-[80px] sm:pt-[80px] mx-[120px]">
                 <div className="max-w-[1240px] mx-auto px-6">
 
                     {/* ── TOP HEADLINE SECTION ────────────────────────────────── */}
@@ -801,7 +822,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                             className={`flex-1 pb-4 px-8 text-sm font-medium transition-all relative ${activeTab === 'premium' ? 'text-[#FE4A01]' : 'text-stone-500 hover:text-stone-300'
                                 }`}
                         >
-                            Premium Residential Proxies
+                            Standard Residential Proxies
                             {activeTab === 'premium' && (
                                 <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#FE4A01]" />
                             )}
@@ -811,7 +832,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                             className={`flex-1 pb-4 px-8 text-sm font-medium transition-all relative ${activeTab === 'planX' ? 'text-[#FE4A01]' : 'text-stone-500 hover:text-stone-300'
                                 }`}
                         >
-                            Plan X Residential Proxies
+                             Premium Residential Proxies
                             {activeTab === 'planX' && (
                                 <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#FE4A01]" />
                             )}
@@ -819,21 +840,83 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                     </div>
 
                     {/* ── TAB DYNAMIC VIEW CONTENT ────────────────────────────── */}
-                    {activeTab === 'premium' ? (
+                   {activeTab === 'premium' ? (
+                                           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                   
+                                               {/* Left Info Column */}
+                                               <div className="lg:col-span-7 space-y-6">
+                                                   <div className="relative inline-block">
+                                                       <h3 className="text-[40px] font-medium tracking-tight text-white leading-tight text-white">
+                                                           Standard Residential <br />Proxies
+                                                       </h3>
+                                                       <span className="absolute -top-3 -right-50 bg-[#FE4A01]/10 border border-[#FE4A01]/20 text-[#FE4A01] text-[14px] font-medium px-2.5 py-1 rounded-md">
+                                                           From $4.5/GB
+                                                       </span>
+                                                   </div>
+                                                   <p className="text-stone-400 text-[16px] font-regular leading-relaxed">
+                                                       Reliable and affordable with rotating residential proxies and optional static sessions perfect for everyday online tasks.
+                                                   </p>
+                                                   <ul className="space-y-3 text-stone-400 text-[16px] font-regular">
+                                                       <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Data never expires</li>
+                                                       <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Can cancel anytime</li>
+                                                       <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Authentic residential IPs</li>
+                                                       <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Suitable for general web scraping</li>
+                                                       <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Target any country, state and city level</li>
+                                                       <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Unlimited concurrent sessions</li>
+                                                       <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Rotating and sticky sessions</li>
+                                                       <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> 30M+ ethically sourced unique IPs in 195+ Countries</li>
+                                                   </ul>
+                                                   <div className="flex flex-col sm:flex-row items-center justify-left gap-4 mb-2">
+                   
+                                                       {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
+                                                       <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-[403px] h-[46px] overflow-hidden bg-[#FF4F00] text-white text-[16px] font-medium rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+                   
+                                                           {/* Fast 3D text track wrapper */}
+                                                           <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                   
+                                                               {/* Default State Text */}
+                                                               <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                                                   Upgrade to premium
+                                                               </span>
+                   
+                                                               {/* Hover State Text */}
+                                                               <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+                                                                   Upgrade to premium
+                                                               </span>
+                   
+                                                           </div>
+                                                       </button>
+                                                   </div>
+                                                   {/* <button className="w-full sm:w-auto px-8 py-3.5 bg-[#FE4A01] hover:bg-orange-600 text-white font-bold rounded-xl transition-all text-sm">
+                                                       Upgrade to premium
+                                                   </button> */}
+                                               </div>
+                   
+                                               {/* Right Image Column */}
+                                               <div className="lg:col-span-5 bg-[#0b0b0d] border border-stone-900 rounded-3xl overflow-hidden min-h-[380px]">
+                                                   <img
+                                                       src="/images/Scraping.png"
+                                                       alt="Premium Residential Proxies"
+                                                       className="w-full h-full object-cover"
+                                                   />
+                                               </div>
+                   
+                                           </div>
+                                       ) : (
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
                             {/* Left Info Column */}
                             <div className="lg:col-span-7 space-y-6">
                                 <div className="relative inline-block">
                                     <h3 className="text-[40px] font-medium tracking-tight text-white leading-tight text-white">
-                                        Premium Residential  <br />Proxies
+                                        Premium Residential <br />Proxies
                                     </h3>
                                     <span className="absolute -top-3 -right-50 bg-[#FE4A01]/10 border border-[#FE4A01]/20 text-[#FE4A01] text-[14px] font-medium px-2.5 py-1 rounded-md">
                                         From $4.5/GB
                                     </span>
                                 </div>
-                                <p className="text-stone-400 text-[16px] font-regular leading-relaxed">
-                                    Enhanced speed and reliability with rotating residential proxies and static sessions ideal for demanding users and businesses.
+                                <p className="text-stone-400 text-[16px] font-regular leading-relaxed max-w-xl">
+                                    Enhanced speed and reliability with rotating residentialproxies and static sessions ideal for demanding users and businesses.
                                 </p>
                                 <ul className="space-y-3 text-stone-400 text-[16px] font-regular">
                                     <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Premium residential IPs</li>
@@ -841,7 +924,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                                     <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Target country, state, and city-level</li>
                                     <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Suitable for general web scraping</li>
                                     <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Unlimited concurrent sessions</li>
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> 90M+ ethically sourced unique IPs in 195 countries</li>
+                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> 30M+ ethically sourced unique IPs in 195 countries</li>
                                 </ul>
                                 <div className="flex flex-col sm:flex-row items-center justify-left gap-4 mb-2">
 
@@ -872,68 +955,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                             {/* Right Image Column */}
                             <div className="lg:col-span-5 bg-[#0b0b0d] border border-stone-900 rounded-3xl overflow-hidden min-h-[380px]">
                                 <img
-                                    src="/images/sr5.png"
-                                    alt="Premium Residential Proxies"
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-
-                        </div>
-                    ) : (
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
-                            {/* Left Info Column */}
-                            <div className="lg:col-span-7 space-y-6">
-                                <div className="relative inline-block">
-                                    <h3 className="text-[40px] font-medium tracking-tight text-white leading-tight text-white">
-                                        Plan X Residential <br />Proxies
-                                    </h3>
-                                    <span className="absolute -top-3 -right-50 bg-[#FE4A01]/10 border border-[#FE4A01]/20 text-[#FE4A01] text-[14px] font-medium px-2.5 py-1 rounded-md">
-                                        From $4.5/GB
-                                    </span>
-                                </div>
-                                <p className="text-stone-400 text-[16px] font-regular leading-relaxed max-w-xl">
-                                    Reliable and affordable with rotating residential proxies and optional static sessions perfect for everyday online tasks.
-                                </p>
-                                <ul className="space-y-3 text-stone-400 text-[16px] font-regular">
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Authentic residential proxies with dedicated ISP pools</li>
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Rotating and sticky sessions</li>
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Target country, state, and city-level</li>
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Suitable for general web scraping</li>
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Unlimited concurrent sessions</li>
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> 120M+ ethically sourced unique IPs in 195 countries</li>
-                                    <li className="flex items-center gap-2.5"><Check className="text-emerald-500 w-4 h-4" /> Easy API access for integration</li>
-                                </ul>
-                                <div className="flex flex-col sm:flex-row items-center justify-left gap-4 mb-2">
-
-                                    {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                                    <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-[403px] h-[46px] overflow-hidden bg-[#FF4F00] text-white text-[16px] font-medium rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
-
-                                        {/* Fast 3D text track wrapper */}
-                                        <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-
-                                            {/* Default State Text */}
-                                            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                                Upgrade to premium
-                                            </span>
-
-                                            {/* Hover State Text */}
-                                            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
-                                                Upgrade to premium
-                                            </span>
-
-                                        </div>
-                                    </button>
-                                </div>
-                                {/* <button className="w-full sm:w-auto px-8 py-3.5 bg-[#FE4A01] hover:bg-orange-600 text-white font-bold rounded-xl transition-all text-sm">
-                                    Upgrade to premium
-                                </button> */}
-                            </div>
-
-                            {/* Right Image Column */}
-                            <div className="lg:col-span-5 bg-[#0b0b0d] border border-stone-900 rounded-3xl overflow-hidden min-h-[380px]">
-                                <img
-                                    src="/images/why_plan_x.png"
+                                    src="/images/standardresidential.png"
                                     alt="Premium Residential Proxies"
                                     className="w-full h-full object-cover"
                                 />

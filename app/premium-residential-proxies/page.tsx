@@ -553,7 +553,7 @@ export default function TorchProxiesLandingPage() {
                                         </div>
                                     ))}
                                 </div>
-                                                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2 -mt-[40px]">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2 -mt-[40px]">
                         {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
                         <button onClick={() => router.push('/countries')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
 
@@ -817,7 +817,7 @@ export default function TorchProxiesLandingPage() {
                             className={`flex-1 pb-4 px-8 text-sm font-medium transition-all relative ${activeTab === 'premium' ? 'text-[#FE4A01]' : 'text-stone-500 hover:text-stone-300'
                                 }`}
                         >
-                            Premium Residential Proxies
+                            Standard Residential Proxies
                             {activeTab === 'premium' && (
                                 <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#FE4A01]" />
                             )}

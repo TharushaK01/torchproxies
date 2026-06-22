@@ -250,7 +250,7 @@ export default function TorchProxiesLandingPage() {
                         <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">Access 30M+ Global IPs</span>
                     </h1>
 
-                    <p className="max-w-3xl mx-auto text-stone-400 text-base text-[18px] sm:text-xl mb-4 leading-relaxed">
+                    <p className="max-w-3xl mx-auto text-stone-400 text-base text-[18px] sm:text-[18px] mb-4 leading-relaxed">
                         Reliable and steady residential proxies perfect for everyday tasks.A balanced choice to get the job done without breaking the bank.
                     </p>
 
