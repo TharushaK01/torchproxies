@@ -255,7 +255,7 @@ export default function TorchProxiesLandingPage() {
   <div className="max-w-6xl mx-auto relative z-10 flex flex-col items-center">
     
     <h2 className="text-4xl md:text-[42px] font-medium tracking-tight text-center mb-10 text-white">
-      Top locations
+      Top Locations
     </h2>
 
     {/* Tab Toggles */}

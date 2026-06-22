@@ -102,33 +102,28 @@ export default function TorchProxiesLandingPage() {
     const features = [
         {
             icon: <Database className="text-white w-4 h-4 text-regular" />,
-            title: "Enhanced Privacy",
+            title: "HTTP & Socks",
             desc: "United States has strict internet rules, so residential proxies add extra anonymity. TorchLabs United States residential proxies hide your IP and prevent detection, ideal for social media, SEO and marketing."
         },
         {
             icon: <RefreshCw className="text-white w-4 h-4 text-regular" />,
-            title: "Data Access & Analysis",
+            title: "Secure checkout with SSL encryption",
             desc: "TorchLabs United States residential proxies let you access local market data quickly and reliably, helping you make informed decisions and boosting the success of research or investments."
         },
         {
             icon: <Layers className="text-white w-4 h-4 text-regular" />,
-            title: "Content Control",
+            title: "Pay As You Go Pricing Available",
             desc: "Residential proxies give businesses and personal users the ability to manage online access, control employee activity or block certain sites for children effectively."
         },
         {
             icon: <ShieldCheck className="text-white w-4 h-4 text-regular" />,
-            title: "Social Media Management",
+            title: "Authentic IPs",
             desc: "Access popular United States networks for business or marketing purposes. TorchLabs United States residential proxies let you reach these platforms and drive more engagement to your content."
         },
         {
             icon: <ShieldCheck className="text-white w-4 h-4 text-regular" />,
-            title: "Unrestricted Access",
+            title: "Support both card & crypto",
             desc: "Bypass regional restrictions on streaming, apps, or websites. With United States residential IPs, TorchLabs proxies give you seamless access to local content."
-        },
-        {
-            icon: <ShieldCheck className="text-white w-4 h-4 text-regular" />,
-            title: "Market Research",
-            desc: "United States has strict internet rules, so residential proxies add extra anonymity. TorchLabs United States residential proxies hide your IP and prevent detection, ideal for social media, SEO, and marketing."
         },
     ];
     const topFeatures = features.map(f => f.title);
@@ -328,7 +323,7 @@ export default function TorchProxiesLandingPage() {
                 <div className="flex flex-wrap justify-center gap-6 mb-[65px] text-[16px] font-regular text-gray-300">
                     {topFeatures.map((f, i) => (
                         <div key={i} className="flex items-center gap-2">
-                            <Check className="text-orange-500 w-4 h-4" /> {f}
+                            <Check className="text-[#00E5A3] w-4 h-4" /> {f}
                         </div>
                     ))}
                 </div>
@@ -375,7 +370,7 @@ export default function TorchProxiesLandingPage() {
                                 <ul className="space-y-4 mb-8">
                                     {plan.features.map((feat, idx) => (
                                         <li key={idx} className="flex gap-3 text-sm text-gray-300 leading-tight">
-                                            <Check className="text-orange-500 w-4 h-4 shrink-0 mt-0.5" />
+                                            <Check className="text-[#00E5A3] w-4 h-4 shrink-0 mt-0.5" />
                                             {feat}
                                         </li>
                                     ))}

@@ -69,33 +69,28 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
     const features = [
         {
             icon: "/images/country.svg",
-            title: "Enhanced Privacy",
+            title: "HTTP & Socks",
             desc: dynamicDescriptions?.feat1 || "Fallback description"
         },
         {
             icon: "/images/country.svg",
-            title: "Data Access & Analysis",
+            title: "Secure checkout with SSL encryption",
             desc: dynamicDescriptions?.feat2 || "Fallback description"
         },
         {
             icon: "/images/country.svg",
-            title: "Content Control",
+            title: "Pay As You Go Pricing Available",
             desc: dynamicDescriptions?.feat3 || "Fallback description"
         },
         {
             icon: "/images/country.svg",
-            title: "Social Media Management",
+            title: "Authentic IPs",
             desc: dynamicDescriptions?.feat4 || "Fallback description"
         },
         {
             icon: "/images/country.svg",
-            title: "Unrestricted Access",
+            title: "Support both card & crypto",
             desc: dynamicDescriptions?.feat5 || "Fallback description"
-        },
-        {
-            icon: "/images/country.svg",
-            title: "Market Research",
-            desc: dynamicDescriptions?.feat6 || "Fallback description"
         },
     ];
 
@@ -141,7 +136,7 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
             name: "Standard",
             desc: "Perfect for everyday online tasks.",
             price: "From $4/GB per month",
-            icon: "/images/Standard.svg",
+            icon: "/images/Premium.svg",
             features: [
                 "Premium residential IPs",
                 "Rotating and sticky sessions",
@@ -157,7 +152,7 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
             desc: "For demanding users and businesses.",
             price: "From $4.5/GB per month",
             highlight: "Best Value",
-            icon: "/images/Premium.svg",
+            icon: "/images/premium_residential.png",
             featured: true,
             features: [
                 "Premium residential IPs",
@@ -173,7 +168,7 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
             name: "Plan X",
             desc: "Perfect for top tier performance.",
             price: "From $5/GB per month",
-            icon: "/images/PlanX.svg",
+            icon: "/images/Standard.svg",
             features: [
                 "Authentic residential proxies with dedicated ISP pools",
                 "Rotating and sticky sessions",
@@ -298,7 +293,7 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
             {/* ── SECTION 2: PRICING GRIDS ─────────────────────────────────── */}
             <section className="bg-[#0a0a0a] text-white py-20 px-6  font-['Urbanist'] mb-[120px]">
                 <div className="flex flex-col items-center text-center w-full">
-                    <span className="text-orange-500 font-regular text-[16px] mb-[12px] tracking-widest flex items-center justify-center gap-2">Our products</span>
+                    <span className="text-orange-500 font-regular text-[16px] mb-[12px] tracking-widest flex items-center justify-center gap-2">Our Products</span>
                     <h2 className="text-[42px] md:text-[42px] font-medium mb-[20px] max-w-4xl">Buy {countryName} Residential Proxies</h2>
                 </div>
 
