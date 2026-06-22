@@ -252,11 +252,11 @@ export default function TorchProxiesLandingPage() {
         </div>
 
         <h1 className="text-[60px] sm:text-[60px] lg:text-[60px] font-regular tracking-tight leading-[72px] mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
-            Best Premium Residential <br />
-            <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">Proxy. Access 100M+ Global IPs</span>
+            Best Premium Residential Proxy. <br />
+            <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">Access 100M+ Global IPs</span>
         </h1>
 
-        <p className="max-w-3xl mx-auto text-stone-400 text-base text-[18px] sm:text-xl mb-4 leading-relaxed">
+        <p className="max-w-3xl mx-auto text-stone-400 text-base text-[18px] sm:text-[18px] mb-4 leading-relaxed">
             Experience faster speeds and enhanced performance. Premium Residential Proxies is built for those who need a little extra power to stay productive and efficient.
         </p>
 
