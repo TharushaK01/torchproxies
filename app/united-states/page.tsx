@@ -314,18 +314,18 @@ export default function TorchProxiesLandingPage() {
 </header>
 
             {/* ── SECTION 2: pricing ─────────── */}
-            <section className="bg-[#0a0a0a] text-white py-20 px-6 -mt-[20px] font-['Urbanist']">
+            <section className="bg-[#0a0a0a] text-white py-20 px-6 font-['Urbanist'] mb-[120px]">
                 <div className="flex flex-col items-center text-center w-full">
-                    <span className="text-orange-500 font-regular text-[16px] mb-4 tracking-widest flex items-center justify-center gap-2">
+                    <span className="text-orange-500 font-regular text-[16px] mb-[12px] tracking-widest flex items-center justify-center gap-2">
                         Our products
                     </span>
-                    <h2 className="text-[42px] md:text-5xl font-medium mb-6 max-w-4xl">
+                    <h2 className="text-[42px] md:text-5xl font-medium mb-[20px] max-w-4xl">
                         Buy United States Residential Proxies
                     </h2>
                 </div>
 
                 {/* Top Bar Features */}
-                <div className="flex flex-wrap justify-center gap-6 mb-16 text-sm font-regular text-gray-300">
+                <div className="flex flex-wrap justify-center gap-6 mb-[65px] text-[16px] font-regular text-gray-300">
                     {topFeatures.map((f, i) => (
                         <div key={i} className="flex items-center gap-2">
                             <Check className="text-orange-500 w-4 h-4" /> {f}
@@ -419,7 +419,7 @@ export default function TorchProxiesLandingPage() {
 
 
 
-            <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden -mt-[100px] font-['Urbanist']">
+            <section className="bg-[#0a0a0a] text-white px-6 overflow-hidden font-['Urbanist'] mb-120px">
                 <div className="max-w-7xl mx-auto space-y-32">
 
                     {/* Row 1: Easy Client Management */}
@@ -440,14 +440,14 @@ export default function TorchProxiesLandingPage() {
 
                         {/* Text Side */}
                         <div className="space-y-6">
-                            <h2 className="text-[42px] md:text-5xl md:leading-snug font-medium tracking-tight">
+                            <h2 className="text-[42px] md:text-5xl md:leading-snug font-medium tracking-tight leading-[42px]">
                                 Industry leader in fast proxy services for United States
                             </h2>
                             <p className="text-gray-400 text-[16px] font-regular leading-relaxed">
                                 TorchLabs' United States proxies are among the fastest in the market. Reliable, stable, and highly anonymous United States proxies allow you to scrape complex targets at any scale. Get your web scraping and automation tasks done faster with TorchLabs' United States proxy IPs.
                             </p>
 
-                            <ul className="text-gray-400 text-lg leading-relaxed">
+                            <ul className="text-gray-400 text-[16px] leading-relaxed">
                                 <li>&#9679; High uptime (up to 99.9%)</li>
                                 <li>&#9679; Pre selected and thoroughly tested proxies</li>
                                 <li>&#9679; Minimal risk of IP blocks</li>
@@ -460,22 +460,22 @@ export default function TorchProxiesLandingPage() {
 
 
             {/* ── SECTION 6: CORE FEATURES ─────────────────────────────────── */}
-            <section className="py-24 max-w-7xl mx-auto pb-24 sm:pb-28 mx-[120px] bg-[#0a0a0a] text-white -mt-[100px] font-['Urbanist']">
+            <section className=" max-w-7xl mx-auto pb-[120px] sm:pb-28 mx-[120px] bg-[#0a0a0a] text-white font-['Urbanist'] mt-[120px]">
                 {/* ── HEADER ─────────────────────────────────────────────── */}
                 <div className="text-center mb-20">
-                    <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
+                    <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-[14px]">
                         Features
                     </span>
-                    <h2 className="text-[42px] sm:text-[40px] font-medium tracking-tight mb-4 text-white">
+                    <h2 className="text-[42px] sm:text-[40px] font-medium tracking-tight mb-[14px] text-white">
                         Why Use a United States Residential Proxies?
                     </h2>
-                    <p className="text-stone-400 text-sm sm:text-base max-w-[850px] mx-auto font-normal leading-relaxed">
+                    <p className="text-stone-400 text-sm sm:text-base max-w-[850px] mx-auto font-normal leading-relaxed mb-[35px]">
                         There are countless ways to utilize a United States IP address. Whether you’re accessing local market data, bypassing regional restrictions, or testing apps and games on local servers, our United States proxy servers let you do it all without being physically present.
                     </p>
                 </div>
 
                 {/* ── FEATURES GRID ──────────────────────────────────────── */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16 max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-[35px] max-w-6xl mx-auto">
                     {features.map((feat, i) => (
                         <div key={i} className="flex items-start gap-4 group">
 
@@ -514,7 +514,7 @@ export default function TorchProxiesLandingPage() {
                         >
 
                             <div className="relative z-10 max-w-full mx-auto">
-                                <h2 className="text-[48px] md:text-[48px] font-medium tracking-tight mb-8 leading-[1.1]">
+                                <h2 className="text-[48px] md:text-[48px] font-medium tracking-tight mb-[16px] leading-[1.1]">
                                     Take Advantage of United States Residential Proxies
                                 </h2>
 
@@ -549,7 +549,7 @@ export default function TorchProxiesLandingPage() {
                 </div>
             </section>
 
-            <section className="bg-[#0a0a0a] text-white pb-24 sm:pb-28 mx-[120px] overflow-hidden  font-['Urbanist']">
+            <section className="bg-[#0a0a0a] text-white pb-24 pb-[120px] mx-[120px] overflow-hidden  font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-32">
                     <h2 className="text-[42px] sm:text-5xl font-regular tracking-tight text-white">
                         Experience the Advantage of TorchLabs <br />United States Residential Proxies

@@ -187,16 +187,16 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
     ];
 
     return (
-        <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden font-['Urbanist']">
+        <div className="bg-[#0a0a0a] text-white antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden font-['Urbanist']">
             
             {/* ── FLAG BADGE AREA ─────────────────────────────────────────── */}
             <div className="max-w-md mx-auto pt-24 px-4 text-center z-20 relative font-['Urbanist']">
             </div>
 
 {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-<header className="relative min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-28 pb-12 overflow-hidden space-y-6 font-['Urbanist']">
+<header className="relative min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center mt-[80px] px-6 pt-28 pb-12 overflow-hidden space-y-6 font-['Urbanist']">
 
-    <div className="absolute bottom-0 left-0 w-full h-[65vh] z-0">
+    <div className="absolute bottom-0 left-0 w-full h-[65vh] z-0 w-full">
 
         <Image
             src="/images/hero_back.png"
@@ -216,23 +216,29 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
     <div className="max-w-6xl mx-auto text-center z-10 font-['Urbanist']">
 
         <div className="flex items-center justify-center mb-6">
-            <img
-                src="/images/TrustPiolet.png"
-                alt="Excellent 5-star rating on Trustpilot"
-                className="h-6 w-auto object-contain"
-                loading="lazy"
-            />
+            <a href="https://www.trustpilot.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="cursor-pointer"
+                        >
+                            <img
+                                src="/images/TrustPiolet.png"
+                                alt="Excellent 5-star rating on Trustpilot"
+                                className="h-8 w-auto object-contain"
+                                loading="lazy"
+                            />
+                        </a>
         </div>
 
-        <h1 className="max-w-[1600px] mx-auto sm:text-[40px] text-[40px] lg:text-[55px] font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">
+        <h1 className="text-[60px] sm:text-[60px] lg:text-[60px] font-regular tracking-tight leading-[72px] mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">
             Fast and Secure {countryName} Residential Proxies at Your Fingertips <br />
         </h1>
 
-        <p className="max-w-[1600px] mx-auto text-stone-400 text-[18px] sm:text-xl mb-4 leading-relaxed">
+        <p className="max-w-3xl mx-auto text-stone-400 text-base text-[18px] sm:text-[18px] mb-4 leading-relaxed">
             Effortlessly connect to authentic, ethically sourced residential IPs in {countryName}, giving you the freedom to browse, test, and manage your projects without interruptions.
         </p>
 
-        <div className="py-4 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-sm font-medium">
+        <div className="py-8 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-[16px] font-medium">
             <div className="flex items-center justify-center gap-2">
                 <Check className="text-orange-500 w-4 h-4" />
                 Pay as you go pricing
@@ -280,7 +286,7 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
 
         </div>
 
-        <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide pt-4 pb-2">
+        <div className="flex items-center justify-center gap-2.5 text-stone-400 text-sm sm:text-base font-normal tracking-wide pt-4 pb-15">
             <CreditCard className="w-4 h-4 text-stone-500" />
             <span>No credit card needed. Instant access</span>
         </div>
@@ -290,16 +296,16 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
 </header>
 
             {/* ── SECTION 2: PRICING GRIDS ─────────────────────────────────── */}
-            <section className="bg-[#0a0a0a] text-white py-20 px-6  font-['Urbanist']">
+            <section className="bg-[#0a0a0a] text-white py-20 px-6  font-['Urbanist'] mb-[120px]">
                 <div className="flex flex-col items-center text-center w-full">
-                    <span className="text-orange-500 font-regular text-[16px] mb-4 tracking-widest flex items-center justify-center gap-2">Our products</span>
-                    <h2 className="text-[42px] md:text-5xl font-medium mb-6 max-w-4xl">Buy {countryName} Residential Proxies</h2>
+                    <span className="text-orange-500 font-regular text-[16px] mb-[12px] tracking-widest flex items-center justify-center gap-2">Our products</span>
+                    <h2 className="text-[42px] md:text-[42px] font-medium mb-[20px] max-w-4xl">Buy {countryName} Residential Proxies</h2>
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-6 mb-16 text-sm font-regular text-gray-300">
+                <div className="flex flex-wrap justify-center gap-6 mb-[65px] text-[16px] font-regular text-gray-300">
                     {topFeatures.map((f, i) => (
                         <div key={i} className="flex items-center gap-2">
-                            <Check className="text-orange-500 w-4 h-4" /> {f}
+                            <Check className="text-emerald-400 w-4 h-4" /> {f}
                         </div>
                     ))}
                 </div>
@@ -326,7 +332,7 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
                                 <ul className="space-y-4 mb-8">
                                     {plan.features.map((feat, idx) => (
                                         <li key={idx} className="flex gap-3 text-sm text-gray-300 leading-tight">
-                                            <Check className="text-orange-500 w-4 h-4 shrink-0 mt-0.5" />
+                                            <Check className="text-emerald-400 w-4 h-4 shrink-0 mt-0.5" />
                                             {feat}
                                         </li>
                                     ))}
@@ -367,8 +373,8 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
             </section>
 
             {/* ── SECTION 3: INDUSTRY LEADER INFORMATION ─────────────────────── */}
-            <section className="bg-[#0a0a0a] text-white pb-24 sm:pb-28 mx-[120px] overflow-hidden  font-['Urbanist']">
-                <div className="max-w-7xl mx-auto">
+            <section className="bg-[#0a0a0a] text-white px-6 overflow-hidden font-['Urbanist'] mb-120px">
+                <div className="max-w-7xl mx-auto space-y-32">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div className="relative group">
                             <div className="bg-[#0d0d0d] border border-gray-800 rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
@@ -379,7 +385,7 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
                         </div>
 
                         <div className="space-y-6">
-                            <h2 className="text-[42px] md:text-5xl md:leading-snug font-medium tracking-tight">
+                            <h2 className="text-[48px] md:text-[48px] md:leading-snug font-medium tracking-tight leading-[42px]">
                                 Industry leader in fast proxy services for {countryName}
                             </h2>
                             <p className="text-gray-400 text-[16px] font-regular leading-relaxed">
@@ -396,13 +402,13 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
             </section>
 
             {/* ── SECTION 4: BENEFITS BLOCK ─────────────────────────────────── */}
-            <section className=" max-w-7xl mx-auto pb-24 sm:pb-28 mx-[120px] bg-[#0a0a0a] text-white  font-['Urbanist']">
+            <section className=" max-w-7xl mx-auto pb-24 sm:pb-28 mx-[120px] bg-[#0a0a0a] text-white  font-['Urbanist'] mt-[120px]">
                 <div className="text-center mb-20">
                     <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">Features</span>
                     <h2 className="text-[42px] sm:text-[40px] font-medium tracking-tight mb-4 text-white">
                         Why Use {countryName} Residential Proxies?
                     </h2>
-                    <p className="text-stone-400 text-sm sm:text-base max-w-[850px] mx-auto font-normal leading-relaxed">
+                    <p className="text-gray-400  text-sm sm:text-base max-w-[850px] mx-auto font-normal leading-relaxed">
                         There are countless ways to utilize a {countryName} IP address. Whether you’re accessing local market data, bypassing regional restrictions, or testing apps and games on local servers, our {countryName} proxy servers let you do it all without being physically present.
                     </p>
                 </div>
@@ -419,7 +425,7 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
             {/* Content */}
             <div className="space-y-1.5">
                 <h4 className="text-[23px] font-medium text-white tracking-tight">{feat.title}</h4>
-                <p className="text-stone-400 text-[13px] sm:text-sm leading-relaxed font-regular">{feat.desc}</p>
+                <p className="text-gray-400  text-[16px] sm:text-[16px] leading-relaxed font-regular">{feat.desc}</p>
             </div>
         </div>
     ))}
@@ -468,7 +474,7 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
             {/* ── SECTION 6: SEO OVERVIEW TEXT BLOCK ────────────────────────── */}
             <section className="bg-[#0a0a0a] text-white pb-24 sm:pb-28 mx-[120px] overflow-hidden font-['Urbanist']">
                 <div className="max-w-7xl mx-auto space-y-12">
-                    <h2 className="text-[42px] sm:text-5xl font-regular tracking-tight text-white">
+                    <h2 className="text-[42px] sm:text-[42px] font-regular text-white">
                         Experience the Advantage of TorchLabs <br />{countryName} Residential Proxies
                     </h2>
                     <p className="text-gray-400 text-[18px] font-regular md:text-xl leading-relaxed text-left">
