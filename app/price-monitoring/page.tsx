@@ -861,7 +861,7 @@ const renderCellContent = (value: string | boolean, isHighlighted = false) => {
             <h2 className="text-3xl md:text-[42px] font-medium tracking-tight text-white mb-4 font-['Urbanist']">
                 See how we compare with others
             </h2>
-            <p className="text-zinc-500 text-[18px] md:text-base font-regular tracking-wide">
+            <p className="text-zinc-500 text-[18px] md:text-base font-regular tracking-wide font-['Urbanist']">
                 Proof why we are the best option for your use case
             </p>
         </div>
