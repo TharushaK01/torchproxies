@@ -14,44 +14,57 @@ interface FeatureCardProps {
     imageAlt: string;
 }
 
+const MARQUEE_ITEMS = [
+  "99.9% uptime guaranteed",
+  "Blazing fast proxy speeds",
+  "Global geo targeting support",
+  "Secure & anonymous connections",
+  "Unlimited sessions & rotations",
+  "Built for scraping & automation"
+];
+
+
 const Marquee: React.FC = () => (
-    <div className="w-full overflow-hidden bg-[#FE4A01] py-3 mt-50 whitespace-nowrap select-none flex">
-        {/* Wrapping container that holds both sets of text */}
-        <div className="flex animate-marquee text-xs font-semibold tracking-wider text-white uppercase">
-            {/* Original Content */}
-            <div className="flex items-center space-x-8 pr-8">
-                <span>• 99.9% uptime guaranteed</span>
-                <span>• Blazing fast proxy speeds</span>
-                <span>• Global geo targeting support</span>
-                <span>• Secure & anonymous connections</span>
-                <span>• Unlimited sessions & rotations</span>
-                <span>• Built for scraping & automation</span>
-            </div>
+    
+  <div className="w-full overflow-hidden bg-[#FE4A01] py-3.5 whitespace-nowrap select-none flex font-['Urbanist']">
+    
+{/* Infinite track containing multiple data blocks to prevent viewport gaps */}
+    <div className="flex min-w-full shrink-0 animate-marquee items-center justify-around text-[14px] font-medium tracking-wider text-white font-['Urbanist']">
+      
+      {/* Block 1 (Original) */}
+      <div className="flex shrink-0 items-center space-x-12 pr-12">
+        {MARQUEE_ITEMS.map((item, index) => (
+          <span key={`orig-${index}`} className="flex items-center gap-3.5">
+            {/* Perfectly sized, smooth CSS custom bullet circle */}
+            <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" aria-hidden="true" />
+            <span>{item}</span>
+          </span>
+        ))}
+      </div>
 
-            {/* Duplicated Content for Seamless Loop */}
-            <div className="flex items-center space-x-8 pr-8" aria-hidden="true">
-                <span>• 99.9% uptime guaranteed</span>
-                <span>• Blazing fast proxy speeds</span>
-                <span>• Global geo targeting support</span>
-                <span>• Secure & anonymous connections</span>
-                <span>• Unlimited sessions & rotations</span>
-                <span>• Built for scraping & automation</span>
-            </div>
-        </div>
+{/* Block 2 (Duplicate) */}
+<div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
+  {MARQUEE_ITEMS.map((item, index) => (
+    <span key={`dup1-${index}`} className="flex items-center gap-3.5">
+      <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
+      <span>{item}</span>
+    </span>
+  ))}
+</div>
 
-        {/* CSS Keyframe for a flawless seamless loop */}
-        <style jsx global>{`
-      @keyframes marquee {
-        0% { transform: translateX(0%); }
-        100% { transform: translateX(-50%); }
-      }
-      .animate-marquee {
-        animation: marquee 25s linear infinite;
-      }
-    `}</style>
+{/* Block 3 (Extra Duplicate) */}
+<div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
+  {MARQUEE_ITEMS.map((item, index) => (
+    <span key={`dup2-${index}`} className="flex items-center gap-3.5">
+      <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
+      <span>{item}</span>
+    </span>
+  ))}
+</div>
+      
     </div>
+  </div>
 );
-
 
 interface Step {
     id: string;
@@ -193,7 +206,7 @@ export default function TorchProxiesLandingPage() {
     role: "Verified Customer",
     text: "If you are buy proxies anywhere you should buy them here. Nice guys who work hard. Communication is good and there is always help where needed. Can't recommend a better company for proxies.",
     stars: 5,
-    avatar: "/images/avatars/black-bear.png" // Path to your custom pixel bear photo
+    avatar: null // Path to your custom pixel bear photo
   },
   {
     name: "Ishak",
@@ -232,33 +245,52 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
     </div>
   );
 };
+interface FAQItem {
+  q: string;
+  a: string | string[]; // Allows standard strings or string arrays for bullet points
+}
 
-    const faqData = [
-        {
-            q: "What are residential proxies?",
-            a: "Residential proxies are IP addresses assigned by Internet Service Providers (ISPs) to homeowners. They act as intermediaries between your device and the internet, allowing you to browse anonymously and access geo-restricted content."
-        },
-        {
-            q: "How do residential proxies work and how are they different?",
-            a: "Residential proxies route your internet traffic through real residential IP addresses, making them appear as normal users to websites. Unlike datacenter proxies, they have higher trust scores and are much harder to detect and block."
-        },
-        {
-            q: "What makes Torch Proxies's residential proxies better than other proxy providers?",
-            a: "Our residential proxy network offers unmatched speed, stability, ethical sourcing, and city-level targeting with 24/7 support and transparent pricing."
-        },
-        {
-            q: "What are the ideal use cases for the Standard Residential plan?",
-            a: "Perfect for general web scraping, social media management, market research, sneaker copping, and everyday automation tasks."
-        },
-        {
-            q: "Are residential proxies legal to use?",
-            a: "Yes, residential proxies are completely legal when used responsibly and in compliance with website terms of service."
-        },
-        {
-            q: "Do you offer free trials?",
-            a: "Yes, we offer a free 1GB trial so you can test our network performance before committing."
-        },
-    ];
+const faqData: FAQItem[] = [
+  {
+    q: "What is a proxy server?",
+    a: "A proxy server acts as an intermediary between your device and the internet. It forwards your internet requests and returns the responses, helping to anonymize your IP address and enhance security."
+  },
+  {
+    q: "What types of proxies do you offer?",
+    // Formatted as an array to handle the introduction and separate points cleanly
+    a: [
+      "We offer several types of proxies including:",
+      "Residential Proxies (Supports HTTP and SOCKS5)",
+      "ISP Proxies (Supports HTTP and SOCKS5)",
+      "DC Proxies (Coming Soon)",
+      "Mobile Proxies (Coming Soon)"
+    ]
+  },
+  {
+    q: "Are your proxies compatible with all applications and websites?",
+    a: "Our proxies are designed to be compatible with most applications and websites. However, some platforms may have advanced detection methods, so results can vary."
+  },
+  {
+    q: "Do your proxies support IP rotation?",
+    a: "Yes, our proxies support IP rotation. You can configure the proxies to automatically change IP addresses at specified intervals or after each request to minimize the risk of detection."
+  },
+  {
+    q: "What is the difference between residential and datacenter proxies?",
+    a: "Residential proxies use IP addresses assigned by ISPs to homeowners, making them appear more legitimate and less likely to be blocked. Datacenter proxies are hosted in data centers and offer high speed and reliability but are more easily detectable by websites."
+  },
+  {
+    q: "How do I set up your proxies with my software or application?",
+    a: "We provide detailed documentation and support to help you configure our proxies with your software or application. Our support team is also available to assist with setup."
+  },
+  {
+    q: "Do you offer a trial period or demo for your proxy services?",
+    a: "Yes, we offer a trial period or demo so you can test our proxy services before committing to a purchase."
+  },
+  {
+    q: "How is billing handled for your proxy services?",
+    a: "Billing is typically handled on a subscription basis, with various plans available depending on your usage needs. Detailed invoices and usage reports are provided."
+  }
+];
 
 
     const cards = [
@@ -278,10 +310,12 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
 
     return (
-        <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
+        <div className="bg-[#0a0a0a] text-white antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden font-['Urbanist']">
 {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-<header className="relative z-20 min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-28 pb-12 overflow-visible space-y-6 font-['Urbanist']">
-    <div className="absolute bottom-0 left-0 w-full h-[65vh] z-0 font-['Urbanist']">
+<header className="relative z-20 min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center mt-[80px] px-6 pt-28 pb-12 overflow-visible space-y-6 font-['Urbanist']">
+
+    <div className="absolute bottom-0 left-0 w-full h-[65vh] z-0">
+
         <Image
             src="/images/hero_back.png"
             alt=""
@@ -291,33 +325,39 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
         />
 
         {/* Marquee at bottom of image */}
-<div className="absolute -bottom-8 left-0 w-full z-[999]">
-    <Marquee />
-</div>
+        <div className="absolute -bottom-12 left-0 w-full z-[999]">
+            <Marquee />
+        </div>
+
     </div>
 
     <div className="max-w-6xl mx-auto text-center z-10 font-['Urbanist']">
+
         <div className="flex items-center justify-center mb-6">
-            <img
-                src="/images/TrustPiolet.png"
-                alt="Excellent 5-star rating on Trustpilot"
-                className="h-6 w-auto object-contain"
-                loading="lazy"
-            />
+            <a
+                href="https://www.trustpilot.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cursor-pointer"
+            >
+                <img
+                    src="/images/TrustPiolet.png"
+                    alt="Excellent 5-star rating on Trustpilot"
+                    className="h-8 w-auto object-contain"
+                    loading="lazy"
+                />
+            </a>
         </div>
 
-        <h1 className="text-[60px] sm:text-6xl lg:text-7xl font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
+        <h1 className="text-[60px] sm:text-[60px] lg:text-[60px] font-regular tracking-tight leading-[72px] mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">
             B2B reseller solutions <br />
-            <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">
-                
-            </span>
         </h1>
 
-        <p className="max-w-5xl mx-auto text-[18px] sm:text-xl text-stone-400 mb-4 leading-relaxed">
+        <p className="max-w-3xl mx-auto text-stone-400 text-base text-[18px] sm:text-[18px] mb-4 leading-relaxed">
             Supercharge your operations with our all in one toolkit featuring a powerful Proxy API, a free Discord Proxy Bot and a user friendly Dashboard. Everything you need to scale smarter.
         </p>
 
-        <div className="py-4 max-w-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-sm font-regular">
+        <div className="py-8 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-[16px] font-medium">
             <div className="flex items-center justify-center gap-2">
                 <Check className="text-orange-500 w-4 h-4" />
                 Pay as you go pricing
@@ -334,9 +374,8 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pb-15">
 
-            {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
             <button
                 onClick={() => router.push('https://dashboard.torchproxies.com/')}
                 className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]"
@@ -361,7 +400,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
 </header>
 
-            <section className="py-20 px-6 bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
+            <section className="py-20 px-6 bg-[#0a0a0a] relative overflow-hidden font-['Urbanist'] mt-[60px]">
                 {/* Background Ambient Glow Accent */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(254,74,1,0.02)_0%,transparent_75%)] pointer-events-none" />
 
@@ -440,12 +479,13 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
         
         {/* Section Header Text Nodes */}
         <div className="text-center mb-16">
+            <span className="text-[#FE4A01] text-[16px] font-medium tracking-widest block mb-3">
+                           Testimonials
+                        </span>
           <h2 className="text-[42px] sm:text-5xl font-medium mb-4 tracking-tight text-white">
-            Customer Reviews
+            Customers prefer Torch Proxies over <br/>other proxy brands
           </h2>
-          <p className="text-stone-400">
-            See how developer engineering nodes rate our overall connectivity network performance.
-          </p>
+
         </div>
 
         {/* Outer Infinite Slider Container Track */}
@@ -555,65 +595,83 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             {/* FAQ SECTION */}
-            <section className="pb-[80px] sm:pb-[80px] mx-[120px] bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
+<section className="pb-[80px] sm:pb-[80px] mx-[120px] bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
 
-                {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
-                <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
-                    <Image
-                        src="/images/contact-bg.png" /* Using the same glow asset path */
-                        alt=""
-                        fill
-                        priority
-                        className="object-cover object-bottom opacity-100"
-                    />
-                </div>
+    {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
+    <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
+        <Image
+            src="/images/contact-bg.png" /* Using the same glow asset path */
+            alt=""
+            fill
+            priority
+            className="object-cover object-bottom opacity-100"
+        />
+    </div>
 
-                {/* ── Content Wrapper (Added 'relative z-10' so it sits above the background glow) ── */}
-                <div className="max-w-4xl mx-auto relative z-10">
-                    {/* Header */}
-                    <div className="text-center mb-16">
-                        <span className="text-[#FE4A01] text-xs font-medium tracking-widest block mb-3">
-                            FAQ
-                        </span>
-                        <h2 className="text-4xl sm:text-5xl font-regular tracking-tight text-white">
-                            Frequently asked questions
-                        </h2>
-                    </div>
+    {/* ── Content Wrapper (Added 'relative z-10' so it sits above the background glow) ── */}
+    <div className="max-w-4xl mx-auto relative z-10">
+        {/* Header */}
+        <div className="text-center mb-16">
+            <span className="text-[#FE4A01] text-[16px] font-medium tracking-widest block mb-3">
+                FAQ
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-regular tracking-tight text-white">
+                Frequently asked questions
+            </h2>
+        </div>
 
-                    {/* FAQ Items */}
-                    <div className="space-y-px">
-                        {faqData.map((faq, index) => {
-                            const isOpen = activeFaq === index;
-                            return (
-                                <div
-                                    key={index}
-                                    className="border-b border-stone-800 last:border-none group"
-                                >
-                                    <button
-                                        onClick={() => setActiveFaq(isOpen ? null : index)}
-                                        className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors"
-                                    >
-                                        <span>{faq.q}</span>
-                                        <ChevronDown
-                                            className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
-                                        />
-                                    </button>
+        {/* FAQ Items */}
+        <div className="space-y-px">
+            {faqData.map((faq, index) => {
+                const isOpen = activeFaq === index;
+                return (
+                    <div
+                        key={index}
+                        className="border-b border-stone-800 last:border-none group"
+                    >
+                        <button
+                            onClick={() => setActiveFaq(isOpen ? null : index)}
+                            className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors"
+                        >
+                            <span>{faq.q}</span>
+                            <ChevronDown
+                                className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
+                            />
+                        </button>
 
-                                    {/* Answer */}
-                                    <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
-                                        <p className="text-stone-400 text-[15px] leading-relaxed pr-10">
-                                            {faq.a}
-                                        </p>
+                        {/* Answer Accordion Body */}
+                        <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
+                            <div className="text-stone-400 text-[15px] leading-relaxed pr-10">
+                                {Array.isArray(faq.a) ? (
+                                    <div>
+                                        {/* 1. Renders the introduction text row */}
+                                        <p className="mb-3">{faq.a[0]}</p>
+                                        
+                                        {/* 2. Renders all following items as clean, separate points */}
+                                        <ul className="list-none pl-1 space-y-2 text-stone-400">
+                                            {faq.a.slice(1).map((point, pointIdx) => (
+                                                <li key={pointIdx} className="flex items-start gap-2.5">
+                                                    <span className="text-stone-400 font-semibold select-none">—</span>
+                                                    <span>{point}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
                                     </div>
-                                </div>
-                            );
-                        })}
+                                ) : (
+                                    /* Fallback standard wrapper for normal string descriptions */
+                                    <p>{faq.a}</p>
+                                )}
+                            </div>
+                        </div>
                     </div>
-                </div>
+                );
+            })}
+        </div>
+    </div>
 
-                {/* Bottom Gradient Overlay - Blends beautifully with your new image background */}
-                <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent pointer-events-none z-0" />
-            </section>
+    {/* Bottom Gradient Overlay - Blends beautifully with your new image background */}
+    <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent pointer-events-none z-0" />
+</section>
 
         </div>
     );

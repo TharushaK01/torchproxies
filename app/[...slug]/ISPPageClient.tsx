@@ -37,39 +37,57 @@ interface ISPPageClientProps {
 }
 
 // ── MARQUEE ANIMATION COMPONENT ──────────────────────────────────────
-const Marquee: React.FC = () => {
-    return (
-        <div className="w-full overflow-hidden bg-[#FE4A01] py-3 mt-50 whitespace-nowrap select-none flex">
-            <div className="flex animate-marquee text-xs font-semibold tracking-wider text-white uppercase">
-                <div className="flex items-center space-x-8 pr-8">
-                    <span>• 99.9% uptime guaranteed</span>
-                    <span>• Blazing fast proxy speeds</span>
-                    <span>• Global geo targeting support</span>
-                    <span>• Secure & anonymous connections</span>
-                    <span>• Unlimited sessions & rotations</span>
-                    <span>• Built for scraping & automation</span>
-                </div>
-                <div className="flex items-center space-x-8 pr-8" aria-hidden="true">
-                    <span>• 99.9% uptime guaranteed</span>
-                    <span>• Blazing fast proxy speeds</span>
-                    <span>• Global geo targeting support</span>
-                    <span>• Secure & anonymous connections</span>
-                    <span>• Unlimited sessions & rotations</span>
-                    <span>• Built for scraping & automation</span>
-                </div>
-            </div>
-            <style jsx global>{`
-                @keyframes marquee {
-                    0% { transform: translateX(0%); }
-                    100% { transform: translateX(-50%); }
-                }
-                .animate-marquee {
-                    animation: marquee 25s linear infinite;
-                }
-            `}</style>
-        </div>
-    );
-};
+const MARQUEE_ITEMS = [
+  "99.9% uptime guaranteed",
+  "Blazing fast proxy speeds",
+  "Global geo targeting support",
+  "Secure & anonymous connections",
+  "Unlimited sessions & rotations",
+  "Built for scraping & automation"
+];
+
+
+const Marquee: React.FC = () => (
+    
+  <div className="w-full overflow-hidden bg-[#FE4A01] py-3.5 whitespace-nowrap select-none flex font-['Urbanist']">
+    
+{/* Infinite track containing multiple data blocks to prevent viewport gaps */}
+    <div className="flex min-w-full shrink-0 animate-marquee items-center justify-around text-[14px] font-medium tracking-wider text-white font-['Urbanist']">
+      
+      {/* Block 1 (Original) */}
+      <div className="flex shrink-0 items-center space-x-12 pr-12">
+        {MARQUEE_ITEMS.map((item, index) => (
+          <span key={`orig-${index}`} className="flex items-center gap-3.5">
+            {/* Perfectly sized, smooth CSS custom bullet circle */}
+            <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" aria-hidden="true" />
+            <span>{item}</span>
+          </span>
+        ))}
+      </div>
+
+{/* Block 2 (Duplicate) */}
+<div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
+  {MARQUEE_ITEMS.map((item, index) => (
+    <span key={`dup1-${index}`} className="flex items-center gap-3.5">
+      <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
+      <span>{item}</span>
+    </span>
+  ))}
+</div>
+
+{/* Block 3 (Extra Duplicate) */}
+<div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
+  {MARQUEE_ITEMS.map((item, index) => (
+    <span key={`dup2-${index}`} className="flex items-center gap-3.5">
+      <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
+      <span>{item}</span>
+    </span>
+  ))}
+</div>
+      
+    </div>
+  </div>
+);
 
 // ── MAIN EXPORTABLE INTERFACE MODULE ───────────────────────────────────
 export default function ISPPageClient({ data, dynamicDescriptions }: ISPPageClientProps) {
@@ -216,10 +234,10 @@ export default function ISPPageClient({ data, dynamicDescriptions }: ISPPageClie
                         >
                             <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
                                 <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                    Buy {countryName} Residential Proxies
+                                    Buy {countryName} ISP Proxies
                                 </span>
                                 <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/95">
-                                    Buy {countryName} Residential Proxies
+                                    Buy {countryName} ISP Proxies
                                 </span>
                             </div>
                         </button>
@@ -333,11 +351,10 @@ export default function ISPPageClient({ data, dynamicDescriptions }: ISPPageClie
             </section>
 
             {/* ── SECTION 4: BENEFITS BLOCK ─────────────────────────────────── */}
-            <section className=" max-w-7xl mx-auto  bg-[#0a0a0a] text-white pb-24 sm:pb-28 mx-[120px] font-['Urbanist']">
+            <section className=" max-w-7xl mx-auto  bg-[#0a0a0a] text-white pb-24 sm:pb-28 mx-[120px] font-['Urbanist'] -mt-[200px">
                 <div className="text-center mb-20">
-                    <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">Features</span>
                     <h2 className="text-[42px] sm:text-[42px] font-medium tracking-tight mb-4 text-white">
-                        Why Use {countryName} Residential Proxies?
+                        Why Use {countryName} Proxies?
                     </h2>
                     <p className="text-gray-400  text-[16px] sm:text-base max-w-[850px] mx-auto font-regular leading-relaxed">
                         There are countless ways to utilize a {countryName} IP address. Whether you’re accessing local market data, bypassing regional restrictions, or testing apps and games on local servers, our {countryName} proxy servers let you do it all without being physically present.

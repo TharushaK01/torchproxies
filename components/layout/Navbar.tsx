@@ -470,18 +470,32 @@ export default function Navbar() {
           </div>
           
           {/* Outlined Action Link Trigger */}
-          <Link
-            href={(link.dropdown as any).rightCard.href}
-            className="block w-full text-center text-[15px] font-medium text-white border border-stone-400 hover:border-white bg-transparent py-3.5 rounded-xl transition-colors duration-150"
-          >
-            Learn more
-          </Link>
+<Link
+  href="https://dashboard.torchproxies.com/"
+  className="relative block w-full text-center text-[15px] font-medium text-white border border-stone-400 hover:border-white py-3.5 rounded-xl transition-colors duration-150 overflow-hidden group"
+  style={{ perspective: "600px" }}
+>
+  {/* Front face */}
+  <span
+    className="relative block transition-transform duration-500 ease-in-out group-hover:[transform:rotateX(-90deg)] origin-top"
+  >
+    Learn more
+  </span>
+
+  {/* Back face (slides in from bottom) */}
+  <span
+    className="absolute inset-0 flex items-center justify-center translate-y-full group-hover:translate-y-0 [transform:rotateX(90deg)] group-hover:[transform:rotateX(0deg)] transition-transform duration-500 ease-in-out origin-bottom"
+  >
+    Learn more
+  </span>
+</Link>
         </div>
 
       </div>
     )}
   </div>
 )}
+
 
                         {/* CASE 4: Use Cases Layout */}
                         {link.menuType === "usecases-mega" && Array.isArray(link.dropdown) && (

@@ -23,41 +23,57 @@ interface CountryPageClientProps {
   };
 }
 
-// ── MARQUEE ANIMATION COMPONENT ──────────────────────────────────────
-const Marquee: React.FC = () => {
-    return (
-        <div className="w-full overflow-hidden bg-[#FE4A01] py-3 mt-50 whitespace-nowrap select-none flex">
-            <div className="flex animate-marquee text-xs font-semibold tracking-wider text-white uppercase">
-                <div className="flex items-center space-x-8 pr-8">
-                    <span>• 99.9% uptime guaranteed</span>
-                    <span>• Blazing fast proxy speeds</span>
-                    <span>• Global geo targeting support</span>
-                    <span>• Secure & anonymous connections</span>
-                    <span>• Unlimited sessions & rotations</span>
-                    <span>• Built for scraping & automation</span>
-                </div>
-                <div className="flex items-center space-x-8 pr-8" aria-hidden="true">
-                    <span>• 99.9% uptime guaranteed</span>
-                    <span>• Blazing fast proxy speeds</span>
-                    <span>• Global geo targeting support</span>
-                    <span>• Secure & anonymous connections</span>
-                    <span>• Unlimited sessions & rotations</span>
-                    <span>• Built for scraping & automation</span>
-                </div>
-            </div>
-            <style jsx global>{`
-              @keyframes marquee {
-                0% { transform: translateX(0%); }
-                100% { transform: translateX(-50%); }
-              }
-              .animate-marquee {
-                animation: marquee 25s linear infinite;
-              }
-            `}</style>
-        </div>
-    );
-};
+const MARQUEE_ITEMS = [
+  "99.9% uptime guaranteed",
+  "Blazing fast proxy speeds",
+  "Global geo targeting support",
+  "Secure & anonymous connections",
+  "Unlimited sessions & rotations",
+  "Built for scraping & automation"
+];
 
+
+const Marquee: React.FC = () => (
+    
+  <div className="w-full overflow-hidden bg-[#FE4A01] py-3.5 whitespace-nowrap select-none flex font-['Urbanist']">
+    
+{/* Infinite track containing multiple data blocks to prevent viewport gaps */}
+    <div className="flex min-w-full shrink-0 animate-marquee items-center justify-around text-[14px] font-medium tracking-wider text-white font-['Urbanist']">
+      
+      {/* Block 1 (Original) */}
+      <div className="flex shrink-0 items-center space-x-12 pr-12">
+        {MARQUEE_ITEMS.map((item, index) => (
+          <span key={`orig-${index}`} className="flex items-center gap-3.5">
+            {/* Perfectly sized, smooth CSS custom bullet circle */}
+            <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" aria-hidden="true" />
+            <span>{item}</span>
+          </span>
+        ))}
+      </div>
+
+{/* Block 2 (Duplicate) */}
+<div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
+  {MARQUEE_ITEMS.map((item, index) => (
+    <span key={`dup1-${index}`} className="flex items-center gap-3.5">
+      <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
+      <span>{item}</span>
+    </span>
+  ))}
+</div>
+
+{/* Block 3 (Extra Duplicate) */}
+<div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
+  {MARQUEE_ITEMS.map((item, index) => (
+    <span key={`dup2-${index}`} className="flex items-center gap-3.5">
+      <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
+      <span>{item}</span>
+    </span>
+  ))}
+</div>
+      
+    </div>
+  </div>
+);
 
 
 // ── MAIN EXPORTABLE INTERFACE MODULE ───────────────────────────────────
