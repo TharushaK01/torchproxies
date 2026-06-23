@@ -6,45 +6,6 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 
-
-const Marquee: React.FC = () => (
-    <div className="w-full overflow-hidden bg-[#FE4A01] py-3 mt-50 whitespace-nowrap select-none flex">
-        {/* Wrapping container that holds both sets of text */}
-        <div className="flex animate-marquee text-xs font-semibold tracking-wider text-white uppercase">
-            {/* Original Content */}
-            <div className="flex items-center space-x-8 pr-8">
-                <span>• 99.9% uptime guaranteed</span>
-                <span>• Blazing fast proxy speeds</span>
-                <span>• Global geo targeting support</span>
-                <span>• Secure & anonymous connections</span>
-                <span>• Unlimited sessions & rotations</span>
-                <span>• Built for scraping & automation</span>
-            </div>
-
-            {/* Duplicated Content for Seamless Loop */}
-            <div className="flex items-center space-x-8 pr-8" aria-hidden="true">
-                <span>• 99.9% uptime guaranteed</span>
-                <span>• Blazing fast proxy speeds</span>
-                <span>• Global geo targeting support</span>
-                <span>• Secure & anonymous connections</span>
-                <span>• Unlimited sessions & rotations</span>
-                <span>• Built for scraping & automation</span>
-            </div>
-        </div>
-
-        {/* CSS Keyframe for a flawless seamless loop */}
-        <style jsx global>{`
-      @keyframes marquee {
-        0% { transform: translateX(0%); }
-        100% { transform: translateX(-50%); }
-      }
-      .animate-marquee {
-        animation: marquee 25s linear infinite;
-      }
-    `}</style>
-    </div>
-);
-
 interface Plan {
     name: string;
     price: {
@@ -292,7 +253,7 @@ export default function TorchProxiesLandingPage() {
     role: "Verified Customer",
     text: "If you are buy proxies anywhere you should buy them here. Nice guys who work hard. Communication is good and there is always help where needed. Can't recommend a better company for proxies.",
     stars: 5,
-    avatar: "/images/avatars/black-bear.png" // Path to your custom pixel bear photo
+    avatar: null // Path to your custom pixel bear photo
   },
   {
     name: "Ishak",
@@ -332,32 +293,40 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
   );
 };
 
-    const faqData = [
-        {
-            q: "What are residential proxies?",
-            a: "Residential proxies are IP addresses assigned by Internet Service Providers (ISPs) to homeowners. They act as intermediaries between your device and the internet, allowing you to browse anonymously and access geo-restricted content."
-        },
-        {
-            q: "How do residential proxies work and how are they different?",
-            a: "Residential proxies route your internet traffic through real residential IP addresses, making them appear as normal users to websites. Unlike datacenter proxies, they have higher trust scores and are much harder to detect and block."
-        },
-        {
-            q: "What makes Torch Proxies's residential proxies better than other proxy providers?",
-            a: "Our residential proxy network offers unmatched speed, stability, ethical sourcing, and city-level targeting with 24/7 support and transparent pricing."
-        },
-        {
-            q: "What are the ideal use cases for the Standard Residential plan?",
-            a: "Perfect for general web scraping, social media management, market research, sneaker copping, and everyday automation tasks."
-        },
-        {
-            q: "Are residential proxies legal to use?",
-            a: "Yes, residential proxies are completely legal when used responsibly and in compliance with website terms of service."
-        },
-        {
-            q: "Do you offer free trials?",
-            a: "Yes, we offer a free 1GB trial so you can test our network performance before committing."
-        },
-    ];
+const faqData = [
+    {
+        q: "What are the best proxies for price monitoring?",
+        items: [
+            { label: "BEST", color: "bg-teal-500", text: "Rotating Residential Proxies — Real ISP IPs, highest anonymity. Ideal for Amazon, eBay, and Cloudflare-protected stores. Higher cost per GB." },
+            { label: "FAST", color: "bg-cyan-500", text: "Rotating Datacenter Proxies — Fastest speeds, lowest cost. Best for general e-commerce and unprotected product feeds. Easier to detect." },
+            { label: "HYBRID", color: "bg-amber-500", text: "ISP / Static Residential Proxies — Datacenter infrastructure + residential IP registration. Strong balance of speed, cost, and trust." },
+        ]
+    },
+    {
+        q: "How do I avoid CAPTCHAs while tracking prices",
+        items: [
+            { label: "KEY", color: "bg-teal-500", text: "Rotate IPs per request — Use a residential proxy pool that automatically assigns a new IP for every request or session, making each visit look unique." },
+            { label: "ESENTIAL", color: "bg-cyan-500", text: "Randomise request timing — Introduce variable delays (2–8 seconds) between requests to mimic human browsing behaviour and avoid rate-limiting triggers." },
+            { label: "ADVANCED", color: "bg-amber-500", text: "Spoof browser fingerprints — Rotate realistic User-Agent headers, accept-language settings, and viewport sizes. Use a headless browser (e.g. Playwright) for JS-heavy sites." },
+            { label: "CLOUDFLARE", color: "bg-red-500", text: "Target Cloudflare-protected sites? — Use proxy providers with built-in Cloudflare bypass or a dedicated web unblocker / scraping API endpoint for reliable access." },
+        ]
+    },
+    {
+        q: "Why do I need proxies for price monitoring",
+        items: [
+            { label: "SCALE", color: "bg-teal-500", text: "Monitor thousands of SKUs simultaneously without hitting rate limits, enabling real-time competitive intelligence across entire product catalogues." },
+            { label: "ACCESS", color: "bg-cyan-500", text: "Access geo-restricted pricing — Proxies with country-specific IP pools let you see localised prices, regional promotions, and market-specific discounts." },
+            { label: "ACCURACY", color: "bg-amber-500", text: "Get true pricing data — Without proxies, sites may detect bots and serve misleading prices or block access entirely, corrupting your competitive data." },
+        ]
+    },
+    {
+        q: "Is using proxies for price monitoring legal",
+        items: [
+            { label: "OK", color: "bg-teal-500", text: "Scraping publicly visible prices, product names, and availability data for competitive intelligence or repricing purposes." },
+            { label: "AVOID", color: "bg-red-500", text: "Bypassing login walls, scraping personal data, violating a site's robots.txt directives, or systematically overloading a server (DDoS-like behaviour)." },
+        ]
+    },
+];
     const BRAND_LOGOS = [
         { name: "Shield Proxies", src: "/images/business/shield.png" },
         { name: "Boiling Proxies", src: "/images/business/boiling.png" },
@@ -467,14 +436,20 @@ const renderCellContent = (value: string | boolean, isHighlighted = false) => {
                     <div className="lg:col-span-7 flex flex-col items-start z-10">
 
                         {/* Trustpilot Badge Block */}
-                        <div className="flex items-center justify-center mb-2">
+                         <div className="flex items-center justify-center mb-6">
+            <a href="https://www.trustpilot.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="cursor-pointer"
+                        >
                             <img
                                 src="/images/TrustPiolet.png"
                                 alt="Excellent 5-star rating on Trustpilot"
-                                className="h-6 w-auto object-contain"
+                                className="h-8 w-auto object-contain"
                                 loading="lazy"
                             />
-                        </div>
+                        </a>
+        </div>
 
                         {/* Heading */}
                         <h1 className="text-[60px] sm:text-[60px] lg:text-[56px] font-regular tracking-tight leading-[1.1] max-w-xl text-white mb-[14px]">
@@ -1204,34 +1179,42 @@ const renderCellContent = (value: string | boolean, isHighlighted = false) => {
                     </div>
 
                     {/* FAQ Items */}
-                    <div className="space-y-px">
-                        {faqData.map((faq, index) => {
-                            const isOpen = activeFaq === index;
-                            return (
-                                <div
-                                    key={index}
-                                    className="border-b border-stone-800 last:border-none group"
-                                >
-                                    <button
-                                        onClick={() => setActiveFaq(isOpen ? null : index)}
-                                        className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors"
-                                    >
-                                        <span>{faq.q}</span>
-                                        <ChevronDown
-                                            className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
-                                        />
-                                    </button>
+<div className="space-y-px">
+    {faqData.map((faq, index) => {
+        const isOpen = activeFaq === index;
+        return (
+            <div
+                key={index}
+                className="border-b border-stone-800 last:border-none group"
+            >
+                <button
+                    onClick={() => setActiveFaq(isOpen ? null : index)}
+                    className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors"
+                >
+                    <span>{faq.q}</span>
+                    <ChevronDown
+                        className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
+                    />
+                </button>
 
-                                    {/* Answer */}
-                                    <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
-                                        <p className="text-stone-400 text-[15px] leading-relaxed pr-10">
-                                            {faq.a}
-                                        </p>
-                                    </div>
-                                </div>
-                            );
-                        })}
+                <div className={`overflow-hidden transition-all duration-500 ${isOpen ? 'max-h-[500px] pb-6' : 'max-h-0'}`}>
+                    <div className="space-y-3">
+                        {faq.items.map((item, i) => (
+                            <div key={i} className="flex items-start gap-3">
+    <span className={`${item.color} text-white text-[11px] font-bold px-2.5 py-1 rounded-md shrink-0 tracking-wide min-w-[90px] text-center`}>
+        {item.label}
+    </span>
+    <p className="text-stone-400 text-[15px] leading-relaxed">
+        {item.text}
+    </p>
+</div>
+                        ))}
                     </div>
+                </div>
+            </div>
+        );
+    })}
+</div>
                 </div>
 
                 {/* Bottom Gradient Overlay - Blends beautifully with your new image background */}
