@@ -6,6 +6,16 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 
+type FaqItem = {
+    text: string;
+    label?: string;
+    color?: string;
+};
+
+type FaqEntry = {
+    q: string;
+    items: FaqItem[];
+};
 
 const Marquee: React.FC = () => (
     <div className="w-full overflow-hidden bg-[#FE4A01] py-3 mt-50 whitespace-nowrap select-none flex">
@@ -142,12 +152,13 @@ interface ProxyCard {
 
 const proxyCards: ProxyCard[] = [
     {
-        title: 'Standard Residential Proxies',
-        description: 'The easiest and most affordable way to monitor SEO rankings at small to mid scale.',
+        title: 'Hybrid Proxies',
+        description: 'The easiest and most affordable way to monitor SEO rankings at small to mid scale',
         price: '$4/GB',
         badge: { text: 'Most Popular', variant: 'popular' },
-        iconType: '/images/srp.svg',
+        iconType: '/images/hybrid_proxies.png',
         features: [
+            
             '95–97% success rates with minimal failed requests',
             'Most popular choice for SEO monitoring',
             'Predictable pricing for budget-conscious teams',
@@ -156,10 +167,10 @@ const proxyCards: ProxyCard[] = [
         ],
     },
     {
-        title: 'Hybrid Proxies',
+        title: 'Premium Residential Proxies',
         description: 'Designed for enterprise SEO operations that need maximum success at massive scale.',
         price: '$5/GB',
-        badge: { text: 'Enterprise', variant: 'enterprise' },
+        badge: { text: 'For Startups', variant: 'enterprise' },
         iconType: '/images/pr.svg',
         features: [
             '99% success rate for zero-tolerance operations',
@@ -262,32 +273,55 @@ export default function TorchProxiesLandingPage() {
         { name: "David L.", role: "Automated Data Analyst", text: "Top tier network infrastructure. The standard volume tier setups maintain premium speeds without bottleneck dropouts." },
     ];
 
-    const faqData = [
-        {
-            q: "What are residential proxies?",
-            a: "Residential proxies are IP addresses assigned by Internet Service Providers (ISPs) to homeowners. They act as intermediaries between your device and the internet, allowing you to browse anonymously and access geo-restricted content."
-        },
-        {
-            q: "How do residential proxies work and how are they different?",
-            a: "Residential proxies route your internet traffic through real residential IP addresses, making them appear as normal users to websites. Unlike datacenter proxies, they have higher trust scores and are much harder to detect and block."
-        },
-        {
-            q: "What makes Torch Proxies's residential proxies better than other proxy providers?",
-            a: "Our residential proxy network offers unmatched speed, stability, ethical sourcing, and city-level targeting with 24/7 support and transparent pricing."
-        },
-        {
-            q: "What are the ideal use cases for the Standard Residential plan?",
-            a: "Perfect for general web scraping, social media management, market research, sneaker copping, and everyday automation tasks."
-        },
-        {
-            q: "Are residential proxies legal to use?",
-            a: "Yes, residential proxies are completely legal when used responsibly and in compliance with website terms of service."
-        },
-        {
-            q: "Do you offer free trials?",
-            a: "Yes, we offer a free 1GB trial so you can test our network performance before committing."
-        },
-    ];
+type FaqItem = {
+    text: string;
+    label?: string;
+    color?: string;
+};
+
+type FaqEntry = {
+    q: string;
+    items: FaqItem[];
+};
+
+const faqData: FaqEntry[] = [
+
+  {
+    q: "What are the best proxies for price monitoring?",
+    items: [
+        { text: "The best proxies for rank tracking are rotating residential proxies, specifically geo-targeted ones that return SERPs as a real user would see them in a specific country, city, or device type. Google, Bing, and Baidu aggressively detect and block automated queries from datacenter IPs, making residential proxies the only reliable option for accurate rank data." },
+    ]
+},
+
+    {
+        q: "How to choose proxies for price monitoring?",
+        items: [
+            { label: "BEST", color: "bg-teal-500", text: "Rotating Residential Proxies — Ideal for tracking rankings on Google, Bing, Baidu, and Yahoo. Geo-target by country or city to simulate real local searches. Undetectable by anti-bot systems." },
+            { label: "HYBRID", color: "bg-cyan-500", text: "ISP (Static Residential) Proxies — Best for sustained rank-tracking crawls on Google Search Console data sources, DuckDuckGo, and Yandex. Combines residential trust with datacenter stability." },
+            { label: "BUDGET", color: "bg-amber-500", text: "Rotating Datacenter Proxies — Suitable for tracking rankings on Bing, Yahoo, Ask.com, and AOL Search, where detection is less aggressive. Not recommended for Google." },
+        ]
+    },
+    {
+        q: "How do I scrape Google without getting blocked?",
+        items: [
+            { label: "STEP 1", color: "bg-teal-500", text: "Use rotating residential proxies only — Never use datacenter proxies for Google. Residential IPs from providers like Bright Data, Oxylabs, or Smartproxy are flagged far less frequently." },
+             { label: "STEP 2", color: "bg-teal-500", text: "Randomise request timing — Space requests 3–10 seconds apart with random variance. Never send requests at fixed intervals — Google's systems detect mechanical patterns instantly.." },
+              { label: "STEP 2", color: "bg-teal-500", text: "Rotate User-Agent strings — Cycle through realistic browser UA strings (Chrome, Firefox, Safari across Windows, Mac, mobile) to avoid fingerprint consistency." },
+              { label: "STEP 2", color: "bg-teal-500", text: "Limit requests per session — Cap at 10–15 requests per IP per session before rotating. Exceeding this triggers CAPTCHA or soft bans on Google Search." },
+              { label: "STEP 2", color: "bg-teal-500", text: "Use a SERP API — Tools like SerpApi, Bright Data SERP API, DataForSEO, and Zenserp handle all proxy rotation, JS rendering, and CAPTCHA solving automatically. Ideal for high-volume scraping." },
+           
+           
+        ]
+    },
+     {
+        q: "Should I use residential or dtacenter proxies for SEO monitoring?",
+        items: [
+            { label: "RESIDENTIAL", color: "bg-teal-500", text: "Use for: Google SERP scraping, rank tracking on Bing and Baidu, local SEO monitoring, Google Maps data collection, and scraping Google Shopping results. Required where anti-bot protection is high." },
+            { label: "DATACENTER", color: "bg-cyan-500", text: "Use for: Crawling competitor websites, bulk backlink checking via Majestic, Moz Link Explorer, scraping business directories like Yelp, Crunchbase, or Yellow Pages, and indexing sitemaps." },
+            { label: "ISP PROXIES", color: "bg-amber-500", text: "Best middle ground for: Sustained crawls with tools like Screaming Frog, Sitebulb, or DeepCrawl that run long sessions. Residential trust level + datacenter uptime and speed." },
+        ]
+    },
+];
     const BRAND_LOGOS = [
         { name: "Shield Proxies", src: "/images/business/shield.png" },
         { name: "Boiling Proxies", src: "/images/business/boiling.png" },
@@ -406,12 +440,12 @@ export default function TorchProxiesLandingPage() {
                         </div>
 
                         {/* Heading */}
-                        <h1 className="text-[60px] sm:text-5xl lg:text-[56px] font-regular tracking-tight leading-[1.1] max-w-xl text-white mb-[14px]">
+                        <h1 className="text-[60px] sm:text-5xl lg:text-[56px] font-regular tracking-tight leading-[1.1] max-w-xl text-white mb-[14px] font-['Urbanist']">
                            Best Proxies for SEO Monitoring
                         </h1>
 
                         {/* Subheading with colored emphasis */}
-                        <p className="text-zinc-500 text-base md:text-lg max-w-xl mb-2 font-normal leading-relaxed select-none mb-[32px]">
+                        <p className="text-zinc-500 text-base md:text-lg max-w-xl mb-2 font-normal leading-relaxed select-none mb-[32px] font-['Urbanist']">
                             Scrape{' '}
                             <span
                                 className={`text-[#FF4F00] font-medium inline-block transition-all duration-300 transform ${fadeState === 'fade-in'
@@ -426,7 +460,7 @@ export default function TorchProxiesLandingPage() {
 
                         {/* Features Inline List */}
                         <div className="flex flex-wrap gap-x-6 gap-y-3 items-center mb-10 text-[16px] font-regular sm:text-sm text-zinc-300 mb-[34px]">
-                            <div className="flex items-center gap-1.5">
+                            <div className="flex items-center gap-1.5 font-['Urbanist']">
                                 <svg className="w-4 h-4 text-[#FF4F00] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                 </svg>
@@ -1007,34 +1041,44 @@ export default function TorchProxiesLandingPage() {
                     </div>
 
                     {/* FAQ Items */}
-                    <div className="space-y-px">
-                        {faqData.map((faq, index) => {
-                            const isOpen = activeFaq === index;
-                            return (
-                                <div
-                                    key={index}
-                                    className="border-b border-stone-800 last:border-none group"
-                                >
-                                    <button
-                                        onClick={() => setActiveFaq(isOpen ? null : index)}
-                                        className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors"
-                                    >
-                                        <span>{faq.q}</span>
-                                        <ChevronDown
-                                            className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
-                                        />
-                                    </button>
+<div className="space-y-px">
+    {faqData.map((faq, index) => {
+        const isOpen = activeFaq === index;
+        return (
+            <div
+                key={index}
+                className="border-b border-stone-800 last:border-none group"
+            >
+                <button
+                    onClick={() => setActiveFaq(isOpen ? null : index)}
+                    className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors"
+                >
+                    <span>{faq.q}</span>
+                    <ChevronDown
+                        className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
+                    />
+                </button>
 
-                                    {/* Answer */}
-                                    <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
-                                        <p className="text-stone-400 text-[15px] leading-relaxed pr-10">
-                                            {faq.a}
-                                        </p>
-                                    </div>
-                                </div>
-                            );
-                        })}
+                <div className={`overflow-hidden transition-all duration-500 ${isOpen ? 'max-h-[500px] pb-6' : 'max-h-0'}`}>
+                    <div className="space-y-3">
+                        {faq.items.map((item, i) => (
+ <div key={i} className="flex items-start gap-3">
+    {item.label && (
+        <span className={`${'color' in item ? item.color : ''} text-white text-[11px] font-bold px-2.5 py-1 rounded-md shrink-0 tracking-wide min-w-[90px] text-center`}>
+            {item.label}
+        </span>
+    )}
+    <p className="text-stone-400 text-[15px] leading-relaxed">
+        {item.text}
+    </p>
+</div>
+                        ))}
                     </div>
+                </div>
+            </div>
+        );
+    })}
+</div>
                 </div>
 
                 {/* Bottom Gradient Overlay - Blends beautifully with your new image background */}

@@ -255,30 +255,70 @@ export default function TorchProxiesLandingPage() {
         { name: "Sarah M.", role: "DevOps Architect", text: "IP targeting is granular down to city targets. The latency levels are significantly lower than competitive alternatives." },
         { name: "David L.", role: "Automated Data Analyst", text: "Top tier network infrastructure. The standard volume tier setups maintain premium speeds without bottleneck dropouts." },
     ];
+type FaqItem = {
+    text: string;
+    label?: string;
+    color?: string;
+    step?: number;
+};
 
-    const faqData = [
-        {
-            q: "What are Ticketmaster proxies?",
-            a: "Residential proxies are IP addresses assigned by Internet Service Providers (ISPs) to homeowners. They act as intermediaries between your device and the internet, allowing you to browse anonymously and access geo-restricted content."
-        },
-        {
-            q: "How do Ticketmaster proxies work?",
-            a: "Residential proxies route your internet traffic through real residential IP addresses, making them appear as normal users to websites. Unlike datacenter proxies, they have higher trust scores and are much harder to detect and block."
-        },
-        {
-            q: "What proxies work best with Ticketmaster?",
-            a: "Our residential proxy network offers unmatched speed, stability, ethical sourcing, and city-level targeting with 24/7 support and transparent pricing."
-        },
-        {
-            q: "Do Torch ISP proxies work with ticketing bots?",
-            a: "Perfect for general web scraping, social media management, market research, sneaker copping, and everyday automation tasks."
-        },
-        {
-            q: "What is your refund policy?",
-            a: "Yes, residential proxies are completely legal when used responsibly and in compliance with website terms of service."
-        },
+type FaqEntry = {
+    q: string;
+    items: FaqItem[];
+};
 
-    ];
+const faqData: FaqEntry[] = [
+
+
+  {
+    q: "What are Ticketmaster proxies",
+    items: [
+        { text: "Ticketmaster proxies are IP addresses that mask your real connection when accessing Ticketmaster, AXS, SeatGeek, or See Tickets, making your requests appear to originate from a different location or user. They serve two distinct purposes: bypassing geo-restrictions on presales or regional on-sales, and entering high-demand virtual queues from multiple IP positions simultaneously." },
+    ]
+},
+
+   {
+    q: "How do Ticketmaster Proxies Works",
+    items: [
+        { 
+            text: "During a major on-sale, a Taylor Swift tour, Super Bowl, or Champions League final , Ticketmaster deploys Queue-it virtual waiting rooms and Akamai Bot Manager to enforce strict per-IP limits. Here's how proxies interact with that system:" 
+        },
+        { 
+            step: 1, 
+            color: "bg-orange-600", 
+            text: "On-sale or presale goes live. Ticketmaster opens the queue for a high-demand event Taylor Swift Eras Tour, Oasis, Glastonbury, or an NFL playoff game. Millions of fans hit the site simultaneously and Queue-it assigns each IP a unique position in the virtual waiting room." 
+        },
+        { 
+            step: 2, 
+            color: "bg-orange-600", 
+            text: "Each proxy IP enters the queue independently. Rather than one home IP holding one queue position, each residential or ISP proxy is assigned its own separate position, multiplying your chances of reaching the ticket selection page before inventory sells out." 
+        },
+        { 
+            step: 3, 
+            color: "bg-orange-600", 
+            text: "Akamai Bot Manager screens each IP. As queue positions advance, Akamai checks IP reputation, TLS fingerprints, and browser behaviour signals. Clean residential IPs pass through; datacenter or flagged IPs are bounced back to the end of the queue or blocked entirely." 
+        },
+        { 
+            step: 4, 
+            color: "bg-orange-600", 
+            text: "The fastest clean queue position reaches ticket selection. The proxy-backed session that clears the queue first reaches the ticket selection screen and proceeds through checkout with a unique account, payment method, and delivery address." 
+        },
+        { 
+            step: 5, 
+            color: "bg-orange-600", 
+            text: "Used or flagged IPs are retired after the on-sale. Any proxy that triggered a CAPTCHA, queue-ban, or session error during the on-sale is removed from the pool — keeping remaining IPs clean for the next on-sale or presale window." 
+        },
+    ]
+},
+  {
+    q: "What are the best proxies for Ticketmaster?",
+    items: [
+        { text: "Ticketmaster runs one of the most advanced bot-detection systems of any consumer platform , combining Queue-it queue fingerprinting, Akamai Bot Manager, and its own internal fraud layer. Only residential-grade IPs survive long enough to reach the ticket selection screen. Here's how each proxy type performs:" },
+          { label: "BEST", color: "bg-teal-500", text: "ISP (Static Residential) Proxies — The top choice for speed-critical on-sales on Ticketmaster US, Ticketmaster UK, and AXS. Datacenter-grade speed with residential IP legitimacy — critical for surviving Akamai's detection during the high-traffic queue window. Static IPs maintain a consistent session fingerprint throughout the full queue-to-checkout flow." },
+            { label: "STRONG", color: "bg-cyan-500", text: "Rotating Residential Proxies — Best for See Tickets, DICE, AEW, and Eventbrite where Queue-it is used but Akamai detection is less aggressive. Genuine ISP-assigned IPs that blend into organic fan traffic. Also ideal for multi-session presale access and geo-restricted regional on-sales." },
+    ]
+},
+];
     const BRAND_LOGOS = [
         { name: "Shield Proxies", src: "/images/business/shield.png" },
         { name: "Boiling Proxies", src: "/images/business/boiling.png" },
@@ -397,18 +437,18 @@ export default function TorchProxiesLandingPage() {
                         </div>
 
                         {/* Heading */}
-                        <h1 className="text-[60px] sm:text-5xl lg:text-[56px] font-regular tracking-tight leading-[1.1] max-w-xl text-white mb-[16px]">
+                        <h1 className="text-[60px] sm:text-5xl lg:text-[56px] font-regular tracking-tight leading-[1.1] max-w-xl text-white mb-[16px] font-['Urbanist']">
                             Best Ticketmaster Proxies. Never Miss Out on Tickets Again
                         </h1>
 
                         {/* Subheading with colored emphasis */}
-                        <p className="text-zinc-500 text-base md:text-lg max-w-xl mb-2 font-normal leading-relaxed select-none mb-[32px]">
+                        <p className="text-zinc-500 text-base md:text-lg max-w-xl mb-2 font-normal leading-relaxed select-none mb-[32px] font-['Urbanist']">
                             Get Past Ticketmaster Bans Without Breaking Your Session
                         </p>
 
                         {/* Features Inline List */}
-                        <div className="flex flex-wrap gap-x-6 gap-y-3 items-center mb-10 text-[16px] font-regular sm:text-sm text-zinc-300 mb-[32px]">
-                            <div className="flex items-center gap-1.5">
+                        <div className="flex flex-wrap gap-x-6 gap-y-3 items-center mb-10 text-[16px] font-regular sm:text-sm text-zinc-300 mb-[32px] font-['Urbanist']">
+                            <div className="flex items-center gap-1.5 font-['Urbanist']">
                                 <svg className="w-4 h-4 text-[#FF4F00] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                 </svg>
@@ -1079,34 +1119,48 @@ export default function TorchProxiesLandingPage() {
                     </div>
 
                     {/* FAQ Items */}
-                    <div className="space-y-px">
-                        {faqData.map((faq, index) => {
-                            const isOpen = activeFaq === index;
-                            return (
-                                <div
-                                    key={index}
-                                    className="border-b border-stone-800 last:border-none group"
-                                >
-                                    <button
-                                        onClick={() => setActiveFaq(isOpen ? null : index)}
-                                        className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors cursor-pointer"
-                                    >
-                                        <span>{faq.q}</span>
-                                        <ChevronDown
-                                            className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
-                                        />
-                                    </button>
+<div className="space-y-px">
+    {faqData.map((faq, index) => {
+        const isOpen = activeFaq === index;
+        return (
+            <div
+                key={index}
+                className="border-b border-stone-800 last:border-none group"
+            >
+                <button
+                    onClick={() => setActiveFaq(isOpen ? null : index)}
+                    className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors"
+                >
+                    <span>{faq.q}</span>
+                    <ChevronDown
+                        className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
+                    />
+                </button>
 
-                                    {/* Answer */}
-                                    <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
-                                        <p className="text-stone-400 text-[15px] leading-relaxed pr-10">
-                                            {faq.a}
-                                        </p>
-                                    </div>
-                                </div>
-                            );
-                        })}
+                <div className={`overflow-hidden transition-all duration-500 ${isOpen ? 'max-h-[2000px] pb-6' : 'max-h-0'}`}>
+                    <div className="space-y-3">
+                        {faq.items.map((item, i) => (
+                            <div key={i} className="flex items-start gap-4">
+                                {item.step ? (
+                                    <span className="bg-[#FE4A01] text-white text-[13px] font-bold w-7 h-7 rounded-full shrink-0 flex items-center justify-center">
+                                        {item.step}
+                                    </span>
+                                ) : item.label ? (
+                                    <span className={`${item.color ?? ''} text-white text-[11px] font-bold px-2.5 py-1 rounded-md shrink-0 tracking-wide min-w-[90px] text-center`}>
+                                        {item.label}
+                                    </span>
+                                ) : null}
+                                <p className="text-stone-400 text-[15px] leading-relaxed">
+                                    {item.text}
+                                </p>
+                            </div>
+                        ))}
                     </div>
+                </div>
+            </div>
+        );
+    })}
+</div>
                 </div>
 
                 {/* Bottom Gradient Overlay - Blends beautifully with your new image background */}

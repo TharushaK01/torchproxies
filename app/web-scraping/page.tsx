@@ -257,28 +257,81 @@ export default function TorchProxiesLandingPage() {
         { name: "Sarah M.", role: "DevOps Architect", text: "IP targeting is granular down to city targets. The latency levels are significantly lower than competitive alternatives." },
         { name: "David L.", role: "Automated Data Analyst", text: "Top tier network infrastructure. The standard volume tier setups maintain premium speeds without bottleneck dropouts." },
     ];
+type FaqItem = {
+    text: string;
+    label?: string;
+    color?: string;
+    step?: number;
+    title?: string;
+};
 
-    const faqData = [
+type FaqEntry = {
+    q: string;
+    items: FaqItem[];
+};
+
+const faqData: FaqEntry[] = [
+{
+    q: "What are the best proxy types for web scraping?",
+    items: [
         {
-            q: "How do your proxies work?",
-            a: "Residential proxies are IP addresses assigned by Internet Service Providers (ISPs) to homeowners. They act as intermediaries between your device and the internet, allowing you to browse anonymously and access geo-restricted content."
+            text: "Rotating Residential Proxies — The most reliable choice for highly protected targets: Amazon, Google, LinkedIn, Instagram, Booking.com, Cloudflare-protected sites, and DataDome-protected platforms. Real ISP-assigned IPs that blend into genuine user traffic. Higher cost per GB but dramatically lower ban rates on Tier-1 targets. Best used with session-based rotation (sticky IPs per scrape session)."
         },
         {
-            q: "Do you offer a free trial?",
-            a: "Residential proxies route your internet traffic through real residential IP addresses, making them appear as normal users to websites. Unlike datacenter proxies, they have higher trust scores and are much harder to detect and block."
+            title: "Fast",
+            text: "Rotating Datacenter Proxies — Fastest and most cost-effective for lower-protection targets: news sites, Wikipedia, public government databases, job boards like Indeed, and unprotected e-commerce catalogues. Ideal for high-volume scraping where speed matters more than IP legitimacy. Easily detected by Akamai, Cloudflare, and Distil Networks."
         },
         {
-            q: "What payment methods do you accept?",
-            a: "Our residential proxy network offers unmatched speed, stability, ethical sourcing, and city-level targeting with 24/7 support and transparent pricing."
+            title: "Hybrid",
+            text: "ISP (Static Residential) Proxies — Best for sustained, long-running crawls on mid-tier targets: Yelp, Tripadvisor, Zillow, Rightmove, and mid-size e-commerce platforms. Datacenter speed with residential IP registration — keeps sessions stable over hours without the rotation overhead of residential proxies."
+        },
+    ]
+},
+{
+    q: "What are the best procy types for web scraping",
+    items: [
+        {
+            text: "Rotating Residential Proxies — The most reliable choice for highly protected targets: Amazon, Google, LinkedIn, Instagram, Booking.com, Cloudflare-protected sites, and DataDome-protected platforms. Real ISP-assigned IPs that blend into genuine user traffic. Higher cost per GB but dramatically lower ban rates on Tier-1 targets. Best used with session-based rotation (sticky IPs per scrape session)."
         },
         {
-            q: "How Torchlabs is different from competitors?",
-            a: "Perfect for general web scraping, social media management, market research, sneaker copping, and everyday automation tasks."
+            title: "Fast",
+            text: "Rotating Datacenter Proxies — Fastest and most cost-effective for lower-protection targets: news sites, Wikipedia, public government databases, job boards like Indeed, and unprotected e-commerce catalogues. Ideal for high-volume scraping where speed matters more than IP legitimacy. Easily detected by Akamai, Cloudflare, and Distil Networks."
         },
         {
-            q: "Can I try your service before purchasing?",
-            a: "Yes, residential proxies are completely legal when used responsibly and in compliance with website terms of service."
+            title: "Hybrid",
+            text: "ISP (Static Residential) Proxies — Best for sustained, long-running crawls on mid-tier targets: Yelp, Tripadvisor, Zillow, Rightmove, and mid-size e-commerce platforms. Datacenter speed with residential IP registration , keeps sessions stable over hours without the rotation overhead of residential proxies."
         },
+    ]
+},
+{
+    q: "How many procies do I need for web scraping?",
+    items: [
+        {
+            text: "The right number of proxies isn't a fixed figure, it depends on your request volume, how aggressively the target site rate-limits, and your rotation strategy. The key metric to manage is requests per IP per hour , not total proxy count. Keeping this below the site's detection threshold is what prevents bans"
+        },
+        {
+            title: "Strict",
+            text: "Google, Amazon, LinkedIn — Keep below 5–10 requests per IP per hour. These platforms run aggressive bot detection and will ban IPs at low thresholds. Use large residential pools with session rotation."
+        },
+        {
+            title: "Moderate",
+            text: "E-commerce sites, booking platforms, job boards — Keep below 20–50 requests per IP per hour. Mid-tier rate limiting , residential or ISP proxies with 10–30 minute sticky sessions work well."
+        },
+        {
+            title: "Lenient",
+            text: "News sites, public directories, government databases — Keep below 100–200 requests per IP per hour. Low detection risk. Datacenter proxies are sufficient and cost-effective at this tier."
+        },
+    ]
+},
+{
+    q: "Is proxy or VPV better for web scraping?",
+    items: [
+        {
+            text: "Proxies win for web scraping , without exception at any meaningful scale. A VPN provides a single IP address shared across all your traffic. For scraping, where you need to distribute thousands of requests across thousands of different IPs to avoid detection, a VPN achieves nothing that a proxy doesn't also do while adding encryption overhead, speed penalties, and a single point of failure."
+        },
+    ]
+},
+    
     ];
     const BRAND_LOGOS = [
         { name: "Shield Proxies", src: "/images/business/shield.png" },
@@ -398,15 +451,15 @@ export default function TorchProxiesLandingPage() {
                         </div>
 
                         {/* Heading */}
-                        <h1 className="text-[60px] sm:text-5xl lg:text-[56px] font-regular tracking-tight leading-[1.1] max-w-xl text-white mb-[14px]">
+                        <h1 className="text-[60px] sm:text-5xl lg:text-[56px] font-regular tracking-tight leading-[1.1] max-w-xl text-white mb-[14px] font-['Urbanist']">
                             Best Hybrid Proxies for Web Scraping
                         </h1>
 
                         {/* Subheading with colored emphasis */}
-                        <p className="text-zinc-500 text-base md:text-lg max-w-xl mb-2 font-normal leading-relaxed select-none mb-[32px]">
+                        <p className="text-zinc-500 text-base md:text-lg max-w-xl mb-2 font-normal leading-relaxed select-none mb-[32px] font-['Urbanist']">
                             Scrape{' '}
                             <span
-                                className={`text-[#FF4F00] font-medium inline-block transition-all duration-300 transform ${fadeState === 'fade-in'
+                                className={`font-['Urbanist'] text-[#FF4F00] font-medium inline-block transition-all duration-300 transform ${fadeState === 'fade-in'
                                     ? 'opacity-100 translate-y-0'
                                     : 'opacity-0 -translate-y-1'
                                     }`}
@@ -417,8 +470,8 @@ export default function TorchProxiesLandingPage() {
                         </p>
 
                         {/* Features Inline List */}
-                        <div className="flex flex-wrap gap-x-6 gap-y-3 items-center mb-10 text-[16px] font-regular sm:text-sm text-zinc-300 mb-[34px]">
-                            <div className="flex items-center gap-1.5">
+                        <div className="flex flex-wrap gap-x-6 gap-y-3 items-center mb-10 text-[16px] font-regular sm:text-sm text-zinc-300 mb-[34px] font-['Urbanist']">
+                            <div className="flex items-center gap-1.5 font-['Urbanist']">
                                 <svg className="w-4 h-4 text-[#FF4F00] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                 </svg>
@@ -660,9 +713,9 @@ export default function TorchProxiesLandingPage() {
             </section>
 
 
-            <section className="bg-[#0a0a0a] text-white overflow-hidden mx-[120px]font-['Urbanist']">
+            <section className="bg-[#0a0a0a] text-white overflow-hidden mx-[120px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-3xl md:text-[42px] font-medium text-white mb-4 text-center">
+                    <h2 className="text-3xl md:text-[42px] font-medium text-white mb-4 text-center font-['Urbanist']">
                         Why Hybrid Proxies Work for Web Scraping</h2>
                     <p className="text-gray-400 text-[16px] leading-relaxed text-center max-w-3xl mx-auto mb-16 font">
                         Hybrid proxies combine real residential identity with high-performance infrastructure so your scraping runs longer, costs less and fails less often.                        </p>
@@ -676,12 +729,12 @@ export default function TorchProxiesLandingPage() {
                 <div className="w-full max-w-7xl mx-auto">
 
                     {/* --- HEADER --- */}
-                    <div id="pricing-section" className="text-center max-w-4xl mx-auto mb-16">
-                        <h2 className="text-3xl md:text-[42px] font-medium tracking-tight text-white mb-4  font-['Urbanist']">
+                    <div id="pricing-section" className="text-center max-w-5xl mx-auto mb-16">
+                        <h2 className="text-[42px] md:text-[42px] font-medium tracking-tight text-white mb-4 font-['Urbanist']">
                            The Right Proxies for Sneaker Botting
                         </h2>
-                        <p className="text-zinc-500 text-sm md:text-base font-normal leading-relaxed">
-                            Select the proxy type that matches your drop frequency, target platforms and tolerance for failed checkouts
+                        <p className="text-zinc-500 text-sm md:text-base font-normal leading-relaxed font-['Urbanist']">
+                           Choose the right proxy based on whether your target sites use advanced anti-bot protection and how large your monitoring scale is.
                         </p>
                     </div>
 
@@ -1052,35 +1105,54 @@ export default function TorchProxiesLandingPage() {
                     </div>
 
                     {/* FAQ Items */}
-                    <div className="space-y-px">
-                        {faqData.map((faq, index) => {
-                            const isOpen = activeFaq === index;
-                            return (
-                                <div
-                                    key={index}
-                                    className="border-b border-stone-800 last:border-none group"
-                                >
-                                    <button
-                                        onClick={() => setActiveFaq(isOpen ? null : index)}
-                                        className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors cursor-pointer"
-                                    >
-                                        <span>{faq.q}</span>
-                                        <ChevronDown
-                                            className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
-                                        />
-                                    </button>
+<div className="space-y-px">
+    {faqData.map((faq, index) => {
+        const isOpen = activeFaq === index;
+        return (
+            <div
+                key={index}
+                className="border-b border-stone-800 last:border-none group"
+            >
+                <button
+                    onClick={() => setActiveFaq(isOpen ? null : index)}
+                    className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors cursor-pointer"
+                >
+                    <span>{faq.q}</span>
+                    <ChevronDown
+                        className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
+                    />
+                </button>
 
-                                    {/* Answer */}
-                                    <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
-                                        <p className="text-stone-400 text-[15px] leading-relaxed pr-10">
-                                            {faq.a}
-                                        </p>
-                                    </div>
+                <div className={`overflow-hidden transition-all duration-500 ${isOpen ? 'max-h-[2000px] pb-6' : 'max-h-0'}`}>
+                    <div className="space-y-3">
+                        {faq.items.map((item, i) => (
+                            <div key={i} className="flex items-start gap-4">
+                                {item.step ? (
+                                    <span className="bg-[#FE4A01] text-white text-[13px] font-bold w-7 h-7 rounded-full shrink-0 flex items-center justify-center">
+                                        {item.step}
+                                    </span>
+                                ) : item.label ? (
+                                    <span className={`${item.color ?? ''} text-white text-[11px] font-bold px-2.5 py-1 rounded-md shrink-0 tracking-wide min-w-[90px] text-center`}>
+                                        {item.label}
+                                    </span>
+                                ) : null}
+                                <div>
+                                    {item.title && (
+                                        <p className="text-stone-400 font-bold text-[15px] mb-1">{item.title}</p>
+                                    )}
+                                    <p className="text-stone-400 text-[15px] leading-relaxed">
+                                        {item.text}
+                                    </p>
                                 </div>
-                            );
-                        })}
+                            </div>
+                        ))}
                     </div>
                 </div>
+            </div>
+        );
+    })}
+</div>
+</div>
 
                 {/* Bottom Gradient Overlay - Blends beautifully with your new image background */}
                 <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent pointer-events-none z-0" />

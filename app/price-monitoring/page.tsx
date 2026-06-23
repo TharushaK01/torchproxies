@@ -452,15 +452,15 @@ const renderCellContent = (value: string | boolean, isHighlighted = false) => {
         </div>
 
                         {/* Heading */}
-                        <h1 className="text-[60px] sm:text-[60px] lg:text-[56px] font-regular tracking-tight leading-[1.1] max-w-xl text-white mb-[14px]">
+                        <h1 className="text-[60px] sm:text-[60px] lg:text-[56px] font-regular tracking-tight leading-[1.1] max-w-xl text-white mb-[14px] font-['Urbanist']">
                            Best Proxies for Price Monitoring
                         </h1>
 
                         {/* Subheading with colored emphasis */}
-                        <p className="text-zinc-500 text-base md:text-lg max-w-xl mb-2 font-normal leading-relaxed select-none mb-[14px]">
+                        <p className="text-zinc-500 text-base md:text-lg max-w-xl mb-2 font-normal leading-relaxed select-none mb-[14px] font-['Urbanist']">
                             Scrape{' '}
                             <span
-                                className={`text-[#FF4F00] font-medium inline-block transition-all duration-300 transform ${fadeState === 'fade-in'
+                                className={`font-['Urbanist'] text-[#FF4F00] font-medium inline-block transition-all duration-300 transform ${fadeState === 'fade-in'
                                         ? 'opacity-100 translate-y-0'
                                         : 'opacity-0 -translate-y-1'
                                     }`}
@@ -472,7 +472,7 @@ const renderCellContent = (value: string | boolean, isHighlighted = false) => {
 
                         {/* Features Inline List */}
                         <div className="flex flex-wrap gap-x-6 gap-y-3 items-center mb-10 text-[16px] font-regular sm:text-sm text-zinc-300">
-                            <div className="flex items-center gap-1.5">
+                            <div className="flex items-center gap-1.5 font-['Urbanist']">
                                 <svg className="w-4 h-4 text-[#FF4F00] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                 </svg>

@@ -122,33 +122,52 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
     </div>
   );
 };
+interface FAQItem {
+  q: string;
+  a: string | string[]; // Allows standard strings or string arrays for bullet points
+}
 
-    const faqData = [
-        {
-            q: "What are residential proxies?",
-            a: "Residential proxies are IP addresses assigned by Internet Service Providers (ISPs) to homeowners. They act as intermediaries between your device and the internet, allowing you to browse anonymously and access geo-restricted content."
-        },
-        {
-            q: "How do residential proxies work and how are they different?",
-            a: "Residential proxies route your internet traffic through real residential IP addresses, making them appear as normal users to websites. Unlike datacenter proxies, they have higher trust scores and are much harder to detect and block."
-        },
-        {
-            q: "What makes Torch Proxies's residential proxies better than other proxy providers?",
-            a: "Our residential proxy network offers unmatched speed, stability, ethical sourcing, and city-level targeting with 24/7 support and transparent pricing."
-        },
-        {
-            q: "What are the ideal use cases for the Standard Residential plan?",
-            a: "Perfect for general web scraping, social media management, market research, sneaker copping, and everyday automation tasks."
-        },
-        {
-            q: "Are residential proxies legal to use?",
-            a: "Yes, residential proxies are completely legal when used responsibly and in compliance with website terms of service."
-        },
-        {
-            q: "Do you offer free trials?",
-            a: "Yes, we offer a free 1GB trial so you can test our network performance before committing."
-        },
-    ];
+const faqData: FAQItem[] = [
+  {
+    q: "What is a proxy server?",
+    a: "A proxy server acts as an intermediary between your device and the internet. It forwards your internet requests and returns the responses, helping to anonymize your IP address and enhance security."
+  },
+  {
+    q: "What types of proxies do you offer?",
+    // Formatted as an array to handle the introduction and separate points cleanly
+    a: [
+      "We offer several types of proxies including:",
+      "Residential Proxies (Supports HTTP and SOCKS5)",
+      "ISP Proxies (Supports HTTP and SOCKS5)",
+      "DC Proxies (Coming Soon)",
+      "Mobile Proxies (Coming Soon)"
+    ]
+  },
+  {
+    q: "Are your proxies compatible with all applications and websites?",
+    a: "Our proxies are designed to be compatible with most applications and websites. However, some platforms may have advanced detection methods, so results can vary."
+  },
+  {
+    q: "Do your proxies support IP rotation?",
+    a: "Yes, our proxies support IP rotation. You can configure the proxies to automatically change IP addresses at specified intervals or after each request to minimize the risk of detection."
+  },
+  {
+    q: "What is the difference between residential and datacenter proxies?",
+    a: "Residential proxies use IP addresses assigned by ISPs to homeowners, making them appear more legitimate and less likely to be blocked. Datacenter proxies are hosted in data centers and offer high speed and reliability but are more easily detectable by websites."
+  },
+  {
+    q: "How do I set up your proxies with my software or application?",
+    a: "We provide detailed documentation and support to help you configure our proxies with your software or application. Our support team is also available to assist with setup."
+  },
+  {
+    q: "Do you offer a trial period or demo for your proxy services?",
+    a: "Yes, we offer a trial period or demo so you can test our proxy services before committing to a purchase."
+  },
+  {
+    q: "How is billing handled for your proxy services?",
+    a: "Billing is typically handled on a subscription basis, with various plans available depending on your usage needs. Detailed invoices and usage reports are provided."
+  }
+];
     const resources = [
     {
       title: "Dashboard Documentation",
@@ -351,65 +370,83 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             {/* FAQ SECTION */}
-            <section className="pb-[80px] sm:pb-[80px] mx-[120px] bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
+<section className="pb-[80px] sm:pb-[80px] mx-[120px] bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
 
-                {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
-                <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none font-['Urbanist']">
-                    <Image
-                        src="/images/contact-bg.png" /* Using the same glow asset path */
-                        alt=""
-                        fill
-                        priority
-                        className="object-cover object-bottom opacity-100"
-                    />
-                </div>
+    {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
+    <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
+        <Image
+            src="/images/contact-bg.png" /* Using the same glow asset path */
+            alt=""
+            fill
+            priority
+            className="object-cover object-bottom opacity-100"
+        />
+    </div>
 
-                {/* ── Content Wrapper (Added 'relative z-10' so it sits above the background glow) ── */}
-                <div className="max-w-4xl mx-auto relative z-10">
-                    {/* Header */}
-                    <div className="text-center mb-16 font-['Urbanist']">
-                        <span className="text-[#FE4A01] text-[16px] font-regular tracking-widest block mb-3 font-['Urbanist']">
-                            FAQ
-                        </span>
-                        <h2 className="text-4xl sm:text-5xl font_regular tracking-tight text-white font-['Urbanist']">
-                            Frequently asked questions
-                        </h2>
-                    </div>
+    {/* ── Content Wrapper (Added 'relative z-10' so it sits above the background glow) ── */}
+    <div className="max-w-4xl mx-auto relative z-10">
+        {/* Header */}
+        <div className="text-center mb-16">
+            <span className="text-[#FE4A01] text-[16px] font-medium tracking-widest block mb-3">
+                FAQ
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-regular tracking-tight text-white">
+                Frequently asked questions
+            </h2>
+        </div>
 
-                    {/* FAQ Items */}
-                    <div className="space-y-px font-['Urbanist']">
-                        {faqData.map((faq, index) => {
-                            const isOpen = activeFaq === index;
-                            return (
-                                <div
-                                    key={index}
-                                    className="border-b border-stone-800 last:border-none group"
-                                >
-                                    <button
-                                        onClick={() => setActiveFaq(isOpen ? null : index)}
-                                        className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors"
-                                    >
-                                        <span>{faq.q}</span>
-                                        <ChevronDown
-                                            className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
-                                        />
-                                    </button>
+        {/* FAQ Items */}
+        <div className="space-y-px">
+            {faqData.map((faq, index) => {
+                const isOpen = activeFaq === index;
+                return (
+                    <div
+                        key={index}
+                        className="border-b border-stone-800 last:border-none group"
+                    >
+                        <button
+                            onClick={() => setActiveFaq(isOpen ? null : index)}
+                            className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors"
+                        >
+                            <span>{faq.q}</span>
+                            <ChevronDown
+                                className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
+                            />
+                        </button>
 
-                                    {/* Answer */}
-                                    <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
-                                        <p className="text-stone-400 text-[15px] leading-relaxed pr-10">
-                                            {faq.a}
-                                        </p>
+                        {/* Answer Accordion Body */}
+                        <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
+                            <div className="text-stone-400 text-[15px] leading-relaxed pr-10">
+                                {Array.isArray(faq.a) ? (
+                                    <div>
+                                        {/* 1. Renders the introduction text row */}
+                                        <p className="mb-3">{faq.a[0]}</p>
+                                        
+                                        {/* 2. Renders all following items as clean, separate points */}
+                                        <ul className="list-none pl-1 space-y-2 text-stone-400">
+                                            {faq.a.slice(1).map((point, pointIdx) => (
+                                                <li key={pointIdx} className="flex items-start gap-2.5">
+                                                    <span className="text-stone-400 font-semibold select-none">—</span>
+                                                    <span>{point}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
                                     </div>
-                                </div>
-                            );
-                        })}
+                                ) : (
+                                    /* Fallback standard wrapper for normal string descriptions */
+                                    <p>{faq.a}</p>
+                                )}
+                            </div>
+                        </div>
                     </div>
-                </div>
+                );
+            })}
+        </div>
+    </div>
 
-                {/* Bottom Gradient Overlay - Blends beautifully with your new image background */}
-                <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent pointer-events-none z-0" />
-            </section>
+    {/* Bottom Gradient Overlay - Blends beautifully with your new image background */}
+    <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent pointer-events-none z-0" />
+</section>
 
         </div>
     );

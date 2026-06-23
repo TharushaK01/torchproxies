@@ -158,7 +158,7 @@ const proxyCards: ProxyCard[] = [
         title: 'Hybrid Proxies',
         description: 'Best for enterprise-grade ad verification',
         price: '$5/GB',
-        badge: { text: 'Enterprise', variant: 'enterprise' },
+        badge: { text: 'For Startups', variant: 'enterprise' },
         iconType: '/images/pr.svg',
         features: [
             '99% success rate on strict ad platforms',
@@ -290,32 +290,112 @@ export default function TorchProxiesLandingPage() {
         { name: "David L.", role: "Automated Data Analyst", text: "Top tier network infrastructure. The standard volume tier setups maintain premium speeds without bottleneck dropouts." },
     ];
 
-    const faqData = [
-        {
-            q: "What are residential proxies?",
-            a: "Residential proxies are IP addresses assigned by Internet Service Providers (ISPs) to homeowners. They act as intermediaries between your device and the internet, allowing you to browse anonymously and access geo-restricted content."
+    
+type FaqItem = {
+    text: string;
+    label?: string;
+    color?: string;
+    step?: number;
+};
+
+type FaqEntry = {
+    q: string;
+    items: FaqItem[];
+};
+
+const faqData: FaqEntry[] = [
+
+
+  {
+    q: "What are the best proxies for Ad verification?",
+    items: [
+        { text: "The best proxies for ad verification are residential proxies, specifically city-level ones. Ad verification requires you to view ads exactly as a real user in a specific location would, which means your IP must originate from a genuine residential ISP in the target city, not a datacenter. Ad platforms like Google Ads, Meta, The Trade Desk, and DV360 serve different ad creatives based on precise geo signals ,a country-level proxy is not granular enough for localised campaign verification." },
+          { label: "BEST", color: "bg-teal-500", text: "City-Level Residential Proxies — Essential for verifying geo-targeted ads on Google Ads, Meta Ads (Facebook/Instagram), Microsoft Advertising, and programmatic platforms like DV360 and The Trade Desk. Confirms the right ad is reaching the right local audience." },
+            { label: "HYBRID", color: "bg-cyan-500", text: "ISP (Static Residential) Proxies — A reliable option for sustained ad monitoring sessions on YouTube Ads, LinkedIn Ads, and Bing Ads. Offers a consistent, non-rotating IP with residential legitimacy — reducing mid-session detection flags." },
+            { label: "BUDGET", color: "bg-amber-500", text: "Datacenter Proxies — Ad platforms classify datacenter traffic as non-human and may serve bot-targeted ads, blank placements, or suppressed creatives, resulting in inaccurate verification data." },
+    ]
+},
+
+   {
+    q: "How do I set up proxies in anti-detect browsers?",
+    items: [
+        { 
+            text: "Anti-detect browsers like AdsBower, Multilogin, and GoLogin are built specifically for multi-profile ad verification. Each browser profile operates as an isolated environment with its own proxy, cookies, and fingerprint. Here's how to configure proxies correctly:" 
         },
-        {
-            q: "How do residential proxies work and how are they different?",
-            a: "Residential proxies route your internet traffic through real residential IP addresses, making them appear as normal users to websites. Unlike datacenter proxies, they have higher trust scores and are much harder to detect and block."
+        { 
+            step: 1, 
+            color: "bg-orange-600", 
+            text: "Obtain proxy credentials from your residential proxy provider — you'll need the host, port, username, and password. Ensure your provider supports city-level geo-targeting for the locations you need to verify." 
         },
-        {
-            q: "What makes Torch Proxies's residential proxies better than other proxy providers?",
-            a: "Our residential proxy network offers unmatched speed, stability, ethical sourcing, and city-level targeting with 24/7 support and transparent pricing."
+        { 
+            step: 2, 
+            color: "bg-orange-600", 
+            text: "Create a new browser profile in AdsBower (or your chosen tool). Navigate to the profile's proxy settings panel and select HTTP, HTTPS, or SOCKS5 depending on your provider's supported protocol. SOCKS5 is preferred for ad verification as it supports all traffic types." 
         },
-        {
-            q: "What are the ideal use cases for the Standard Residential plan?",
-            a: "Perfect for general web scraping, social media management, market research, sneaker copping, and everyday automation tasks."
+        { 
+            step: 3, 
+            color: "bg-orange-600", 
+            text: "Enter your proxy details — host, port, username, and password. For rotating residential proxies, your provider will give you a single gateway endpoint that automatically rotates IPs, so the host/port stays constant." 
         },
-        {
-            q: "Are residential proxies legal to use?",
-            a: "Yes, residential proxies are completely legal when used responsibly and in compliance with website terms of service."
+        { 
+            step: 4, 
+            color: "bg-orange-600", 
+            text: "Assign one unique proxy per profile. Never share a single proxy IP across multiple verification profiles — ad platforms correlate shared IPs across accounts as a key detection signal." 
         },
-        {
-            q: "Do you offer free trials?",
-            a: "Yes, we offer a free 1GB trial so you can test our network performance before committing."
+        { 
+            step: 5, 
+            color: "bg-orange-600", 
+            text: "Verify your IP and location before starting. Open the profile, visit an IP geolocation tool (e.g. iplocation.net or whatismyip.com), and confirm the city and ISP match your target geo. Only proceed once confirmed." 
         },
-    ];
+        { 
+            step: 6, 
+            color: "bg-orange-600", 
+            text: "Check TLS fingerprint consistency — ensure your anti-detect browser is not modifying the JA3/TLS fingerprint in a way that conflicts with the proxy's ASN. Some tools do this automatically and can trigger platform detection (see Q3 below)." 
+        }
+    ]
+},
+    {
+        q: "What are the best practises in using proxies for Ad verification",
+        items: [
+             { 
+            step: 1, 
+            color: "bg-orange-600", 
+            text: "Use city-level geo-targeting for local ad verification." 
+        },
+        { 
+            step: 2, 
+            color: "bg-orange-600", 
+            text: "Assign one unique IP per browser profile." 
+        },
+        { 
+            step: 3, 
+            color: "bg-orange-600", 
+            text: "Select providers that preserve TLS fingerprints" 
+        },
+        { 
+            step: 4, 
+            color: "bg-orange-600", 
+            text: "Vary your behavioural patterns across sessions. Randomise session start times, vary engagement delays, and avoid running verification checks in mechanical, fixed-interval sequences." 
+        },
+        { 
+            step: 5, 
+            color: "bg-orange-600", 
+            text: "Always confirm IP location before starting a session." 
+        },
+        { 
+            step: 6, 
+            color: "bg-orange-600", 
+            text: "Don't use datacenter proxies for ad verification." 
+        },
+          { 
+            step: 6, 
+            color: "bg-orange-600", 
+            text: "Don't reuse proxy IPs across sessions or days." 
+        }
+           
+        ]
+    },
+];
     const BRAND_LOGOS = [
         { name: "Shield Proxies", src: "/images/business/shield.png" },
         { name: "Boiling Proxies", src: "/images/business/boiling.png" },
@@ -434,15 +514,15 @@ export default function TorchProxiesLandingPage() {
                         </div>
 
                         {/* Heading */}
-                        <h1 className="text-[60px] sm:text-5xl lg:text-[56px] font-regular tracking-tight leading-[1.1] max-w-xl text-white mb-[14px]">
+                        <h1 className="text-[60px] sm:text-5xl lg:text-[56px] font-regular tracking-tight leading-[1.1] max-w-xl text-white mb-[14px] font-['Urbanist']">
                             Best Proxies for Ad Verification
                         </h1>
 
                         {/* Subheading with colored emphasis */}
-                        <p className="text-zinc-500 text-base md:text-lg max-w-xl mb-2 font-normal leading-relaxed select-none mb-[32px]">
+                        <p className="text-zinc-500 text-base md:text-lg max-w-xl mb-2 font-normal leading-relaxed select-none mb-[32px] font-['Urbanist']">
                             Verify{' '}
                             <span
-                                className={`text-[#FF4F00] font-medium inline-block transition-all duration-300 transform ${fadeState === 'fade-in'
+                                className={`font-['Urbanist'] text-[#FF4F00] font-medium inline-block transition-all duration-300 transform ${fadeState === 'fade-in'
                                         ? 'opacity-100 translate-y-0'
                                         : 'opacity-0 -translate-y-1'
                                     }`}
@@ -453,8 +533,8 @@ export default function TorchProxiesLandingPage() {
                         </p>
 
                         {/* Features Inline List */}
-                        <div className="flex flex-wrap gap-x-6 gap-y-3 items-center mb-10 text-[16px] font-regular sm:text-sm text-zinc-300">
-                            <div className="flex items-center gap-1.5">
+                        <div className="flex flex-wrap gap-x-6 gap-y-3 items-center mb-10 text-[16px] font-regular sm:text-sm text-zinc-300 font-['Urbanist']">
+                            <div className="flex items-center gap-1.5 font-['Urbanist']">
                                 <svg className="w-4 h-4 text-[#FF4F00] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                 </svg>
@@ -1040,34 +1120,48 @@ export default function TorchProxiesLandingPage() {
                      </div>
  
                      {/* FAQ Items */}
-                     <div className="space-y-px">
-                         {faqData.map((faq, index) => {
-                             const isOpen = activeFaq === index;
-                             return (
-                                 <div
-                                     key={index}
-                                     className="border-b border-stone-800 last:border-none group"
-                                 >
-                                     <button
-                                         onClick={() => setActiveFaq(isOpen ? null : index)}
-                                         className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors"
-                                     >
-                                         <span>{faq.q}</span>
-                                         <ChevronDown
-                                             className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
-                                         />
-                                     </button>
- 
-                                     {/* Answer */}
-                                     <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
-                                         <p className="text-stone-400 text-[15px] leading-relaxed pr-10">
-                                             {faq.a}
-                                         </p>
-                                     </div>
-                                 </div>
-                             );
-                         })}
-                     </div>
+<div className="space-y-px">
+    {faqData.map((faq, index) => {
+        const isOpen = activeFaq === index;
+        return (
+            <div
+                key={index}
+                className="border-b border-stone-800 last:border-none group"
+            >
+                <button
+                    onClick={() => setActiveFaq(isOpen ? null : index)}
+                    className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors"
+                >
+                    <span>{faq.q}</span>
+                    <ChevronDown
+                        className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
+                    />
+                </button>
+
+                <div className={`overflow-hidden transition-all duration-500 ${isOpen ? 'max-h-[2000px] pb-6' : 'max-h-0'}`}>
+                    <div className="space-y-3">
+                        {faq.items.map((item, i) => (
+                            <div key={i} className="flex items-start gap-4">
+                                {item.step ? (
+                                    <span className="bg-[#FE4A01] text-white text-[13px] font-bold w-7 h-7 rounded-full shrink-0 flex items-center justify-center">
+                                        {item.step}
+                                    </span>
+                                ) : item.label ? (
+                                    <span className={`${item.color ?? ''} text-white text-[11px] font-bold px-2.5 py-1 rounded-md shrink-0 tracking-wide min-w-[90px] text-center`}>
+                                        {item.label}
+                                    </span>
+                                ) : null}
+                                <p className="text-stone-400 text-[15px] leading-relaxed">
+                                    {item.text}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        );
+    })}
+</div>
                  </div>
  
                  {/* Bottom Gradient Overlay - Blends beautifully with your new image background */}

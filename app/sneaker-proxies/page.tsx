@@ -258,29 +258,46 @@ export default function TorchProxiesLandingPage() {
         { name: "David L.", role: "Automated Data Analyst", text: "Top tier network infrastructure. The standard volume tier setups maintain premium speeds without bottleneck dropouts." },
     ];
 
-    const faqData = [
-        {
-            q: "How do your proxies work?",
-            a: "Residential proxies are IP addresses assigned by Internet Service Providers (ISPs) to homeowners. They act as intermediaries between your device and the internet, allowing you to browse anonymously and access geo-restricted content."
-        },
-        {
-            q: "Do you offer a free trial?",
-            a: "Residential proxies route your internet traffic through real residential IP addresses, making them appear as normal users to websites. Unlike datacenter proxies, they have higher trust scores and are much harder to detect and block."
-        },
-        {
-            q: "What payment methods do you accept?",
-            a: "Our residential proxy network offers unmatched speed, stability, ethical sourcing, and city-level targeting with 24/7 support and transparent pricing."
-        },
-        {
-            q: "How Torchlabs is different from competitors?",
-            a: "Perfect for general web scraping, social media management, market research, sneaker copping, and everyday automation tasks."
-        },
-        {
-            q: "Can I try your service before purchasing?",
-            a: "Yes, residential proxies are completely legal when used responsibly and in compliance with website terms of service."
-        },
-       
-    ];
+type FaqItem = {
+    text: string;
+    label?: string;
+    color?: string;
+};
+
+type FaqEntry = {
+    q: string;
+    items: FaqItem[];
+};
+
+const faqData: FaqEntry[] = [
+
+  {
+    q: "How do sneaker proxies work?",
+    items: [
+        { text: "Yes. If you choose to receive your earnings as Torch Credits, your commission rates will receive a +10% bonus over the standard cash payout rates. This option maximizes your value and allows you to reinvest directly into our proxy services at a discounted rate." },
+    ]
+},
+
+    {
+        q: "What are the best proxies for sneaker bots?",
+        items: [
+             { text: "The best proxy type for sneaker bots depends on which site you're targeting and how aggressive their bot protection is. Here's how each proxy type performs across the major sneaker platforms:" },
+            { label: "BEST", color: "bg-teal-500", text: "ISP (Static Residential) Proxies — The #1 choice for speed-critical drops on Nike SNKRS, Adidas, Footlocker, Foot Locker EU, and JD Sports. Combines datacenter-grade speed (<50ms) with residential IP trust — essential for Akamai and Shape Security-protected storefronts. One IP per bot task, no rotation mid-session." },
+            { label: "STRONG", color: "bg-cyan-500", text: "Rotating Residential Proxies — Best for Supreme, Shopify-based drops (Palace, Kith, Off-White), and SNKRS draws where detection is high but speed is less critical than fingerprint legitimacy. Real ISP IPs that blend into organic traffic patterns." },
+            { label: "SITUATIONAL", color: "bg-amber-500", text: "Datacenter Rotating Proxies — Viable for early access monitors, restock alerts, and non-Akamai sites like smaller boutique drops. Fast and cheap — but increasingly banned on Nike, Adidas, and any site running advanced bot protection. Use for testing and monitoring, not live checkout tasks." },
+               { label: "AVOID", color: "bg-purple-500", text: "Free or Shared Proxies — Burned, overloaded IPs that are already flagged across all major sneaker platforms. Using shared proxies on Nike SNKRS or Adidas Confirmed is guaranteed to result in immediate bans, CAPTCHAs, and wasted bot tasks." },
+        ]
+    },
+    {
+        q: "Are sneaker proxies legal?",
+        items: [
+            { text: "roxies themselves are entirely legal tools. No law in the US, UK, or EU prohibits using a proxy to access a public retail website. The risk with sneaker proxies is not legal prosecution. it's a cancelled order, banned account, or IP block." },
+
+           
+           
+        ]
+    },
+];
     const BRAND_LOGOS = [
         { name: "Shield Proxies", src: "/images/business/shield.png" },
         { name: "Boiling Proxies", src: "/images/business/boiling.png" },
@@ -399,12 +416,12 @@ export default function TorchProxiesLandingPage() {
                         </div>
 
                         {/* Heading */}
-                        <h1 className="text-[60px] sm:text-5xl lg:text-[56px] font-regular tracking-tight leading-[1.1] max-w-xl text-white mb-[14px]">
+                        <h1 className="text-[60px] sm:text-5xl lg:text-[56px] font-regular tracking-tight leading-[1.1] max-w-xl text-white mb-[14px] font-['Urbanist']">
                             Best Sneaker Proxies for Limited Drops
                         </h1>
 
                         {/* Subheading with colored emphasis */}
-                        <p className="text-zinc-500 text-base md:text-lg max-w-xl mb-2 font-normal leading-relaxed select-none mb-[32px]">
+                        <p className="text-zinc-500 text-base md:text-lg max-w-xl mb-2 font-normal leading-relaxed select-none mb-[32px] font-['Urbanist']">
                             Cop limited{' '}
                             <span
                                 className={`text-[#FF4F00] font-medium inline-block transition-all duration-300 transform ${fadeState === 'fade-in'
@@ -418,7 +435,7 @@ export default function TorchProxiesLandingPage() {
                         </p>
 
                         {/* Features Inline List */}
-                        <div className="flex flex-wrap gap-x-6 gap-y-3 items-center mb-10 text-[16px] font-regular sm:text-sm text-zinc-300 mb-[34px]">
+                        <div className="flex flex-wrap gap-x-6 gap-y-3 items-center mb-10 text-[16px] font-regular sm:text-sm text-zinc-300 mb-[34px] font-['Urbanist']">
                             <div className="flex items-center gap-1.5">
                                 <svg className="w-4 h-4 text-[#FF4F00] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -426,13 +443,13 @@ export default function TorchProxiesLandingPage() {
                                 <span>0.3s Checkout Speed</span>
                             </div>
                             <div className="flex items-center gap-1.5">
-                                <svg className="w-4 h-4 text-[#FF4F00] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg className="w-4 h-4 text-[#FF4F00] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor font-['Urbanist']">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                 </svg>
                                 <span>99%+ Success Rate</span>
                             </div>
                             <div className="flex items-center gap-1.5">
-                                <svg className="w-4 h-4 text-[#FF4F00] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg className="w-4 h-4 text-[#FF4F00] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor font-['Urbanist']">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                 </svg>
                                 <span>99% Ad Visibility Rate</span>
@@ -445,7 +462,7 @@ export default function TorchProxiesLandingPage() {
                         <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99] cursor-pointer">
 
                             {/* Fast 3D text track wrapper */}
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)] font-['Urbanist']">
 
                                 {/* Default State Text */}
                                 <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
@@ -469,12 +486,12 @@ export default function TorchProxiesLandingPage() {
                             <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
 
                                 {/* Default State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)] font-['Urbanist']">
                                     View Pricing
                                 </span>
 
                                 {/* Hover State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white font-['Urbanist']">
                                     View Pricing
                                 </span>
 
@@ -516,7 +533,7 @@ export default function TorchProxiesLandingPage() {
                         <h2 className="text-[42px] md:text-[42px] font-medium tracking-tight text-white mb-4 leading-tight font-['Urbanist']">
                             Why You Keep Missing Drops
                         </h2>
-                        <p className="text-zinc-500 text-[18px] md:text-base font-regular max-w-4xl mx-auto leading-relaxed">
+                        <p className="text-zinc-500 text-[18px] md:text-base font-regular max-w-4xl mx-auto leading-relaxed font-['Urbanist']">
                             Most resellers don’t lose because of bad bots, they lose because of bad proxy infrastructure.
                                                   </p>
                     </div>
@@ -540,12 +557,12 @@ export default function TorchProxiesLandingPage() {
                                 </div>
 
                                 {/* Feature Title */}
-                                <h3 className="text-white text-[20px] font-medium tracking-tight mb-3">
+                                <h3 className="text-white text-[20px] font-medium tracking-tight mb-3 font-['Urbanist']">
                                     {item.title}
                                 </h3>
 
                                 {/* Feature Description */}
-                                <p className="text-zinc-500 text-[16px] font-regular leading-relaxed">
+                                <p className="text-zinc-500 text-[16px] font-regular leading-relaxed font-['Urbanist']">
                                     {item.desc}
                                 </p>
 
@@ -580,7 +597,7 @@ export default function TorchProxiesLandingPage() {
                         </div>
 
                         {/* Text Side */}
-                        <div className="space-y-6">
+                        <div className="space-y-6 font-['Urbanist']">
                             <h2 className="text-[42px] md:text-5xl md:leading-snug font-medium tracking-tight mb-[34px]">
                                 Why Detection Kills  Checkout Success
                             </h2>
@@ -612,7 +629,7 @@ export default function TorchProxiesLandingPage() {
 
             {/* ── TOP HEADER SECTION ───────────────────────────────────── */}
             <div className="text-center pb-[80px] sm:pb-[80px] mx-[120px] font-['Urbanist']">
-                <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white mb-[24px]">
+                <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white mb-[24px] font-['Urbanist']">
                     One Proxy Built for Winning Drops
                 </h2>
                 <p className="text-stone-400 text-sm sm:text-base max-w-4xl mx-auto font-normal">
@@ -629,13 +646,13 @@ export default function TorchProxiesLandingPage() {
                         <div className="relative group">
                             {/* Text Side */}
                             <div className="space-y-6">
-                                <h2 className="text-[42px] md:text-5xl font-regular tracking-tight mb-[34px]">
+                                <h2 className="text-[42px] md:text-5xl font-regular tracking-tight mb-[34px] font-['Urbanist']">
                                     Hybrid Sneaker Proxies
                                 </h2>
-                                <p className="text-gray-400 text-lg leading-relaxed mb-[14px]">
+                                <p className="text-gray-400 text-lg leading-relaxed mb-[14px] font-['Urbanist']">
                                     The proxy infrastructure serious resellers rely on when session stability and identity trust matter more than raw speed.
                                 </p>
-                                <ul className="text-gray-400 text-lg leading-relaxed">
+                                <ul className="text-gray-400 text-lg leading-relaxed font-['Urbanist']">
                                     <li>&#9679; Built specifically for SNKRS, Footsites, Shopify & Adidas Confirmed</li>
                                     <li>&#9679; Maintains stable sessions through queues and checkout</li>
                                     <li>&#9679; Replaces datacenter + residential juggling with one drop-ready proxy type</li>
@@ -663,9 +680,9 @@ export default function TorchProxiesLandingPage() {
 
             <section className="bg-[#0a0a0a] text-white  overflow-hidden pb-[80px] sm:pb-[80px] mx-[120px] font-['Urbanist']">
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-3xl md:text-[42px] font-medium text-white mb-4 text-center">
+                    <h2 className="text-3xl md:text-[42px] font-medium text-white mb-4 text-center font-['Urbanist']">
                         Why Hybrid Proxies Win You Drops</h2>
-                    <p className="text-gray-400 text-[16px] leading-relaxed text-center max-w-3xl mx-auto mb-16 font">
+                    <p className="text-gray-400 text-[16px] leading-relaxed text-center max-w-3xl mx-auto mb-16 font font-['Urbanist']">
                         Sneaker platforms evaluate far more than IPs. Hybrid proxies succeed because they align identity trust, session behavior and infrastructure at scale.                       
                          </p>
                 </div>
@@ -682,7 +699,7 @@ export default function TorchProxiesLandingPage() {
             <h2 className="text-3xl md:text-[42px] font-medium tracking-tight text-white mb-4 font-['Urbanist']">
                 The Right Proxies for Sneaker Botting
             </h2>
-            <p className="text-zinc-500 text-sm md:text-base font-normal leading-relaxed">
+            <p className="text-zinc-500 text-sm md:text-base font-normal leading-relaxed font-['Urbanist']">
                 Select the proxy type that matches your drop frequency, target platforms and tolerance for failed checkouts
             </p>
         </div>
@@ -702,7 +719,7 @@ export default function TorchProxiesLandingPage() {
                                         </svg>
                                     </div>
 
-                                    <span className="text-[11px] font-medium tracking-wide px-3 py-1 rounded-md bg-[#002B1B] text-[#00B67A]">
+                                    <span className="text-[11px] font-medium tracking-wide px-3 py-1 rounded-md bg-[#002B1B] text-[#00B67A] font-['Urbanist']">
                                         Most Popular
                                     </span>
                                 </div>
@@ -726,31 +743,31 @@ export default function TorchProxiesLandingPage() {
                                 {/* Features Checklist */}
                                 <ul className="space-y-4 mb-10">
                                     <li className="flex items-start gap-3 text-zinc-400 text-sm font-normal leading-relaxed">
-                                        <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor font-['Urbanist']">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                         </svg>
                                         <span>~99% success rate on SNKRS, Shopify & Footsites</span>
                                     </li>
                                     <li className="flex items-start gap-3 text-zinc-400 text-sm font-normal leading-relaxed">
-                                        <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor font-['Urbanist']">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                         </svg>
                                         <span>ISP-sourced residential IPs that pass ML bot checks</span>
                                     </li>
                                     <li className="flex items-start gap-3 text-zinc-400 text-sm font-normal leading-relaxed">
-                                        <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor font-['Urbanist']">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                         </svg>
                                         <span>0.3s average response time for faster checkouts</span>
                                     </li>
                                     <li className="flex items-start gap-3 text-zinc-400 text-sm font-normal leading-relaxed">
-                                        <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor font-['Urbanist']">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                         </svg>
                                         <span>Stable sessions that hold queue position</span>
                                     </li>
                                     <li className="flex items-start gap-3 text-zinc-400 text-sm font-normal leading-relaxed">
-                                        <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor font-['Urbanist']">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                         </svg>
                                         <span>No datacenter fingerprints or instant ASN bans</span>
@@ -767,12 +784,12 @@ export default function TorchProxiesLandingPage() {
                             <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
 
                                 {/* Default State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)] font-['Urbanist']">
                                    Try risk free now
                                 </span>
 
                                 {/* Hover State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90 font-['Urbanist']">
                                     Try risk free now
                                 </span>
 
@@ -783,7 +800,7 @@ export default function TorchProxiesLandingPage() {
 
                         {/* RIGHT COLUMN: INFORMATION DISPLAY & TARGET LOGOS */}
                         <div className="flex flex-col justify-center py-4">
-                            <h4 className="text-2xl md:text-[28px] font-medium tracking-tight text-white mb-8">
+                            <h4 className="text-2xl md:text-[28px] font-medium tracking-tight text-white mb-8 font-['Urbanist']">
                                 What this means for you?
                             </h4>
 
@@ -836,7 +853,7 @@ export default function TorchProxiesLandingPage() {
 
                             {/* "Best for" Identifier label */}
                             <div className="text-center lg:text-left">
-                                <span className="block text-zinc-500 text-xs font-normal tracking-wide mb-6 text-center">
+                                <span className="block text-zinc-500 text-xs font-normal tracking-wide mb-6 text-center font-['Urbanist']">
                                     Best for
                                 </span>
 
@@ -861,7 +878,7 @@ export default function TorchProxiesLandingPage() {
                         <h2 className="text-3xl md:text-[42px] font-medium tracking-tight text-white mb-4 font-['Urbanist']">
                             See how we compare with others
                         </h2>
-                        <p className="text-zinc-500 text-[18px] md:text-base font-regular tracking-wide">
+                        <p className="text-zinc-500 text-[18px] md:text-base font-regular tracking-wide font-['Urbanist']">
                             Proof why we are the best option for your use case
                         </p>
                     </div>
@@ -1053,34 +1070,44 @@ Join 100+ sneaker resellers who use Torch Sneaker Proxies to secure wins
                     </div>
 
                     {/* FAQ Items */}
-                    <div className="space-y-px">
-                        {faqData.map((faq, index) => {
-                            const isOpen = activeFaq === index;
-                            return (
-                                <div
-                                    key={index}
-                                    className="border-b border-stone-800 last:border-none group"
-                                >
-                                    <button
-                                        onClick={() => setActiveFaq(isOpen ? null : index)}
-                                        className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors"
-                                    >
-                                        <span>{faq.q}</span>
-                                        <ChevronDown
-                                            className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
-                                        />
-                                    </button>
+<div className="space-y-px">
+    {faqData.map((faq, index) => {
+        const isOpen = activeFaq === index;
+        return (
+            <div
+                key={index}
+                className="border-b border-stone-800 last:border-none group"
+            >
+                <button
+                    onClick={() => setActiveFaq(isOpen ? null : index)}
+                    className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors"
+                >
+                    <span>{faq.q}</span>
+                    <ChevronDown
+                        className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
+                    />
+                </button>
 
-                                    {/* Answer */}
-                                    <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
-                                        <p className="text-stone-400 text-[15px] leading-relaxed pr-10">
-                                            {faq.a}
-                                        </p>
-                                    </div>
-                                </div>
-                            );
-                        })}
+                <div className={`overflow-hidden transition-all duration-500 ${isOpen ? 'max-h-[500px] pb-6' : 'max-h-0'}`}>
+                    <div className="space-y-3">
+                        {faq.items.map((item, i) => (
+ <div key={i} className="flex items-start gap-3">
+    {item.label && (
+        <span className={`${'color' in item ? item.color : ''} text-white text-[11px] font-bold px-2.5 py-1 rounded-md shrink-0 tracking-wide min-w-[90px] text-center`}>
+            {item.label}
+        </span>
+    )}
+    <p className="text-stone-400 text-[15px] leading-relaxed">
+        {item.text}
+    </p>
+</div>
+                        ))}
                     </div>
+                </div>
+            </div>
+        );
+    })}
+</div>
                 </div>
 
                 {/* Bottom Gradient Overlay - Blends beautifully with your new image background */}
