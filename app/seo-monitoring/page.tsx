@@ -287,7 +287,7 @@ type FaqEntry = {
 const faqData: FaqEntry[] = [
 
   {
-    q: "What are the best proxies for price monitoring?",
+    q: "What are the best proxies for rank tracking?",
     items: [
         { text: "The best proxies for rank tracking are rotating residential proxies, specifically geo-targeted ones that return SERPs as a real user would see them in a specific country, city, or device type. Google, Bing, and Baidu aggressively detect and block automated queries from datacenter IPs, making residential proxies the only reliable option for accurate rank data." },
     ]
@@ -400,7 +400,7 @@ const faqData: FaqEntry[] = [
             ) : (
                 // Muted Gray X Mark
                 <div className="flex justify-center">
-                    <div className="w-5 h-5 rounded-full border border-zinc-800 flex items-center justify-center text-zinc-600">
+                    <div className="w-5 h-5 rounded-full border border-zinc-300 flex items-center justify-center text-zinc-100">
                         <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                         </svg>
