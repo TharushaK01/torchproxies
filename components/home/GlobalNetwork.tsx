@@ -54,13 +54,16 @@ const GlobalNetwork = () => {
                     <Geography
                       key={geo.rsmKey}
                       geography={geo}
-                      onMouseEnter={() => {
-                        const countText = isHoveredSpecific || "Detecting IPs...";
-                        setContent(`${countryName}: ${countText}`);
-                      }}
-                      onMouseLeave={() => setContent("")}
-                      data-tooltip-id="map-tooltip"
-                      data-tooltip-content={content}
+                     onMouseEnter={() => {
+  // Fetch the IP count based on the current country name, default to "Detecting IPs..." if not found
+  const countText = countryProxyData[countryName] || "(Detecting IPs...)";
+  
+  // Use \n to split the country name and the IP count into two rows
+  setContent(`${countryName}\n${countText}`);
+}}
+onMouseLeave={() => setContent("")}
+data-tooltip-id="map-tooltip"
+data-tooltip-content={content}
                       style={{
                         default: { fill: "#1a1a1a", outline: "none", stroke: "#333", strokeWidth: 0.5 },
                         hover: { fill: "#ff45001a", outline: "none", stroke: "#ff4500", strokeWidth: 1.5 },
