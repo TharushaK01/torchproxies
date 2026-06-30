@@ -445,7 +445,7 @@ export default function TorchProxiesLandingPage() {
 
                                 <div className="relative w-[217px] h-[20px] flex-shrink-0 opacity-80 hover:opacity-100 transition-opacity">
                                     <Image
-                                        src="/images/pr1.svg"
+                                        src="/images/supports.svg"
                                         alt="Visa"
                                         fill
                                         className="object-contain"

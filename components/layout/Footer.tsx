@@ -157,7 +157,7 @@ function FooterColumn({ groups }: { groups: (typeof FOOTER_COLUMNS)[number][] })
 export default function Footer() {
   return (
     <footer className="bg-[#0a0a0a] border-t border-white/5 relative overflow-hidden w-full font-['Urbanist']">
-      
+
       {/* ── Main content layout container ─────────────────── */}
       <div className="relative z-10 max-w-[1400px] mx-auto px-8 pt-16 pb-12 font-['Urbanist']">
         <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-12">
@@ -184,16 +184,16 @@ export default function Footer() {
               </span>
             </Link> */}
             <Link href="/" className="flex items-center">
-  <div className="relative w-36 h-9"> {/* Easily adjust width and height to fit your exact logo's aspect ratio */}
-    <Image
-      src="/images/footerlogo.svg" // Path relative to your public folder
-      alt="Torchlabs Logo"
-      fill
-      className="object-contain object-left"
-      priority
-    />
-  </div>
-</Link>
+              <div className="relative w-36 h-9"> {/* Easily adjust width and height to fit your exact logo's aspect ratio */}
+                <Image
+                  src="/images/footerlogo.svg" // Path relative to your public folder
+                  alt="Torchlabs Logo"
+                  fill
+                  className="object-contain object-left"
+                  priority
+                />
+              </div>
+            </Link>
 
             {/* Status indicators */}
             <div className="flex items-center gap-2">
@@ -201,7 +201,14 @@ export default function Footer() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
               </span>
-              <span className="text-green-400 text-xs font-medium">All services are online</span>
+              <a
+                href="https://status.torchproxies.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-green-400 text-xs font-medium cursor-pointer"
+              >
+                All services are online
+              </a>
             </div>
 
             {/* Social icons */}
@@ -240,18 +247,18 @@ export default function Footer() {
       </div>
 
       {/* ── Perfected "TORCH LABS" Watermark Background ── */}
-      
-<span
-  className="absolute left-1/2 translate-x-[-50%] select-none pointer-events-none whitespace-nowrap font-black tracking-normal uppercase text-white opacity-10 z-10 bottom-[-15%] pt-6 font-['Urbanist']"
-  style={{
-    fontSize: "clamp(180px, 14vw, 440px)",
-    lineHeight: "1.0",
-    maskImage: "linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,1) 90%, rgba(0,0,0,1) 100%)",
-    WebkitMaskImage: "linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,1) 90%, rgba(0,0,0,1) 100%)",
-  }}
->
-  TORCHPROXIES
-</span>
+
+      <span
+        className="absolute left-1/2 translate-x-[-50%] select-none pointer-events-none whitespace-nowrap font-black tracking-normal uppercase text-white opacity-10 z-10 bottom-[-15%] pt-6 font-['Urbanist']"
+        style={{
+          fontSize: "clamp(180px, 14vw, 440px)",
+          lineHeight: "1.0",
+          maskImage: "linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,1) 90%, rgba(0,0,0,1) 100%)",
+          WebkitMaskImage: "linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,1) 90%, rgba(0,0,0,1) 100%)",
+        }}
+      >
+        TORCHPROXIES
+      </span>
 
     </footer>
   );

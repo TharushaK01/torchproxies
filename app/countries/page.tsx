@@ -115,7 +115,7 @@ export default function TorchProxiesLandingPage() {
 
  const locations: LocationsData = {
     residential: [
-      { name: "South Korea", ips: "2,421,601 IPs", code: "KR", url: '/south-korea' },
+      { name: "South Korea", ips: "2,421,601+ IPs", code: "KR", url: '/south-korea' },
       { name: "Ireland", ips: "1,449,139 IPs", code: "IE", url: '/ireland'  },
       { name: "Iran", ips: "1,431,960 IPs", code: "IR", url: '/iran'  },
       { name: "Chile", ips: "452,720 IPs", code: "CL", url: '/chile'  },
@@ -149,7 +149,7 @@ export default function TorchProxiesLandingPage() {
       { name: "Indonesia", ips: "4,421,824 IPs", code: "ID" , url: '/indonesia' }
     ],
     isp: [
-      { name: "South Korea", ips: "2,421,601 IPs", code: "KR" , url: '/south-korea-isp' },
+      { name: "South Korea", ips: "2,421,601+ IPs", code: "KR" , url: '/south-korea-isp' },
       { name: "Ireland", ips: "1,449,139 IPs", code: "IE" , url: '/ireland-isp' },
       { name: "Iran", ips: "1,431,960 IPs", code: "IR" , url: '/iran-isp' },
       { name: "Chile", ips: "452,720 IPs", code: "CL" , url: '/chile-isp' },
