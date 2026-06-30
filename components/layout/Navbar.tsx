@@ -233,12 +233,12 @@ export default function Navbar() {
 
           {/* ── Center Navigation Pill ─────────────────────── */}
           <div className="hidden lg:flex items-center overflow-visible">
-            <div className="flex items-center gap-0.5 bg-[#FFFFFF0A] backdropkey={link.label}-blur-md border border-white/5 rounded-xl px-1.5 py-1.5 overflow-visible">
+            <div className="relative flex items-center gap-0.5 bg-[#FFFFFF0A] backdrop-blur-md border border-white/5 rounded-xl px-1.5 py-1.5 overflow-visible">
 
               {NAV_LINKS.map((link) => (
                 <div
                   key={link.label}
-                  className="relative overflow-visible"
+                  className="overflow-visible"
                   onMouseEnter={() => setOpenDropdown(link.label)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
@@ -259,14 +259,9 @@ export default function Navbar() {
                     </svg>
                   </Link>
 
-                  {/* Dropdown Card Components Selector */}
+                  {/* Dropdown Card Components Selector — full width of nav pill, fixed alignment */}
                   {link.dropdown && openDropdown === link.label && (
-                    <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 z-[200] ${link.menuType === "products-mega" ? "w-[540px]" :
-                      link.menuType === "locations-grid" ? "w-[620px]" :
-                        link.menuType === "reseller-mega" ? "w-[720px]" :
-                          link.menuType === "usecases-mega" ? "w-[580px]" :
-                            link.menuType === "resources-mega" ? "w-[680px]" : "w-52"
-                      }`}>
+                    <div className="absolute top-full left-0 right-0 pt-3 z-[200]">
                       <div className="bg-[#0D0D0D] border border-white/10 rounded-2xl shadow-[0_24px_70px_rgba(0,0,0,0.8)] overflow-hidden p-5">
 
                         {/* CASE 1: Products Layout */}
@@ -499,7 +494,7 @@ export default function Navbar() {
 
                         {/* CASE 4: Use Cases Layout */}
                         {link.menuType === "usecases-mega" && Array.isArray(link.dropdown) && (
-                          <div className="grid grid-cols-2 gap-x-12 p-8 rounded-[24px] max-w-2xl text-left select-none">
+                          <div className="grid grid-cols-2 gap-x-12 p-8 rounded-[24px] text-left select-none">
 
                             {/* ── LEFT COLUMN: Market Research (Index 0) ── */}
                             {link.dropdown[0] && (
