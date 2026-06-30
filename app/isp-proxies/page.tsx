@@ -68,15 +68,15 @@ export default function TorchProxiesLandingPage() {
         isActive: true,
         isDimmed: i >= 30
     }));
-    const locations = [
-        { code: 'US', name: 'United States', ips: '4,429,824', url: '/locations/us' },
-        { code: 'GB', name: 'United Kingdom', ips: '1,449,139', url: '/locations/gb' },
-        { code: 'DE', name: 'Germany', ips: '1,431,960', url: '/locations/de' },
-        { code: 'AU', name: 'Australia', ips: '452,720', url: '/locations/au' },
-        { code: 'CA', name: 'Canada', ips: '815,658', url: '/locations/ca' },
-        { code: 'MX', name: 'Mexico', ips: '4,429,824', url: '/locations/mx' },
-        { code: 'CN', name: 'China', ips: '4,429,824', url: '/locations/cn' },
-        { code: 'FR', name: 'France', ips: '4,429,824', url: '/locations/fr' },
+   const locations = [
+        { code: 'US', name: 'United States', ips: '4,429,824', url: '/united-states' },
+        { code: 'GB', name: 'United Kingdom', ips: '1,449,139', url: '/united-kingdom' },
+        { code: 'DE', name: 'Germany', ips: '1,431,960', url: '/germany' },
+        { code: 'AU', name: 'Australia', ips: '452,720', url: '/australia' },
+        { code: 'CA', name: 'Canada', ips: '815,658', url: '/canada' },
+        { code: 'MX', name: 'Mexico', ips: '4,429,824', url: '/mexico' },
+        { code: 'CN', name: 'China', ips: '4,429,824', url: '/china' },
+        { code: 'FR', name: 'France', ips: '4,429,824', url: '/france' },
     ];
 
 
