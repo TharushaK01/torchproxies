@@ -69,8 +69,8 @@ interface Plan {
 
 const plans: Plan[] = [
     { name: 'FREE', price: { monthly: '$0', yearly: '$0' } },
-    { name: 'BASIC', price: { monthly: '$100', yearly: '$1000' } },
-    { name: 'PREMIUM', price: { monthly: '$160', yearly: '$1600' } },
+    { name: 'BASIC', price: { monthly: '$100', yearly: '$1,000' } },
+    { name: 'PREMIUM', price: { monthly: '$160', yearly: '$1,600' } },
 ];
 interface FeatureRow {
     title: string;
