@@ -6,41 +6,56 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 
+
+const MARQUEE_ITEMS = [
+    "99.9% uptime guaranteed",
+    "Blazing fast proxy speeds",
+    "Global geo targeting support",
+    "Secure & anonymous connections",
+    "Unlimited sessions & rotations",
+    "Built for scraping & automation"
+];
+
+
 const Marquee: React.FC = () => (
-    <div className="w-full overflow-hidden bg-[#FE4A01] py-3 mt-50 whitespace-nowrap select-none flex">
-        {/* Wrapping container that holds both sets of text */}
-        <div className="flex animate-marquee text-xs font-semibold tracking-wider text-white uppercase">
-            {/* Original Content */}
-            <div className="flex items-center space-x-8 pr-8">
-                <span>• 99.9% uptime guaranteed</span>
-                <span>• Blazing fast proxy speeds</span>
-                <span>• Global geo targeting support</span>
-                <span>• Secure & anonymous connections</span>
-                <span>• Unlimited sessions & rotations</span>
-                <span>• Built for scraping & automation</span>
+
+    <div className="w-full overflow-hidden bg-[#FE4A01] py-3.5 whitespace-nowrap select-none flex font-['Urbanist']">
+
+        {/* Infinite track containing multiple data blocks to prevent viewport gaps */}
+        <div className="flex min-w-full shrink-0 animate-marquee items-center justify-around text-[14px] font-medium tracking-wider text-white font-['Urbanist']">
+
+            {/* Block 1 (Original) */}
+            <div className="flex shrink-0 items-center space-x-12 pr-12">
+                {MARQUEE_ITEMS.map((item, index) => (
+                    <span key={`orig-${index}`} className="flex items-center gap-3.5">
+                        {/* Perfectly sized, smooth CSS custom bullet circle */}
+                        <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" aria-hidden="true" />
+                        <span>{item}</span>
+                    </span>
+                ))}
             </div>
 
-            {/* Duplicated Content for Seamless Loop */}
-            <div className="flex items-center space-x-8 pr-8" aria-hidden="true">
-                <span>• 99.9% uptime guaranteed</span>
-                <span>• Blazing fast proxy speeds</span>
-                <span>• Global geo targeting support</span>
-                <span>• Secure & anonymous connections</span>
-                <span>• Unlimited sessions & rotations</span>
-                <span>• Built for scraping & automation</span>
+            {/* Block 2 (Duplicate) */}
+            <div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
+                {MARQUEE_ITEMS.map((item, index) => (
+                    <span key={`dup1-${index}`} className="flex items-center gap-3.5">
+                        <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
+                        <span>{item}</span>
+                    </span>
+                ))}
             </div>
+
+            {/* Block 3 (Extra Duplicate) */}
+            <div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
+                {MARQUEE_ITEMS.map((item, index) => (
+                    <span key={`dup2-${index}`} className="flex items-center gap-3.5">
+                        <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
+                        <span>{item}</span>
+                    </span>
+                ))}
+            </div>
+
         </div>
-
-        {/* CSS Keyframe for a flawless seamless loop */}
-        <style jsx global>{`
-      @keyframes marquee {
-        0% { transform: translateX(0%); }
-        100% { transform: translateX(-50%); }
-      }
-      .animate-marquee {
-        animation: marquee 25s linear infinite;
-      }
-    `}</style>
     </div>
 );
 
@@ -183,22 +198,24 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
     return (
         <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
 {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-<header className="relative min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-28 pb-12 overflow-hidden space-y-6 font-['Urbanist']">
+<header  className="relative min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-[190px] pb-12 overflow-hidden space-y-6 font-['Urbanist']">
+                <div className="absolute bottom-0 left-0 w-full h-[65vh] z-0">
 
-    <div className="absolute bottom-0 left-0 w-full h-[65vh] z-0 font-['Urbanist']">
-        <Image
-            src="/images/hero_back.png"
-            alt=""
-            fill
-            priority
-            className="object-cover object-bottom"
-        />
+                    <Image
+                        src="/images/hero_back.png"
+                        alt=""
+                        fill
+                        priority
+                        className="object-cover object-bottom"
+                    />
 
-        {/* Marquee at bottom of image */}
-        <div className="absolute -bottom-8 left-0 w-full z-10">
-            <Marquee />
-        </div>
-    </div>
+                    {/* Marquee at bottom of image */}
+                    <div className="absolute -bottom-12 left-0 w-full z-10">
+                        <Marquee />
+                    </div>
+
+
+                </div>
 
     <div className="max-w-6xl mx-auto text-center z-10 font-['Urbanist']">
         <div className="flex items-center justify-center mb-6">
