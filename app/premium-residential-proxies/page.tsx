@@ -236,7 +236,7 @@ export default function TorchProxiesLandingPage() {
     {/* Foreground content grid wrapper (Kept relative z-10) */}
     <div className="max-w-6xl mx-auto text-center z-10 font-['Urbanist']">
         <div className="flex items-center justify-center mb-6">
-            <a href="https://www.trustpilot.com"
+            <a href="https://www.trustpilot.com/review/torchlabs.xyz"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="cursor-pointer"

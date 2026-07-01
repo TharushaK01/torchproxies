@@ -219,12 +219,18 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
     <div className="max-w-6xl mx-auto text-center z-10 font-['Urbanist']">
         <div className="flex items-center justify-center mb-6">
-            <img
-                src="/images/TrustPiolet.png"
-                alt="Excellent 5-star rating on Trustpilot"
-                className="h-6 w-auto object-contain"
-                loading="lazy"
-            />
+            <a href="https://www.trustpilot.com/review/torchlabs.xyz"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="cursor-pointer"
+                        >
+                            <img
+                                src="/images/TrustPiolet.png"
+                                alt="Excellent 5-star rating on Trustpilot"
+                                className="h-8 w-auto object-contain"
+                                loading="lazy"
+                            />
+                        </a>
         </div>
 
         <h1 className="text-[60px] sm:text-6xl lg:text-7xl font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">

@@ -52,14 +52,20 @@ export default function BlogClient({ posts, categories }: BlogClientProps) {
 
         {/* Hero Text Content */}
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <div className="flex items-center justify-center mb-6">
-            <img
-              src="/images/TrustPiolet.png"
-              alt="Excellent 5-star rating on Trustpilot"
-              className="h-5 sm:h-6 w-auto object-contain"
-              loading="lazy"
-            />
-          </div>
+        <div className="flex items-center justify-center mb-6">
+            <a href="https://www.trustpilot.com/review/torchlabs.xyz"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="cursor-pointer"
+                        >
+                            <img
+                                src="/images/TrustPiolet.png"
+                                alt="Excellent 5-star rating on Trustpilot"
+                                className="h-8 w-auto object-contain"
+                                loading="lazy"
+                            />
+                        </a>
+        </div>
 
           <h1 className="text-[36px] sm:text-[48px] md:text-[60px] font-regular tracking-tight leading-[1.15] mb-5 bg-gradient-to-b from-white to-white/80 bg-clip-text text-transparent font-['Urbanist'] px-2">
             TorchProxies Blogs

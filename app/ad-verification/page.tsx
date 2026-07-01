@@ -504,14 +504,20 @@ const faqData: FaqEntry[] = [
                     <div className="lg:col-span-7 flex flex-col items-start z-10">
 
                         {/* Trustpilot Badge Block */}
-                        <div className="flex items-center justify-center mb-2">
+        <div className="flex items-center justify-center mb-6">
+            <a href="https://www.trustpilot.com/review/torchlabs.xyz"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="cursor-pointer"
+                        >
                             <img
                                 src="/images/TrustPiolet.png"
                                 alt="Excellent 5-star rating on Trustpilot"
-                                className="h-6 w-auto object-contain"
+                                className="h-8 w-auto object-contain"
                                 loading="lazy"
                             />
-                        </div>
+                        </a>
+        </div>
 
                         {/* Heading */}
                         <h1 className="text-[60px] sm:text-5xl lg:text-[56px] font-regular tracking-tight leading-[1.1] max-w-xl text-white mb-[14px] font-['Urbanist']">

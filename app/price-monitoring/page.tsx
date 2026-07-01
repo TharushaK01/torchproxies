@@ -436,8 +436,8 @@ const renderCellContent = (value: string | boolean, isHighlighted = false) => {
                     <div className="lg:col-span-7 flex flex-col items-start z-10">
 
                         {/* Trustpilot Badge Block */}
-                         <div className="flex items-center justify-center mb-6">
-            <a href="https://www.trustpilot.com"
+        <div className="flex items-center justify-center mb-6">
+            <a href="https://www.trustpilot.com/review/torchlabs.xyz"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="cursor-pointer"

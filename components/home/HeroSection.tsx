@@ -147,7 +147,7 @@ export default function HeroSection() {
 
       {/* ── Trustpilot ───────────────────────────── */}
       <div className="flex items-center justify-center mt-[50px]">
-        <a href="https://www.trustpilot.com"
+        <a href="https://www.trustpilot.com/review/torchlabs.xyz"
   target="_blank"
   rel="noopener noreferrer"
   className="cursor-pointer"

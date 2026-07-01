@@ -357,19 +357,18 @@ const faqData: FAQItem[] = [
   <div className="max-w-6xl mx-auto text-center z-10 font-['Urbanist']">
 
         <div className="flex items-center justify-center mb-6">
-            <a
-                href="https://www.trustpilot.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cursor-pointer"
-            >
-                <img
-                    src="/images/TrustPiolet.png"
-                    alt="Excellent 5-star rating on Trustpilot"
-                    className="h-8 w-auto object-contain"
-                    loading="lazy"
-                />
-            </a>
+            <a href="https://www.trustpilot.com/review/torchlabs.xyz"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="cursor-pointer"
+                        >
+                            <img
+                                src="/images/TrustPiolet.png"
+                                alt="Excellent 5-star rating on Trustpilot"
+                                className="h-8 w-auto object-contain"
+                                loading="lazy"
+                            />
+                        </a>
         </div>
 
         <h1 className="text-[60px] sm:text-[60px] lg:text-[60px] font-regular tracking-tight leading-[72px] mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">
