@@ -294,7 +294,7 @@ const faqData: FaqEntry[] = [
 },
 
     {
-        q: "How to choose proxies for price monitoring?",
+        q: "How do I choose proxies for SEO monitoring?",
         items: [
             { label: "BEST", color: "bg-teal-500", text: "Rotating Residential Proxies — Ideal for tracking rankings on Google, Bing, Baidu, and Yahoo. Geo-target by country or city to simulate real local searches. Undetectable by anti-bot systems." },
             { label: "HYBRID", color: "bg-cyan-500", text: "ISP (Static Residential) Proxies — Best for sustained rank-tracking crawls on Google Search Console data sources, DuckDuckGo, and Yandex. Combines residential trust with datacenter stability." },
@@ -305,7 +305,7 @@ const faqData: FaqEntry[] = [
         q: "How do I scrape Google without getting blocked?",
         items: [
             { label: "STEP 1", color: "bg-teal-500", text: "Use rotating residential proxies only — Never use datacenter proxies for Google. Residential IPs from providers like Bright Data, Oxylabs, or Smartproxy are flagged far less frequently." },
-             { label: "STEP 2", color: "bg-teal-500", text: "Randomise request timing — Space requests 3–10 seconds apart with random variance. Never send requests at fixed intervals — Google's systems detect mechanical patterns instantly.." },
+             { label: "STEP 2", color: "bg-teal-500", text: "Randomize request timing — Space requests 3–10 seconds apart with random variance. Never send requests at fixed intervals — Google's systems detect mechanical patterns instantly.." },
               { label: "STEP 2", color: "bg-teal-500", text: "Rotate User-Agent strings — Cycle through realistic browser UA strings (Chrome, Firefox, Safari across Windows, Mac, mobile) to avoid fingerprint consistency." },
               { label: "STEP 2", color: "bg-teal-500", text: "Limit requests per session — Cap at 10–15 requests per IP per session before rotating. Exceeding this triggers CAPTCHA or soft bans on Google Search." },
               { label: "STEP 2", color: "bg-teal-500", text: "Use a SERP API — Tools like SerpApi, Bright Data SERP API, DataForSEO, and Zenserp handle all proxy rotation, JS rendering, and CAPTCHA solving automatically. Ideal for high-volume scraping." },
@@ -461,7 +461,7 @@ const faqData: FaqEntry[] = [
                             >
                                 {words[currentWordIndex]}
                             </span>{' '}
-                            prices without getting bloacked
+                            rankings without getting bloacked
                         </p>
 
                         {/* Features Inline List */}

@@ -197,11 +197,11 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             a: "Residential proxies route your internet traffic through real residential IP addresses, making them appear as normal users to websites. Unlike datacenter proxies, they have higher trust scores and are much harder to detect and block."
         },
         {
-            q: "What makes Torch Proxies's residential proxies better than other proxy providers?",
+            q: "What makes TorchProxies's residential proxies better than other proxy providers?",
             a: "Our residential proxy network offers unmatched speed, stability, ethical sourcing, and city-level targeting with 24/7 support and transparent pricing."
         },
         {
-            q: "What are the ideal use cases for the Standard Residential plan?",
+            q: "What are the ideal use cases for the Plan X Residential plan?",
             a: "Perfect for general web scraping, social media management, market research, sneaker copping, and everyday automation tasks."
         },
         {
@@ -255,7 +255,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
         </h1>
 
         <p className="max-w-3xl mx-auto text-stone-400 text-base text-[18px] sm:text-[18px] mb-4 leading-relaxed">
-            Built for speed and scale X Residential Proxies offer top-tier performance, unmatched reliability and limitless potential.
+            Built for speed and scale X Residential Proxies offer top-tier performance, unmatched reliability and, limitless potential.
         </p>
 
         <div className="py-8 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-[16px] font-medium">
@@ -976,7 +976,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                      {/* Section Header Text Nodes */}
                      <div className="text-center mb-16">
                          <h2 className="text-[42px] sm:text-5xl font-medium mb-4 tracking-tight text-white">
-                             Customers prefer Torchlabs over other <br />proxy brands
+                             Customers prefer TorchProxies over other <br />proxy brands
                          </h2>
                      </div>
  

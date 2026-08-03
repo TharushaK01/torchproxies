@@ -189,7 +189,7 @@ const faqData: FAQItem[] = [
     },
     {
       title: "Discord Support",
-      description: "Have questions or issues? Email our support team and get quick, helpful responses to keep everything working smoothly.",
+      description: "Join our Discord to connect with support, get instant answers, share tips, and stay updated with the latest news.",
       buttonText: "View guides",
       href: "https://discord.com/invite/JSxDs3fDgV"
     }
@@ -230,7 +230,7 @@ const faqData: FAQItem[] = [
         </h1>
 
         <p className="max-w-2xl mx-auto text-stone-400 text-[18px] mb-0 leading-relaxed">
-            Get started fast with step-by-step docs, API guides, and 24/7 support via email or Discord. Everything you need to make Torch Proxies work for you.
+            Get started fast with step-by-step docs, API guides, and 24/7 support via email or Discord. Everything you need to make TorchProxies work for you.
         </p>
     </div>
 </header>
@@ -265,7 +265,7 @@ const faqData: FAQItem[] = [
                     </div>
         <div className="text-center mb-16 font-['Urbanist']">
           <h2 className="text-[42px] sm:text-[42px] font-regular mb-4 tracking-tight leading-[42px] text-white">
-            Customers prefer Torch Proxies <br/>over other proxy brands
+            Customers prefer TorchProxies <br/>over other proxy brands
           </h2>
         </div>
 

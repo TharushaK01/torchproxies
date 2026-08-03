@@ -70,7 +70,7 @@ const featureMatrix: FeatureRow[] = [
     { title: 'Seamless Integration with Porter Proxies Data Center & ISP API', free: false, basic: true, premium: true },
     { title: 'Custom Proxy Pool Configurations', free: false, basic: false, premium: true },
     { title: 'Untraceable Proxy Masking', free: 'Add on', basic: '10 Add on - 25% discount', premium: 'Add on - free setup' },
-    { title: 'Remove Torch Labs Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
+    { title: 'Remove TorchProxies Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
     { title: 'Pre-configured Residential Proxy APIs with Free Whitelabeling', free: true, basic: true, premium: true },
     { title: 'Advanced Chargeback Protection Mechanism', free: false, basic: true, premium: true },
     { title: 'Fully White Label the Dashboard with Your Domain', free: false, basic: 'Free one time', premium: 'Unlimited' },
@@ -83,7 +83,7 @@ const featureMatrix: FeatureRow[] = [
     { title: 'Seamless Integration with Porter Proxies Data Center & ISP API', free: false, basic: true, premium: true },
     { title: 'Custom Proxy Pool Configurations', free: false, basic: false, premium: true },
     { title: 'Untraceable Proxy Masking', free: 'Add on', basic: '10 Add on - 25% discount', premium: 'Add on - free setup' },
-    { title: 'Remove Torch Labs Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
+    { title: 'Remove TorchProxies Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
     { title: 'Pre-configured Residential Proxy APIs with Free Whitelabeling', free: true, basic: true, premium: true },
     { title: 'Advanced Chargeback Protection Mechanism', free: false, basic: true, premium: true },
     { title: 'Fully White Label the Dashboard with Your Domain', free: false, basic: 'Free one time', premium: 'Unlimited' },
@@ -96,7 +96,7 @@ const featureMatrix: FeatureRow[] = [
     { title: 'Seamless Integration with Porter Proxies Data Center & ISP API', free: false, basic: true, premium: true },
     { title: 'Custom Proxy Pool Configurations', free: false, basic: false, premium: true },
     { title: 'Untraceable Proxy Masking', free: 'Add on', basic: '10 Add on - 25% discount', premium: 'Add on - free setup' },
-    { title: 'Remove Torch Labs Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
+    { title: 'Remove TorchProxies Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
     { title: 'Pre-configured Residential Proxy APIs with Free Whitelabeling', free: true, basic: true, premium: true },
     { title: 'Advanced Chargeback Protection Mechanism', free: false, basic: true, premium: true },
     { title: 'Fully White Label the Dashboard with Your Domain', free: false, basic: 'Free one time', premium: 'Unlimited' },
@@ -324,7 +324,7 @@ const faqData: FaqEntry[] = [
     ]
 },
 {
-    q: "Is proxy or VPV better for web scraping?",
+    q: "Is proxy or VPN better for web scraping?",
     items: [
         {
             text: "Proxies win for web scraping , without exception at any meaningful scale. A VPN provides a single IP address shared across all your traffic. For scraping, where you need to distribute thousands of requests across thousands of different IPs to avoid detection, a VPN achieves nothing that a proxy doesn't also do while adding encryption overhead, speed penalties, and a single point of failure."

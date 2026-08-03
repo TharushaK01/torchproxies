@@ -148,7 +148,7 @@ export default function TorchProxiesLandingPage() {
         {
             name: "Ishak",
             role: "Verified Customer",
-            text: "Torchlabs offers a fantastic proxy service at a very competitive price. The connection speeds are fast, and the service is incredibly reliable. I've had a positive experience with their customer support as well.",
+            text: "Torch Proxies offers a fantastic proxy service at a very competitive price. The connection speeds are fast, and the service is incredibly reliable. I've had a positive experience with their customer support as well.",
             stars: 5,
             initials: "IS", // Fallback for a soft green initial circle
             avatar: null
@@ -251,7 +251,7 @@ export default function TorchProxiesLandingPage() {
                     </h1>
 
                     <p className="max-w-3xl mx-auto text-stone-400 text-base text-[18px] sm:text-[18px] mb-4 leading-relaxed">
-                        Reliable and steady residential proxies perfect for everyday tasks.A balanced choice to get the job done without breaking the bank.
+                        Reliable and steady residential proxies, perfect for everyday tasks. A balanced choice that gets the job done without breaking the bank.
                     </p>
 
                     <div className="py-8 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-[16px] font-medium">
@@ -340,7 +340,7 @@ export default function TorchProxiesLandingPage() {
                                 Perfect for Everyday Scraping & Automation
                             </h2>
                             <p className="text-gray-400 text-[18px] leading-relaxed">
-                                TorchProxies’ Standard Residential proxies provide a simple, reliable solution for routine web tasks. With a large global IP pool and stable performance, this plan is ideal for users who need consistent access for day-to-day scraping, monitoring, and basic automation without the complexity or cost of higher-tier options.
+                                Torch Proxies' Standard Residential proxies are a simple, reliable choice for routine web tasks. With a large global IP pool and stable performance, this plan suits users who need consistent access for day-to-day scraping, monitoring, and basic automation — without the cost or complexity of higher-tier plans.
                             </p>
                             <ul className='text-gray-400 text-[16px] leading-relaxed'>
                                 <li>&#9679; Large, diverse residential IP pool</li>
@@ -984,7 +984,7 @@ export default function TorchProxiesLandingPage() {
                     {/* Section Header Text Nodes */}
                     <div className="text-center mb-16">
                         <h2 className="text-[42px] sm:text-5xl font-medium mb-4 tracking-tight text-white">
-                            Customers prefer Torchlabs over other<br /> proxy brands
+                            Customers prefer Torch Proxies over other<br /> proxy brands
                         </h2>
                     </div>
 

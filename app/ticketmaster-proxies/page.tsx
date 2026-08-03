@@ -271,14 +271,14 @@ const faqData: FaqEntry[] = [
 
 
   {
-    q: "What are Ticketmaster proxies",
+    q: "What are Ticketmaster proxies?",
     items: [
         { text: "Ticketmaster proxies are IP addresses that mask your real connection when accessing Ticketmaster, AXS, SeatGeek, or See Tickets, making your requests appear to originate from a different location or user. They serve two distinct purposes: bypassing geo-restrictions on presales or regional on-sales, and entering high-demand virtual queues from multiple IP positions simultaneously." },
     ]
 },
 
    {
-    q: "How do Ticketmaster Proxies Works",
+    q: "How do Ticketmaster proxies work?",
     items: [
         { 
             text: "During a major on-sale, a Taylor Swift tour, Super Bowl, or Champions League final , Ticketmaster deploys Queue-it virtual waiting rooms and Akamai Bot Manager to enforce strict per-IP limits. Here's how proxies interact with that system:" 
@@ -647,7 +647,7 @@ const faqData: FaqEntry[] = [
             {/* ── TOP HEADER SECTION ───────────────────────────────────── */}
             <div className="text-center pb-[80px] sm:pb-[80px] mx-[120px] font-['Urbanist']">
                 <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white mb-4">
-                    One Proxy Built for High on Demand Sales
+                    One Proxy Built for High-Demand Sales
                 </h2>
                 <p className="text-stone-400 text-sm sm:text-base max-w-4xl mx-auto font-normal">
                     A single clean ISP IP can outperform 20 low quality residential IPs.
@@ -667,7 +667,7 @@ const faqData: FaqEntry[] = [
                                     What are Ticketmaster Proxies?
                                 </h2>
                                 <p className="text-gray-400 text-lg leading-relaxed">
-                                    Ticketmaster proxies mask your real IP address when accessing Ticketmaster, AXS, SeatGeek or See Tickets.
+                                    Ticketmaster proxies mask your real IP address when accessing Ticketmaster, AXS, SeatGeek, or See Tickets.
                                 </p>
                                 <ul className="text-gray-400 text-lg leading-relaxed">
                                     <li>&#9679; Bypass IP-based restrictions</li>

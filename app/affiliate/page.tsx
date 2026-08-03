@@ -70,7 +70,7 @@ const steps: Step[] = [
     {
         id: '01',
         title: 'Step One',
-        description: 'Create your affiliate account and access your unique refferal link.',
+        description: 'Create your affiliate account and access your unique referral link.',
     },
     {
         id: '02',
@@ -179,7 +179,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             a: "Residential proxies route your internet traffic through real residential IP addresses, making them appear as normal users to websites. Unlike datacenter proxies, they have higher trust scores and are much harder to detect and block."
         },
         {
-            q: "What makes Torch Proxies's residential proxies better than other proxy providers?",
+            q: "What makes TorchProxies's residential proxies better than other proxy providers?",
             a: "Our residential proxy network offers unmatched speed, stability, ethical sourcing, and city-level targeting with 24/7 support and transparent pricing."
         },
         {
@@ -241,7 +241,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
         </h1>
 
         <p className="max-w-2xl mx-auto text-[18px] sm:text-xl text-stone-400 mb-4 leading-relaxed">
-            Industry leading commissions, fast payouts and lifetime earnings. It’s time to monetise your traffic like never before
+            Industry-leading commissions, fast payouts, and lifetime earnings. It's time to monetize your traffic like never before.
         </p>
 
         <div className="py-4 max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-[10px] text-stone-200 text-sm font-regular">
@@ -343,11 +343,11 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                                 Unlock Exceptional Earnings with Industry Leading Commissions
                             </h2>
                             <p className="text-gray-400 text-lg leading-relaxed">
-                                Join the TorchLabs Affiliate Program and earn more with every referral. Build sustainable income while promoting top-tier proxy solutions trusted by professionals.
+                                Join the TorchProxies Affiliate Program and earn more with every referral. Build sustainable income while promoting top-tier proxy solutions trusted by professionals.
                             </p>
                             <ul className="text-gray-400 text-lg leading-relaxed">
                                 <li>&#9679; Every 30 days payout frequency</li>
-                                <li>&#9679; Up to 25% first person commisions</li>
+                                <li>&#9679; Up to 25% first person commissions</li>
                                 <li>&#9679; 60 days cookie duration</li>
                                 <li>&#9679; Up to 12% recurring commissions</li>
                             </ul>
@@ -369,7 +369,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                         A program that rewards growth
                     </h2>
                     <p className="text-stone-400 text-sm sm:text-base max-w-2xl mx-auto font-normal leading-relaxed">
-                        Whether you're just starting out or scaling fast, TorchLabs supports you with a tiered system designed to maximize your earnings.
+                        Whether you're just starting out or scaling fast, TorchProxies supports you with a tiered system designed to maximize your earnings.
                     </p>
                 </div>
 
@@ -545,7 +545,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                             How it works
                         </span>
                         <h2 className="text-3xl md:text-4xl lg:text-[42px] font-medium tracking-tight leading-[1.15] text-white max-w-md font-['Urbanist']">
-                            Start earning in 3 simple steps. no experience Needed
+                            Start earning in 3 simple steps. No experience Needed
                         </h2>
                         <p className="text-zinc-500 text-[18px] md:text-base mt-4 max-w-md font-regular leading-relaxed font-['Urbanist']">
                             From signup to payouts, we made the process effortless so you can focus on what matters, promoting and profiting
@@ -634,7 +634,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                         Why us
                     </span>
                     <h2 className="text-3xl sm:text-[40px] font-regular tracking-tight mb-4 text-white">
-                        What Makes TorchLabs Stand Out
+                        What Makes TorchProxies Stand Out
                     </h2>
                     <p className="text-stone-400 text-sm sm:text-base max-w-2xl mx-auto font-normal leading-relaxed">
                         We’ve built our affiliate program to outperform typical industry standards, with better payouts, faster rewards and tools that help you succeed long term.
@@ -661,15 +661,15 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
 
                 <th className="p-6 font-normal border-r border-zinc-900">
                     <div className="flex flex-col gap-1">
-                        <span className="text-base font-bold text-[#FF4F00] tracking-tight">Torch Proxies Affiliate</span>
-                        <span className="text-[13px] text-zinc-500 font-normal">Avarage commission rates</span>
+                        <span className="text-base font-bold text-[#FF4F00] tracking-tight">TorchProxies Affiliate</span>
+                        <span className="text-[13px] text-zinc-500 font-normal">Average commission rates</span>
                     </div>
                 </th>
 
                 <th className="p-6 font-normal border-r border-zinc-900">
                     <div className="flex flex-col gap-1">
                         <span className="text-base font-bold text-white tracking-tight">Typical Programs</span>
-                        <span className="text-[13px] text-zinc-500 font-normal">Avarage commission rates</span>
+                        <span className="text-[13px] text-zinc-500 font-normal">Average commission rates</span>
                     </div>
                 </th>
 
@@ -737,10 +737,10 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                         Features
                     </span>
                     <h2 className="text-3xl sm:text-[40px] font-regular tracking-tight mb-4 text-white">
-                        Why Partner with TorchLabs?
+                        Why Partner with TorchProxies?
                     </h2>
                     <p className="text-stone-400 text-sm sm:text-base max-w-2xl mx-auto font-normal leading-relaxed">
-                        Built for long term earners, not one time promoters. Here’s what makes our affiliate program stand out
+                        Built for long-term earners, not one-time promoters. Here’s what makes our affiliate program stand out
                     </p>
                 </div>
 
@@ -795,7 +795,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                             </h2>
 
                             <p className="text-stone-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-                                Join the TorchLabs Affiliate Program and get paid for every customer you bring in. Fast payouts. High commissions. Zero hassle.
+                                Join the TorchProxies Affiliate Program and get paid for every customer you bring in. Fast payouts. High commissions. Zero hassle.
                             </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
 

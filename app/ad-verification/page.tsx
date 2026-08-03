@@ -71,7 +71,7 @@ const featureMatrix: FeatureRow[] = [
     { title: 'Seamless Integration with Porter Proxies Data Center & ISP API', free: false, basic: true, premium: true },
     { title: 'Custom Proxy Pool Configurations', free: false, basic: false, premium: true },
     { title: 'Untraceable Proxy Masking', free: 'Add on', basic: '10 Add on - 25% discount', premium: 'Add on - free setup' },
-    { title: 'Remove Torch Labs Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
+    { title: 'Remove TorchProxies Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
     { title: 'Pre-configured Residential Proxy APIs with Free Whitelabeling', free: true, basic: true, premium: true },
     { title: 'Advanced Chargeback Protection Mechanism', free: false, basic: true, premium: true },
     { title: 'Fully White Label the Dashboard with Your Domain', free: false, basic: 'Free one time', premium: 'Unlimited' },
@@ -84,7 +84,7 @@ const featureMatrix: FeatureRow[] = [
     { title: 'Seamless Integration with Porter Proxies Data Center & ISP API', free: false, basic: true, premium: true },
     { title: 'Custom Proxy Pool Configurations', free: false, basic: false, premium: true },
     { title: 'Untraceable Proxy Masking', free: 'Add on', basic: '10 Add on - 25% discount', premium: 'Add on - free setup' },
-    { title: 'Remove Torch Labs Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
+    { title: 'Remove TorchProxies Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
     { title: 'Pre-configured Residential Proxy APIs with Free Whitelabeling', free: true, basic: true, premium: true },
     { title: 'Advanced Chargeback Protection Mechanism', free: false, basic: true, premium: true },
     { title: 'Fully White Label the Dashboard with Your Domain', free: false, basic: 'Free one time', premium: 'Unlimited' },
@@ -97,7 +97,7 @@ const featureMatrix: FeatureRow[] = [
     { title: 'Seamless Integration with Porter Proxies Data Center & ISP API', free: false, basic: true, premium: true },
     { title: 'Custom Proxy Pool Configurations', free: false, basic: false, premium: true },
     { title: 'Untraceable Proxy Masking', free: 'Add on', basic: '10 Add on - 25% discount', premium: 'Add on - free setup' },
-    { title: 'Remove Torch Labs Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
+    { title: 'Remove TorchProxies Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
     { title: 'Pre-configured Residential Proxy APIs with Free Whitelabeling', free: true, basic: true, premium: true },
     { title: 'Advanced Chargeback Protection Mechanism', free: false, basic: true, premium: true },
     { title: 'Fully White Label the Dashboard with Your Domain', free: false, basic: 'Free one time', premium: 'Unlimited' },
@@ -355,7 +355,7 @@ const faqData: FaqEntry[] = [
     ]
 },
     {
-        q: "What are the best practises in using proxies for Ad verification",
+        q: "What are the best practices in using proxies for ad verification",
         items: [
              { 
             step: 1, 
@@ -640,7 +640,8 @@ const faqData: FaqEntry[] = [
     Why Your Ad Verification Tools Keep Getting Detected
 </h2>
                         <p className="text-zinc-500 text-[18px] md:text-base font-regular max-w-4xl mx-auto leading-relaxed">
-                            Google's latest SERP protection systems are designed to detect and throttle automated rank tracking even at low volumes.
+                            Ad platforms run increasingly sophisticated detection systems designed to identify and block automated verification traffic, even at low volumes.
+
                         </p>
                     </div>
 
@@ -1049,7 +1050,7 @@ const faqData: FaqEntry[] = [
                             </h2>
 
                             <p className="text-stone-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-                                Join teams that rely on Torch Proxies to verify creatives, placements, and compliance without detection or cloaking.
+                                Join teams that rely on TorchProxies to verify creatives, placements, and compliance without detection or cloaking.
                             </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">

@@ -72,7 +72,7 @@ export default function BlogClient({ posts, categories }: BlogClientProps) {
           </h1>
 
           <p className="max-w-xl md:max-w-2xl mx-auto text-stone-400 text-[15px] sm:text-[16px] md:text-[18px] px-4 leading-relaxed">
-            Here you can find valuable Information about topics surrounding proxies, data
+            Here you can find valuable information about topics surrounding proxies, data
 scraping and other use cases
           </p>
         </div>

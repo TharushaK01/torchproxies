@@ -230,8 +230,8 @@ export default function HeroSection() {
           "
         >
           
-Residential & isp proxies for Shopify, sneaker, ticket sites with city<br />
-          targeting, asn diversity, auto retry, real 10 gbps lines.
+Residential & ISP proxies for Shopify, sneaker, and ticketing sites <br />
+          with city-level targeting, ASN diversity, auto-retry, and real 10 Gbps lines.
         </m.p>
       </m.div>
 

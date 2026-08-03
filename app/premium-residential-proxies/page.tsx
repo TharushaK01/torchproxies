@@ -148,7 +148,7 @@ export default function TorchProxiesLandingPage() {
         {
             name: "Ishak",
             role: "Verified Customer",
-            text: "Torchlabs offers a fantastic proxy service at a very competitive price. The connection speeds are fast, and the service is incredibly reliable. I've had a positive experience with their customer support as well.",
+            text: "TorchProxies offers a fantastic proxy service at a very competitive price. The connection speeds are fast, and the service is incredibly reliable. I've had a positive experience with their customer support as well.",
             stars: 5,
             initials: "IS", // Fallback for a soft green initial circle
             avatar: null
@@ -193,7 +193,7 @@ export default function TorchProxiesLandingPage() {
             a: "Residential proxies route your internet traffic through real residential IP addresses, making them appear as normal users to websites. Unlike datacenter proxies, they have higher trust scores and are much harder to detect and block."
         },
         {
-            q: "What makes Torch Proxies's residential proxies better than other proxy providers?",
+            q: "What makes TorchProxies's residential proxies better than other proxy providers?",
             a: "Our residential proxy network offers unmatched speed, stability, ethical sourcing, and city-level targeting with 24/7 support and transparent pricing."
         },
         {
@@ -251,12 +251,12 @@ export default function TorchProxiesLandingPage() {
         </div>
 
         <h1 className="text-[60px] sm:text-[60px] lg:text-[60px] font-regular tracking-tight leading-[72px] mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
-            Best Premium Residential Proxy. <br />
+            Best Premium Residential Proxy <br />
             <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">Access 100M+ Global IPs</span>
         </h1>
 
         <p className="max-w-3xl mx-auto text-stone-400 text-base text-[18px] sm:text-[18px] mb-4 leading-relaxed">
-            Experience faster speeds and enhanced performance. Premium Residential Proxies is built for those who need a little extra power to stay productive and efficient.
+            Experience faster speeds and enhanced performance. Premium Residential Proxies are built for those who need a little extra power to stay productive and efficient.
         </p>
 
         <div className="py-8 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-[16px] font-medium">
@@ -326,7 +326,7 @@ export default function TorchProxiesLandingPage() {
                                 Built for Heavy Scraping & Stricter Websites
                             </h2>
                             <p className="text-gray-400 text-[18px] leading-relaxed">
-                                Torch Proxies Premium Residential proxies deliver faster speeds, stronger stability and higher success rates for demanding workloads. With a larger, higher-quality IP pool and improved rotation behavior, this plan is ideal for users who need better performance on strict websites, high-volume scraping, and advanced automation tasks that require more power than standard options.
+                                TorchProxies Premium Residential proxies deliver faster speeds, stronger stability and higher success rates for demanding workloads. With a larger, higher-quality IP pool and improved rotation behavior, this plan is ideal for users who need better performance on strict websites, high-volume scraping, and advanced automation tasks that require more power than standard options.
                             </p>
                             <ul className="text-gray-400 text-[16px] leading-relaxed">
                                 <li>&#9679; Larger, high-quality residential IP pool</li>
@@ -972,7 +972,7 @@ export default function TorchProxiesLandingPage() {
                     {/* Section Header Text Nodes */}
                     <div className="text-center mb-16">
                         <h2 className="text-[42px] sm:text-5xl font-medium mb-4 tracking-tight text-white">
-                            Customers prefer Torchlabs over other <br />proxy brands
+                            Customers prefer TorchProxies over other <br />proxy brands
                         </h2>
                     </div>
 

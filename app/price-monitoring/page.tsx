@@ -46,7 +46,7 @@ const featureMatrix: FeatureRow[] = [
     { title: 'Seamless Integration with Porter Proxies Data Center & ISP API', free: false, basic: true, premium: true },
     { title: 'Custom Proxy Pool Configurations', free: false, basic: false, premium: true },
     { title: 'Untraceable Proxy Masking', free: 'Add on', basic: '10 Add on - 25% discount', premium: 'Add on - free setup' },
-    { title: 'Remove Torch Labs Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
+    { title: 'Remove TorchProxies Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
     { title: 'Pre-configured Residential Proxy APIs with Free Whitelabeling', free: true, basic: true, premium: true },
     { title: 'Advanced Chargeback Protection Mechanism', free: false, basic: true, premium: true },
     { title: 'Fully White Label the Dashboard with Your Domain', free: false, basic: 'Free one time', premium: 'Unlimited' },
@@ -59,7 +59,7 @@ const featureMatrix: FeatureRow[] = [
     { title: 'Seamless Integration with Porter Proxies Data Center & ISP API', free: false, basic: true, premium: true },
     { title: 'Custom Proxy Pool Configurations', free: false, basic: false, premium: true },
     { title: 'Untraceable Proxy Masking', free: 'Add on', basic: '10 Add on - 25% discount', premium: 'Add on - free setup' },
-    { title: 'Remove Torch Labs Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
+    { title: 'Remove TorchProxies Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
     { title: 'Pre-configured Residential Proxy APIs with Free Whitelabeling', free: true, basic: true, premium: true },
     { title: 'Advanced Chargeback Protection Mechanism', free: false, basic: true, premium: true },
     { title: 'Fully White Label the Dashboard with Your Domain', free: false, basic: 'Free one time', premium: 'Unlimited' },
@@ -306,7 +306,7 @@ const faqData = [
         q: "How do I avoid CAPTCHAs while tracking prices",
         items: [
             { label: "KEY", color: "bg-teal-500", text: "Rotate IPs per request — Use a residential proxy pool that automatically assigns a new IP for every request or session, making each visit look unique." },
-            { label: "ESENTIAL", color: "bg-cyan-500", text: "Randomise request timing — Introduce variable delays (2–8 seconds) between requests to mimic human browsing behaviour and avoid rate-limiting triggers." },
+            { label: "ESENTIAL", color: "bg-cyan-500", text: "Randomize request timing — Introduce variable delays (2–8 seconds) between requests to mimic human browsing behaviour and avoid rate-limiting triggers." },
             { label: "ADVANCED", color: "bg-amber-500", text: "Spoof browser fingerprints — Rotate realistic User-Agent headers, accept-language settings, and viewport sizes. Use a headless browser (e.g. Playwright) for JS-heavy sites." },
             { label: "CLOUDFLARE", color: "bg-red-500", text: "Target Cloudflare-protected sites? — Use proxy providers with built-in Cloudflare bypass or a dedicated web unblocker / scraping API endpoint for reliable access." },
         ]
@@ -971,7 +971,7 @@ const renderCellContent = (value: string | boolean, isHighlighted = false) => {
                             </h2>
 
                             <p className="text-stone-300 text-[18px] md:text-[18px] mb-10 max-w-3xl mx-auto">
-                                Join 200+ data teams who switched to Torch Proxies for their critical e commerce intelligence.
+                                Join 200+ data teams who switched to TorchProxies for their critical e commerce intelligence.
                             </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">

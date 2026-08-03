@@ -86,7 +86,7 @@ const featureMatrix: FeatureRow[] = [
     { title: 'Seamless Integration with Porter Proxies Data Center & ISP API', free: false, basic: true, premium: true },
     { title: 'Custom Proxy Pool Configurations', free: false, basic: false, premium: true },
     { title: 'Untraceable Proxy Masking', free: 'Add on', basic: '10 Add on - 25% discount', premium: 'Add on - free setup' },
-    { title: 'Remove Torch Labs Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
+    { title: 'Remove Torch Proxies Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
     { title: 'Pre-configured Residential Proxy APIs with Free Whitelabeling', free: true, basic: true, premium: true },
     { title: 'Advanced Chargeback Protection Mechanism', free: false, basic: true, premium: true },
     { title: 'Fully White Label the Dashboard with Your Domain', free: false, basic: 'Free one time', premium: 'Unlimited' },
@@ -99,7 +99,7 @@ const featureMatrix: FeatureRow[] = [
     { title: 'Seamless Integration with Porter Proxies Data Center & ISP API', free: false, basic: true, premium: true },
     { title: 'Custom Proxy Pool Configurations', free: false, basic: false, premium: true },
     { title: 'Untraceable Proxy Masking', free: 'Add on', basic: '10 Add on - 25% discount', premium: 'Add on - free setup' },
-    { title: 'Remove Torch Labs Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
+    { title: 'Remove Torch Proxies Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
     { title: 'Pre-configured Residential Proxy APIs with Free Whitelabeling', free: true, basic: true, premium: true },
     { title: 'Advanced Chargeback Protection Mechanism', free: false, basic: true, premium: true },
     { title: 'Fully White Label the Dashboard with Your Domain', free: false, basic: 'Free one time', premium: 'Unlimited' },
@@ -112,7 +112,7 @@ const featureMatrix: FeatureRow[] = [
     { title: 'Seamless Integration with Porter Proxies Data Center & ISP API', free: false, basic: true, premium: true },
     { title: 'Custom Proxy Pool Configurations', free: false, basic: false, premium: true },
     { title: 'Untraceable Proxy Masking', free: 'Add on', basic: '10 Add on - 25% discount', premium: 'Add on - free setup' },
-    { title: 'Remove Torch Labs Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
+    { title: 'Remove Torch Proxies Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
     { title: 'Pre-configured Residential Proxy APIs with Free Whitelabeling', free: true, basic: true, premium: true },
     { title: 'Advanced Chargeback Protection Mechanism', free: false, basic: true, premium: true },
     { title: 'Fully White Label the Dashboard with Your Domain', free: false, basic: 'Free one time', premium: 'Unlimited' },
@@ -377,7 +377,7 @@ const faqData: FAQItem[] = [
         </h1>
 
         <p className="max-w-3xl mx-auto text-stone-400 text-[16px] sm:text-xl mb-6 leading-relaxed">
-            We give you a fully branded reseller dashboard, global proxy access and automation tools without infrastructure, server costs or large deposits other require
+            We give you a fully branded reseller dashboard, global proxy access, and automation tools - without the infrastructure, server costs, or large deposits other providers require.
         </p>
 
         <div className="py-4 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-[16px] font-regular">
@@ -442,7 +442,7 @@ const faqData: FAQItem[] = [
 
                     {/* Subtitle Description */}
                     <p className="max-w-4xl mx-auto text-stone-500 text-xs sm:text-sm font-normal leading-relaxed mb-12 max-w-[85%] sm:max-w-none">
-                        From small automation teams to full scale proxy providers, businesses use the TorchLabs Reseller Dashboard as the infrastructure behind their own brands.
+                        From small automation teams to full scale proxy providers, businesses use the Torch Proxies Reseller Dashboard as the infrastructure behind their own brands.
                     </p>
 
                     {/* Brand Logos Flex Grid Asset Matrix */}
@@ -492,7 +492,7 @@ const faqData: FAQItem[] = [
                                 A Complete Proxy Reseller Dashboard
                             </h2>
                             <p className="text-gray-400 text-lg leading-relaxed">
-                                Our Reseller Dashboard gives you everything you need to run and sell proxies under your own brand. You get a fully managed backend, built in client management, global proxy access and simple controls to operate your business without hosting infrastructure or buying IPs upfront.
+                                Our Reseller Dashboard gives you everything you need to run and sell proxies under your own brand. You get a fully managed backend, built-in client management, global proxy access and simple controls to operate your business without hosting infrastructure or buying IPs upfront.
                             </p>
                             <p className="text-gray-400 text-lg leading-relaxed">
                                 Whether you’re starting from scratch or adding proxies to an existing product, the dashboard handles the heavy lifting so you can focus on customers and growth.
@@ -515,7 +515,7 @@ const faqData: FAQItem[] = [
                             Everything a Reseller Needs in One Dashboard
                         </h2>
                         <p className="text-stone-400 text-sm sm:text-base max-w-xl mx-auto font-normal">
-                            Instead of stitching together random tools, We give you a single place to run your proxy business.
+                            Instead of stitching together random tools, we give you a single place to run your proxy business.
                         </p>
                     </div>
 
@@ -608,7 +608,7 @@ const faqData: FAQItem[] = [
                                         Affiliate & Revenue Tracking
                                     </h3>
                                     <p className="text-stone-400 text-[18px] leading-relaxed font-normal">
-                                        Built in stats so you can see who's sending traffic, which clients are spending and how your proxy business is growing.
+                                        Built-in stats so you can see who's sending traffic, which clients are spending and how your proxy business is growing.
                                     </p>
                                 </div>
 
@@ -770,10 +770,11 @@ const faqData: FAQItem[] = [
                         {/* Text Side */}
                         <div className="space-y-6">
                             <h2 className="text-4xl md:text-5xl font-regular tracking-tight">
-                                Launch faster with a ready to Go, conversion focused landing page
+                                Launch faster with a ready-to-go, conversion-focused landing page
+
                             </h2>
-                            <p className="text-gray-400 text-lg leading-relaxed">
-                                To help you get to market sooner, We create a polished, modern landing page tailored to your brand and fully aligned with the reseller dashboard.
+                            <p className="text-gray-400 text-lg leading-relaxed">To help you get to market sooner, we create a polished, modern landing page tailored to your brand and fully aligned with the reseller dashboard.
+To help you get to market sooner, We create a polished, modern landing page tailored to your brand and fully aligned with the reseller dashboard.
                             </p>
                             <p className="text-gray-400 text-lg leading-relaxed">
                                 We handle the layout, structure and UX so you can stay focused on bringing in traffic and growing your customer base.

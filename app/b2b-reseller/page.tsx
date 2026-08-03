@@ -76,7 +76,7 @@ const steps: Step[] = [
     {
         id: '01',
         title: 'Create Your Account',
-        description: 'Sign up on TorchLabs to unlock reseller tools and API access.',
+        description: 'Sign up on TorchProxies to unlock reseller tools and API access.',
     },
     {
         id: '02',
@@ -298,13 +298,13 @@ const faqData: FAQItem[] = [
             title: "Proxy Dashboard",
             description: "A centralized platform for resellers to manage inventory, monitor client usage, and streamline proxy distribution at scale.",
             imageSrc: "/images/proxy_dashboard.png", // Replace with your actual dashboard mockup path
-            imageAlt: "Torch Proxies dashboard visual analytics management screen interface screenshot overview"
+            imageAlt: "TorchProxies dashboard visual analytics management screen interface screenshot overview"
         },
         {
             title: "Proxy API",
             description: "A developer-friendly API that enables resellers to automate proxy delivery and integrate seamlessly with existing systems.",
             imageSrc: "/images/proxy_api.png", // Replace with your actual API/Swagger mockup path
-            imageAlt: "Torch Proxies Swagger documentation panel showing active API endpoint request loops structure parameters"
+            imageAlt: "TorchProxies Swagger documentation panel showing active API endpoint request loops structure parameters"
         }
     ];
 
@@ -353,7 +353,7 @@ const faqData: FAQItem[] = [
         </h1>
 
         <p className="max-w-3xl mx-auto text-stone-400 text-base text-[18px] sm:text-[18px] mb-4 leading-relaxed">
-            Supercharge your operations with our all in one toolkit featuring a powerful Proxy API, a free Discord Proxy Bot and a user friendly Dashboard. Everything you need to scale smarter.
+            Supercharge your operations with our all-in-one toolkit featuring a powerful Proxy API, a free Discord Proxy Bot and a user-friendly Dashboard. Everything you need to scale smarter.
         </p>
 
         <div className="py-8 max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-[16px] font-medium">
@@ -482,7 +482,7 @@ const faqData: FAQItem[] = [
                            Testimonials
                         </span>
           <h2 className="text-[42px] sm:text-5xl font-medium mb-4 tracking-tight text-white">
-            Customers prefer Torch Proxies over <br/>other proxy brands
+            Customers prefer TorchProxies over <br/>other proxy brands
           </h2>
 
         </div>

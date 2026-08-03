@@ -70,7 +70,7 @@ const featureMatrix: FeatureRow[] = [
     { title: 'Seamless Integration with Porter Proxies Data Center & ISP API', free: false, basic: true, premium: true },
     { title: 'Custom Proxy Pool Configurations', free: false, basic: false, premium: true },
     { title: 'Untraceable Proxy Masking', free: 'Add on', basic: '10 Add on - 25% discount', premium: 'Add on - free setup' },
-    { title: 'Remove Torch Labs Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
+    { title: 'Remove TorchProxies Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
     { title: 'Pre-configured Residential Proxy APIs with Free Whitelabeling', free: true, basic: true, premium: true },
     { title: 'Advanced Chargeback Protection Mechanism', free: false, basic: true, premium: true },
     { title: 'Fully White Label the Dashboard with Your Domain', free: false, basic: 'Free one time', premium: 'Unlimited' },
@@ -83,7 +83,7 @@ const featureMatrix: FeatureRow[] = [
     { title: 'Seamless Integration with Porter Proxies Data Center & ISP API', free: false, basic: true, premium: true },
     { title: 'Custom Proxy Pool Configurations', free: false, basic: false, premium: true },
     { title: 'Untraceable Proxy Masking', free: 'Add on', basic: '10 Add on - 25% discount', premium: 'Add on - free setup' },
-    { title: 'Remove Torch Labs Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
+    { title: 'Remove TorchProxies Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
     { title: 'Pre-configured Residential Proxy APIs with Free Whitelabeling', free: true, basic: true, premium: true },
     { title: 'Advanced Chargeback Protection Mechanism', free: false, basic: true, premium: true },
     { title: 'Fully White Label the Dashboard with Your Domain', free: false, basic: 'Free one time', premium: 'Unlimited' },
@@ -96,7 +96,7 @@ const featureMatrix: FeatureRow[] = [
     { title: 'Seamless Integration with Porter Proxies Data Center & ISP API', free: false, basic: true, premium: true },
     { title: 'Custom Proxy Pool Configurations', free: false, basic: false, premium: true },
     { title: 'Untraceable Proxy Masking', free: 'Add on', basic: '10 Add on - 25% discount', premium: 'Add on - free setup' },
-    { title: 'Remove Torch Labs Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
+    { title: 'Remove TorchProxies Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
     { title: 'Pre-configured Residential Proxy APIs with Free Whitelabeling', free: true, basic: true, premium: true },
     { title: 'Advanced Chargeback Protection Mechanism', free: false, basic: true, premium: true },
     { title: 'Fully White Label the Dashboard with Your Domain', free: false, basic: 'Free one time', premium: 'Unlimited' },
@@ -274,7 +274,7 @@ const faqData: FaqEntry[] = [
   {
     q: "How do sneaker proxies work?",
     items: [
-        { text: "Yes. If you choose to receive your earnings as Torch Credits, your commission rates will receive a +10% bonus over the standard cash payout rates. This option maximizes your value and allows you to reinvest directly into our proxy services at a discounted rate." },
+        { text: "Sneaker proxies mask your real IP address so you can run multiple bot tasks on sites like Nike SNKRS, Adidas Confirmed, and Shopify-based drops without one flagged IP taking down your whole setup. Each proxy gives your bot a fresh identity that looks like an individual real shopper, letting you hold multiple queue positions, avoid subnet-wide bans, and stay in checkout instead of getting silently filtered out." },
     ]
 },
 

@@ -147,7 +147,7 @@ export default function TorchProxiesLandingPage() {
   {
     name: "Ishak",
     role: "Verified Customer",
-    text: "Torchlabs offers a fantastic proxy service at a very competitive price. The connection speeds are fast, and the service is incredibly reliable. I've had a positive experience with their customer support as well.",
+    text: "TorchProxies offers a fantastic proxy service at a very competitive price. The connection speeds are fast, and the service is incredibly reliable. I've had a positive experience with their customer support as well.",
     stars: 5,
     initials: "IS", // Fallback for a soft green initial circle
     avatar: null
@@ -194,7 +194,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
             a: "Residential proxies route your internet traffic through real residential IP addresses, making them appear as normal users to websites. Unlike datacenter proxies, they have higher trust scores and are much harder to detect and block."
         },
         {
-            q: "What makes Torch Proxies's residential proxies better than other proxy providers?",
+            q: "What makes TorchProxies's residential proxies better than other proxy providers?",
             a: "Our residential proxy network offers unmatched speed, stability, ethical sourcing, and city-level targeting with 24/7 support and transparent pricing."
         },
         {
@@ -349,7 +349,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                             </div>
 
                             <p className="text-stone-400 text-[16px] leading-relaxed mb-[24px] mt-[12px]">
-                                Static residential proxies with unlimited data <span className="text-[#FE4A01]"> Ideal for sneaker botting, scraping and automation.</span>
+                                Static residential proxies with unlimited data <span className="text-[#FE4A01]"> Ideal for sneaker botting, scraping and automation.</span> ISP-grade Anonymity
                             </p>
 
                             {/* Custom Micro Pill Badge */}
@@ -554,7 +554,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
                             Simple Ways to Get ISP Proxies
                         </h2>
                         <p className="text-stone-400 text-[18px] sm:text-base max-w-2xl mx-auto font-normal">
-                           Get enterprise grade ISP proxies the way that fits your workflow. Whether you prefer a simple dashboard or full API automation, TorchLabs makes it effortless.
+                           Get enterprise grade ISP proxies the way that fits your workflow. Whether you prefer a simple dashboard or full API automation, TorchProxies makes it effortless.
                         </p>
                     </div>
 
@@ -733,7 +733,7 @@ cost-effective infrastructure.
                         Testimonials
                     </span>
           <h2 className="text-[42px] sm:text-5xl font-medium mb-4 tracking-tight text-white">
-            Customers prefer Torchlabs over other<br/> proxy brands
+            Customers prefer TorchProxies over other<br/> proxy brands
           </h2>
         </div>
 

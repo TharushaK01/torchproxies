@@ -284,7 +284,7 @@ const FeaturesGrid = () => {
         <div className="bg-[#0a0a0a] border border-gray-800 rounded-3xl p-8 flex flex-col justify-between min-h-[520px]">
           <div>
             <h3 className="text-2xl font-medium mb-4 text-white">Get expert help anytime anywhere.</h3>
-            <p className="text-gray-400 text-sm mb-[48px]">Reach us via Discord or email for quick, reliable support whenever you need it.</p>
+            <p className="text-gray-400 text-sm mb-[48px]">Reach us on Discord or by email for quick, reliable support whenever you need it.</p>
           </div>
 
           <div className="flex-grow flex flex-col justify-end gap-6 relative">

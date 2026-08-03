@@ -69,7 +69,7 @@ const steps: Step[] = [
     {
         id: '01',
         title: 'Create Your Account',
-        description: 'Sign up on TorchLabs to unlock reseller tools and API access.',
+        description: 'Sign up on TorchProxies to unlock reseller tools and API access.',
     },
     {
         id: '02',
@@ -216,7 +216,7 @@ export default function TorchProxiesLandingPage() {
             a: "Residential proxies route your internet traffic through real residential IP addresses, making them appear as normal users to websites. Unlike datacenter proxies, they have higher trust scores and are much harder to detect and block."
         },
         {
-            q: "What makes Torch Proxies's residential proxies better than other proxy providers?",
+            q: "What makes TorchProxies's residential proxies better than other proxy providers?",
             a: "Our residential proxy network offers unmatched speed, stability, ethical sourcing, and city-level targeting with 24/7 support and transparent pricing."
         },
         {
@@ -274,7 +274,7 @@ export default function TorchProxiesLandingPage() {
         </div>
 
                     <h1 className="text-[60px] sm:text-[60px] lg:text-[60px] font-regular tracking-tight leading-[72px] mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">
-                        The Backend infrastructure <br />behind your proxy business
+                        The backend infrastructure <br />behind your proxy business
 
                     </h1>
 
@@ -360,13 +360,13 @@ export default function TorchProxiesLandingPage() {
                         {/* Text Side */}
                         <div className="space-y-6">
                             <h2 className="text-4xl md:text-5xl font-regular tracking-tight">
-                                What Is the TorchLabs Proxy API?
+                                What Is the TorchProxies Proxy API?
                             </h2>
                             <p className="text-gray-400 text-lg leading-relaxed">
-                                The TorchLabs Proxy API is a developer-friendly backend that lets you programmatically manage proxy access for your users. Instead of clicking through a dashboard, you can automate:
+                                The TorchProxies Proxy API is a developer-friendly backend that lets you programmatically manage proxy access for your users. Instead of clicking through a dashboard, you can automate:
                             </p>
                             <p className="text-gray-400 text-lg leading-relaxed">
-                                This API becomes the engine behind your proxy site, SaaS platform, automation tool, or internal system while TorchLabs handles the IP networks, sourcing, uptime and quality.
+                                This API becomes the engine behind your proxy site, SaaS platform, automation tool, or internal system while TorchProxies handles the IP networks, sourcing, uptime and quality.
                             </p>
                             <ul className="text-gray-400 text-lg leading-relaxed">
                                 <li>&#9679; Sub user creation</li>
@@ -391,10 +391,10 @@ export default function TorchProxiesLandingPage() {
                             How it works
                         </span>
                         <h2 className="text-3xl md:text-4xl lg:text-[42px] font-medium tracking-tight leading-[1.15] text-white max-w-md font-['Urbanist']">
-                            Launch Your Own Proxy Business with TorchLabs in Just three Simple Steps
+                            Launch Your Own Proxy Business with TorchProxies in Just three Simple Steps
                         </h2>
                         <p className="text-zinc-500 text-[18px] md:text-base mt-4 max-w-md font-regular leading-relaxed">
-                            Follow four simple steps to launch your proxy business with TorchLabs, no infrastructure or IP blocks needed.
+                            Follow four simple steps to launch your proxy business with TorchProxies, no infrastructure or IP blocks needed.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-left gap-4 mb-2 mt-8">
 
@@ -473,7 +473,7 @@ export default function TorchProxiesLandingPage() {
                         Features
                     </span>
                     <h2 className="text-3xl sm:text-[40px] font-regular tracking-tight mb-4 text-white">
-                        Why choose Torchlabs?
+                        Why choose TorchProxies?
                     </h2>
                 </div>
 
@@ -522,7 +522,7 @@ export default function TorchProxiesLandingPage() {
                                 Powered by Clear, Simple API Guides
                             </h2>
                             <p className="text-gray-400 text-lg leading-relaxed">
-                                Access clear, developer-ready API guides to help you integrate TorchLabs’ Proxy API in minutes. Learn how to manage sub-users, set traffic limits, and generate proxy formats with simple REST calls.
+                                Access clear, developer-ready API guides to help you integrate TorchProxies’ Proxy API in minutes. Learn how to manage sub-users, set traffic limits, and generate proxy formats with simple REST calls.
                             </p>
                             <ul className="text-gray-400 text-lg leading-relaxed">
                                 <li>&#9679; Sub user creation & management</li>
@@ -569,7 +569,7 @@ export default function TorchProxiesLandingPage() {
 
                         <div className="relative z-10 max-w-4xl mx-auto">
                             <h2 className="text-4xl md:text-5xl font-regular tracking-tight mb-6 text-white">
-                                Create a Fully Branded Proxy Service With TorchLabs API<br className="hidden md:block" />
+                                Create a Fully Branded Proxy Service With TorchProxies API<br className="hidden md:block" />
                             </h2>
 
                             <p className="text-stone-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
