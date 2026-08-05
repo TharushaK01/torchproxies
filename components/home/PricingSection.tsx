@@ -64,7 +64,7 @@ const PricingSection = () => {
   ];
 
   return (
-    <section className="bg-[#0a0a0a] text-white py-20 px-6 pt-[80px] sm:pt-[80px] space-y-6 font-['Urbanist'] mx-[120px]">
+    <section id="pricing" className="bg-[#0a0a0a] text-white py-20 px-6 pt-[80px] sm:pt-[80px] space-y-6 font-['Urbanist'] mx-[120px]">
       <div className="flex flex-col items-center text-center w-full">
         <span className="text-orange-500 font-regular text-[16px] mb-4 tracking-widest flex items-center justify-center gap-2">
           Our Products
@@ -89,8 +89,8 @@ const PricingSection = () => {
           <div
             key={i}
             className={`relative p-8 rounded-2xl border-2 flex flex-col justify-between transition-all ${plan.featured
-                ? 'border-orange-600 bg-gradient-to-b from-[#1a0d00] to-black shadow-[0_0_30px_rgba(234,88,12,0.2)]'
-                : 'border-gray-800 bg-[#0a0a0a]'
+              ? 'border-orange-600 bg-gradient-to-b from-[#1a0d00] to-black shadow-[0_0_30px_rgba(234,88,12,0.2)]'
+              : 'border-gray-800 bg-[#0a0a0a]'
               }`}
           >
             <div>
@@ -141,8 +141,8 @@ const PricingSection = () => {
                 }
               }}
               className={`group relative overflow-hidden w-full h-[52px] px-6 font-bold rounded-xl transition-all duration-200 ease-out hover:scale-[1.01] active:scale-[0.99] cursor-pointer ${plan.featured
-                  ? 'bg-orange-600 text-white hover:bg-orange-500 shadow-[0_4px_20px_rgba(234,88,12,0.3)] hover:shadow-[0_6px_25px_rgba(234,88,12,0.45)]'
-                  : 'bg-transparent text-gray-200 border border-gray-700 hover:border-gray-500 hover:bg-white/5'
+                ? 'bg-orange-600 text-white hover:bg-orange-500 shadow-[0_4px_20px_rgba(234,88,12,0.3)] hover:shadow-[0_6px_25px_rgba(234,88,12,0.45)]'
+                : 'bg-transparent text-gray-200 border border-gray-700 hover:border-gray-500 hover:bg-white/5'
                 }`}
             >
               {/* Snappy 3D text track wrapper */}

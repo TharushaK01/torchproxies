@@ -1,5 +1,4 @@
 import HeroSection from "@/components/home/HeroSection";
-import DashboardPreview  from "@/components/home/DashboardPreview";
 import PricingSection    from "@/components/home/PricingSection";
 import LocationsSection  from "@/components/home/LocationsSection";
 import FeaturesGrid      from "@/components/home/FeaturesGrid";
@@ -21,7 +20,7 @@ console.log(data);
   return (
     <main className="bg-[#0a0a0a] min-h-screen">
       <HeroSection />
-      <DashboardPreview />
+
       <PricingSection />
       <LocationsSection />
       <FeaturesGrid />
