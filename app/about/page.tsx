@@ -128,17 +128,17 @@ const urbanist = Urbanist({
 const reviews = [
   {
     name: 'Henry Paul',
-    avatar: '/images/avatars/henry.png', // Placeholder path
+    avatar: '/images/bulpic/henry.png', // Placeholder path
     review: 'Had a great experience with them. Firstly, their proxies are of high quality. They are stable, don\'t change IP frequently, perfect for web scraping. Also, they have very low score on scamalytics, and ip2location making them ideal for geo-restricted content. Proxies are fast too, response time is <0.5 sec in my case.',
   },
   {
     name: 'Henry Paul',
-    avatar: '/images/avatars/henry.png', // Placeholder path
+    avatar: '/images/bulpic/henry.png', // Placeholder path
     review: 'Had a great experience with them. Firstly, their proxies are of high quality. They are stable, don\'t change IP frequently, perfect for web scraping. Also, they have very low score on scamalytics, and ip2location making them ideal for geo-restricted content. Proxies are fast too, response time is <0.5 sec in my case.',
   },
   {
     name: 'Henry Paul',
-    avatar: '/images/avatars/henry.png', // Placeholder path
+    avatar: '/images/bulpic/henry.png', // Placeholder path
     review: 'Had a great experience with them. Firstly, their proxies are of high quality. They are stable, don\'t change IP frequently, perfect for web scraping. Also, they have very low score on scamalytics, and ip2location making them ideal for geo-restricted content. Proxies are fast too, response time is <0.5 sec in my case.',
   },
 ];
@@ -177,10 +177,10 @@ export default function AboutUsPage() {
   const offset = (centerIndex - 1) * 33.3333;
 
   return (
-    <main className={`${urbanist.className} min-h-screen bg-[#050507] text-white selection:bg-[#ff4500] selection:text-white font-sans`}>
+    <main className={`${urbanist.className} min-h-screen text-white selection:text-white font-sans mt-[160px] font-['Urbanist']`}>
       
       {/* 1. HERO SECTION */}
-      <section className="relative max-w-7xl mx-auto px-6 pt-16 pb-20 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+      <section className="relative max-w-7xl mx-auto px-6 pt-16 pb-20 grid grid-cols-1 md:grid-cols-12 gap-8 items-center font-['Urbanist']">
         <div className="md:col-span-7 space-y-6">
           {/* Trustpilot Badge */}
             <Image
@@ -229,7 +229,7 @@ Torch Proxies started with a simple frustration,  proxies that looked good on pa
       <Marquee />
 
       {/* 2. WHY WE EXIST SECTION */}
-      <section className="max-w-7xl mx-auto px-6 py-24">
+      <section className="max-w-7xl mx-auto px-6 py-24 font-['Urbanist']">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-stretch">
           
           {/* Left Orange Accent Box */}
@@ -280,7 +280,7 @@ Does this hold up under real, high-volume, no-room-for-error traffic? If it does
       </section>
 
       {/* 3. TORCH PROXIES BY NUMBERS */}
-      <section className="max-w-7xl mx-auto px-6 py-12">
+      <section className="max-w-7xl mx-auto px-6 py-12 font-['Urbanist']">
         <div className="text-center mb-10">
           <span className="text-[#ff4500] text-[13px] font-bold tracking-widest uppercase">
             By the Numbers
@@ -308,7 +308,7 @@ Does this hold up under real, high-volume, no-room-for-error traffic? If it does
         </div>
       </section>
 
-<section className={`${urbanist.className} w-full bg-[#050507] text-white py-28 px-4 md:px-8 font-sans overflow-hidden`}>
+<section className={`${urbanist.className} w-full text-white py-28 px-4 md:px-8 font-sans overflow-hidden font-['Urbanist']`}>
 {/* <section className={`${urbanist.className} w-full bg-[#050507] text-white py-28 px-4 md:px-8 font-sans`}> */}
       <div className="max-w-6xl mx-auto">
         
@@ -416,7 +416,7 @@ Does this hold up under real, high-volume, no-room-for-error traffic? If it does
 
 
       {/* 4. WHAT YOU GET WITH TORCHPROXIES (4 ICONS FROM LUCIDE LIBRARY) */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
+      <section className="max-w-7xl mx-auto px-6 py-20 font-['Urbanist']">
         <div className="text-center mb-12">
           <span className="text-[#ff4500] text-[13px] font-bold tracking-widest uppercase">
             Our Approach
@@ -500,7 +500,7 @@ Does this hold up under real, high-volume, no-room-for-error traffic? If it does
       </section>
 
       {/* 5. BUILT FOR PEOPLE WHO MOVE FAST */}
-      <section className="max-w-4xl mx-auto px-6 py-16 text-center space-y-4">
+      <section className="max-w-4xl mx-auto px-6 py-16 text-center space-y-4 font-['Urbanist']">
         <span className="text-[#ff4500] text-xs font-bold tracking-widest uppercase">
           Mission
         </span>
@@ -521,10 +521,10 @@ That means our priorities are simple: unlimited concurrency so you're never thro
           
           {/* Left Column Description */}
           <div className="lg:col-span-5 space-y-6">
-            <span className="text-[#ff4500] text-xs font-bold tracking-widest uppercase">
+            <span className="text-[#ff4500] text-[13px] font-bold tracking-widest uppercase">
               Proxies You Can Rely On
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
+            <h2 className="text-3xl md:text-[44px] font-regular text-white leading-tight">
               One network, every workflow
             </h2>
             <p className="text-gray-400 text-xs md:text-sm leading-relaxed">
@@ -547,7 +547,7 @@ Torch Proxies powers web scraping, price and SEO monitoring, ad verification, sn
               ].map((tag, idx) => (
                 <span
                   key={idx}
-                  className="bg-[#12141a] border border-[#232733] text-gray-300 text-xs px-3.5 py-1.5 rounded-md font-medium"
+                  className="bg-[#12141a] border border-[#232733] text-gray-300 text-xs px-3.5 py-1.5 rounded-full font-medium"
                 >
                   {tag}
                 </span>
@@ -560,24 +560,24 @@ Torch Proxies powers web scraping, price and SEO monitoring, ad verification, sn
             {[
               {
                 title: 'Data Center Proxies',
-                desc: 'Fastest speeds and highest bandwidth throughput for massive scale crawling.',
+                desc: 'Reliable and affordable with rotating residential proxies and optional static sessions perfect for everyday online tasks.',
               },
               {
                 title: 'Premium Residential',
-                desc: 'Clean residential IP pool for stealth operations and bypassing strict anti-bot systems.',
+                desc: 'Enhanced speed and reliability with rotating residential proxies and static sessions ideal for demanding users and businesses.',
               },
               {
                 title: 'Static Residential',
-                desc: 'Non-changing residential IPs for long-term account management, social accounts, and sensitive logins.',
+                desc: 'Plan X blends residential IPs for authenticity with ISP IPs for speed and stability, creating a hybrid network built for high-performance scraping, automation, and content access.',
               },
               {
                 title: 'ISP Proxies',
-                desc: 'Data center speeds combined with real ISP legitimacy for high success rates.',
+                desc: 'Static residential proxies with unlimited data. Ideal for sneaker botting, scraping and automation.',
               },
               {
                 title: 'Custom Tailored',
-                desc: 'Need custom subnets, dedicated pools, or tailored bandwidth caps? Talk with our engineering team.',
-                badge: 'CUSTOM',
+                desc: 'Access fast mobile IPs with sticky sessions and precise targeting optimized for scraping, automation, and social media workflows',
+                badge: 'Coming Soon',
               },
             ].map((pkg, idx) => (
               <div
@@ -587,18 +587,23 @@ Torch Proxies powers web scraping, price and SEO monitoring, ad verification, sn
                 <div className="flex items-center gap-4">
                   {/* Orange background with white icon inside */}
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#ff5500] to-[#e03e00] flex items-center justify-center flex-shrink-0 shadow-md shadow-orange-950/40">
-                    <ArrowRight className="w-5 h-5 text-white" />
+                    <Image
+                      src="/images/products.svg"
+                      alt="Arrow Right Icon"
+                      width={20}
+                      height={20}
+                    />
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <h3 className="text-sm font-bold text-white">{pkg.title}</h3>
+                      <h3 className="text-[20px] font-regular text-white">{pkg.title}</h3>
                       {pkg.badge && (
-                        <span className="bg-[#38200f] text-[#ff4500] text-[10px] font-bold px-1.5 py-0.5 rounded border border-[#ff4500]/30">
+                        <span className="bg-[#FFF44F30] text-[#FFF44F] text-[10px] font-regular px-1.5 py-0.5 rounded-full border border-[#FFF44F]/30">
                           {pkg.badge}
                         </span>
                       )}
                     </div>
-                    <p className="text-xs text-gray-400 mt-0.5">{pkg.desc}</p>
+                    <p className="text-[14px] text-gray-400 mt-0.5">{pkg.desc}</p>
                   </div>
                 </div>
               </div>
@@ -611,10 +616,10 @@ Torch Proxies powers web scraping, price and SEO monitoring, ad verification, sn
       {/* 7. HONEST REVIEWS FROM REAL TORCHPROXIES CUSTOMERS */}
       <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="text-center mb-8">
-          <span className="text-[#ff4500] text-xs font-bold tracking-widest uppercase">
+          <span className="text-[#ff4500] text-[13px] font-bold tracking-widest uppercase">
             TESTIMONIALS
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mt-1">
+          <h2 className="text-3xl md:text-[44px] font-regular text-white mt-1">
             Honest Reviews From Real TorchProxies Customers
           </h2>
         </div>
@@ -622,9 +627,9 @@ Torch Proxies powers web scraping, price and SEO monitoring, ad verification, sn
         {/* Client Logos as single image */}
         <div className="flex justify-center mb-12">
           <Image
-            src="/client-logos.png"
+            src="/images/Brandlogo.svg"
             alt="Client Logos"
-            width={600}
+            width={1200}
             height={60}
             className="h-auto max-w-full object-contain filter grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
           />
@@ -639,23 +644,23 @@ Torch Proxies powers web scraping, price and SEO monitoring, ad verification, sn
             >
               <div className="space-y-3">
                 {/* Header: User & Trustpilot Logo */}
-                <div className="flex items-center justify-between border-b border-[#1f222e] pb-3">
-                  <div className="flex items-center gap-2">
+                <div className="flex items-center justify-start border-b border-[#1f222e] pb-3">
+                  <div className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full relative overflow-hidden">
                       <Image
-                        src={item.avatar}
+                        src="/images/reiveocustomerpfilie.svg"
                         alt={`${item.name}'s avatar`}
                         fill
                         className="object-cover"
                       />
                     </div>
-                    <span className="text-xs font-bold text-white">{item.name}</span>
+                    <span className="text-[16px] font-semibold text-white whitespace-nowrap">{item.name}</span>
                   </div>
                   {/* Trustpilot logo badge */}
                   <Image
-                    src="/images/TrustPiolet.png"
+                    src="/images/halftrustpiolet.svg"
                     alt="Trustpilot rating"
-                    width={80}
+                    width={120}
                     height={20}
                   />
                 </div>
@@ -671,7 +676,7 @@ Torch Proxies powers web scraping, price and SEO monitoring, ad verification, sn
         {/* Trustpilot CTA Link below reviews */}
         <div className="text-center mt-8">
           <a
-            href="https://www.trustpilot.com"
+            href="https://www.trustpilot.com/review/torchlabs.xyz"
             target="_blank"
             rel="noreferrer"
             className="text-xs text-[#ff4500] hover:underline font-semibold tracking-wide"

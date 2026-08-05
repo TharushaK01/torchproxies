@@ -55,7 +55,7 @@ export default function ContactPage() {
   }, []);
 
   return (
-    <main className={`${urbanist.className} min-h-screen bg-[#050507] text-white flex flex-col items-center justify-center p-4 md:p-10 ffont-['Urbanist'] mt-[50px]`}>
+    <main className={`${urbanist.className} min-h-screen bg-[#050507] text-white flex flex-col items-center justify-center p-4 md:p-10 font-['Urbanist'] mt-[50px]`}>
       
       {/* Top Trustpilot Rating Badge */}
       <div className="mb-8 mt-12 md:mt-0">
