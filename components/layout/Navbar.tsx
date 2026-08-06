@@ -209,7 +209,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-100 overflow-visible transition-all duration-300 font-['Urbanist'] ${scrolled
+        className={`fixed top-0 left-0 right-0 z-50 overflow-visible transition-all duration-300 font-['Urbanist'] ${scrolled
           ? "bg-transparent"
           : "bg-transparent"
           }`}
@@ -232,19 +232,18 @@ export default function Navbar() {
           </Link>
 
           {/* ── Center Navigation Pill ─────────────────────── */}
-          <div className="hidden lg:flex items-center overflow-visible">
-            <div className="relative flex items-center gap-0.5 bg-[#FFFFFF0A] backdrop-blur-md border border-white/5 rounded-xl px-1.5 py-1.5 overflow-visible">
-
+          <div className="relative hidden lg:flex items-center shrink-0">
+  <div className="flex items-center gap-0.5 bg-[#FFFFFF0A] backdrop-blur-md border border-white/5 rounded-xl px-1.5 py-1.5 w-auto shrink-0">
               {NAV_LINKS.map((link) => (
                 <div
                   key={link.label}
-                  className="overflow-visible"
+                  className="shrink-0"
                   onMouseEnter={() => setOpenDropdown(link.label)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
                   <Link
                     href={link.href}
-                    className={`flex items-center gap-1 px-3.5 py-1.5 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap ${pathname.startsWith(link.href)
+                    className={`flex items-center gap-1 px-3.5 py-1.5 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap inline-flex items-center gap-1.5 shrink-0 ${pathname.startsWith(link.href)
                       ? "text-stone-200 bg-white/5"
                       : "text-stone-400 hover:text-white hover:bg-white/5"
                       }`}
@@ -261,7 +260,7 @@ export default function Navbar() {
 
                   {/* Dropdown Card Components Selector — full width of nav pill, fixed alignment */}
                   {link.dropdown && openDropdown === link.label && (
-                    <div className="absolute top-full left-0 right-0 pt-3 z-[200]">
+                    <div className="absolute top-full left-0 right-0 pt-3 z-[200] w-[680px]">
                       <div className="bg-[#0D0D0D] border border-white/10 rounded-2xl shadow-[0_24px_70px_rgba(0,0,0,0.8)] overflow-hidden p-5">
 
                         {/* CASE 1: Products Layout */}

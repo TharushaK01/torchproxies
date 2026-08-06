@@ -1,7 +1,6 @@
 import { getPostBySlug, getAllPosts } from "@/lib/wordpress";
 import { WPPost } from "@/types/wordpress";
 import { notFound } from "next/navigation";
-// 1. Import the font from Next.js Google Fonts
 import { Work_Sans } from "next/font/google";
 
 // 2. Configure the font (you can specify weights or subsets)
