@@ -3,6 +3,8 @@ import { WPPost } from "@/types/wordpress";
 import { notFound } from "next/navigation";
 // 1. Import the font from Next.js Google Fonts
 import { Work_Sans } from "next/font/google";
+import dynamic from 'next/dynamic';
+const PostContent = dynamic(() => import('./PostContent'), { ssr: false });
 
 // 2. Configure the font (you can specify weights or subsets)
 const workSans = Work_Sans({
@@ -56,8 +58,9 @@ export default async function BlogPostPage({
 
   if (!post) notFound();
 
-  // Note: cleanContent variable was declared but not used in your original snippet.
-  // Kept it or you can use it below in dangerouslySetInnerHTML.
+  const cleanedHtml = post.content.rendered
+    .replace(/<script\b[^>]*src=[^>]*><\/script>/gi, "")
+    .replace(/<script\b[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, "");
 
   return (
     /* 3. Add workSans.className to the main element */
@@ -66,14 +69,7 @@ export default async function BlogPostPage({
       style={{ paddingTop: "80px" }}
       suppressHydrationWarning
     >
-      <div
-        className="wp-post-content"
-        dangerouslySetInnerHTML={{
-          __html: post.content.rendered
-            .replace(/<script\b[^>]*src=[^>]*><\/script>/gi, "") 
-            .replace(/<script\b[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, ""),
-        }}
-      />
+      <PostContent html={cleanedHtml} />
     </main>
   );
 }
