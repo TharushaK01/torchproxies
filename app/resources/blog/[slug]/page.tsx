@@ -60,7 +60,7 @@ export default async function BlogPostPage({
 
   return (
     /* 3. Add workSans.className to the main element */
-    <main 
+    <main
       className={`${workSans.className} bg-[#0a0a0a] min-h-screen text-stone-100 relative font-worksans`}
       style={{ paddingTop: "80px" }}
       suppressHydrationWarning
@@ -71,6 +71,9 @@ export default async function BlogPostPage({
           __html: post.content.rendered
             .replace(/<script\b[^>]*src=[^>]*><\/script>/gi, "") 
             .replace(/<script\b[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, ""),
+            // .replace(/<script\b[^>]*src=[^>]*><\/script>/gi, "")
+            // .replace(/<script\b[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, "")
+            // .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, "")
         }}
       />
     </main>
