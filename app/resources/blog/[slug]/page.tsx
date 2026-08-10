@@ -2,6 +2,7 @@ import { getPostBySlug, getAllPosts } from "@/lib/wordpress";
 import { WPPost } from "@/types/wordpress";
 import { notFound } from "next/navigation";
 import { Work_Sans } from "next/font/google";
+import WordPressRenderer from "@/components/WordPressRenderer";
 
 // 2. Configure the font (you can specify weights or subsets)
 const workSans = Work_Sans({
@@ -55,6 +56,12 @@ export default async function BlogPostPage({
 
   if (!post) notFound();
 
+
+  // Remove scripts only, preserve <style> tags
+  const cleanHtml = post.content.rendered
+    .replace(/<script\b[^>]*src=[^>]*><\/script>/gi, "")
+    .replace(/<script\b[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, "");
+
   // Note: cleanContent variable was declared but not used in your original snippet.
   // Kept it or you can use it below in dangerouslySetInnerHTML.
 
@@ -65,17 +72,25 @@ export default async function BlogPostPage({
       style={{ paddingTop: "80px" }}
       suppressHydrationWarning
     >
-      <div
+      {/* <div
         className="wp-post-content"
         dangerouslySetInnerHTML={{
-          __html: post.content.rendered
-            .replace(/<script\b[^>]*src=[^>]*><\/script>/gi, "") 
-            .replace(/<script\b[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, ""),
-            // .replace(/<script\b[^>]*src=[^>]*><\/script>/gi, "")
-            // .replace(/<script\b[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, "")
-            // .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, "")
-        }}
-      />
+          __html: post.content.rendered */}
+            {/* .replace(/<script\b[^>]*src=[^>]*><\/script>/gi, "") 
+            .replace(/<script\b[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, ""), */}
+
+
+            {/* .replace(/<script\b[^>]*src=[^>]*><\/script>/gi, "")
+            .replace(/<script\b[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, "")
+            .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, "")
+        }} */}
+      {/* /> */}
+
+
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        {/* Isolated Shadow DOM Renderer */}
+        <WordPressRenderer html={cleanHtml} />
+      </div>
     </main>
   );
 }

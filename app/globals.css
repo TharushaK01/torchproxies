@@ -159,3 +159,23 @@ header * {
 header .absolute {
   position: absolute !important;
 }
+
+
+
+/* 1. Prevent WordPress style bleed into global/header elements */
+.wp-scoped-content {
+  contain: style layout;
+}
+
+/* 2. Reset common WordPress style bleed targets inside the blog content only */
+.wp-scoped-content * {
+  box-sizing: border-box;
+}
+
+/* 3. Protect header layout rules in case WP styles target generic tags like img, a, button */
+header, 
+header *, 
+nav, 
+nav * {
+  box-sizing: border-box !important;
+}
