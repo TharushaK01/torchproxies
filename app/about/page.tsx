@@ -1,69 +1,124 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { obvia } from '../about/fonts';
 import { Flame } from 'lucide-react';
 import Image from 'next/image';
 import { Urbanist } from 'next/font/google';
-import { 
-  ShieldCheck, 
-  Zap, 
-  Lock, 
-  Globe, 
-  ArrowRight, 
-  Star 
+import {
+  ShieldCheck,
+  Zap,
+  Lock,
+  Globe,
+  ArrowRight,
+  Star
 } from 'lucide-react';
+import DepthCarousel from '../../components/DepthCarousel';
+import { motion } from 'framer-motion';
+
+
+const journeyData = [
+  {
+    year: '2021',
+    points: [
+      'Torch Proxies was founded with a mission to deliver proxies that actually work.',
+      'Launched our first product, Sneaker Proxies, built for high demand limited drops.'
+    ],
+    image: '/images/2021.png' // Replace with your image
+  },
+  {
+    year: '2022',
+    points: [
+      'Grew our team to 5 employees and crossed 890+ customers.',
+      'Expanded our lineup with the launch of Residential and ISP Proxies.'
+    ],
+    image: '/images/2022.png'
+  },
+  {
+    year: '2023',
+    points: [
+      'Expanded our network into 20+ countries worldwide.',
+      'Strengthened our Residential and ISP proxy pools for larger scale scraping and automation.'
+    ],
+    image: '/images/2023.png'
+  },
+  {
+    year: '2024',
+    points: [
+      'Crossed 1,370+ customers as demand continued to grow.',
+      'Opened a new office and expanded our team to support the growth.'
+    ],
+    image: '/images/2024.png'
+  },
+  {
+    year: '2025',
+    points: [
+      'Released 5+ enterprise-grade products for mission-critical, high-volume use cases.',
+      'Completed a major dashboard upgrade and won Startup Nations Best Award.'
+    ],
+    image: '/images/2025.png'
+  },
+  {
+    year: '2026',
+    points: [
+      'Expanded globally with the launch of Mobile Proxies and grew our team to 15+ employees.',
+      'Reached 3,700+ customers worldwide.'
+    ],
+    image: '/images/2026.png'
+  }
+];
 
 
 const MARQUEE_ITEMS = [
-    "99.9% uptime guaranteed",
-    "Blazing fast proxy speeds",
-    "Global geo targeting support",
-    "Secure & anonymous connections",
-    "Unlimited sessions & rotations",
-    "Built for scraping & automation"
+  "99.9% uptime guaranteed",
+  "Blazing fast proxy speeds",
+  "Global geo targeting support",
+  "Secure & anonymous connections",
+  "Unlimited sessions & rotations",
+  "Built for scraping & automation"
 ];
 
 
 const Marquee: React.FC = () => (
 
-    <div className="w-full overflow-hidden bg-[#FE4A01] py-3.5 whitespace-nowrap select-none flex font-['Urbanist']">
+  <div className="w-full overflow-hidden bg-[#FE4A01] py-3.5 whitespace-nowrap select-none flex font-['Urbanist']">
 
-        {/* Infinite track containing multiple data blocks to prevent viewport gaps */}
-        <div className="flex min-w-full shrink-0 animate-marquee items-center justify-around text-[14px] font-medium tracking-wider text-white font-['Urbanist']">
+    {/* Infinite track containing multiple data blocks to prevent viewport gaps */}
+    <div className="flex min-w-full shrink-0 animate-marquee items-center justify-around text-[14px] font-medium tracking-wider text-white font-['Urbanist']">
 
-            {/* Block 1 (Original) */}
-            <div className="flex shrink-0 items-center space-x-12 pr-12">
-                {MARQUEE_ITEMS.map((item, index) => (
-                    <span key={`orig-${index}`} className="flex items-center gap-3.5">
-                        {/* Perfectly sized, smooth CSS custom bullet circle */}
-                        <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" aria-hidden="true" />
-                        <span>{item}</span>
-                    </span>
-                ))}
-            </div>
+      {/* Block 1 (Original) */}
+      <div className="flex shrink-0 items-center space-x-12 pr-12">
+        {MARQUEE_ITEMS.map((item, index) => (
+          <span key={`orig-${index}`} className="flex items-center gap-3.5">
+            {/* Perfectly sized, smooth CSS custom bullet circle */}
+            <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" aria-hidden="true" />
+            <span>{item}</span>
+          </span>
+        ))}
+      </div>
 
-            {/* Block 2 (Duplicate) */}
-            <div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
-                {MARQUEE_ITEMS.map((item, index) => (
-                    <span key={`dup1-${index}`} className="flex items-center gap-3.5">
-                        <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
-                        <span>{item}</span>
-                    </span>
-                ))}
-            </div>
+      {/* Block 2 (Duplicate) */}
+      <div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
+        {MARQUEE_ITEMS.map((item, index) => (
+          <span key={`dup1-${index}`} className="flex items-center gap-3.5">
+            <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
+            <span>{item}</span>
+          </span>
+        ))}
+      </div>
 
-            {/* Block 3 (Extra Duplicate) */}
-            <div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
-                {MARQUEE_ITEMS.map((item, index) => (
-                    <span key={`dup2-${index}`} className="flex items-center gap-3.5">
-                        <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
-                        <span>{item}</span>
-                    </span>
-                ))}
-            </div>
+      {/* Block 3 (Extra Duplicate) */}
+      <div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
+        {MARQUEE_ITEMS.map((item, index) => (
+          <span key={`dup2-${index}`} className="flex items-center gap-3.5">
+            <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
+            <span>{item}</span>
+          </span>
+        ))}
+      </div>
 
-        </div>
     </div>
+  </div>
 );
 
 interface TimelineItem {
@@ -144,7 +199,25 @@ const reviews = [
 ];
 
 export default function AboutUsPage() {
-    // Center index state
+
+
+
+  const avatars = [
+    { top: "38%", left: "12%", delay: 1.35, src: "/avatars/person-1.png" },
+    { top: "26%", left: "22%", delay: 1.62, src: "/avatars/person-2.png" },
+    { top: "18%", left: "42%", delay: 1.85, src: "/avatars/person-3.png" },
+    { top: "22%", right: "24%", color: "#34d399", delay: 2.12 },
+    { top: "36%", right: "12%", color: "#f97316", delay: 2.35 },
+    { top: "58%", left: "16%", color: "#60a5fa", delay: 1.48 },
+    { top: "68%", left: "32%", color: "#facc15", delay: 1.72 },
+    { top: "66%", right: "22%", color: "#c084fc", delay: 2.05 },
+    { top: "52%", right: "32%", color: "#fb7185", delay: 2.25 },
+  ];
+
+
+
+
+  // Center index state
   const [centerIndex, setCenterIndex] = useState(1);
   const [isTransitioning, setIsTransitioning] = useState(true);
 
@@ -177,41 +250,31 @@ export default function AboutUsPage() {
   const offset = (centerIndex - 1) * 33.3333;
 
   return (
-    <main className={`${urbanist.className} min-h-screen text-white selection:text-white font-sans mt-[160px] font-['Urbanist']`}>
-      
+    <main className={`${urbanist.variable} ${obvia.variable} min-h-screen text-white selection:text-white mt-[160px]`}>
+
       {/* 1. HERO SECTION */}
-      <section className="relative max-w-7xl mx-auto px-6 pt-16 pb-20 grid grid-cols-1 md:grid-cols-12 gap-8 items-center font-['Urbanist']">
-        <div className="md:col-span-7 space-y-6">
+      <section className="relative max-w-7xl mx-auto px-6 pt-16 pb-20 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div className="md:col-span-8 space-y-6">
           {/* Trustpilot Badge */}
-            <Image
-              src="/images/TrustPiolet.png"
-              alt="Trustpilot rating"
-              width={250}
-              height={24}
-            />
-
-
+          <Image
+            src="/images/TrustPiolet.png"
+            alt="Trustpilot rating"
+            width={250}
+            height={24}
+          />
           {/* Heading */}
-          <h1 className="text-[60px] md:text-[60px]">
-            <span className="text-white font-regular">About </span> 
-            <span className="text-white font-bold">Torch</span>
-            <span className="text-white font-thin">Proxies</span>
+          <h1 className="text-[60px] md:text-[60px] leading-tight">
+            <span className="text-white font-bold font-obvia">Torch</span>
+            <span className="text-white font-thin font-obvia">Proxies</span>
           </h1>
-
-          {/* Subheading with Orange Highlight */}
-          <p className="text-[24px] md:text-[24px] font-medium text-gray-200 leading-snug">
-            Our proxy infrastructure built for people who {' '}
-            <span className="text-[#ff4500]">can't afford downtime.</span>
-          </p>
-
-          {/* Paragraph Body */}
-          <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-2xl">
-Torch Proxies started with a simple frustration,  proxies that looked good on paper and fell apart the moment real traffic hit them. So we built a network designed around one job. Staying up, staying fast, and staying out of your way.
+          <p className="text-[76px] md:text-[76px] leading-tight">
+            <span className="text-white font-obvia">Built for people who </span>
+            <span className="font-obvia text-[#FE4A01]"> can't afford downtime.</span>
           </p>
         </div>
 
         {/* Silver Flame Graphic */}
-        <div className="md:col-span-5 flex justify-center md:justify-end relative">
+        <div className="md:col-span-4 flex justify-center md:justify-end relative">
           <div className="w-[320px] h-[320px] md:w-[420px] md:h-[420px] relative">
             <Image
               src="/images/heroflame.png"
@@ -229,53 +292,38 @@ Torch Proxies started with a simple frustration,  proxies that looked good on pa
       <Marquee />
 
       {/* 2. WHY WE EXIST SECTION */}
-      <section className="max-w-7xl mx-auto px-6 py-24 font-['Urbanist']">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-stretch">
-          
-          {/* Left Orange Accent Box */}
-          <div className="md:col-span-4 bg-[#0a0a0c] border border-[#ff4500]/40 rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[#ff4500]/10 rounded-full blur-3xl pointer-events-none" />
-            <div>
-              <h2 className="text-[4xl] md:text-[80px] font-extrabold text-[#ff4500] leading-none mb-6">
-                WHY<br />WE<br />EXIST
-              </h2>
-            </div>
-            <ul className="space-y-3 text-xs md:text-[15px] font-semibold text-gray-300">
-              <li className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#ff4500]" />
-                Uncompromising Quality
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#ff4500]" />
-                Truly Unlimited Bandwidth
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#ff4500]" />
-                Reliable Groundwork
-              </li>
-            </ul>
-          </div>
+      <section className="relative w-full py-20 px-6 overflow-hidden bg-black flex justify-center items-center font-sans">
+        {/* 1. Background Gradient Effects */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-100"
+          style={{
+            background: `
+      radial-gradient(ellipse 200% 150% at 50% -20%, #FE4A01 0%, #FE4A01 35%, rgba(0, 0, 0, 0.95) 70%, rgba(0, 0, 0, 0.95) 98%, #000000 100%)
+    `
+          }}
+        />
 
-          {/* Right Text Column */}
-          <div className="md:col-span-8 bg-[#0b0c0e] border border-[#1d2026] rounded-2xl p-8 md:p-10 flex flex-col justify-center space-y-5">
-            <span className="text-[#ff4500] text-[13px] font-bold tracking-widest uppercase">
+        {/* 2. Main Content Card */}
+        <div className="relative z-10 max-w-5xl w-full bg-[#070708] border border-[#1b1b1e] rounded-[32px] p-8 sm:p-12 md:p-16 shadow-2xl">
+          <div className="max-w-4xl space-y-6">
+            {/* Subtitle / Category Tag */}
+            <span className="block text-[#ff4500] text-[12px] md:text-[13px] font-bold tracking-[0.2em] uppercase">
               OUR STORY
             </span>
-            <h3 className="text-[48px] md:text-[48px] font-regular text-white">
-              Why Torch Proxies exists ?
-            </h3>
-            <p className="text-gray-400 text-[15px] md:text-[15px] leading-relaxed">
-              Most proxy providers sell you an IP address. We think that's the wrong product. What businesses actually need is a connection that holds  through a scraping job, a ticket drop, a sneaker release, or a thousand concurrent sessions without babysitting it.
-            </p>
-            <p className="text-gray-400 text-[15px] md:text-[15px] leading-relaxed">
-              Torch Proxies was built by people who'd been burned by unreliable networks themselves: dropped sessions mid-scrape, blocked IPs mid-checkout, support tickets that went nowhere.
-            </p>
-            <p className="text-gray-400 text-[15px] md:text-[15px] leading-relaxed">
-              That's why everything we build gets judged against one question.
-Does this hold up under real, high-volume, no-room-for-error traffic? If it doesn't, it doesn't ship.
-            </p>
-          </div>
 
+            {/* Main Heading */}
+            <h2 className="text-[30px] sm:text-[36px] md:text-[48px] leading-tight font-normal text-white tracking-tight">
+              Why Torch Proxies exists ?
+            </h2>
+
+            {/* Paragraph 1 */}
+            <p className="text-gray-400 text-sm md:text-[18px] leading-relaxed font-normal pt-2">
+              Torch Proxies started in the sneaker resale world, where speed and uptime weren't optional  where  a flagged IP meant a missed drop, not just an inconvenience. Running proxies and bots at scale to compete for limited releases surfaced a simple truth, the real value wasn't in buying the product, it was in the infrastructure that made buying possible. That observation became the foundation for Torch Proxies.          </p>
+
+            {/* Paragraph 2 */}
+            <p className="text-gray-400 text-sm md:text-[18px] leading-relaxed font-normal">
+              Today, every business runs on data, but reliable infrastructure isn't equal.  We built Torch Proxies to close that gap, proxy networks tuned for the task at hand, not one-size-fits all pools, held to one standard, reliable under real, high-volume traffic, or it doesn't ship.          </p>
+          </div>
         </div>
       </section>
 
@@ -283,135 +331,483 @@ Does this hold up under real, high-volume, no-room-for-error traffic? If it does
       <section className="max-w-7xl mx-auto px-6 py-12 font-['Urbanist']">
         <div className="text-center mb-10">
           <span className="text-[#ff4500] text-[13px] font-bold tracking-widest uppercase">
-            By the Numbers
+            Torch proxies By the Numbers
           </span>
-          <h2 className="text-3xl md:text-[48px] font-regular text-white mt-1">
-            Torch Proxies, by numbers
-          </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <div className="bg-[#0e1015] border border-[#1a1d26] rounded-xl p-8 text-center space-y-2">
-            <div className="text-4xl md:text-5xl font-black text-white">3000 +</div>
-            <p className="text-xs text-gray-400 tracking-wider">Satisfied Customers</p>
+            <div className="text-4xl md:text-5xl font-black text-[#FE4A01]">3800+</div>
+            <p className="text-xs text-gray-400 tracking-wider">Clients worldwide</p>
           </div>
 
           <div className="bg-[#0e1015] border border-[#1a1d26] rounded-xl p-8 text-center space-y-2">
-            <div className="text-4xl md:text-5xl font-black text-white">15 +</div>
-            <p className="text-xs text-gray-400 tracking-wider">Years combined experience</p>
+            <div className="text-4xl md:text-5xl font-black text-[#FE4A01]">15 +</div>
+            <p className="text-xs text-gray-400 tracking-wider">Team members and growing</p>
           </div>
 
           <div className="bg-[#0e1015] border border-[#1a1d26] rounded-xl p-8 text-center space-y-2">
-            <div className="text-4xl md:text-5xl font-black text-white">10 Gbps</div>
-            <p className="text-xs text-gray-400 tracking-wider">Per Node Network Speed</p>
+            <div className="text-4xl md:text-5xl font-black text-[#FE4A01]">06+</div>
+            <p className="text-xs text-gray-400 tracking-wider">In business</p>
+          </div>
+
+          <div className="bg-[#0e1015] border border-[#1a1d26] rounded-xl p-8 text-center space-y-2">
+            <div className="text-4xl md:text-5xl font-black text-[#FE4A01]">97 %</div>
+            <p className="text-xs text-gray-400 tracking-wider">User retention</p>
           </div>
         </div>
       </section>
 
-<section className={`${urbanist.className} w-full text-white py-28 px-4 md:px-8 font-sans overflow-hidden font-['Urbanist']`}>
-{/* <section className={`${urbanist.className} w-full bg-[#050507] text-white py-28 px-4 md:px-8 font-sans`}> */}
-      <div className="max-w-6xl mx-auto">
-        
-        {/* Title & Subtitle */}
-        <div className="text-center mb-16 space-y-2">
-          <span className="text-[#ff4500] text-[13px] font-bold tracking-widest uppercase">
-            OUR JOURNEY
-          </span>
-          <h2 className="text-3xl md:text-[48px] font-regular tracking-tight text-white">
-            Growing strong since 2021
-          </h2>
-        </div>
+      <section className="w-full max-w-7xl mx-auto px-6 py-24 text-white font-sans">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-        {/* Carousel Container */}
-<div className="relative w-full">
-  {/* Outer container with padding so glow effects and scaled borders do not get clipped */}
-  <div className="w-full overflow-hidden py-8 px-2">
-    
-    {/* Gradient Horizontal Axis Line */}
-    <div 
-      className="absolute top-[40px] left-0 right-0 h-0.5 z-0"
-      style={{
-        background: 'linear-gradient(to right, #2a2d36, #ff4500, #2a2d36)',
-      }}
-    />
+          {/* LEFT COLUMN: Title & Text */}
+          <div className="lg:col-span-6 space-y-6">
+            <span className="block text-[#FE4A01] text-[12px] md:text-[13px] font-bold tracking-[0.2em] uppercase">
+              Our Journey
+            </span>
 
-    {/* Sliding Track */}
-    <div
-      className={`flex transition-transform ${
-        isTransitioning ? 'duration-700 ease-in-out' : 'duration-0'
-      }`}
-      style={{
-        transform: `translateX(-${offset}%)`,
-      }}
-    >
-      {extendedData.map((item, index) => {
-        const isCenter = index === centerIndex;
+            <h2 className="text-4xl md:text-[48px] font-regular tracking-tight text-white leading-[1.1]">
+              Growing strong<br />since 2021
+            </h2>
 
-        return (
-          <div
-            key={index}
-            onClick={() => {
-              setIsTransitioning(true);
-              setCenterIndex(index);
-            }}
-            className="w-1/3 flex-shrink-0 px-3 cursor-pointer group select-none"
-          >
-            {/* Node Icon on Timeline */}
-            <div className="relative flex justify-center items-center h-5 mb-4 z-10">
-              
-              {/* Active Center Glow & Flame Icon */}
-              {isCenter ? (
-                <div className="relative flex items-center justify-center">
-                  {/* Soft Orange Glow */}
-                  <div className="absolute w-12 h-12 rounded-full bg-[#ff4500] opacity-50 blur-md animate-pulse" />
-                  {/* Outer Orange Circle */}
-                  <div className="relative w-6 h-6 rounded-full bg-[#ff4500] flex items-center justify-center shadow-[0_0_12px_#ff4500]">
-                    <Flame className="w-3.5 h-3.5 text-white fill-white" />
+            <p className="text-gray-400 text-sm md:text-[15px] leading-relaxed font-normal pt-2">
+              Torch Proxies started in the sneaker botting trenches, where one flagged IP meant a missed drop. That same discipline — zero tolerance for failure under pressure, carried over as developers brought us into web scraping, ticket automation, and everything after. The use cases changed; the standard never did.          </p>
+          </div>
+
+          {/* RIGHT COLUMN: Depth Carousel Component */}
+          <div className="lg:col-span-6 relative w-full h-[500px] flex items-center justify-center overflow-hidden">
+            <DepthCarousel
+              depth={220}
+              spread={90}
+              tilt={22}
+              tiltDirection="right"
+              perspective={1400}
+              visibleCards={4}
+              falloff={0.2}
+              blur={6}
+              autoplay={false}
+              loop
+              cardWidth={340}
+              cardHeight={420}
+              radius={20}
+              tint="#05060a"
+              duration={700}
+              ease="power3.out"
+              autoplayDelay={3200}
+              showControls
+              showIndicators={false}
+              items={journeyData.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="w-full h-full bg-[#08090c] border border-[#1b1e26] rounded-[24px] p-6 flex flex-col justify-between overflow-hidden shadow-2xl select-none"
+                >
+                  {/* Year Header & Bullet Points */}
+                  <div className="space-y-4">
+                    <span className="text-3xl md:text-4xl font-extrabold text-[#FE4A01] block">
+                      {item.year}
+                    </span>
+                    <ul className="space-y-2.5 text-xs md:text-sm text-gray-300 font-normal leading-relaxed">
+                      {item.points.map((pt, pIdx) => (
+                        <li key={pIdx} className="flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-1.5 flex-shrink-0" />
+                          <span>{pt}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Bottom Image / Graphic */}
+                  <div className="relative w-full h-[160px] rounded-xl overflow-hidden mt-4 border border-[#1b1e26]/60">
+                    <Image
+                      src={item.image}
+                      alt={`${item.year} journey`}
+                      fill
+                      className="object-cover"
+                      sizes="340px"
+                    />
                   </div>
                 </div>
-              ) : (
-                /* Inactive White Node Circle */
-                <div className="w-3.5 h-3.5 rounded-full bg-white transition-all duration-300 group-hover:scale-125" />
-              )}
-            </div>
+              ))}
+            />
+          </div>
 
-            {/* Year Label */}
-            <div className="text-center mb-6">
-              <span
-                className={`text-base font-bold transition-colors duration-300 ${
-                  isCenter ? 'text-[#ff4500] text-lg' : 'text-gray-400'
-                }`}
+        </div>
+      </section>
+
+      {/* <section className={`${urbanist.className} w-full text-white py-28 px-4 md:px-8 font-sans overflow-hidden font-['Urbanist']`}>
+        {/* <section className={`${urbanist.className} w-full bg-[#050507] text-white py-28 px-4 md:px-8 font-sans`}> */}
+      {/* <div className="max-w-6xl mx-auto"> */}
+
+      {/* Title & Subtitle */}
+      {/* <div className="text-center mb-16 space-y-2">
+            <span className="text-[#ff4500] text-[13px] font-bold tracking-widest uppercase">
+              OUR JOURNEY
+            </span>
+            <h2 className="text-3xl md:text-[48px] font-regular tracking-tight text-white">
+              Growing strong since 2021
+            </h2>
+          </div> */}
+
+      {/* Carousel Container */}
+      {/* <div className="relative w-full"> */}
+      {/* Outer container with padding so glow effects and scaled borders do not get clipped */}
+      {/* <div className="w-full overflow-hidden py-8 px-2"> */}
+
+      {/* Gradient Horizontal Axis Line */}
+      {/* <div
+                className="absolute top-[40px] left-0 right-0 h-0.5 z-0"
+                style={{
+                  background: 'linear-gradient(to right, #2a2d36, #ff4500, #2a2d36)',
+                }}
+              /> */}
+
+      {/* Sliding Track */}
+      {/* <div
+                className={`flex transition-transform ${isTransitioning ? 'duration-700 ease-in-out' : 'duration-0'
+                  }`}
+                style={{
+                  transform: `translateX(-${offset}%)`,
+                }}
               >
-                {item.year}
-              </span>
-            </div>
+                {extendedData.map((item, index) => {
+                  const isCenter = index === centerIndex;
 
-            {/* Content Box */}
-            <div
-              className={`rounded-2xl p-6 min-h-[200px] transition-all duration-500 flex flex-col justify-start ${
-                isCenter
-                  ? 'bg-[#0e1015] border-2 border-[#ff4500] shadow-[0_0_25px_rgba(255,69,0,0.15)] scale-[1.02]'
-                  : 'bg-[#0a0b0e] border border-[#1d2028] opacity-60 hover:opacity-80'
-              }`}
-            >
-              <ul className="space-y-3 text-xs md:text-sm text-gray-300 leading-relaxed list-disc list-inside">
-                {item.points.map((point, pIdx) => (
-                  <li key={pIdx} className="marker:text-gray-400">
-                    <span className="-ml-1">{point}</span>
-                  </li>
-                ))}
-              </ul>
+                  return (
+                    <div
+                      key={index}
+                      onClick={() => {
+                        setIsTransitioning(true);
+                        setCenterIndex(index);
+                      }}
+                      className="w-1/3 flex-shrink-0 px-3 cursor-pointer group select-none"
+                    > */}
+      {/* Node Icon on Timeline */}
+      {/* <div className="relative flex justify-center items-center h-5 mb-4 z-10"> */}
+
+      {/* Active Center Glow & Flame Icon */}
+      {/* {isCenter ? (
+                          <div className="relative flex items-center justify-center"> */}
+      {/* Soft Orange Glow */}
+      {/* <div className="absolute w-12 h-12 rounded-full bg-[#ff4500] opacity-50 blur-md animate-pulse" /> */}
+      {/* Outer Orange Circle */}
+      {/* <div className="relative w-6 h-6 rounded-full bg-[#ff4500] flex items-center justify-center shadow-[0_0_12px_#ff4500]">
+                              <Flame className="w-3.5 h-3.5 text-white fill-white" />
+                            </div>
+                          </div>
+                        ) : ( */}
+      {/* /* Inactive White Node Circle */}
+      {/* <div className="w-3.5 h-3.5 rounded-full bg-white transition-all duration-300 group-hover:scale-125" />
+                        )}
+                      </div> */}
+
+      {/* Year Label */}
+      {/* <div className="text-center mb-6">
+                        <span
+                          className={`text-base font-bold transition-colors duration-300 ${isCenter ? 'text-[#ff4500] text-lg' : 'text-gray-400'
+                            }`}
+                        >
+                          {item.year}
+                        </span>
+                      </div> */}
+
+      {/* Content Box */}
+      {/* <div
+                        className={`rounded-2xl p-6 min-h-[200px] transition-all duration-500 flex flex-col justify-start ${isCenter
+                            ? 'bg-[#0e1015] border-2 border-[#ff4500] shadow-[0_0_25px_rgba(255,69,0,0.15)] scale-[1.02]'
+                            : 'bg-[#0a0b0e] border border-[#1d2028] opacity-60 hover:opacity-80'
+                          }`}
+                      >
+                        <ul className="space-y-3 text-xs md:text-sm text-gray-300 leading-relaxed list-disc list-inside">
+                          {item.points.map((point, pIdx) => (
+                            <li key={pIdx} className="marker:text-gray-400">
+                              <span className="-ml-1">{point}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                    </div>
+                  );
+                })}
+              </div>
             </div>
+          </div>
+
+        </div> */}
+      {/* </section>  */}
+
+
+
+      <section className="w-full max-w-7xl mx-auto px-6 py-20 bg-black text-white font-sans">
+        {/* Section Heading */}
+        <h2 className="text-3xl md:text-[44px] font-normal tracking-tight text-white mb-10">
+          What you get with TorchProxies
+        </h2>
+
+        {/* Bento Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          {/* Top Card 1: Reliability */}
+          <div className="bg-[#0b0c0e] border border-[#1b1e26] rounded-[24px] p-8 flex flex-col justify-between min-h-[260px] hover:border-[#ff4500]/40 transition-colors duration-300">
+            <div className="space-y-4">
+              <h3 className="text-xl md:text-[22px] font-medium leading-snug text-white">
+                Reliability you don&apos;t have to check on
+              </h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Reach precise locations with city-level accuracy for faster, reliable connections.
+              </p>
+            </div>
+          </div>
+
+          {/* Top Card 2: Ethically Sourced */}
+          <div className="bg-[#0b0c0e] border border-[#1b1e26] rounded-[24px] p-8 flex flex-col justify-between min-h-[260px] hover:border-[#ff4500]/40 transition-colors duration-300">
+            <div className="space-y-4">
+              <h3 className="text-xl md:text-[22px] font-medium leading-snug text-white">
+                Ethically sourced, always
+              </h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Reach precise locations with city-level accuracy for faster, reliable connections.
+              </p>
+            </div>
+          </div>
+
+          {/* Top Card 3: Speed */}
+          <div className="bg-[#0b0c0e] border border-[#1b1e26] rounded-[24px] p-8 flex flex-col justify-between min-h-[260px] hover:border-[#ff4500]/40 transition-colors duration-300">
+            <div className="space-y-4">
+              <h3 className="text-xl md:text-[22px] font-medium leading-snug text-white">
+                Speed that keeps up with automation
+              </h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Reach precise locations with city-level accuracy for faster, reliable connections.
+              </p>
+            </div>
+          </div>
+
+          {/* Bottom Card 1: Coverage (Takes 1 column) */}
+          <div className="bg-[#0b0c0e] border border-[#1b1e26] rounded-[24px] p-8 flex flex-col justify-between min-h-[340px] hover:border-[#ff4500]/40 transition-colors duration-300">
+            <div className="space-y-4">
+              <h3 className="text-xl md:text-[22px] font-medium leading-snug text-white">
+                Coverage that goes down to the city
+              </h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                157+ countries with city and ASN-level targeting, so &quot;close enough&quot; location data is never good enough for us to ship it.
+              </p>
+            </div>
+          </div>
+
+          {/* Bottom Card 2: Animated Globe Graphic Card (Spans 2 columns) */}
+          <div className="md:col-span-2 bg-[#0b0c0e] border border-[#1b1e26] rounded-[24px] p-8 relative overflow-hidden flex flex-col md:flex-row items-center justify-between min-h-[360px]">
+
+
+
+
+
+
+
+
+            <motion.div
+              className="md:col-span-2 bg-[#0b0c0e] border border-[#1b1e26] rounded-[24px] p-8 relative overflow-hidden flex flex-col md:flex-row items-center justify-between min-h-[360px]"
+              initial={{ scale: 1 }}
+              animate={{ scale: [1, 1.01, 1] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            >
+              {/* ===== LEFT SIDE – Stats ===== */}
+              <div className="space-y-5 z-20 w-full md:w-auto">
+                {/* Residential IPs */}
+                <motion.div
+                  initial={{ width: 140, height: 61, opacity: 0, x: -30 }}
+                  animate={{ width: 180, height: 101, opacity: 1, x: 0 }}
+                  transition={{
+                    width: { duration: 2.45, ease: [0, 0, 0.58, 1] },
+                    height: { duration: 2.45, ease: [0, 0, 0.58, 1] },
+                    opacity: { duration: 0.5 },
+                    x: { duration: 0.6, ease: "easeOut" },
+                  }}
+                  className="relative bg-[#12141a] border border-[#ff4500]/60 rounded-2xl px-5 py-4 shadow-[0_0_20px_rgba(255,69,0,0.15)] overflow-hidden"
+                >
+                  <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-[#ff4500]/40 to-transparent pointer-events-none" />
+                  <span className="text-xs text-gray-400 font-medium block mb-1">Residential IPs</span>
+                  <span className="text-2xl font-bold text-white tracking-wide">4,429,824+</span>
+                </motion.div>
+
+                {/* ISP IPs */}
+                <motion.div
+                  initial={{ width: 140, height: 61, opacity: 0, x: -30 }}
+                  animate={{ width: 180, height: 101, opacity: 1, x: 0 }}
+                  transition={{
+                    width: { duration: 2.45, delay: 0.05, ease: [0, 0, 0.58, 1] },
+                    height: { duration: 2.45, delay: 0.05, ease: [0, 0, 0.58, 1] },
+                    opacity: { duration: 0.5, delay: 0.1 },
+                    x: { duration: 0.6, delay: 0.1, ease: "easeOut" },
+                  }}
+                  className="relative bg-[#12141a] border border-[#ff4500]/60 rounded-2xl px-5 py-4 shadow-[0_0_20px_rgba(255,69,0,0.15)] overflow-hidden"
+                >
+                  <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-[#ff4500]/40 to-transparent pointer-events-none" />
+                  <span className="text-xs text-gray-400 font-medium block mb-1">ISP IPs</span>
+                  <span className="text-2xl font-bold text-white tracking-wide">5,604,857+</span>
+                </motion.div>
+              </div>
+
+              {/* ===== RIGHT SIDE ===== */}
+              <div className="relative w-full md:w-[480px] h-[300px] flex items-center justify-center mt-10 md:mt-0">
+
+                {/* Soft glow */}
+                <div className="absolute bottom-0 w-72 h-40 rounded-full bg-[#ff4500]/10 blur-3xl pointer-events-none" />
+
+                {/* Half Globe */}
+                <div className="absolute bottom-[-20px] w-[380px] h-[190px] overflow-hidden">
+                  <div className="w-[380px] h-[380px] rounded-full border border-gray-700/80 bg-gradient-to-b from-[#1a1d27] to-[#0d0f14] relative">
+                    <div
+                      className="absolute inset-0 opacity-25"
+                      style={{
+                        backgroundImage: "radial-gradient(#ffffff 1.2px, transparent 1.2px)",
+                        backgroundSize: "14px 14px",
+                      }}
+                    />
+                    <div className="absolute inset-0 opacity-30">
+                      <div className="absolute top-[35%] left-0 right-0 h-px bg-gray-500/50" />
+                      <div className="absolute top-[50%] left-0 right-0 h-px bg-gray-500/40" />
+                      <div className="absolute top-[65%] left-0 right-0 h-px bg-gray-500/30" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Center Pin */}
+                <div className="absolute z-30 flex flex-col items-center" style={{ top: "28%" }}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                    className="bg-[#ff4500] text-white text-[11px] font-bold px-3.5 py-1 rounded-full shadow-[0_0_16px_#ff4500aa] mb-1"
+                  >
+                    Real IPs
+                  </motion.div>
+
+                  <motion.div
+                    animate={{ y: [0, -5, 0] }}
+                    transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
+                  >
+                    <svg width="22" height="28" viewBox="0 0 24 32" fill="none">
+                      <path
+                        d="M12 0C5.4 0 0 5.4 0 12c0 9 12 20 12 20s12-11 12-20c0-6.6-5.4-12-12-12z"
+                        fill="#ff4500"
+                      />
+                      <circle cx="12" cy="12" r="5" fill="#0b0c0e" />
+                    </svg>
+                  </motion.div>
+
+                  <span className="mt-1 text-xs font-semibold text-white bg-black/70 px-2.5 py-0.5 rounded border border-gray-700/60">
+                    TorchProxies
+                  </span>
+                </div>
+
+                {/* Labels */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                  className="absolute top-2 left-1/2 -translate-x-1/2 bg-black/80 text-[11px] text-gray-300 font-medium px-3 py-1 rounded-full border border-gray-700/50"
+                >
+                  24/7 support
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.55 }}
+                  className="absolute top-14 left-6 text-[11px] text-gray-400 font-medium"
+                >
+                  High Speed
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.6 }}
+                  className="absolute top-14 right-6 bg-black/80 text-[11px] text-gray-300 font-medium px-3 py-1 rounded-full border border-gray-700/50"
+                >
+                  195 Countries
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.65 }}
+                  className="absolute bottom-[90px] left-2 text-[11px] text-gray-400 font-medium"
+                >
+                  90M+ IP Pool
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.7 }}
+                  className="absolute bottom-[90px] right-2 bg-black/80 text-[11px] text-gray-300 font-medium px-3 py-1 rounded-full border border-gray-700/50"
+                >
+                  99.9% uptime
+                </motion.div>
+
+                {/* ===== Avatar Circles with 3D Human Images ===== */}
+                {avatars.map((pos, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, scale: 0.6 }}
+                    animate={{
+                      opacity: 1,
+                      scale: [0.6, 1.2, 1.1],
+                      y: [0, -5, 0],
+                      x: [0, i % 2 === 0 ? 4 : -4, 0],
+                    }}
+                    transition={{
+                      opacity: { duration: 0.4, delay: pos.delay * 0.3 },
+                      scale: {
+                        duration: 0.5,
+                        delay: pos.delay * 0.3,
+                        times: [0, 0.7, 1],
+                        ease: [0, 0, 0.58, 1],
+                      },
+                      y: {
+                        repeat: Infinity,
+                        duration: 3.2 + i * 0.2,
+                        ease: "easeInOut",
+                        delay: pos.delay * 0.2,
+                      },
+                      x: {
+                        repeat: Infinity,
+                        duration: 4 + i * 0.15,
+                        ease: "easeInOut",
+                        delay: pos.delay * 0.15,
+                      },
+                    }}
+                    className="absolute w-9 h-9 rounded-full border-2 border-[#ff4500]/80 overflow-hidden shadow-lg z-20"
+                    style={{
+                      top: pos.top,
+                      left: pos.left,
+                      right: pos.right,
+                    }}
+                  >
+                    {/* 3D Human Image */}
+                    <Image
+                      src="/attachments/Mask group.svg"   // ← your uploaded 3D avatar
+                      alt="User avatar"
+                      fill
+                      className="object-cover"
+                      sizes="36px"
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+
+
+
+
 
           </div>
-        );
-      })}
-    </div>
-  </div>
-</div>
-
-      </div>
-    </section>
+        </div>
+      </section>
 
 
 
@@ -444,12 +840,12 @@ Does this hold up under real, high-volume, no-room-for-error traffic? If it does
           <div className="bg-[#0e1015] border border-[#1b1e28] rounded-xl p-6 space-y-3">
             <div className="w-9 h-9 rounded-lg bg-[#24130d] border border-[#ff4500]/30 flex items-center justify-center">
               <Image
-  src="/images/FastRunnerIcon.svg" // Replace with the actual name of your SVG or PNG file
-  alt="Running Man Icon"
-  width={20} // Corresponding to w-5 (1.25rem = 20px)
-  height={20} // Corresponding to h-5 (1.25rem = 20px)
-  className="text-[#ff4500]" // Keep the orange color
-/>
+                src="/images/FastRunnerIcon.svg" // Replace with the actual name of your SVG or PNG file
+                alt="Running Man Icon"
+                width={20} // Corresponding to w-5 (1.25rem = 20px)
+                height={20} // Corresponding to h-5 (1.25rem = 20px)
+                className="text-[#ff4500]" // Keep the orange color
+              />
             </div>
             <h3 className="text-[20px] font-bold text-[#ff4500]">
               Speed <span className="text-[#ffffff]">that keeps up with automation</span>
@@ -462,13 +858,13 @@ Does this hold up under real, high-volume, no-room-for-error traffic? If it does
           {/* Card 3 */}
           <div className="bg-[#0e1015] border border-[#1b1e28] rounded-xl p-6 space-y-3">
             <div className="w-9 h-9 rounded-lg bg-[#24130d] border border-[#ff4500]/30 flex items-center justify-center">
-                            <Image
-  src="/images/lock.svg" // Replace with the actual name of your SVG or PNG file
-  alt="Lock Icon"
-  width={20} // Corresponding to w-5 (1.25rem = 20px)
-  height={20} // Corresponding to h-5 (1.25rem = 20px)
-  className="text-[#ff4500]" // Keep the orange color
-/>
+              <Image
+                src="/images/lock.svg" // Replace with the actual name of your SVG or PNG file
+                alt="Lock Icon"
+                width={20} // Corresponding to w-5 (1.25rem = 20px)
+                height={20} // Corresponding to h-5 (1.25rem = 20px)
+                className="text-[#ff4500]" // Keep the orange color
+              />
             </div>
             <h3 className="text-[20px] font-bold text-[#ff4500]">
               Ethically sourced <span className="text-[#ffffff]">always</span>
@@ -481,13 +877,13 @@ Does this hold up under real, high-volume, no-room-for-error traffic? If it does
           {/* Card 4 */}
           <div className="bg-[#0e1015] border border-[#1b1e28] rounded-xl p-6 space-y-3">
             <div className="w-9 h-9 rounded-lg bg-[#24130d] border border-[#ff4500]/30 flex items-center justify-center">
-                            <Image
-  src="/images/www.svg" // Replace with the actual name of your SVG or PNG file
-  alt="Globe Icon"
-  width={20} // Corresponding to w-5 (1.25rem = 20px)
-  height={20} // Corresponding to h-5 (1.25rem = 20px)
-  className="text-[#ff4500]" // Keep the orange color
-/>
+              <Image
+                src="/images/www.svg" // Replace with the actual name of your SVG or PNG file
+                alt="Globe Icon"
+                width={20} // Corresponding to w-5 (1.25rem = 20px)
+                height={20} // Corresponding to h-5 (1.25rem = 20px)
+                className="text-[#ff4500]" // Keep the orange color
+              />
             </div>
             <h3 className="text-[20px] font-bold text-[#ff4500]">
               Coverage <span className="text-[#ffffff]"> that goes down to the city</span>
@@ -508,17 +904,17 @@ Does this hold up under real, high-volume, no-room-for-error traffic? If it does
           Built for people who move fast
         </h2>
         <p className="text-gray-400 text-xs md:text-[17px] font-regular eading-relaxed max-w-2xl mx-auto">
-We're not building proxies for casual browsing. We're building for the automation, scraping, and multi-account workflows where a single dropped connection costs real money , a missed drop, a failed scrape, a blocked account.
+          We're not building proxies for casual browsing. We're building for the automation, scraping, and multi-account workflows where a single dropped connection costs real money , a missed drop, a failed scrape, a blocked account.
         </p>
         <p className="text-gray-400 text-xs md:text-[17px] font-regular leading-relaxed max-w-2xl mx-auto">
-That means our priorities are simple: unlimited concurrency so you're never throttled, real 10 Gbps lines so speed isn't the bottleneck, and a network large enough — 157+ countries, city-level targeting  that "we don't have that location" is never the answer.
+          That means our priorities are simple: unlimited concurrency so you're never throttled, real 10 Gbps lines so speed isn't the bottleneck, and a network large enough — 157+ countries, city-level targeting  that "we don't have that location" is never the answer.
         </p>
       </section>
 
       {/* 6. ONE NETWORK, EVERY WORKFLOW & PACKAGES */}
       <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
+
           {/* Left Column Description */}
           <div className="lg:col-span-5 space-y-6">
             <span className="text-[#ff4500] text-[13px] font-bold tracking-widest uppercase">
@@ -528,7 +924,7 @@ That means our priorities are simple: unlimited concurrency so you're never thro
               One network, every workflow
             </h2>
             <p className="text-gray-400 text-xs md:text-sm leading-relaxed">
-Torch Proxies powers web scraping, price and SEO monitoring, ad verification, sneaker checkouts, ticket drops, social media management, and gaming — with the same infrastructure underneath. Whatever you're automating, the proxy shouldn't be the thing that breaks it.
+              Torch Proxies powers web scraping, price and SEO monitoring, ad verification, sneaker checkouts, ticket drops, social media management, and gaming — with the same infrastructure underneath. Whatever you're automating, the proxy shouldn't be the thing that breaks it.
 
             </p>
 

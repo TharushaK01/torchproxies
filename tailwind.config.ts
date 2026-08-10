@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-urbanist)'],
+        obvia: ['var(--font-obvia)'],
+      },
       gridTemplateColumns: {
         '30': 'repeat(30, minmax(0, 1fr))',
         '15': 'repeat(15, minmax(0, 1fr))',
