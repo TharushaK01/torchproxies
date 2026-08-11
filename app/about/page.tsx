@@ -316,7 +316,7 @@ export default function AboutUsPage() {
       <Marquee />
 
       {/* 2. WHY WE EXIST SECTION */}
-      <section className="relative w-full py-20 px-6 overflow-hidden bg-black flex justify-center items-center font-sans">
+      <section className="relative w-full py-20 px-6 overflow-hidden bg-black flex justify-center items-center">
         {/* 1. Background Gradient Effects */}
         <div
           className="absolute inset-0 pointer-events-none opacity-100"
@@ -624,7 +624,7 @@ export default function AboutUsPage() {
           <div className="md:col-span-2 bg-[#0b0c0e] border border-[#1b1e26] rounded-[24px] p-8 relative overflow-hidden flex flex-col md:flex-row items-center justify-between p-8">
 
 <motion.div
-  className="md:col-span-3 w-full bg-[#0b0c0e] border border-[#1b1e26] rounded-[24px] p-6 relative overflow-hidden flex flex-col md:flex-row items-center justify-between"
+  className="md:col-span-3 w-full bg-[#0b0c0e] rounded-[24px] p-6 relative overflow-hidden flex flex-col md:flex-row items-center justify-between"
   initial={{ scale: 1 }}
   animate={{ scale: [1, 1.01, 1] }}
   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
