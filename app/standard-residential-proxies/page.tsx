@@ -223,10 +223,9 @@ export default function TorchProxiesLandingPage() {
                     />
 
                     {/* Marquee at bottom of image */}
-                    <div className="absolute -bottom-12 left-0 w-full z-10">
-                        <Marquee />
-                    </div>
-
+        <div className="absolute bottom-0 left-0 w-full z-10">
+            <Marquee />
+        </div>
 
                 </div>
                 <div className="max-w-6xl mx-auto text-center z-10 font-['Urbanist']">
