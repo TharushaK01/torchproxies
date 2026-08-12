@@ -532,20 +532,28 @@ export default function HeroSection() {
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap items-center gap-4 pt-2">
-            <button
-              onClick={() => {
-                document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="h-[54px] rounded-xl border border-stone-700 bg-transparent px-16 text-[18px] font-semibold text-white transition-all duration-200 hover:border-stone-500 hover:bg-white/5 active:scale-95 cursor-pointer"
-            >
-              See Pricing
+            {/* --- SECONDARY BUTTON --- */}
+            <button onClick={() => {
+                document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
+            }} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-400 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
+                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                        See Pricing
+                    </span>
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
+                        See Pricing
+                    </span>
+                </div>
             </button>
-
-            <button
-              onClick={() => router.push("https://dashboard.torchproxies.com/")}
-              className="h-[54px] rounded-xl bg-gradient-to-r from-[#ff4500] to-[#ea580c] px-8 text-base font-semibold text-white shadow-[0_0_30px_rgba(255,69,0,0.35)] transition-all duration-200 hover:shadow-[0_0_40px_rgba(255,69,0,0.55)] hover:brightness-110 active:scale-95 cursor-pointer"
-            >
-              Start with Free Trial
+                  <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                        Start with Free Trial
+                    </span>
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+                        Start with Free Trial
+                    </span>
+                </div>
             </button>
           </div>
 

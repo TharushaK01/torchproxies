@@ -243,66 +243,74 @@ export default function TorchProxiesLandingPage() {
   {/* 2. Main Content Wrapper */}
   <div className="relative z-20 max-w-5xl w-full mx-auto flex flex-col items-center text-center space-y-8">
     {/* Trustpilot Badge Header */}
-    <div className="flex items-center gap-2 bg-black/30 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10 text-xs">
-      <span className="text-gray-300 font-medium">Excellent</span>
-      <div className="flex items-center gap-0.5">
-        {[...Array(5)].map((_, i) => (
-          <div key={i} className="w-3.5 h-3.5 bg-[#00b67a] flex items-center justify-center rounded-[1px]">
-            <svg className="w-2.5 h-2.5 text-white fill-current" viewBox="0 0 24 24">
-              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-            </svg>
-          </div>
-        ))}
-      </div>
-      <div className="flex items-center gap-1 font-semibold text-white ml-1">
-        <svg className="w-3.5 h-3.5 text-[#00b67a] fill-current" viewBox="0 0 24 24">
-          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-        </svg>
-        <span>Trustpilot</span>
-      </div>
-    </div>
+          <div className="flex items-center justify-center mb-6">
+            <a href="https://www.trustpilot.com/review/torchlabs.xyz"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="cursor-pointer"
+                        >
+                            <img
+                                src="/images/TrustPiolet.png"
+                                alt="Excellent 5-star rating on Trustpilot"
+                                className="h-8 w-auto object-contain"
+                                loading="lazy"
+                            />
+                        </a>
+        </div>
 
     {/* Main Headline */}
-    <h1 className="text-4xl sm:text-5xl md:text-[60px] font-normal leading-[1.15] tracking-tight text-white max-w-4xl">
+    <h1 className="text-4xl sm:text-5xl md:text-[72px] font-nregular leading-[1.15] tracking-tight text-white max-w-7xl">
       Real US Residential Proxies for Scraping &amp; Account Management
     </h1>
 
     {/* Subtitle Body Text */}
-    <p className="text-gray-300 text-sm sm:text-base md:text-[17px] leading-relaxed max-w-3xl font-normal pt-1">
+    <p className="text-gray-300 text-sm sm:text-base md:text-[20px] leading-relaxed max-w-5xl font-regular pt-1">
       Real IPs from US home networks, rotating or sticky, targetable down to the state or city, built for scraping Amazon and Walmart, managing accounts, and anything that needs to look like a real American visitor.
     </p>
 
-    {/* CTA Buttons Row */}
-    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 w-full sm:w-auto">
-      <a
-        href="#try"
-        className="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-[#FF4500] to-[#FE4A01] hover:from-[#ff5500] hover:to-[#ff3300] text-white font-medium text-sm rounded-xl transition-all duration-300 shadow-[0_0_25px_rgba(255,69,0,0.4)] text-center"
-      >
-        Try free now
-      </a>
-      <a
-        href="#pricing"
-        className="w-full sm:w-auto px-8 py-3.5 bg-white/5 hover:bg-white/10 border border-white/20 text-white font-medium text-sm rounded-xl transition-all duration-300 backdrop-blur-md text-center"
-      >
-        See Pricing
-      </a>
-    </div>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
+            {/* --- PRIMARY BUTTON --- */}
+            <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                        Try free now
+                    </span>
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+                        Try free now
+                    </span>
+                </div>
+            </button>
+
+            {/* --- SECONDARY BUTTON --- */}
+            <button onClick={() => {
+                document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
+            }} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-400 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
+                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                        See Pricing
+                    </span>
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
+                        See Pricing
+                    </span>
+                </div>
+            </button>
+        </div>
 
     {/* Bottom Stats Grid */}
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full pt-12">
-      <div className="bg-[#121824]/60 border border-white/10 backdrop-blur-md rounded-2xl p-5 text-center flex flex-col justify-center space-y-1">
+      <div className="bg-[#121824]/30 border border-white/10 backdrop-blur-md rounded-2xl p-5 text-center flex flex-col justify-center space-y-1">
         <span className="text-xl md:text-2xl font-bold text-white tracking-wide">4,267,587</span>
         <span className="text-xs text-gray-400 font-medium">US residential IPs</span>
       </div>
-      <div className="bg-[#121824]/60 border border-white/10 backdrop-blur-md rounded-2xl p-5 text-center flex flex-col justify-center space-y-1">
+      <div className="bg-[#121824]/30 border border-white/10 backdrop-blur-md rounded-2xl p-5 text-center flex flex-col justify-center space-y-1">
         <span className="text-xl md:text-2xl font-bold text-white tracking-wide">99.9%</span>
         <span className="text-xs text-gray-400 font-medium">uptime</span>
       </div>
-      <div className="bg-[#121824]/60 border border-white/10 backdrop-blur-md rounded-2xl p-5 text-center flex flex-col justify-center space-y-1">
+      <div className="bg-[#121824]/30 border border-white/10 backdrop-blur-md rounded-2xl p-5 text-center flex flex-col justify-center space-y-1">
         <span className="text-xl md:text-2xl font-bold text-white tracking-wide">HTTP(S) &amp; SOCKS5</span>
         <span className="text-xs text-gray-400 font-medium">protocols</span>
       </div>
-      <div className="bg-[#121824]/60 border border-white/10 backdrop-blur-md rounded-2xl p-5 text-center flex flex-col justify-center space-y-1">
+      <div className="bg-[#121824]/30 border border-white/10 backdrop-blur-md rounded-2xl p-5 text-center flex flex-col justify-center space-y-1">
         <span className="text-xl md:text-2xl font-bold text-white tracking-wide">24/7</span>
         <span className="text-xs text-gray-400 font-medium">dedicated Support</span>
       </div>
