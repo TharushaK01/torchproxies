@@ -75,7 +75,7 @@ export default function TorchProxiesLandingPage() {
         },
         {
             title: "Data Access & Analysis",
-            description: "Pull continuous, high-volume data from Amazon and Walmart without a per-GB bill working against you , ISP proxies come with unlimited bandwidth built for sustained monitoring, not single requests. The same US IP across every pull also means fewer CAPTCHA interruptions along the way.",
+            description: "APull continuous, high-volume data from Amazon and Walmart without a per-GB bill working against you , ISP proxies come with unlimited bandwidth built for sustained monitoring, not single requests. The same US IP across every pull also means fewer CAPTCHA interruptions along the way.",
             icon: "/images/Features.svg"
         },
         {
@@ -258,7 +258,7 @@ const ispPlan = {
                     </h1>
 
                     {/* Subtitle Body Text */}
-                    <p className="text-gray-300 text-sm sm:text-base md:text-[20px] leading-relaxed max-w-5xl font-normal pt-1">
+                    <p className="text-gray-400 text-sm sm:text-base md:text-[20px] leading-relaxed max-w-5xl font-regular pt-1">
                         Static, US-registered IPs hosted on real ISP infrastructure, the same address holds for your entire session, with data center speed and unlimited bandwidth behind it.
                     </p>
 
@@ -384,7 +384,7 @@ const ispPlan = {
     {/* ── FEATURE LIST ── */}
     <ul className="space-y-3.5 mb-8">
       {ispPlan.features.map((feat, idx) => (
-        <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-stone-300 leading-relaxed">
+        <li key={idx} className="flex items-start gap-3 text-[16px] sm:text-sm text-stone-400 leading-relaxed">
           <Check className="text-[#00E5A3] w-4 h-4 shrink-0 mt-0.5" />
           <span>{feat}</span>
         </li>
@@ -400,12 +400,12 @@ const ispPlan = {
       <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)] pointer-events-none">
         
         {/* Default State Text */}
-        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)] text-sm">
+        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)] text-[14px] text-white">
           Try for free
         </span>
 
         {/* Hover State Text */}
-        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-sm text-white">
+        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-[14px] text-white">
           Try for free
         </span>
       </div>
@@ -518,7 +518,7 @@ const ispPlan = {
                                 </div>
 
                                 {/* Title - Uniform font size across all cards */}
-                                <h3 className="text-xl font-semibold text-white tracking-wide">
+                                <h3 className="text-[23px] font-medium text-white tracking-wide">
                                     {card.title}
                                 </h3>
                             </div>
@@ -591,7 +591,7 @@ const ispPlan = {
                                                 aria-hidden="true"
                                             />
                                         </div>
-                                        <span className="text-[#D4C8C3] text-base md:text-[17px] font-normal leading-normal">
+                                        <span className="text-[#858697] text-base md:text-[18px] font-regular leading-normal">
                                             {item}
                                         </span>
                                     </div>

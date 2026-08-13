@@ -358,7 +358,7 @@ export default function TorchProxiesLandingPage() {
                     <span className="text-orange-500 font-regular text-[16px] mb-[12px] tracking-widest flex items-center justify-center gap-2">
                         Our products
                     </span>
-                    <h2 className="text-[42px] md:text-5xl font-medium mb-[20px] max-w-4xl">
+                    <h2 className="text-[42px] md:text-[42px] font-medium mb-[20px] max-w-4xl">
                         Buy United States Residential Proxies
                     </h2>
                 </div>
@@ -413,7 +413,7 @@ export default function TorchProxiesLandingPage() {
 
                                 <ul className="space-y-4 mb-8">
                                     {plan.features.map((feat, idx) => (
-                                        <li key={idx} className="flex gap-3 text-sm text-gray-300 leading-tight">
+                                        <li key={idx} className="flex gap-3 text-[16]x text-gray-400 leading-tight">
                                             <Check className="text-[#00E5A3] w-4 h-4 shrink-0 mt-0.5" />
                                             {feat}
                                         </li>
@@ -559,7 +559,7 @@ export default function TorchProxiesLandingPage() {
                                 </div>
 
                                 {/* Title - Uniform font size across all cards */}
-                                <h3 className="text-xl font-semibold text-white tracking-wide">
+                                <h3 className="text-[23px] font-medium text-white tracking-wide">
                                     {card.title}
                                 </h3>
                             </div>
@@ -580,7 +580,7 @@ export default function TorchProxiesLandingPage() {
 
                     {/* Section Header */}
                     <div className="space-y-2">
-                        <span className="text-[#FF4F00] text-xs md:text-sm font-bold tracking-[0.2em] uppercase">
+                        <span className="text-[#FF4F00] text-[13px] md:text-[13px] font-bold tracking-[0.2em] uppercase">
                             WHY RESIDENTIAL
                         </span>
                         <h2 className="text-3xl md:text-5xl lg:text-[48px] font-normal leading-[1.15] text-white max-w-4xl tracking-tight">
@@ -600,7 +600,7 @@ export default function TorchProxiesLandingPage() {
                                     Residential Proxy <br />
                                     Advantage
                                 </h3>
-                                <p className="text-[#A39590] text-base md:text-[17px] leading-relaxed font-normal">
+                                <p className="text-[#858697] text-base md:text-[18px] leading-relaxed font-regular">
                                     Free proxies often can&apos;t be trusted with real work, dropped
                                     connections, shared IPs, and zero accountability put your accounts
                                     and data at risk. TorchProxies US residential proxies run on real
