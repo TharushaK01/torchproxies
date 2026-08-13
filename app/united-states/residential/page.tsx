@@ -243,7 +243,7 @@ export default function TorchProxiesLandingPage() {
     return (
         <div className="bg-[#0a0a0a] text-white antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden font-['Urbanist']">
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-            <section className="relative z-0 w-full pt-20 md:pt-28 pb-20 px-6 overflow-hidden flex flex-col items-center justify-center text-white font-['Urbanist'] min-h-[600px]">
+            <section className="relative z-0 w-full pt-20 md:pt-28 pb-24 md:pb-20 px-6 overflow-hidden flex flex-col items-center justify-center text-white font-['Urbanist'] min-h-[600px]">
 
                 {/* 1. Background Image Wrapper */}
                 <div className="absolute inset-0 z-0 w-full h-full pointer-events-none">
@@ -256,18 +256,18 @@ export default function TorchProxiesLandingPage() {
                         sizes="100vw"
                     />
                     {/* Soft Dark Vignette Overlay */}
-                    <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px] z-10" />
+                    <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px] z-10 pointer-events-none" />
                 </div>
 
-                {/* 2. Main Content Wrapper */}
-                <div className="relative z-20 max-w-5xl w-full mx-auto flex flex-col items-center text-center space-y-8 mb-8">
+                {/* 2. Main Content Wrapper (Increased z-index to z-30) */}
+                <div className="relative z-30 max-w-5xl w-full mx-auto flex flex-col items-center text-center space-y-8 mb-8">
                     {/* Trustpilot Badge Header */}
                     <div className="flex items-center justify-center mb-2">
                         <a
                             href="https://www.trustpilot.com/review/torchlabs.xyz"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="cursor-pointer"
+                            className="cursor-pointer relative z-30"
                         >
                             <img
                                 src="/images/TrustPiolet.png"
@@ -279,20 +279,24 @@ export default function TorchProxiesLandingPage() {
                     </div>
 
                     {/* Main Headline */}
-                    <h1 className="text-4xl sm:text-5xl md:text-[72px] font-nregular leading-[1.15] tracking-tight text-white max-w-7xl">
+                    <h1 className="text-4xl sm:text-5xl md:text-[72px] font-normal leading-[1.15] tracking-tight text-white max-w-7xl">
                         Real US Residential Proxies for Scraping &amp; Account Management
                     </h1>
 
                     {/* Subtitle Body Text */}
-                    <p className="text-gray-300 text-sm sm:text-base md:text-[20px] leading-relaxed max-w-5xl font-regular pt-1">
+                    <p className="text-gray-300 text-sm sm:text-base md:text-[20px] leading-relaxed max-w-5xl font-normal pt-1">
                         Real IPs from US home networks, rotating or sticky, targetable down to the state or city, built for scraping Amazon and Walmart, managing accounts, and anything that needs to look like a real American visitor.
                     </p>
 
-                    {/* CTA Buttons */}
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
+                    {/* CTA Buttons Container */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2 w-full max-w-md sm:max-w-none relative z-30">
+
                         {/* PRIMARY BUTTON */}
-                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                        <button
+                            onClick={() => router.push('https://dashboard.torchproxies.com/')}
+                            className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] active:scale-[0.98] touch-manipulation"
+                        >
+                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)] pointer-events-none">
                                 <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
                                     Try free now
                                 </span>
@@ -303,10 +307,13 @@ export default function TorchProxiesLandingPage() {
                         </button>
 
                         {/* SECONDARY BUTTON */}
-                        <button onClick={() => {
-                            document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
-                        }} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-400 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                        <button
+                            onClick={() => {
+                                document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
+                            className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-400 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out active:scale-[0.98] touch-manipulation"
+                        >
+                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)] pointer-events-none">
                                 <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
                                     See Pricing
                                 </span>
@@ -338,15 +345,15 @@ export default function TorchProxiesLandingPage() {
                     </div>
                 </div>
 
-                {/* 3. Marquee Pinned to the Bottom Baseline of the Hero Background Image */}
-                <div className="absolute bottom-0 left-0 w-full z-20">
+                {/* 3. Marquee Container */}
+                <div className="absolute bottom-0 left-0 w-full z-10 pointer-events-none">
                     <Marquee />
                 </div>
 
             </section>
 
             {/* ── SECTION 2: pricing ─────────── */}
-            <section className="bg-[#0a0a0a] text-white py-20 px-6 font-['Urbanist'] mb-[120px]">
+            <section id="pricing" className="bg-[#0a0a0a] text-white py-20 px-6 font-['Urbanist'] mb-[20px]">
                 <div className="flex flex-col items-center text-center w-full">
                     <span className="text-orange-500 font-regular text-[16px] mb-[12px] tracking-widest flex items-center justify-center gap-2">
                         Our products
@@ -491,7 +498,7 @@ export default function TorchProxiesLandingPage() {
                     <div className="flex flex-wrap items-center justify-center gap-2 text-xs text-gray-400">
                         {/* Credit Card Icon */}
                         <Image
-                            src="/images/icons/tab.svg"
+                            src="/images/tab.svg"
                             alt="Credit card icon"
                             width={16}
                             height={16}
@@ -519,10 +526,10 @@ export default function TorchProxiesLandingPage() {
             </section>
 
 
-            <section className="w-full bg-[#0a0a0a] bg-[radial-gradient(ellipse_100%_70%_at_50%_100%,#4A1705_0%,#0a0a0a_100%)] py-16 px-4 text-white font-['Urbanist'] mt-[120px]">
+            <section className="w-full bg-[#0a0a0a] bg-[radial-gradient(ellipse_100%_70%_at_50%_100%,#4A1705_0%,#0a0a0a_100%)] py-16 px-4 text-white font-['Urbanist'] mt-[20px]">
                 {/* ── HEADER ─────────────────────────────────────────────── */}
                 <div className="text-center mb-20">
-                    <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-[14px]">
+                    <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-[14px] uppercase">
                         Features
                     </span>
                     <h2 className="text-[48px] sm:text-[40px] font-regular tracking-tight mb-[14px] text-white">
@@ -576,7 +583,7 @@ export default function TorchProxiesLandingPage() {
                         <span className="text-[#FF4F00] text-xs md:text-sm font-bold tracking-[0.2em] uppercase">
                             WHY RESIDENTIAL
                         </span>
-                        <h2 className="text-3xl md:text-5xl lg:text-[52px] font-normal leading-[1.15] text-white max-w-3xl tracking-tight">
+                        <h2 className="text-3xl md:text-5xl lg:text-[48px] font-normal leading-[1.15] text-white max-w-4xl tracking-tight">
                             Industry leader in fast proxy services <br className="hidden md:block" />
                             for United States
                         </h2>
@@ -646,12 +653,13 @@ export default function TorchProxiesLandingPage() {
             <UseCasesSection />
 
             {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
-            <section className="bg-[#0a0a0a] pb-24 sm:pb-28 mx-[120px] relative overflow-hidden font-['Urbanist']">
+            <section className="bg-[#0a0a0a] pb-16 sm:pb-24 px-4 sm:px-6 md:px-12 relative overflow-hidden font-['Urbanist']">
                 <div className="max-w-7xl mx-auto">
-                    <div className="relative overflow-hidden bg-[#0a0a0a] rounded-[40px] px-8 py-8 text-center">
+                    <div className="relative overflow-hidden bg-[#0a0a0a] rounded-2xl sm:rounded-3xl md:rounded-[40px]">
 
-                        {/* Subtle Radial Glows */}
-                        <div className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden bg-[#0a0a0a]">
+                        {/* Banner Outer Container */}
+                        <div className="relative rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-16 text-center overflow-hidden bg-[#0a0a0a]">
+
                             {/* Background Image Container */}
                             <div className="absolute inset-0 z-0 w-full h-full pointer-events-none">
                                 <Image
@@ -662,68 +670,70 @@ export default function TorchProxiesLandingPage() {
                                     className="object-cover object-center"
                                     sizes="100vw"
                                 />
-                                {/* Optional: Dark overlay to ensure white/gray text stays high contrast and legible */}
-                                <div className="absolute inset-0 bg-black/40 z-10" />
+                                {/* Dark overlay for contrast */}
+                                <div className="absolute inset-0 bg-black/40 z-10 pointer-events-none" />
                             </div>
 
-                            {/* Content Layer (Kept above background image using z-20) */}
+                            {/* Content Layer */}
                             <div className="relative z-20 max-w-full mx-auto">
-                                <h2 className="text-[48px] md:text-[48px] font-medium tracking-tight mb-[16px] leading-[1.1] text-white">
+                                {/* Responsive Heading */}
+                                <h2 className="text-2xl sm:text-3xl md:text-[48px] font-medium tracking-tight mb-3 sm:mb-4 leading-[1.2] text-white">
                                     Ready to Connect from the United States?
                                 </h2>
 
-                                <p className="text-gray-400 text-[18px] max-w-4xl font-regular md:text-xl leading-relaxed mb-12 mx-auto text-center">
+                                {/* Responsive Subtitle */}
+                                <p className="text-gray-300 sm:text-gray-400 text-sm sm:text-base md:text-xl font-normal max-w-3xl leading-relaxed mb-8 sm:mb-10 mx-auto text-center">
                                     Pay-as-you-go pricing, no contracts, money-back guarantee.
                                 </p>
 
-                                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
-                                    {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
+                                {/* Button Container */}
+                                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
                                     <button
                                         onClick={() => router.push('https://dashboard.torchproxies.com/')}
-                                        className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#ffffff] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:scale-[1.02] active:scale-[0.99]"
+                                        className="cursor-pointer group relative w-full sm:w-60 h-[52px] sm:h-[56px] overflow-hidden bg-[#ffffff] text-black font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] active:scale-[0.98] touch-manipulation"
                                     >
-                                        {/* Fast 3D text track wrapper */}
-                                        <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-                                            {/* Default State Text */}
-                                            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)] text-black">
+                                        {/* 3D text track wrapper with pointer-events-none to pass taps directly to button */}
+                                        <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)] pointer-events-none">
+                                            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)] text-black font-semibold">
                                                 Try free now
                                             </span>
 
-                                            {/* Hover State Text */}
-                                            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-black">
+                                            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-black font-semibold">
                                                 Try free now
                                             </span>
                                         </div>
                                     </button>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
-            <section className="pb-24 sm:pb-28 mx-[120px] bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
+            <section className="py-12 sm:py-20 md:pb-28 px-4 sm:px-6 md:px-12 bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
 
                 {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
-                <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
+                <div className="absolute inset-x-0 bottom-0 h-[300px] sm:h-[450px] z-0 pointer-events-none select-none">
                     <Image
-                        src="/images/contact-bg.png" /* Using the same glow asset path */
+                        src="/images/contact-bg.png"
                         alt=""
                         fill
                         priority
                         className="object-cover object-bottom opacity-100"
+                        sizes="100vw"
                     />
                 </div>
 
-                {/* ── Content Wrapper (Added 'relative z-10' so it sits above the background glow) ── */}
+                {/* ── Content Wrapper ── */}
                 <div className="max-w-4xl mx-auto relative z-10">
                     {/* Header */}
-                    <div className="text-center mb-16">
-                        <span className="text-[#FE4A01] text-xs font-medium tracking-widest block mb-3">
+                    <div className="text-center mb-8 sm:mb-16">
+                        <span className="text-[#FE4A01] text-xs font-medium tracking-widest block mb-2 sm:mb-3 uppercase">
                             FAQ
                         </span>
-                        <h2 className="text-4xl sm:text-5xl font_regular tracking-tight text-white">
+                        <h2 className="text-2xl sm:text-4xl md:text-5xl font-normal tracking-tight text-white">
                             Frequently asked questions
                         </h2>
                     </div>
@@ -739,17 +749,22 @@ export default function TorchProxiesLandingPage() {
                                 >
                                     <button
                                         onClick={() => setActiveFaq(isOpen ? null : index)}
-                                        className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors"
+                                        className="w-full text-left py-4 sm:py-6 flex items-center justify-between text-base sm:text-lg font-medium text-stone-200 hover:text-white transition-colors cursor-pointer touch-manipulation min-h-[48px]"
+                                        aria-expanded={isOpen}
                                     >
-                                        <span>{faq.q}</span>
+                                        <span className="pr-4 leading-snug">{faq.q}</span>
                                         <ChevronDown
-                                            className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
+                                            className={`w-5 h-5 text-stone-400 shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'
+                                                }`}
                                         />
                                     </button>
 
                                     {/* Answer */}
-                                    <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
-                                        <p className="text-stone-400 text-[15px] leading-relaxed pr-10">
+                                    <div
+                                        className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[500px] pb-5 sm:pb-6 opacity-100' : 'max-h-0 opacity-0'
+                                            }`}
+                                    >
+                                        <p className="text-stone-400 text-sm sm:text-[15px] leading-relaxed pr-2 sm:pr-10">
                                             {faq.a.split("<br/>").map((line, i, arr) => (
                                                 <React.Fragment key={i}>
                                                     {line}
@@ -764,8 +779,8 @@ export default function TorchProxiesLandingPage() {
                     </div>
                 </div>
 
-                {/* Bottom Gradient Overlay - Blends beautifully with your new image background */}
-                <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent pointer-events-none z-0" />
+                {/* Bottom Gradient Overlay */}
+                <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent pointer-events-none z-0" />
             </section>
 
         </div>
