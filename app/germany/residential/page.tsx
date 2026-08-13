@@ -285,7 +285,7 @@ export default function TorchProxiesLandingPage() {
 
                     {/* Subtitle Body Text */}
                     <p className="text-gray-300 text-sm sm:text-base md:text-[20px] leading-relaxed max-w-5xl font-normal pt-1">
-Residential IPs sourced from real German ISPs  Deutsche Telekom, Vodafone, 1&1  with city and Bundesland-level targeting, built for reading Amazon.de and Zalando, under Germany's strict data rules.
+                        Residential IPs sourced from real German ISPs  Deutsche Telekom, Vodafone, 1&1  with city and Bundesland-level targeting, built for reading Amazon.de and Zalando, under Germany's strict data rules.
                     </p>
 
                     {/* CTA Buttons Container */}
@@ -598,13 +598,13 @@ Residential IPs sourced from real German ISPs  Deutsche Telekom, Vodafone, 1&1  
                         <div className="lg:col-span-5 bg-[#0B0B0B] border border-[#FFFFFF]/10 rounded-3xl p-8 md:p-10 flex flex-col justify-between space-y-8 backdrop-blur-sm">
                             <div className="space-y-6">
                                 <h3 className="text-3xl md:text-4xl font-normal leading-tight text-white tracking-tight">
-                                    TorchProxies <br/>
+                                    TorchProxies <br />
                                     Germany <br />
                                     Residential Proxy <br />
                                     Advantage
                                 </h3>
                                 <p className="text-[#858697] text-base md:text-[18px] leading-relaxed font-regular">
-Free proxies don't hold up against Germany's strict platforms and even stricter data rules, expect blocks, drops, and IPs that are already flagged. TorchProxies Germany residential proxies run on genuine household connections built for stability under GDPR-compliant infrastructure.                                </p>
+                                    Free proxies don't hold up against Germany's strict platforms and even stricter data rules, expect blocks, drops, and IPs that are already flagged. TorchProxies Germany residential proxies run on genuine household connections built for stability under GDPR-compliant infrastructure.                                </p>
                             </div>
                         </div>
 

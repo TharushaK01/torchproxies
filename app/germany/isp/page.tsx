@@ -546,6 +546,8 @@ export default function TorchProxiesLandingPage() {
                             Industry leader in fast proxy services <br className="hidden md:block" />
                             for Germany
                         </h2>
+                        <p className="text-white/67 text-base md:text-[18px] leading-relaxed font-regular w-full max-w-6xl mt-[24px]">
+                            TorchLabs' Germany proxies are among the fastest in the market. Reliable, stable, and highly anonymous Germany proxies allow you to scrape complex targets at any scale. Get your web scraping and automation tasks done faster with TorchLabs' Germany proxy IPs.</p>
                     </div>
 
                     {/* Asymmetric Grid Layout */}
