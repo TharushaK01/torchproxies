@@ -285,7 +285,7 @@ export default function TorchProxiesLandingPage() {
 
                     {/* Subtitle Body Text */}
                     <p className="text-gray-300 text-sm sm:text-base md:text-[20px] leading-relaxed max-w-5xl font-normal pt-1">
-Genuine UK household IPs for browsing, scraping, and account management that hold up to scrutiny, built for teams that need to look like a real visitor in UK, not a server in a data center.                    </p>
+                        Genuine UK household IPs for browsing, scraping, and account management that hold up to scrutiny, built for teams that need to look like a real visitor in UK, not a server in a data center.                    </p>
 
                     {/* CTA Buttons Container */}
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2 w-full max-w-md sm:max-w-none relative z-30">

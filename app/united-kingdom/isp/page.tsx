@@ -198,21 +198,21 @@ export default function TorchProxiesLandingPage() {
             a: "The speed and latency of location-based proxies can vary depending on the specific location and the distance from your actual location. However, we strive to provide high-speed and low-latency connections for optimal performance."
         },
     ];
-const ispPlan = {
-  name: "ISP",
-  desc: "Static residential proxies with unlimited data.",
-  price: "From $4/GB per IP",
-  icon: "/images/isp-icon.svg",
-  features: [
-    "Reliable and Stable Connections",
-    "ISP-grade Anonymity",
-    "Best for Crypto, ticketing, web scraping, sneaker drops, social media, Pokémon, and Spotify automation.",
-    "Quick Setup and Instant Activation",
-    "Versatility Across Applications",
-    "24/7 Dedicated Support",
-    "Global Coverage with Regional Optimization",
-  ],
-};
+    const ispPlan = {
+        name: "ISP",
+        desc: "Static residential proxies with unlimited data.",
+        price: "From $4/GB per IP",
+        icon: "/images/isp-icon.svg",
+        features: [
+            "Reliable and Stable Connections",
+            "ISP-grade Anonymity",
+            "Best for Crypto, ticketing, web scraping, sneaker drops, social media, Pokémon, and Spotify automation.",
+            "Quick Setup and Instant Activation",
+            "Versatility Across Applications",
+            "24/7 Dedicated Support",
+            "Global Coverage with Regional Optimization",
+        ],
+    };
 
     return (
         <div className="bg-[#0a0a0a] text-white antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden font-['Urbanist']">
@@ -346,73 +346,73 @@ const ispPlan = {
                     ))}
                 </div>
 
-<div className="max-w-3xl mx-auto mb-8 px-4 font-['Urbanist']">
-  <div className="relative p-6 sm:p-8 rounded-3xl border-2 border-[#ff4500]/80 bg-[#060606] shadow-[0_0_50px_rgba(255,69,0,0.18)] transition-all">
-    
-    {/* ── TOP HEADER SECTION ── */}
-    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
-      
-      {/* Left: Icon, Name & Description */}
-      <div className="flex items-center gap-4">
-        {/* Rounded Orange Icon Box */}
-<div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#ff4500] flex items-center justify-center p-3 shrink-0 shadow-[0_0_20px_rgba(255,69,0,0.4)]">
-  <img
-    src={ispPlan.icon}
-    alt={`${ispPlan.name} icon`}
-    className="w-full h-full object-contain" 
-  />
-</div>
+                <div className="max-w-3xl mx-auto mb-8 px-4 font-['Urbanist']">
+                    <div className="relative p-6 sm:p-8 rounded-3xl border-2 border-[#ff4500]/80 bg-[#060606] shadow-[0_0_50px_rgba(255,69,0,0.18)] transition-all">
 
-        <div>
-          <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-            {ispPlan.name}
-          </h3>
-          <p className="text-stone-400 text-xs sm:text-sm font-normal">
-            {ispPlan.desc}
-          </p>
-        </div>
-      </div>
+                        {/* ── TOP HEADER SECTION ── */}
+                        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
 
-      {/* Right: Top-Right Price Badge */}
-      <div className="self-start">
-        <span className="inline-block bg-[#1a0a03] text-[#ff4500] border border-[#ff4500]/30 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap">
-          {ispPlan.price}
-        </span>
-      </div>
-    </div>
+                            {/* Left: Icon, Name & Description */}
+                            <div className="flex items-center gap-4">
+                                {/* Rounded Orange Icon Box */}
+                                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#ff4500] flex items-center justify-center p-3 shrink-0 shadow-[0_0_20px_rgba(255,69,0,0.4)]">
+                                    <img
+                                        src={ispPlan.icon}
+                                        alt={`${ispPlan.name} icon`}
+                                        className="w-full h-full object-contain"
+                                    />
+                                </div>
 
-    {/* ── FEATURE LIST ── */}
-    <ul className="space-y-3.5 mb-8">
-      {ispPlan.features.map((feat, idx) => (
-        <li key={idx} className="flex items-start gap-3 text-[16px] sm:text-sm text-stone-400 leading-relaxed">
-          <Check className="text-[#00E5A3] w-4 h-4 shrink-0 mt-0.5" />
-          <span>{feat}</span>
-        </li>
-      ))}
-    </ul>
+                                <div>
+                                    <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                                        {ispPlan.name}
+                                    </h3>
+                                    <p className="text-stone-400 text-xs sm:text-sm font-normal">
+                                        {ispPlan.desc}
+                                    </p>
+                                </div>
+                            </div>
 
-    {/* ── CTA BUTTON ── */}
-    <button
-      onClick={() => router.push('https://dashboard.torchproxies.com/')}
-      className="group relative overflow-hidden w-full h-[50px] bg-[#121212] border border-stone-800 hover:border-stone-700 text-stone-300 hover:text-white font-semibold rounded-xl transition-all duration-200 ease-out active:scale-[0.99] cursor-pointer touch-manipulation"
-    >
-      {/* Snappy 3D text track wrapper */}
-      <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)] pointer-events-none">
-        
-        {/* Default State Text */}
-        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)] text-[14px] text-white">
-          Try for free
-        </span>
+                            {/* Right: Top-Right Price Badge */}
+                            <div className="self-start">
+                                <span className="inline-block bg-[#1a0a03] text-[#ff4500] border border-[#ff4500]/30 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap">
+                                    {ispPlan.price}
+                                </span>
+                            </div>
+                        </div>
 
-        {/* Hover State Text */}
-        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-[14px] text-white">
-          Try for free
-        </span>
-      </div>
-    </button>
+                        {/* ── FEATURE LIST ── */}
+                        <ul className="space-y-3.5 mb-8">
+                            {ispPlan.features.map((feat, idx) => (
+                                <li key={idx} className="flex items-start gap-3 text-[16px] sm:text-sm text-stone-400 leading-relaxed">
+                                    <Check className="text-[#00E5A3] w-4 h-4 shrink-0 mt-0.5" />
+                                    <span>{feat}</span>
+                                </li>
+                            ))}
+                        </ul>
 
-  </div>
-</div>
+                        {/* ── CTA BUTTON ── */}
+                        <button
+                            onClick={() => router.push('https://dashboard.torchproxies.com/')}
+                            className="group relative overflow-hidden w-full h-[50px] bg-[#121212] border border-stone-800 hover:border-stone-700 text-stone-300 hover:text-white font-semibold rounded-xl transition-all duration-200 ease-out active:scale-[0.99] cursor-pointer touch-manipulation"
+                        >
+                            {/* Snappy 3D text track wrapper */}
+                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)] pointer-events-none">
+
+                                {/* Default State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)] text-[14px] text-white">
+                                    Try for free
+                                </span>
+
+                                {/* Hover State Text */}
+                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-[14px] text-white">
+                                    Try for free
+                                </span>
+                            </div>
+                        </button>
+
+                    </div>
+                </div>
                 <div className="w-full py-6 px-4 text-gray-300 font-['Urbanist'] select-none flex flex-col items-center justify-center gap-4 text-sm font-medium">
 
                     {/* Top Row: Value Proposition Badges */}
@@ -560,7 +560,7 @@ const ispPlan = {
                                     Advantage
                                 </h3>
                                 <p className="text-[#A39590] text-base md:text-[17px] leading-relaxed font-normal">
-A banking portal, an Amazon.co.uk seller account, a ticketing site,  switch the IP behind any of them mid-session and expect a lockout, not a smooth login. TorchProxies UK ISP proxies hold one static, UK-registered address for as long as your session runs.                                </p>
+                                    A banking portal, an Amazon.co.uk seller account, a ticketing site,  switch the IP behind any of them mid-session and expect a lockout, not a smooth login. TorchProxies UK ISP proxies hold one static, UK-registered address for as long as your session runs.                                </p>
                             </div>
                         </div>
 
