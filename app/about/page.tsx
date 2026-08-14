@@ -2,47 +2,44 @@
 
 import React, { useState, useEffect } from 'react';
 import { obvia } from '../about/fonts';
-import { Flame } from 'lucide-react';
-import Image from 'next/image';
-import { Urbanist } from 'next/font/google';
-import {
-  ShieldCheck,
-  Zap,
-  Lock,
-  Globe,
-  ArrowRight,
-  Star
-} from 'lucide-react';
+import Image from 'next/image'
+import { Urbanist, Smooch_Sans } from 'next/font/google'
+import { Star } from 'lucide-react';
 import DepthCarousel from '../../components/DepthCarousel';
 import { motion } from 'framer-motion';
 
+const smoochSans = Smooch_Sans({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-smooch-sans',
+});
 
 
-    const reviews = [
-        {
-            name: "Black Bear",
-            role: "Verified Customer",
-            text: "If you are buy proxies anywhere you should buy them here. Nice guys who work hard. Communication is good and there is always help where needed. Can't recommend a better company for proxies.",
-            stars: 5,
-            avatar: null// Path to your custom pixel bear photo
-        },
-        {
-            name: "Ishak",
-            role: "Verified Customer",
-            text: "Torch Proxies offers a fantastic proxy service at a very competitive price. The connection speeds are fast, and the service is incredibly reliable. I've had a positive experience with their customer support as well.",
-            stars: 5,
-            initials: "IS", // Fallback for a soft green initial circle
-            avatar: null
-        },
-        {
-            name: "Edith Shamaiah",
-            role: "Verified Customer",
-            text: "Best proxies in the market! Top notch customer experience!",
-            stars: 4,
-            initials: "E", // Fallback for a purple initial circle
-            avatar: null
-        }
-    ];
+const reviews = [
+  {
+    name: "Black Bear",
+    role: "Verified Customer",
+    text: "If you are buy proxies anywhere you should buy them here. Nice guys who work hard. Communication is good and there is always help where needed. Can't recommend a better company for proxies.",
+    stars: 5,
+    avatar: null// Path to your custom pixel bear photo
+  },
+  {
+    name: "Ishak",
+    role: "Verified Customer",
+    text: "Torch Proxies offers a fantastic proxy service at a very competitive price. The connection speeds are fast, and the service is incredibly reliable. I've had a positive experience with their customer support as well.",
+    stars: 5,
+    initials: "IS", // Fallback for a soft green initial circle
+    avatar: null
+  },
+  {
+    name: "Edith Shamaiah",
+    role: "Verified Customer",
+    text: "Best proxies in the market! Top notch customer experience!",
+    stars: 4,
+    initials: "E", // Fallback for a purple initial circle
+    avatar: null
+  }
+];
 
 
 const journeyData = [
@@ -225,8 +222,6 @@ const urbanist = Urbanist({
 
 export default function AboutUsPage() {
 
-
-
   const avatars = [
     { top: "38%", left: "12%", delay: 1.35, src: "/images/avatars/person-1.svg" },
     { top: "26%", left: "22%", delay: 1.62, src: "/images/avatars/person-2.svg" },
@@ -274,27 +269,27 @@ export default function AboutUsPage() {
   const offset = (centerIndex - 1) * 33.3333;
 
   return (
-    <main className={`${urbanist.variable} ${obvia.variable} min-h-screen text-white selection:text-white mt-[160px]`}>
+    <main className={`${urbanist.variable} ${obvia.variable} ${smoochSans.variable} min-h-screen text-white selection:text-white mt-[160px]`}>
 
       {/* 1. HERO SECTION */}
       <section className="relative max-w-7xl mx-auto px-6 pt-16 pb-20 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
         <div className="md:col-span-8 space-y-6">
           {/* Trustpilot Badge */}
-          <Image
+          <Image 
             src="/images/TrustPiolet.png"
             alt="Trustpilot rating"
             width={250}
             height={24}
           />
           {/* Heading */}
-          <h1 className="text-[60px] md:text-[60px] leading-tight">
-            <span className="text-white font-bold font-obvia">Torch</span>
-            <span className="text-white font-thin font-obvia">Proxies</span>
-          </h1>
-          <p className="text-[76px] md:text-[76px] leading-tight">
-            <span className="text-white font-obvia">Built for people who </span>
-            <span className="font-obvia text-[#FE4A01]"> can't afford downtime.</span>
-          </p>
+<h1 className="text-[68px] md:text-[68px] -mb-2">
+  <span className="text-white font-bold font-['Smooch_Sans']">Torch</span>
+  <span className="text-white font-thin font-['Smooch_Sans']">Proxies</span>
+</h1>
+<p className="text-[76px] md:text-[76px] leading-[1.2]">
+  <span className="text-white font-obvia">Built for people who </span>
+  <span className="font-obvia text-[#FE4A01]"> can't afford downtime.</span>
+</p>
         </div>
 
         {/* Silver Flame Graphic */}
@@ -623,215 +618,215 @@ export default function AboutUsPage() {
           {/* Bottom Card 2: Animated Globe Graphic Card (Spans 2 columns) */}
           <div className="md:col-span-2 bg-[#0b0c0e] border border-[#1b1e26] rounded-[24px] p-8 relative overflow-hidden flex flex-col md:flex-row items-center justify-between p-8">
 
-<motion.div
-  className="md:col-span-3 w-full bg-[#0b0c0e] rounded-[24px] p-6 relative overflow-hidden flex flex-col md:flex-row items-center justify-between"
-  initial={{ scale: 1 }}
-  animate={{ scale: [1, 1.01, 1] }}
-  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
->
-  {/* ===== LEFT SIDE – Stats ===== */}
-  <div className="space-y-3 z-20 w-full md:w-auto">
-    {/* Residential IPs */}
-<div className="flex flex-col gap-5 z-20">
-  {/* 1. Residential IPs Card (Staggered Right) */}
-  <motion.div
-    initial={{ width: 140, height: 60, opacity: 0, x: -20 }}
-    animate={{ width: 190, height: 72, opacity: 1, x: 0 }}
-    transition={{
-      width: { duration: 2.2, ease: [0, 0, 0.58, 1] },
-      height: { duration: 2.2, ease: [0, 0, 0.58, 1] },
-      opacity: { duration: 0.5 },
-      x: { duration: 0.6, ease: "easeOut" },
-    }}
-    /* Added ml-12 to push the top card to the right */
-    className="ml-12 relative bg-[#1c1d22] border border-[#2a2c35] rounded-2xl px-4 py-3 shadow-[0_0_15px_rgba(0,0,0,0.5)] flex items-center gap-3 overflow-hidden"
-  >
-    {/* Vertical Orange Accent Line */}
-    <div className="w-[2.5px] h-full min-h-[38px] bg-[#FE4A01] rounded-full flex-shrink-0" />
+            <motion.div
+              className="md:col-span-3 w-full bg-[#0b0c0e] rounded-[24px] p-6 relative overflow-hidden flex flex-col md:flex-row items-center justify-between"
+              initial={{ scale: 1 }}
+              animate={{ scale: [1, 1.01, 1] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            >
+              {/* ===== LEFT SIDE – Stats ===== */}
+              <div className="space-y-3 z-20 w-full md:w-auto">
+                {/* Residential IPs */}
+                <div className="flex flex-col gap-5 z-20">
+                  {/* 1. Residential IPs Card (Staggered Right) */}
+                  <motion.div
+                    initial={{ width: 140, height: 60, opacity: 0, x: -20 }}
+                    animate={{ width: 190, height: 72, opacity: 1, x: 0 }}
+                    transition={{
+                      width: { duration: 2.2, ease: [0, 0, 0.58, 1] },
+                      height: { duration: 2.2, ease: [0, 0, 0.58, 1] },
+                      opacity: { duration: 0.5 },
+                      x: { duration: 0.6, ease: "easeOut" },
+                    }}
+                    /* Added ml-12 to push the top card to the right */
+                    className="ml-12 relative bg-[#1c1d22] border border-[#2a2c35] rounded-2xl px-4 py-3 shadow-[0_0_15px_rgba(0,0,0,0.5)] flex items-center gap-3 overflow-hidden"
+                  >
+                    {/* Vertical Orange Accent Line */}
+                    <div className="w-[2.5px] h-full min-h-[38px] bg-[#FE4A01] rounded-full flex-shrink-0" />
 
-    {/* Text Content */}
-    <div className="flex flex-col justify-center">
-      <span className="text-[12px] text-gray-400 font-normal leading-none mb-1">
-        Residential IPs
-      </span>
-      <span className="text-xl font-bold text-white tracking-tight leading-none">
-        4,429,824+
-      </span>
-    </div>
-  </motion.div>
+                    {/* Text Content */}
+                    <div className="flex flex-col justify-center">
+                      <span className="text-[12px] text-gray-400 font-normal leading-none mb-1">
+                        Residential IPs
+                      </span>
+                      <span className="text-xl font-bold text-white tracking-tight leading-none">
+                        4,429,824+
+                      </span>
+                    </div>
+                  </motion.div>
 
-  {/* 2. ISP IPs Card (Aligned Left) */}
-  <motion.div
-    initial={{ width: 140, height: 60, opacity: 0, x: -20 }}
-    animate={{ width: 190, height: 72, opacity: 1, x: 0 }}
-    transition={{
-      width: { duration: 2.2, delay: 0.05, ease: [0, 0, 0.58, 1] },
-      height: { duration: 2.2, delay: 0.05, ease: [0, 0, 0.58, 1] },
-      opacity: { duration: 0.5, delay: 0.1 },
-      x: { duration: 0.6, delay: 0.1, ease: "easeOut" },
-    }}
-    className="relative bg-[#1c1d22] border border-[#2a2c35] rounded-2xl px-4 py-3 shadow-[0_0_15px_rgba(0,0,0,0.5)] flex items-center gap-3 overflow-hidden"
-  >
-    {/* Vertical Orange Accent Line */}
-    <div className="w-[2.5px] h-full min-h-[38px] bg-[#FE4A01] rounded-full flex-shrink-0" />
+                  {/* 2. ISP IPs Card (Aligned Left) */}
+                  <motion.div
+                    initial={{ width: 140, height: 60, opacity: 0, x: -20 }}
+                    animate={{ width: 190, height: 72, opacity: 1, x: 0 }}
+                    transition={{
+                      width: { duration: 2.2, delay: 0.05, ease: [0, 0, 0.58, 1] },
+                      height: { duration: 2.2, delay: 0.05, ease: [0, 0, 0.58, 1] },
+                      opacity: { duration: 0.5, delay: 0.1 },
+                      x: { duration: 0.6, delay: 0.1, ease: "easeOut" },
+                    }}
+                    className="relative bg-[#1c1d22] border border-[#2a2c35] rounded-2xl px-4 py-3 shadow-[0_0_15px_rgba(0,0,0,0.5)] flex items-center gap-3 overflow-hidden"
+                  >
+                    {/* Vertical Orange Accent Line */}
+                    <div className="w-[2.5px] h-full min-h-[38px] bg-[#FE4A01] rounded-full flex-shrink-0" />
 
-    {/* Text Content */}
-    <div className="flex flex-col justify-center">
-      <span className="text-[12px] text-gray-400 font-normal leading-none mb-1">
-        ISP IPs
-      </span>
-      <span className="text-xl font-bold text-white tracking-tight leading-none">
-        5,604,857 +
-      </span>
-    </div>
-  </motion.div>
-</div>
-  </div>
+                    {/* Text Content */}
+                    <div className="flex flex-col justify-center">
+                      <span className="text-[12px] text-gray-400 font-normal leading-none mb-1">
+                        ISP IPs
+                      </span>
+                      <span className="text-xl font-bold text-white tracking-tight leading-none">
+                        5,604,857 +
+                      </span>
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
 
-  {/* ===== RIGHT SIDE ===== */}
-  {/* CHANGED: Reduced container height from h-[320px] to h-[230px] */}
-  <div className="relative w-full md:w-[460px] h-[180px] flex items-center justify-center mt-6 md:mt-0">
-    {/* Soft glow behind the globe */}
-    <div className="absolute bottom-0 right-10 w-72 h-32 rounded-full bg-[#ff4500]/10 blur-3xl pointer-events-none" />
+              {/* ===== RIGHT SIDE ===== */}
+              {/* CHANGED: Reduced container height from h-[320px] to h-[230px] */}
+              <div className="relative w-full md:w-[460px] h-[180px] flex items-center justify-center mt-6 md:mt-0">
+                {/* Soft glow behind the globe */}
+                <div className="absolute bottom-0 right-10 w-72 h-32 rounded-full bg-[#ff4500]/10 blur-3xl pointer-events-none" />
 
-    {/* Half Globe Image */}
-    {/* CHANGED: Scaled globe down to match new shorter height */}
-    <div className="absolute bottom-[-80px] right-[-10px] w-[500px] h-[190px] overflow-hidden">
-      <Image
-        src="/images/half-globe.png"
-        alt="Half Globe"
-        width={1200}
-        height={700}
-        className="object-cover object-top select-none pointer-events-none"
-        priority
-      />
-    </div>
+                {/* Half Globe Image */}
+                {/* CHANGED: Scaled globe down to match new shorter height */}
+                <div className="absolute bottom-[-80px] right-[-10px] w-[500px] h-[190px] overflow-hidden">
+                  <Image
+                    src="/images/half-globe.png"
+                    alt="Half Globe"
+                    width={1200}
+                    height={700}
+                    className="object-cover object-top select-none pointer-events-none"
+                    priority
+                  />
+                </div>
 
-    {/* Center Pin */}
-    <div className="absolute z-30 flex flex-col items-center" style={{ top: "18%" }}>
-      <motion.div
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-        className="bg-[#ff4500] text-white text-[11px] font-bold px-3 py-0.5 rounded-full shadow-[0_0_16px_#ff4500aa] mb-0.5 mt-20"
-      >
-        Real IPs
-      </motion.div>
+                {/* Center Pin */}
+                <div className="absolute z-30 flex flex-col items-center" style={{ top: "18%" }}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                    className="bg-[#ff4500] text-white text-[11px] font-bold px-3 py-0.5 rounded-full shadow-[0_0_16px_#ff4500aa] mb-0.5 mt-20"
+                  >
+                    Real IPs
+                  </motion.div>
 
-      <motion.div
-        animate={{ y: [0, -4, 0] }}
-        transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
-      >
-        <svg width="18" height="22" viewBox="0 0 24 32" fill="none">
-          <path
-            d="M12 0C5.4 0 0 5.4 0 12c0 9 12 20 12 20s12-11 12-20c0-6.6-5.4-12-12-12z"
-            fill="#ff4500"
-          />
-          <circle cx="12" cy="12" r="5" fill="#0b0c0e" />
-        </svg>
-      </motion.div>
+                  <motion.div
+                    animate={{ y: [0, -4, 0] }}
+                    transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
+                  >
+                    <svg width="18" height="22" viewBox="0 0 24 32" fill="none">
+                      <path
+                        d="M12 0C5.4 0 0 5.4 0 12c0 9 12 20 12 20s12-11 12-20c0-6.6-5.4-12-12-12z"
+                        fill="#ff4500"
+                      />
+                      <circle cx="12" cy="12" r="5" fill="#0b0c0e" />
+                    </svg>
+                  </motion.div>
 
-      <span className="mt-0.5 text-[10px] font-semibold text-white bg-black/70 px-2 py-0.5 rounded border border-gray-700/60">
-        TorchProxies
-      </span>
-    </div>
+                  <span className="mt-0.5 text-[10px] font-semibold text-white bg-black/70 px-2 py-0.5 rounded border border-gray-700/60">
+                    TorchProxies
+                  </span>
+                </div>
 
-    {/* Labels */}
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.5 }}
-      className="absolute top-0 left-1/2 -translate-x-1/2 bg-black/80 text-[10px] text-gray-300 font-medium px-2.5 py-0.5 rounded-full border border-gray-700/50 mt-12"
-    >
-      24/7 support
-    </motion.div>
+                {/* Labels */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                  className="absolute top-0 left-1/2 -translate-x-1/2 bg-black/80 text-[10px] text-gray-300 font-medium px-2.5 py-0.5 rounded-full border border-gray-700/50 mt-12"
+                >
+                  24/7 support
+                </motion.div>
 
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.55 }}
-      className="absolute top-8 left-4 bg-black/80 text-[10px] text-gray-300 font-medium px-2.5 py-0.5 rounded-full border border-gray-700/50 mt-12"
-    >
-      High Speed
-    </motion.div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.55 }}
+                  className="absolute top-8 left-4 bg-black/80 text-[10px] text-gray-300 font-medium px-2.5 py-0.5 rounded-full border border-gray-700/50 mt-12"
+                >
+                  High Speed
+                </motion.div>
 
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.6 }}
-      className="absolute top-8 right-4 bg-black/80 text-[10px] text-gray-300 font-medium px-2.5 py-0.5 rounded-full border border-gray-700/50 mt-12"
-    >
-      195 Countries
-    </motion.div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.6 }}
+                  className="absolute top-8 right-4 bg-black/80 text-[10px] text-gray-300 font-medium px-2.5 py-0.5 rounded-full border border-gray-700/50 mt-12"
+                >
+                  195 Countries
+                </motion.div>
 
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.65 }}
-      className="absolute bottom-[10px] -left-4 bg-black/80 text-[10px] text-gray-300 font-medium px-2.5 py-0.5 rounded-full border border-gray-700/50 mt-12"
-    >
-      90M+ IP Pool
-    </motion.div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.65 }}
+                  className="absolute bottom-[10px] -left-4 bg-black/80 text-[10px] text-gray-300 font-medium px-2.5 py-0.5 rounded-full border border-gray-700/50 mt-12"
+                >
+                  90M+ IP Pool
+                </motion.div>
 
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.7 }}
-      className="absolute bottom-[2px] right-2 bg-black/80 text-[10px] text-gray-300 font-medium px-2.5 py-0.5 rounded-full border border-gray-700/50 mt-12"
-    >
-      99.9% uptime
-    </motion.div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.7 }}
+                  className="absolute bottom-[2px] right-2 bg-black/80 text-[10px] text-gray-300 font-medium px-2.5 py-0.5 rounded-full border border-gray-700/50 mt-12"
+                >
+                  99.9% uptime
+                </motion.div>
 
-    {/* Avatar Circles */}
-    {avatars.map((pos, i) => (
-      <motion.div
-        key={i}
-        initial={{ opacity: 0, scale: 0.6 }}
-        animate={{
-          opacity: 1,
-          scale: [0.6, 1.1, 1],
-          y: [0, -4, 0],
-          x: [0, i % 2 === 0 ? 3 : -3, 0],
-        }}
-        transition={{
-          opacity: { duration: 0.4, delay: pos.delay * 0.3 },
-          scale: {
-            duration: 0.5,
-            delay: pos.delay * 0.3,
-            times: [0, 0.7, 1],
-            ease: [0, 0, 0.58, 1],
-          },
-          y: {
-            repeat: Infinity,
-            duration: 3.2 + i * 0.2,
-            ease: "easeInOut",
-            delay: pos.delay * 0.2,
-          },
-          x: {
-            repeat: Infinity,
-            duration: 4 + i * 0.15,
-            ease: "easeInOut",
-            delay: pos.delay * 0.15,
-          },
-        }}
-        className="absolute w-8 h-8 rounded-full border-2 border-[#ff4500]/80 overflow-hidden shadow-lg z-20 mt-13"
-        style={{
-          top: pos.top,
-          left: pos.left,
-          right: pos.right,
-        }}
-      >
-        <Image
-          src={pos.src}
-          alt="User avatar"
-          fill
-          className="object-cover"
-          sizes="32px"
-        />
-      </motion.div>
-    ))}
-  </div>
-</motion.div>
+                {/* Avatar Circles */}
+                {avatars.map((pos, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, scale: 0.6 }}
+                    animate={{
+                      opacity: 1,
+                      scale: [0.6, 1.1, 1],
+                      y: [0, -4, 0],
+                      x: [0, i % 2 === 0 ? 3 : -3, 0],
+                    }}
+                    transition={{
+                      opacity: { duration: 0.4, delay: pos.delay * 0.3 },
+                      scale: {
+                        duration: 0.5,
+                        delay: pos.delay * 0.3,
+                        times: [0, 0.7, 1],
+                        ease: [0, 0, 0.58, 1],
+                      },
+                      y: {
+                        repeat: Infinity,
+                        duration: 3.2 + i * 0.2,
+                        ease: "easeInOut",
+                        delay: pos.delay * 0.2,
+                      },
+                      x: {
+                        repeat: Infinity,
+                        duration: 4 + i * 0.15,
+                        ease: "easeInOut",
+                        delay: pos.delay * 0.15,
+                      },
+                    }}
+                    className="absolute w-8 h-8 rounded-full border-2 border-[#ff4500]/80 overflow-hidden shadow-lg z-20 mt-13"
+                    style={{
+                      top: pos.top,
+                      left: pos.left,
+                      right: pos.right,
+                    }}
+                  >
+                    <Image
+                      src={pos.src}
+                      alt="User avatar"
+                      fill
+                      className="object-cover"
+                      sizes="32px"
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
 
 
 
@@ -883,76 +878,74 @@ export default function AboutUsPage() {
           </div>
 
           {/* Right Column: Packages with Orange Front Arrow Icons */}
-{/* Right Column: Packages */}
-<div className="lg:col-span-7 space-y-3">
-  {[
-    {
-      title: 'Data Center Proxies',
-      desc: 'Reliable and affordable with rotating residential proxies and optional static sessions perfect for everyday online tasks.',
-    },
-    {
-      title: 'Premium Residential',
-      desc: 'Enhanced speed and reliability with rotating residential proxies and static sessions ideal for demanding users and businesses.',
-    },
-    {
-      title: 'Static Residential',
-      desc: 'Plan X blends residential IPs for authenticity with ISP IPs for speed and stability, creating a hybrid network built for high-performance scraping, automation, and content access.',
-    },
-    {
-      title: 'ISP Proxies',
-      desc: 'Static residential proxies with unlimited data. Ideal for sneaker botting, scraping and automation.',
-    },
-    {
-      title: 'Custom Tailored',
-      desc: 'Access fast mobile IPs with sticky sessions and precise targeting optimized for scraping, automation, and social media workflows',
-      badge: 'Coming Soon',
-    },
-  ].map((pkg, idx, array) => {
-    // Check if it is the last item
-    const isLastItem = idx === array.length - 1;
+          {/* Right Column: Packages */}
+          <div className="lg:col-span-7 space-y-3">
+            {[
+              {
+                title: 'Data Center Proxies',
+                desc: 'Reliable and affordable with rotating residential proxies and optional static sessions perfect for everyday online tasks.',
+              },
+              {
+                title: 'Premium Residential',
+                desc: 'Enhanced speed and reliability with rotating residential proxies and static sessions ideal for demanding users and businesses.',
+              },
+              {
+                title: 'Static Residential',
+                desc: 'Plan X blends residential IPs for authenticity with ISP IPs for speed and stability, creating a hybrid network built for high-performance scraping, automation, and content access.',
+              },
+              {
+                title: 'ISP Proxies',
+                desc: 'Static residential proxies with unlimited data. Ideal for sneaker botting, scraping and automation.',
+              },
+              {
+                title: 'Custom Tailored',
+                desc: 'Access fast mobile IPs with sticky sessions and precise targeting optimized for scraping, automation, and social media workflows',
+                badge: 'Coming Soon',
+              },
+            ].map((pkg, idx, array) => {
+              // Check if it is the last item
+              const isLastItem = idx === array.length - 1;
 
-    return (
-      <div
-        key={idx}
-        /* ADDED: Dynamic opacity-40 and grayscale for the last item */
-        className={`bg-[#0e1015] border border-[#1b1e26] rounded-xl p-4 flex items-center justify-between gap-4 transition-all duration-300 ${
-          isLastItem
-            ? 'opacity-40 hover:opacity-60 border-dashed border-[#232733]' 
-            : 'hover:border-[#ff4500]/40'
-        }`}
-      >
-        <div className="flex items-center gap-4">
-          {/* Orange background with white icon inside */}
-          <div
-            className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md ${
-              isLastItem
-                ? 'bg-[#1e1410] border border-[#ff5500]/20'
-                : 'bg-gradient-to-br from-[#ff5500] to-[#e03e00] shadow-orange-950/40'
-            }`}
-          >
-            <Image
-              src="/images/products.svg"
-              alt="Arrow Right Icon"
-              width={20}
-              height={20}
-            />
+              return (
+                <div
+                  key={idx}
+                  /* ADDED: Dynamic opacity-40 and grayscale for the last item */
+                  className={`bg-[#0e1015] border border-[#1b1e26] rounded-xl p-4 flex items-center justify-between gap-4 transition-all duration-300 ${isLastItem
+                      ? 'opacity-40 hover:opacity-60 border-dashed border-[#232733]'
+                      : 'hover:border-[#ff4500]/40'
+                    }`}
+                >
+                  <div className="flex items-center gap-4">
+                    {/* Orange background with white icon inside */}
+                    <div
+                      className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md ${isLastItem
+                          ? 'bg-[#1e1410] border border-[#ff5500]/20'
+                          : 'bg-gradient-to-br from-[#ff5500] to-[#e03e00] shadow-orange-950/40'
+                        }`}
+                    >
+                      <Image
+                        src="/images/products.svg"
+                        alt="Arrow Right Icon"
+                        width={20}
+                        height={20}
+                      />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <h3 className="text-[20px] font-regular text-white">{pkg.title}</h3>
+                        {pkg.badge && (
+                          <span className="bg-[#FFF44F20] text-[#FFF44F] text-[10px] font-regular px-2 py-0.5 rounded-full border border-[#FFF44F]/30">
+                            {pkg.badge}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-[14px] text-gray-400 mt-0.5">{pkg.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <h3 className="text-[20px] font-regular text-white">{pkg.title}</h3>
-              {pkg.badge && (
-                <span className="bg-[#FFF44F20] text-[#FFF44F] text-[10px] font-regular px-2 py-0.5 rounded-full border border-[#FFF44F]/30">
-                  {pkg.badge}
-                </span>
-              )}
-            </div>
-            <p className="text-[14px] text-gray-400 mt-0.5">{pkg.desc}</p>
-          </div>
-        </div>
-      </div>
-    );
-  })}
-</div>
 
         </div>
       </section>
@@ -980,114 +973,114 @@ export default function AboutUsPage() {
         </div>
 
         {/* Review Cards Grid */}
-                    {/* Outer Infinite Slider Container Track */}
-                    <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,transparent_0%,black_10%,black_90%,transparent_100%)]">
-                        <div className="flex gap-6 animate-marquee whitespace-normal">
+        {/* Outer Infinite Slider Container Track */}
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,transparent_0%,black_10%,black_90%,transparent_100%)]">
+          <div className="flex gap-6 animate-marquee whitespace-normal">
 
-                            {/* Render 1st Array Instance */}
-                            {reviews.map((review, i) => (
-                                <div
-                                    key={i}
-                                    className="flex flex-col justify-between bg-[#070707] border border-stone-900 p-8 rounded-[24px] min-w-[340px] max-w-[360px] md:min-w-[380px] h-[280px]"
-                                >
-                                    <div>
-                                        {/* Title & Trustpilot Star Row Block */}
-                                        <div className="text-white font-bold text-[15px] mb-2 tracking-tight line-clamp-1">
-                                            {review.text.split('.')[0]}
-                                        </div>
-                                        <div className="flex gap-1 mb-3">
-                                            {[...Array(5)].map((_, i) => (
-                                                <Star
-                                                    key={i}
-                                                    size={16}
-                                                    className={i < review.stars ? "fill-yellow-400 text-yellow-400" : "text-stone-700"}
-                                                />
-                                            ))}
-                                        </div>
+            {/* Render 1st Array Instance */}
+            {reviews.map((review, i) => (
+              <div
+                key={i}
+                className="flex flex-col justify-between bg-[#070707] border border-stone-900 p-8 rounded-[24px] min-w-[340px] max-w-[360px] md:min-w-[380px] h-[280px]"
+              >
+                <div>
+                  {/* Title & Trustpilot Star Row Block */}
+                  <div className="text-white font-bold text-[15px] mb-2 tracking-tight line-clamp-1">
+                    {review.text.split('.')[0]}
+                  </div>
+                  <div className="flex gap-1 mb-3">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        size={16}
+                        className={i < review.stars ? "fill-yellow-400 text-yellow-400" : "text-stone-700"}
+                      />
+                    ))}
+                  </div>
 
-                                        {/* Feedback Text Area */}
-                                        <p className="text-stone-300 text-[13px] leading-relaxed line-clamp-4 font-normal">
-                                            "{review.text}"
-                                        </p>
-                                    </div>
+                  {/* Feedback Text Area */}
+                  <p className="text-stone-300 text-[13px] leading-relaxed line-clamp-4 font-normal">
+                    "{review.text}"
+                  </p>
+                </div>
 
-                                    {/* ─── CLIENT AVATAR & METADATA FOOTER ─── */}
-                                    <div className="flex items-center gap-3 pt-4 border-t border-stone-900/50">
-                                        {review.avatar ? (
-                                            // Render image block if profile image exists
-                                            <div className="relative w-11 h-11 rounded-full overflow-hidden border border-stone-800 bg-stone-900">
-                                                <Image
-                                                    src={review.avatar}
-                                                    alt={review.name}
-                                                    fill
-                                                    className="object-cover"
-                                                />
-                                            </div>
-                                        ) : (
-                                            // Fallback to stylized custom Initial Circles from your design requirements
-                                            <div
-                                                className={`w-11 h-11 flex items-center justify-center rounded-full text-stone-950 font-bold text-sm tracking-wider uppercase ${review.initials === "IS" ? "bg-[#c6f6d5]" : "bg-[#7f9cf5] text-white"
-                                                    }`}
-                                            >
-                                                {review.initials}
-                                            </div>
-                                        )}
-
-                                        {/* User Account String Node Labels */}
-                                        <div className="flex flex-col">
-                                            <span className="text-stone-200 font-semibold text-[13px] tracking-tight">
-                                                {review.name}
-                                            </span>
-                                            <span className="text-stone-500 text-[11px]">
-                                                {review.role}
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            ))}
-
-                            {/* Duplicate Array Map Loop Instance for Infinite Slider Continuity */}
-                            {reviews.map((review, i) => (
-                                <div
-                                    key={`dup-${i}`}
-                                    className="flex flex-col justify-between bg-[#070707] border border-stone-900 p-8 rounded-[24px] min-w-[340px] max-w-[360px] md:min-w-[380px] h-[280px]"
-                                >
-                                    <div>
-                                        <div className="text-white font-bold text-[15px] mb-2 tracking-tight line-clamp-1">
-                                            {review.text.split('.')[0]}
-                                        </div>
-                                        <TrustpilotStars rating={review.stars} />
-                                        <p className="text-stone-300 text-[13px] leading-relaxed line-clamp-4 font-normal">
-                                            "{review.text}"
-                                        </p>
-                                    </div>
-
-                                    <div className="flex items-center gap-3 pt-4 border-t border-stone-900/50">
-                                        {review.avatar ? (
-                                            <div className="relative w-11 h-11 rounded-full overflow-hidden border border-stone-800 bg-stone-900">
-                                                <Image src={review.avatar} alt={review.name} fill className="object-cover" />
-                                            </div>
-                                        ) : (
-                                            <div className={`w-11 h-11 flex items-center justify-center rounded-full text-stone-950 font-bold text-sm tracking-wider ${review.initials === "IS" ? "bg-[#c6f6d5]" : "bg-[#7f9cf5] text-white"}`}>
-                                                {review.initials}
-                                            </div>
-                                        )}
-                                        <div className="flex flex-col">
-                                            <span className="text-stone-200 font-semibold text-[13px]">
-                                                {review.name}
-                                            </span>
-                                            <span className="text-stone-500 text-[11px]">
-                                                {review.role}
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            ))}
-
-                        </div>
+                {/* ─── CLIENT AVATAR & METADATA FOOTER ─── */}
+                <div className="flex items-center gap-3 pt-4 border-t border-stone-900/50">
+                  {review.avatar ? (
+                    // Render image block if profile image exists
+                    <div className="relative w-11 h-11 rounded-full overflow-hidden border border-stone-800 bg-stone-900">
+                      <Image
+                        src={review.avatar}
+                        alt={review.name}
+                        fill
+                        className="object-cover"
+                      />
                     </div>
+                  ) : (
+                    // Fallback to stylized custom Initial Circles from your design requirements
+                    <div
+                      className={`w-11 h-11 flex items-center justify-center rounded-full text-stone-950 font-bold text-sm tracking-wider uppercase ${review.initials === "IS" ? "bg-[#c6f6d5]" : "bg-[#7f9cf5] text-white"
+                        }`}
+                    >
+                      {review.initials}
+                    </div>
+                  )}
+
+                  {/* User Account String Node Labels */}
+                  <div className="flex flex-col">
+                    <span className="text-stone-200 font-semibold text-[13px] tracking-tight">
+                      {review.name}
+                    </span>
+                    <span className="text-stone-500 text-[11px]">
+                      {review.role}
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+            ))}
+
+            {/* Duplicate Array Map Loop Instance for Infinite Slider Continuity */}
+            {reviews.map((review, i) => (
+              <div
+                key={`dup-${i}`}
+                className="flex flex-col justify-between bg-[#070707] border border-stone-900 p-8 rounded-[24px] min-w-[340px] max-w-[360px] md:min-w-[380px] h-[280px]"
+              >
+                <div>
+                  <div className="text-white font-bold text-[15px] mb-2 tracking-tight line-clamp-1">
+                    {review.text.split('.')[0]}
+                  </div>
+                  <TrustpilotStars rating={review.stars} />
+                  <p className="text-stone-300 text-[13px] leading-relaxed line-clamp-4 font-normal">
+                    "{review.text}"
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3 pt-4 border-t border-stone-900/50">
+                  {review.avatar ? (
+                    <div className="relative w-11 h-11 rounded-full overflow-hidden border border-stone-800 bg-stone-900">
+                      <Image src={review.avatar} alt={review.name} fill className="object-cover" />
+                    </div>
+                  ) : (
+                    <div className={`w-11 h-11 flex items-center justify-center rounded-full text-stone-950 font-bold text-sm tracking-wider ${review.initials === "IS" ? "bg-[#c6f6d5]" : "bg-[#7f9cf5] text-white"}`}>
+                      {review.initials}
+                    </div>
+                  )}
+                  <div className="flex flex-col">
+                    <span className="text-stone-200 font-semibold text-[13px]">
+                      {review.name}
+                    </span>
+                    <span className="text-stone-500 text-[11px]">
+                      {review.role}
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+            ))}
+
+          </div>
+        </div>
 
         {/* Trustpilot CTA Link below reviews */}
         <div className="text-center mt-8">

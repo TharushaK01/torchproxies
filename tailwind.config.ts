@@ -11,6 +11,7 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-urbanist)'],
         obvia: ['var(--font-obvia)'],
+        'smooch-sans': ['var(--font-smooch-sans)', 'sans-serif'],
       },
       gridTemplateColumns: {
         '30': 'repeat(30, minmax(0, 1fr))',
