@@ -712,18 +712,6 @@ Real residential IPs from Australian ISPs like Telstra, Optus, and TPG, targetab
             {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
             <section className="py-12 sm:py-20 md:pb-28 px-4 sm:px-6 md:px-12 bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
 
-                {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
-                <div className="absolute inset-x-0 bottom-0 h-[300px] sm:h-[450px] z-0 pointer-events-none select-none">
-                    <Image
-                        src="/images/contact-bg.png"
-                        alt=""
-                        fill
-                        priority
-                        className="object-cover object-bottom opacity-100"
-                        sizes="100vw"
-                    />
-                </div>
-
                 {/* ── Content Wrapper ── */}
                 <div className="max-w-4xl mx-auto relative z-10">
                     {/* Header */}
