@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { m } from 'framer-motion';
 
 const FeaturesGrid = () => {

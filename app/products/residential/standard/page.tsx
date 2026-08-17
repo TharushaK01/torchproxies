@@ -200,7 +200,6 @@
 
 import { getPageBySlug } from '@/lib/wordpress';
 import { notFound } from 'next/navigation';
-import Script from 'next/script';
 
 const WP_BASE = "https://torchproxies.com";
 

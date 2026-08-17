@@ -1,7 +1,5 @@
-'use client';
-
+"use client";
 import { useRouter } from 'next/navigation';
-import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
 
 const ClientManagement = () => {

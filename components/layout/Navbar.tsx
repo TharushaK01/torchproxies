@@ -1,11 +1,15 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Flag from 'react-world-flags';
 import Image from 'next/image';
 import ContactSection from '../contact/ContactSection';
+import dynamic from "next/dynamic";
+
+
+
+const CountryFlag = dynamic(() => import("./CountryFlag"), { ssr: false });
 
 const NAV_LINKS = [
   {

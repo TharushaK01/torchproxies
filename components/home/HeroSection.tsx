@@ -413,7 +413,14 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Urbanist } from "next/font/google";
 import { Check } from "lucide-react";
-import PixelBlast from "@/components/PixelBlast"; // Swapped import
+// import PixelBlast from "@/components/PixelBlast"; 
+import dynamic from "next/dynamic";
+
+
+const PixelBlast = dynamic(() => import("@/components/PixelBlast"), {
+  ssr: false,
+  loading: () => <div className="absolute inset-0 bg-[#0a0a0a]" />,
+});
 
 const MARQUEE_ITEMS = [
   "99.9% uptime guaranteed",
@@ -597,7 +604,8 @@ export default function HeroSection() {
                 width={1200}
                 height={800}
                 priority
-                className="rounded-xl w-full h-auto object-cover object-left"
+                className="rounded-xl w-full h-auto object-cover object-left
+                priority"
               />
             </div>
           </div>

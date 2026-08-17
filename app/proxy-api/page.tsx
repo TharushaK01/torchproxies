@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from 'react';
 import { Check, ChevronDown } from 'lucide-react';
-import { Database, RefreshCw, Layers, ShieldCheck, Infinity, Tag, CreditCard } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 

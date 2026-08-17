@@ -1,12 +1,13 @@
 "use client";
-import React, { useState } from 'react';
-import { Check, ChevronDown, Shield, Zap, Globe, BarChart3, Activity, Sliders } from 'lucide-react';
+import React, { useState } from "react";
+import dynamic from "next/dynamic";
+import { Check, ChevronDown } from 'lucide-react';
 import Flag from 'react-world-flags';
-import { Database, RefreshCw, Layers, ShieldCheck, Infinity, Tag, CreditCard } from 'lucide-react';
-import UseCasesSection from '@/components/home/UseCasesSection';
+import { CreditCard } from 'lucide-react';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation'; 
 
+const UseCasesSection = dynamic(() => import('@/components/home/UseCasesSection'));
 
 const MARQUEE_ITEMS = [
   "99.9% uptime guaranteed",

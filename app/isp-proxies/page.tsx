@@ -10,13 +10,10 @@ import { useRouter } from 'next/navigation';
 
 
 const Marquee: React.FC = () => (
-    // Removed mt-50 completely so it doesn't push itself out of view
     <div className="w-full overflow-hidden bg-[#FE4A01] py-3.5 whitespace-nowrap select-none relative">
         
-        {/* The horizontal track container holding both sets */}
         <div className="flex w-max animate-marquee">
             
-            {/* Original Content */}
             <div className="flex items-center space-x-12 pr-12 shrink-0 min-w-full justify-around">
                 <img src="/images/logo/vodafone.png" alt="Vodafone" className="h-5 w-auto object-contain" />
                 <img src="/images/logo/att.png" alt="AT&T" className="h-5 w-auto object-contain" />
@@ -30,7 +27,6 @@ const Marquee: React.FC = () => (
                 <img src="/images/logo/orange.png" alt="Orange" className="h-5 w-auto object-contain" />
             </div>
 
-            {/* Duplicated Content for Seamless Loop */}
             <div className="flex items-center space-x-12 pr-12 shrink-0 min-w-full justify-around" aria-hidden="true">
                 <img src="/images/logo/vodafone.png" alt="Vodafone" className="h-5 w-auto object-contain" />
                 <img src="/images/logo/att.png" alt="AT&T" className="h-5 w-auto object-contain" />
@@ -45,7 +41,6 @@ const Marquee: React.FC = () => (
             </div>
         </div>
 
-        {/* CSS Keyframe for flawless seamless loop */}
         <style jsx global>{`
             @keyframes marquee {
                 0% { transform: translateX(0%); }

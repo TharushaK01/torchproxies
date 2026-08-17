@@ -1,4 +1,3 @@
-"use client";
 import React, { useState } from 'react';
 import { Check, ChevronDown, CreditCard } from 'lucide-react';
 import Flag from 'react-world-flags';

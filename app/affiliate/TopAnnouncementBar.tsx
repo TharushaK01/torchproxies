@@ -27,19 +27,58 @@ export default function TopAnnouncementBar() {
           Starter Commissions Just Went <strong className="font-bold">From 15% &rarr; 30%</strong>. Same Referrals, Double The Pay
         </span>
 
-        {/* 3D Spinning Custom Coin Image Container */}
-        <div className="relative w-8 h-8 flex-shrink-0 [perspective:1000px]">
-          <div className="w-full h-full animate-spin-3d">
-            <Image
-              src="/images/coin-7.png"
-              alt="Gold Coin"
-              width={32}
-              height={32}
-              className="w-full h-full object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]"
-              priority
+        {/* 3D Spinning Coin Container */}
+        <div className="w-[36px] h-[36px] flex-shrink-0" style={{ perspective: '800px' }}>
+          <div className="w-full h-full relative animate-coin-spin">
+            
+            {/* Front Face (Original Image) */}
+            <div 
+              className="absolute inset-0 w-full h-full drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)]"
+              style={{
+                backfaceVisibility: 'hidden',
+                WebkitBackfaceVisibility: 'hidden',
+              }}
+            >
+              <Image
+                src="/images/coin-7.png"
+                alt="Coin Front"
+                width={36}
+                height={36}
+                className="w-full h-full object-contain"
+                priority
+              />
+            </div>
+
+            {/* Back Face (Mirrored 180deg) */}
+            <div 
+              className="absolute inset-0 w-full h-full drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)]"
+              style={{
+                transform: 'rotateY(180deg)',
+                backfaceVisibility: 'hidden',
+                WebkitBackfaceVisibility: 'hidden',
+              }}
+            >
+              <Image
+                src="/images/coin-7.png"
+                alt="Coin Back"
+                width={36}
+                height={36}
+                className="w-full h-full object-contain"
+                priority
+              />
+            </div>
+
+            {/* Gold 3D Side Edge */}
+            <div 
+              className="absolute w-[5px] h-[85%] top-[7.5%] left-[calc(50%-2.5px)] rounded-full bg-gradient-to-b from-[#EBA014] via-[#FCE182] to-[#A36905]"
+              style={{ 
+                transform: 'rotateY(90deg) translateZ(16px)',
+              }}
             />
+
           </div>
         </div>
+
       </div>
     </div>
   );

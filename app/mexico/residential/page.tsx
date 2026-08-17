@@ -1,4 +1,3 @@
-"use client";
 import React, { useState } from 'react';
 import { Check, ChevronDown, } from 'lucide-react';
 import { Database, RefreshCw, Layers, ShieldCheck, CreditCard } from 'lucide-react';

@@ -1,13 +1,15 @@
-'use client';
-
+"use client";
 import React, { useState, useEffect } from 'react';
 import { obvia } from '../about/fonts';
-import Image from 'next/image'
-import { Urbanist, Smooch_Sans } from 'next/font/google'
+import Image from 'next/image';
+import { Urbanist, Smooch_Sans } from 'next/font/google';
 import { Star } from 'lucide-react';
-import DepthCarousel from '../../components/DepthCarousel';
 import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
 
+const DepthCarousel = dynamic(() => import('../../components/DepthCarousel'), {
+  loading: () => <div className="w-full h-[420px] bg-[#08090c] border border-[#1b1e26] rounded-[24px] flex items-center justify-center"><p>Loading timeline...</p></div>,
+});
 
 const smoochSans = Smooch_Sans({
   subsets: ['latin'],

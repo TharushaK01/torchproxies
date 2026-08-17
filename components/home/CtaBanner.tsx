@@ -1,8 +1,6 @@
-'use client';
-
+"use client";
 import { useRouter } from 'next/navigation';
 
-import React from 'react';
 
 const CtaBanner = () => {
   const router = useRouter();
