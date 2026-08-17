@@ -29,11 +29,16 @@ const config: Config = {
         marquee: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-50%)' },
-        }
+        },
+        'spin-3d': {
+          '0%': { transform: 'rotateY(0deg)' },
+          '100%': { transform: 'rotateY(360deg)' },
+        },
       },
-      animation: {
+animation: {
         ticker: 'ticker 28s linear infinite',
-        'marquee': 'marquee 25s linear infinite',
+        marquee: 'marquee 25s linear infinite',
+        'spin-3d': 'spin-3d 3s linear infinite',
       },
     },
   },

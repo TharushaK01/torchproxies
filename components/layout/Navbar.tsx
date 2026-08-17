@@ -193,6 +193,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileSection, setMobileSection] = useState<string | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -694,81 +695,326 @@ export default function Navbar() {
         </nav>
 
         {/* ── Mobile Context Drawer ───────────────────────── */}
-        <div className={`lg:hidden transition-all duration-300 overflow-hidden font-['Urbanist'] ${mobileOpen ? "max-h-screen" : "max-h-0"}`}>
-          <div className="bg-black/95 backdrop-blur-xl border-t border-white/5 px-6 py-4 space-y-1 max-h-[85vh] overflow-y-auto font-['Urbanist']">
-            {NAV_LINKS.map((link) => (
-              <div key={link.label} className="border-b border-white/[0.03] last:border-none pb-2 mb-2">
-                <div className="text-stone-200 font-semibold text-xs tracking-wider px-3 py-2 uppercase opacity-60 font-['Urbanist']">
-                  {link.label}
-                </div>
-                <div className="ml-2 space-y-0.5 font-['Urbanist']">
-                  {link.menuType === "products-mega" && Array.isArray(link.dropdown) ? (
-                    (link.dropdown as any[]).flatMap((s) => s.items).map((item: any) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-stone-400 hover:text-white font-['Urbanist']"
-                      >
-                        <span>{item.label}</span>
-                        <span className="text-xs font-bold text-orange-400 font-['Urbanist']">{item.price}</span>
-                      </Link>
-                    ))
-                  ) : link.menuType === "locations-grid" && !Array.isArray(link.dropdown) ? (
-                    (link.dropdown as any).countries.map((country: any) => (
-                      <Link
-                        key={country.href}
-                        href={country.href}
-                        className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-stone-400 hover:text-white font-['Urbanist']"
-                      >
-                        <span>{country.name}</span>
-                        <span className="text-xs opacity-50 font-['Urbanist']">{country.ips}</span>
-                      </Link>
-                    ))
-                  ) : link.menuType === "usecases-mega" && Array.isArray(link.dropdown) ? (
-                    (link.dropdown as any[]).flatMap((s) => s.items).map((item: any) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-stone-400 hover:text-white font-['Urbanist']"
-                      >
-                        {item.label}
-                      </Link>
-                    ))
-                  ) : link.menuType === "reseller-mega" && !Array.isArray(link.dropdown) ? (
-                    (link.dropdown as any).leftItems.map((item: any) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-stone-400 hover:text-white font-['Urbanist']"
-                      >
-                        {item.label}
-                      </Link>
-                    ))
-                  ) : (
-                    (!Array.isArray(link.dropdown) && (link.dropdown as any)?.rightSide) && (link.dropdown as any).rightSide.map((item: any) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-stone-400 hover:text-white font-['Urbanist']"
-                      >
-                        {item.label}
-                      </Link>
-                    ))
-                  )}
-                </div>
-              </div>
-            ))}
+{/* ── Mobile Menu (full-screen overlay) ───────────────── */}
+{mobileOpen && (
+  <div className="fixed inset-0 z-[100] bg-black lg:hidden flex flex-col font-['Urbanist']">
+    {/* Top bar: Logo + Close */}
+    <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 shrink-0">
+      <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center">
+        <img
+          src="/images/navlogo.svg"
+          alt="TorchProxies"
+          className="h-[27px] w-auto object-contain"
+        />
+      </Link>
+      <button
+        onClick={() => {
+          setMobileOpen(false);
+          setMobileSection(null);
+        }}
+        className="p-2 -mr-2 text-white/80 hover:text-white transition-colors"
+        aria-label="Close menu"
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
 
-            <div className="pt-4 flex flex-col gap-2 border-t border-white/5 mt-2 font-['Urbanist']">
-              <Link href="https://dashboard.torchproxies.com" className="px-4 py-3 text-sm font-semibold text-center text-white rounded-xl bg-orange-500 font-['Urbanist']">
-                Dashboard
-              </Link>
-              <Link href="/contact" className="px-4 py-3 text-sm font-semibold text-center text-white rounded-xl border border-white/20 font-['Urbanist']">
-                Contact Us
-              </Link>
+    {/* Accordion content */}
+    <div className="flex-1 overflow-y-auto px-5 py-2">
+      {NAV_LINKS.map((link) => {
+        const isOpen = mobileSection === link.label;
+
+        return (
+          <div key={link.label} className="border-b border-white/5 last:border-none">
+            {/* Accordion header */}
+            <button
+              onClick={() => setMobileSection(isOpen ? null : link.label)}
+              className="w-full flex items-center justify-between py-4 text-left"
+            >
+              <span className="text-[17px] font-medium text-white">{link.label}</span>
+              <div className={`w-8 h-8 rounded-lg border border-white/15 flex items-center justify-center transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M2 4L6 8L10 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-white/70" />
+                </svg>
+              </div>
+            </button>
+
+            {/* Expanded content */}
+{isOpen && (
+  <div className="pb-6">
+    {/* ── PRODUCTS (same rich layout as desktop) ── */}
+    {link.menuType === "products-mega" && Array.isArray(link.dropdown) && (
+      <div className="space-y-6">
+        {(link.dropdown as any[]).map((section: any, sIdx: number) => (
+          <div key={sIdx}>
+            <p className="text-[13px] text-stone-500 font-medium mb-3 px-1">
+              {section.section}
+            </p>
+            <div className="space-y-1">
+              {section.items.map((item: any, iIdx: number) => (
+                <Link
+                  key={iIdx}
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center gap-3.5 p-3 rounded-2xl hover:bg-white/[0.04] transition-colors"
+                >
+                  <div className="w-11 h-12 rounded-xl flex items-center justify-center shrink-0 overflow-hidden">
+                    {item.icon ? (
+                      <img src={item.icon} alt="" className="w-7 h-7 object-contain" />
+                    ) : (
+                      <div className="w-5 h-5 bg-orange-500/40 rounded" />
+                    )}
+                  </div>
+
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[15px] font-semibold text-white">
+                        {item.label}
+                      </span>
+                      {item.badge && (
+                        <span className="text-[10px] font-medium bg-emerald-950/60 text-emerald-400 border border-emerald-800/50 px-2 py-0.5 rounded-full">
+                          {item.badge}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-[12px] text-stone-500 mt-0.5 leading-snug">
+                      {item.description}
+                    </p>
+                  </div>
+
+                  <div className="text-right shrink-0">
+                    <div className="text-[11px] text-stone-500">From</div>
+                    <div className="text-[14px] font-semibold text-[#FF4F00]">
+                      {item.price}
+                    </div>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
+        ))}
+      </div>
+    )}
+
+    {/* ── LOCATIONS (2-column flag grid) ── */}
+    {link.menuType === "locations-grid" && !Array.isArray(link.dropdown) && (
+      <div>
+        <p className="text-[13px] text-stone-500 font-medium mb-4 px-1">
+          Residential Proxies
+        </p>
+        <div className="grid grid-cols-2 gap-x-3 gap-y-1">
+          {(link.dropdown as any).countries.map((country: any) => (
+            <Link
+              key={country.href}
+              href={country.href}
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center justify-between gap-2 py-3 px-1 rounded-xl hover:bg-white/[0.03]"
+            >
+              <div className="flex items-center gap-2.5 min-w-0">
+                <div className="w-8 h-6 rounded overflow-hidden shrink-0 border border-white/10">
+                  <Flag
+                    code={country.code.toUpperCase()}
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-[13px] font-medium text-white truncate">
+                    {country.name}
+                  </div>
+                  <div className="text-[11px] text-stone-500">
+                    {country.ips}
+                  </div>
+                </div>
+              </div>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-stone-600 shrink-0">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </Link>
+          ))}
         </div>
+      </div>
+    )}
+
+    {/* ── B2B RESELLER ── */}
+    {link.menuType === "reseller-mega" && !Array.isArray(link.dropdown) && (
+      <div>
+        <p className="text-[13px] text-stone-500 font-medium mb-4 px-1">
+          Reseller Products
+        </p>
+        <div className="space-y-5">
+          {(link.dropdown as any).leftItems.map((item: any, idx: number) => (
+            <Link
+              key={idx}
+              href={item.href}
+              onClick={() => setMobileOpen(false)}
+              className="block group"
+            >
+              <div className="flex items-start justify-between gap-3 mb-2">
+                <div className="w-11 h-12 rounded-xl flex items-center justify-center shrink-0 overflow-hidden">
+                  {item.icon ? (
+                    <Image
+                      src={item.icon}
+                      alt=""
+                      width={28}
+                      height={28}
+                      className="object-contain"
+                    />
+                  ) : (
+                    <div className="w-5 h-5 bg-white/30 rounded" />
+                  )}
+                </div>
+                <span
+                  className={`text-[11px] font-medium px-2.5 py-1 rounded-md shrink-0 ${
+                    item.tag.includes("$0")
+                      ? "bg-[#3b1c12] text-[#FF4F00] border border-[#5c2a1a]"
+                      : "bg-emerald-950/50 text-emerald-400 border border-emerald-800/40"
+                  }`}
+                >
+                  {item.tag}
+                </span>
+              </div>
+              <div className="text-[15px] font-semibold text-white mb-1">
+                {item.label}
+              </div>
+              <p className="text-[13px] text-stone-400 leading-relaxed">
+                {item.description}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </div>
+    )}
+
+    {/* ── USE CASES ── */}
+    {link.menuType === "usecases-mega" && Array.isArray(link.dropdown) && (
+      <div className="space-y-6">
+        {(link.dropdown as any[]).map((section: any, sIdx: number) => (
+          <div key={sIdx}>
+            <p className="text-[13px] text-stone-500 font-medium mb-3 px-1">
+              {section.section}
+            </p>
+            <div className={`grid ${section.items.length > 1 ? "grid-cols-2" : "grid-cols-1"} gap-3`}>
+              {section.items.map((item: any, iIdx: number) => (
+                <Link
+                  key={iIdx}
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/[0.04]"
+                >
+                  <div className="w-11 h-12 rounded-xl flex items-center justify-center shrink-0 shadow-sm">
+                    {item.icon ? (
+                      <Image
+                        src={item.icon}
+                        alt=""
+                        width={22}
+                        height={22}
+                        className="object-contain"
+                      />
+                    ) : (
+                      <div className="w-4 h-4 bg-orange-500/60 rounded" />
+                    )}
+                  </div>
+                  <span className="text-[14px] font-medium text-white leading-tight">
+                    {item.label}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
+
+    {/* ── RESOURCES ── */}
+    {link.menuType === "resources-mega" && !Array.isArray(link.dropdown) && (
+      <div className="space-y-6">
+        {/* Blog + Documentation row */}
+        <div>
+          <p className="text-[13px] text-stone-500 font-medium mb-3 px-1">
+            Residential Proxies
+          </p>
+          <div className="flex gap-4">
+            {(link.dropdown as any).rightSide.map((item: any) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center gap-2.5"
+              >
+                <div className="w-11 h-12 rounded-xl flex items-center justify-center shrink-0">
+                  {item.icon ? (
+                    <Image
+                      src={item.icon}
+                      alt=""
+                      width={22}
+                      height={22}
+                      className="object-contain"
+                    />
+                  ) : (
+                    <div className="w-4 h-4 bg-white/40 rounded" />
+                  )}
+                </div>
+                <span className="text-[15px] font-medium text-white">
+                  {item.label}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Affiliate + Reseller cards */}
+        {(link.dropdown as any).leftSide.map((program: any, idx: number) => (
+          <div
+            key={idx}
+            className={`${idx === 0 ? "bg-[#1a1a1a] rounded-2xl p-5" : ""}`}
+          >
+            <h4 className="text-[16px] font-semibold text-white mb-2">
+              {program.label}
+            </h4>
+            <p className="text-[13px] text-stone-400 leading-relaxed mb-4">
+              {program.description}
+            </p>
+            <Link
+              href={program.href}
+              onClick={() => setMobileOpen(false)}
+              className="inline-block px-5 py-2.5 bg-[#FF4F00] hover:bg-[#e64500] text-white text-[14px] font-semibold rounded-xl transition-colors"
+            >
+              Learn more
+            </Link>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+)}
+          </div>
+        );
+      })}
+
+      {/* Bottom CTAs */}
+      <div className="pt-6 pb-8 space-y-3">
+        <Link
+          href="https://dashboard.torchproxies.com"
+          onClick={() => setMobileOpen(false)}
+          className="block w-full py-3.5 text-center text-[15px] font-semibold text-white bg-[#FF4F00] rounded-xl"
+        >
+          Dashboard
+        </Link>
+        <button
+          onClick={() => {
+            setMobileOpen(false);
+            setIsContactOpen(true);
+          }}
+          className="block w-full py-3.5 text-center text-[15px] font-semibold text-white border border-white/20 rounded-xl"
+        >
+          Contact Us
+        </button>
+      </div>
+    </div>
+  </div>
+)}
       </header>
     </>
   );

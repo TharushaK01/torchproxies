@@ -8,6 +8,7 @@ import { Star } from 'lucide-react';
 import DepthCarousel from '../../components/DepthCarousel';
 import { motion } from 'framer-motion';
 
+
 const smoochSans = Smooch_Sans({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],

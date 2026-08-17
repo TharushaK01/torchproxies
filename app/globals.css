@@ -180,3 +180,13 @@ nav,
 nav * {
   box-sizing: border-box !important;
 }
+
+@keyframes spin3D {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+.animate-spin-3d {
+  animation: spin3D 3s linear infinite;
+  transform-style: preserve-3d;
+}

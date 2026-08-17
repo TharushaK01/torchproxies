@@ -6,7 +6,7 @@ const FOOTER_COLUMNS = [
     heading: "Company",
     links: [
       { label: "Locations", href: "/locations" },
-      { label: "Careers", href: "/careers" },
+      { label: "Careers", href: "https://torch-labs-workspace.slack.com/archives/D0B43BYQ02U/p1786706126219219" },
       { label: "Trustpilot", href: "https://trustpilot.com", external: true },
     ],
   },

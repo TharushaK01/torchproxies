@@ -217,7 +217,7 @@ const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
         <div className="bg-[#0a0a0a] text-white antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden space-y-6 font-['Urbanist']">
 
             {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
-<header className="relative min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-[190px] pb-12 overflow-x-hidden space-y-6 font-['Urbanist']">
+            <header className="relative min-h-[95vh] sm:min-h-0 flex flex-col items-center justify-center px-6 pt-[190px] pb-24 space-y-6 font-['Urbanist']">
     
     <div className="absolute bottom-0 left-0 right-0 h-[65vh] z-0 w-full">
         <Image
