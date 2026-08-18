@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { LazyMotion, domAnimation } from "framer-motion";
-import { Work_Sans } from 'next/font/google';
+
 
 
 
@@ -18,6 +18,14 @@ export const metadata: Metadata = {
   openGraph: {
     siteName: "TorchProxies",
     type: "website",
+    images: [
+      {
+        url: '/images/og-image.png', // Pointing directly to public/og-image.png
+        width: 1200,
+        height: 630,
+        alt: 'TorchProxies Preview',
+      },
+    ],
   },
 };
 

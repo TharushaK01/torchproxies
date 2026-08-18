@@ -38,6 +38,21 @@
 import dynamic from "next/dynamic";
 import HeroSection from "@/components/home/HeroSection";
 import GlobalNetwork from "@/components/home/GlobalNetworkLazy";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'ISP & Residential Proxies for Automation | Torch Proxies',
+  description: 'Start your own proxy business in 24 hours with Proxy API. We provide everything - Fully branded dashboard and 80M+ IPs. No coding needed. Scale fast!',
+  openGraph: {
+    title: 'Home | Start Your Proxy Business in 24 Hours with Proxy API ',
+    description: 'Start your own proxy business in 24 hours with Proxy API. We provide everything - Fully branded dashboard and 80M+ IPs. No coding needed. Scale fast!',
+    images: ['/images/og-image.png'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/images/og-image.png'],
+  },
+};
 
 const SectionFallback = () => <div className="min-h-[400px] w-full" />;
 

@@ -4,6 +4,21 @@ import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import Flag from 'react-world-flags';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Proxy Locations by Country | 40+ Countries Covered',
+  description: 'Power your online activity with fast, secure, reliable proxies across regions worldwide. Browse every country Torch Proxies covers and get connected now.',
+  openGraph: {
+    title: 'Proxy Locations by Country | 40+ Countries Covered',
+    description: 'Power your online activity with fast, secure, reliable proxies across regions worldwide. Browse every country Torch Proxies covers and get connected now.',
+    images: ['/images/og-image.jpg'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/images/og-image.jpg'],
+  },
+};
 
 
 interface LocationData {

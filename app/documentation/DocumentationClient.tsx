@@ -1,0 +1,458 @@
+"use client";
+import React, { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+
+
+interface ResourceCardProps {
+  title: string;
+  description: string;
+  buttonText: string;
+  href: string;
+}
+
+const Marquee: React.FC = () => (
+    <div className="w-full overflow-hidden bg-[#FE4A01] py-3 mt-50 whitespace-nowrap select-none flex">
+        {/* Wrapping container that holds both sets of text */}
+        <div className="flex animate-marquee text-xs font-semibold tracking-wider text-white uppercase">
+            {/* Original Content */}
+            <div className="flex items-center space-x-8 pr-8">
+                <span>• 99.9% uptime guaranteed</span>
+                <span>• Blazing fast proxy speeds</span>
+                <span>• Global geo targeting support</span>
+                <span>• Secure & anonymous connections</span>
+                <span>• Unlimited sessions & rotations</span>
+                <span>• Built for scraping & automation</span>
+            </div>
+
+            {/* Duplicated Content for Seamless Loop */}
+            <div className="flex items-center space-x-8 pr-8" aria-hidden="true">
+                <span>• 99.9% uptime guaranteed</span>
+                <span>• Blazing fast proxy speeds</span>
+                <span>• Global geo targeting support</span>
+                <span>• Secure & anonymous connections</span>
+                <span>• Unlimited sessions & rotations</span>
+                <span>• Built for scraping & automation</span>
+            </div>
+        </div>
+
+        {/* CSS Keyframe for a flawless seamless loop */}
+        <style jsx global>{`
+      @keyframes marquee {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-marquee {
+        animation: marquee 25s linear infinite;
+      }
+    `}</style>
+    </div>
+);
+const ResourceCard = ({ title, description, buttonText, href }: ResourceCardProps) => {
+  return (
+    <div className="bg-[#0a0a0a] border border-stone-900 rounded-[16px] p-8 md:p-10 flex flex-col justify-between items-start hover:border-stone-800 transition-colors duration-300">
+      <div className="mb-8">
+        <h3 className="text-xl md:text-2xl font-medium text-white mb-3 tracking-tight">
+          {title}
+        </h3>
+        <p className="text-stone-400 text-[15px] md:text-[16px] leading-relaxed max-w-md">
+          {description}
+        </p>
+      </div>
+      
+      <Link 
+        href={href}
+        className="px-5 py-2.5 border border-orange-600/40 hover:border-orange-500 rounded-xl text-sm font-medium text-orange-500 hover:text-orange-400 bg-transparent transition-all duration-200 active:scale-[0.98]"
+      >
+        {buttonText}
+      </Link>
+    </div>
+  );
+};
+
+export default function TorchProxiesLandingPage() {
+    const [activeFaq, setActiveFaq] = useState<number | null>(null);
+
+
+
+ const reviews = [
+  {
+    name: "Black Bear",
+    role: "Verified Customer",
+    text: "If you are buy proxies anywhere you should buy them here. Nice guys who work hard. Communication is good and there is always help where needed. Can't recommend a better company for proxies.",
+    stars: 5,
+    avatar: "/images/avatars/black-bear.png" // Path to your custom pixel bear photo
+  },
+  {
+    name: "Ishak",
+    role: "Verified Customer",
+    text: "Torchlabs offers a fantastic proxy service at a very competitive price. The connection speeds are fast, and the service is incredibly reliable. I've had a positive experience with their customer support as well.",
+    stars: 5,
+    initials: "IS", // Fallback for a soft green initial circle
+    avatar: null
+  },
+  {
+    name: "Edith Shamaiah",
+    role: "Verified Customer",
+    text: "Best proxies in the market! Top notch customer experience!",
+    stars: 4,
+    initials: "E", // Fallback for a purple initial circle
+    avatar: null
+  }
+];
+  
+
+const TrustpilotStars = ({ rating = 5 }: { rating?: number }) => {
+  return (
+    <div className="flex gap-[3px] mb-4">
+      {[...Array(5)].map((_, index) => (
+        <div
+          key={index}
+          className={`w-[18px] h-[18px] flex items-center justify-center rounded-[3px] text-[11px] font-bold transition-colors duration-200 ${
+            index < rating 
+              ? "bg-[#00b67a] text-white" // Active Trustpilot Green box with White Star
+              : "bg-stone-800 text-stone-600" // Inactive Dark box with Muted Gray Star
+          }`}
+        >
+          ★
+        </div>
+      ))}
+    </div>
+  );
+};
+interface FAQItem {
+  q: string;
+  a: string | string[]; // Allows standard strings or string arrays for bullet points
+}
+
+const faqData: FAQItem[] = [
+  {
+    q: "What is a proxy server?",
+    a: "A proxy server acts as an intermediary between your device and the internet. It forwards your internet requests and returns the responses, helping to anonymize your IP address and enhance security."
+  },
+  {
+    q: "What types of proxies do you offer?",
+    // Formatted as an array to handle the introduction and separate points cleanly
+    a: [
+      "We offer several types of proxies including:",
+      "Residential Proxies (Supports HTTP and SOCKS5)",
+      "ISP Proxies (Supports HTTP and SOCKS5)",
+      "DC Proxies (Coming Soon)",
+      "Mobile Proxies (Coming Soon)"
+    ]
+  },
+  {
+    q: "Are your proxies compatible with all applications and websites?",
+    a: "Our proxies are designed to be compatible with most applications and websites. However, some platforms may have advanced detection methods, so results can vary."
+  },
+  {
+    q: "Do your proxies support IP rotation?",
+    a: "Yes, our proxies support IP rotation. You can configure the proxies to automatically change IP addresses at specified intervals or after each request to minimize the risk of detection."
+  },
+  {
+    q: "What is the difference between residential and datacenter proxies?",
+    a: "Residential proxies use IP addresses assigned by ISPs to homeowners, making them appear more legitimate and less likely to be blocked. Datacenter proxies are hosted in data centers and offer high speed and reliability but are more easily detectable by websites."
+  },
+  {
+    q: "How do I set up your proxies with my software or application?",
+    a: "We provide detailed documentation and support to help you configure our proxies with your software or application. Our support team is also available to assist with setup."
+  },
+  {
+    q: "Do you offer a trial period or demo for your proxy services?",
+    a: "Yes, we offer a trial period or demo so you can test our proxy services before committing to a purchase."
+  },
+  {
+    q: "How is billing handled for your proxy services?",
+    a: "Billing is typically handled on a subscription basis, with various plans available depending on your usage needs. Detailed invoices and usage reports are provided."
+  }
+];
+    const resources = [
+    {
+      title: "Dashboard Documentation",
+      description: "Set up your account, manage proxies, and use the dashboard with clear step-by-step guides for a smooth experience.",
+      buttonText: "View guides",
+      href: "https://api.playground.torchproxies.com/introduction/"
+    },
+    {
+      title: "API Documentation",
+      description: "Quickly integrate proxies with simple API examples, detailed references and developer friendly instructions.",
+      buttonText: "View guides",
+      href: "https://docs.proxiesapi.xyz/"
+    },
+    {
+      title: "Email Us",
+      description: "Have questions or issues? Email our support team and get quick, helpful responses to keep everything working smoothly.",
+      buttonText: "View guides",
+      href: "mailto:help@torchlabs.xyz"
+    },
+    {
+      title: "Discord Support",
+      description: "Join our Discord to connect with support, get instant answers, share tips, and stay updated with the latest news.",
+      buttonText: "View guides",
+      href: "https://discord.com/invite/JSxDs3fDgV"
+    }
+  ];
+    return (
+        <div className="bg-[#0a0a0a] text-white antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden font-['Urbanist']">
+
+            {/* ── SECTION 1: HERO CONTAINER ────────────────────────────────── */}
+<header className="relative flex flex-col items-center justify-center px-6 pt-32 pb-24 overflow-hidden font-['Urbanist']">
+    
+    {/* Cleaned up background wrapper */}
+    <div className="absolute bottom-0 left-0 w-full z-0 pointer-events-none select-none">
+        <img
+            src="/images/hero_back.png"
+            alt=""
+            className="w-full h-auto object-bottom opacity-100"
+        />
+    </div>
+    
+    <div className="max-w-6xl mx-auto text-center z-10">
+        <div className="flex items-center justify-center mb-6">
+            <a href="https://www.trustpilot.com/review/torchlabs.xyz"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="cursor-pointer"
+                        >
+                            <img
+                                src="/images/TrustPiolet.png"
+                                alt="Excellent 5-star rating on Trustpilot"
+                                className="h-8 w-auto object-contain"
+                                loading="lazy"
+                            />
+                        </a>
+        </div>
+
+        <h1 className="text-[48px] sm:text-[60px] font-regular tracking-tight leading-tight mb-6 bg-gradient-to-b text-white bg-clip-text text-transparent font-['Urbanist']">
+            Documentation & Support <br />
+        </h1>
+
+        <p className="max-w-2xl mx-auto text-stone-400 text-[18px] mb-0 leading-relaxed">
+            Get started fast with step-by-step docs, API guides, and 24/7 support via email or Discord. Everything you need to make TorchProxies work for you.
+        </p>
+    </div>
+</header>
+
+<section className="py-16 px-6 bg-[#0a0a0a] font-['Urbanist']">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {resources.map((resource, index) => (
+            <ResourceCard
+              key={index}
+              title={resource.title}
+              description={resource.description}
+              buttonText={resource.buttonText}
+              href={resource.href}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+
+
+            {/* ── SECTION 10: TESTIMONIALS ─────────────────────────────────── */}
+<section className="pb-[80px] sm:pb-[80px] mx-[120px] bg-stone-950/20 overflow-hidden font-['Urbanist']">
+      <div className="max-w-6xl mx-auto px-6">
+        
+        {/* Section Header Text Nodes */}
+        <div className="text-center font-['Urbanist']">
+                        <span className="text-[#FE4A01] text-[16px] font-regular tracking-widest block font-['Urbanist']">
+                            Testimonials
+                        </span>
+                    </div>
+        <div className="text-center mb-16 font-['Urbanist']">
+          <h2 className="text-[42px] sm:text-[42px] font-regular mb-4 tracking-tight leading-[42px] text-white">
+            Customers prefer TorchProxies <br/>over other proxy brands
+          </h2>
+        </div>
+
+        {/* Outer Infinite Slider Container Track */}
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,transparent_0%,black_10%,black_90%,transparent_100%)] font-['Urbanist']">
+          <div className="flex gap-6 animate-marquee whitespace-normal font-['Urbanist']">
+            
+            {/* Render 1st Array Instance */}
+            {reviews.map((review, i) => (
+              <div
+                key={i}
+                className="flex flex-col justify-between bg-[#070707] border border-stone-900 p-8 rounded-[24px] min-w-[340px] max-w-[360px] md:min-w-[380px] h-[280px]"
+              >
+                <div>
+                  {/* Title & Trustpilot Star Row Block */}
+                  <div className="text-white font-bold text-[15px] mb-2 tracking-tight line-clamp-1">
+                    {review.text.split('.')[0]}
+                  </div>
+                  <TrustpilotStars rating={review.stars} />
+                  
+                  {/* Feedback Text Area */}
+                  <p className="text-stone-300 text-[13px] leading-relaxed line-clamp-4 font-normal">
+                    "{review.text}"
+                  </p>
+                </div>
+
+                {/* ─── CLIENT AVATAR & METADATA FOOTER ─── */}
+                <div className="flex items-center gap-3 pt-4 border-t border-stone-900/50">
+                  {review.avatar ? (
+                    // Render image block if profile image exists
+                    <div className="relative w-11 h-11 rounded-full overflow-hidden border border-stone-800 bg-stone-900">
+                      <Image
+                        src={review.avatar}
+                        alt={review.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    // Fallback to stylized custom Initial Circles from your design requirements
+                    <div 
+                      className={`w-11 h-11 flex items-center justify-center rounded-full text-stone-950 font-bold text-sm tracking-wider uppercase ${
+                        review.initials === "IS" ? "bg-[#c6f6d5]" : "bg-[#7f9cf5] text-white"
+                      }`}
+                    >
+                      {review.initials}
+                    </div>
+                  )}
+                  
+                  {/* User Account String Node Labels */}
+                  <div className="flex flex-col">
+                    <span className="text-stone-200 font-semibold text-[13px] tracking-tight">
+                      {review.name}
+                    </span>
+                    <span className="text-stone-500 text-[11px]">
+                      {review.role}
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+            ))}
+
+            {/* Duplicate Array Map Loop Instance for Infinite Slider Continuity */}
+            {reviews.map((review, i) => (
+              <div
+                key={`dup-${i}`}
+                className="flex flex-col justify-between bg-[#070707] border border-stone-900 p-8 rounded-[24px] min-w-[340px] max-w-[360px] md:min-w-[380px] h-[280px]"
+              >
+                <div>
+                  <div className="text-white font-bold text-[15px] mb-2 tracking-tight line-clamp-1">
+                    {review.text.split('.')[0]}
+                  </div>
+                  <TrustpilotStars rating={review.stars} />
+                  <p className="text-stone-300 text-[13px] leading-relaxed line-clamp-4 font-normal">
+                    "{review.text}"
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3 pt-4 border-t border-stone-900/50">
+                  {review.avatar ? (
+                    <div className="relative w-11 h-11 rounded-full overflow-hidden border border-stone-800 bg-stone-900">
+                      <Image src={review.avatar} alt={review.name} fill className="object-cover" />
+                    </div>
+                  ) : (
+                    <div className={`w-11 h-11 flex items-center justify-center rounded-full text-stone-950 font-bold text-sm tracking-wider ${review.initials === "IS" ? "bg-[#c6f6d5]" : "bg-[#7f9cf5] text-white"}`}>
+                      {review.initials}
+                    </div>
+                  )}
+                  <div className="flex flex-col">
+                    <span className="text-stone-200 font-semibold text-[13px]">
+                      {review.name}
+                    </span>
+                    <span className="text-stone-500 text-[11px]">
+                      {review.role}
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+            ))}
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+            {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
+            {/* FAQ SECTION */}
+<section className="pb-[80px] sm:pb-[80px] mx-[120px] bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
+
+    {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
+    <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
+        <Image
+            src="/images/contact-bg.png" /* Using the same glow asset path */
+            alt=""
+            fill
+            priority
+            className="object-cover object-bottom opacity-100"
+        />
+    </div>
+
+    {/* ── Content Wrapper (Added 'relative z-10' so it sits above the background glow) ── */}
+    <div className="max-w-4xl mx-auto relative z-10">
+        {/* Header */}
+        <div className="text-center mb-16">
+            <span className="text-[#FE4A01] text-[16px] font-medium tracking-widest block mb-3">
+                FAQ
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-regular tracking-tight text-white">
+                Frequently asked questions
+            </h2>
+        </div>
+
+        {/* FAQ Items */}
+        <div className="space-y-px">
+            {faqData.map((faq, index) => {
+                const isOpen = activeFaq === index;
+                return (
+                    <div
+                        key={index}
+                        className="border-b border-stone-800 last:border-none group"
+                    >
+                        <button
+                            onClick={() => setActiveFaq(isOpen ? null : index)}
+                            className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors"
+                        >
+                            <span>{faq.q}</span>
+                            <ChevronDown
+                                className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
+                            />
+                        </button>
+
+                        {/* Answer Accordion Body */}
+                        <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
+                            <div className="text-stone-400 text-[15px] leading-relaxed pr-10">
+                                {Array.isArray(faq.a) ? (
+                                    <div>
+                                        {/* 1. Renders the introduction text row */}
+                                        <p className="mb-3">{faq.a[0]}</p>
+                                        
+                                        {/* 2. Renders all following items as clean, separate points */}
+                                        <ul className="list-none pl-1 space-y-2 text-stone-400">
+                                            {faq.a.slice(1).map((point, pointIdx) => (
+                                                <li key={pointIdx} className="flex items-start gap-2.5">
+                                                    <span className="text-stone-400 font-semibold select-none">—</span>
+                                                    <span>{point}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                ) : (
+                                    /* Fallback standard wrapper for normal string descriptions */
+                                    <p>{faq.a}</p>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                );
+            })}
+        </div>
+    </div>
+
+    {/* Bottom Gradient Overlay - Blends beautifully with your new image background */}
+    <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent pointer-events-none z-0" />
+</section>
+
+        </div>
+    );
+}
