@@ -242,9 +242,21 @@
 //   );
 // }
 
+import { Metadata } from "next";
 import { getAllPosts, getCategories } from "@/lib/wordpress";
 import { WPPost, WPCategory } from "@/types/wordpress";
 import BlogClient from "./BlogClient";
+
+// 1. Add SEO Metadata for the main Blog Listing page
+export const metadata: Metadata = {
+  title: "Blog & Insights | Torch Proxies",
+  description: "Explore the latest guides, proxy tutorials, and platform updates.",
+  openGraph: {
+    title: "Blog & Insights | Torch Proxies",
+    description: "Explore the latest guides, proxy tutorials, and platform updates.",
+    type: "website",
+  },
+};
 
 export default async function BlogPage() {
   try {
@@ -256,7 +268,7 @@ export default async function BlogPage() {
     return <BlogClient posts={posts} categories={categories} />;
 
   } catch (error) {
-    // ← shows error on screen instead of 404
+    // Shows error on screen instead of 404
     console.error("Blog fetch error:", error);
     return (
       <main className="bg-[#0a0a0a] min-h-screen flex items-center justify-center">
