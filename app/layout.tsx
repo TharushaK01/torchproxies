@@ -4,9 +4,9 @@
 // import Footer from "@/components/layout/Footer";
 // import { LazyMotion, domAnimation } from "framer-motion";
 // import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
-
-
-
+// import ChatWidget from "@/components/analytics/ChatWidget";
+// import SessionRecorder from "@/components/analytics/SessionRecorder";
+// import { PostHogProvider } from "@/components/providers/PostHogProvider";
 
 // export const metadata: Metadata = {
 //   title: {
@@ -21,10 +21,10 @@
 //     type: "website",
 //     images: [
 //       {
-//         url: '/images/og-image.png', // Pointing directly to public/og-image.png
+//         url: "/images/og-image.png",
 //         width: 1200,
 //         height: 630,
-//         alt: 'TorchProxies Preview',
+//         alt: "TorchProxies Preview",
 //       },
 //     ],
 //   },
@@ -40,41 +40,53 @@
 
 //   return (
 //     <html lang="en" suppressHydrationWarning>
-// <head>
-//   {/* ── Google Fonts ──────────────────────────────────── */}
-//   <link rel="preconnect" href="https://fonts.googleapis.com" />
-//   <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+//       <head>
+//         {/* ── Google Fonts ──────────────────────────────────── */}
+//         <link rel="preconnect" href="https://fonts.googleapis.com" />
+//         <link
+//           rel="preconnect"
+//           href="https://fonts.gstatic.com"
+//           crossOrigin="anonymous"
+//         />
 
-//   {/* Urbanist + Chivo + Space Grotesk */}
-//   <link
-//     rel="stylesheet"
-//     href="https://fonts.googleapis.com/css?family=Urbanist%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CChivo%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CSpace%20Grotesk%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&display=swap"
-//   />
+//         {/* Urbanist + Chivo + Space Grotesk */}
+//         <link
+//           rel="stylesheet"
+//           href="https://fonts.googleapis.com/css?family=Urbanist%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CChivo%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CSpace%20Grotesk%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&display=swap"
+//         />
 
-//   {/* Inter + Source Code Pro */}
-//   <link
-//     rel="stylesheet"
-//     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap"
-//   />
+//         {/* Inter + Source Code Pro */}
+//         <link
+//           rel="stylesheet"
+//           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap"
+//         />
 
-//   {/* ── Elementor core CSS ────────────────────────────── */}
-//   <link rel="stylesheet"
-//     href="https://torchproxies.com/wp-content/plugins/elementor/assets/css/frontend.min.css" />
-//   <link rel="stylesheet"
-//     href="https://torchproxies.com/wp-content/plugins/elementor-pro/assets/css/frontend.min.css" />
+//         {/* ── Elementor core CSS ────────────────────────────── */}
+//         <link
+//           rel="stylesheet"
+//           href="https://torchproxies.com/wp-content/plugins/elementor/assets/css/frontend.min.css"
+//         />
+//         <link
+//           rel="stylesheet"
+//           href="https://torchproxies.com/wp-content/plugins/elementor-pro/assets/css/frontend.min.css"
+//         />
 
-//   {/* ── WordPress block library CSS ───────────────────── */}
-//   <link rel="stylesheet"
-//     href="https://torchproxies.com/wp-includes/css/dist/block-library/style.min.css" />
+//         {/* ── WordPress block library CSS ───────────────────── */}
+//         <link
+//           rel="stylesheet"
+//           href="https://torchproxies.com/wp-includes/css/dist/block-library/style.min.css"
+//         />
 
-//   {/* ── Elementor widget CSS ──────────────────────────── */}
-//   <link rel="stylesheet"
-//     href="https://torchproxies.com/wp-content/uploads/elementor/css/custom-widget-icon-list.min.css" />
-//   <link rel="stylesheet"
-//     href="https://torchproxies.com/wp-content/uploads/elementor/css/custom-frontend.min.css" />
-    
-// </head>
-
+//         {/* ── Elementor widget CSS ──────────────────────────── */}
+//         <link
+//           rel="stylesheet"
+//           href="https://torchproxies.com/wp-content/uploads/elementor/css/custom-widget-icon-list.min.css"
+//         />
+//         <link
+//           rel="stylesheet"
+//           href="https://torchproxies.com/wp-content/uploads/elementor/css/custom-frontend.min.css"
+//         />
+//       </head>
 
 //       <body
 //         className="bg-[#0a0a0a] text-stone-100 flex flex-col min-h-screen antialiased"
@@ -82,22 +94,28 @@
 //       >
 //         <Navbar />
 //         <div className="flex-1">
-//           <LazyMotion features={domAnimation}>
-//             {children}
-//           </LazyMotion>
+//           <LazyMotion features={domAnimation}>{children}</LazyMotion>
 //         </div>
-//         <div className="relative z-0 isolate ..."> 
-//   <Footer />
-// </div>
+//         <div className="relative z-0 isolate">
+//           <Footer />
+//         </div>
+//         <ChatWidget />
+//         <SessionRecorder />
 //       </body>
+
+//       {/* ── Next.js Third-Party Analytics Components ──────── */}
+//       <GoogleAnalytics gaId={gaId} />
+//       <GoogleTagManager gtmId={gtmId} />
 //     </html>
 //   );
 // }
-
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import ChatWidget from "@/components/analytics/ChatWidget";
+import SessionRecorder from "@/components/analytics/SessionRecorder";
+import { PostHogProvider } from "@/components/providers/PostHogProvider";
 import { LazyMotion, domAnimation } from "framer-motion";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
@@ -134,7 +152,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* ── Google Fonts ──────────────────────────────────── */}
+        {/* Google Fonts Preconnects */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -142,19 +160,17 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
 
-        {/* Urbanist + Chivo + Space Grotesk */}
+        {/* Fonts */}
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Urbanist%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CChivo%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CSpace%20Grotesk%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&display=swap"
         />
-
-        {/* Inter + Source Code Pro */}
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap"
         />
 
-        {/* ── Elementor core CSS ────────────────────────────── */}
+        {/* Elementor & WordPress CSS */}
         <link
           rel="stylesheet"
           href="https://torchproxies.com/wp-content/plugins/elementor/assets/css/frontend.min.css"
@@ -163,14 +179,10 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://torchproxies.com/wp-content/plugins/elementor-pro/assets/css/frontend.min.css"
         />
-
-        {/* ── WordPress block library CSS ───────────────────── */}
         <link
           rel="stylesheet"
           href="https://torchproxies.com/wp-includes/css/dist/block-library/style.min.css"
         />
-
-        {/* ── Elementor widget CSS ──────────────────────────── */}
         <link
           rel="stylesheet"
           href="https://torchproxies.com/wp-content/uploads/elementor/css/custom-widget-icon-list.min.css"
@@ -185,16 +197,22 @@ export default function RootLayout({
         className="bg-[#0a0a0a] text-stone-100 flex flex-col min-h-screen antialiased"
         suppressHydrationWarning
       >
-        <Navbar />
-        <div className="flex-1">
-          <LazyMotion features={domAnimation}>{children}</LazyMotion>
-        </div>
-        <div className="relative z-0 isolate">
-          <Footer />
-        </div>
+        <PostHogProvider>
+          <Navbar />
+          <div className="flex-1">
+            <LazyMotion features={domAnimation}>{children}</LazyMotion>
+          </div>
+          <div className="relative z-0 isolate">
+            <Footer />
+          </div>
+
+          {/* Third-Party Lazy Widgets */}
+          <ChatWidget />
+          <SessionRecorder />
+        </PostHogProvider>
       </body>
 
-      {/* ── Next.js Third-Party Analytics Components ──────── */}
+      {/* Analytics */}
       <GoogleAnalytics gaId={gaId} />
       <GoogleTagManager gtmId={gtmId} />
     </html>
