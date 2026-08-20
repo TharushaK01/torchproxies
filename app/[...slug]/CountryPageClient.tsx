@@ -411,126 +411,184 @@ export default function CountryPageClient({ data, dynamicDescriptions }: Country
                     </div>
                 </div>
             </section>
+{/* ── SECTION 4: BENEFITS BLOCK ─────────────────────────────────── */}
+<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist']">
+  <div className="max-w-7xl mx-auto">
+    
+    {/* ── HEADER ─────────────────────────────────────────────── */}
+    <div className="text-center mb-10 sm:mb-16 lg:mb-20">
+      <span className="text-[#FE4A01] text-xs sm:text-sm lg:text-[16px] font-medium tracking-wider uppercase block mb-2 sm:mb-3">
+        Features
+      </span>
+      <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-medium tracking-tight mb-3 sm:mb-4 text-white leading-tight">
+        Why Use {countryName} Residential Proxies?
+      </h2>
+      <p className="text-stone-400 text-sm sm:text-base lg:text-[18px] max-w-3xl mx-auto font-normal leading-relaxed">
+        There are countless ways to utilize a {countryName} IP address. Whether you’re accessing local market data, bypassing regional restrictions, or testing apps and games on local servers, our {countryName} proxy servers let you do it all without being physically present.
+      </p>
+    </div>
 
-            {/* ── SECTION 4: BENEFITS BLOCK ─────────────────────────────────── */}
-            <section className=" max-w-7xl mx-auto pb-24 sm:pb-28 mx-[120px] bg-[#0a0a0a] text-white  font-['Urbanist'] mt-[120px]">
-                <div className="text-center mb-20">
-                    <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">Features</span>
-                    <h2 className="text-[42px] sm:text-[40px] font-medium tracking-tight mb-4 text-white">
-                        Why Use {countryName} Residential Proxies?
-                    </h2>
-                    <p className="text-gray-400  text-sm sm:text-base max-w-[850px] mx-auto font-normal leading-relaxed">
-                        There are countless ways to utilize a {countryName} IP address. Whether you’re accessing local market data, bypassing regional restrictions, or testing apps and games on local servers, our {countryName} proxy servers let you do it all without being physically present.
-                    </p>
-                </div>
+    {/* ── FEATURES GRID ──────────────────────────────────────── */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-x-12 lg:gap-y-16 max-w-6xl mx-auto">
+      {features.map((feat, i) => (
+        <div key={i} className="flex items-start gap-4 sm:gap-5 group">
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16 max-w-6xl mx-auto">
-    {features.map((feat, i) => (
-        <div key={i} className="flex items-start gap-4 group">
-            {/* Icon Wrapper */}
-            <div className="w-11 h-11 rounded-full bg-[#FE4A01] flex items-center justify-center shrink-0 shadow-[0_4px_14px_rgba(254,74,1,0.2)] transition-transform duration-200 group-hover:scale-105">
-                {/* Updated this line to render the image path properly */}
-                <img src={feat.icon} alt={feat.title} className="w-25 h-25 object-contain" />
-            </div>
-            
-            {/* Content */}
-            <div className="space-y-1.5">
-                <h4 className="text-[23px] font-medium text-white tracking-tight">{feat.title}</h4>
-                <p className="text-gray-400  text-[16px] sm:text-[16px] leading-relaxed font-regular">{feat.desc}</p>
-            </div>
+          {/* Round Solid Orange Icon Badge */}
+          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#FE4A01] flex items-center justify-center shrink-0 shadow-[0_4px_14px_rgba(254,74,1,0.2)] transition-transform duration-200 group-hover:scale-105 p-2.5 sm:p-3">
+            <img 
+              src={feat.icon} 
+              alt={feat.title} 
+              className="w-full h-full object-contain" 
+            />
+          </div>
+
+          {/* Content */}
+          <div className="space-y-1.5 min-w-0">
+            <h3 className="text-lg sm:text-xl lg:text-[23px] font-medium text-white tracking-tight leading-snug">
+              {feat.title}
+            </h3>
+            <p className="text-stone-400 text-xs sm:text-sm lg:text-[16px] leading-relaxed font-normal">
+              {feat.desc}
+            </p>
+          </div>
+
         </div>
-    ))}
-</div>
-            </section>
+      ))}
+    </div>
 
-            {/* ── SECTION 5: CALL TO ACTION BANNER ──────────────────────────── */}
-            <section className="bg-[#0a0a0a] pb-24 sm:pb-28 mx-[120px] relative overflow-hidden font-['Urbanist']">
-                <div className="max-w-7xl mx-auto">
-                    <div className="relative overflow-hidden bg-[#0a0a0a] rounded-[40px] px-8 py-8 text-center">
-                        <div className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden" style={{ background: 'linear-gradient(135deg, #ff3c006c 0%, #0a0a0a 30%, #0a0a0a 80%, #ff3c006c 100%)' }}>
-                            <div className="relative z-10 max-w-full mx-auto">
-                                <h2 className="text-[48px] md:text-[48px] font-medium tracking-tight mb-8 leading-[1.1]">
-                                    Take Advantage of {countryName} Residential Proxies
-                                </h2>
-                                <p className="text-gray-400 text-[18px] max-w-4xl font-regular md:text-xl leading-relaxed mb-12 mx-auto">
-                                    Effortlessly test, deploy, and scale your projects with user-friendly, high quality and cost effective residential proxy infrastructure tailored for any use case.
-                                </p>
-                      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
+  </div>
+</section>
 
-                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#ffffff] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:scale-[1.02] active:scale-[0.99]">
+{/* ── SECTION 5: CALL TO ACTION BANNER ──────────────────────────── */}
+<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white relative overflow-hidden font-['Urbanist']">
+  <div className="max-w-7xl mx-auto">
+    <div
+      className="relative rounded-2xl sm:rounded-3xl p-6 sm:p-12 md:p-16 text-center overflow-hidden border border-stone-900"
+      style={{
+        background: 'linear-gradient(135deg, #ff3c006c 0%, #0a0a0a 30%, #0a0a0a 80%, #ff3c006c 100%)',
+      }}
+    >
+      {/* Subtle background overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40 rounded-2xl sm:rounded-3xl pointer-events-none" />
 
-                            {/* Fast 3D text track wrapper */}
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+      <div className="max-w-5xl relative z-10 mx-auto">
+        <h2 className="text-2xl sm:text-4xl lg:text-[48px] font-medium tracking-tight mb-4 sm:mb-6 leading-tight sm:leading-[1.1] text-[#FFF6EC]">
+          Take Advantage of {countryName} Residential Proxies
+        </h2>
 
-                                {/* Default State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]  text-black">
-                                     Get Started Now
-                                </span>
+        <p className="max-w-4xl mx-auto text-gray-400 text-sm sm:text-base lg:text-[18px] font-normal leading-relaxed mb-6 sm:mb-8 text-center">
+          Effortlessly test, deploy, and scale your projects with user-friendly, high quality and cost effective residential proxy infrastructure tailored for any use case.
+        </p>
 
-                                {/* Hover State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-black">
-                                     Get Started Now
-                                </span>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          {/* PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION */}
+          <button 
+            onClick={() => router.push('https://dashboard.torchproxies.com/')} 
+            className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-white text-black font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:scale-[1.02] active:scale-[0.99]"
+          >
+            {/* 3D Text Roll Effect */}
+            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+              {/* Default State */}
+              <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)] text-black">
+                Get Started Now
+              </span>
 
-                            </div>
-                        </button>
-                        </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+              {/* Hover State */}
+              <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-black">
+                Get Started Now
+              </span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{/* ── SECTION 6: SEO OVERVIEW TEXT BLOCK ────────────────────────── */}
+<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white overflow-hidden font-['Urbanist']">
+  <div className="max-w-7xl mx-auto space-y-6 sm:space-y-8 lg:space-y-10">
+    
+    {/* Heading */}
+    <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-medium text-white tracking-tight leading-tight">
+      Experience the Advantage of TorchLabs <br className="hidden sm:block" />
+      {countryName} Residential Proxies
+    </h2>
 
-            {/* ── SECTION 6: SEO OVERVIEW TEXT BLOCK ────────────────────────── */}
-            <section className="bg-[#0a0a0a] text-white pb-24 sm:pb-28 mx-[120px] overflow-hidden font-['Urbanist']">
-                <div className="max-w-7xl mx-auto space-y-12">
-                    <h2 className="text-[42px] sm:text-[42px] font-regular text-white">
-                        Experience the Advantage of TorchLabs <br />{countryName} Residential Proxies
-                    </h2>
-                    <p className="text-gray-400 text-[18px] font-regular md:text-xl leading-relaxed text-left">
-                        Free proxies may seem tempting, but they often lack security and reliability. TorchLabs {countryName} residential proxies ensure fast, secure and stable connections, protecting your data while maintaining high performance.
-                    </p>
-                    <p className="text-gray-400 text-[18px] font-regular md:text-xl leading-relaxed text-left">
-                        Our premium {countryName} IP addresses are continuously refreshed, offer city-level targeting and come with 24/7 support. Whether you need datacenter or residential proxies, TorchLabs provides trusted, high-speed infrastructure for personal or business use.
-                    </p>
-                    <p className="text-gray-400 text-[18px] font-regular md:text-xl leading-relaxed text-left">
-                        TorchLabs {countryName} proxies provide unmatched reliability and performance. With continuously updated IPs, high-speed connections, and full customer support, you can confidently carry out personal or business operations without interruptions.
-                    </p>
-                </div>
-            </section>
+    {/* Body Paragraphs */}
+    <div className="space-y-4 sm:space-y-6 text-stone-400 text-sm sm:text-base lg:text-[18px] font-normal leading-relaxed text-left">
+      <p>
+        Free proxies may seem tempting, but they often lack security and reliability. TorchLabs {countryName} residential proxies ensure fast, secure and stable connections, protecting your data while maintaining high performance.
+      </p>
+      <p>
+        Our premium {countryName} IP addresses are continuously refreshed, offer city-level targeting and come with 24/7 support. Whether you need datacenter or residential proxies, TorchLabs provides trusted, high-speed infrastructure for personal or business use.
+      </p>
+      <p>
+        TorchLabs {countryName} proxies provide unmatched reliability and performance. With continuously updated IPs, high-speed connections, and full customer support, you can confidently carry out personal or business operations without interruptions.
+      </p>
+    </div>
 
-            {/* ── SECTION 7: FAQ ACCORDION ────────────────────────── */}
-            <section className="pb-24 sm:pb-28 mx-[120px] bg-[#0a0a0a] relative overflow-hidden  font-['Urbanist']">
-                <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
-                    <Image src="/images/contact-bg.png" alt="" fill priority className="object-cover object-bottom opacity-100" />
-                </div>
+  </div>
+</section>
+{/* ── SECTION 7: FAQ ACCORDION ────────────────────────── */}
+<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
 
-                <div className="max-w-4xl mx-auto relative z-10">
-                    <div className="text-center mb-16">
-                        <div className="text-[#FE4A01] text-xs font-medium tracking-widest block mb-3">FAQ</div>
-                        <h2 className="text-4xl sm:text-5xl font-normal tracking-tight text-white">Frequently asked questions</h2>
-                    </div>
+  {/* Full-Bleed Middle-Bottom Background Layer */}
+  <div className="absolute inset-x-0 bottom-0 h-[300px] sm:h-[450px] z-0 pointer-events-none select-none">
+    <Image
+      src="/images/contact-bg.png"
+      alt=""
+      fill
+      priority
+      className="object-cover object-bottom opacity-100"
+    />
+  </div>
 
-                    <div className="space-y-px">
-                        {faqData.map((faq, index) => {
-                            const isOpen = activeFaq === index;
-                            return (
-                                <div key={index} className="border-b border-stone-800 last:border-none group">
-                                    <button onClick={() => setActiveFaq(isOpen ? null : index)} className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors">
-                                        <span>{faq.q}</span>
-                                        <ChevronDown className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`} />
-                                    </button>
-                                    <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
-                                        <p className="text-stone-400 text-[15px] leading-relaxed pr-10">{faq.a}</p>
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent pointer-events-none z-0" />
-            </section>
+  {/* Content Wrapper */}
+  <div className="max-w-4xl mx-auto relative z-10">
+    {/* Section Header */}
+    <div className="text-center mb-10 sm:mb-16">
+      <span className="text-[#FE4A01] text-xs sm:text-sm lg:text-[16px] font-medium tracking-widest uppercase block mb-2 sm:mb-3">
+        FAQ
+      </span>
+      <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-medium tracking-tight text-white leading-tight">
+        Frequently asked questions
+      </h2>
+    </div>
+
+    {/* FAQ Items */}
+    <div className="space-y-px">
+      {faqData.map((faq, index) => {
+        const isOpen = activeFaq === index;
+        return (
+          <div
+            key={index}
+            className="border-b border-stone-800 last:border-none group"
+          >
+            <button
+              onClick={() => setActiveFaq(isOpen ? null : index)}
+              className="w-full text-left py-4 sm:py-6 flex items-center justify-between text-base sm:text-lg font-medium text-stone-200 hover:text-white transition-colors gap-4"
+            >
+              <span className="pr-2">{faq.q}</span>
+              <ChevronDown
+                className={`w-5 h-5 text-stone-400 shrink-0 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
+              />
+            </button>
+
+            {/* Answer */}
+            <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-4 sm:pb-6' : 'max-h-0'}`}>
+              <p className="text-stone-400 text-xs sm:text-sm lg:text-[15px] leading-relaxed pr-6 sm:pr-10">
+                {faq.a}
+              </p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+
+  {/* Bottom Gradient Overlay */}
+  <div className="absolute bottom-0 left-0 right-0 h-28 sm:h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent pointer-events-none z-0" />
+</section>
         </div>
     );
 }
