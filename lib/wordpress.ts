@@ -79,78 +79,207 @@
 //    `${WP_URL}/wp-content/themes/hub/style.css`,
 //   ];
 // }
-const WP_URL = process.env.WORDPRESS_URL?.replace(/\/$/, "");
 
-const getApiUrl = (endpoint: string) =>
-  `${WP_URL}/wp-json/wp/v2/${endpoint}`;
+
+
+
+// const WP_URL = process.env.WORDPRESS_URL?.replace(/\/$/, "");
+
+// const getApiUrl = (endpoint: string) =>
+//   `${WP_URL}/wp-json/wp/v2/${endpoint}`;
+
+// // ─────────────────────────────
+// // POSTS
+// // ─────────────────────────────
+// export async function getAllPosts() {
+//   if (!WP_URL) throw new Error("WORDPRESS_URL is missing in .env");
+
+//   const res = await fetch(
+//     `${getApiUrl("posts")}?_embed&per_page=100`,
+//     {
+//       next: { revalidate: 3600 }, // ✅ keep cache + refresh hourly
+//     }
+//   );
+
+//   if (!res.ok) throw new Error("Failed to fetch posts");
+//   return res.json();
+// }
+
+// // ─────────────────────────────
+// // SINGLE POST
+// // ─────────────────────────────
+// export async function getPostBySlug(slug: string) {
+//   if (!WP_URL) throw new Error("WORDPRESS_URL is missing in .env");
+
+//   const res = await fetch(
+//     `${getApiUrl("posts")}?slug=${slug}&_embed`,
+//     {
+//       next: { revalidate: 3600 },
+//     }
+//   );
+
+//   if (!res.ok) return null;
+
+//   const posts = await res.json();
+//   return posts.length > 0 ? posts[0] : null;
+// }
+
+// // ─────────────────────────────
+// // CATEGORIES
+// // ─────────────────────────────
+// export async function getCategories() {
+//   if (!WP_URL) throw new Error("WORDPRESS_URL is missing in .env");
+
+//   const res = await fetch(getApiUrl("categories"), {
+//     next: { revalidate: 3600 },
+//   });
+
+//   if (!res.ok) throw new Error("Failed to fetch categories");
+//   return res.json();
+// }
+
+// // ─────────────────────────────
+// // PAGE BY SLUG
+// // ─────────────────────────────
+// export async function getPageBySlug(slug: string) {
+//   if (!WP_URL) throw new Error("WORDPRESS_URL is missing in .env");
+
+//   const res = await fetch(
+//     `${getApiUrl("pages")}?slug=${slug}&_embed`,
+//     {
+//       next: { revalidate: 3600 },
+//     }
+//   );
+
+//   if (!res.ok) return null;
+
+//   const pages = await res.json();
+//   return pages.length > 0 ? pages[0] : null;
+// }
+
+// // ─────────────────────────────
+// // PAGE STYLES
+// // ─────────────────────────────
+// export async function getPageStyles(pageId: number) {
+//   if (!WP_URL) return [];
+
+//   return [
+//     "https://fonts.googleapis.com/css?family=Urbanist:100,200,300,400,500,600,700,800,900&display=swap",
+//     "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+
+//     `${WP_URL}/wp-content/plugins/elementor/assets/css/frontend.min.css`,
+//     `${WP_URL}/wp-content/plugins/elementor-pro/assets/css/frontend.min.css`,
+
+//     `${WP_URL}/wp-content/uploads/elementor/css/global.css`,
+//     `${WP_URL}/wp-content/uploads/elementor/css/custom-frontend.min.css`,
+
+//     `${WP_URL}/wp-content/uploads/elementor/css/post-${pageId}.css`,
+
+//     `${WP_URL}/wp-content/uploads/elementor/css/custom-widget-icon-list.min.css`,
+
+//     `${WP_URL}/wp-includes/css/dist/block-library/style.min.css`,
+
+//     `${WP_URL}/wp-content/themes/hub/style.css`,
+//   ];
+// }
+
+
+
+
+const WP_URL = (
+  process.env.WORDPRESS_URL || 
+  process.env.NEXT_PUBLIC_WORDPRESS_API_URL?.replace(/\/wp-json\/wp\/v2\/?$/, "") || 
+  "https://cms.torchproxies.com"
+).replace(/\/$/, "");
+
+const getApiUrl = (endpoint: string) => `${WP_URL}/wp-json/wp/v2/${endpoint}`;
 
 // ─────────────────────────────
 // POSTS
 // ─────────────────────────────
 export async function getAllPosts() {
-  if (!WP_URL) throw new Error("WORDPRESS_URL is missing in .env");
+  if (!WP_URL) return [];
 
-  const res = await fetch(
-    `${getApiUrl("posts")}?_embed&per_page=100`,
-    {
-      next: { revalidate: 3600 }, // ✅ keep cache + refresh hourly
+  try {
+    const res = await fetch(`${getApiUrl("posts")}?_embed&per_page=100`, {
+      next: { revalidate: 3600 },
+    });
+
+    if (!res.ok) {
+      console.error(`Failed to fetch posts: HTTP ${res.status}`);
+      return [];
     }
-  );
 
-  if (!res.ok) throw new Error("Failed to fetch posts");
-  return res.json();
+    return await res.json();
+  } catch (error) {
+    console.error("Error in getAllPosts:", error);
+    return [];
+  }
 }
 
 // ─────────────────────────────
 // SINGLE POST
 // ─────────────────────────────
 export async function getPostBySlug(slug: string) {
-  if (!WP_URL) throw new Error("WORDPRESS_URL is missing in .env");
+  if (!WP_URL || !slug) return null;
 
-  const res = await fetch(
-    `${getApiUrl("posts")}?slug=${slug}&_embed`,
-    {
+  try {
+    const res = await fetch(`${getApiUrl("posts")}?slug=${slug}&_embed`, {
       next: { revalidate: 3600 },
-    }
-  );
+    });
 
-  if (!res.ok) return null;
+    if (!res.ok) return null;
 
-  const posts = await res.json();
-  return posts.length > 0 ? posts[0] : null;
+    const posts = await res.json();
+    return Array.isArray(posts) && posts.length > 0 ? posts[0] : null;
+  } catch (error) {
+    console.error(`Error in getPostBySlug (${slug}):`, error);
+    return null;
+  }
 }
 
 // ─────────────────────────────
 // CATEGORIES
 // ─────────────────────────────
 export async function getCategories() {
-  if (!WP_URL) throw new Error("WORDPRESS_URL is missing in .env");
+  if (!WP_URL) return [];
 
-  const res = await fetch(getApiUrl("categories"), {
-    next: { revalidate: 3600 },
-  });
+  try {
+    const res = await fetch(getApiUrl("categories"), {
+      next: { revalidate: 3600 },
+    });
 
-  if (!res.ok) throw new Error("Failed to fetch categories");
-  return res.json();
+    if (!res.ok) {
+      console.error(`Failed to fetch categories: HTTP ${res.status}`);
+      return [];
+    }
+
+    return await res.json();
+  } catch (error) {
+    console.error("Error in getCategories:", error);
+    return [];
+  }
 }
 
 // ─────────────────────────────
 // PAGE BY SLUG
 // ─────────────────────────────
 export async function getPageBySlug(slug: string) {
-  if (!WP_URL) throw new Error("WORDPRESS_URL is missing in .env");
+  if (!WP_URL || !slug) return null;
 
-  const res = await fetch(
-    `${getApiUrl("pages")}?slug=${slug}&_embed`,
-    {
+  try {
+    const res = await fetch(`${getApiUrl("pages")}?slug=${slug}&_embed`, {
       next: { revalidate: 3600 },
-    }
-  );
+    });
 
-  if (!res.ok) return null;
+    if (!res.ok) return null;
 
-  const pages = await res.json();
-  return pages.length > 0 ? pages[0] : null;
+    const pages = await res.json();
+    return Array.isArray(pages) && pages.length > 0 ? pages[0] : null;
+  } catch (error) {
+    console.error(`Error in getPageBySlug (${slug}):`, error);
+    return null;
+  }
 }
 
 // ─────────────────────────────

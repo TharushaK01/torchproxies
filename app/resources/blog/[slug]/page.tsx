@@ -4,6 +4,9 @@ import { notFound } from "next/navigation";
 import { Work_Sans } from "next/font/google";
 import WordPressRenderer from "@/components/WordPressRenderer";
 
+export const revalidate = 3600;
+export const dynamicParams = true;
+
 // 2. Configure the font (you can specify weights or subsets)
 const workSans = Work_Sans({
   subsets: ["latin"],
