@@ -86,7 +86,7 @@ const NAV_LINKS = [
           label: "B2B Dashboard",
           description: "Centralized platform to manage proxy inventory, client usage, and distribution.",
           href: "/b2b-dashboard",
-          tag: "Starting at $0",
+          tag: "Starting at $100",
           tagColor: "text-orange-400 bg-orange-950/40 border border-orange-900/50",
           icon: "/images/icon/b2b.svg", // Add path to your SVG
         },

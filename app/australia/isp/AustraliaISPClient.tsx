@@ -259,7 +259,7 @@ export default function TorchProxiesLandingPage() {
                     </h1>
 
                     {/* Subtitle Body Text */}
-                    <p className="text-gray-400 text-sm sm:text-base md:text-[20px] leading-relaxed max-w-5xl font-regular pt-1">
+                    <p className="text-gray-400 text-sm sm:text-base md:text-[20px] leading-relaxed max-w-5xl font-regular pt-1 text-[#F0F2F5]/65">
                       A static, Australia-registered IP backed by data center speed and unlimited bandwidth , the same address holds through checkout, login, and monitoring sessions that can't handle a rotating identity.
                     </p>
 
@@ -541,15 +541,12 @@ export default function TorchProxiesLandingPage() {
                     {/* Section Header */}
                     <div className="space-y-2">
                         <span className="text-[#FF4F00] text-xs md:text-sm font-bold tracking-[0.2em] uppercase">
-                            WHY RESIDENTIAL
+                            WHY ISP
                         </span>
                         <h2 className="text-3xl md:text-5xl lg:text-[52px] font-normal leading-[1.15] text-white max-w-4xl tracking-tight">
                             Industry leader in fast proxy services <br className="hidden md:block" />
                             for Australia
-                        </h2>
-                        <p className="text-white/67 text-base md:text-[18px] leading-relaxed font-regular w-full max-w-6xl mt-[24px]">
-An eBay Australia or Kogan seller account expects the same IP every session, switch it mid-task and the account gets flagged for review, not just logged out. TorchProxies Australia ISP proxies hold one static, Australia-registered address for your whole session.
-</p>                    
+                        </h2>                   
 </div>
 
                     {/* Asymmetric Grid Layout */}

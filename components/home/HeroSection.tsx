@@ -407,6 +407,8 @@
 //     </section>
 //   );
 // }
+
+
 "use client";
 
 import Image from "next/image";
@@ -531,10 +533,10 @@ export default function HeroSection() {
           </div>
 
           {/* Headline */}
-          <h1 className="text-5xl font-medium leading-[1.02] tracking-tight text-white md:text-7xl lg:text-[105px] xl:text-[120px]">
-            <span className="text-[#ff4500]">One</span> proxy <br />
+          <h1 className="text-5xl font-regular leading-[1.02] tracking-tight text-white md:text-7xl lg:text-[105px] xl:text-[120px]">
+            <span className="text-[#ff4500] font-bold">One</span> proxy <br />
             network. <br />
-            <span className="text-[#ff4500]">Every</span> use case.
+            <span className="text-[#ff4500] font-bold">Every</span> use case.
           </h1>
 
           {/* CTA Buttons */}

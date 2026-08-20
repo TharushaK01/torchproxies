@@ -6,6 +6,7 @@ import { Urbanist, Smooch_Sans } from 'next/font/google';
 import { Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 
 const DepthCarousel = dynamic(() => import('../../components/DepthCarousel'), {
   loading: () => <div className="w-full h-[420px] bg-[#08090c] border border-[#1b1e26] rounded-[24px] flex items-center justify-center"><p>Loading timeline...</p></div>,
@@ -313,8 +314,20 @@ export default function AboutUsPage() {
 
       <Marquee />
 
-      {/* 2. WHY WE EXIST SECTION */}
-      <section className="relative w-full py-20 px-6 overflow-hidden bg-black flex justify-center items-center">
+{/* 2. WHY WE EXIST SECTION */}
+      <section className="relative w-full py-20 px-[40px] overflow-hidden bg-black flex justify-center items-center">
+        {/* 1. Background Gradient Effects */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-100"
+          style={{
+            background: `
+      radial-gradient(ellipse 200% 150% at 50% -20%, #FE4A01 0%, #FE4A01 35%, rgba(0, 0, 0, 0.95) 70%, rgba(0, 0, 0, 0.95) 98%, #000000 100%)
+    `
+          }}
+        />
+
+{/* 2. WHY WE EXIST SECTION */}
+      <section className="relative w-full py-1 px-[40px] overflow-hidden bg-black flex justify-center items-center">
         {/* 1. Background Gradient Effects */}
         <div
           className="absolute inset-0 pointer-events-none opacity-100"
@@ -326,8 +339,8 @@ export default function AboutUsPage() {
         />
 
         {/* 2. Main Content Card */}
-        <div className="relative z-10 max-w-5xl w-full bg-[#070708] border border-[#1b1b1e] rounded-[32px] p-8 sm:p-12 md:p-16 shadow-2xl">
-          <div className="max-w-4xl space-y-6">
+        <div className="relative z-10 w-full max-w-7xl bg-[#070708] border border-[#1b1b1e] rounded-[32px] p-8 sm:p-12 md:p-16 shadow-2xl">
+          <div className="max-w-5xl w-full mx-auto space-y-6 text-left">
             {/* Subtitle / Category Tag */}
             <span className="block text-[#ff4500] text-[12px] md:text-[13px] font-bold tracking-[0.2em] uppercase">
               OUR STORY
@@ -347,6 +360,7 @@ export default function AboutUsPage() {
               Today, every business runs on data, but reliable infrastructure isn't equal.  We built Torch Proxies to close that gap, proxy networks tuned for the task at hand, not one-size-fits all pools, held to one standard, reliable under real, high-volume traffic, or it doesn't ship.          </p>
           </div>
         </div>
+      </section>
       </section>
 
       {/* 3. TORCH PROXIES BY NUMBERS */}
@@ -399,59 +413,60 @@ export default function AboutUsPage() {
 
           {/* RIGHT COLUMN: Depth Carousel Component */}
           <div className="lg:col-span-6 relative w-full h-[500px] flex items-center justify-center overflow-hidden">
-            <DepthCarousel
-              depth={220}
-              spread={90}
-              tilt={22}
-              tiltDirection="right"
-              perspective={1400}
-              visibleCards={4}
-              falloff={0.2}
-              blur={6}
-              autoplay={false}
-              loop
-              cardWidth={340}
-              cardHeight={420}
-              radius={20}
-              tint="#05060a"
-              duration={700}
-              ease="power3.out"
-              autoplayDelay={3200}
-              showControls
-              showIndicators={false}
-              items={journeyData.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="w-full h-full bg-[#08090c] border border-[#1b1e26] rounded-[24px] p-6 flex flex-col justify-between overflow-hidden shadow-2xl select-none"
-                >
-                  {/* Year Header & Bullet Points */}
-                  <div className="space-y-4">
-                    <span className="text-3xl md:text-4xl font-extrabold text-[#FE4A01] block">
-                      {item.year}
-                    </span>
-                    <ul className="space-y-2.5 text-xs md:text-sm text-gray-300 font-normal leading-relaxed">
-                      {item.points.map((pt, pIdx) => (
-                        <li key={pIdx} className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-1.5 flex-shrink-0" />
-                          <span>{pt}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+<DepthCarousel
+  depth={220}
+  spread={90}
+  tilt={22}
+  tiltDirection="right"
+  perspective={1400}
+  visibleCards={4}
+  falloff={0.2}
+  blur={6}
+  autoplay={false}
+  loop
+  cardWidth={340}
+  cardHeight={420}
+  radius={20}
+  tint="#05060a"
+  duration={700}
+  ease="cubic-bezier(0.22, 1, 0.36, 1)"
+  autoplayDelay={3200}
+  showControls
+  showIndicators={false}
+  items={journeyData.map((item, idx) => (
+    <div
+      key={idx}
+      className="w-full h-full bg-[#08090c] border border-[#1b1e26] rounded-[24px] p-6 flex flex-col justify-between overflow-hidden shadow-2xl select-none"
+    >
+      {/* Year Header & Bullet Points */}
+      <div className="space-y-4">
+        <span className="text-3xl md:text-4xl font-extrabold text-[#FE4A01] block">
+          {item.year}
+        </span>
+        <ul className="space-y-2.5 text-xs md:text-sm text-gray-300 font-normal leading-relaxed">
+          {item.points.map((pt, pIdx) => (
+            <li key={pIdx} className="flex items-start gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-1.5 flex-shrink-0" />
+              <span>{pt}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
 
-                  {/* Bottom Image / Graphic */}
-                  <div className="relative w-full h-[160px] rounded-xl overflow-hidden mt-4 border border-[#1b1e26]/60">
-                    <Image
-                      src={item.image}
-                      alt={`${item.year} journey`}
-                      fill
-                      className="object-cover"
-                      sizes="340px"
-                    />
-                  </div>
-                </div>
-              ))}
-            />
+      {/* Bottom Image / Graphic */}
+      <div className="relative w-full h-[160px] rounded-xl overflow-hidden mt-4 border border-[#1b1e26]/60">
+        <Image
+          src={item.image}
+          alt={`${item.year} journey`}
+          fill
+          className="object-cover"
+          sizes="340px"
+        />
+      </div>
+    </div>
+  ))}
+/>
+            
           </div>
 
         </div>
@@ -839,119 +854,132 @@ export default function AboutUsPage() {
           </div>
         </div>
       </section>
+{/* 6. ONE NETWORK, EVERY WORKFLOW & PACKAGES */}
+<section className="max-w-7xl mx-auto px-6 py-20">
+  <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
-      {/* 6. ONE NETWORK, EVERY WORKFLOW & PACKAGES */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+    {/* Left Column Description */}
+    <div className="lg:col-span-5 space-y-6">
+      <span className="text-[#ff4500] text-[13px] font-bold tracking-widest uppercase">
+        Proxies You Can Rely On
+      </span>
+      <h2 className="text-3xl md:text-[44px] font-regular text-white leading-tight">
+        One network, every workflow
+      </h2>
+      <p className="text-gray-400 text-xs md:text-sm leading-relaxed">
+        Torch Proxies powers web scraping, price and SEO monitoring, ad verification, sneaker checkouts, ticket drops, social media management, and gaming — with the same infrastructure underneath. Whatever you're automating, the proxy shouldn't be the thing that breaks it.
+      </p>
 
-          {/* Left Column Description */}
-          <div className="lg:col-span-5 space-y-6">
-            <span className="text-[#ff4500] text-[13px] font-bold tracking-widest uppercase">
-              Proxies You Can Rely On
-            </span>
-            <h2 className="text-3xl md:text-[44px] font-regular text-white leading-tight">
-              One network, every workflow
-            </h2>
-            <p className="text-gray-400 text-xs md:text-sm leading-relaxed">
-              Torch Proxies powers web scraping, price and SEO monitoring, ad verification, sneaker checkouts, ticket drops, social media management, and gaming — with the same infrastructure underneath. Whatever you're automating, the proxy shouldn't be the thing that breaks it.
+      {/* Tag Badges Grid */}
+      <div className="flex flex-wrap gap-2 pt-2">
+        {[
+          'Web Scraping',
+          'SEO Tracking',
+          'Price Monitoring',
+          'Sneaker Drops',
+          'Ad Verification',
+          'Ticket Releases',
+          'Market Research',
+          'Account Management',
+          'Gaming',
+        ].map((tag, idx) => (
+          <span
+            key={idx}
+            className="bg-[#12141a] border border-[#232733] text-gray-300 text-xs px-3.5 py-1.5 rounded-full font-medium"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
 
-            </p>
+    {/* Right Column: Packages */}
+    <div className="lg:col-span-7 space-y-3">
+      {[
+        {
+          title: 'Standard Residential ',
+          desc: 'Reliable and affordable with rotating residential proxies and optional static sessions perfect for everyday online tasks.',
+          href: '/standard-residential-proxies/',
+          icon: '/images/Standard(2).svg', // Unique icon for Data Center
+        },
+        {
+          title: 'Premium Residential',
+          desc: 'Enhanced speed and reliability with rotating residential proxies and static sessions ideal for demanding users and businesses.',
+          href: '/premium-residential-proxies/',
+          icon: '/images/Premium(2).svg', // Unique icon for Residential
+        },
+        {
+          title: 'Plan X Residential',
+          desc: 'Plan X blends residential IPs for authenticity with ISP IPs for speed and stability, creating a hybrid network built for high-performance scraping, automation, and content access.',
+          href: '/plan-x-residential/',
+          icon: '/images/PlanX(2).svg', // Unique icon for Static Residential
+        },
+        {
+          title: 'ISP Proxies',
+          desc: 'Static residential proxies with unlimited data. Ideal for sneaker botting, scraping and automation.',
+          href: '/isp-proxies/',
+          icon: '/images/ISP(2).svg', // Unique icon for ISP
+        },
+        {
+          title: 'Mobile Proxies',
+          desc: 'Access fast mobile IPs with sticky sessions and precise targeting optimized for scraping, automation, and social media workflows',
+          badge: 'Coming Soon',
+          href: '/proxies/mobile',
+          icon: null, // No icon for Mobile Proxies
+        },
+      ].map((pkg, idx, array) => {
+        const isLastItem = idx === array.length - 1;
 
-            {/* Tag Badges Grid */}
-            <div className="flex flex-wrap gap-2 pt-2">
-              {[
-                'Web Scraping',
-                'SEO Tracking',
-                'Price Monitoring',
-                'Sneaker Drops',
-                'Ad Verification',
-                'Ticket Releases',
-                'Market Research',
-                'Account Management',
-                'Gaming',
-              ].map((tag, idx) => (
-                <span
-                  key={idx}
-                  className="bg-[#12141a] border border-[#232733] text-gray-300 text-xs px-3.5 py-1.5 rounded-full font-medium"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Right Column: Packages with Orange Front Arrow Icons */}
-          {/* Right Column: Packages */}
-          <div className="lg:col-span-7 space-y-3">
-            {[
-              {
-                title: 'Data Center Proxies',
-                desc: 'Reliable and affordable with rotating residential proxies and optional static sessions perfect for everyday online tasks.',
-              },
-              {
-                title: 'Premium Residential',
-                desc: 'Enhanced speed and reliability with rotating residential proxies and static sessions ideal for demanding users and businesses.',
-              },
-              {
-                title: 'Static Residential',
-                desc: 'Plan X blends residential IPs for authenticity with ISP IPs for speed and stability, creating a hybrid network built for high-performance scraping, automation, and content access.',
-              },
-              {
-                title: 'ISP Proxies',
-                desc: 'Static residential proxies with unlimited data. Ideal for sneaker botting, scraping and automation.',
-              },
-              {
-                title: 'Custom Tailored',
-                desc: 'Access fast mobile IPs with sticky sessions and precise targeting optimized for scraping, automation, and social media workflows',
-                badge: 'Coming Soon',
-              },
-            ].map((pkg, idx, array) => {
-              // Check if it is the last item
-              const isLastItem = idx === array.length - 1;
-
-              return (
+        return (
+          <Link
+            key={idx}
+            href={pkg.href}
+            className={`block bg-[#0e1015] border border-[#1b1e26] rounded-xl p-4 transition-all duration-300 ${
+              isLastItem
+                ? 'opacity-40 hover:opacity-60 border-dashed border-[#232733]'
+                : 'hover:border-[#ff4500]/40'
+            }`}
+          >
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center gap-4">
+                {/* Orange background box */}
                 <div
-                  key={idx}
-                  /* ADDED: Dynamic opacity-40 and grayscale for the last item */
-                  className={`bg-[#0e1015] border border-[#1b1e26] rounded-xl p-4 flex items-center justify-between gap-4 transition-all duration-300 ${isLastItem
-                      ? 'opacity-40 hover:opacity-60 border-dashed border-[#232733]'
-                      : 'hover:border-[#ff4500]/40'
-                    }`}
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md ${
+                    isLastItem
+                      ? 'bg-[#1e1410] border border-[#ff5500]/20'
+                      : 'bg-gradient-to-br from-[#ff5500] to-[#e03e00] shadow-orange-950/40'
+                  }`}
                 >
-                  <div className="flex items-center gap-4">
-                    {/* Orange background with white icon inside */}
-                    <div
-                      className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md ${isLastItem
-                          ? 'bg-[#1e1410] border border-[#ff5500]/20'
-                          : 'bg-gradient-to-br from-[#ff5500] to-[#e03e00] shadow-orange-950/40'
-                        }`}
-                    >
-                      <Image
-                        src="/images/products.svg"
-                        alt="Arrow Right Icon"
-                        width={20}
-                        height={20}
-                      />
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <h3 className="text-[20px] font-regular text-white">{pkg.title}</h3>
-                        {pkg.badge && (
-                          <span className="bg-[#FFF44F20] text-[#FFF44F] text-[10px] font-regular px-2 py-0.5 rounded-full border border-[#FFF44F]/30">
-                            {pkg.badge}
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-[14px] text-gray-400 mt-0.5">{pkg.desc}</p>
-                    </div>
-                  </div>
+                  {pkg.icon && (
+                    <Image
+                      src={pkg.icon}
+                      alt={`${pkg.title} icon`}
+                      width={42}
+                      height={42}
+                      className="drop-shadow-md"
+                    />
+                  )}
                 </div>
-              );
-            })}
-          </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-[20px] font-regular text-white">{pkg.title}</h3>
+                    {pkg.badge && (
+                      <span className="bg-[#FFF44F20] text-[#FFF44F] text-[10px] font-regular px-2 py-0.5 rounded-full border border-[#FFF44F]/30">
+                        {pkg.badge}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-[14px] text-gray-400 mt-0.5">{pkg.desc}</p>
+                </div>
+              </div>
+            </div>
+          </Link>
+        );
+      })}
+    </div>
 
-        </div>
-      </section>
+  </div>
+</section>
 
       {/* 7. HONEST REVIEWS FROM REAL TORCHPROXIES CUSTOMERS */}
       <section className="max-w-7xl mx-auto px-6 py-20">
