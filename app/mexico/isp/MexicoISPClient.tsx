@@ -304,7 +304,7 @@ export default function TorchProxiesLandingPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full pt-8">
                         <div className="bg-[#121824]/30 border border-white/10 backdrop-blur-md rounded-2xl p-5 text-center flex flex-col justify-center space-y-1">
                             <span className="text-xl md:text-[19px] font-black text-white tracking-wide">4,267,587</span>
-                            <span className="text-[13px] text-gray-400 font-medium">Mexico residential IPs</span>
+                            <span className="text-[13px] text-gray-400 font-medium">Mexico IP count </span>
                         </div>
                         <div className="bg-[#121824]/30 border border-white/10 backdrop-blur-md rounded-2xl p-5 text-center flex flex-col justify-center space-y-1">
                             <span className="text-xl md:text-[19px] font-black text-white tracking-wide">99.9%</span>
