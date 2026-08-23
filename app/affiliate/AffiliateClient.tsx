@@ -527,9 +527,9 @@ const socialIcons = [
                             {/* Row 1: First Purchase Commission */}
                             <tr>
                                 <td className="p-6 font-bold text-stone-400 bg-black/10">First Purchase Commission</td>
-                                <td className="p-6 text-white font-medium">15%</td>
-                                <td className="p-6 text-white font-medium">20%</td>
-                                <td className="p-6 text-white font-medium">25%</td>
+                                <td className="p-6 text-white font-medium">30%</td>
+                                <td className="p-6 text-white font-medium">30%</td>
+                                <td className="p-6 text-white font-medium">30%</td>
                             </tr>
 
                             {/* Row 2: Recurring Commission */}

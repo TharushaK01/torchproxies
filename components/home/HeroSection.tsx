@@ -415,9 +415,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Urbanist } from "next/font/google";
 import { Check } from "lucide-react";
-// import PixelBlast from "@/components/PixelBlast"; 
 import dynamic from "next/dynamic";
-
 
 const PixelBlast = dynamic(() => import("@/components/PixelBlast"), {
   ssr: false,
@@ -486,7 +484,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className={`${urbanist.className} relative min-h-screen w-full bg-[#0b0c10] text-white flex flex-col justify-between overflow-x-hidden pt-16 pb-0 font-['Urbanist']`}
+      className={`${urbanist.className} relative w-full bg-[#0b0c10] text-white overflow-x-hidden pt-28 pb-0 lg:pt-36 font-['Urbanist']`}
     >
       {/* ── 1. BACKGROUND PIXEL BLAST ANIMATION ──────────────────── */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -509,7 +507,7 @@ export default function HeroSection() {
       <div className="absolute left-[-10%] top-[20%] z-0 h-[500px] w-[500px] rounded-full bg-[#ea580c] opacity-10 blur-[150px] pointer-events-none" />
 
       {/* ── 2. HERO CONTAINER GRID ───────────────────────────────────────── */}
-      <div className="relative z-10 w-full max-w-[1536px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mt-[113px]">
+      <div className="relative z-10 w-full max-w-[1536px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         
         {/* ── LEFT COLUMN ── */}
         <div className="lg:col-span-8 z-10 space-y-8 pr-0 lg:pr-6">
@@ -554,7 +552,7 @@ export default function HeroSection() {
                     </span>
                 </div>
             </button>
-                  <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
+            <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
                 <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
                     <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
                         Start with Free Trial
@@ -606,8 +604,7 @@ export default function HeroSection() {
                 width={1200}
                 height={800}
                 priority
-                className="rounded-xl w-full h-auto object-cover object-left
-                priority"
+                className="rounded-xl w-full h-auto object-cover object-left"
               />
             </div>
           </div>
@@ -616,7 +613,7 @@ export default function HeroSection() {
       </div>
 
       {/* ── 3. MARQUEE AT BOTTOM ────────────────────────── */}
-      <div className="relative z-10 w-full mt-[160px] pointer-events-none overflow-hidden">
+      <div className="relative z-10 w-full mt-8 lg:mt-8 pointer-events-none overflow-hidden">
         <Marquee />
       </div>
     </section>
