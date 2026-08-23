@@ -59,7 +59,7 @@ const FOOTER_COLUMNS = [
   {
     heading: "Corporate",
     links: [
-      { label: "Terms & Conditions", href: "#" },
+      { label: "Terms & Conditions", href: "/terms-of-service/" },
       { label: "Report Vulnerability", href: "#" },
     ],
   },
