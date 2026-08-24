@@ -41,9 +41,11 @@ const FOOTER_COLUMNS = [
     links: [
       { label: "Documentation", href: "/documentation/" },
       { label: "Community", href: "https://discord.gg/7dhxSKC6jS" },
+      { label: "Partners", href: "/partners/" },
       { label: "Blog", href: "/blog/" },
       { label: "Help Center", href: "#" },
       { label: "Customer Support", href: "#" },
+      
     ],
   },
   {
@@ -61,7 +63,7 @@ const FOOTER_COLUMNS = [
     links: [
       { label: "Terms & Conditions", href: "/terms-of-service/" },
       { label: "Report Vulnerability", href: "#" },
-      { label: "Partners", href: "#" },
+      { label: "Privacy Policy", href: "/privacy-policy/" },
     ],
   },
 ];

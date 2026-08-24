@@ -5,20 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Urbanist } from "next/font/google";
-import { Check, ChevronDown, Star } from "lucide-react";
+import { ChevronDown, Star } from "lucide-react";
 
-
-interface WordPressPost {
-  id: number;
-  title: { rendered: string } | string;
-  slug: string;
-  jetpack_featured_media_url?: string;
-  featured_media_src_url?: string;
-  _embedded?: {
-    'wp:featuredmedia'?: Array<{ source_url: string }>;
-    'wp:term'?: Array<Array<{ name: string }>>;
-  };
-}
 
 interface ProcessedBlog {
   id: number;
@@ -49,7 +37,7 @@ interface Partner {
   logo: string;
   description: string;
   features?: string[];
-  websiteUrl?: string;
+  websiteUrl?: string; // New optional field for direct links
 }
 
 interface Review {
@@ -61,7 +49,7 @@ interface Review {
   initials?: string;
 }
 
-// ── Dummy Data ──────────────────────────────────────────────────────
+// ── Data ────────────────────────────────────────────────────────────
 const CATEGORIES: Category[] = [
   "All",
   "Antidetect Browsers",
@@ -71,113 +59,123 @@ const CATEGORIES: Category[] = [
 ];
 
 const PARTNERS: Partner[] = [
+  // ── UPDATED GEELARK DATA ──
   {
     id: "gee-lark",
     name: "GeeLark",
     category: "Antidetect Browsers",
-    logo: "/images/partners/geelark.png",
+    logo: "/images/geelark.webp",
     description:
-      "GeeLark is an antidetect phone environment browser designed to create cloud phone instances, allowing users to manage multiple social accounts or e-commerce stores easily and safely, avoiding detection and bans.",
+      "GeeLark is the first antidetect phone, designed for multi-accounting in mobile apps. By providing access to remote Android phones with unique fingerprints, GeeLark is ideal for managing multiple accounts on mobile and capturing mobile traffic efficiently, eliminating the needs for physical phones.",
     features: [
-      "Real cloud phones — not emulators",
-      "Bulk account setup & management",
-      "Custom proxy configuration",
-      "Seamless team collaboration",
+      "Real Android phones hosted in the cloud, each with randomized device fingerprints",
+      "Control several cloud phones from one computer",
+      "AI features for easily creating engaging content",
+      "Automation tools, including the synchronizer, RPA and API",
+      "Use of camera and live streaming supported",
+      "Smooth performance and high compatibility without taking up local disk space",
+      "Flexible subscriptions, including a free plan",
     ],
   },
+  // ── END UPDATED GEELARK DATA ──
   {
     id: "undetectable",
     name: "Undetectable Browser",
     category: "Antidetect Browsers",
-    logo: "/images/partners/undetectable.png",
+    logo: "/images/detectable.svg",
     description:
-      "Undetectable Browser is a professional multi-accounting software for affiliate marketing, crypto, e-commerce, and web scraping. Create unlimited browser profiles with unique fingerprints.",
-    features: ["Local profile storage option", "Mass profile creation"],
+      "Undetectable browser – a professional anti-detect browser for real fingerprints with high trust. Uptime 99,99%. Has API, mass extension installation, profile creation, cookie-bot. An ideal tool for comfortable work with a large number of profiles and increased anonymity, for multi-accounting, crypto wallets, and parsing.",
+    features: ["TORCHPROXIES20 – 20% discount on the purchase of any monthly license"],
   },
   {
-    id: "hidemyacc",
-    name: "Hidemyacc",
+    id: "hidemium",
+    name: "Hidemium",
     category: "Antidetect Browsers",
-    logo: "/images/partners/hidemyacc.png",
+    logo: "/images/hidemium.png",
     description:
-      "Hidemyacc allows you to create multiple browser profiles with distinct hardware fingerprints, ensuring completely anonymous online activity and multi-account management.",
+      " Hidemium, an anti-detect solution, ensures a highly secure environment for managing numerous accounts. It shields your device and real IP effectively, preventing WebRTC leaks. With automated functions, simply drag and drop buttons to execute browser tasks, mimicking real user behavior effortlessly.",
   },
   {
-    id: "mulligan",
-    name: "Mulligan Antidetect Browser",
+    id: "MuLogin Antidetect Browser",
+    name: "MuLogin Antidetect Browser",
     category: "Antidetect Browsers",
-    logo: "/images/partners/mulligan.png",
+    logo: "/images/mulligan.png",
     description:
-      "Advanced browser anti-detection technology for enterprise web scraping, automation, and privacy protection.",
+      "Stay undetected with MuLogin — the leading anti-detect browser with real device fingerprint emulation and anti-tracking technology. Try it free!",
   },
   {
-    id: "capsolver",
-    name: "CapSolver",
+    id: "Cloaking House",
+    name: "Cloaking House",
     category: "Captcha Solvers",
-    logo: "/images/partners/capsolver.png",
+    logo: "/images/capsolver.png",
     description:
-      "CapSolver is an AI-powered CAPTCHA solving service that automatically solves reCAPTCHA v2/v3, hCaptcha, FunCAPTCHA, and Cloudflare Turnstile with ultra-fast speed.",
+      "CaptchaAI is an advanced AI-powered CAPTCHA-solving service built to save you time and resources by automatically solving reCAPTCHA, image CAPTCHAs, and more with high accuracy. Designed for developers and automation users, it delivers reliable, scalable performance at the most affordable price on the market.",
   },
   {
     id: "capsolver-ai",
     name: "Capsolver AI",
     category: "Captcha Solvers",
-    logo: "/images/partners/capsolver-ai.png",
+    logo: "/images/captcha.png",
     description:
-      "Next-gen automated solution for resolving complex security challenges and CAPTCHA algorithms at scale.",
+      "CaptchaAI is an advanced AI-powered CAPTCHA-solving service built to save you time and resources by automatically solving reCAPTCHA, image CAPTCHAs, and more with high accuracy. Designed for developers and automation users, it delivers reliable, scalable performance at the most affordable price on the market.",
     features: [
-      "99.9% solution accuracy",
-      "API integrations for Python, Node & Golang",
-      "Pay-per-successful-request pricing",
+      "Special Offer for Torch Proxies Users",
+      "Get up to 15% OFF all plans — no hidden fees, no limits.",
+      "Solve smarter. Spend less. Scale faster.",
     ],
   },
   {
-    id: "2captcha",
-    name: "2Captcha",
+    id: "FlashID",
+    name: "FlashID",
     category: "Captcha Solvers",
-    logo: "/images/partners/2captcha.png",
+    logo: "/images/flashid.svg",
     description:
-      "2Captcha is a human-powered and automated CAPTCHA recognition service that solves web challenges in real-time.",
+      "Featuring Cloud Phone & Anti-Detect Browser technology, FlashID offers an all-in-one solution for secure multi-account management and automation. The tool of choice for global e-commerce and social media teams to scale safely and grow faster.",
   },
   {
     id: "linken-sphere",
     name: "Linken Sphere",
     category: "Antidetect Browsers",
-    logo: "/images/partners/linken-sphere.png",
+    logo: "/images/linken-sphere.png",
     description:
-      "A high-security antidetect browser built for safe multi-account operations, affiliate marketing, and automated workflows.",
+      " Linken Sphere – an anti-detect browser for secure, scalable work with any anti-fraud systems. Create sessions with one click, bulk-import data, and manage profiles securely. Convenient proxy manager, role-based team access controls, private proxies at competitive prices, traffic-usage optimization, and other tools that simplify your workflow.",
   },
   {
-    id: "automa-test",
-    name: "Automatest",
+    id: "duoplus.net",
+    name: "duoplus.net",
     category: "Automation & Security",
-    logo: "/images/partners/automatest.png",
+    logo: "/images/duoplus.png",
     description:
-      "Comprehensive web automation, security auditing, and performance testing tool designed for developer workflows.",
+      "",
+         features: [
+      "1st antidetect cloud phone to manage your multiple mobile social media accounts without any association",
+      "promo code: Use “torchlabs” code to get one-month free cloud phone",
+    ],
   },
+  
   {
     id: "vmlogin",
     name: "VMLogin Antidetect Browser",
     category: "Antidetect Browsers",
-    logo: "/images/partners/vmlogin.png",
+    logo: "/images/Vmlogin.png",
     description:
-      "Virtual browser environment software to run and manage multiple virtual isolated browser profiles on a single computer.",
+      " Advanced anti-detect browser for secure multi-account management — real browser environments, unique fingerprints, automation API, and team collaboration. Stable, secure, and ideal for stealth marketing and account scaling. 3-day FREE trial available.",
   },
   {
     id: "scrappy",
     name: "Scrappy",
     category: "Automation & Security",
-    logo: "/images/partners/scrappy.png",
+    logo: "/images/Scrappey.jpg",
     description:
-      "Cloud web scraping infrastructure tool providing reliable data extraction, proxy rotation, and headful browser rendering.",
+      "Scrappey.com simplifies web scraping with a robust API that handles anti-bot measures and CAPTCHAs, along with features like rotating proxies and headless browsing for seamless extraction. It offers transparent pricing plans suitable for individuals, startups, and enterprises, with features like concurrent requests, premium proxies, and JavaScript rendering, and hassle-free cancellation options.",
   },
   {
-    id: "pro2-house",
-    name: "Pro2 House",
+    id: "Pay2.House",
+    name: "Pay2.House",
     category: "Cloud Services",
-    logo: "/images/partners/pro2house.png",
+    logo: "/images/pay2house.svg",
     description:
-      "Dedicated server infrastructure and high-speed cloud hosting configured specifically for proxy distribution and data gathering.",
+      "virtual cards for stable and reliable work with advertising platforms, including Facebook, Google, TikTok, as well as online services. Trusted BINs ensure high approval rates, cards support Apple Pay and most international sites, while mass issuance and API make scaling and automation effortless.",
   },
 ];
 
@@ -210,7 +208,7 @@ const FAQ_DATA = [
     q: "Can I receive my commission in platform credits instead of cash?",
     a: "Yes. If you choose to receive your earnings as Torch Credits, your commission rates will receive a +10% bonus over the standard cash payout rates. This option maximizes your value and allows you to reinvest directly into our proxy services at a discounted rate.",
   },
-{
+  {
     q: "What is the minimum payout threshold?",
     a: (
       <div>
@@ -234,7 +232,7 @@ const FAQ_DATA = [
     q: "What is the Leaderboard Bonus?",
     a: "Each month, the top 3 performing affiliates receive an additional +5% bonus on their monthly payout. This bonus is calculated on top of their existing commission rate and is a great way to maximize your earnings.",
   },
-{
+  {
     q: "What marketing materials are available to affiliates?",
     a: (
       <div>
@@ -246,9 +244,9 @@ const FAQ_DATA = [
           <li>
             Seasonal social media content
           </li>
-            <li>
+          <li>
             High-converting creatives
-            <br/>
+            <br />
             These resources are designed to help you improve performance and increase conversions.
           </li>
 
@@ -256,7 +254,7 @@ const FAQ_DATA = [
       </div>
     ),
   },
-{
+  {
     q: "Why should I convert small earnings into Torch Credits?",
     a: (
       <div>
@@ -268,9 +266,9 @@ const FAQ_DATA = [
           <li>
             Access to exclusive discounts on proxy products
           </li>
-            <li>
+          <li>
             Faster reinvestment into services that drive more referrals
-            <br/>
+            <br />
             This helps affiliates scale their efforts without waiting for a cash payout.
           </li>
 
@@ -278,7 +276,7 @@ const FAQ_DATA = [
       </div>
     ),
   },
-    {
+  {
     q: "When are commissions calculated and paid out?",
     a: "Commissions are calculated on a 30-day rolling basis and are paid out monthly. Payments will be made once your balance exceeds $10 or upon your request if you opt for Torch Credits.",
   },
@@ -305,61 +303,57 @@ export default function PartnersPage() {
     activeCategory === "All"
       ? PARTNERS
       : PARTNERS.filter((partner) => partner.category === activeCategory);
-      
-const [blogs, setBlogs] = useState<ProcessedBlog[]>([]);
+
+  const [blogs, setBlogs] = useState<ProcessedBlog[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [failedImages, setFailedImages] = useState<Record<number, boolean>>({});
 
-useEffect(() => {
-  async function fetchWPBlogs() {
-    try {
-      // Constructs the request to fetch 3 posts with media embedded (_embed)
-      const wpBaseUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL || "https://cms.torchproxies.com/wp-json/wp/v2";
-      const res = await fetch(`${wpBaseUrl}/posts?_embed&per_page=3`);
+  useEffect(() => {
+    async function fetchWPBlogs() {
+      try {
+        const wpBaseUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL || "https://cms.torchproxies.com/wp-json/wp/v2";
+        const res = await fetch(`${wpBaseUrl}/posts?_embed&per_page=3`);
 
-      if (res.ok) {
-        const rawPosts: any[] = await res.json();
+        if (res.ok) {
+          const rawPosts: any[] = await res.json();
 
-        if (Array.isArray(rawPosts)) {
-          const formattedPosts: ProcessedBlog[] = rawPosts.map((post) => {
-            // Extract & clean title
-            const rawTitle = post.title?.rendered || "";
-            const cleanTitle = rawTitle
-              .replace(/&#8211;/g, "-")
-              .replace(/&#8217;/g, "'")
-              .replace(/&amp;/g, "&");
+          if (Array.isArray(rawPosts)) {
+            const formattedPosts: ProcessedBlog[] = rawPosts.map((post) => {
+              const rawTitle = post.title?.rendered || "";
+              const cleanTitle = rawTitle
+                .replace(/&#8211;/g, "-")
+                .replace(/&#8217;/g, "'")
+                .replace(/&amp;/g, "&");
 
-            // Extract featured image from _embedded WP media payload
-            const image =
-              post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-              post.jetpack_featured_media_url ||
-              "";
+              const image =
+                post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+                post.jetpack_featured_media_url ||
+                "";
 
-            // Extract primary category name
-            const tag =
-              post._embedded?.["wp:term"]?.[0]?.[0]?.name || "Blog";
+              const tag =
+                post._embedded?.["wp:term"]?.[0]?.[0]?.name || "Blog";
 
-            return {
-              id: post.id,
-              title: cleanTitle,
-              image: image,
-              tag: tag,
-              slug: post.slug || "",
-            };
-          });
+              return {
+                id: post.id,
+                title: cleanTitle,
+                image: image,
+                tag: tag,
+                slug: post.slug || "",
+              };
+            });
 
-          setBlogs(formattedPosts);
+            setBlogs(formattedPosts);
+          }
         }
+      } catch (error) {
+        console.error("Failed to fetch WordPress blog posts:", error);
+      } finally {
+        setIsLoading(false);
       }
-    } catch (error) {
-      console.error("Failed to fetch WordPress blog posts:", error);
-    } finally {
-      setIsLoading(false);
     }
-  }
 
-  fetchWPBlogs();
-}, []);
+    fetchWPBlogs();
+  }, []);
 
   const handleImageError = (id: number) => {
     setFailedImages((prev) => ({ ...prev, [id]: true }));
@@ -367,7 +361,7 @@ useEffect(() => {
 
   return (
     <div className={`${urbanist.className} bg-[#0a0a0a] text-white font-['Urbanist'] min-h-screen`}>
-      
+
       {/* ── SECTION 1: PAGE HEADER ────────────────────────────────────────── */}
       <section className="pt-28 pb-12 sm:pt-36 sm:pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto">
         <h1 className="text-4xl sm:text-6xl lg:text-[64px] font-medium tracking-tight mb-4 text-white">
@@ -378,15 +372,15 @@ useEffect(() => {
         </p>
         <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-xs sm:text-sm text-zinc-300">
           <div className="flex items-center gap-2">
-            <Check className="w-4 h-4 text-[#FE4A01]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-white block" />
             <span>Trusted partner integrations</span>
           </div>
           <div className="flex items-center gap-2">
-            <Check className="w-4 h-4 text-[#FE4A01]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-white block" />
             <span>Priority documentation & setup</span>
           </div>
           <div className="flex items-center gap-2">
-            <Check className="w-4 h-4 text-[#FE4A01]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-white block" />
             <span>Exclusive discount offers</span>
           </div>
         </div>
@@ -395,14 +389,13 @@ useEffect(() => {
       {/* ── SECTION 2: CATEGORY FILTER & PARTNER GRID ────────────────────── */}
       <section className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="mb-8">
-          <span className="text-[#FE4A01] text-xs sm:text-sm uppercase tracking-widest font-medium block mb-2">
+          <span className="text-[#FE4A01] text-xs sm:text-sm tracking-widest font-medium block mb-2">
             Category
           </span>
           <h2 className="text-2xl sm:text-3xl font-medium tracking-tight mb-6">
             Select category
           </h2>
 
-          {/* Interactive Category Buttons */}
           <div className="flex flex-wrap gap-2.5 sm:gap-3">
             {CATEGORIES.map((cat) => {
               const isActive = activeCategory === cat;
@@ -410,11 +403,10 @@ useEffect(() => {
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`px-5 py-2.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer ${
-                    isActive
-                      ? "bg-[#FE4A01] text-white shadow-[0_0_15px_rgba(254,74,1,0.4)]"
-                      : "bg-[#141414] text-zinc-400 border border-stone-800/80 hover:text-white hover:border-stone-700"
-                  }`}
+                  className={`px-5 py-2.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer ${isActive
+                    ? "bg-[#FE4A01] text-white shadow-[0_0_15px_rgba(254,74,1,0.4)]"
+                    : "bg-[#141414] text-zinc-400 border border-stone-800/80 hover:text-white hover:border-stone-700"
+                    }`}
                 >
                   {cat}
                 </button>
@@ -425,43 +417,80 @@ useEffect(() => {
 
         {/* Partners Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
-          {filteredPartners.map((partner) => (
-            <div
-              key={partner.id}
-              className="bg-[#0e0e0e] border border-stone-800/80 hover:border-stone-700 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-xl"
-            >
-              <div>
-                {/* Logo Box */}
-                <div className="w-24 h-12 relative mb-6 bg-white rounded-lg p-2 flex items-center justify-center overflow-hidden">
-                  <Image
-                    src={partner.logo}
-                    alt={`${partner.name} logo`}
-                    fill
-                    className="object-contain p-1"
-                  />
+          {filteredPartners.map((partner) => {
+            // UI CONDITION: GeeLark gets specific styling based on final design
+            const isGeeLark = partner.id === "gee-lark";
+
+            return (
+              <div
+                key={partner.id}
+                className={`bg-[#0e0e0e] border rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-xl ${isGeeLark ? 'border-[#FE4A01] shadow-[0_0_15px_rgba(254,74,1,0.1)]' : 'border-stone-800/80 hover:border-stone-700'
+                  }`}
+              >
+                <div>
+                  {/* Logo Box */}
+                  <div className="w-36 h-20 relative mb-6 bg-white rounded-lg p-2 flex items-center justify-center overflow-hidden">
+                    <Image
+                      src={partner.logo}
+                      alt={`${partner.name} logo`}
+                      fill
+                      className="object-contain p-1"
+                    />
+                  </div>
+
+                  <h3 className="text-xl font-semibold mb-3 text-white tracking-tight">
+                    {partner.name}
+                  </h3>
+                  <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
+                    {partner.description}
+                  </p>
+
+                  {/* ── UPDATED FEATURES RENDERING ── */}
+                  {partner.features && (
+                    <div className="mt-4 pt-4 border-t border-stone-800/60">
+                      {isGeeLark ? (
+                        // UI: GeeLark uses Bullets and "Highlighted features" title
+                        <>
+                          <p className="text-sm font-medium text-white mb-3 tracking-tight">
+                            Highlighted features:
+                          </p>
+                          <ul className="list-disc list-outside pl-4 space-y-1.5 marker:text-[#ffffff]">
+                            {partner.features.map((feat, idx) => (
+                              <li key={idx} className="text-xs text-zinc-300 leading-relaxed">
+                                {feat}
+                              </li>
+                            ))}
+                          </ul>
+                        </>
+                      ) : (
+                        // UI: Normal partners use Dots (Updated UI)
+                        <div className="space-y-2">
+                          {partner.features.map((feat, idx) => (
+                            <div key={idx} className="flex items-start gap-2 text-xs text-zinc-300">
+                              <span className="w-1.5 h-1.5 rounded-full bg-white block mt-1.5" />
+                              <span>{feat}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  {/* ── END UPDATED FEATURES RENDERING ── */}
                 </div>
 
-                <h3 className="text-xl font-semibold mb-3 text-white tracking-tight">
-                  {partner.name}
-                </h3>
-                <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
-                  {partner.description}
-                </p>
-
-                {/* Features List (If Available) */}
-                {partner.features && (
-                  <div className="mt-4 pt-4 border-t border-stone-800/60 space-y-2">
-                    {partner.features.map((feat, idx) => (
-                      <div key={idx} className="flex items-start gap-2 text-xs text-zinc-300">
-                        <Check className="w-3.5 h-3.5 text-[#FE4A01] shrink-0 mt-0.5" />
-                        <span>{feat}</span>
-                      </div>
-                    ))}
-                  </div>
+                {/* Optional website link button for GeeLark card */}
+                {isGeeLark && partner.websiteUrl && (
+                  <Link
+                    href={partner.websiteUrl}
+                    target="_blank"
+                    className="inline-block mt-6 text-sm font-medium text-[#FE4A01] hover:text-[#ff6b2b] hover:underline transition-colors"
+                  >
+                    Visit {partner.name} Website
+                  </Link>
                 )}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
@@ -589,71 +618,71 @@ useEffect(() => {
       </section>
 
       {/* ── SECTION 5: READ OUR BLOGS ─────────────────────────────────────── */}
-<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a]">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-10 sm:mb-16">
-          <span className="text-[#FE4A01] text-xs sm:text-sm uppercase tracking-widest font-medium block mb-2">
-            Blogs
-          </span>
-          <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-medium tracking-tight text-white">
-            Read our blogs
-          </h2>
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-10 sm:mb-16">
+            <span className="text-[#FE4A01] text-xs sm:text-sm uppercase tracking-widest font-medium block mb-2">
+              Blogs
+            </span>
+            <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-medium tracking-tight text-white">
+              Read our blogs
+            </h2>
+          </div>
+
+          {isLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[1, 2, 3].map((n) => (
+                <div
+                  key={n}
+                  className="rounded-2xl border border-stone-900 bg-[#0e0e0e] h-[320px] animate-pulse"
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {blogs.map((blog) => {
+                const hasImageFailed = failedImages[blog.id] || !blog.image;
+
+                return (
+                  <Link
+                    key={blog.id}
+                    href={`/blog/${blog.slug}`}
+                    className="group cursor-pointer rounded-2xl overflow-hidden border border-stone-900 bg-[#0e0e0e] hover:border-stone-800 transition-all duration-300 flex flex-col"
+                  >
+                    <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-gradient-to-br from-stone-900 via-stone-950 to-black flex items-center justify-center">
+                      {!hasImageFailed ? (
+                        <img
+                          src={blog.image}
+                          alt={blog.title}
+                          loading="lazy"
+                          onError={() => handleImageError(blog.id)}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      ) : (
+                        <div className="text-stone-700 font-bold text-3xl tracking-tighter select-none opacity-40">
+                          TORCH
+                        </div>
+                      )}
+
+                      {blog.tag && (
+                        <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-medium text-white border border-white/10 z-10">
+                          {blog.tag}
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="p-6 flex-1 flex flex-col justify-between">
+                      <h3 className="text-base sm:text-lg font-semibold tracking-tight text-white group-hover:text-[#FE4A01] transition-colors leading-snug">
+                        {blog.title}
+                      </h3>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          )}
         </div>
-
-        {isLoading ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[1, 2, 3].map((n) => (
-              <div
-                key={n}
-                className="rounded-2xl border border-stone-900 bg-[#0e0e0e] h-[320px] animate-pulse"
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {blogs.map((blog) => {
-              const hasImageFailed = failedImages[blog.id] || !blog.image;
-
-              return (
-                <Link
-                  key={blog.id}
-                  href={`/blog/${blog.slug}`}
-                  className="group cursor-pointer rounded-2xl overflow-hidden border border-stone-900 bg-[#0e0e0e] hover:border-stone-800 transition-all duration-300 flex flex-col"
-                >
-                  <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-gradient-to-br from-stone-900 via-stone-950 to-black flex items-center justify-center">
-                    {!hasImageFailed ? (
-                      <img
-                        src={blog.image}
-                        alt={blog.title}
-                        loading="lazy"
-                        onError={() => handleImageError(blog.id)}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    ) : (
-                      <div className="text-stone-700 font-bold text-3xl tracking-tighter select-none opacity-40">
-                        TORCH
-                      </div>
-                    )}
-
-                    {blog.tag && (
-                      <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-medium text-white border border-white/10 z-10">
-                        {blog.tag}
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="p-6 flex-1 flex flex-col justify-between">
-                    <h3 className="text-base sm:text-lg font-semibold tracking-tight text-white group-hover:text-[#FE4A01] transition-colors leading-snug">
-                      {blog.title}
-                    </h3>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        )}
-      </div>
-    </section>
+      </section>
 
       {/* ── SECTION 6: FAQ ────────────────────────────────────────────────── */}
       <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
@@ -691,20 +720,18 @@ useEffect(() => {
                   >
                     <span className="pr-2">{faq.q}</span>
                     <ChevronDown
-                      className={`w-5 h-5 text-stone-400 shrink-0 transition-all duration-300 ${
-                        isOpen ? "rotate-180 text-[#FE4A01]" : "group-hover:text-stone-300"
-                      }`}
+                      className={`w-5 h-5 text-stone-400 shrink-0 transition-all duration-300 ${isOpen ? "rotate-180 text-[#FE4A01]" : "group-hover:text-stone-300"
+                        }`}
                     />
                   </button>
 
                   <div
-                    className={`overflow-hidden transition-all duration-300 ${
-                      isOpen ? "max-h-96 pb-4 sm:pb-6" : "max-h-0"
-                    }`}
+                    className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-96 pb-4 sm:pb-6" : "max-h-0"
+                      }`}
                   >
-                    <p className="text-stone-400 text-xs sm:text-sm lg:text-[15px] leading-relaxed pr-6 sm:pr-10">
+                    <div className="text-stone-400 text-xs sm:text-sm lg:text-[15px] leading-relaxed pr-6 sm:pr-10">
                       {faq.a}
-                    </p>
+                    </div>
                   </div>
                 </div>
               );
