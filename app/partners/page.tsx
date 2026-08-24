@@ -64,7 +64,7 @@ const PARTNERS: Partner[] = [
     id: "gee-lark",
     name: "GeeLark",
     category: "Antidetect Browsers",
-    logo: "/images/geelark.webp",
+    logo: "/images/partners/geelark.jpg",
     description:
       "GeeLark is the first antidetect phone, designed for multi-accounting in mobile apps. By providing access to remote Android phones with unique fingerprints, GeeLark is ideal for managing multiple accounts on mobile and capturing mobile traffic efficiently, eliminating the needs for physical phones.",
     features: [
@@ -82,7 +82,7 @@ const PARTNERS: Partner[] = [
     id: "undetectable",
     name: "Undetectable Browser",
     category: "Antidetect Browsers",
-    logo: "/images/detectable.svg",
+    logo: "/images/partners/detectable.png",
     description:
       "Undetectable browser – a professional anti-detect browser for real fingerprints with high trust. Uptime 99,99%. Has API, mass extension installation, profile creation, cookie-bot. An ideal tool for comfortable work with a large number of profiles and increased anonymity, for multi-accounting, crypto wallets, and parsing.",
     features: ["TORCHPROXIES20 – 20% discount on the purchase of any monthly license"],
@@ -91,7 +91,7 @@ const PARTNERS: Partner[] = [
     id: "hidemium",
     name: "Hidemium",
     category: "Antidetect Browsers",
-    logo: "/images/hidemium.png",
+    logo: "/images/partners/hidemium.png",
     description:
       " Hidemium, an anti-detect solution, ensures a highly secure environment for managing numerous accounts. It shields your device and real IP effectively, preventing WebRTC leaks. With automated functions, simply drag and drop buttons to execute browser tasks, mimicking real user behavior effortlessly.",
   },
@@ -99,15 +99,15 @@ const PARTNERS: Partner[] = [
     id: "MuLogin Antidetect Browser",
     name: "MuLogin Antidetect Browser",
     category: "Antidetect Browsers",
-    logo: "/images/mulligan.png",
+    logo: "/images/partners/mulligan.png",
     description:
       "Stay undetected with MuLogin — the leading anti-detect browser with real device fingerprint emulation and anti-tracking technology. Try it free!",
   },
   {
     id: "Cloaking House",
     name: "Cloaking House",
-    category: "Captcha Solvers",
-    logo: "/images/capsolver.png",
+    category: "All",
+    logo: "/images/partners/capsolver.png",
     description:
       "CaptchaAI is an advanced AI-powered CAPTCHA-solving service built to save you time and resources by automatically solving reCAPTCHA, image CAPTCHAs, and more with high accuracy. Designed for developers and automation users, it delivers reliable, scalable performance at the most affordable price on the market.",
   },
@@ -115,7 +115,7 @@ const PARTNERS: Partner[] = [
     id: "capsolver-ai",
     name: "Capsolver AI",
     category: "Captcha Solvers",
-    logo: "/images/captcha.png",
+    logo: "/images/partners/captcha.png",
     description:
       "CaptchaAI is an advanced AI-powered CAPTCHA-solving service built to save you time and resources by automatically solving reCAPTCHA, image CAPTCHAs, and more with high accuracy. Designed for developers and automation users, it delivers reliable, scalable performance at the most affordable price on the market.",
     features: [
@@ -127,8 +127,8 @@ const PARTNERS: Partner[] = [
   {
     id: "FlashID",
     name: "FlashID",
-    category: "Captcha Solvers",
-    logo: "/images/flashid.svg",
+    category: "Antidetect Browsers",
+    logo: "/images/partners/flashid.png",
     description:
       "Featuring Cloud Phone & Anti-Detect Browser technology, FlashID offers an all-in-one solution for secure multi-account management and automation. The tool of choice for global e-commerce and social media teams to scale safely and grow faster.",
   },
@@ -136,44 +136,44 @@ const PARTNERS: Partner[] = [
     id: "linken-sphere",
     name: "Linken Sphere",
     category: "Antidetect Browsers",
-    logo: "/images/linken-sphere.png",
+    logo: "/images/partners/linken-sphere.png",
     description:
       " Linken Sphere – an anti-detect browser for secure, scalable work with any anti-fraud systems. Create sessions with one click, bulk-import data, and manage profiles securely. Convenient proxy manager, role-based team access controls, private proxies at competitive prices, traffic-usage optimization, and other tools that simplify your workflow.",
   },
   {
     id: "duoplus.net",
     name: "duoplus.net",
-    category: "Automation & Security",
-    logo: "/images/duoplus.png",
+    category: "Antidetect Browsers",
+    logo: "/images/partners/duoplus.png",
     description:
       "",
-         features: [
+    features: [
       "1st antidetect cloud phone to manage your multiple mobile social media accounts without any association",
       "promo code: Use “torchlabs” code to get one-month free cloud phone",
     ],
   },
-  
+
   {
     id: "vmlogin",
     name: "VMLogin Antidetect Browser",
     category: "Antidetect Browsers",
-    logo: "/images/Vmlogin.png",
+    logo: "/images/partners/Vmlogin.png",
     description:
       " Advanced anti-detect browser for secure multi-account management — real browser environments, unique fingerprints, automation API, and team collaboration. Stable, secure, and ideal for stealth marketing and account scaling. 3-day FREE trial available.",
   },
   {
     id: "scrappy",
     name: "Scrappy",
-    category: "Automation & Security",
-    logo: "/images/Scrappey.jpg",
+    category: "All",
+    logo: "/images/partners/Scrappey.png",
     description:
       "Scrappey.com simplifies web scraping with a robust API that handles anti-bot measures and CAPTCHAs, along with features like rotating proxies and headless browsing for seamless extraction. It offers transparent pricing plans suitable for individuals, startups, and enterprises, with features like concurrent requests, premium proxies, and JavaScript rendering, and hassle-free cancellation options.",
   },
   {
     id: "Pay2.House",
     name: "Pay2.House",
-    category: "Cloud Services",
-    logo: "/images/pay2house.svg",
+    category: "All",
+    logo: "/images/partners/pay2house.png",
     description:
       "virtual cards for stable and reliable work with advertising platforms, including Facebook, Google, TikTok, as well as online services. Trusted BINs ensure high approval rates, cards support Apple Pay and most international sites, while mass issuance and API make scaling and automation effortless.",
   },
@@ -429,12 +429,12 @@ export default function PartnersPage() {
               >
                 <div>
                   {/* Logo Box */}
-                  <div className="w-36 h-20 relative mb-6 bg-white rounded-lg p-2 flex items-center justify-center overflow-hidden">
+                  <div className="w-48 h-28 relative mb-6 rounded-lg pl-0 pr-2 flex items-center justify-start overflow-hidden">
                     <Image
                       src={partner.logo}
                       alt={`${partner.name} logo`}
                       fill
-                      className="object-contain p-1"
+                      className="object-contain object-left p-1"
                     />
                   </div>
 
