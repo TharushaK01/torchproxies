@@ -190,3 +190,69 @@ nav * {
   animation: spin3D 3s linear infinite;
   transform-style: preserve-3d;
 }
+
+
+
+
+/* ── WORDPRESS BLOCK LAYOUT & GRID FIXES ── */
+.wp-post-wrapper {
+  width: 100%;
+  color: #e7e5e4;
+}
+
+/* Fix Gutenberg Columns & Sidebars */
+.wp-post-wrapper .wp-block-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .wp-post-wrapper .wp-block-columns {
+    flex-wrap: nowrap;
+  }
+}
+
+.wp-post-wrapper .wp-block-column {
+  flex-grow: 1;
+  flex-basis: 0;
+  min-width: 0;
+}
+
+/* Elementor & WordPress Container Centering */
+.wp-post-wrapper .elementor-section,
+.wp-post-wrapper .wp-block-group {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Image & Media Centering */
+.wp-post-wrapper img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+}
+
+.wp-post-wrapper .aligncenter,
+.wp-post-wrapper figure.aligncenter {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center;
+}
+
+/* Typography styles */
+.wp-post-wrapper h1, 
+.wp-post-wrapper h2, 
+.wp-post-wrapper h3, 
+.wp-post-wrapper h4 {
+  color: #ffffff;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.wp-post-wrapper a {
+  color: #FE4A01;
+  text-decoration: underline;
+}

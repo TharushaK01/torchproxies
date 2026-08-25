@@ -1,16 +1,17 @@
 import { getPostBySlug, getAllPosts } from "@/lib/wordpress";
 import { WPPost } from "@/types/wordpress";
 import { notFound } from "next/navigation";
-import { Work_Sans } from "next/font/google";
+import { Urbanist } from "next/font/google";
 import WordPressRenderer from "@/components/WordPressRenderer";
+import { splitStyleAndBody, scopeCss } from "@/lib/scopeWpContent";
 
 export const revalidate = 3600;
 export const dynamicParams = true;
 
 // 2. Configure the font (you can specify weights or subsets)
-const workSans = Work_Sans({
+const urbanist = Urbanist({
   subsets: ["latin"],
-  weight: ["400", "500", "700"], // Add the weights you need
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"], 
   display: "swap",
 });
 
@@ -61,9 +62,12 @@ export default async function BlogPostPage({
 
 
   // Remove scripts only, preserve <style> tags
-  const cleanHtml = post.content.rendered
+const cleanHtml = post.content.rendered
     .replace(/<script\b[^>]*src=[^>]*><\/script>/gi, "")
     .replace(/<script\b[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, "");
+
+  const { style, body } = splitStyleAndBody(cleanHtml);
+  const scopedStyle = scopeCss(style, ".wp-post-wrapper");
 
   // Note: cleanContent variable was declared but not used in your original snippet.
   // Kept it or you can use it below in dangerouslySetInnerHTML.
@@ -71,7 +75,7 @@ export default async function BlogPostPage({
   return (
     /* 3. Add workSans.className to the main element */
     <main
-      className={`${workSans.className} bg-[#0a0a0a] min-h-screen text-stone-100 relative font-worksans`}
+      className={`${urbanist.className} bg-[#111111] min-h-screen text-stone-100 relative font-['Urbanist']`}
       style={{ paddingTop: "80px" }}
       suppressHydrationWarning
     >
@@ -90,10 +94,35 @@ export default async function BlogPostPage({
       {/* /> */}
 
 
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      {/* <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Isolated Shadow DOM Renderer */}
-        <WordPressRenderer html={cleanHtml} />
-      </div>
+        {/* <WordPressRenderer html={cleanHtml} />
+      </div> */} 
+
+{/* <div className="w-full max-w-4xl mx-auto px-4 sm:px-6">
+  <div
+    className="wp-post-content prose prose-invert max-w-none text-stone-200 
+               prose-headings:text-white prose-headings:font-bold 
+               prose-a:text-[#FE4A01] prose-img:rounded-xl prose-img:mx-auto"
+    dangerouslySetInnerHTML={{ __html: cleanHtml }}
+  />
+</div> */}
+
+
+{/* <div className="max-w-7xl mx-auto px-4 py-8">
+        <div
+          className="wp-post-wrapper"
+          dangerouslySetInnerHTML={{ __html: cleanHtml }}
+        />
+      </div> */}
+
+
+<style dangerouslySetInnerHTML={{ __html: scopedStyle }} />
+<div
+  className="wp-post-wrapper"
+  dangerouslySetInnerHTML={{ __html: body }}
+/>
+
     </main>
   );
 }
