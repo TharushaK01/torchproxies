@@ -222,8 +222,8 @@
 //   );
 // }
 
-
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -231,7 +231,7 @@ import ChatWidget from "@/components/analytics/ChatWidget";
 import SessionRecorder from "@/components/analytics/SessionRecorder";
 import { PostHogProvider } from "@/components/providers/PostHogProvider";
 import { LazyMotion, domAnimation } from "framer-motion";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: {
@@ -325,17 +325,28 @@ export default function RootLayout({
           <ChatWidget />
           <SessionRecorder />
         </PostHogProvider>
+
+        {/* Analytics Scripts placed inside body */}
+        {gaId && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaId}');
+              `}
+            </Script>
+          </>
+        )}
+
+        {gtmIdPrimary && <GoogleTagManager gtmId={gtmIdPrimary} />}
+        {gtmIdSecondary && <GoogleTagManager gtmId={gtmIdSecondary} />}
       </body>
-
-      {/* Analytics & Tracking */}
-      {gaId && <GoogleAnalytics gaId={gaId} />}
-
-      {/* ── CHANGE 2: RENDER TWO GTM COMPONENTS DISTINCTLY ─────────── */}
-      {gtmIdPrimary && <GoogleTagManager gtmId={gtmIdPrimary} />}
-
-      {gtmIdSecondary && (
-        <GoogleTagManager gtmId={gtmIdSecondary} />
-      )}
     </html>
   );
 }
