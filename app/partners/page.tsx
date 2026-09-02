@@ -28,7 +28,8 @@ type Category =
   | "Antidetect Browsers"
   | "Automation & Security"
   | "Captcha Solvers"
-  | "Cloud Services";
+  | "Cloud Services"
+  | "Proxy Benchmarking Tools";
 
 interface Partner {
   id: string;
@@ -176,6 +177,15 @@ const PARTNERS: Partner[] = [
     logo: "/images/partners/pay2house.png",
     description:
       "virtual cards for stable and reliable work with advertising platforms, including Facebook, Google, TikTok, as well as online services. Trusted BINs ensure high approval rates, cards support Apple Pay and most international sites, while mass issuance and API make scaling and automation effortless.",
+  },
+    {
+    id: "Proxyvero",
+    name: "Proxyvero",
+    category: "Proxy Benchmarking Tools",
+    logo: "/images/partners/proxyvero.png",
+    description:
+      "virtual cards for stable and reliable work with advertising platforms, including Facebook, Google, TikTok, as well as online services. Trusted BINs ensure high approval rates, cards support Apple Pay and most international sites, while mass issuance and API make scaling and automation effortless.",
+    websiteUrl: "https://www.proxyvero.com/",
   },
 ];
 
@@ -420,10 +430,19 @@ export default function PartnersPage() {
           {filteredPartners.map((partner) => {
             // UI CONDITION: GeeLark gets specific styling based on final design
             const isGeeLark = partner.id === "gee-lark";
+            const hasLink = Boolean(partner.websiteUrl);
+            const CardWrapper = hasLink ? "a" : "div";
 
             return (
-              <div
-                key={partner.id}
+              <CardWrapper
+        key={partner.id}
+        {...(hasLink
+          ? {
+              href: partner.websiteUrl,
+              target: "_blank",
+              rel: "noopener noreferrer",
+            }
+          : {})}
                 className={`bg-[#0e0e0e] border rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-xl ${isGeeLark ? 'border-[#FE4A01] shadow-[0_0_15px_rgba(254,74,1,0.1)]' : 'border-stone-800/80 hover:border-stone-700'
                   }`}
               >
@@ -488,7 +507,7 @@ export default function PartnersPage() {
                     Visit {partner.name} Website
                   </Link>
                 )}
-              </div>
+              </CardWrapper>
             );
           })}
         </div>
