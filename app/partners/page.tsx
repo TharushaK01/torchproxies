@@ -77,6 +77,7 @@ const PARTNERS: Partner[] = [
       "Smooth performance and high compatibility without taking up local disk space",
       "Flexible subscriptions, including a free plan",
     ],
+    websiteUrl: "https://www.geelark.com/",
   },
   // ── END UPDATED GEELARK DATA ──
   {
@@ -87,6 +88,7 @@ const PARTNERS: Partner[] = [
     description:
       "Undetectable browser – a professional anti-detect browser for real fingerprints with high trust. Uptime 99,99%. Has API, mass extension installation, profile creation, cookie-bot. An ideal tool for comfortable work with a large number of profiles and increased anonymity, for multi-accounting, crypto wallets, and parsing.",
     features: ["TORCHPROXIES20 – 20% discount on the purchase of any monthly license"],
+    websiteUrl: "https://undetectable.io/?utm_source=torchproxies&utm_medium=affiliate",
   },
   {
     id: "hidemium",
@@ -95,6 +97,7 @@ const PARTNERS: Partner[] = [
     logo: "/images/partners/hidemium.png",
     description:
       " Hidemium, an anti-detect solution, ensures a highly secure environment for managing numerous accounts. It shields your device and real IP effectively, preventing WebRTC leaks. With automated functions, simply drag and drop buttons to execute browser tasks, mimicking real user behavior effortlessly.",
+    websiteUrl: "#",
   },
   {
     id: "MuLogin Antidetect Browser",
@@ -103,6 +106,7 @@ const PARTNERS: Partner[] = [
     logo: "/images/partners/mulligan.png",
     description:
       "Stay undetected with MuLogin — the leading anti-detect browser with real device fingerprint emulation and anti-tracking technology. Try it free!",
+    websiteUrl: "#",
   },
   {
     id: "Cloaking House",
@@ -111,6 +115,7 @@ const PARTNERS: Partner[] = [
     logo: "/images/partners/capsolver.png",
     description:
       "CaptchaAI is an advanced AI-powered CAPTCHA-solving service built to save you time and resources by automatically solving reCAPTCHA, image CAPTCHAs, and more with high accuracy. Designed for developers and automation users, it delivers reliable, scalable performance at the most affordable price on the market.",
+    websiteUrl: "#",
   },
   {
     id: "capsolver-ai",
@@ -124,6 +129,7 @@ const PARTNERS: Partner[] = [
       "Get up to 15% OFF all plans — no hidden fees, no limits.",
       "Solve smarter. Spend less. Scale faster.",
     ],
+    websiteUrl: "https://captchaai.com/lp/torchproxies-special-offer.289953",
   },
   {
     id: "FlashID",
@@ -132,6 +138,7 @@ const PARTNERS: Partner[] = [
     logo: "/images/partners/flashid.png",
     description:
       "Featuring Cloud Phone & Anti-Detect Browser technology, FlashID offers an all-in-one solution for secure multi-account management and automation. The tool of choice for global e-commerce and social media teams to scale safely and grow faster.",
+    websiteUrl: "#",
   },
   {
     id: "linken-sphere",
@@ -140,6 +147,7 @@ const PARTNERS: Partner[] = [
     logo: "/images/partners/linken-sphere.png",
     description:
       " Linken Sphere – an anti-detect browser for secure, scalable work with any anti-fraud systems. Create sessions with one click, bulk-import data, and manage profiles securely. Convenient proxy manager, role-based team access controls, private proxies at competitive prices, traffic-usage optimization, and other tools that simplify your workflow.",
+    websiteUrl: "https://ls.app/?utm_source=torchproxies&utm_medium=partner&utm_campaign=listing",
   },
   {
     id: "duoplus.net",
@@ -152,6 +160,7 @@ const PARTNERS: Partner[] = [
       "1st antidetect cloud phone to manage your multiple mobile social media accounts without any association",
       "promo code: Use “torchlabs” code to get one-month free cloud phone",
     ],
+    websiteUrl: "https://www.duoplus.net/share/torchlabs",
   },
 
   {
@@ -161,6 +170,7 @@ const PARTNERS: Partner[] = [
     logo: "/images/partners/Vmlogin.png",
     description:
       " Advanced anti-detect browser for secure multi-account management — real browser environments, unique fingerprints, automation API, and team collaboration. Stable, secure, and ideal for stealth marketing and account scaling. 3-day FREE trial available.",
+    websiteUrl: "https://www.vmlogin.us/?ref=torchproxies",
   },
   {
     id: "scrappy",
@@ -169,6 +179,7 @@ const PARTNERS: Partner[] = [
     logo: "/images/partners/Scrappey.png",
     description:
       "Scrappey.com simplifies web scraping with a robust API that handles anti-bot measures and CAPTCHAs, along with features like rotating proxies and headless browsing for seamless extraction. It offers transparent pricing plans suitable for individuals, startups, and enterprises, with features like concurrent requests, premium proxies, and JavaScript rendering, and hassle-free cancellation options.",
+    websiteUrl: "https://scrappey.com/",
   },
   {
     id: "Pay2.House",
@@ -177,15 +188,16 @@ const PARTNERS: Partner[] = [
     logo: "/images/partners/pay2house.png",
     description:
       "virtual cards for stable and reliable work with advertising platforms, including Facebook, Google, TikTok, as well as online services. Trusted BINs ensure high approval rates, cards support Apple Pay and most international sites, while mass issuance and API make scaling and automation effortless.",
+    websiteUrl: "https://pay2.house/?utm_source=torchproxies&utm_medium=referral&utm_campaign=torchproxies",
   },
-    {
+  {
     id: "Proxyvero",
     name: "Proxyvero",
     category: "Proxy Benchmarking Tools",
     logo: "/images/partners/proxyvero.png",
     description:
-      "virtual cards for stable and reliable work with advertising platforms, including Facebook, Google, TikTok, as well as online services. Trusted BINs ensure high approval rates, cards support Apple Pay and most international sites, while mass issuance and API make scaling and automation effortless.",
-    websiteUrl: "https://www.proxyvero.com/",
+      "ProxyVero is an independent proxy analytics and benchmarking platform. We test proxy providers using real-world scenarios and continuously collect performance data to help users compare providers based on measurable results, pricing, reliability, and use-case fit. Our goal is to make proxy data more transparent and help users make clearer decisions.",
+    websiteUrl: "https://www.proxyvero.com/?utm_source=torchproxies&utm_medium=partner&utm_campaign=partners_page",
   },
 ];
 
@@ -435,14 +447,14 @@ export default function PartnersPage() {
 
             return (
               <CardWrapper
-        key={partner.id}
-        {...(hasLink
-          ? {
-              href: partner.websiteUrl,
-              target: "_blank",
-              rel: "noopener noreferrer",
-            }
-          : {})}
+                key={partner.id}
+                {...(hasLink
+                  ? {
+                    href: partner.websiteUrl,
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                  }
+                  : {})}
                 className={`bg-[#0e0e0e] border rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-xl ${isGeeLark ? 'border-[#FE4A01] shadow-[0_0_15px_rgba(254,74,1,0.1)]' : 'border-stone-800/80 hover:border-stone-700'
                   }`}
               >
@@ -499,13 +511,16 @@ export default function PartnersPage() {
 
                 {/* Optional website link button for GeeLark card */}
                 {isGeeLark && partner.websiteUrl && (
-                  <Link
-                    href={partner.websiteUrl}
-                    target="_blank"
-                    className="inline-block mt-6 text-sm font-medium text-[#FE4A01] hover:text-[#ff6b2b] hover:underline transition-colors"
-                  >
-                    Visit {partner.name} Website
-                  </Link>
+                  // <Link
+                  //   href={partner.websiteUrl}
+                  //   target="_blank"
+                  //   className="inline-block mt-6 text-sm font-medium text-[#FE4A01] hover:text-[#ff6b2b] hover:underline transition-colors"
+                  // >
+                  //   Visit {partner.name} Website
+                  // </Link>
+                  <span className="inline-block mt-6 text-sm font-medium text-[#FE4A01] group-hover:text-[#ff6b2b] group-hover:underline transition-colors">
+                 
+                  </span>
                 )}
               </CardWrapper>
             );
