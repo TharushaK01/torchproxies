@@ -183,7 +183,7 @@ const PricingSection = () => {
                 </div>
               </div>
               <span className="bg-[#2a1200] text-orange-500 px-3 sm:px-4 py-2 rounded-lg font-bold text-xs sm:text-sm self-start sm:self-auto">
-                From $2.3/GB per IP
+                From $2.3 Per IP
               </span>
             </div>
 
