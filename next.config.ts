@@ -24,7 +24,7 @@
 
 /** @type {import('next').NextConfig} */
 
-
+// img-src 'self' data: blob: https://cms.torchproxies.com;
 // The Content Security Policy directive
 const ContentSecurityPolicy = `
   default-src 'self';

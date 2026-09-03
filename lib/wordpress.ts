@@ -183,7 +183,7 @@
 //   ];
 // }
 
-
+import 'server-only';
 
 
 const WP_URL = (
