@@ -346,7 +346,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-1498Q5L7EG";
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-2GF9BPGZS9";
   const gtmIdPrimary = process.env.NEXT_PUBLIC_GTM_PRIMARY_ID || "GTM-KMRQ2MK3";
   const gtmIdSecondary =
     process.env.NEXT_PUBLIC_GTM_SECONDARY_ID || "GTM-T43L54DD";
