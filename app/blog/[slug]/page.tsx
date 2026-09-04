@@ -95,6 +95,7 @@ import { notFound } from "next/navigation";
 import { Urbanist } from "next/font/google";
 import { splitStyleAndBody, scopeCss } from "@/lib/scopeWpContent";
 import sanitizeHtml from "sanitize-html";
+import WordPressContent from '@/components/WordPressContent';
 
 export const revalidate = 3600;
 export const dynamicParams = true;
@@ -182,10 +183,9 @@ export default async function BlogPostPage({
       suppressHydrationWarning
     >
       <style dangerouslySetInnerHTML={{ __html: scopedStyle }} />
-      <div
-        className="wp-post-wrapper"
-        dangerouslySetInnerHTML={{ __html: body }}
-      />
+<div className="wp-post-wrapper">
+  <WordPressContent rawHtml={body} />
+</div>
     </main>
   );
 }

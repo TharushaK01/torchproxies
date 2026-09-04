@@ -181,7 +181,10 @@ export const metadata: Metadata = {
   },
   description:
     "Premium residential, datacenter, ISP and hybrid proxies for web scraping, ad verification, and account management.",
-  metadataBase: new URL("https://www.torchproxies.com"),
+  metadataBase: new URL('https://www.torchproxies.com'),
+  alternates: {
+    canonical: './', 
+  },
   openGraph: {
     siteName: "TorchProxies",
     type: "website",
