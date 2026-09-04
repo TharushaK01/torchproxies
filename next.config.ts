@@ -32,7 +32,7 @@ const ContentSecurityPolicy = `
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://torchproxies.com;
   img-src 'self' data: blob: https:;
   font-src 'self' https://fonts.gstatic.com;
-  connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://cms.torchproxies.com;
+  connect-src 'self' https://www.google.com https://www.google-analytics.com https://*.google-analytics.com https://cms.torchproxies.com;
   frame-src 'self';
   object-src 'none';
   base-uri 'self';

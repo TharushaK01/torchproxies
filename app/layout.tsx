@@ -128,18 +128,8 @@
 // }
 
 
-
-
 import type { Metadata } from "next";
 import Script from "next/script";
-import {
-  Urbanist,
-  Chivo,
-  Space_Grotesk,
-  Inter,
-  Source_Code_Pro,
-} from "next/font/google";
-import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ChatWidget from "@/components/analytics/ChatWidget";
@@ -147,117 +137,123 @@ import SessionRecorder from "@/components/analytics/SessionRecorder";
 import { PostHogProvider } from "@/components/providers/PostHogProvider";
 import { LazyMotion, domAnimation } from "framer-motion";
 import { GoogleTagManager } from "@next/third-parties/google";
+import {
+  Urbanist,
+  Chivo,
+  Space_Grotesk,
+  Inter,
+  Source_Code_Pro,
+} from "next/font/google";
+import "./globals.css";
 
 const urbanist = Urbanist({
-  subsets: ["latin"],
-  variable: "--font-urbanist",
-  display: "swap",
+  subsets: ["latin"],
+  variable: "--font-urbanist",
+  display: "swap",
 });
 const chivo = Chivo({
-  subsets: ["latin"],
-  variable: "--font-chivo",
-  display: "swap",
+  subsets: ["latin"],
+  variable: "--font-chivo",
+  display: "swap",
 });
 const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  display: "swap",
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  display: "swap",
 });
 const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-inter",
-  display: "swap",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
+  display: "swap",
 });
 const sourceCodePro = Source_Code_Pro({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-source-code-pro",
-  display: "swap",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-source-code-pro",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "TorchProxies — Premium Proxy Solutions",
-    template: "%s | TorchProxies",
-  },
-  description:
-    "Premium residential, datacenter, ISP and hybrid proxies for web scraping, ad verification, and account management.",
-  metadataBase: new URL("https://www.torchproxies.com"),
-  openGraph: {
-    siteName: "TorchProxies",
-    type: "website",
-    images: [
-      {
-        url: "/images/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "TorchProxies Preview",
-      },
-    ],
-  },
+  title: {
+    default: "TorchProxies — Premium Proxy Solutions",
+    template: "%s | TorchProxies",
+  },
+  description:
+    "Premium residential, datacenter, ISP and hybrid proxies for web scraping, ad verification, and account management.",
+  metadataBase: new URL("https://www.torchproxies.com"),
+  openGraph: {
+    siteName: "TorchProxies",
+    type: "website",
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "TorchProxies Preview",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
-  children,
+  children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-1498Q5L7EG";
-  const gtmIdPrimary = process.env.NEXT_PUBLIC_GTM_PRIMARY_ID || "GTM-KMRQ2MK3";
-  const gtmIdSecondary =
-    process.env.NEXT_PUBLIC_GTM_SECONDARY_ID || "GTM-T43L54DD";
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-1498Q5L7EG";
+  const gtmIdPrimary = process.env.NEXT_PUBLIC_GTM_PRIMARY_ID || "GTM-KMRQ2MK3";
+  const gtmIdSecondary =
+    process.env.NEXT_PUBLIC_GTM_SECONDARY_ID || "GTM-T43L54DD";
 
-  const fontVars = [
-    urbanist.variable,
-    chivo.variable,
-    spaceGrotesk.variable,
-    inter.variable,
-    sourceCodePro.variable,
-  ].join(" ");
+  const fontVars = [
+    urbanist.variable,
+    chivo.variable,
+    spaceGrotesk.variable,
+    inter.variable,
+    sourceCodePro.variable,
+  ].join(" ");
 
-  return (
-    <html lang="en" suppressHydrationWarning className={fontVars}>
-      <body
-        className="bg-[#0A0A0A] text-stone-100 flex flex-col min-h-screen antialiased"
-        suppressHydrationWarning
-      >
-        <PostHogProvider>
-          <Navbar />
-          <div className="flex-1">
-            <LazyMotion features={domAnimation}>{children}</LazyMotion>
-          </div>
-          <div className="relative z-0 isolate">
-            <Footer />
-          </div>
+  return (
+    <html lang="en" suppressHydrationWarning className={fontVars}>
+      <body
+        className="bg-[#0A0A0A] text-stone-100 flex flex-col min-h-screen antialiased"
+        suppressHydrationWarning
+      >
+        <PostHogProvider>
+          <Navbar />
+          <div className="flex-1">
+            <LazyMotion features={domAnimation}>{children}</LazyMotion>
+          </div>
+          <div className="relative z-0 isolate">
+            <Footer />
+          </div>
 
-          {/* Third-party lazy widgets */}
-          <ChatWidget />
-          <SessionRecorder />
-        </PostHogProvider>
+          {/* Third-party lazy widgets */}
+          <ChatWidget />
+          <SessionRecorder />
+        </PostHogProvider>
 
-        {/* GA4 — make sure neither GTM container also configures this same ID,
-            or every pageview/event is counted twice. */}
-        {gaId ? (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-analytics" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${gaId}');
-              `}
-            </Script>
-          </>
-        ) : null}
+        {gaId ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaId}');
+              `}
+            </Script>
+          </>
+        ) : null}
 
-        {gtmIdPrimary ? <GoogleTagManager gtmId={gtmIdPrimary} /> : null}
-        {gtmIdSecondary ? <GoogleTagManager gtmId={gtmIdSecondary} /> : null}
-      </body>
-    </html>
-  );
+        {gtmIdPrimary ? <GoogleTagManager gtmId={gtmIdPrimary} /> : null}
+        {gtmIdSecondary ? <GoogleTagManager gtmId={gtmIdSecondary} /> : null}
+      </body>
+    </html>
+  );
 }
