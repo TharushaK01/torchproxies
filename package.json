@@ -20,7 +20,7 @@
     "lucide-react": "^1.14.0",
     "next": "16.2.4",
     "postcss": "^8.5.26",
-    "posthog-js": "^1.418.1",
+    "posthog-js": "^1.426.4",
     "postprocessing": "^6.39.4",
     "react": "19.2.4",
     "react-countup": "^6.5.3",
