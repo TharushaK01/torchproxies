@@ -1,6 +1,7 @@
-'use client';
+"use client";
 
-import Script from 'next/script';
+import Script from "next/script";
+import ChatwootWidget from "../ChatwootWidget";
 
 export default function ChatWidget() {
   return (

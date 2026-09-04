@@ -1,5 +1,6 @@
 import Link from "next/link";
-import Image from 'next/image';
+import Image from "next/image";
+import ChatwootWidget from "../ChatwootWidget";
 
 const FOOTER_COLUMNS = [
   {
@@ -7,14 +8,19 @@ const FOOTER_COLUMNS = [
     links: [
       { label: "Standard Residential", href: "/standard-residential-proxies/" },
       { label: "Premium Residential", href: "/premium-residential-proxies/" },
-{ 
-  label: "Plan X Residential", 
-  href: "/plan-x-residential/", 
-  badge: "Most Popular", 
-  badgeColor: "border-emerald-500/40 text-emerald-400 text-[10px]" 
-},
+      {
+        label: "Plan X Residential",
+        href: "/plan-x-residential/",
+        badge: "Most Popular",
+        badgeColor: "border-emerald-500/40 text-emerald-400 text-[10px]",
+      },
       { label: "ISP Proxies", href: "/isp-proxies/" },
-      { label: "Mobile Proxies", href: "#", badge: "Coming Soon", badgeColor: "border-yellow-500/40 text-yellow-400" },
+      {
+        label: "Mobile Proxies",
+        href: "#",
+        badge: "Coming Soon",
+        badgeColor: "border-yellow-500/40 text-yellow-400",
+      },
     ],
   },
   {
@@ -33,7 +39,10 @@ const FOOTER_COLUMNS = [
     links: [
       { label: "B2B Dashboard", href: "/b2b-dashboard/", external: true },
       { label: "B2B API", href: "/proxy-api/" },
-      { label: "Custom dashboards", href: "https://dashboard.torchproxies.com/" },
+      {
+        label: "Custom dashboards",
+        href: "https://dashboard.torchproxies.com/",
+      },
     ],
   },
   {
@@ -45,7 +54,6 @@ const FOOTER_COLUMNS = [
       { label: "Blog", href: "/blog/" },
       { label: "Help Center", href: "#" },
       { label: "Customer Support", href: "#" },
-      
     ],
   },
   {
@@ -55,7 +63,11 @@ const FOOTER_COLUMNS = [
       { label: "Contact Us", href: "/contact/" },
       { label: "Affiliate Program", href: "/affiliate/" },
       { label: "Careers", href: "https://torch-labs-workspace.slack.com" },
-      { label: "Trustpilot", href: "https://www.trustpilot.com/review/torchlabs.xyz", external: true },
+      {
+        label: "Trustpilot",
+        href: "https://www.trustpilot.com/review/torchlabs.xyz",
+        external: true,
+      },
     ],
   },
   {
@@ -131,7 +143,11 @@ const COL3 = [FOOTER_COLUMNS[2]]; // B2B Reseller
 const COL4 = [FOOTER_COLUMNS[3]]; // Resources
 const COL5 = [FOOTER_COLUMNS[4], FOOTER_COLUMNS[5]];
 
-function FooterColumn({ groups }: { groups: (typeof FOOTER_COLUMNS)[number][] }) {
+function FooterColumn({
+  groups,
+}: {
+  groups: (typeof FOOTER_COLUMNS)[number][];
+}) {
   return (
     <div className="flex flex-col gap-8">
       {groups.map((group) => (
@@ -157,7 +173,9 @@ function FooterColumn({ groups }: { groups: (typeof FOOTER_COLUMNS)[number][] })
                     {link.label}
                   </Link>
                   {"badge" in link && link.badge && (
-                    <span className={`text-[10px] px-2 py-0.5 rounded-full border whitespace-nowrap w-fit ${link.badgeColor || "border-white/10 text-stone-300"}`}>
+                    <span
+                      className={`text-[10px] px-2 py-0.5 rounded-full border whitespace-nowrap w-fit ${link.badgeColor || "border-white/10 text-stone-300"}`}
+                    >
                       {link.badge}
                     </span>
                   )}
@@ -173,11 +191,9 @@ function FooterColumn({ groups }: { groups: (typeof FOOTER_COLUMNS)[number][] })
 export default function Footer() {
   return (
     <footer className="bg-[#0a0a0a] border-t border-white/5 relative overflow-hidden w-full font-['Urbanist']">
-
       {/* ── Main content layout container ─────────────────── */}
       <div className="relative z-10 max-w-[1400px] mx-auto px-8 pt-16 pb-12 font-['Urbanist']">
         <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-12">
-
           {/* ── Brand column ──────────────────────────────── */}
           <div className="flex flex-col gap-5">
             {/* <Link href="/" className="flex items-center gap-2.5">
@@ -200,7 +216,9 @@ export default function Footer() {
               </span>
             </Link> */}
             <Link href="/" className="flex items-center">
-              <div className="relative w-36 h-9"> {/* Easily adjust width and height to fit your exact logo's aspect ratio */}
+              <div className="relative w-36 h-9">
+                {" "}
+                {/* Easily adjust width and height to fit your exact logo's aspect ratio */}
                 <Image
                   src="/images/footerlogo.svg" // Path relative to your public folder
                   alt="Torchlabs Logo"
@@ -257,7 +275,8 @@ export default function Footer() {
         {/* ── Bottom copyright bar ──────────────────────── */}
         <div className="mt-24 text-center relative z-10">
           <p className="text-xs text-stone-600 font-medium tracking-wide">
-            © Copyright {new Date().getFullYear()} Torch Labs Software. All Rights Reserved
+            © Copyright {new Date().getFullYear()} Torch Labs Software. All
+            Rights Reserved
           </p>
         </div>
       </div>
@@ -269,13 +288,14 @@ export default function Footer() {
         style={{
           fontSize: "clamp(180px, 14vw, 440px)",
           lineHeight: "1.0",
-          maskImage: "linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,1) 90%, rgba(0,0,0,1) 100%)",
-          WebkitMaskImage: "linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,1) 90%, rgba(0,0,0,1) 100%)",
+          maskImage:
+            "linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,1) 90%, rgba(0,0,0,1) 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,1) 90%, rgba(0,0,0,1) 100%)",
         }}
       >
         TORCHPROXIES
       </span>
-
     </footer>
   );
 }
