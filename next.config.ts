@@ -20,8 +20,6 @@
 //   },
 // };
 
-
-
 /** @type {import('next').NextConfig} */
 
 // img-src 'self' data: blob: https://cms.torchproxies.com;
@@ -39,45 +37,49 @@ const ContentSecurityPolicy = `
   form-action 'self';
   frame-ancestors 'none';
   upgrade-insecure-requests;
-`.replace(/\s{2,}/g, ' ').trim();
+`
+  .replace(/\s{2,}/g, " ")
+  .trim();
 
 const securityHeaders = [
   {
     // Prevent browsers from sniffing MIME types (forces browser to adhere to declared Content-Type)
-    key: 'X-Content-Type-Options',
-    value: 'nosniff',
+    key: "X-Content-Type-Options",
+    value: "nosniff",
   },
   {
     // Prevent Clickjacking by restricting framing to DENY or SAMEORIGIN
-    key: 'X-Frame-Options',
-    value: 'DENY',
+    key: "X-Frame-Options",
+    value: "DENY",
   },
   {
     // Control referrer leakage when navigating across origins
-    key: 'Referrer-Policy',
-    value: 'strict-origin-when-cross-origin',
+    key: "Referrer-Policy",
+    value: "strict-origin-when-cross-origin",
   },
   {
     // Enforce HTTPS and prevent downgrade attacks for 2 years
-    key: 'Strict-Transport-Security',
-    value: 'max-age=63072000; includeSubDomains; preload',
+    key: "Strict-Transport-Security",
+    value: "max-age=63072000; includeSubDomains; preload",
   },
   {
     // Restrict access to sensitive browser capabilities (camera, mic, geolocation)
-    key: 'Permissions-Policy',
-    value: 'camera=(), microphone=(), geolocation=()',
+    key: "Permissions-Policy",
+    value: "camera=(), microphone=(), geolocation=()",
   },
   {
     // Restrict resource origins to mitigate XSS and injection vectors
-    key: 'Content-Security-Policy',
+    key: "Content-Security-Policy",
     value: ContentSecurityPolicy,
   },
 ];
 
-
+/** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  trailingSlash: true,
+  // Prevent Next.js from forcing trailing slashes on static asset requests
+  trailingSlash: false,
+  skipTrailingSlashRedirect: true,
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "cms.torchproxies.com" }, // ← WordPress backend domain
@@ -98,11 +100,11 @@ const nextConfig = {
       },
     ];
   },
-async headers() {
+  async headers() {
     return [
       {
         // Apply security headers to all routes in the application
-        source: '/:path*',
+        source: "/:path*",
         headers: securityHeaders,
       },
     ];
