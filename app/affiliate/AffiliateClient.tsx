@@ -110,10 +110,10 @@ const steps: Step[] = [
 export default function AffiliateClient() {
 
 const socialIcons = [
-    { name: 'Instagram', src: '/images/instagram.png', alt: 'Instagram' },
-    { name: 'Facebook', src: '/images/facebook.png', alt: 'Facebook' },
-    { name: 'TikTok', src: '/images/tiktok.png', alt: 'TikTok' },
-    { name: 'YouTube', src: '/images/youtube.png', alt: 'YouTube' },
+    { name: 'Instagram', src: '/images/instagram.png', alt: 'Instagram', href: 'https://www.instagram.com/torchproxies/' },
+    { name: 'Facebook', src: '/images/facebook.png', alt: 'Facebook', href: 'https://www.facebook.com/Torchproxies/'},
+    { name: 'TikTok', src: '/images/tiktok.png', alt: 'TikTok', href: '#' },
+    { name: 'YouTube', src: '/images/youtube.png', alt: 'YouTube', href: 'https://www.youtube.com/@torchlabs1726' },
   ];
 
     const router = useRouter();
@@ -527,9 +527,9 @@ const socialIcons = [
                             {/* Row 1: First Purchase Commission */}
                             <tr>
                                 <td className="p-6 font-bold text-stone-400 bg-black/10">First Purchase Commission</td>
-                                <td className="p-6 text-white font-medium">15%</td>
-                                <td className="p-6 text-white font-medium">20%</td>
-                                <td className="p-6 text-white font-medium">25%</td>
+                                <td className="p-6 text-white font-medium">30%</td>
+                                <td className="p-6 text-white font-medium">30%</td>
+                                <td className="p-6 text-white font-medium">30%</td>
                             </tr>
 
                             {/* Row 2: Recurring Commission */}

@@ -434,735 +434,727 @@ const faqData: FaqEntry[] = [
     return (
         <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden font-['Urbanist']">
 
-            <section className="relative bg-[#0a0a0a] text-white min-h-[650px] flex items-center py-20 px-4 md:px-8 overflow-hidden font-sans mt-[100px] font-['Urbanist']">
-                <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+{/* ── SECTION: HERO / WEB SCRAPING ────────────────────────────── */}
+<section className="relative bg-[#0a0a0a] text-white py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 mt-[100px] font-['Urbanist'] overflow-hidden">
+  <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
-                    {/* --- LEFT COLUMN: CONTENT & CALL TO ACTION --- */}
-                    <div className="lg:col-span-7 flex flex-col items-start z-10">
+    {/* Left Column: Content & Call To Action */}
+    <div className="lg:col-span-7 flex flex-col items-start z-10 text-left">
 
-                        {/* Trustpilot Badge Block */}
-        <div className="flex items-center justify-center mb-6">
-            <a href="https://www.trustpilot.com/review/torchlabs.xyz"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="cursor-pointer"
-                        >
-                            <img
-                                src="/images/TrustPiolet.png"
-                                alt="Excellent 5-star rating on Trustpilot"
-                                className="h-8 w-auto object-contain"
-                                loading="lazy"
-                            />
-                        </a>
+      {/* Trustpilot Badge */}
+      <div className="mb-6">
+        <a
+          href="https://www.trustpilot.com/review/torchlabs.xyz"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block transition-opacity hover:opacity-90 cursor-pointer"
+        >
+          <img
+            src="/images/TrustPiolet.png"
+            alt="Excellent 5-star rating on Trustpilot"
+            className="h-7 sm:h-8 w-auto object-contain"
+            loading="lazy"
+          />
+        </a>
+      </div>
+
+      {/* Hero Title */}
+      <h1 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight leading-[1.15] text-white mb-4 max-w-2xl">
+        Best Hybrid Proxies for Web Scraping
+      </h1>
+
+      {/* Dynamic Subheading */}
+      <p className="text-zinc-400 text-sm sm:text-base lg:text-lg max-w-xl mb-8 font-normal leading-relaxed select-none">
+        Scrape{' '}
+        <span
+          className={`text-[#FE4A01] font-medium inline-block transition-all duration-300 transform ${
+            fadeState === 'fade-in'
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 -translate-y-1'
+          }`}
+        >
+          {words[currentWordIndex]}
+        </span>{' '}
+        without bans, CAPTCHAs or wasted retries
+      </p>
+
+      {/* Feature Bullet Badges */}
+      <div className="flex flex-wrap gap-x-6 gap-y-3 items-center mb-8 sm:mb-10 text-xs sm:text-sm text-zinc-300 font-normal">
+        {[
+          'Clean & undetectable IPs',
+          '99%+ Success Rate',
+          '120M+ IPs across 195 countries',
+        ].map((feature, idx) => (
+          <div key={idx} className="flex items-center gap-2">
+            <svg
+              className="w-4 h-4 text-[#FE4A01] shrink-0 stroke-[3]"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>{feature}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* CTA Action Buttons */}
+      <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+
+        {/* Primary CTA Button */}
+        <button
+          onClick={() => router.push('https://dashboard.torchproxies.com/')}
+          className="group relative w-full sm:w-60 h-12 sm:h-14 overflow-hidden bg-[#FE4A01] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(254,74,1,0.25)] hover:shadow-[0_0_35px_rgba(254,74,1,0.5)] hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
+        >
+          <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)] text-sm sm:text-base">
+              Start free with 1 GB
+            </span>
+            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90 text-sm sm:text-base">
+              Start free with 1 GB
+            </span>
+          </div>
+        </button>
+
+        {/* Secondary CTA Button */}
+        <button
+          onClick={() => {
+            document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+          className="group relative w-full sm:w-60 h-12 sm:h-14 overflow-hidden bg-transparent border border-stone-800 hover:border-stone-600 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out active:scale-[0.98] cursor-pointer"
+        >
+          <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)] text-sm sm:text-base">
+              View Pricing
+            </span>
+            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white text-sm sm:text-base">
+              View Pricing
+            </span>
+          </div>
+        </button>
+
+      </div>
+
+    </div>
+
+    {/* Right Column: Hero Graphic Artwork */}
+    <div className="lg:col-span-5 relative flex items-center justify-center w-full mt-8 lg:mt-0">
+      {/* Glow Backdrop */}
+      <div
+        className="absolute w-[250px] sm:w-[300px] h-[250px] sm:h-[300px] bg-[#FE4A01]/15 rounded-full blur-[80px] pointer-events-none select-none"
+        aria-hidden="true"
+      />
+
+      <div className="relative w-full max-w-[420px] lg:max-w-[480px] aspect-[4/3]">
+        <Image
+          src="/images/WebScraping.png"
+          alt="Proxy Network Infrastructure Ad Verification Illustration"
+          fill
+          priority
+          className="object-contain"
+        />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{/* ── SECTION: WHY SCRAPING SETUPS FAIL ───────────────────────── */}
+<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden">
+  <div className="max-w-7xl mx-auto">
+
+    {/* Header Section */}
+    <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-16">
+      <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white mb-3 sm:mb-4 leading-tight">
+        Why Most Web Scraping Setups Fail
+      </h2>
+      <p className="text-stone-400 text-xs sm:text-base lg:text-lg font-normal max-w-3xl mx-auto leading-relaxed">
+        Most scraping failures aren’t caused by code, they’re caused by IP reputation, detection patterns and unstable sessions.
+      </p>
+    </div>
+
+    {/* Features Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start">
+      {features.map((item, index) => (
+        <div key={index} className="flex flex-col items-start text-left group">
+
+          {/* Flame Icon Container */}
+          <div className="w-10 h-10 rounded-xl bg-stone-900/80 border border-stone-800 flex items-center justify-center relative mb-5 transition-colors duration-200 group-hover:border-[#FE4A01]/40">
+            <Image
+              src="/images/icon/Flame.svg"
+              alt="Flame Icon"
+              width={20}
+              height={20}
+              className="object-contain w-5 h-5"
+              priority
+            />
+          </div>
+
+          {/* Feature Title */}
+          <h3 className="text-white text-lg sm:text-xl font-medium tracking-tight mb-2 sm:mb-3">
+            {item.title}
+          </h3>
+
+          {/* Feature Description */}
+          <p className="text-stone-400 text-xs sm:text-sm lg:text-base font-normal leading-relaxed">
+            {item.desc}
+          </p>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+{/* ── SECTION: WHY DETECTION RUINS SCRAPING ACCURACY ────────────── */}
+<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden">
+  <div className="max-w-7xl mx-auto">
+    
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      
+      {/* Visual Side */}
+      <div className="relative group order-2 lg:order-1">
+        <div className="bg-[#0d0d0d] rounded-2xl sm:rounded-3xl p-3 border border-stone-800/80 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
+          <div className="bg-[#050505] rounded-xl sm:rounded-2xl overflow-hidden flex items-center justify-center relative aspect-[4/3] sm:aspect-auto">
+            <Image
+              src="/images/ScrapingAccuracy.png"
+              alt="Why Detection Ruins Scraping Accuracy Visual Illustration"
+              width={600}
+              height={450}
+              className="w-full h-auto object-cover rounded-xl sm:rounded-2xl"
+              priority
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Text Content Side */}
+      <div className="space-y-6 sm:space-y-8 order-1 lg:order-2">
+        <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
+          Why Detection Ruins Scraping Accuracy
+        </h2>
+
+        <div className="space-y-6">
+          {[
+            {
+              title: "Incomplete or Fake Data",
+              desc: "Blocked sessions return CAPTCHA pages, redirects or placeholders instead of real content.",
+            },
+            {
+              title: "Runaway Infrastructure Costs",
+              desc: "Retries, proxy rotation and CAPTCHA solving multiply costs without improving results.",
+            },
+            {
+              title: "Missed Coverage at Scale",
+              desc: "Unstable proxies make it impossible to scrape consistently across regions, categories or time windows.",
+            },
+          ].map((point, index) => (
+            <div key={index} className="space-y-1.5 sm:space-y-2">
+              <h3 className="text-stone-200 font-medium text-base sm:text-lg lg:text-xl tracking-tight">
+                {point.title}
+              </h3>
+              <p className="text-stone-400 text-xs sm:text-sm lg:text-base font-normal leading-relaxed">
+                {point.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+{/* ── SECTION: TOP HEADER ───────────────────────────────────────── */}
+<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden">
+  <div className="max-w-4xl mx-auto text-center">
+    
+    {/* Main Heading */}
+    <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white mb-3 sm:mb-4 leading-tight">
+      One Proxy Built for Reliable Web Scraping
+    </h2>
+
+    {/* Subtitle / Description */}
+    <p className="text-stone-400 text-xs sm:text-base lg:text-lg font-normal leading-relaxed">
+      A single proxy solution designed for teams that scrape at scale and can’t afford blocks, retries, or wasted spend.
+    </p>
+
+  </div>
+</section>
+{/* ── SECTION: HYBRID PROXIES FEATURE ROW ───────────────────────── */}
+<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden">
+  <div className="max-w-7xl mx-auto">
+    
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+      {/* Text Content Side */}
+      <div className="space-y-6">
+        <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
+          Hybrid Proxies for Web Scraping
+        </h2>
+
+        <p className="text-stone-400 text-xs sm:text-sm lg:text-base font-normal leading-relaxed">
+          Built for modern scraping environments where detection resistance, consistency and cost control matter more than raw bandwidth.
+        </p>
+
+        {/* Feature List */}
+        <ul className="space-y-3 pt-2">
+          {[
+            'Fewer blocks, fewer retries, cleaner data',
+            'Stable sessions for complex scraping workflows',
+            'One proxy type that works across all targets',
+            'Better ROI at high request volumes',
+          ].map((item, index) => (
+            <li key={index} className="flex items-center gap-3 text-stone-300 text-xs sm:text-sm lg:text-base">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FE4A01] shrink-0" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Visual Side */}
+      <div className="relative group">
+        <div className="bg-[#0d0d0d] rounded-2xl sm:rounded-3xl p-3 border border-stone-800/80 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
+          <div className="bg-[#050505] rounded-xl sm:rounded-2xl overflow-hidden flex items-center justify-center relative">
+            <Image
+              src="/images/HybridProxiesforWebScraping.png"
+              alt="Hybrid Proxies for Web Scraping Feature Visual"
+              width={600}
+              height={450}
+              className="w-full h-auto object-cover rounded-xl sm:rounded-2xl"
+              priority
+            />
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+{/* ── SECTION: WHY HYBRID PROXIES WORK ─────────────────────────── */}
+<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden">
+  <div className="max-w-7xl mx-auto">
+
+    {/* Section Header */}
+    <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+      <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white mb-3 sm:mb-4 leading-tight">
+        Why Hybrid Proxies Work for Web Scraping
+      </h2>
+      <p className="text-stone-400 text-xs sm:text-sm lg:text-base font-normal leading-relaxed">
+        Hybrid proxies combine real residential identity with high-performance infrastructure so your scraping runs longer, costs less and fails less often.
+      </p>
+    </div>
+
+    {/* Features Tab Component Wrapper */}
+    <div className="w-full">
+      <FeaturesTabSection />
+    </div>
+
+  </div>
+</section>
+
+{/* ── SECTION: SNEAKER BOTTING PRICING & PROPOSITION ────────────── */}
+<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden">
+  <div className="max-w-7xl mx-auto">
+
+    {/* Section Header */}
+    <div id="pricing-section" className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+      <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white mb-3 sm:mb-4 leading-tight">
+        The Right Proxies for Sneaker Botting
+      </h2>
+      <p className="text-stone-400 text-xs sm:text-sm lg:text-base font-normal leading-relaxed">
+        Choose the right proxy based on whether your target sites use advanced anti-bot protection and how large your monitoring scale is.
+      </p>
+    </div>
+
+    {/* Main 2-Column Row Side-By-Side */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center max-w-5xl mx-auto">
+
+      {/* Left Column: Pricing Card */}
+      <div className="bg-[#0A0A0A] border border-stone-900 rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-200 hover:border-stone-800 w-full min-h-[580px]">
+        <div>
+          {/* Top Row: Icon & Badge */}
+          <div className="flex items-center justify-between mb-6">
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center relative">
+              <Image
+                src="/images/pr.svg"
+                alt="Proxy Feature Icon"
+                width={48}
+                height={48}
+                className="object-contain"
+              />
+            </div>
+            <span className="text-[11px] font-medium tracking-wide px-3 py-1 rounded-md bg-[#002B1B] text-[#00B67A]">
+              Most Popular
+            </span>
+          </div>
+
+          {/* Card Title & Description */}
+          <h3 className="text-xl sm:text-2xl font-medium text-white mb-1.5 tracking-tight">
+            Hybrid Proxies
+          </h3>
+          <p className="text-stone-400 text-sm sm:text-base font-normal mb-6 leading-relaxed max-w-sm">
+            Built for high volume scraping on both protected and unprotected targets
+          </p>
+
+          {/* Pricing Block */}
+          <div className="flex items-baseline gap-2 mb-8">
+            <span className="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
+              $5/GB
+            </span>
+            <span className="text-stone-500 text-xs">per month</span>
+          </div>
+
+          {/* Features Checklist */}
+          <ul className="space-y-4 mb-10">
+            {[
+              '99% success rate on protected and high-friction sites',
+              'ISP sourced residential IPs that pass anti-bot checks',
+              'Stable sessions for consistent, large scale scraping',
+              'Easy API integration for rapid deployment',
+              'Best price-performance at scale',
+            ].map((feature, index) => (
+              <li key={index} className="flex items-start gap-3 text-stone-300 text-xs sm:text-sm font-normal leading-relaxed">
+                <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
-                        {/* Heading */}
-                        <h1 className="text-[60px] sm:text-5xl lg:text-[56px] font-regular tracking-tight leading-[1.1] max-w-xl text-white mb-[14px] font-['Urbanist']">
-                            Best Hybrid Proxies for Web Scraping
-                        </h1>
-
-                        {/* Subheading with colored emphasis */}
-                        <p className="text-zinc-500 text-base md:text-lg max-w-xl mb-2 font-normal leading-relaxed select-none mb-[32px] font-['Urbanist']">
-                            Scrape{' '}
-                            <span
-                                className={`font-['Urbanist'] text-[#FF4F00] font-medium inline-block transition-all duration-300 transform ${fadeState === 'fade-in'
-                                    ? 'opacity-100 translate-y-0'
-                                    : 'opacity-0 -translate-y-1'
-                                    }`}
-                            >
-                                {words[currentWordIndex]}
-                            </span>{' '}
-                            without bans, CAPTCHAs or wasted retries
-                        </p>
-
-                        {/* Features Inline List */}
-                        <div className="flex flex-wrap gap-x-6 gap-y-3 items-center mb-10 text-[16px] font-regular sm:text-sm text-zinc-300 mb-[34px] font-['Urbanist']">
-                            <div className="flex items-center gap-1.5 font-['Urbanist']">
-                                <svg className="w-4 h-4 text-[#FF4F00] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>Clean & undetectable IPs</span>
-                            </div>
-                            <div className="flex items-center gap-1.5">
-                                <svg className="w-4 h-4 text-[#FF4F00] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>99%+ Success Rate </span>
-                            </div>
-                            <div className="flex items-center gap-1.5">
-                                <svg className="w-4 h-4 text-[#FF4F00] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>120M+ IPs across 195 countries</span>
-                            </div>
-                        </div>
-
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
-
-                            {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                            <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99] cursor-pointer">
-
-                                {/* Fast 3D text track wrapper */}
-                                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-
-                                    {/* Default State Text */}
-                                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                        Start free with 1 GB
-                                    </span>
-
-                                    {/* Hover State Text */}
-                                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
-                                        Start free with 1 GB
-                                    </span>
-
-                                </div>
-                            </button>
-
-                            {/* --- SECONDARY BUTTON: ROLLING TEXT + BORDER INDENT --- */}
-                            <button onClick={() => {
-                                document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' });
-                            }}
-                                className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-700 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96] cursor-pointer">
-
-                                {/* Fast 3D text track wrapper */}
-                                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-
-                                    {/* Default State Text */}
-                                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                        View Pricing
-                                    </span>
-
-                                    {/* Hover State Text */}
-                                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
-                                        View Pricing
-                                    </span>
-
-                                </div>
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                    {/* --- RIGHT COLUMN: MAIN COLUMN IMAGE --- */}
-                    <div className="lg:col-span-5 relative flex items-center justify-center w-full">
-                        {/* Orange ambient glow effect behind the asset artwork */}
-                        <div
-                            className="absolute w-[300px] h-[300px] bg-[#FF4F00]/15 rounded-full blur-[80px] pointer-events-none select-none"
-                            aria-hidden="true"
-                        />
-
-                        <div className="relative w-full max-w-[480px] aspect-[4/3]">
-                            <Image
-                                src="/images/WebScraping.png" // Replace this with your actual image file path
-                                alt="Proxy Network Infrastructure Ad Verification Illustration"
-                                fill
-                                priority
-                                className="object-contain"
-                            />
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-
-            <section className="bg-[#0a0a0a] text-white pb-[80px] sm:pb-[80px] mx-[120px] font-['Urbanist']">
-                <div className="max-w-7xl mx-auto">
-
-                    {/* --- HEADER SECTION --- */}
-                    <div className="text-center max-w-5xl mx-auto mb-16">
-                        <h2 className="text-3xl md:text-[42px] font-medium tracking-tight text-white mb-4 leading-tight">
-                            Why Most Web Scraping Setups Fail
-                        </h2>
-                        <p className="text-zinc-500 text-[18px] md:text-base font-regular max-w-4xl mx-auto leading-relaxed">
-                            Most scraping failures aren’t caused by code, they’re caused by IP reputation, detection patterns and unstable sessions.                        </p>
-                    </div>
-
-                    {/* --- FEATURES GRID --- */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12 items-start mt-4">
-                        {features.map((item, index) => (
-                            <div key={index} className="flex flex-col items-start text-left">
-
-                                {/* Flame Icon Container */}
-                                <div className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden relative mb-5">
-                                    {/* Replacing SVG with Next.js Image Component */}
-                                    <Image
-                                        src="/images/icon/Flame.svg" // <-- Change this to your exact path inside the public/ directory
-                                        alt="Flame Icon"
-                                        width={20} // <-- Matches the w-5 (20px) from your original SVG
-                                        height={20} // <-- Matches the h-5 (20px) from your original SVG
-                                        className="object-contain w-full h-full"
-                                        priority
-                                    />
-                                </div>
-
-                                {/* Feature Title */}
-                                <h3 className="text-white text-[20px] font-medium tracking-tight mb-3">
-                                    {item.title}
-                                </h3>
-
-                                {/* Feature Description */}
-                                <p className="text-zinc-500 text-[16px] font-regular leading-relaxed">
-                                    {item.desc}
-                                </p>
-
-                            </div>
-                        ))}
-                    </div>
-
-                </div>
-            </section>
-
-
-
-
-
-            <section className="bg-[#0a0a0a] text-white overflow-hidden pb-[80px] sm:pb-[80px] mx-[120px] font-['Urbanist']">
-                <div className="max-w-7xl mx-auto space-y-32">
-
-                    {/* Row 1: Easy Client Management */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        {/* Visual Side */}
-                        <div className="relative group">
-                            <div className="bg-[#0d0d0d] rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
-                                <div className="bg-[#050505] rounded-2xl  overflow-hidden flex items-center justify-center">
-
-                                    <img
-                                        src="/images/ScrapingAccuracy.png"
-                                        alt="Perfect for Everyday Scraping & Automation"
-                                        className="w-full h-auto object-cover rounded-2xl"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Text Side */}
-                        <div className="space-y-6">
-                            <h2 className="text-[42px] md:text-5xl md:leading-snug font-medium tracking-tight mb-[34px]">
-                                Why Detection Ruins Scraping Accuracy
-                            </h2>
-                            <h4 className="text-[20px] font-medium text-stone-200 mb-[14px]">
-                                Incomplete or Fake Data
-                            </h4>
-                            <p className="text-gray-400 text-[16px] font-regular leading-relaxed mb-[34px]">
-                                Blocked sessions return CAPTCHA pages, redirects or placeholders instead of real content.
-                            </p>
-                            <h4 className="text-[20px] font-medium text-stone-200 mb-[14px]">
-                                Runaway Infrastructure Costs
-                            </h4>
-                            <p className="text-gray-400 text-[16px] font-regular leading-relaxed mb-[34px]">
-                                Retries, proxy rotation and CAPTCHA solving multiply costs without improving results.
-                            </p>
-                            <h4 className="text-[20px] font-medium text-stone-200 mb-[14px]">
-                                Missed Coverage at Scale
-                            </h4>
-                            <p className="text-gray-400 text-[16px] font-regular leading-relaxed ">
-                                Unstable proxies make it impossible to scrape consistently across regions, categories or time windows.
-                            </p>
-
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-
-            {/* ── TOP HEADER SECTION ───────────────────────────────────── */}
-            <div className="text-center pb-24 sm:pb-28 mx-[120px] font-['Urbanist']">
-                <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white mb-4">
-                    One Proxy Built for Reliable Web Scraping
-                </h2>
-                <p className="text-stone-400 text-sm sm:text-base max-w-4xl mx-auto font-normal">
-                    A single proxy solution designed for teams that scrape at scale and can’t afford blocks, retries, or wasted spend.
-                </p>
+        {/* Action Button */}
+        <div className="w-full mb-2">
+          <button 
+            onClick={() => router.push('https://dashboard.torchproxies.com/')} 
+            className="group relative w-full h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99] cursor-pointer"
+          >
+            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+              <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                Try risk free now
+              </span>
+              <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+                Try risk free now
+              </span>
             </div>
-            <section className="bg-[#0a0a0a] text-white overflow-hidden pb-[80px] sm:pb-[80px] mx-[120px] font-['Urbanist']">
-                <div className="max-w-7xl mx-auto space-y-32">
+          </button>
+        </div>
+      </div>
 
-                    {/* Row 1: Easy Client Management */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        {/* Visual Side */}
+      {/* Right Column: Information Display & Target Logos */}
+      <div className="flex flex-col justify-center py-4">
+        <h4 className="text-xl sm:text-2xl lg:text-[28px] font-medium tracking-tight text-white mb-8 text-center lg:text-left">
+          What this means for you?
+        </h4>
 
-                        <div className="relative group">
-                            {/* Text Side */}
-                            <div className="space-y-6">
-                                <h2 className="text-[42px] md:text-5xl font-regular tracking-tight mb-[34px]">
-                                    Hybrid Proxies for Web Scraping
-                                </h2>
-                                <p className="text-gray-400 text-lg leading-relaxed mb-[14px]">
-                                    Built for modern scraping environments where detection resistance, consistency and cost control matter more than raw bandwidth.
-                                </p>
-                                <ul className="text-gray-400 text-lg leading-relaxed">
-                                    <li>&#9679; Fewer blocks, fewer retries, cleaner data</li>
-                                    <li>&#9679; Stable sessions for complex scraping workflows</li>
-                                    <li>&#9679; One proxy type that works across all targets</li>
-                                    <li>&#9679; Better ROI at high request volumes</li>
-                                </ul>
+        {/* Value Propositions List with Green Check Circles */}
+        <ul className="space-y-5 text-left mb-10">
+          {[
+            'More successful requests per GB',
+            'Fewer retries, blocks and CAPTCHA loops',
+            'Lower cost per usable dataset',
+          ].map((item, index) => (
+            <li key={index} className="flex items-center gap-3 text-stone-300 text-xs sm:text-sm lg:text-base font-normal">
+              <div className="w-[18px] h-[18px] rounded-full bg-[#00B67A] flex items-center justify-center shrink-0">
+                <svg
+                  className="w-[10px] h-[10px] text-black stroke-[4.5]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+              </div>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
 
-                            </div>
-                        </div>
-                        <div className="bg-[#0d0d0d] rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
-                            <div className="bg-[#050505] rounded-2xl overflow-hidden flex items-center justify-center">
+        {/* Target Logos Container */}
+        <div className="text-center lg:text-left">
+          <span className="block text-stone-500 text-xs font-normal tracking-wide mb-4">
+            Best for
+          </span>
+          <div className="flex flex-wrap items-center justify-center lg:justify-start">
+            <Image 
+              src="/images/icon/logo.svg" 
+              alt="Supported E-commerce & Target Platforms" 
+              width={385} 
+              height={54} 
+              className="object-contain" 
+            />
+          </div>
+        </div>
+      </div>
 
-                                <img
-                                    src="/images/HybridProxiesforWebScraping.png"
-                                    alt="Perfect for Everyday Scraping & Automation"
-                                    className="w-full h-auto object-cover rounded-2xl"
-                                />
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            </section>
-
-
-            <section className="bg-[#0a0a0a] text-white overflow-hidden mx-[120px] font-['Urbanist']">
-                <div className="max-w-7xl mx-auto">
-                    <h2 className="text-3xl md:text-[42px] font-medium text-white mb-4 text-center font-['Urbanist']">
-                        Why Hybrid Proxies Work for Web Scraping</h2>
-                    <p className="text-gray-400 text-[16px] leading-relaxed text-center max-w-3xl mx-auto mb-16 font">
-                        Hybrid proxies combine real residential identity with high-performance infrastructure so your scraping runs longer, costs less and fails less often.                        </p>
-                </div>
-                <div className="max-w-8xl mx-auto -mt-[100px]">
-                    <FeaturesTabSection />
-                </div>
-            </section>
-
-            <section className="bg-[#0a0a0a] text-white -mt-[60px] pb-[80px] sm:pb-[80px] mx-[120px] flex flex-col items-center justify-center min-h-screen font-['Urbanist']">
-                <div className="w-full max-w-7xl mx-auto">
-
-                    {/* --- HEADER --- */}
-                    <div id="pricing-section" className="text-center max-w-5xl mx-auto mb-16">
-                        <h2 className="text-[42px] md:text-[42px] font-medium tracking-tight text-white mb-4 font-['Urbanist']">
-                           The Right Proxies for Sneaker Botting
-                        </h2>
-                        <p className="text-zinc-500 text-sm md:text-base font-normal leading-relaxed font-['Urbanist']">
-                           Choose the right proxy based on whether your target sites use advanced anti-bot protection and how large your monitoring scale is.
-                        </p>
-                    </div>
-
-                    {/* --- MAIN 2-COLUMN ROW SIDE-BY-SIDE --- */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-5xl mx-auto">
-
-                        {/* LEFT COLUMN: THE PRICING CARD */}
-                        <div className="bg-[#0A0A0A] border border-zinc-900 rounded-2xl p-6 md:p-8 flex flex-col justify-between transition-all duration-200 hover:border-zinc-800 w-full min-h-[580px]">
-                            <div>
-                                {/* Top Row: Icon & Badge */}
-                                <div className="flex items-center justify-between mb-6">
-<div className="w-15 h-15 rounded-xl flex items-center justify-center text-white">
-    {/* Defaulting to residential icon structure as per array fallback */}
-    <img
-        src='/images/pr.svg'
-        alt="Description of image"
-        className="w-15 h-15 object-contain"
-    />
-</div>
-
-                                    <span className="text-[11px] font-medium tracking-wide px-3 py-1 rounded-md bg-[#002B1B] text-[#00B67A]">
-                                        Most Popular
-                                    </span>
-                                </div>
-
-                                {/* Card Title & Description */}
-                                <h3 className="text-[24px] font-medium text-white mb-1.5 tracking-tight font-['Urbanist']">
-                                    Hybrid Proxies
-                                </h3>
-                                <p className="text-zinc-500 text-[18px] font-regular mb-6 leading-relaxed max-w-sm">
-                                    Built for high volume scraping on both protected and unprotected targets
-                                </p>
-
-                                {/* Pricing Block */}
-                                <div className="flex items-baseline gap-2 mb-8">
-                                    <span className="text-3xl md:text-4xl font-semibold text-white tracking-tight">
-                                        $5/GB
-                                    </span>
-                                    <span className="text-zinc-600 text-xs">per month</span>
-                                </div>
-
-                                {/* Features Checklist */}
-                                <ul className="space-y-4 mb-10  font-['Urbanist']">
-                                    <li className="flex items-start gap-3 text-zinc-400 text-sm font-normal leading-relaxed">
-                                        <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>99% success rate on protected and high-friction sites</span>
-                                    </li>
-                                    <li className="flex items-start gap-3 text-zinc-400 text-sm font-normal leading-relaxed">
-                                        <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>ISP sourced residential IPs that pass anti-bot checkss</span>
-                                    </li>
-                                    <li className="flex items-start gap-3 text-zinc-400 text-sm font-normal leading-relaxed">
-                                        <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Stable sessions for consistent, large scale scraping</span>
-                                    </li>
-                                    <li className="flex items-start gap-3 text-zinc-400 text-sm font-normal leading-relaxed">
-                                        <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Easy API integration for rapid deployment</span>
-                                    </li>
-                                    <li className="flex items-start gap-3 text-zinc-400 text-sm font-normal leading-relaxed">
-                                        <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Best price-performance at scale</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            {/* Action Button */}
-                            {/* Action Button at the bottom */}
-                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
-
-                                {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                                <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative w-full h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99] cursor-pointer">
-
-                                    {/* Fast 3D text track wrapper */}
-                                    <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-
-                                        {/* Default State Text */}
-                                        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                            Try risk free now
-                                        </span>
-
-                                        {/* Hover State Text */}
-                                        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
-                                            Try risk free now
-                                        </span>
-
-                                    </div>
-                                </button>
-                            </div>
-                        </div>
-
-                        {/* RIGHT COLUMN: INFORMATION DISPLAY & TARGET LOGOS */}
-                        <div className="flex flex-col justify-center py-4">
-                            <h4 className="text-2xl md:text-[28px] font-medium tracking-tight text-white mb-8 font-['Urbanist']">
-                                What this means for you?
-                            </h4>
-
-                            {/* Value Propositions List with Green Check Circles */}
-                            <ul className="space-y-5 text-left mb-10">
-                                <li className="flex items-center gap-3 text-zinc-300 text-sm md:text-base font-normal">
-                                    <div className="w-[18px] h-[18px] rounded-full bg-[#00B67A] flex items-center justify-center shrink-0">
-                                        <svg
-                                            className="w-[10px] h-[10px] text-black stroke-[4.5]"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                        >
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                        </svg>
-                                    </div>
-                                    <span>More successful requests per GB</span>
-                                </li>
-
-                                <li className="flex items-center gap-3 text-zinc-300 text-sm md:text-base font-normal">
-                                    <div className="w-[18px] h-[18px] rounded-full bg-[#00B67A] flex items-center justify-center shrink-0">
-                                        <svg
-                                            className="w-[10px] h-[10px] text-black stroke-[4.5]"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                        >
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                        </svg>
-                                    </div>
-                                    <span>Fewer retries, blocks and CAPTCHA loops</span>
-                                </li>
-
-                                <li className="flex items-center gap-3 text-zinc-300 text-sm md:text-base font-normal">
-                                    <div className="w-[18px] h-[18px] rounded-full bg-[#00B67A] flex items-center justify-center shrink-0">
-                                        <svg
-                                            className="w-[10px] h-[10px] text-black stroke-[4.5]"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                        >
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                        </svg>
-                                    </div>
-                                    <span>Lower cost per usable dataset</span>
-                                </li>
-                            </ul>
-
-                            {/* "Best for" Identifier label */}
-                            <div className="text-center lg:text-left">
-                                <span className="block text-zinc-500 text-xs font-normal tracking-wide mb-6 text-center">
-                                    Best for
-                                </span>
-
-                                {/* Flex Logo Wrap matching your mockup configuration */}
-                                <div className="flex flex-wrap items-center justify-center">
-                                    <Image src="/images/icon/logo.svg" alt="Amazon" width={385} height={54} className="object-contain" />
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-            </section>
-
-
-            <section className="bg-[#0A0A0A] text-white pb-[80px] sm:pb-[80px] mx-[120px] overflow-hidden font-['Urbanist']">
-                <div className="max-w-[1200px] mx-auto">
-
-                    {/* --- HEADER --- */}
-                    <div className="text-center max-w-3xl mx-auto mb-20">
-                        <h2 className="text-3xl md:text-[42px] font-medium tracking-tight text-white mb-4 font-['Urbanist']">
-                            See how we compare with others
-                        </h2>
-                        <p className="text-zinc-500 text-[18px] md:text-base font-regular tracking-wide">
-                            Proof why we are the best option for your use case
-                        </p>
-                    </div>
-
-                    {/* --- COMPARISON MATRIX GRID --- */}
-<div className="w-full font-['Urbanist']">
-    <div className="relative w-full font-['Urbanist']">
-        
-<table className="w-full border-collapse text-center table-fixed relative z-10 font-['Urbanist']">
-    <colgroup><col className="w-[18%] text-left" /><col className="w-[16%]" /><col className="w-[16%]" /><col className="w-[18%]" /> {/* Highlighted Column */}<col className="w-[16%]" /><col className="w-[16%]" /></colgroup>
-
-    <thead>
-        <tr className="align-middle">
-            <th className="pb-10"></th>
-
-            <th className="pb-10 px-1">
-                <div className="relative h-6 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition">
-                    <Image src="/images/table/1.png" alt="Bright Data Logo" fill className="object-contain" />
-                </div>
-            </th>
-
-            <th className="pb-10 px-1">
-                <div className="relative h-6 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition">
-                    <Image src="/images/table/2.png" alt="Oxylabs Logo" fill className="object-contain" />
-                </div>
-            </th>
-
-            {/* ── Highlighted Column Header ── */}
-            <th className="pb-10 px-1 relative">
-                <div className="absolute top-[-16px] left-0 right-0 h-[calc(100%+380px)] bg-[#0c0c0e] border border-zinc-800/80 rounded-2xl z-0 pointer-events-none shadow-[0_20px_50px_rgba(0,0,0,0.6)]" />
-
-                <div className="relative h-6 w-full max-w-[120px] mx-auto opacity-100 transition z-10">
-                    <Image src="/images/table/torchproxies.png" alt="TorchProxies Logo" fill className="object-contain" />
-                </div>
-            </th>
-
-            <th className="pb-10 px-1">
-                <div className="relative h-6 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition">
-                    <Image src="/images/table/3.png" alt="Proxy Empire Logo" fill className="object-contain" />
-                </div>
-            </th>
-
-            <th className="pb-10 px-1">
-                <div className="relative h-6 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition">
-                    <Image src="/images/table/4.png" alt="Node Maven Logo" fill className="object-contain" />
-                </div>
-            </th>
-        </tr>
-    </thead>
-
-    <tbody>
-        {comparisonData.map((row, idx) => (
-            <tr key={idx} className="align-middle">
-                {/* Borders removed from all td elements below */}
-                <td className="py-5 px-1 text-left text-stone-300 text-[15px] font-medium">
-                    {row.metric}
-                </td>
-                <td className="py-5 px-1 text-stone-400 text-[14px]">
-                    {renderCellContent(row.brightData)}
-                </td>
-                <td className="py-5 px-1 text-stone-400 text-[14px]">
-                    {renderCellContent(row.oxylabs)}
-                </td>
-                
-                {/* ── TorchProxies Content Cell ── */}
-                <td className="py-5 px-1 text-white text-[14px] font-medium relative z-10">
-                    {renderCellContent(row.torchProxies, true)}
-                </td>
-                
-                <td className="py-5 px-1 text-stone-400 text-[14px]">
-                    {renderCellContent(row.proxyEmpire)}
-                </td>
-                <td className="py-5 px-1 text-stone-400 text-[14px]">
-                    {renderCellContent(row.nodeMaven)}
-                </td>
-            </tr>
-        ))}
-    </tbody>
-</table>
     </div>
-</div>
 
+  </div>
+</section>
+{/* ── SECTION: COMPARISON MATRIX ───────────────────────────────── */}
+<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden">
+  <div className="max-w-7xl mx-auto">
+
+    {/* Section Header */}
+    <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+      <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white mb-3 sm:mb-4 leading-tight">
+        See how we compare with others
+      </h2>
+      <p className="text-stone-400 text-xs sm:text-sm lg:text-base font-normal leading-relaxed">
+        Proof why we are the best option for your use case
+      </p>
+    </div>
+
+    {/* Comparison Matrix Table Wrapper */}
+    <div className="w-full overflow-x-auto scrollbar-none">
+      <div className="min-w-[700px] lg:min-w-full relative">
+        <table className="w-full border-collapse text-center table-fixed relative z-10">
+          <colgroup>
+            <col className="w-[20%] text-left" />
+            <col className="w-[16%]" />
+            <col className="w-[16%]" />
+            <col className="w-[16%]" /> {/* Highlighted TorchProxies Column */}
+            <col className="w-[16%]" />
+            <col className="w-[16%]" />
+          </colgroup>
+
+          <thead>
+            <tr className="align-middle">
+              <th className="pb-8 lg:pb-10"></th>
+
+              <th className="pb-8 lg:pb-10 px-2">
+                <div className="relative h-6 w-full max-w-[100px] mx-auto opacity-50 hover:opacity-100 transition-opacity duration-200">
+                  <Image src="/images/table/1.png" alt="Bright Data Logo" fill className="object-contain" />
                 </div>
-            </section>
+              </th>
 
-
-
-
-
-            {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
-            {/* Upgrade CTA Banner */}
-            <section className="pb-[80px] sm:pb-[80px] mx-[120px] font-['Urbanist']">
-                <div className="max-w-6xl mx-auto">
-                    <div
-                        className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden"
-                        style={{
-                            background: 'linear-gradient(135deg, #ff3c006c 0%, #0a0a0a 30%, #0a0a0a 80%, #ff3c006c 100%)',
-
-                        }}
-                    >
-                        {/* Optional subtle overlay for more depth */}
-                        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40 rounded-3xl" />
-
-                        <div className="relative z-10 max-w-4xl mx-auto">
-                            <h2 className="text-4xl md:text-5xl font-regular tracking-tight mb-6 text-white">
-                                Join teams that scrape websites without getting blocked
-                            </h2>
-
-                            <p className="text-stone-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-                                Avoid blocks, retries and wasted data by using hybrid proxies built for steady, large-scale web scraping on both protected and open websites.
-                            </p>
-                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
-
-                                {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                                <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="group relative  w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99] cursor-pointer">
-
-                                    {/* Fast 3D text track wrapper */}
-                                    <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-
-                                        {/* Default State Text */}
-                                        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                                            Start free with 1GB
-                                        </span>
-
-                                        {/* Hover State Text */}
-                                        <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
-                                            Start free with 1GB
-                                        </span>
-
-                                    </div>
-                                </button>
-                            </div>
-
-                            {/* <button className="px-10 py-4 bg-[#FE4A01] text-white font-medium rounded-2xl text-lg hover:bg-stone-100 transition-all active:scale-95">
-                                Start free with 1GB
-                            </button> */}
-                        </div>
-                        {/* Features Inline List */}
-                        <div className="relative z-10 flex flex-wrap justify-center gap-x-6 gap-y-3 items-center mb-10 mt-10 text-[16px] font-regular sm:text-sm text-white">
-                            <div className="flex items-center gap-1.5">
-                                <svg className="w-4 h-4 text-[#FE4A01] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>No Credit Card Required </span>
-                            </div>
-                            <div className="flex items-center gap-1.5">
-                                <svg className="w-4 h-4 text-[#FE4A01] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>Set up in minutes</span>
-                            </div>
-                            <div className="flex items-center gap-1.5">
-                                <svg className="w-4 h-4 text-[#FE4A01] stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>Works in 195+ countries</span>
-                            </div>
-                        </div>
-                    </div>
+              <th className="pb-8 lg:pb-10 px-2">
+                <div className="relative h-6 w-full max-w-[100px] mx-auto opacity-50 hover:opacity-100 transition-opacity duration-200">
+                  <Image src="/images/table/2.png" alt="Oxylabs Logo" fill className="object-contain" />
                 </div>
-            </section>
+              </th>
 
-            {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
-            {/* FAQ SECTION */}
-            <section className="pb-[80px] sm:pb-[80px] mx-[120px] bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
-
-                {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
-                <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
-                    <Image
-                        src="/images/contact-bg.png" /* Using the same glow asset path */
-                        alt=""
-                        fill
-                        priority
-                        className="object-cover object-bottom opacity-100"
-                    />
+              {/* Highlighted Column Header */}
+              <th className="pb-8 lg:pb-10 px-2 relative">
+                <div className="absolute top-[-16px] left-0 right-0 h-[calc(100%+380px)] bg-[#0c0c0e] border border-stone-800/80 rounded-2xl z-0 pointer-events-none shadow-[0_20px_50px_rgba(0,0,0,0.6)]" />
+                <div className="relative h-6 w-full max-w-[110px] mx-auto opacity-100 transition z-10">
+                  <Image src="/images/table/torchproxies.png" alt="TorchProxies Logo" fill className="object-contain" />
                 </div>
+              </th>
 
-                {/* ── Content Wrapper (Added 'relative z-10' so it sits above the background glow) ── */}
-                <div className="max-w-4xl mx-auto relative z-10">
-                    {/* Header */}
-                    <div className="text-center mb-16">
-                        <span className="text-[#FE4A01] text-xs font-medium tracking-widest block mb-3">
-                            FAQ
-                        </span>
-                        <h2 className="text-4xl sm:text-5xl font_regular tracking-tight text-white">
-                            Frequently asked questions
-                        </h2>
-                    </div>
+              <th className="pb-8 lg:pb-10 px-2">
+                <div className="relative h-6 w-full max-w-[100px] mx-auto opacity-50 hover:opacity-100 transition-opacity duration-200">
+                  <Image src="/images/table/3.png" alt="Proxy Empire Logo" fill className="object-contain" />
+                </div>
+              </th>
 
-                    {/* FAQ Items */}
-<div className="space-y-px">
-    {faqData.map((faq, index) => {
+              <th className="pb-8 lg:pb-10 px-2">
+                <div className="relative h-6 w-full max-w-[100px] mx-auto opacity-50 hover:opacity-100 transition-opacity duration-200">
+                  <Image src="/images/table/4.png" alt="Node Maven Logo" fill className="object-contain" />
+                </div>
+              </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {comparisonData.map((row, idx) => (
+              <tr key={idx} className="align-middle">
+                <td className="py-4 lg:py-5 px-2 text-left text-stone-300 text-xs sm:text-sm font-medium">
+                  {row.metric}
+                </td>
+                <td className="py-4 lg:py-5 px-2 text-stone-400 text-xs sm:text-sm">
+                  {renderCellContent(row.brightData)}
+                </td>
+                <td className="py-4 lg:py-5 px-2 text-stone-400 text-xs sm:text-sm">
+                  {renderCellContent(row.oxylabs)}
+                </td>
+                
+                {/* TorchProxies Content Cell */}
+                <td className="py-4 lg:py-5 px-2 text-white text-xs sm:text-sm font-medium relative z-10">
+                  {renderCellContent(row.torchProxies, true)}
+                </td>
+
+                <td className="py-4 lg:py-5 px-2 text-stone-400 text-xs sm:text-sm">
+                  {renderCellContent(row.proxyEmpire)}
+                </td>
+                <td className="py-4 lg:py-5 px-2 text-stone-400 text-xs sm:text-sm">
+                  {renderCellContent(row.nodeMaven)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+{/* ── SECTION: INTERACTIVE CTA BANNER ────────────────────────── */}
+<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden">
+  <div className="max-w-6xl mx-auto">
+    <div
+      className="relative rounded-2xl sm:rounded-3xl p-8 sm:p-12 md:p-16 text-center overflow-hidden border border-stone-800/60"
+      style={{
+        background: 'linear-gradient(135deg, #ff3c006c 0%, #0a0a0a 30%, #0a0a0a 80%, #ff3c006c 100%)',
+      }}
+    >
+      {/* Subtle overlay for visual depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40 rounded-2xl sm:rounded-3xl pointer-events-none" />
+
+      <div className="relative z-10 max-w-4xl mx-auto">
+        {/* Main Heading */}
+        <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white mb-4 sm:mb-6 leading-tight">
+          Join teams that scrape websites without getting blocked
+        </h2>
+
+        {/* Subtitle */}
+        <p className="text-stone-300 text-xs sm:text-base lg:text-lg mb-8 sm:mb-10 max-w-2xl mx-auto font-normal leading-relaxed">
+          Avoid blocks, retries and wasted data by using hybrid proxies built for steady, large-scale web scraping on both protected and open websites.
+        </p>
+
+        {/* Primary CTA Button */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+          <button
+            onClick={() => router.push('https://dashboard.torchproxies.com/')}
+            className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99] cursor-pointer"
+          >
+            {/* 3D text track wrapper */}
+            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+              {/* Default State Text */}
+              <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                Start free with 1GB
+              </span>
+
+              {/* Hover State Text */}
+              <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+                Start free with 1GB
+              </span>
+            </div>
+          </button>
+        </div>
+
+        {/* Inline Feature Checklist */}
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 items-center text-xs sm:text-sm text-stone-200 font-normal">
+          {[
+            'No Credit Card Required',
+            'Set up in minutes',
+            'Works in 195+ countries',
+          ].map((item, index) => (
+            <div key={index} className="flex items-center gap-2">
+              <svg
+                className="w-4 h-4 text-[#FF4F00] shrink-0 stroke-[3]"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{/* ── SECTION: FAQ (ACCORDION) ─────────────────────────────── */}
+<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] relative overflow-hidden">
+
+  {/* Full-Bleed Middle-Bottom Background Layer */}
+  <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
+    <Image
+      src="/images/contact-bg.png"
+      alt=""
+      fill
+      priority
+      className="object-cover object-bottom opacity-100"
+    />
+  </div>
+
+  {/* Content Wrapper */}
+  <div className="max-w-4xl mx-auto relative z-10">
+    {/* Section Header */}
+    <div className="text-center mb-10 sm:mb-16">
+      <span className="text-[#FF4F00] text-xs font-semibold tracking-widest uppercase block mb-3">
+        FAQ
+      </span>
+      <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
+        Frequently asked questions
+      </h2>
+    </div>
+
+    {/* FAQ Items Accordion */}
+    <div className="space-y-px">
+      {faqData.map((faq, index) => {
         const isOpen = activeFaq === index;
         return (
-            <div
-                key={index}
-                className="border-b border-stone-800 last:border-none group"
+          <div
+            key={index}
+            className="border-b border-stone-800/80 last:border-none group transition-colors duration-200"
+          >
+            <button
+              onClick={() => setActiveFaq(isOpen ? null : index)}
+              className="w-full text-left py-5 sm:py-6 flex items-center justify-between gap-4 text-base sm:text-lg font-medium text-stone-200 hover:text-white transition-colors cursor-pointer"
             >
-                <button
-                    onClick={() => setActiveFaq(isOpen ? null : index)}
-                    className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors cursor-pointer"
-                >
-                    <span>{faq.q}</span>
-                    <ChevronDown
-                        className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
-                    />
-                </button>
+              <span className="pr-2">{faq.q}</span>
+              <ChevronDown
+                className={`w-5 h-5 text-stone-400 shrink-0 transition-transform duration-300 ${
+                  isOpen ? 'rotate-180 text-[#FF4F00]' : 'group-hover:text-stone-300'
+                }`}
+              />
+            </button>
 
-                <div className={`overflow-hidden transition-all duration-500 ${isOpen ? 'max-h-[2000px] pb-6' : 'max-h-0'}`}>
-                    <div className="space-y-3">
-                        {faq.items.map((item, i) => (
-                            <div key={i} className="flex items-start gap-4">
-                                {item.step ? (
-                                    <span className="bg-[#FE4A01] text-white text-[13px] font-bold w-7 h-7 rounded-full shrink-0 flex items-center justify-center">
-                                        {item.step}
-                                    </span>
-                                ) : item.label ? (
-                                    <span className={`${item.color ?? ''} text-white text-[11px] font-bold px-2.5 py-1 rounded-md shrink-0 tracking-wide min-w-[90px] text-center`}>
-                                        {item.label}
-                                    </span>
-                                ) : null}
-                                <div>
-                                    {item.title && (
-                                        <p className="text-stone-400 font-bold text-[15px] mb-1">{item.title}</p>
-                                    )}
-                                    <p className="text-stone-400 text-[15px] leading-relaxed">
-                                        {item.text}
-                                    </p>
-                                </div>
-                            </div>
-                        ))}
+            <div
+              className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                isOpen ? 'max-h-[2000px] pb-6 opacity-100' : 'max-h-0 opacity-0'
+              }`}
+            >
+              <div className="space-y-4 pt-1">
+                {faq.items.map((item, i) => (
+                  <div key={i} className="flex items-start gap-3 sm:gap-4">
+                    {item.step ? (
+                      <span className="bg-[#FF4F00] text-white text-xs font-bold w-6 h-6 sm:w-7 sm:h-7 rounded-full shrink-0 flex items-center justify-center mt-0.5">
+                        {item.step}
+                      </span>
+                    ) : item.label ? (
+                      <span
+                        className={`${
+                          item.color ?? 'bg-stone-800'
+                        } text-white text-[11px] font-bold px-2.5 py-1 rounded-md shrink-0 tracking-wide min-w-[85px] sm:min-w-[90px] text-center mt-0.5`}
+                      >
+                        {item.label}
+                      </span>
+                    ) : null}
+
+                    <div className="flex-1">
+                      {item.title && (
+                        <p className="text-stone-300 font-semibold text-xs sm:text-sm mb-1">
+                          {item.title}
+                        </p>
+                      )}
+                      <p className="text-stone-400 text-xs sm:text-sm font-normal leading-relaxed">
+                        {item.text}
+                      </p>
                     </div>
-                </div>
+                  </div>
+                ))}
+              </div>
             </div>
+          </div>
         );
-    })}
-</div>
-</div>
+      })}
+    </div>
+  </div>
 
-                {/* Bottom Gradient Overlay - Blends beautifully with your new image background */}
-                <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent pointer-events-none z-0" />
-            </section>
+  {/* Bottom Gradient Overlay */}
+  <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent pointer-events-none z-0" />
+</section>
 
         </div>
     );

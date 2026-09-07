@@ -273,7 +273,7 @@ export default function TorchProxiesLandingPage() {
                     </h1>
 
                     {/* Subtitle Body Text */}
-                    <p className="text-gray-400 text-sm sm:text-base md:text-[20px] leading-relaxed max-w-5xl font-regular pt-1">
+                    <p className="text-gray-400 text-sm sm:text-base md:text-[20px] leading-relaxed max-w-5xl font-regular pt-1 text-[#F0F2F5]/65">
                         Built for banking portals, seller accounts, and any UK task that breaks the moment the address changes.
                     </p>
 
@@ -317,7 +317,7 @@ export default function TorchProxiesLandingPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full pt-8">
                         <div className="bg-[#121824]/30 border border-white/10 backdrop-blur-md rounded-2xl p-5 text-center flex flex-col justify-center space-y-1">
                             <span className="text-xl md:text-[19px] font-black text-white tracking-wide">4,267,587</span>
-                            <span className="text-[13px] text-gray-400 font-medium">UK residential IPs</span>
+                            <span className="text-[13px] text-gray-400 font-medium">UK IP count</span>
                         </div>
                         <div className="bg-[#121824]/30 border border-white/10 backdrop-blur-md rounded-2xl p-5 text-center flex flex-col justify-center space-y-1">
                             <span className="text-xl md:text-[19px] font-black text-white tracking-wide">99.9%</span>
@@ -555,7 +555,7 @@ export default function TorchProxiesLandingPage() {
                     {/* Section Header */}
                     <div className="space-y-2">
                         <span className="text-[#FF4F00] text-xs md:text-sm font-bold tracking-[0.2em] uppercase">
-                            WHY RESIDENTIAL
+                            WHY ISP
                         </span>
                         <h2 className="text-3xl md:text-5xl lg:text-[52px] font-normal leading-[1.15] text-white max-w-4xl tracking-tight">
                             Industry leader in fast proxy services <br className="hidden md:block" />

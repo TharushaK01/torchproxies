@@ -1,11 +1,116 @@
+// "use client";
+// import { useState, useEffect } from 'react';
+// import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
+// import CountUp from 'react-countup';
+// import { Tooltip } from 'react-tooltip';
+
+// // Using a more stable CDN for the map data
+// const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+
+// const countryProxyData: Record<string, string> = {
+//   "Kazakhstan": "(10,000+ IPs)",
+//   "United States of America": "(4M+ IPs)",
+//   "United Kingdom": "(1.5M+ IPs)",
+//   "Germany": "(1.4M+ IPs)",
+// };
+
+// const GlobalNetwork = () => {
+//   const [mounted, setMounted] = useState(false);
+//   const [content, setContent] = useState("");
+
+//   // Fix for Next.js Hydration: Only render map after component mounts on client
+//   useEffect(() => {
+//     setMounted(true);
+//   }, []);
+
+//   if (!mounted) return <div className="h-[600px] bg-black" />;
+
+//   return (
+//     <section className="bg-[#0a0a0a] text-white py-24 px-6 relative min-h-[800px] space-y-6 font-['Urbanist'] pb-24 sm:pb-28">
+//       <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3 text-center ">
+//         Worldwide
+//       </span>
+//       <h2 className="text-[42px] md:text-5xl font-medium text-center mb-16 tracking-tight">
+//         Strong global IP network
+//       </h2>
+
+//       <div className="max-w-7xl mx-auto relative h-[500px]">
+//         {/* Important: Set width/height on the container */}
+//         <div className="w-full h-full">
+//           <ComposableMap
+//             projectionConfig={{ scale: 140 }}
+//             width={800}
+//             height={400}
+//             style={{ width: "100%", height: "auto" }}
+//           >
+//             <Geographies geography={geoUrl}>
+//               {({ geographies }: { geographies: Geography[] }) =>
+//                 geographies.map((geo) => {
+//                   const countryName = geo.properties.name;
+//                   const isHoveredSpecific = countryProxyData[countryName];
+
+//                   return (
+//                     <Geography
+//                       key={geo.rsmKey}
+//                       geography={geo}
+//                      onMouseEnter={() => {
+//   // Fetch the IP count based on the current country name, default to "Detecting IPs..." if not found
+//   const countText = countryProxyData[countryName] || "(Detecting IPs...)";
+  
+//   // Use \n to split the country name and the IP count into two rows
+//   setContent(`${countryName}\n${countText}`);
+// }}
+// onMouseLeave={() => setContent("")}
+// data-tooltip-id="map-tooltip"
+// data-tooltip-content={content}
+//                       style={{
+//                         default: { fill: "#1a1a1a", outline: "none", stroke: "#333", strokeWidth: 0.5 },
+//                         hover: { fill: "#ff45001a", outline: "none", stroke: "#ff4500", strokeWidth: 1.5 },
+//                         pressed: { fill: "#ff4500", outline: "none" },
+//                       }}
+//                     />
+//                   );
+//                 })
+//               }
+//             </Geographies>
+//           </ComposableMap>
+//         </div>
+
+//         <Tooltip id="map-tooltip" className="z-50 !bg-black !border !border-gray-800" />
+
+//         {/* Stats Section */}
+//         <div className="absolute bottom-0 left-0 space-y-8">
+//           <div>
+//             <div className="text-orange-500 text-[34px] font-semi-bold">
+//               <CountUp end={100000000} separator="'" duration={3} enableScrollSpy scrollSpyOnce />
+//             </div>
+//             <p className="text-gray-500 text-[16px] font-regular tracking-widest mt-2">Proxies</p>
+//           </div>
+//           <div>
+//             <div className="text-orange-500 text-[34px] font-semi-bold">
+//               <CountUp end={190} suffix="+" duration={3} enableScrollSpy scrollSpyOnce />
+//             </div>
+//             <p className="text-gray-500 text-[16px] font-regular tracking-widest mt-2">Countries around the globe</p>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default GlobalNetwork;
+
+
+
+
 "use client";
 import { useState, useEffect } from 'react';
 import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
 import CountUp from 'react-countup';
 import { Tooltip } from 'react-tooltip';
 
-// Using a more stable CDN for the map data
-const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+// 1. Host this file locally inside /public to prevent CDN CORS/Network failures
+const geoUrl = "/countries-110m.json";
 
 const countryProxyData: Record<string, string> = {
   "Kazakhstan": "(10,000+ IPs)",
@@ -16,9 +121,7 @@ const countryProxyData: Record<string, string> = {
 
 const GlobalNetwork = () => {
   const [mounted, setMounted] = useState(false);
-  const [content, setContent] = useState("");
 
-  // Fix for Next.js Hydration: Only render map after component mounts on client
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -27,7 +130,7 @@ const GlobalNetwork = () => {
 
   return (
     <section className="bg-[#0a0a0a] text-white py-24 px-6 relative min-h-[800px] space-y-6 font-['Urbanist'] pb-24 sm:pb-28">
-      <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3 text-center ">
+      <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3 text-center">
         Worldwide
       </span>
       <h2 className="text-[42px] md:text-5xl font-medium text-center mb-16 tracking-tight">
@@ -35,7 +138,6 @@ const GlobalNetwork = () => {
       </h2>
 
       <div className="max-w-7xl mx-auto relative h-[500px]">
-        {/* Important: Set width/height on the container */}
         <div className="w-full h-full">
           <ComposableMap
             projectionConfig={{ scale: 140 }}
@@ -44,25 +146,18 @@ const GlobalNetwork = () => {
             style={{ width: "100%", height: "auto" }}
           >
             <Geographies geography={geoUrl}>
-              {({ geographies }: { geographies: Geography[] }) =>
+              {({ geographies }: { geographies: any[] }) =>
                 geographies.map((geo) => {
                   const countryName = geo.properties.name;
-                  const isHoveredSpecific = countryProxyData[countryName];
+                  const countText = countryProxyData[countryName] || "(Detecting IPs...)";
+                  const tooltipText = `${countryName}\n${countText}`;
 
                   return (
                     <Geography
                       key={geo.rsmKey}
                       geography={geo}
-                     onMouseEnter={() => {
-  // Fetch the IP count based on the current country name, default to "Detecting IPs..." if not found
-  const countText = countryProxyData[countryName] || "(Detecting IPs...)";
-  
-  // Use \n to split the country name and the IP count into two rows
-  setContent(`${countryName}\n${countText}`);
-}}
-onMouseLeave={() => setContent("")}
-data-tooltip-id="map-tooltip"
-data-tooltip-content={content}
+                      data-tooltip-id="map-tooltip"
+                      data-tooltip-content={tooltipText}
                       style={{
                         default: { fill: "#1a1a1a", outline: "none", stroke: "#333", strokeWidth: 0.5 },
                         hover: { fill: "#ff45001a", outline: "none", stroke: "#ff4500", strokeWidth: 1.5 },
@@ -76,18 +171,19 @@ data-tooltip-content={content}
           </ComposableMap>
         </div>
 
-        <Tooltip id="map-tooltip" className="z-50 !bg-black !border !border-gray-800" />
+        {/* Enable multiline tooltips with white-space style */}
+        <Tooltip id="map-tooltip" className="z-50 !bg-black !border !border-gray-800 whitespace-pre-line" />
 
         {/* Stats Section */}
         <div className="absolute bottom-0 left-0 space-y-8">
           <div>
-            <div className="text-orange-500 text-[34px] font-semi-bold">
+            <div className="text-orange-500 text-[34px] font-semibold">
               <CountUp end={100000000} separator="'" duration={3} enableScrollSpy scrollSpyOnce />
             </div>
             <p className="text-gray-500 text-[16px] font-regular tracking-widest mt-2">Proxies</p>
           </div>
           <div>
-            <div className="text-orange-500 text-[34px] font-semi-bold">
+            <div className="text-orange-500 text-[34px] font-semibold">
               <CountUp end={190} suffix="+" duration={3} enableScrollSpy scrollSpyOnce />
             </div>
             <p className="text-gray-500 text-[16px] font-regular tracking-widest mt-2">Countries around the globe</p>

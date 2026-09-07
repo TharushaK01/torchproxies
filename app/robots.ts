@@ -13,6 +13,6 @@ export default function robots(): MetadataRoute.Robots {
         '/_next/',     // Disallow Next.js system files
       ],
     },
-    sitemap: `${SITE_URL}/sitemap.xml`,
+    sitemap: 'https://www.torchproxies.com/sitemap.xml',
   };
 }

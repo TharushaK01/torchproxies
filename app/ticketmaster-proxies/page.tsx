@@ -2,11 +2,11 @@ import type { Metadata } from 'next';
 import TicketMasterProxiesClient from './TicketMasterProxiesClient';    
 
 export const metadata: Metadata = {
-  title: 'Standard Residential Proxies | Reliable & Affordable',
-  description: 'Reliable, steady residential proxies perfect for everyday tasks — a balanced choice to get the job done without breaking the bank. Get started today. Read more.',
+  title: 'Ticketmaster Proxies | Torch Proxies',
+  description: 'Most ticket failures aren’t caused by your bot — they’re caused by IP reputation, fingerprint detection, and unstable queue sessions. Fix it here. Read more.',
   openGraph: {
-    title: 'Standard Residential Proxies | Reliable & Affordable',
-    description: 'Reliable, steady residential proxies perfect for everyday tasks — a balanced choice to get the job done without breaking the bank. Get started today. Read more.',
+    title: 'Ticketmaster Proxies | Torch Proxies',
+    description: 'Most ticket failures aren’t caused by your bot — they’re caused by IP reputation, fingerprint detection, and unstable queue sessions. Fix it here. Read more.',
     images: ['/images/og-image.jpg'],
   },
   twitter: {

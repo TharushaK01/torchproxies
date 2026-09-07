@@ -8,11 +8,27 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['var(--font-urbanist)'],
-        obvia: ['var(--font-obvia)'],
-        'smooch-sans': ['var(--font-smooch-sans)', 'sans-serif'],
-      },
+      // fontFamily: {
+      //   sans: ['var(--font-urbanist)'],
+      //   obvia: ['var(--font-obvia)'],
+      //   'smooch-sans': ['var(--font-smooch-sans)', 'sans-serif'],
+      // },
+
+
+      
+
+fontFamily: {
+  urbanist: ["var(--font-urbanist)", "sans-serif"],
+  chivo: ["var(--font-chivo)", "sans-serif"],
+  "space-grotesk": ["var(--font-space-grotesk)", "sans-serif"],
+  inter: ["var(--font-inter)", "sans-serif"],
+  "source-code-pro": ["var(--font-source-code-pro)", "monospace"],
+},
+
+
+
+
+
       gridTemplateColumns: {
         '30': 'repeat(30, minmax(0, 1fr))',
         '15': 'repeat(15, minmax(0, 1fr))',

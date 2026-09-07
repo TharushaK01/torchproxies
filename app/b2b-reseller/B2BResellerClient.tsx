@@ -376,18 +376,18 @@ const faqData: FAQItem[] = [
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pb-15">
 
             <button
-                onClick={() => router.push('https://dashboard.torchproxies.com/')}
+                onClick={() => router.push('https://torchproxies.com/b2b-dashboard/')}
                 className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]"
             >
 
                 <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
 
                     <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                        Explore B2B products
+                        Join Our Discord
                     </span>
 
                     <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
-                        Explore B2B products
+                        Join Our Discord
                     </span>
 
                 </div>
@@ -420,256 +420,256 @@ const faqData: FAQItem[] = [
             </section>
 
 
-            {/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
-            {/* Upgrade CTA Banner */}
-            <section className="pb-[80px] sm:pb-[80px] mx-[120px] font-['Urbanist']">
-                <div className="max-w-6xl mx-auto">
-                    <div
-                        className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden"
-                        style={{
-                            background: 'linear-gradient(135deg, #ff3c006c 0%, #0a0a0a 30%, #0a0a0a 80%, #ff3c006c 100%)',
+{/* ── SECTION 7: INTERACTIVE CTA BANNER ────────────────────────── */}
+<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist']">
+  <div className="max-w-6xl mx-auto">
+    <div
+      className="relative rounded-2xl sm:rounded-3xl p-6 sm:p-12 md:p-16 text-center overflow-hidden border border-stone-800/50"
+      style={{
+        background:
+          'linear-gradient(135deg, #ff3c006c 0%, #0a0a0a 30%, #0a0a0a 80%, #ff3c006c 100%)',
+      }}
+    >
+      {/* Overlay for Visual Depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40 rounded-2xl sm:rounded-3xl pointer-events-none" />
 
-                        }}
-                    >
-                        {/* Optional subtle overlay for more depth */}
-                        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40 rounded-3xl" />
+      <div className="relative z-10 max-w-4xl mx-auto">
+        {/* Title */}
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-medium tracking-tight mb-4 sm:mb-6 text-white leading-tight">
+          Want a custom dashboard?<br className="hidden md:block" />
+        </h2>
 
-                        <div className="relative z-10 max-w-4xl mx-auto">
-                            <h2 className="text-4xl md:text-5xl font-regular tracking-tight mb-6 text-white">
-                               Want a custom dashboard?<br className="hidden md:block" />
-                            </h2>
+        {/* Subtitle Description */}
+        <p className="text-stone-400 text-sm sm:text-lg md:text-xl font-normal mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
+          We build tailored proxy dashboards for resellers, giving them the tools to track inventory, monitor client usage, and manage distribution with ease.
+        </p>
 
-                            <p className="text-stone-400 text-lg md:text-xl mb-10 max-w-3xl mx-auto">
-                                We build tailored proxy dashboards for resellers, giving them the tools to track inventory, monitor client usage, and manage distribution with ease.
-                            </p>
-<div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
+        {/* Action Button Container */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button
+            onClick={() => router.push('https://dashboard.torchproxies.com/')}
+            className="cursor-pointer group relative w-full sm:w-60 h-12 sm:h-[56px] overflow-hidden bg-white text-black font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:scale-[1.02] active:scale-[0.99]"
+          >
+            {/* 3D Rolling Text Track Wrapper */}
+            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+              {/* Default State Text */}
+              <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)] text-black text-sm sm:text-base">
+                Get started now
+              </span>
 
-                        {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
-                        <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#ffffff] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:scale-[1.02] active:scale-[0.99]">
+              {/* Hover State Text */}
+              <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-black text-sm sm:text-base">
+                Get started now
+              </span>
+            </div>
+          </button>
+        </div>
 
-                            {/* Fast 3D text track wrapper */}
-                            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+      </div>
+    </div>
+  </div>
+</section>
+{/* ── SECTION 10: TESTIMONIALS ─────────────────────────────────── */}
+<section className="py-12 sm:py-[80px] bg-stone-950/20 overflow-hidden font-['Urbanist']">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
-                                {/* Default State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]  text-black">
-                                     Get started now
-                                </span>
-
-                                {/* Hover State Text */}
-                                <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-black">
-                                    Get started now
-                                </span>
-
-                            </div>
-                        </button>
-                        </div>
-{/* 
-                            <button className="px-10 py-4 bg-white text-black font-medium rounded-2xl text-lg hover:bg-stone-100 transition-all active:scale-95">
-                                Get started now
-                            </button> */}
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* ── SECTION 10: TESTIMONIALS ─────────────────────────────────── */}
-<section className="pb-[80px] sm:pb-[80px] mx-[120px] bg-stone-950/20  overflow-hidden font-['Urbanist']">
-      <div className="max-w-6xl mx-auto px-6">
-        
         {/* Section Header Text Nodes */}
-        <div className="text-center mb-16">
-            <span className="text-[#FE4A01] text-[16px] font-medium tracking-widest block mb-3">
-                           Testimonials
-                        </span>
-          <h2 className="text-[42px] sm:text-5xl font-medium mb-4 tracking-tight text-white">
-            Customers prefer TorchProxies over <br/>other proxy brands
-          </h2>
-
+        <div className="text-center mb-10 sm:mb-16">
+            <h2 className="text-3xl sm:text-5xl font-medium mb-3 sm:mb-4 tracking-tight text-white">
+                Customer Reviews
+            </h2>
+            <p className="text-stone-400 text-sm sm:text-base max-w-xl mx-auto px-2">
+                See how developer engineering nodes rate our overall connectivity network performance.
+            </p>
         </div>
 
         {/* Outer Infinite Slider Container Track */}
         <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,transparent_0%,black_10%,black_90%,transparent_100%)]">
-          <div className="flex gap-6 animate-marquee whitespace-normal">
-            
-            {/* Render 1st Array Instance */}
-            {reviews.map((review, i) => (
-              <div
-                key={i}
-                className="flex flex-col justify-between bg-[#070707] border border-stone-900 p-8 rounded-[24px] min-w-[340px] max-w-[360px] md:min-w-[380px] h-[280px]"
-              >
-                <div>
-                  {/* Title & Trustpilot Star Row Block */}
-                  <div className="text-white font-bold text-[15px] mb-2 tracking-tight line-clamp-1">
-                    {review.text.split('.')[0]}
-                  </div>
-                  <TrustpilotStars rating={review.stars} />
-                  
-                  {/* Feedback Text Area */}
-                  <p className="text-stone-300 text-[13px] leading-relaxed line-clamp-4 font-normal">
-                    "{review.text}"
-                  </p>
-                </div>
+            <div className="flex gap-4 sm:gap-6 animate-marquee whitespace-normal">
 
-                {/* ─── CLIENT AVATAR & METADATA FOOTER ─── */}
-                <div className="flex items-center gap-3 pt-4 border-t border-stone-900/50">
-                  {review.avatar ? (
-                    // Render image block if profile image exists
-                    <div className="relative w-11 h-11 rounded-full overflow-hidden border border-stone-800 bg-stone-900">
-                      <Image
-                        src={review.avatar}
-                        alt={review.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  ) : (
-                    // Fallback to stylized custom Initial Circles from your design requirements
-                    <div 
-                      className={`w-11 h-11 flex items-center justify-center rounded-full text-stone-950 font-bold text-sm tracking-wider uppercase ${
-                        review.initials === "IS" ? "bg-[#c6f6d5]" : "bg-[#7f9cf5] text-white"
-                      }`}
-                    >
-                      {review.initials}
-                    </div>
-                  )}
-                  
-                  {/* User Account String Node Labels */}
-                  <div className="flex flex-col">
-                    <span className="text-stone-200 font-semibold text-[13px] tracking-tight">
-                      {review.name}
-                    </span>
-                    <span className="text-stone-500 text-[11px]">
-                      {review.role}
-                    </span>
-                  </div>
-                </div>
-
-              </div>
-            ))}
-
-            {/* Duplicate Array Map Loop Instance for Infinite Slider Continuity */}
-            {reviews.map((review, i) => (
-              <div
-                key={`dup-${i}`}
-                className="flex flex-col justify-between bg-[#070707] border border-stone-900 p-8 rounded-[24px] min-w-[340px] max-w-[360px] md:min-w-[380px] h-[280px]"
-              >
-                <div>
-                  <div className="text-white font-bold text-[15px] mb-2 tracking-tight line-clamp-1">
-                    {review.text.split('.')[0]}
-                  </div>
-                  <TrustpilotStars rating={review.stars} />
-                  <p className="text-stone-300 text-[13px] leading-relaxed line-clamp-4 font-normal">
-                    "{review.text}"
-                  </p>
-                </div>
-
-                <div className="flex items-center gap-3 pt-4 border-t border-stone-900/50">
-                  {review.avatar ? (
-                    <div className="relative w-11 h-11 rounded-full overflow-hidden border border-stone-800 bg-stone-900">
-                      <Image src={review.avatar} alt={review.name} fill className="object-cover" />
-                    </div>
-                  ) : (
-                    <div className={`w-11 h-11 flex items-center justify-center rounded-full text-stone-950 font-bold text-sm tracking-wider ${review.initials === "IS" ? "bg-[#c6f6d5]" : "bg-[#7f9cf5] text-white"}`}>
-                      {review.initials}
-                    </div>
-                  )}
-                  <div className="flex flex-col">
-                    <span className="text-stone-200 font-semibold text-[13px]">
-                      {review.name}
-                    </span>
-                    <span className="text-stone-500 text-[11px]">
-                      {review.role}
-                    </span>
-                  </div>
-                </div>
-
-              </div>
-            ))}
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-            {/* ── SECTION 11: FAQ (ACCORDION) ─────────────────────────────── */}
-            {/* FAQ SECTION */}
-<section className="pb-[80px] sm:pb-[80px] mx-[120px] bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
-
-    {/* ── 📌 Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
-    <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
-        <Image
-            src="/images/contact-bg.png" /* Using the same glow asset path */
-            alt=""
-            fill
-            priority
-            className="object-cover object-bottom opacity-100"
-        />
-    </div>
-
-    {/* ── Content Wrapper (Added 'relative z-10' so it sits above the background glow) ── */}
-    <div className="max-w-4xl mx-auto relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-            <span className="text-[#FE4A01] text-[16px] font-medium tracking-widest block mb-3">
-                FAQ
-            </span>
-            <h2 className="text-4xl sm:text-5xl font-regular tracking-tight text-white">
-                Frequently asked questions
-            </h2>
-        </div>
-
-        {/* FAQ Items */}
-        <div className="space-y-px">
-            {faqData.map((faq, index) => {
-                const isOpen = activeFaq === index;
-                return (
+                {/* Render 1st Array Instance */}
+                {reviews.map((review, i) => (
                     <div
-                        key={index}
-                        className="border-b border-stone-800 last:border-none group"
+                        key={i}
+                        className="flex flex-col justify-between bg-[#070707] border border-stone-900 p-6 sm:p-8 rounded-[20px] sm:rounded-[24px] min-w-[280px] max-w-[300px] sm:min-w-[340px] sm:max-w-[360px] md:min-w-[380px] h-[260px] sm:h-[280px]"
                     >
-                        <button
-                            onClick={() => setActiveFaq(isOpen ? null : index)}
-                            className="w-full text-left py-6 flex items-center justify-between text-lg font-medium text-stone-200 hover:text-white transition-colors"
-                        >
-                            <span>{faq.q}</span>
-                            <ChevronDown
-                                className={`w-5 h-5 text-stone-400 transition-all duration-300 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
-                            />
-                        </button>
+                        <div>
+                            {/* Title & Trustpilot Star Row Block */}
+                            <div className="text-white font-bold text-sm sm:text-[15px] mb-2 tracking-tight line-clamp-1">
+                                {review.text.split('.')[0]}
+                            </div>
+                            <TrustpilotStars rating={review.stars} />
 
-                        {/* Answer Accordion Body */}
-                        <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
-                            <div className="text-stone-400 text-[15px] leading-relaxed pr-10">
-                                {Array.isArray(faq.a) ? (
-                                    <div>
-                                        {/* 1. Renders the introduction text row */}
-                                        <p className="mb-3">{faq.a[0]}</p>
-                                        
-                                        {/* 2. Renders all following items as clean, separate points */}
-                                        <ul className="list-none pl-1 space-y-2 text-stone-400">
-                                            {faq.a.slice(1).map((point, pointIdx) => (
-                                                <li key={pointIdx} className="flex items-start gap-2.5">
-                                                    <span className="text-stone-400 font-semibold select-none">—</span>
-                                                    <span>{point}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                ) : (
-                                    /* Fallback standard wrapper for normal string descriptions */
-                                    <p>{faq.a}</p>
-                                )}
+                            {/* Feedback Text Area */}
+                            <p className="text-stone-300 text-xs sm:text-[13px] leading-relaxed line-clamp-4 font-normal mt-2">
+                                "{review.text}"
+                            </p>
+                        </div>
+
+                        {/* ─── CLIENT AVATAR & METADATA FOOTER ─── */}
+                        <div className="flex items-center gap-3 pt-4 border-t border-stone-900/50">
+                            {review.avatar ? (
+                                <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden border border-stone-800 bg-stone-900 shrink-0">
+                                    <Image
+                                        src={review.avatar}
+                                        alt={review.name}
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                            ) : (
+                                <div
+                                    className={`w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center rounded-full text-stone-950 font-bold text-xs sm:text-sm tracking-wider uppercase shrink-0 ${review.initials === "IS" ? "bg-[#c6f6d5]" : "bg-[#7f9cf5] text-white"
+                                        }`}
+                                >
+                                    {review.initials}
+                                </div>
+                            )}
+
+                            {/* User Account String Node Labels */}
+                            <div className="flex flex-col min-w-0">
+                                <span className="text-stone-200 font-semibold text-xs sm:text-[13px] tracking-tight truncate">
+                                    {review.name}
+                                </span>
+                                <span className="text-stone-500 text-[10px] sm:text-[11px] truncate">
+                                    {review.role}
+                                </span>
                             </div>
                         </div>
+
                     </div>
-                );
-            })}
+                ))}
+
+                {/* Duplicate Array Map Loop Instance for Infinite Slider Continuity */}
+                {reviews.map((review, i) => (
+                    <div
+                        key={`dup-${i}`}
+                        className="flex flex-col justify-between bg-[#070707] border border-stone-900 p-6 sm:p-8 rounded-[20px] sm:rounded-[24px] min-w-[280px] max-w-[300px] sm:min-w-[340px] sm:max-w-[360px] md:min-w-[380px] h-[260px] sm:h-[280px]"
+                    >
+                        <div>
+                            <div className="text-white font-bold text-sm sm:text-[15px] mb-2 tracking-tight line-clamp-1">
+                                {review.text.split('.')[0]}
+                            </div>
+                            <TrustpilotStars rating={review.stars} />
+                            <p className="text-stone-300 text-xs sm:text-[13px] leading-relaxed line-clamp-4 font-normal mt-2">
+                                "{review.text}"
+                            </p>
+                        </div>
+
+                        <div className="flex items-center gap-3 pt-4 border-t border-stone-900/50">
+                            {review.avatar ? (
+                                <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden border border-stone-800 bg-stone-900 shrink-0">
+                                    <Image src={review.avatar} alt={review.name} fill className="object-cover" />
+                                </div>
+                            ) : (
+                                <div className={`w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center rounded-full text-stone-950 font-bold text-xs sm:text-sm tracking-wider shrink-0 ${review.initials === "IS" ? "bg-[#c6f6d5]" : "bg-[#7f9cf5] text-white"}`}>
+                                    {review.initials}
+                                </div>
+                            )}
+                            <div className="flex flex-col min-w-0">
+                                <span className="text-stone-200 font-semibold text-xs sm:text-[13px] truncate">
+                                    {review.name}
+                                </span>
+                                <span className="text-stone-500 text-[10px] sm:text-[11px] truncate">
+                                    {review.role}
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                ))}
+
+            </div>
         </div>
+
+    </div>
+</section>
+{/* ── SECTION 11: FAQ ACCORDION ─────────────────────────────── */}
+<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] relative overflow-hidden font-['Urbanist']">
+
+  {/* Full-Bleed Background Layer */}
+  <div className="absolute inset-x-0 bottom-0 h-[300px] sm:h-[450px] z-0 pointer-events-none select-none">
+    <Image
+      src="/images/contact-bg.png"
+      alt=""
+      fill
+      priority
+      className="object-cover object-bottom opacity-100"
+    />
+  </div>
+
+  {/* Content Wrapper */}
+  <div className="max-w-4xl mx-auto relative z-10">
+    
+    {/* Header */}
+    <div className="text-center mb-10 sm:mb-16">
+      <span className="text-[#FE4A01] text-xs sm:text-sm font-medium tracking-widest uppercase block mb-2 sm:mb-3">
+        FAQ
+      </span>
+      <h2 className="text-2xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-white leading-tight">
+        Frequently asked questions
+      </h2>
     </div>
 
-    {/* Bottom Gradient Overlay - Blends beautifully with your new image background */}
-    <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent pointer-events-none z-0" />
+    {/* FAQ Items */}
+    <div className="space-y-px border-t border-stone-800/80">
+      {faqData.map((faq, index) => {
+        const isOpen = activeFaq === index;
+        return (
+          <div
+            key={index}
+            className="border-b border-stone-800 last:border-none group"
+          >
+            <button
+              onClick={() => setActiveFaq(isOpen ? null : index)}
+              className="w-full text-left py-4 sm:py-6 flex items-center justify-between gap-4 text-base sm:text-lg font-medium text-stone-200 hover:text-white transition-colors cursor-pointer"
+            >
+              <span className="pr-2">{faq.q}</span>
+              <ChevronDown
+                className={`w-5 h-5 shrink-0 text-stone-400 transition-all duration-300 ${
+                  isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'
+                }`}
+              />
+            </button>
+
+            {/* Answer Accordion Body */}
+            <div
+              className={`overflow-hidden transition-all duration-300 ${
+                isOpen ? 'max-h-96 pb-5 sm:pb-6' : 'max-h-0'
+              }`}
+            >
+              <div className="text-stone-400 text-xs sm:text-sm lg:text-[15px] leading-relaxed pr-6 sm:pr-10">
+                {Array.isArray(faq.a) ? (
+                  <div>
+                    {/* Introduction text row */}
+                    <p className="mb-2.5 sm:mb-3">{faq.a[0]}</p>
+
+                    {/* Array list items */}
+                    <ul className="list-none pl-1 space-y-2 text-stone-400">
+                      {faq.a.slice(1).map((point, pointIdx) => (
+                        <li key={pointIdx} className="flex items-start gap-2.5">
+                          <span className="text-stone-400 font-semibold select-none">—</span>
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : (
+                  /* Standard string description */
+                  <p>{faq.a}</p>
+                )}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+  </div>
+
+  {/* Bottom Gradient Overlay */}
+  <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent pointer-events-none z-0" />
+
 </section>
 
         </div>
