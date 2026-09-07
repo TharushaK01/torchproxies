@@ -160,20 +160,41 @@ const getApiUrl = (endpoint: string) => `${WP_URL}/wp-json/wp/v2/${endpoint}`;
 // ─────────────────────────────
 // BASE FETCH HELPER (12s TIMEOUT)
 // ─────────────────────────────
+// async function fetchWithTimeout(url: string, init?: RequestInit) {
+//   try {
+//     const res = await fetch(url, {
+//       ...init,
+//       // 12s timeout gives WordPress origin enough time to process heavy queries
+//       signal: AbortSignal.timeout(12000),
+//       next: { revalidate: 3600, ...init?.next },
+//     });
+
+//     if (!res.ok) {
+//       console.error(`WordPress API Error [${res.status}]: ${url}`);
+//       return null;
+//     }
+
+//     return await res.json();
+//   } catch (error) {
+//     console.error(`WordPress API Timeout/Failure for ${url}:`, error);
+//     return null;
+//   }
+// }
+
+// Pass a secure secret header with every fetch request
 async function fetchWithTimeout(url: string, init?: RequestInit) {
   try {
     const res = await fetch(url, {
       ...init,
-      // 12s timeout gives WordPress origin enough time to process heavy queries
+      headers: {
+        ...init?.headers,
+        "X-Vercel-Bypass-Secret": "your-super-secret-key-12345", // Custom secret
+      },
       signal: AbortSignal.timeout(12000),
       next: { revalidate: 3600, ...init?.next },
     });
 
-    if (!res.ok) {
-      console.error(`WordPress API Error [${res.status}]: ${url}`);
-      return null;
-    }
-
+    if (!res.ok) return null;
     return await res.json();
   } catch (error) {
     console.error(`WordPress API Timeout/Failure for ${url}:`, error);
