@@ -24,14 +24,14 @@
 
 // img-src 'self' data: blob: https://cms.torchproxies.com;
 // The Content Security Policy directive
-const ContentSecurityPolicy = `
+const ContentSecurityPolicy: string = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://*.doubleclick.net https://www.googleadservices.com;
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://torchproxies.com;
-  img-src 'self' data: blob: https:;
+  img-src 'self' data: blob: https: https://*.doubleclick.net;
   font-src 'self' https://fonts.gstatic.com;
-  connect-src 'self' https://www.google.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://cms.torchproxies.com;
-  frame-src 'self' https://googleads.g.doubleclick.net;
+  connect-src 'self' https://www.google.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://www.googleadservices.com https://*.doubleclick.net https://cms.torchproxies.com;
+  frame-src 'self' https://*.doubleclick.net;
   object-src 'none';
   base-uri 'self';
   form-action 'self';
