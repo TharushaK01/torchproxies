@@ -228,9 +228,9 @@ export default function RootLayout({
       >
         <PostHogProvider>
           <Navbar />
-          <div className="flex-1">
+          {/* <div className="flex-1">
             <LazyMotion features={domAnimation}>{children}</LazyMotion>
-          </div>
+          </div> */}
           <div className="relative z-0 isolate">
             <Footer />
           </div>
