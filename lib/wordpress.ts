@@ -117,7 +117,10 @@
 //   ];
 // }
 
-// export async function fetchWordPressAPI(endpoint: string, options: RequestInit = {}) {
+// export async function fetchWordPressAPI(
+//   endpoint: string,
+//   options: RequestInit = {},
+// ) {
 //   const url = `https://cms.torchproxies.com/wp-json/${endpoint}`;
 
 //   try {
@@ -155,13 +158,14 @@ const WP_URL = (
 const getApiUrl = (endpoint: string) => `${WP_URL}/wp-json/wp/v2/${endpoint}`;
 
 // ─────────────────────────────
-// BASE FETCH HELPER (WITH TIMEOUT)
+// BASE FETCH HELPER (12s TIMEOUT)
 // ─────────────────────────────
 async function fetchWithTimeout(url: string, init?: RequestInit) {
   try {
     const res = await fetch(url, {
       ...init,
-      signal: AbortSignal.timeout(3500), // Force-abort after 3.5s to prevent GTmetrix timeouts
+      // 12s timeout gives WordPress origin enough time to process heavy queries
+      signal: AbortSignal.timeout(12000),
       next: { revalidate: 3600, ...init?.next },
     });
 
@@ -182,8 +186,9 @@ async function fetchWithTimeout(url: string, init?: RequestInit) {
 // ─────────────────────────────
 export async function getAllPosts() {
   if (!WP_URL) return [];
+  // Reduced per_page to 12 to drastically reduce WP payload and query time
   const data = await fetchWithTimeout(
-    `${getApiUrl("posts")}?_embed&per_page=100`,
+    `${getApiUrl("posts")}?_embed&per_page=12`,
   );
   return Array.isArray(data) ? data : [];
 }
