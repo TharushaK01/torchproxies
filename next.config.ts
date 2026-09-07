@@ -26,11 +26,11 @@
 // The Content Security Policy directive
 const ContentSecurityPolicy: string = [
   "default-src 'self';",
-  "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://*.doubleclick.net https://*.googleadservices.com https://*.googlesyndication.com https://*.google.com https://*.google.lk https://static.cloudflareinsights.com https://us-assets.i.posthog.com https://*.openai.com https://bzrcdn.openai.com https://connect.facebook.net https://www.redditstatic.com https://static.ads-twitter.com https://uptime.betterstack.com https://*.amazonaws.com;",
-  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://torchproxies.com https://uptime.betterstack.com;",
-  "img-src 'self' data: blob: https: https://*.doubleclick.net https://*.google.com https://*.google.lk https://www.facebook.com;",
+  "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://*.doubleclick.net https://*.googleadservices.com https://*.googlesyndication.com https://*.google.com https://*.google.lk https://static.cloudflareinsights.com https://us-assets.i.posthog.com https://*.openai.com https://bzrcdn.openai.com https://connect.facebook.net https://www.redditstatic.com https://*.reddit.com https://static.ads-twitter.com https://*.betterstack.com https://*.amazonaws.com;",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://torchproxies.com https://*.betterstack.com;",
+  "img-src 'self' data: blob: https: https://*.doubleclick.net https://*.google.com https://*.google.lk https://www.facebook.com https://*.reddit.com;",
   "font-src 'self' https://fonts.gstatic.com;",
-  "connect-src 'self' https://*.google.com https://*.google.lk https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.googleadservices.com https://*.googlesyndication.com https://*.doubleclick.net https://cloudflareinsights.com https://us.i.posthog.com https://us-assets.i.posthog.com https://connect.facebook.net https://cms.torchproxies.com https://*.openai.com https://bzrcdn.openai.com;",
+  "connect-src 'self' https://*.google.com https://*.google.lk https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.googleadservices.com https://*.googlesyndication.com https://*.doubleclick.net https://cloudflareinsights.com https://us.i.posthog.com https://us-assets.i.posthog.com https://connect.facebook.net https://cms.torchproxies.com https://*.openai.com https://bzrcdn.openai.com https://*.reddit.com https://*.betterstack.com;",
   "worker-src 'self' blob:;",
   "frame-src 'self' https://*.doubleclick.net https://*.google.com https://*.googlesyndication.com;",
   "object-src 'none';",
