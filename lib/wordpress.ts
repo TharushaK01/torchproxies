@@ -113,10 +113,6 @@ export async function getPageStyles(pageId: number) {
 
     `${WP_URL}/wp-content/uploads/elementor/css/post-${pageId}.css`,
 
-    `${WP_URL}/wp-content/uploads/elementor/css/custom-widget-icon-list.min.css`,
-
-    `${WP_URL}/wp-includes/css/dist/block-library/style.min.css`,
-
     `${WP_URL}/wp-content/themes/hub/style.css`,
   ];
 }

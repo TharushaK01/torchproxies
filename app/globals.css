@@ -1,6 +1,3 @@
-@import url("https://torchproxies.com/wp-includes/css/dist/block-library/style.min.css");
-@import url("https://torchproxies.com/wp-content/uploads/elementor/css/custom-widget-icon-list.min.css");
-
 @layer base, wordpress, components, utilities;
 
 /* ─────────────────────────────

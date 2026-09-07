@@ -6,7 +6,6 @@ const WP_BASE = "https://torchproxies.com";
 // Comprehensive style orchestration including asset frameworks used by Elementor & Hub Theme
 const BASE_WORDPRESS_STYLES = [
   // ── Core Icons Frameworks used by Elementor ───────────────────
-  `${WP_BASE}/wp-includes/css/dist/block-library/style.min.css`,
   `${WP_BASE}/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css`,
   `${WP_BASE}/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css`,
 
@@ -16,7 +15,6 @@ const BASE_WORDPRESS_STYLES = [
 
   // ── Compiled Elementor Upload Styles ─────────────────────────
   `${WP_BASE}/wp-content/uploads/elementor/css/global.css`,
-  `${WP_BASE}/wp-content/uploads/elementor/css/custom-widget-icon-list.min.css`,
   `${WP_BASE}/wp-content/uploads/elementor/css/custom-widget-heading.min.css`,
   `${WP_BASE}/wp-content/uploads/elementor/css/custom-widget-text-editor.min.css`,
   `${WP_BASE}/wp-content/uploads/elementor/css/custom-widget-button.min.css`,
