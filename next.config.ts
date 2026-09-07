@@ -26,12 +26,12 @@
 // The Content Security Policy directive
 const ContentSecurityPolicy: string = [
   "default-src 'self';",
-  "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://*.doubleclick.net https://www.googleadservices.com https://*.google.com https://*.google.lk;",
+  "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://*.doubleclick.net https://*.googleadservices.com https://*.googlesyndication.com https://*.google.com https://*.google.lk;",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://torchproxies.com;",
   "img-src 'self' data: blob: https: https://*.doubleclick.net https://*.google.com https://*.google.lk;",
   "font-src 'self' https://fonts.gstatic.com;",
-  "connect-src 'self' https://*.google.com https://*.google.lk https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://www.googleadservices.com https://*.doubleclick.net https://cms.torchproxies.com;",
-  "frame-src 'self' https://*.doubleclick.net https://*.google.com;",
+  "connect-src 'self' https://*.google.com https://*.google.lk https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.googleadservices.com https://*.googlesyndication.com https://*.doubleclick.net https://cms.torchproxies.com;",
+  "frame-src 'self' https://*.doubleclick.net https://*.google.com https://*.googlesyndication.com;",
   "object-src 'none';",
   "base-uri 'self';",
   "form-action 'self';",
