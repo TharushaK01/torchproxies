@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 import { Urbanist } from "next/font/google";
 import { ChevronDown, Star } from "lucide-react";
 
-
 interface ProcessedBlog {
   id: number;
   title: string;
@@ -87,8 +86,11 @@ const PARTNERS: Partner[] = [
     logo: "/images/partners/detectable.png",
     description:
       "Undetectable browser – a professional anti-detect browser for real fingerprints with high trust. Uptime 99,99%. Has API, mass extension installation, profile creation, cookie-bot. An ideal tool for comfortable work with a large number of profiles and increased anonymity, for multi-accounting, crypto wallets, and parsing.",
-    features: ["TORCHPROXIES20 – 20% discount on the purchase of any monthly license"],
-    websiteUrl: "https://undetectable.io/?utm_source=torchproxies&utm_medium=affiliate",
+    features: [
+      "TORCHPROXIES20 – 20% discount on the purchase of any monthly license",
+    ],
+    websiteUrl:
+      "https://undetectable.io/?utm_source=torchproxies&utm_medium=affiliate",
   },
   {
     id: "hidemium",
@@ -147,15 +149,15 @@ const PARTNERS: Partner[] = [
     logo: "/images/partners/linken-sphere.png",
     description:
       " Linken Sphere – an anti-detect browser for secure, scalable work with any anti-fraud systems. Create sessions with one click, bulk-import data, and manage profiles securely. Convenient proxy manager, role-based team access controls, private proxies at competitive prices, traffic-usage optimization, and other tools that simplify your workflow.",
-    websiteUrl: "https://ls.app/?utm_source=torchproxies&utm_medium=partner&utm_campaign=listing",
+    websiteUrl:
+      "https://ls.app/?utm_source=torchproxies&utm_medium=partner&utm_campaign=listing",
   },
   {
     id: "duoplus.net",
     name: "duoplus.net",
     category: "Antidetect Browsers",
     logo: "/images/partners/duoplus.png",
-    description:
-      "",
+    description: "",
     features: [
       "1st antidetect cloud phone to manage your multiple mobile social media accounts without any association",
       "promo code: Use “torchlabs” code to get one-month free cloud phone",
@@ -188,7 +190,8 @@ const PARTNERS: Partner[] = [
     logo: "/images/partners/pay2house.png",
     description:
       "virtual cards for stable and reliable work with advertising platforms, including Facebook, Google, TikTok, as well as online services. Trusted BINs ensure high approval rates, cards support Apple Pay and most international sites, while mass issuance and API make scaling and automation effortless.",
-    websiteUrl: "https://pay2.house/?utm_source=torchproxies&utm_medium=referral&utm_campaign=torchproxies",
+    websiteUrl:
+      "https://pay2.house/?utm_source=torchproxies&utm_medium=referral&utm_campaign=torchproxies",
   },
   {
     id: "Proxyvero",
@@ -197,7 +200,17 @@ const PARTNERS: Partner[] = [
     logo: "/images/partners/proxyvero.png",
     description:
       "ProxyVero is an independent proxy analytics and benchmarking platform. We test proxy providers using real-world scenarios and continuously collect performance data to help users compare providers based on measurable results, pricing, reliability, and use-case fit. Our goal is to make proxy data more transparent and help users make clearer decisions.",
-    websiteUrl: "https://www.proxyvero.com/?utm_source=torchproxies&utm_medium=partner&utm_campaign=partners_page",
+    websiteUrl:
+      "https://www.proxyvero.com/?utm_source=torchproxies&utm_medium=partner&utm_campaign=partners_page",
+  },
+  {
+    id: "ipfighter",
+    name: "IPFighter",
+    category: "Proxy Benchmarking Tools",
+    logo: "/images/partners/ipfighter.png",
+    description:
+      "IPFighter is a dedicated platform for displaying and checking IP, Proxy, and Browser Fingerprint data. It serves as an in-depth diagnostic tool that allows users to verify technical specifications and optimize expenses when using related services.",
+    websiteUrl: "https://ipfighter.com/?utm_source=torchproxies",
   },
 ];
 
@@ -235,12 +248,15 @@ const FAQ_DATA = [
     a: (
       <div>
         <p className="mb-2">
-          The minimum cash payout is $10. If your earnings fall below this threshold, you can either:
+          The minimum cash payout is $10. If your earnings fall below this
+          threshold, you can either:
         </p>
         <ul className="list-disc pl-5 space-y-1 text-stone-400">
           <li>Roll over the amount to the next month, or</li>
           <li>
-            Convert it into Torch Credits, which can be used to purchase our services with exclusive discounts not available on the public website.
+            Convert it into Torch Credits, which can be used to purchase our
+            services with exclusive discounts not available on the public
+            website.
           </li>
         </ul>
       </div>
@@ -263,15 +279,13 @@ const FAQ_DATA = [
         </p>
         <ul className="list-disc pl-5 space-y-1 text-stone-400">
           <li>Branded banners</li>
-          <li>
-            Seasonal social media content
-          </li>
+          <li>Seasonal social media content</li>
           <li>
             High-converting creatives
             <br />
-            These resources are designed to help you improve performance and increase conversions.
+            These resources are designed to help you improve performance and
+            increase conversions.
           </li>
-
         </ul>
       </div>
     ),
@@ -280,20 +294,16 @@ const FAQ_DATA = [
     q: "Why should I convert small earnings into Torch Credits?",
     a: (
       <div>
-        <p className="mb-2">
-          Torch Credits offer:
-        </p>
+        <p className="mb-2">Torch Credits offer:</p>
         <ul className="list-disc pl-5 space-y-1 text-stone-400">
           <li>Higher value (+10% commission bonus)</li>
-          <li>
-            Access to exclusive discounts on proxy products
-          </li>
+          <li>Access to exclusive discounts on proxy products</li>
           <li>
             Faster reinvestment into services that drive more referrals
             <br />
-            This helps affiliates scale their efforts without waiting for a cash payout.
+            This helps affiliates scale their efforts without waiting for a cash
+            payout.
           </li>
-
         </ul>
       </div>
     ),
@@ -303,7 +313,6 @@ const FAQ_DATA = [
     a: "Commissions are calculated on a 30-day rolling basis and are paid out monthly. Payments will be made once your balance exceeds $10 or upon your request if you opt for Torch Credits.",
   },
 ];
-
 
 // Helper for Trustpilot stars
 const TrustpilotStars = ({ rating }: { rating: number }) => (
@@ -333,42 +342,52 @@ export default function PartnersPage() {
   useEffect(() => {
     async function fetchWPBlogs() {
       try {
-        const wpBaseUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL || "https://cms.torchproxies.com/wp-json/wp/v2";
-        const res = await fetch(`${wpBaseUrl}/posts?_embed&per_page=3`);
+        const wpBaseUrl =
+          process.env.NEXT_PUBLIC_WORDPRESS_API_URL ||
+          "https://cms.torchproxies.com/wp-json/wp/v2";
 
-        if (res.ok) {
-          const rawPosts: any[] = await res.json();
+        const res = await fetch(`${wpBaseUrl}/posts?_embed&per_page=3`, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        });
 
-          if (Array.isArray(rawPosts)) {
-            const formattedPosts: ProcessedBlog[] = rawPosts.map((post) => {
-              const rawTitle = post.title?.rendered || "";
-              const cleanTitle = rawTitle
-                .replace(/&#8211;/g, "-")
-                .replace(/&#8217;/g, "'")
-                .replace(/&amp;/g, "&");
+        if (!res.ok) {
+          throw new Error(`WordPress API returned status: ${res.status}`);
+        }
 
-              const image =
-                post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-                post.jetpack_featured_media_url ||
-                "";
+        const rawPosts: any[] = await res.json();
 
-              const tag =
-                post._embedded?.["wp:term"]?.[0]?.[0]?.name || "Blog";
+        if (Array.isArray(rawPosts)) {
+          const formattedPosts: ProcessedBlog[] = rawPosts.map((post) => {
+            const rawTitle = post.title?.rendered || "";
+            const cleanTitle = rawTitle
+              .replace(/&#8211;/g, "-")
+              .replace(/&#8217;/g, "'")
+              .replace(/&amp;/g, "&");
 
-              return {
-                id: post.id,
-                title: cleanTitle,
-                image: image,
-                tag: tag,
-                slug: post.slug || "",
-              };
-            });
+            const image =
+              post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+              post.jetpack_featured_media_url ||
+              "";
 
-            setBlogs(formattedPosts);
-          }
+            const tag = post._embedded?.["wp:term"]?.[0]?.[0]?.name || "Blog";
+
+            return {
+              id: post.id,
+              title: cleanTitle,
+              image: image,
+              tag: tag,
+              slug: post.slug || "",
+            };
+          });
+
+          setBlogs(formattedPosts);
         }
       } catch (error) {
         console.error("Failed to fetch WordPress blog posts:", error);
+        setBlogs([]); // Explicitly set empty array so UI doesn't break or stay stuck
       } finally {
         setIsLoading(false);
       }
@@ -382,15 +401,17 @@ export default function PartnersPage() {
   };
 
   return (
-    <div className={`${urbanist.className} bg-[#0a0a0a] text-white font-['Urbanist'] min-h-screen`}>
-
+    <div
+      className={`${urbanist.className} bg-[#0a0a0a] text-white font-['Urbanist'] min-h-screen`}
+    >
       {/* ── SECTION 1: PAGE HEADER ────────────────────────────────────────── */}
       <section className="pt-28 pb-12 sm:pt-36 sm:pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto">
         <h1 className="text-4xl sm:text-6xl lg:text-[64px] font-medium tracking-tight mb-4 text-white">
           Our Partners
         </h1>
         <p className="text-zinc-400 text-sm sm:text-base lg:text-[18px] max-w-2xl mx-auto leading-relaxed mb-6">
-          TorchProxies partners with industry leaders to bring you tools that work seamlessly with our proxy network.
+          TorchProxies partners with industry leaders to bring you tools that
+          work seamlessly with our proxy network.
         </p>
         <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-xs sm:text-sm text-zinc-300">
           <div className="flex items-center gap-2">
@@ -425,10 +446,11 @@ export default function PartnersPage() {
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`px-5 py-2.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer ${isActive
-                    ? "bg-[#FE4A01] text-white shadow-[0_0_15px_rgba(254,74,1,0.4)]"
-                    : "bg-[#141414] text-zinc-400 border border-stone-800/80 hover:text-white hover:border-stone-700"
-                    }`}
+                  className={`px-5 py-2.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer ${
+                    isActive
+                      ? "bg-[#FE4A01] text-white shadow-[0_0_15px_rgba(254,74,1,0.4)]"
+                      : "bg-[#141414] text-zinc-400 border border-stone-800/80 hover:text-white hover:border-stone-700"
+                  }`}
                 >
                   {cat}
                 </button>
@@ -450,13 +472,16 @@ export default function PartnersPage() {
                 key={partner.id}
                 {...(hasLink
                   ? {
-                    href: partner.websiteUrl,
-                    target: "_blank",
-                    rel: "noopener noreferrer",
-                  }
+                      href: partner.websiteUrl,
+                      target: "_blank",
+                      rel: "noopener noreferrer",
+                    }
                   : {})}
-                className={`bg-[#0e0e0e] border rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-xl ${isGeeLark ? 'border-[#FE4A01] shadow-[0_0_15px_rgba(254,74,1,0.1)]' : 'border-stone-800/80 hover:border-stone-700'
-                  }`}
+                className={`bg-[#0e0e0e] border rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-xl ${
+                  isGeeLark
+                    ? "border-[#FE4A01] shadow-[0_0_15px_rgba(254,74,1,0.1)]"
+                    : "border-stone-800/80 hover:border-stone-700"
+                }`}
               >
                 <div>
                   {/* Logo Box */}
@@ -487,7 +512,10 @@ export default function PartnersPage() {
                           </p>
                           <ul className="list-disc list-outside pl-4 space-y-1.5 marker:text-[#ffffff]">
                             {partner.features.map((feat, idx) => (
-                              <li key={idx} className="text-xs text-zinc-300 leading-relaxed">
+                              <li
+                                key={idx}
+                                className="text-xs text-zinc-300 leading-relaxed"
+                              >
                                 {feat}
                               </li>
                             ))}
@@ -497,7 +525,10 @@ export default function PartnersPage() {
                         // UI: Normal partners use Dots (Updated UI)
                         <div className="space-y-2">
                           {partner.features.map((feat, idx) => (
-                            <div key={idx} className="flex items-start gap-2 text-xs text-zinc-300">
+                            <div
+                              key={idx}
+                              className="flex items-start gap-2 text-xs text-zinc-300"
+                            >
                               <span className="w-1.5 h-1.5 rounded-full bg-white block mt-1.5" />
                               <span>{feat}</span>
                             </div>
@@ -518,9 +549,7 @@ export default function PartnersPage() {
                   // >
                   //   Visit {partner.name} Website
                   // </Link>
-                  <span className="inline-block mt-6 text-sm font-medium text-[#FE4A01] group-hover:text-[#ff6b2b] group-hover:underline transition-colors">
-                 
-                  </span>
+                  <span className="inline-block mt-6 text-sm font-medium text-[#FE4A01] group-hover:text-[#ff6b2b] group-hover:underline transition-colors"></span>
                 )}
               </CardWrapper>
             );
@@ -542,17 +571,21 @@ export default function PartnersPage() {
 
             <div className="max-w-5xl relative z-10 mx-auto">
               <h2 className="text-2xl sm:text-4xl lg:text-[48px] font-medium tracking-tight mb-3 sm:mb-4 leading-tight sm:leading-[1.1] text-[#FFF6EC]">
-                Start your efficient proxy and <br className="hidden md:block" />
+                Start your efficient proxy and{" "}
+                <br className="hidden md:block" />
                 scraping journey
               </h2>
 
               <p className="max-w-3xl mx-auto text-gray-400 text-sm sm:text-base lg:text-[18px] font-normal leading-relaxed mb-6 sm:mb-8 text-center">
-                Effortlessly test, deploy and expand your web data projects with user-friendly, high quality and cost-effective infrastructure.
+                Effortlessly test, deploy and expand your web data projects with
+                user-friendly, high quality and cost-effective infrastructure.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button
-                  onClick={() => router.push("https://dashboard.torchproxies.com/")}
+                  onClick={() =>
+                    router.push("https://dashboard.torchproxies.com/")
+                  }
                   className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-white text-black font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:scale-[1.02] active:scale-[0.99]"
                 >
                   <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
@@ -578,7 +611,8 @@ export default function PartnersPage() {
               Testimonials
             </span>
             <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-medium mb-3 sm:mb-4 tracking-tight text-white leading-tight">
-              Customers prefer TorchProxies over other<br className="hidden sm:block" /> proxy brands
+              Customers prefer TorchProxies over other
+              <br className="hidden sm:block" /> proxy brands
             </h2>
           </div>
 
@@ -754,14 +788,18 @@ export default function PartnersPage() {
                   >
                     <span className="pr-2">{faq.q}</span>
                     <ChevronDown
-                      className={`w-5 h-5 text-stone-400 shrink-0 transition-all duration-300 ${isOpen ? "rotate-180 text-[#FE4A01]" : "group-hover:text-stone-300"
-                        }`}
+                      className={`w-5 h-5 text-stone-400 shrink-0 transition-all duration-300 ${
+                        isOpen
+                          ? "rotate-180 text-[#FE4A01]"
+                          : "group-hover:text-stone-300"
+                      }`}
                     />
                   </button>
 
                   <div
-                    className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-96 pb-4 sm:pb-6" : "max-h-0"
-                      }`}
+                    className={`overflow-hidden transition-all duration-300 ${
+                      isOpen ? "max-h-96 pb-4 sm:pb-6" : "max-h-0"
+                    }`}
                   >
                     <div className="text-stone-400 text-xs sm:text-sm lg:text-[15px] leading-relaxed pr-6 sm:pr-10">
                       {faq.a}
@@ -775,7 +813,6 @@ export default function PartnersPage() {
 
         <div className="absolute bottom-0 left-0 right-0 h-28 sm:h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent pointer-events-none z-0" />
       </section>
-
     </div>
   );
 }
