@@ -203,15 +203,6 @@ const PARTNERS: Partner[] = [
     websiteUrl:
       "https://www.proxyvero.com/?utm_source=torchproxies&utm_medium=partner&utm_campaign=partners_page",
   },
-  {
-    id: "ipfighter",
-    name: "IPFighter",
-    category: "Proxy Benchmarking Tools",
-    logo: "/images/partners/ipfighter.png",
-    description:
-      "IPFighter is a dedicated platform for displaying and checking IP, Proxy, and Browser Fingerprint data. It serves as an in-depth diagnostic tool that allows users to verify technical specifications and optimize expenses when using related services.",
-    websiteUrl: "https://ipfighter.com/?utm_source=torchproxies",
-  },
 ];
 
 const REVIEWS: Review[] = [
