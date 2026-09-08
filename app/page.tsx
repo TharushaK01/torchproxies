@@ -122,7 +122,7 @@ export default async function Home() {
 
   return (
     <main className="bg-[#0a0a0a] min-h-screen">
-      {/* <HeroSection /> */}
+      <HeroSection />
       <PricingSection />
       <LocationsSection />
       <FeaturesGrid />
