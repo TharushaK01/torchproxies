@@ -5,10 +5,12 @@
 // import { Urbanist } from "next/font/google";
 // import { Check } from "lucide-react";
 // import dynamic from "next/dynamic";
+// import { useState, useEffect } from "react";
 
+// // Dynamically import Canvas component with SSR completely disabled
 // const PixelBlast = dynamic(() => import("@/components/PixelBlast"), {
 //   ssr: false,
-//   loading: () => <div className="absolute inset-0 bg-[#0a0a0a]" />,
+//   loading: () => <div className="absolute inset-0 bg-[#0b0c10]" />,
 // });
 
 // const MARQUEE_ITEMS = [
@@ -27,14 +29,20 @@
 //       <div className="flex shrink-0 items-center space-x-12 pr-12">
 //         {MARQUEE_ITEMS.map((item, index) => (
 //           <span key={`orig-${index}`} className="flex items-center gap-3.5">
-//             <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" aria-hidden="true" />
+//             <div
+//               className="w-2.5 h-2.5 rounded-full bg-white shrink-0"
+//               aria-hidden="true"
+//             />
 //             <span>{item}</span>
 //           </span>
 //         ))}
 //       </div>
 
 //       {/* Block 2 */}
-//       <div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
+//       <div
+//         className="flex shrink-0 items-center space-x-12 pr-12"
+//         aria-hidden="true"
+//       >
 //         {MARQUEE_ITEMS.map((item, index) => (
 //           <span key={`dup1-${index}`} className="flex items-center gap-3.5">
 //             <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
@@ -44,7 +52,10 @@
 //       </div>
 
 //       {/* Block 3 */}
-//       <div className="flex shrink-0 items-center space-x-12 pr-12" aria-hidden="true">
+//       <div
+//         className="flex shrink-0 items-center space-x-12 pr-12"
+//         aria-hidden="true"
+//       >
 //         {MARQUEE_ITEMS.map((item, index) => (
 //           <span key={`dup2-${index}`} className="flex items-center gap-3.5">
 //             <div className="w-2.5 h-2.5 rounded-full bg-white shrink-0" />
@@ -70,34 +81,45 @@
 
 // export default function HeroSection() {
 //   const router = useRouter();
+//   const [isMounted, setIsMounted] = useState(false);
+
+//   // Defer animation execution until client hydrations complete
+//   useEffect(() => {
+//     setIsMounted(true);
+//   }, []);
 
 //   return (
 //     <section
 //       className={`${urbanist.className} relative w-full bg-[#0b0c10] text-white overflow-x-hidden pt-28 pb-0 lg:pt-36 font-['Urbanist']`}
 //     >
-//       {/* ── 1. BACKGROUND PIXEL BLAST ANIMATION ──────────────────── */}
-//       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-//         <PixelBlast
-//           variant="triangle"
-//           pixelSize={4}
-//           color="#592814"
-//           patternScale={3.5}
-//           patternDensity={0.7}
-//           enableRipples={false}
-//           rippleSpeed={0.5}
-//           rippleThickness={0.05}
-//           rippleIntensityScale={1.5}
-//           speed={0.4}
-//           transparent={false}
-//           edgeFade={0}
-//         />
+//       {/* ── 1. BACKGROUND ANIMATION WITH STATIC SSR FALLBACK ────────────────── */}
+//       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-[#0b0c10]">
+//         {isMounted ? (
+//           <PixelBlast
+//             variant="triangle"
+//             pixelSize={4}
+//             color="#592814"
+//             patternScale={3.5}
+//             patternDensity={0.7}
+//             enableRipples={false}
+//             rippleSpeed={0.5}
+//             rippleThickness={0.05}
+//             rippleIntensityScale={1.5}
+//             speed={0.4}
+//             transparent={false}
+//             edgeFade={0}
+//           />
+//         ) : (
+//           /* Lightweight static gradient pattern for bots / initial server load */
+//           <div className="absolute inset-0 bg-[radial-gradient(#2F293A_1px,transparent_1px)] [background-size:16px_16px] opacity-30" />
+//         )}
 //       </div>
+
 //       {/* Ambient Radial Background Glow */}
 //       <div className="absolute left-[-10%] top-[20%] z-0 h-[500px] w-[500px] rounded-full bg-[#ea580c] opacity-10 blur-[150px] pointer-events-none" />
 
 //       {/* ── 2. HERO CONTAINER GRID ───────────────────────────────────────── */}
 //       <div className="relative z-10 w-full max-w-[1536px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-
 //         {/* ── LEFT COLUMN ── */}
 //         <div className="lg:col-span-8 z-10 space-y-8 pr-0 lg:pr-6">
 //           {/* Trustpilot Badge */}
@@ -128,28 +150,36 @@
 
 //           {/* CTA Buttons */}
 //           <div className="flex flex-wrap items-center gap-4 pt-2">
-//             {/* --- SECONDARY BUTTON --- */}
-//             <button onClick={() => {
-//                 document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
-//             }} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-400 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]">
-//                 <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-//                     <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-//                         See Pricing
-//                     </span>
-//                     <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
-//                         See Pricing
-//                     </span>
-//                 </div>
+//             <button
+//               onClick={() => {
+//                 document
+//                   .getElementById("pricing")
+//                   ?.scrollIntoView({ behavior: "smooth" });
+//               }}
+//               className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-transparent border border-stone-400 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96]"
+//             >
+//               <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+//                 <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+//                   See Pricing
+//                 </span>
+//                 <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white">
+//                   See Pricing
+//                 </span>
+//               </div>
 //             </button>
-//             <button onClick={() => router.push('https://dashboard.torchproxies.com/')} className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]">
-//                 <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-//                     <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-//                         Start with Free Trial
-//                     </span>
-//                     <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
-//                         Start with Free Trial
-//                     </span>
-//                 </div>
+
+//             <button
+//               onClick={() => router.push("https://dashboard.torchproxies.com/")}
+//               className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]"
+//             >
+//               <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+//                 <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+//                   Start with Free Trial
+//                 </span>
+//                 <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+//                   Start with Free Trial
+//                 </span>
+//               </div>
 //             </button>
 //           </div>
 
@@ -198,7 +228,6 @@
 //             </div>
 //           </div>
 //         </div>
-
 //       </div>
 
 //       {/* ── 3. MARQUEE AT BOTTOM ────────────────────────── */}
@@ -218,7 +247,6 @@ import { Check } from "lucide-react";
 import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
 
-// Dynamically import Canvas component with SSR completely disabled
 const PixelBlast = dynamic(() => import("@/components/PixelBlast"), {
   ssr: false,
   loading: () => <div className="absolute inset-0 bg-[#0b0c10]" />,
@@ -236,7 +264,6 @@ const MARQUEE_ITEMS = [
 const Marquee: React.FC = () => (
   <div className="w-full overflow-hidden bg-[#FE4A01] py-3.5 whitespace-nowrap select-none flex font-['Urbanist']">
     <div className="flex min-w-full shrink-0 animate-marquee items-center justify-around text-[14px] font-medium tracking-wider text-white font-['Urbanist']">
-      {/* Block 1 */}
       <div className="flex shrink-0 items-center space-x-12 pr-12">
         {MARQUEE_ITEMS.map((item, index) => (
           <span key={`orig-${index}`} className="flex items-center gap-3.5">
@@ -249,7 +276,6 @@ const Marquee: React.FC = () => (
         ))}
       </div>
 
-      {/* Block 2 */}
       <div
         className="flex shrink-0 items-center space-x-12 pr-12"
         aria-hidden="true"
@@ -262,7 +288,6 @@ const Marquee: React.FC = () => (
         ))}
       </div>
 
-      {/* Block 3 */}
       <div
         className="flex shrink-0 items-center space-x-12 pr-12"
         aria-hidden="true"
@@ -292,20 +317,28 @@ const STATS = [
 
 export default function HeroSection() {
   const router = useRouter();
-  const [isMounted, setIsMounted] = useState(false);
+  const [isReady, setIsReady] = useState(false);
 
-  // Defer animation execution until client hydrations complete
   useEffect(() => {
-    setIsMounted(true);
+    // Delay WebGL mounting until page network idle pass ends
+    const handleLoad = () => {
+      setTimeout(() => setIsReady(true), 1200);
+    };
+
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+      return () => window.removeEventListener("load", handleLoad);
+    }
   }, []);
 
   return (
     <section
       className={`${urbanist.className} relative w-full bg-[#0b0c10] text-white overflow-x-hidden pt-28 pb-0 lg:pt-36 font-['Urbanist']`}
     >
-      {/* ── 1. BACKGROUND ANIMATION WITH STATIC SSR FALLBACK ────────────────── */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-[#0b0c10]">
-        {isMounted ? (
+        {isReady ? (
           <PixelBlast
             variant="triangle"
             pixelSize={4}
@@ -321,19 +354,14 @@ export default function HeroSection() {
             edgeFade={0}
           />
         ) : (
-          /* Lightweight static gradient pattern for bots / initial server load */
           <div className="absolute inset-0 bg-[radial-gradient(#2F293A_1px,transparent_1px)] [background-size:16px_16px] opacity-30" />
         )}
       </div>
 
-      {/* Ambient Radial Background Glow */}
       <div className="absolute left-[-10%] top-[20%] z-0 h-[500px] w-[500px] rounded-full bg-[#ea580c] opacity-10 blur-[150px] pointer-events-none" />
 
-      {/* ── 2. HERO CONTAINER GRID ───────────────────────────────────────── */}
       <div className="relative z-10 w-full max-w-[1536px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        {/* ── LEFT COLUMN ── */}
         <div className="lg:col-span-8 z-10 space-y-8 pr-0 lg:pr-6">
-          {/* Trustpilot Badge */}
           <div className="flex items-center gap-2">
             <a
               href="https://www.trustpilot.com/review/torchlabs.xyz"
@@ -352,14 +380,12 @@ export default function HeroSection() {
             </a>
           </div>
 
-          {/* Headline */}
           <h1 className="text-5xl font-regular leading-[1.02] tracking-tight text-white md:text-7xl lg:text-[105px] xl:text-[120px]">
             <span className="text-[#ff4500] font-bold">One</span> proxy <br />
             network. <br />
             <span className="text-[#ff4500] font-bold">Every</span> use case.
           </h1>
 
-          {/* CTA Buttons */}
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <button
               onClick={() => {
@@ -394,7 +420,6 @@ export default function HeroSection() {
             </button>
           </div>
 
-          {/* Feature Checklist */}
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-2 text-[16px] font-regular text-stone-300">
             {STATS.map((stat, idx) => (
               <div key={idx} className="flex items-center gap-2">
@@ -404,7 +429,6 @@ export default function HeroSection() {
             ))}
           </div>
 
-          {/* Client Brand Logos */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 pt-8 w-full">
             <span className="text-[16px] text-stone-400 font-regular whitespace-nowrap">
               Trusted by teams worldwide
@@ -422,7 +446,6 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* ── RIGHT COLUMN ── */}
         <div className="lg:col-span-4 relative flex items-center h-[450px] lg:h-[620px] w-full">
           <div className="absolute -inset-4 rounded-3xl bg-[#ff4500]/10 blur-3xl pointer-events-none" />
 
@@ -441,7 +464,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* ── 3. MARQUEE AT BOTTOM ────────────────────────── */}
       <div className="relative z-10 w-full mt-8 lg:mt-8 pointer-events-none overflow-hidden">
         <Marquee />
       </div>

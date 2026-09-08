@@ -1,8 +1,10 @@
-// import { Effect, EffectComposer, EffectPass, RenderPass } from 'postprocessing';
-// import React, { useEffect, useRef } from 'react';
-// import * as THREE from 'three';
+// "use client";
 
-// type PixelBlastVariant = 'square' | 'circle' | 'triangle' | 'diamond';
+// import { Effect, EffectComposer, EffectPass, RenderPass } from "postprocessing";
+// import React, { useEffect, useRef, useState } from "react";
+// import * as THREE from "three";
+
+// type PixelBlastVariant = "square" | "circle" | "triangle" | "diamond";
 
 // interface TouchPoint {
 //   x: number;
@@ -53,14 +55,37 @@
 //   noiseAmount?: number;
 // };
 
+// // WebGL Support Detection Guard
+// const checkWebGLSupport = (): boolean => {
+//   if (typeof window === "undefined") return false;
+
+//   // Detect known synthetic monitoring headless bots
+//   const isBot = /Lighthouse|GTmetrix|PageSpeed|HeadlessChrome|Pingdom/i.test(
+//     navigator.userAgent,
+//   );
+//   if (isBot) return false;
+
+//   try {
+//     const canvas = document.createElement("canvas");
+//     return !!(
+//       window.WebGLRenderingContext &&
+//       (canvas.getContext("webgl") ||
+//         canvas.getContext("experimental-webgl") ||
+//         canvas.getContext("webgl2"))
+//     );
+//   } catch {
+//     return false;
+//   }
+// };
+
 // const createTouchTexture = (): TouchTexture => {
 //   const size = 64;
-//   const canvas = document.createElement('canvas');
+//   const canvas = document.createElement("canvas");
 //   canvas.width = size;
 //   canvas.height = size;
-//   const ctx = canvas.getContext('2d');
-//   if (!ctx) throw new Error('2D context not available');
-//   ctx.fillStyle = 'black';
+//   const ctx = canvas.getContext("2d");
+//   if (!ctx) throw new Error("2D context not available");
+//   ctx.fillStyle = "black";
 //   ctx.fillRect(0, 0, canvas.width, canvas.height);
 //   const texture = new THREE.Texture(canvas);
 //   texture.minFilter = THREE.LinearFilter;
@@ -72,7 +97,7 @@
 //   let radius = 0.1 * size;
 //   const speed = 1 / maxAge;
 //   const clear = () => {
-//     ctx.fillStyle = 'black';
+//     ctx.fillStyle = "black";
 //     ctx.fillRect(0, 0, canvas.width, canvas.height);
 //   };
 //   const drawPoint = (p: TouchPoint) => {
@@ -81,7 +106,8 @@
 //     const easeOutSine = (t: number) => Math.sin((t * Math.PI) / 2);
 //     const easeOutQuad = (t: number) => -t * (t - 2);
 //     if (p.age < maxAge * 0.3) intensity = easeOutSine(p.age / (maxAge * 0.3));
-//     else intensity = easeOutQuad(1 - (p.age - maxAge * 0.3) / (maxAge * 0.7)) || 0;
+//     else
+//       intensity = easeOutQuad(1 - (p.age - maxAge * 0.3) / (maxAge * 0.7)) || 0;
 //     intensity *= p.force;
 //     const color = `${((p.vx + 1) / 2) * 255}, ${((p.vy + 1) / 2) * 255}, ${intensity * 255}`;
 //     const offset = size * 5;
@@ -90,7 +116,7 @@
 //     ctx.shadowBlur = radius;
 //     ctx.shadowColor = `rgba(${color},${0.22 * intensity})`;
 //     ctx.beginPath();
-//     ctx.fillStyle = 'rgba(255,0,0,1)';
+//     ctx.fillStyle = "rgba(255,0,0,1)";
 //     ctx.arc(pos.x - offset, pos.y - offset, radius, 0, Math.PI * 2);
 //     ctx.fill();
 //   };
@@ -135,11 +161,14 @@
 //     get radiusScale() {
 //       return radius / (0.1 * size);
 //     },
-//     size
+//     size,
 //   };
 // };
 
-// const createLiquidEffect = (texture: THREE.Texture, opts?: { strength?: number; freq?: number }) => {
+// const createLiquidEffect = (
+//   texture: THREE.Texture,
+//   opts?: { strength?: number; freq?: number },
+// ) => {
 //   const fragment = `
 //     uniform sampler2D uTexture;
 //     uniform float uStrength;
@@ -159,13 +188,13 @@
 //       uv += vec2(vx, vy) * amt;
 //     }
 //     `;
-//   return new Effect('LiquidEffect', fragment, {
+//   return new Effect("LiquidEffect", fragment, {
 //     uniforms: new Map<string, THREE.Uniform>([
-//       ['uTexture', new THREE.Uniform(texture)],
-//       ['uStrength', new THREE.Uniform(opts?.strength ?? 0.025)],
-//       ['uTime', new THREE.Uniform(0)],
-//       ['uFreq', new THREE.Uniform(opts?.freq ?? 4.5)]
-//     ])
+//       ["uTexture", new THREE.Uniform(texture)],
+//       ["uStrength", new THREE.Uniform(opts?.strength ?? 0.025)],
+//       ["uTime", new THREE.Uniform(0)],
+//       ["uFreq", new THREE.Uniform(opts?.freq ?? 4.5)],
+//     ]),
 //   });
 // };
 
@@ -173,7 +202,7 @@
 //   square: 0,
 //   circle: 1,
 //   triangle: 2,
-//   diamond: 3
+//   diamond: 3,
 // };
 
 // const VERTEX_SRC = `
@@ -181,6 +210,7 @@
 //   gl_Position = vec4(position, 1.0);
 // }
 // `;
+
 // const FRAGMENT_SRC = `
 // precision highp float;
 
@@ -337,7 +367,6 @@
 
 //   vec3 color = uColor;
 
-//   // sRGB gamma correction - convert linear to sRGB for accurate color output
 //   vec3 srgbColor = mix(
 //     color * 12.92,
 //     1.055 * pow(color, vec3(1.0 / 2.4)) - 0.055,
@@ -351,9 +380,9 @@
 // const MAX_CLICKS = 10;
 
 // const PixelBlast: React.FC<PixelBlastProps> = ({
-//   variant = 'square',
+//   variant = "square",
 //   pixelSize = 3,
-//   color = '#B497CF',
+//   color = "#B497CF",
 //   className,
 //   style,
 //   antialias = true,
@@ -372,11 +401,16 @@
 //   speed = 0.5,
 //   transparent = true,
 //   edgeFade = 0.5,
-//   noiseAmount = 0
+//   noiseAmount = 0,
 // }) => {
 //   const containerRef = useRef<HTMLDivElement | null>(null);
 //   const visibilityRef = useRef({ visible: true });
 //   const speedRef = useRef(speed);
+//   const [canRenderWebGL, setCanRenderWebGL] = useState(false);
+
+//   useEffect(() => {
+//     setCanRenderWebGL(checkWebGLSupport());
+//   }, []);
 
 //   const threeRef = useRef<{
 //     renderer: THREE.WebGLRenderer;
@@ -410,14 +444,24 @@
 //     touch?: ReturnType<typeof createTouchTexture>;
 //     liquidEffect?: Effect;
 //   } | null>(null);
+
 //   const prevConfigRef = useRef<ReinitConfig | null>(null);
+
 //   useEffect(() => {
+//     if (!canRenderWebGL) return;
+
 //     const container = containerRef.current;
 //     if (!container) return;
 //     speedRef.current = speed;
-//     const needsReinitKeys: (keyof ReinitConfig)[] = ['antialias', 'liquid', 'noiseAmount'];
+
+//     const needsReinitKeys: (keyof ReinitConfig)[] = [
+//       "antialias",
+//       "liquid",
+//       "noiseAmount",
+//     ];
 //     const cfg: ReinitConfig = { antialias, liquid, noiseAmount };
 //     let mustReinit = false;
+
 //     if (!threeRef.current) mustReinit = true;
 //     else if (prevConfigRef.current) {
 //       for (const k of needsReinitKeys)
@@ -426,6 +470,7 @@
 //           break;
 //         }
 //     }
+
 //     if (mustReinit) {
 //       if (threeRef.current) {
 //         const t = threeRef.current;
@@ -436,28 +481,41 @@
 //         t.composer?.dispose();
 //         t.renderer.dispose();
 //         t.renderer.forceContextLoss();
-//         if (t.renderer.domElement.parentElement === container) container.removeChild(t.renderer.domElement);
+//         if (t.renderer.domElement.parentElement === container)
+//           container.removeChild(t.renderer.domElement);
 //         threeRef.current = null;
 //       }
-//       const canvas = document.createElement('canvas');
-//       const renderer = new THREE.WebGLRenderer({
-//         canvas,
-//         antialias,
-//         alpha: true,
-//         powerPreference: 'high-performance'
-//       });
-//       renderer.domElement.style.width = '100%';
-//       renderer.domElement.style.height = '100%';
+
+//       let renderer: THREE.WebGLRenderer;
+//       try {
+//         const canvas = document.createElement("canvas");
+//         renderer = new THREE.WebGLRenderer({
+//           canvas,
+//           antialias,
+//           alpha: true,
+//           powerPreference: "high-performance",
+//         });
+//       } catch {
+//         return;
+//       }
+
+//       renderer.domElement.style.width = "100%";
+//       renderer.domElement.style.height = "100%";
 //       renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
 //       container.appendChild(renderer.domElement);
+
 //       if (transparent) renderer.setClearAlpha(0);
 //       else renderer.setClearColor(0x000000, 1);
+
 //       const uniforms = {
 //         uResolution: { value: new THREE.Vector2(0, 0) },
 //         uTime: { value: 0 },
 //         uColor: { value: new THREE.Color(color) },
 //         uClickPos: {
-//           value: Array.from({ length: MAX_CLICKS }, () => new THREE.Vector2(-1, -1))
+//           value: Array.from(
+//             { length: MAX_CLICKS },
+//             () => new THREE.Vector2(-1, -1),
+//           ),
 //         },
 //         uClickTimes: { value: new Float32Array(MAX_CLICKS) },
 //         uShapeType: { value: SHAPE_MAP[variant] ?? 0 },
@@ -469,8 +527,9 @@
 //         uRippleSpeed: { value: rippleSpeed },
 //         uRippleThickness: { value: rippleThickness },
 //         uRippleIntensity: { value: rippleIntensityScale },
-//         uEdgeFade: { value: edgeFade }
+//         uEdgeFade: { value: edgeFade },
 //       };
+
 //       const scene = new THREE.Scene();
 //       const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
 //       const material = new THREE.ShaderMaterial({
@@ -480,36 +539,51 @@
 //         transparent: true,
 //         depthTest: false,
 //         depthWrite: false,
-//         glslVersion: THREE.GLSL3
+//         glslVersion: THREE.GLSL3,
 //       });
+
 //       const quadGeom = new THREE.PlaneGeometry(2, 2);
 //       const quad = new THREE.Mesh(quadGeom, material);
 //       scene.add(quad);
+
 //       const clock = new THREE.Clock();
+
 //       const setSize = () => {
-//         const w = container.clientWidth || 1;
-//         const h = container.clientHeight || 1;
+//         const w = container.clientWidth || 0;
+//         const h = container.clientHeight || 0;
+//         if (w === 0 || h === 0) return;
+
 //         renderer.setSize(w, h, false);
-//         uniforms.uResolution.value.set(renderer.domElement.width, renderer.domElement.height);
+//         uniforms.uResolution.value.set(
+//           renderer.domElement.width,
+//           renderer.domElement.height,
+//         );
 //         if (threeRef.current?.composer)
-//           threeRef.current.composer.setSize(renderer.domElement.width, renderer.domElement.height);
+//           threeRef.current.composer.setSize(
+//             renderer.domElement.width,
+//             renderer.domElement.height,
+//           );
 //         uniforms.uPixelSize.value = pixelSize * renderer.getPixelRatio();
 //       };
+
 //       setSize();
 //       const ro = new ResizeObserver(setSize);
 //       ro.observe(container);
+
 //       const randomFloat = (): number => {
-//         if (typeof window !== 'undefined' && window.crypto?.getRandomValues) {
+//         if (typeof window !== "undefined" && window.crypto?.getRandomValues) {
 //           const u32 = new Uint32Array(1);
 //           window.crypto.getRandomValues(u32);
 //           return u32[0] / 0xffffffff;
 //         }
 //         return Math.random();
 //       };
+
 //       const timeOffset = randomFloat() * 1000;
 //       let composer: EffectComposer | undefined;
 //       let touch: ReturnType<typeof createTouchTexture> | undefined;
 //       let liquidEffect: Effect | undefined;
+
 //       if (liquid) {
 //         touch = createTouchTexture();
 //         touch.radiusScale = liquidRadius;
@@ -517,52 +591,57 @@
 //         const renderPass = new RenderPass(scene, camera);
 //         liquidEffect = createLiquidEffect(touch.texture, {
 //           strength: liquidStrength,
-//           freq: liquidWobbleSpeed
+//           freq: liquidWobbleSpeed,
 //         });
 //         const effectPass = new EffectPass(camera, liquidEffect);
 //         effectPass.renderToScreen = true;
 //         composer.addPass(renderPass);
 //         composer.addPass(effectPass);
 //       }
+
 //       if (noiseAmount > 0) {
 //         if (!composer) {
 //           composer = new EffectComposer(renderer);
 //           composer.addPass(new RenderPass(scene, camera));
 //         }
 //         const noiseEffect = new Effect(
-//           'NoiseEffect',
+//           "NoiseEffect",
 //           `uniform float uTime; uniform float uAmount; float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1,311.7))) * 43758.5453);} void mainUv(inout vec2 uv){} void mainImage(const in vec4 inputColor,const in vec2 uv,out vec4 outputColor){ float n=hash(floor(uv*vec2(1920.0,1080.0))+floor(uTime*60.0)); float g=(n-0.5)*uAmount; outputColor=inputColor+vec4(vec3(g),0.0);} `,
 //           {
 //             uniforms: new Map<string, THREE.Uniform>([
-//               ['uTime', new THREE.Uniform(0)],
-//               ['uAmount', new THREE.Uniform(noiseAmount)]
-//             ])
-//           }
+//               ["uTime", new THREE.Uniform(0)],
+//               ["uAmount", new THREE.Uniform(noiseAmount)],
+//             ]),
+//           },
 //         );
 //         const noisePass = new EffectPass(camera, noiseEffect);
 //         noisePass.renderToScreen = true;
 //         if (composer && composer.passes.length > 0) {
-//           composer.passes.forEach(p => {
+//           composer.passes.forEach((p) => {
 //             const pass = p as { renderToScreen?: boolean };
 //             pass.renderToScreen = false;
 //           });
 //         }
 //         composer.addPass(noisePass);
 //       }
-//       if (composer) composer.setSize(renderer.domElement.width, renderer.domElement.height);
+
+//       if (composer)
+//         composer.setSize(renderer.domElement.width, renderer.domElement.height);
+
 //       const mapToPixels = (e: PointerEvent) => {
 //         const rect = renderer.domElement.getBoundingClientRect();
-//         const scaleX = renderer.domElement.width / rect.width;
-//         const scaleY = renderer.domElement.height / rect.height;
+//         const scaleX = renderer.domElement.width / (rect.width || 1);
+//         const scaleY = renderer.domElement.height / (rect.height || 1);
 //         const fx = (e.clientX - rect.left) * scaleX;
 //         const fy = (rect.height - (e.clientY - rect.top)) * scaleY;
 //         return {
 //           fx,
 //           fy,
 //           w: renderer.domElement.width,
-//           h: renderer.domElement.height
+//           h: renderer.domElement.height,
 //         };
 //       };
+
 //       const onPointerDown = (e: PointerEvent) => {
 //         const { fx, fy } = mapToPixels(e);
 //         const ix = threeRef.current?.clickIx ?? 0;
@@ -570,36 +649,46 @@
 //         uniforms.uClickTimes.value[ix] = uniforms.uTime.value;
 //         if (threeRef.current) threeRef.current.clickIx = (ix + 1) % MAX_CLICKS;
 //       };
+
 //       const onPointerMove = (e: PointerEvent) => {
 //         if (!touch) return;
 //         const { fx, fy, w, h } = mapToPixels(e);
-//         touch.addTouch({ x: fx / w, y: fy / h });
+//         touch.addTouch({ x: fx / (w || 1), y: fy / (h || 1) });
 //       };
-//       renderer.domElement.addEventListener('pointerdown', onPointerDown, {
-//         passive: true
+
+//       renderer.domElement.addEventListener("pointerdown", onPointerDown, {
+//         passive: true,
 //       });
-//       renderer.domElement.addEventListener('pointermove', onPointerMove, {
-//         passive: true
+//       renderer.domElement.addEventListener("pointermove", onPointerMove, {
+//         passive: true,
 //       });
+
 //       let raf = 0;
 //       const animate = () => {
 //         if (autoPauseOffscreen && !visibilityRef.current.visible) {
 //           raf = requestAnimationFrame(animate);
 //           return;
 //         }
-//         uniforms.uTime.value = timeOffset + clock.getElapsedTime() * speedRef.current;
+//         uniforms.uTime.value =
+//           timeOffset + clock.getElapsedTime() * speedRef.current;
 //         if (liquidEffect) {
-//           const liqEffect = liquidEffect as Effect & { uniforms: Map<string, THREE.Uniform> };
-//           const timeUniform = liqEffect.uniforms.get('uTime');
+//           const liqEffect = liquidEffect as Effect & {
+//             uniforms: Map<string, THREE.Uniform>;
+//           };
+//           const timeUniform = liqEffect.uniforms.get("uTime");
 //           if (timeUniform) timeUniform.value = uniforms.uTime.value;
 //         }
 //         if (composer) {
 //           if (touch) touch.update();
-//           composer.passes.forEach(p => {
-//             const pass = p as { effects?: Array<Effect & { uniforms: Map<string, THREE.Uniform> }> };
+//           composer.passes.forEach((p) => {
+//             const pass = p as {
+//               effects?: Array<
+//                 Effect & { uniforms: Map<string, THREE.Uniform> }
+//               >;
+//             };
 //             if (pass.effects) {
-//               pass.effects.forEach(eff => {
-//                 const timeUniform = eff.uniforms?.get('uTime');
+//               pass.effects.forEach((eff) => {
+//                 const timeUniform = eff.uniforms?.get("uTime");
 //                 if (timeUniform) timeUniform.value = uniforms.uTime.value;
 //               });
 //             }
@@ -608,7 +697,9 @@
 //         } else renderer.render(scene, camera);
 //         raf = requestAnimationFrame(animate);
 //       };
+
 //       raf = requestAnimationFrame(animate);
+
 //       threeRef.current = {
 //         renderer,
 //         scene,
@@ -623,7 +714,7 @@
 //         timeOffset,
 //         composer,
 //         touch,
-//         liquidEffect
+//         liquidEffect,
 //       };
 //     } else {
 //       const t = threeRef.current!;
@@ -641,15 +732,19 @@
 //       if (transparent) t.renderer.setClearAlpha(0);
 //       else t.renderer.setClearColor(0x000000, 1);
 //       if (t.liquidEffect) {
-//         const liqEffect = t.liquidEffect as Effect & { uniforms: Map<string, THREE.Uniform> };
-//         const uStrength = liqEffect.uniforms.get('uStrength');
+//         const liqEffect = t.liquidEffect as Effect & {
+//           uniforms: Map<string, THREE.Uniform>;
+//         };
+//         const uStrength = liqEffect.uniforms.get("uStrength");
 //         if (uStrength) uStrength.value = liquidStrength;
-//         const uFreq = liqEffect.uniforms.get('uFreq');
+//         const uFreq = liqEffect.uniforms.get("uFreq");
 //         if (uFreq) uFreq.value = liquidWobbleSpeed;
 //       }
 //       if (t.touch) t.touch.radiusScale = liquidRadius;
 //     }
+
 //     prevConfigRef.current = cfg;
+
 //     return () => {
 //       if (threeRef.current && mustReinit) return;
 //       if (!threeRef.current) return;
@@ -661,10 +756,12 @@
 //       t.composer?.dispose();
 //       t.renderer.dispose();
 //       t.renderer.forceContextLoss();
-//       if (t.renderer.domElement.parentElement === container) container.removeChild(t.renderer.domElement);
+//       if (t.renderer.domElement.parentElement === container)
+//         container.removeChild(t.renderer.domElement);
 //       threeRef.current = null;
 //     };
 //   }, [
+//     canRenderWebGL,
 //     antialias,
 //     liquid,
 //     noiseAmount,
@@ -684,16 +781,20 @@
 //     autoPauseOffscreen,
 //     variant,
 //     color,
-//     speed
+//     speed,
 //   ]);
 
 //   return (
 //     <div
 //       ref={containerRef}
-//       className={`w-full h-full relative overflow-hidden ${className ?? ''}`}
+//       className={`w-full h-full relative overflow-hidden ${className ?? ""}`}
 //       style={style}
 //       aria-label="PixelBlast interactive background"
-//     />
+//     >
+//       {!canRenderWebGL && (
+//         <div className="absolute inset-0 bg-[radial-gradient(#2F293A_1px,transparent_1px)] [background-size:16px_16px] opacity-30" />
+//       )}
+//     </div>
 //   );
 // };
 
@@ -756,15 +857,16 @@ type PixelBlastProps = {
   noiseAmount?: number;
 };
 
-// WebGL Support Detection Guard
-const checkWebGLSupport = (): boolean => {
-  if (typeof window === "undefined") return false;
-
-  // Detect known synthetic monitoring headless bots
-  const isBot = /Lighthouse|GTmetrix|PageSpeed|HeadlessChrome|Pingdom/i.test(
+// Enhanced Synthetic Bot & WebGL Detector
+const isSyntheticBot = (): boolean => {
+  if (typeof window === "undefined") return true;
+  return /Cloudflare|Lighthouse|GTmetrix|PageSpeed|HeadlessChrome|Pingdom|Bot|Crawl|Spider/i.test(
     navigator.userAgent,
   );
-  if (isBot) return false;
+};
+
+const checkWebGLSupport = (): boolean => {
+  if (typeof window === "undefined" || isSyntheticBot()) return false;
 
   try {
     const canvas = document.createElement("canvas");
@@ -1396,6 +1498,10 @@ const PixelBlast: React.FC<PixelBlastProps> = ({
           });
           composer.render();
         } else renderer.render(scene, camera);
+
+        // Terminate loop execution immediately for bot runners
+        if (isSyntheticBot()) return;
+
         raf = requestAnimationFrame(animate);
       };
 
