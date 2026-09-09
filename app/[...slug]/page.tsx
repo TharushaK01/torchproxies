@@ -2,53 +2,70 @@ import React from 'react';
 import { google } from 'googleapis';
 import CountryPageClient from '@/app/[...slug]/CountryPageClient'; 
 import { notFound } from 'next/navigation';
-export const dynamic = 'force-dynamic';
+import { unstable_cache } from 'next/cache';
 import ISPPageClient from './ISPPageClient';
+
+const SHEET_RANGE = 'Sheet1!A2:P1000';
+const SHEETS_TIMEOUT_MS = 10_000;
+const VALID_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/i;
 
 interface PageProps {
   params: Promise<{ slug: string[] }>;
 }
 
-export default async function CountryPage({ params }: PageProps) {
-
-  const { slug } = await params;
-  
-  // Reconstruct the URL path slug string
-  const slugPath = slug ? slug.join('/') : '';
-  const isISPPage = slugPath.endsWith('-isp'); 
-
-  let countryData = null;
-  let dynamicDescriptions = null; 
-
-  try {
-    // 1. Authenticate with Google
+const getCountryRows = unstable_cache(
+  async (): Promise<string[][]> => {
     const formattedPrivateKey = process.env.GOOGLE_PRIVATE_KEY
       ? process.env.GOOGLE_PRIVATE_KEY
-          .replace(/\\n/g, '\n')       
-          .replace(/"/g, '')          
-          .replace(/ /g, '\n')        
-          .replace(/-----BEGIN\nPRIVATE\nKEY-----/g, '-----BEGIN PRIVATE KEY-----') 
-          .replace(/-----END\nPRIVATE\nKEY-----/g, '-----END PRIVATE KEY-----')     
+          .replace(/\\n/g, '\n')
+          .replace(/"/g, '')
+          .replace(/ /g, '\n')
+          .replace(/-----BEGIN\nPRIVATE\nKEY-----/g, '-----BEGIN PRIVATE KEY-----')
+          .replace(/-----END\nPRIVATE\nKEY-----/g, '-----END PRIVATE KEY-----')
           .trim()
       : undefined;
 
     const auth = new google.auth.GoogleAuth({
       credentials: {
-        client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL, 
-        private_key: formattedPrivateKey,                        
+        client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+        private_key: formattedPrivateKey,
       },
       scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
     });
-
     const sheets = google.sheets({ version: 'v4', auth });
+    const response = await sheets.spreadsheets.values.get(
+      {
+        spreadsheetId: process.env.GOOGLE_SHEET_ID,
+        range: SHEET_RANGE,
+      },
+      { timeout: SHEETS_TIMEOUT_MS },
+    );
 
-    // 2. Fetch data from your Sheet (Range up to P to capture all descriptions)
-    const response = await sheets.spreadsheets.values.get({
-      spreadsheetId: process.env.GOOGLE_SHEET_ID,               
-      range: 'Sheet1!A2:P', 
-    });
+    return (response.data.values as string[][] | undefined) ?? [];
+  },
+  ['country-sheet-rows'],
+  { revalidate: 300 },
+);
 
-    const rows = response.data.values;
+export default async function CountryPage({ params }: PageProps) {
+
+  const { slug } = await params;
+
+  // Country pages use one bounded, URL-safe segment. Reject arbitrary catch-all
+  // paths before performing any authenticated upstream work.
+  if (slug.length !== 1 || slug[0].length > 80 || !VALID_SLUG.test(slug[0])) {
+    notFound();
+  }
+
+  const slugPath = slug[0];
+  const isISPPage = slugPath.endsWith('-isp');
+
+  let countryData = null;
+  let dynamicDescriptions = null;
+
+  try {
+    // The sheet read is shared across slugs and revalidated at most every five minutes.
+    const rows = await getCountryRows();
 
     if (rows && rows.length > 0) {
       // Clean up the incoming URL path slug string
@@ -85,12 +102,13 @@ export default async function CountryPage({ params }: PageProps) {
         };
       }
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Failed to fetch data from Google Sheets:', error);
+    const errorMessage = error instanceof Error ? error.message : JSON.stringify(error);
     return (
       <div style={{ padding: 40, background: '#111', color: 'red', fontFamily: 'monospace', zIndex: 99999, position: 'relative' }}>
         <h3>🚨 Google Sheets Connection Error:</h3>
-        <p>{error.message || JSON.stringify(error)}</p>
+        <p>{errorMessage}</p>
       </div>
     );
   }
