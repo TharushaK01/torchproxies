@@ -479,10 +479,10 @@ const faqData: FaqEntry[] = [
         >
           <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
             <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)] text-sm font-medium">
-              Start free with 1 GB
+              Try Now
             </span>
             <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90 text-sm font-medium">
-              Start free with 1 GB
+              Try Now
             </span>
           </div>
         </button>

@@ -209,7 +209,7 @@ const PARTNERS: Partner[] = [
     category: "Proxy Benchmarking Tools",
     logo: "/images/partners/MostLogin.png",
     description:
-      "MostLogin is an all-in-one system: Antidetect Browser + Cloud Phone + Free IP Proxy + MCP + RPA + API + Team Collaboration.",
+      "MostLogin is an all-in-one system: Antidetect Browser + Cloud Phone + Free IP Proxy + MCP + RPA + API + Team Collaboration.\nPromo code: L8YOUTK9S4 (Get 10% off on browser profiles)",
     websiteUrl: "https://www.mostlogin.com/?invite-code=friendlylink1",
   },
 ];
@@ -497,8 +497,25 @@ export default function PartnersPage() {
                   <h3 className="text-xl font-semibold mb-3 text-white tracking-tight">
                     {partner.name}
                   </h3>
-                  <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
+                  {/* <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4 whitespace-pre-line">
                     {partner.description}
+                    
+                  </p> */}
+                  <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
+                    {partner.description.split("\n").map((line, index) =>
+                      index === 0 ? (
+                        <span key={index} className="block">
+                          {line}
+                        </span>
+                      ) : (
+                        <strong
+                          key={index}
+                          className="block text-white font-bold mt-2"
+                        >
+                          {line}
+                        </strong>
+                      ),
+                    )}
                   </p>
 
                   {/* ── UPDATED FEATURES RENDERING ── */}
