@@ -203,6 +203,15 @@ const PARTNERS: Partner[] = [
     websiteUrl:
       "https://www.proxyvero.com/?utm_source=torchproxies&utm_medium=partner&utm_campaign=partners_page",
   },
+  {
+    id: "MostLogin",
+    name: "MostLogin",
+    category: "Proxy Benchmarking Tools",
+    logo: "/images/partners/MostLogin.png",
+    description:
+      "MostLogin is an all-in-one system: Antidetect Browser + Cloud Phone + Free IP Proxy + MCP + RPA + API + Team Collaboration.",
+    websiteUrl: "https://www.mostlogin.com/?invite-code=friendlylink1",
+  },
 ];
 
 const REVIEWS: Review[] = [
