@@ -1,5 +1,6 @@
 import { getPageBySlug } from "@/lib/wordpress";
 import { notFound } from "next/navigation";
+import sanitizeHtml from "sanitize-html";
 
 const WP_BASE = "https://torchproxies.com";
 
@@ -31,15 +32,44 @@ export default async function ProductPage() {
   // Dynamic asset targeting based on current page database assignment
   const pageCSS = `${WP_BASE}/wp-content/uploads/elementor/css/post-${post.id}.css`;
 
-  const cleanContent = post.content.rendered
-    // Scrub inline JSON-LD arrays to protect Next SEO layout
-    .replace(
-      /<script\b[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi,
-      "",
-    )
-    // Drop raw WordPress theme native header/footers layouts if injected
-    .replace(/<nav[\s\S]*?<\/nav>/gi, "")
-    .replace(/<footer[\s\S]*?<\/footer>/gi, "");
+  const cleanContent = sanitizeHtml(
+    post.content.rendered
+      // Drop raw WordPress theme native header/footers layouts if injected
+      .replace(/<nav[\s\S]*?<\/nav>/gi, "")
+      .replace(/<footer[\s\S]*?<\/footer>/gi, ""),
+    {
+      allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
+      allowedAttributes: {
+        "*": ["class", "id", "role", "aria-*", "data-*"],
+        a: ["href", "name", "target", "rel"],
+        img: [
+          "src",
+          "srcset",
+          "sizes",
+          "alt",
+          "title",
+          "width",
+          "height",
+          "loading",
+          "decoding",
+        ],
+      },
+      allowedSchemes: ["http", "https", "mailto", "tel"],
+      allowProtocolRelative: false,
+      // Discard the contents of active elements as well as their tags.
+      nonTextTags: [
+        "script",
+        "style",
+        "textarea",
+        "option",
+        "iframe",
+        "object",
+        "embed",
+        "svg",
+        "math",
+      ],
+    },
+  );
 
   // return (
   //   <>
