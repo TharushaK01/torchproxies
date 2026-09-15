@@ -252,6 +252,12 @@ export default function RootLayout({
           `}
         </Script>
 
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="PMJbiJKafGEAlV+PU0q3fA"
+          strategy="afterInteractive"
+        />
+
         {gaId ? (
           <>
             <Script

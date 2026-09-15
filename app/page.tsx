@@ -56,6 +56,12 @@ export const metadata: Metadata = {
   title: "ISP & Residential Proxies for Automation | Torch Proxies",
   description:
     "Start your own proxy business in 24 hours with Proxy API. We provide everything - Fully branded dashboard and 80M+ IPs. No coding needed. Scale fast!",
+  verification: {
+    other: {
+      "ahrefs-site-verification":
+        "510180459be8a789c06a5e65db691926ed0eb10bdeb47656ad7c4d9a7844fab4",
+    },
+  },
   openGraph: {
     title: "Home | Start Your Proxy Business in 24 Hours with Proxy API ",
     description:
