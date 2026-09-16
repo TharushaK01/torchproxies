@@ -1,7 +1,8 @@
 "use client";
-import { Check } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import Image from 'next/image';
+import { Check } from "lucide-react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { handleReferralNavigation } from "@/lib/referral";
 
 const PricingSection = () => {
   const router = useRouter();
@@ -65,12 +66,13 @@ const PricingSection = () => {
   ];
 
   const handleNavigate = () => {
-    router.push('https://dashboard.torchproxies.com/');
+    // router.push('https://dashboard.torchproxies.com/');
+    handleReferralNavigation("https://dashboard.torchproxies.com/");
   };
 
   return (
-    <section 
-      id="pricing" 
+    <section
+      id="pricing"
       className="bg-[#0a0a0a] text-white py-12 md:py-20 px-4 sm:px-6 lg:px-8 space-y-8 md:space-y-12 font-['Urbanist'] max-w-7xl mx-auto"
     >
       {/* Header */}
@@ -100,8 +102,8 @@ const PricingSection = () => {
             key={i}
             className={`relative p-6 sm:p-8 rounded-2xl border-2 flex flex-col justify-between transition-all ${
               plan.featured
-                ? 'border-orange-600 bg-gradient-to-b from-[#1a0d00] to-black shadow-[0_0_30px_rgba(234,88,12,0.2)]'
-                : 'border-gray-800 bg-[#0a0a0a]'
+                ? "border-orange-600 bg-gradient-to-b from-[#1a0d00] to-black shadow-[0_0_30px_rgba(234,88,12,0.2)]"
+                : "border-gray-800 bg-[#0a0a0a]"
             }`}
           >
             <div>
@@ -116,7 +118,9 @@ const PricingSection = () => {
                 </div>
                 <div>
                   <h3 className="text-lg sm:text-xl font-bold">{plan.name}</h3>
-                  <p className="text-gray-400 text-xs sm:text-sm">{plan.desc}</p>
+                  <p className="text-gray-400 text-xs sm:text-sm">
+                    {plan.desc}
+                  </p>
                 </div>
               </div>
 
@@ -133,7 +137,10 @@ const PricingSection = () => {
 
               <ul className="space-y-3 sm:space-y-4 mb-8">
                 {plan.features.map((feat, idx) => (
-                  <li key={idx} className="flex gap-3 text-xs sm:text-sm text-gray-300 leading-tight">
+                  <li
+                    key={idx}
+                    className="flex gap-3 text-xs sm:text-sm text-gray-300 leading-tight"
+                  >
                     <Check className="text-[#07CC99] w-4 h-4 shrink-0 mt-0.5" />
                     <span>{feat}</span>
                   </li>
@@ -145,8 +152,8 @@ const PricingSection = () => {
               onClick={handleNavigate}
               className={`group relative overflow-hidden w-full h-[48px] sm:h-[52px] px-6 font-bold rounded-xl transition-all duration-200 ease-out hover:scale-[1.01] active:scale-[0.99] cursor-pointer ${
                 plan.featured
-                  ? 'bg-orange-600 text-white hover:bg-orange-500 shadow-[0_4px_20px_rgba(234,88,12,0.3)]'
-                  : 'bg-transparent text-gray-200 border border-gray-700 hover:border-gray-500 hover:bg-white/5'
+                  ? "bg-orange-600 text-white hover:bg-orange-500 shadow-[0_4px_20px_rgba(234,88,12,0.3)]"
+                  : "bg-transparent text-gray-200 border border-gray-700 hover:border-gray-500 hover:bg-white/5"
               }`}
             >
               <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
@@ -179,7 +186,9 @@ const PricingSection = () => {
                 </div>
                 <div>
                   <h3 className="text-lg sm:text-xl font-bold">ISP</h3>
-                  <p className="text-gray-400 text-xs sm:text-sm">Static residential proxies with unlimited data.</p>
+                  <p className="text-gray-400 text-xs sm:text-sm">
+                    Static residential proxies with unlimited data.
+                  </p>
                 </div>
               </div>
               <span className="bg-[#2a1200] text-orange-500 px-3 sm:px-4 py-2 rounded-lg font-bold text-xs sm:text-sm self-start sm:self-auto">
@@ -195,9 +204,12 @@ const PricingSection = () => {
                 "Quick Setup and Instant Activation",
                 "Versatility Across Applications",
                 "24/7 Dedicated Support",
-                "Global Coverage with Regional Optimization"
+                "Global Coverage with Regional Optimization",
               ].map((text, i) => (
-                <div key={i} className="flex gap-3 text-xs sm:text-sm text-gray-300">
+                <div
+                  key={i}
+                  className="flex gap-3 text-xs sm:text-sm text-gray-300"
+                >
                   <Check className="text-[#07CC99] w-4 h-4 shrink-0 mt-0.5" />
                   <span>{text}</span>
                 </div>
@@ -227,11 +239,15 @@ const PricingSection = () => {
               Need a custom plan?
             </h2>
             <p className="text-gray-400 text-lg sm:text-xl lg:text-2xl leading-snug mb-6">
-              No worries, we&apos;ll build your Residential &amp; ISP proxy plan today.
+              No worries, we&apos;ll build your Residential &amp; ISP proxy plan
+              today.
             </p>
             <div className="flex gap-3 text-xs sm:text-sm text-gray-300">
               <Check className="text-[#07CC99] w-4 h-4 shrink-0 mt-0.5" />
-              <span>For enterprise that needs additional data, security, control and more support</span>
+              <span>
+                For enterprise that needs additional data, security, control and
+                more support
+              </span>
             </div>
           </div>
 

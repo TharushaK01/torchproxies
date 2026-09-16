@@ -1,6 +1,7 @@
 "use client";
 
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
+import { handleReferralNavigation } from "@/lib/referral";
 
 const CtaBanner = () => {
   const router = useRouter();
@@ -12,7 +13,8 @@ const CtaBanner = () => {
         <div
           className="relative rounded-3xl p-6 sm:p-12 md:p-16 text-center overflow-hidden"
           style={{
-            background: 'linear-gradient(135deg, #ff3c006c 0%, #0a0a0a 30%, #0a0a0a 80%, #ff3c006c 100%)',
+            background:
+              "linear-gradient(135deg, #ff3c006c 0%, #0a0a0a 30%, #0a0a0a 80%, #ff3c006c 100%)",
           }}
         >
           <div className="relative z-10 max-w-3xl mx-auto">
@@ -21,20 +23,25 @@ const CtaBanner = () => {
             </h2>
 
             <p className="text-gray-400 text-sm sm:text-lg md:text-xl font-normal leading-relaxed mb-8 sm:mb-12 max-w-2xl mx-auto">
-              Effortlessly test, deploy and expand your web data projects with user-friendly, high quality and cost-effective infrastructure.
+              Effortlessly test, deploy and expand your web data projects with
+              user-friendly, high quality and cost-effective infrastructure.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
-                onClick={() => router.push('/locations')}
+                onClick={() =>
+                  handleReferralNavigation(
+                    "https://dashboard.torchproxies.com/",
+                  )
+                }
                 className="
-                  group relative overflow-hidden cursor-pointer
-                  w-full sm:w-[240px] h-[52px] sm:h-[56px] px-8 sm:px-10 rounded-xl font-bold 
-                  bg-white text-black text-base
-                  shadow-lg shadow-orange-900/20 
-                  hover:scale-[1.01] active:scale-[0.99] 
-                  transition-all duration-200
-                "
+    group relative overflow-hidden cursor-pointer
+    w-full sm:w-[240px] h-[52px] sm:h-[56px] px-8 sm:px-10 rounded-xl font-bold 
+    bg-white text-black text-base
+    shadow-lg shadow-orange-900/20 
+    hover:scale-[1.01] active:scale-[0.99] 
+    transition-all duration-200
+  "
               >
                 {/* Snappy 3D text track wrapper */}
                 <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(-90deg)]">

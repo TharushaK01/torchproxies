@@ -148,6 +148,8 @@ import {
   Source_Code_Pro,
 } from "next/font/google";
 import "./globals.css";
+import { Suspense } from "react";
+import ReferralTracker from "@/components/ReferralTracker";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
@@ -272,6 +274,24 @@ export default function RootLayout({
                 gtag('config', '${gaId}');
               `}
             </Script>
+            <Script
+              src="https://referly.so/affiliate-tracker.js"
+              data-affiliate=""
+              data-program-id="5fcbc101-6bb2-4397-a036-66a4697a2294"
+              strategy="afterInteractive"
+            />
+            {/* Global Affiliate Tracker Script from Step 1 */}
+            <Script
+              src="https://referly.so/affiliate-tracker.js"
+              data-affiliate=""
+              data-program-id="5fcbc101-6bb2-4397-a036-66a4697a2294"
+              strategy="afterInteractive"
+            />
+
+            {/* URL Parameter Tracker */}
+            <Suspense fallback={null}>
+              <ReferralTracker />
+            </Suspense>
           </>
         ) : null}
 

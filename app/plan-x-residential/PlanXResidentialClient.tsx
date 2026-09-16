@@ -6,6 +6,7 @@ import Flag from "react-world-flags";
 import { CreditCard } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { handleReferralNavigation } from "@/lib/referral";
 
 const UseCasesSection = dynamic(
   () => import("@/components/home/UseCasesSection"),
@@ -300,7 +301,9 @@ export default function TorchProxiesLandingPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
             {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
             <button
-              onClick={() => router.push("https://dashboard.torchproxies.com/")}
+              onClick={() =>
+                handleReferralNavigation("https://dashboard.torchproxies.com/")
+              }
               className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]"
             >
               {/* Fast 3D text track wrapper */}
@@ -516,7 +519,9 @@ export default function TorchProxiesLandingPage() {
               <div className="pt-4 pb-2">
                 <button
                   onClick={() =>
-                    router.push("https://dashboard.torchproxies.com/")
+                    handleReferralNavigation(
+                      "https://dashboard.torchproxies.com/",
+                    )
                   }
                   className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]"
                 >
@@ -841,7 +846,9 @@ export default function TorchProxiesLandingPage() {
                 {/* --- PRIMARY BUTTON: ROLLING TEXT + GLOW EXPANSION --- */}
                 <button
                   onClick={() =>
-                    router.push("https://dashboard.torchproxies.com/")
+                    handleReferralNavigation(
+                      "https://dashboard.torchproxies.com/",
+                    )
                   }
                   className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#ffffff] text-black font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:scale-[1.02] active:scale-[0.99]"
                 >
@@ -974,7 +981,9 @@ export default function TorchProxiesLandingPage() {
                 <div className="pt-2">
                   <button
                     onClick={() =>
-                      router.push("https://dashboard.torchproxies.com/")
+                      handleReferralNavigation(
+                        "https://dashboard.torchproxies.com/",
+                      )
                     }
                     className="cursor-pointer group relative w-full sm:max-w-[400px] h-[46px] overflow-hidden bg-[#FF4F00] text-white text-sm sm:text-base font-medium rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]"
                   >

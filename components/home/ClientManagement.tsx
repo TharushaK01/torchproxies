@@ -1,14 +1,13 @@
 "use client";
-import { useRouter } from 'next/navigation';
-import { CheckCircle2 } from 'lucide-react';
+import { useRouter } from "next/navigation";
+import { CheckCircle2 } from "lucide-react";
+import { handleReferralNavigation } from "@/lib/referral";
 
 const ClientManagement = () => {
   const router = useRouter();
   return (
     <section className="bg-[#0a0a0a] text-white py-24 px-6 overflow-hidden space-y-6 font-['Urbanist'] pb-24 sm:pb-28">
-
       <div className="max-w-7xl mx-auto space-y-32">
-
         <div className="text-center mb-16">
           <span className="text-[#FE4A01] text-[16px] font-regular tracking-wider block mb-3">
             B2B Services
@@ -17,11 +16,13 @@ const ClientManagement = () => {
             Simplify and scale your business with our easy to use tools.
           </h2>
           <p className="text-stone-400 text-sm sm:text-base max-w-xl mx-auto font-normal">
-
-            Our Proxy Dashboard and Proxy API help resellers manage and distribute proxies efficiently.
+            Our Proxy Dashboard and Proxy API help resellers manage and
+            distribute proxies efficiently.
           </p>
           <button
-            onClick={() => router.push('/b2b-dashboard')}
+            onClick={() =>
+              handleReferralNavigation("https://dashboard.torchproxies.com/")
+            }
             className="
     group relative overflow-hidden 
     bg-gradient-to-r from-orange-600 to-orange-500 
@@ -30,19 +31,13 @@ const ClientManagement = () => {
     hover:scale-[1.01] active:scale-[0.99] transition-all duration-200
   "
           >
-            {/* 🛠️ FIXED: Changed group-hover to rotateX(-90deg) */}
             <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(-90deg)]">
-
-              {/* Default State Text (Visible Initially) */}
               <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
                 Explore B2B products
               </span>
-
-              {/* 🛠️ FIXED: Changed waiting layer starting position to rotateX(90deg) */}
               <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(90deg)_translateZ(12px)] text-white/95">
                 Explore B2B products
               </span>
-
             </div>
           </button>
         </div>
@@ -75,7 +70,9 @@ const ClientManagement = () => {
               Easy Client Management
             </h2>
             <p className="text-gray-400 text-lg leading-relaxed">
-              We provide a centralized platform where resellers can easily manage proxy inventory, monitor client usage, and streamline proxy distribution, all in one place.
+              We provide a centralized platform where resellers can easily
+              manage proxy inventory, monitor client usage, and streamline proxy
+              distribution, all in one place.
             </p>
           </div>
         </div>
@@ -88,7 +85,9 @@ const ClientManagement = () => {
               Quick Proxy Delivery
             </h2>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Our API allows developers to automate proxy delivery, integrate with your current systems, and simplify the reselling process, so you can scale effortlessly.
+              Our API allows developers to automate proxy delivery, integrate
+              with your current systems, and simplify the reselling process, so
+              you can scale effortlessly.
             </p>
           </div>
 
@@ -108,14 +107,24 @@ const ClientManagement = () => {
 
 // Reusable Floating Label Component
 const Label = ({ tag, className }: { tag: string; className: string }) => (
-  <div className={`absolute z-20 flex items-center gap-2 bg-[#ff4500] text-white text-[10px] md:text-xs font-bold px-3 py-2 rounded-full whitespace-nowrap shadow-xl border border-white/20 ${className}`}>
+  <div
+    className={`absolute z-20 flex items-center gap-2 bg-[#ff4500] text-white text-[10px] md:text-xs font-bold px-3 py-2 rounded-full whitespace-nowrap shadow-xl border border-white/20 ${className}`}
+  >
     <CheckCircle2 size={14} className="fill-white text-[#ff4500]" />
     {tag}
   </div>
 );
 
 // Reusable API Endpoint Row
-const Endpoint = ({ method, path, color }: { method: string; path: string; color: string }) => (
+const Endpoint = ({
+  method,
+  path,
+  color,
+}: {
+  method: string;
+  path: string;
+  color: string;
+}) => (
   <div className="bg-black/50 border border-gray-800 rounded px-3 py-2 flex items-center gap-3">
     <span className={`text-[10px] font-black ${color}`}>{method}</span>
     <span className="text-[9px] text-gray-400 font-mono truncate">{path}</span>
