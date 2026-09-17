@@ -4,6 +4,7 @@ import { ChevronDown, Database, RefreshCw, Layers } from "lucide-react";
 import Image from "next/image";
 import FeaturesTabSection from "@/app/web-scraping/FeaturesTabSectio";
 import { useRouter } from "next/navigation";
+import { handleReferralNavigation } from "@/lib/referral";
 
 const Marquee: React.FC = () => (
   <div className="w-full overflow-hidden bg-[#FE4A01] py-3 mt-50 whitespace-nowrap select-none flex">
@@ -746,7 +747,9 @@ export default function TorchProxiesLandingPage() {
               {/* Primary CTA Button */}
               <button
                 onClick={() =>
-                  router.push("https://dashboard.torchproxies.com/")
+                  handleReferralNavigation(
+                    "https://dashboard.torchproxies.com/",
+                  )
                 }
                 className="group relative w-full sm:w-60 h-12 sm:h-14 overflow-hidden bg-[#FE4A01] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(254,74,1,0.25)] hover:shadow-[0_0_35px_rgba(254,74,1,0.5)] hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
               >
@@ -1086,7 +1089,9 @@ export default function TorchProxiesLandingPage() {
               <div className="w-full mb-2">
                 <button
                   onClick={() =>
-                    router.push("https://dashboard.torchproxies.com/")
+                    handleReferralNavigation(
+                      "https://dashboard.torchproxies.com/",
+                    )
                   }
                   className="group relative w-full h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99] cursor-pointer"
                 >
@@ -1309,7 +1314,9 @@ export default function TorchProxiesLandingPage() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
                 <button
                   onClick={() =>
-                    router.push("https://dashboard.torchproxies.com/")
+                    handleReferralNavigation(
+                      "https://dashboard.torchproxies.com/",
+                    )
                   }
                   className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99] cursor-pointer"
                 >

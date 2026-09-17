@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { ChevronDown, Database, RefreshCw, Layers } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { handleReferralNavigation } from "@/lib/referral";
 
 interface Plan {
   name: string;
@@ -538,7 +539,9 @@ export default function AdVerificationClient() {
               {/* Primary Button */}
               <button
                 onClick={() =>
-                  router.push("https://dashboard.torchproxies.com/")
+                  handleReferralNavigation(
+                    "https://dashboard.torchproxies.com/",
+                  )
                 }
                 className="group relative w-full sm:w-60 h-12 sm:h-14 overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]"
               >
@@ -911,7 +914,9 @@ export default function AdVerificationClient() {
                 <div className="pt-8">
                   <button
                     onClick={() =>
-                      router.push("https://dashboard.torchproxies.com/")
+                      handleReferralNavigation(
+                        "https://dashboard.torchproxies.com/",
+                      )
                     }
                     className="group relative w-full h-12 sm:h-14 overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99] cursor-pointer"
                   >
@@ -1082,7 +1087,9 @@ export default function AdVerificationClient() {
               <div className="flex flex-col sm:flex-row items-center justify-center pt-2">
                 <button
                   onClick={() =>
-                    router.push("https://dashboard.torchproxies.com/")
+                    handleReferralNavigation(
+                      "https://dashboard.torchproxies.com/",
+                    )
                   }
                   className="group relative w-full sm:w-60 h-12 sm:h-14 overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99] cursor-pointer"
                 >

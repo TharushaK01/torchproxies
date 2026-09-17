@@ -1,1139 +1,1449 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import { ChevronDown, Database, RefreshCw, Layers} from 'lucide-react';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import React, { useState, useEffect } from "react";
+import { ChevronDown, Database, RefreshCw, Layers } from "lucide-react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { handleReferralNavigation } from "@/lib/referral";
 
 const Marquee: React.FC = () => (
-    <div className="w-full overflow-hidden bg-[#FE4A01] py-3 mt-50 whitespace-nowrap select-none flex">
-        {/* Wrapping container that holds both sets of text */}
-        <div className="flex animate-marquee text-xs font-semibold tracking-wider text-white uppercase">
-            {/* Original Content */}
-            <div className="flex items-center space-x-8 pr-8">
-                <span>• 99.9% uptime guaranteed</span>
-                <span>• Blazing fast proxy speeds</span>
-                <span>• Global geo targeting support</span>
-                <span>• Secure & anonymous connections</span>
-                <span>• Unlimited sessions & rotations</span>
-                <span>• Built for scraping & automation</span>
-            </div>
+  <div className="w-full overflow-hidden bg-[#FE4A01] py-3 mt-50 whitespace-nowrap select-none flex">
+    {/* Wrapping container that holds both sets of text */}
+    <div className="flex animate-marquee text-xs font-semibold tracking-wider text-white uppercase">
+      {/* Original Content */}
+      <div className="flex items-center space-x-8 pr-8">
+        <span>• 99.9% uptime guaranteed</span>
+        <span>• Blazing fast proxy speeds</span>
+        <span>• Global geo targeting support</span>
+        <span>• Secure & anonymous connections</span>
+        <span>• Unlimited sessions & rotations</span>
+        <span>• Built for scraping & automation</span>
+      </div>
 
-            {/* Duplicated Content for Seamless Loop */}
-            <div className="flex items-center space-x-8 pr-8" aria-hidden="true">
-                <span>• 99.9% uptime guaranteed</span>
-                <span>• Blazing fast proxy speeds</span>
-                <span>• Global geo targeting support</span>
-                <span>• Secure & anonymous connections</span>
-                <span>• Unlimited sessions & rotations</span>
-                <span>• Built for scraping & automation</span>
-            </div>
-        </div>
+      {/* Duplicated Content for Seamless Loop */}
+      <div className="flex items-center space-x-8 pr-8" aria-hidden="true">
+        <span>• 99.9% uptime guaranteed</span>
+        <span>• Blazing fast proxy speeds</span>
+        <span>• Global geo targeting support</span>
+        <span>• Secure & anonymous connections</span>
+        <span>• Unlimited sessions & rotations</span>
+        <span>• Built for scraping & automation</span>
+      </div>
+    </div>
 
-        {/* CSS Keyframe for a flawless seamless loop */}
-        <style jsx global>{`
+    {/* CSS Keyframe for a flawless seamless loop */}
+    <style jsx global>{`
       @keyframes marquee {
-        0% { transform: translateX(0%); }
-        100% { transform: translateX(-50%); }
+        0% {
+          transform: translateX(0%);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
       }
       .animate-marquee {
         animation: marquee 25s linear infinite;
       }
     `}</style>
-    </div>
+  </div>
 );
 
 interface Plan {
-    name: string;
-    price: {
-        monthly: string;
-        yearly: string;
-    };
+  name: string;
+  price: {
+    monthly: string;
+    yearly: string;
+  };
 }
 
 const plans: Plan[] = [
-    { name: 'FREE', price: { monthly: '$0', yearly: '$0' } },
-    { name: 'BASIC', price: { monthly: '$100', yearly: '$80' } },
-    { name: 'PREMIUM', price: { monthly: '$160', yearly: '$130' } },
+  { name: "FREE", price: { monthly: "$0", yearly: "$0" } },
+  { name: "BASIC", price: { monthly: "$100", yearly: "$80" } },
+  { name: "PREMIUM", price: { monthly: "$160", yearly: "$130" } },
 ];
 interface FeatureRow {
-    title: string;
-    free: string | boolean;
-    basic: string | boolean;
-    premium: string | boolean;
+  title: string;
+  free: string | boolean;
+  basic: string | boolean;
+  premium: string | boolean;
 }
 
 // Full array representation matching the exact repeat sequence in the screenshot
 const featureMatrix: FeatureRow[] = [
-    // Block 1
-    { title: 'Pay-as-You-Go Billing for Proxies', free: 'Add credits first', basic: 'Pay end of month', premium: 'Pay end of month' },
-    { title: 'Seamless Integration with Porter Proxies Data Center & ISP API', free: false, basic: true, premium: true },
-    { title: 'Custom Proxy Pool Configurations', free: false, basic: false, premium: true },
-    { title: 'Untraceable Proxy Masking', free: 'Add on', basic: '10 Add on - 25% discount', premium: 'Add on - free setup' },
-    { title: 'Remove Torch Labs Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
-    { title: 'Pre-configured Residential Proxy APIs with Free Whitelabeling', free: true, basic: true, premium: true },
-    { title: 'Advanced Chargeback Protection Mechanism', free: false, basic: true, premium: true },
-    { title: 'Fully White Label the Dashboard with Your Domain', free: false, basic: 'Free one time', premium: 'Unlimited' },
-    { title: 'Theme Customization Options for Personalized Branding', free: 'Free one time', basic: 'Free one time', premium: 'Unlimited' },
-    { title: 'Additional Team Member Seats', free: false, basic: false, premium: true },
-    { title: 'Restrict Dashboard Access Using Discord Server Membership or Role', free: false, basic: true, premium: true },
+  // Block 1
+  {
+    title: "Pay-as-You-Go Billing for Proxies",
+    free: "Add credits first",
+    basic: "Pay end of month",
+    premium: "Pay end of month",
+  },
+  {
+    title: "Seamless Integration with Porter Proxies Data Center & ISP API",
+    free: false,
+    basic: true,
+    premium: true,
+  },
+  {
+    title: "Custom Proxy Pool Configurations",
+    free: false,
+    basic: false,
+    premium: true,
+  },
+  {
+    title: "Untraceable Proxy Masking",
+    free: "Add on",
+    basic: "10 Add on - 25% discount",
+    premium: "Add on - free setup",
+  },
+  {
+    title: "Remove Torch Labs Branding",
+    free: false,
+    basic: false,
+    premium: "Add on - 40$/M",
+  },
+  {
+    title: "Pre-configured Residential Proxy APIs with Free Whitelabeling",
+    free: true,
+    basic: true,
+    premium: true,
+  },
+  {
+    title: "Advanced Chargeback Protection Mechanism",
+    free: false,
+    basic: true,
+    premium: true,
+  },
+  {
+    title: "Fully White Label the Dashboard with Your Domain",
+    free: false,
+    basic: "Free one time",
+    premium: "Unlimited",
+  },
+  {
+    title: "Theme Customization Options for Personalized Branding",
+    free: "Free one time",
+    basic: "Free one time",
+    premium: "Unlimited",
+  },
+  {
+    title: "Additional Team Member Seats",
+    free: false,
+    basic: false,
+    premium: true,
+  },
+  {
+    title: "Restrict Dashboard Access Using Discord Server Membership or Role",
+    free: false,
+    basic: true,
+    premium: true,
+  },
 
-    // Block 2
-    { title: 'Pay-as-You-Go Billing for Proxies', free: 'Add credits first', basic: 'Pay end of month', premium: 'Pay end of month' },
-    { title: 'Seamless Integration with Porter Proxies Data Center & ISP API', free: false, basic: true, premium: true },
-    { title: 'Custom Proxy Pool Configurations', free: false, basic: false, premium: true },
-    { title: 'Untraceable Proxy Masking', free: 'Add on', basic: '10 Add on - 25% discount', premium: 'Add on - free setup' },
-    { title: 'Remove Torch Labs Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
-    { title: 'Pre-configured Residential Proxy APIs with Free Whitelabeling', free: true, basic: true, premium: true },
-    { title: 'Advanced Chargeback Protection Mechanism', free: false, basic: true, premium: true },
-    { title: 'Fully White Label the Dashboard with Your Domain', free: false, basic: 'Free one time', premium: 'Unlimited' },
-    { title: 'Theme Customization Options for Personalized Branding', free: 'Free one time', basic: 'Free one time', premium: 'Unlimited' },
-    { title: 'Additional Team Member Seats', free: false, basic: false, premium: true },
-    { title: 'Restrict Dashboard Access Using Discord Server Membership or Role', free: false, basic: true, premium: true },
+  // Block 2
+  {
+    title: "Pay-as-You-Go Billing for Proxies",
+    free: "Add credits first",
+    basic: "Pay end of month",
+    premium: "Pay end of month",
+  },
+  {
+    title: "Seamless Integration with Porter Proxies Data Center & ISP API",
+    free: false,
+    basic: true,
+    premium: true,
+  },
+  {
+    title: "Custom Proxy Pool Configurations",
+    free: false,
+    basic: false,
+    premium: true,
+  },
+  {
+    title: "Untraceable Proxy Masking",
+    free: "Add on",
+    basic: "10 Add on - 25% discount",
+    premium: "Add on - free setup",
+  },
+  {
+    title: "Remove Torch Labs Branding",
+    free: false,
+    basic: false,
+    premium: "Add on - 40$/M",
+  },
+  {
+    title: "Pre-configured Residential Proxy APIs with Free Whitelabeling",
+    free: true,
+    basic: true,
+    premium: true,
+  },
+  {
+    title: "Advanced Chargeback Protection Mechanism",
+    free: false,
+    basic: true,
+    premium: true,
+  },
+  {
+    title: "Fully White Label the Dashboard with Your Domain",
+    free: false,
+    basic: "Free one time",
+    premium: "Unlimited",
+  },
+  {
+    title: "Theme Customization Options for Personalized Branding",
+    free: "Free one time",
+    basic: "Free one time",
+    premium: "Unlimited",
+  },
+  {
+    title: "Additional Team Member Seats",
+    free: false,
+    basic: false,
+    premium: true,
+  },
+  {
+    title: "Restrict Dashboard Access Using Discord Server Membership or Role",
+    free: false,
+    basic: true,
+    premium: true,
+  },
 
-    // Block 3
-    { title: 'Pay-as-You-Go Billing for Proxies', free: 'Add credits first', basic: 'Pay end of month', premium: 'Pay end of month' },
-    { title: 'Seamless Integration with Porter Proxies Data Center & ISP API', free: false, basic: true, premium: true },
-    { title: 'Custom Proxy Pool Configurations', free: false, basic: false, premium: true },
-    { title: 'Untraceable Proxy Masking', free: 'Add on', basic: '10 Add on - 25% discount', premium: 'Add on - free setup' },
-    { title: 'Remove Torch Labs Branding', free: false, basic: false, premium: 'Add on - 40$/M' },
-    { title: 'Pre-configured Residential Proxy APIs with Free Whitelabeling', free: true, basic: true, premium: true },
-    { title: 'Advanced Chargeback Protection Mechanism', free: false, basic: true, premium: true },
-    { title: 'Fully White Label the Dashboard with Your Domain', free: false, basic: 'Free one time', premium: 'Unlimited' },
-    { title: 'Theme Customization Options for Personalized Branding', free: 'Free one time', basic: 'Free one time', premium: 'Unlimited' },
-    { title: 'Additional Team Member Seats', free: false, basic: false, premium: true },
-    { title: 'Restrict Dashboard Access Using Discord Server Membership or Role', free: false, basic: true, premium: true }
+  // Block 3
+  {
+    title: "Pay-as-You-Go Billing for Proxies",
+    free: "Add credits first",
+    basic: "Pay end of month",
+    premium: "Pay end of month",
+  },
+  {
+    title: "Seamless Integration with Porter Proxies Data Center & ISP API",
+    free: false,
+    basic: true,
+    premium: true,
+  },
+  {
+    title: "Custom Proxy Pool Configurations",
+    free: false,
+    basic: false,
+    premium: true,
+  },
+  {
+    title: "Untraceable Proxy Masking",
+    free: "Add on",
+    basic: "10 Add on - 25% discount",
+    premium: "Add on - free setup",
+  },
+  {
+    title: "Remove Torch Labs Branding",
+    free: false,
+    basic: false,
+    premium: "Add on - 40$/M",
+  },
+  {
+    title: "Pre-configured Residential Proxy APIs with Free Whitelabeling",
+    free: true,
+    basic: true,
+    premium: true,
+  },
+  {
+    title: "Advanced Chargeback Protection Mechanism",
+    free: false,
+    basic: true,
+    premium: true,
+  },
+  {
+    title: "Fully White Label the Dashboard with Your Domain",
+    free: false,
+    basic: "Free one time",
+    premium: "Unlimited",
+  },
+  {
+    title: "Theme Customization Options for Personalized Branding",
+    free: "Free one time",
+    basic: "Free one time",
+    premium: "Unlimited",
+  },
+  {
+    title: "Additional Team Member Seats",
+    free: false,
+    basic: false,
+    premium: true,
+  },
+  {
+    title: "Restrict Dashboard Access Using Discord Server Membership or Role",
+    free: false,
+    basic: true,
+    premium: true,
+  },
 ];
 
-
 interface FeatureItem {
-    title: string;
-    desc: string;
+  title: string;
+  desc: string;
 }
 
 const features: FeatureItem[] = [
-    {
-        title: 'Device Fingerprinting Beyond IPs',
-        desc: "Ad platforms analyze Canvas, WebGL, audio context, and font rendering. Headless browsers and automation leave fingerprints real users don't",
-    },
-    {
-        title: 'Behavioral Signal Analysis',
-        desc: 'Real users scroll, pause, hesitate, and browse naturally. Verification bots generate perfect timing and zero interaction, instant detection.',
-    },
-    {
-        title: 'IP Reputation & ASN Databases',
-        desc: 'Google Ads and Meta cross-check IPs against MaxMind, IPQualityScore, and internal ASN lists. Datacenter are flagged in real time.',
-    },
+  {
+    title: "Device Fingerprinting Beyond IPs",
+    desc: "Ad platforms analyze Canvas, WebGL, audio context, and font rendering. Headless browsers and automation leave fingerprints real users don't",
+  },
+  {
+    title: "Behavioral Signal Analysis",
+    desc: "Real users scroll, pause, hesitate, and browse naturally. Verification bots generate perfect timing and zero interaction, instant detection.",
+  },
+  {
+    title: "IP Reputation & ASN Databases",
+    desc: "Google Ads and Meta cross-check IPs against MaxMind, IPQualityScore, and internal ASN lists. Datacenter are flagged in real time.",
+  },
 ];
 
 interface ProxyCard {
-    title: string;
-    description: string;
-    price: string;
-    badge?: {
-        text: string;
-        variant: 'popular' | 'enterprise';
-    };
-    iconType: 'residential' | 'hybrid';
-    features: string[];
+  title: string;
+  description: string;
+  price: string;
+  badge?: {
+    text: string;
+    variant: "popular" | "enterprise";
+  };
+  iconType: "residential" | "hybrid";
+  features: string[];
 }
 
-
 interface ComparisonRow {
-    metric: string;
-    brightData: string | boolean;
-    oxylabs: string | boolean;
-    torchProxies: string | boolean; // Your highlighted column
-    proxyEmpire: string | boolean;
-    nodeMaven: string | boolean;
+  metric: string;
+  brightData: string | boolean;
+  oxylabs: string | boolean;
+  torchProxies: string | boolean; // Your highlighted column
+  proxyEmpire: string | boolean;
+  nodeMaven: string | boolean;
 }
 
 const comparisonData: ComparisonRow[] = [
-    {
-        metric: 'Price',
-        brightData: '$8 per GB',
-        oxylabs: '$8 per GB',
-        torchProxies: '$4 per GB',
-        proxyEmpire: '$4 per GB',
-        nodeMaven: '$4 per GB',
-    },
-    {
-        metric: 'Pool Size',
-        brightData: '150M+ IPs',
-        oxylabs: '175M+ IPs',
-        torchProxies: '120M IPs',
-        proxyEmpire: '29.5M+ IPs',
-        nodeMaven: '30M+ IPs',
-    },
-    {
-        metric: 'Countries',
-        brightData: '195 Countries',
-        oxylabs: '195+ Countries',
-        torchProxies: '195+ Countries',
-        proxyEmpire: '170+ Countries',
-        nodeMaven: '195+ Countries',
-    },
-    {
-        metric: 'Minimum Purchase',
-        brightData: 'Pay as you go\n(No Minimum)',
-        oxylabs: 'Pay as you go\n(5GB Min)',
-        torchProxies: 'Pay as you go\n(No Minimum)',
-        proxyEmpire: 'Pay as you go\n(No Minimum)',
-        nodeMaven: 'Pay as you go\n(9 GB Minimum)',
-    },
-    {
-        metric: 'Free Trial',
-        brightData: true,
-        oxylabs: true,
-        torchProxies: true,
-        proxyEmpire: false,
-        nodeMaven: false,
-    },
+  {
+    metric: "Price",
+    brightData: "$8 per GB",
+    oxylabs: "$8 per GB",
+    torchProxies: "$4 per GB",
+    proxyEmpire: "$4 per GB",
+    nodeMaven: "$4 per GB",
+  },
+  {
+    metric: "Pool Size",
+    brightData: "150M+ IPs",
+    oxylabs: "175M+ IPs",
+    torchProxies: "120M IPs",
+    proxyEmpire: "29.5M+ IPs",
+    nodeMaven: "30M+ IPs",
+  },
+  {
+    metric: "Countries",
+    brightData: "195 Countries",
+    oxylabs: "195+ Countries",
+    torchProxies: "195+ Countries",
+    proxyEmpire: "170+ Countries",
+    nodeMaven: "195+ Countries",
+  },
+  {
+    metric: "Minimum Purchase",
+    brightData: "Pay as you go\n(No Minimum)",
+    oxylabs: "Pay as you go\n(5GB Min)",
+    torchProxies: "Pay as you go\n(No Minimum)",
+    proxyEmpire: "Pay as you go\n(No Minimum)",
+    nodeMaven: "Pay as you go\n(9 GB Minimum)",
+  },
+  {
+    metric: "Free Trial",
+    brightData: true,
+    oxylabs: true,
+    torchProxies: true,
+    proxyEmpire: false,
+    nodeMaven: false,
+  },
 ];
 
 export default function TorchProxiesLandingPage() {
-    const router = useRouter();
-    const [activeFaq, setActiveFaq] = useState<number | null>(null);
-    const [selectedTier, setSelectedTier] = useState<string>("5GB");
+  const router = useRouter();
+  const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const [selectedTier, setSelectedTier] = useState<string>("5GB");
 
-    const barConfigs = Array.from({ length: 32 }, (_, i) => ({
-        id: i,
-        isActive: true,
-        isDimmed: i >= 30
-    }));
-    const locations = [
-        { code: 'US', name: 'United States', ips: '4,429,824' },
-        { code: 'GB', name: 'United Kingdom', ips: '1,449,139' },
-        { code: 'DE', name: 'Germany', ips: '1,431,960' },
-        { code: 'AU', name: 'Australia', ips: '452,720' },
-        { code: 'CA', name: 'Canada', ips: '815,658' },
-        { code: 'MX', name: 'Mexico', ips: '4,429,824' },
-        { code: 'CN', name: 'China', ips: '4,429,824' },
-        { code: 'FR', name: 'France', ips: '4,429,824' },
-    ];
+  const barConfigs = Array.from({ length: 32 }, (_, i) => ({
+    id: i,
+    isActive: true,
+    isDimmed: i >= 30,
+  }));
+  const locations = [
+    { code: "US", name: "United States", ips: "4,429,824" },
+    { code: "GB", name: "United Kingdom", ips: "1,449,139" },
+    { code: "DE", name: "Germany", ips: "1,431,960" },
+    { code: "AU", name: "Australia", ips: "452,720" },
+    { code: "CA", name: "Canada", ips: "815,658" },
+    { code: "MX", name: "Mexico", ips: "4,429,824" },
+    { code: "CN", name: "China", ips: "4,429,824" },
+    { code: "FR", name: "France", ips: "4,429,824" },
+  ];
 
+  const pricingData = {
+    "1GB": { price: "$4.00", total: "$4.00", perGb: "$4/GB" },
+    "5GB": {
+      price: "$3.80",
+      total: "$19.00",
+      perGb: "$3.80/GB",
+      popular: true,
+    },
+    "25GB": { price: "$3.50", total: "$87.50", perGb: "$3.50/GB" },
+    "100GB": { price: "$3.00", total: "$300.00", perGb: "$3.00/GB" },
+    "500GB": { price: "$2.50", total: "$1,250.00", perGb: "$2.50/GB" },
+    "1000GB": { price: "$2.00", total: "$2,000.00", perGb: "$2.00/GB" },
+  };
+  const [selectedPlan, setSelectedPlan] = useState("1GB");
 
-    const pricingData = {
-        "1GB": { price: "$4.00", total: "$4.00", perGb: "$4/GB" },
-        "5GB": { price: "$3.80", total: "$19.00", perGb: "$3.80/GB", popular: true },
-        "25GB": { price: "$3.50", total: "$87.50", perGb: "$3.50/GB" },
-        "100GB": { price: "$3.00", total: "$300.00", perGb: "$3.00/GB" },
-        "500GB": { price: "$2.50", total: "$1,250.00", perGb: "$2.50/GB" },
-        "1000GB": { price: "$2.00", total: "$2,000.00", perGb: "$2.00/GB" },
-    };
-    const [selectedPlan, setSelectedPlan] = useState('1GB');
+  // Hardcoded pricing tiers matching the design exactly
+  const tiers = [
+    { id: "1GB", size: "5 ISP", price: "$ 2.4", discount: "0% OFF" },
+    { id: "5GB", size: "25 ISP", price: "$ 2.3", discount: "4.17% OFF" },
+    { id: "25GB", size: "50 ISP", price: "$ 2.3", discount: "4.17% OFF" },
+    { id: "100GB", size: "100 ISP", price: "$ 2.3", discount: "4.17% OFF" },
+    { id: "500GB", size: "200 ISP", price: "$ 2.3", discount: "4.17% OFF" },
+    { id: "1000GB", size: "254 ISP", price: "$ 2.3", discount: "4.17% OFF" },
+  ];
+  const features = [
+    {
+      icon: <Database className="text-white w-4 h-4" />,
+      title: "Browser Fingerprinting Detection",
+      desc: "Ticketmaster checks 50+ browser signals. If your fingerprint doesn’t match your IP type, you’re blocked instantly.",
+    },
+    {
+      icon: <RefreshCw className="text-white w-4 h-4" />,
+      title: "IP Reputation Scoring",
+      desc: "Akamai and Cloudflare score every IP. Datacenter and overused residential IPs are flagged before the queue even loads.",
+    },
+    {
+      icon: <Layers className="text-white w-4 h-4" />,
+      title: "Behavioral & Queue Monitoring",
+      desc: "Queue-IT tracks clicks, timing, and refresh behavior. Move too fast or too early, and your session gets reset.",
+    },
+  ];
+  const [activeTab, setActiveTab] = useState<"premium" | "planX">("premium");
 
-    // Hardcoded pricing tiers matching the design exactly
-    const tiers = [
-        { id: '1GB', size: '5 ISP', price: '$ 2.4', discount: '0% OFF' },
-        { id: '5GB', size: '25 ISP', price: '$ 2.3', discount: '4.17% OFF' },
-        { id: '25GB', size: '50 ISP', price: '$ 2.3', discount: '4.17% OFF' },
-        { id: '100GB', size: '100 ISP', price: '$ 2.3', discount: '4.17% OFF' },
-        { id: '500GB', size: '200 ISP', price: '$ 2.3', discount: '4.17% OFF' },
-        { id: '1000GB', size: '254 ISP', price: '$ 2.3', discount: '4.17% OFF' },
-    ];
-    const features = [
-        {
-            icon: <Database className="text-white w-4 h-4" />,
-            title: "Browser Fingerprinting Detection",
-            desc: "Ticketmaster checks 50+ browser signals. If your fingerprint doesn’t match your IP type, you’re blocked instantly."
-        },
-        {
-            icon: <RefreshCw className="text-white w-4 h-4" />,
-            title: "IP Reputation Scoring",
-            desc: "Akamai and Cloudflare score every IP. Datacenter and overused residential IPs are flagged before the queue even loads."
-        },
-        {
-            icon: <Layers className="text-white w-4 h-4" />,
-            title: "Behavioral & Queue Monitoring",
-            desc: "Queue-IT tracks clicks, timing, and refresh behavior. Move too fast or too early, and your session gets reset."
-        },
-    ];
-    const [activeTab, setActiveTab] = useState<'premium' | 'planX'>('premium');
-
-    const reviews = [
-        { name: "Alex K.", role: "Lead Scraping Engineer", text: "Absolute game changer for parsing target inventory updates. The success parameters are consistently stable." },
-        { name: "Sarah M.", role: "DevOps Architect", text: "IP targeting is granular down to city targets. The latency levels are significantly lower than competitive alternatives." },
-        { name: "David L.", role: "Automated Data Analyst", text: "Top tier network infrastructure. The standard volume tier setups maintain premium speeds without bottleneck dropouts." },
-    ];
-type FaqItem = {
+  const reviews = [
+    {
+      name: "Alex K.",
+      role: "Lead Scraping Engineer",
+      text: "Absolute game changer for parsing target inventory updates. The success parameters are consistently stable.",
+    },
+    {
+      name: "Sarah M.",
+      role: "DevOps Architect",
+      text: "IP targeting is granular down to city targets. The latency levels are significantly lower than competitive alternatives.",
+    },
+    {
+      name: "David L.",
+      role: "Automated Data Analyst",
+      text: "Top tier network infrastructure. The standard volume tier setups maintain premium speeds without bottleneck dropouts.",
+    },
+  ];
+  type FaqItem = {
     text: string;
     label?: string;
     color?: string;
     step?: number;
-};
+  };
 
-type FaqEntry = {
+  type FaqEntry = {
     q: string;
     items: FaqItem[];
-};
+  };
 
-const faqData: FaqEntry[] = [
-
-
-  {
-    q: "What are Ticketmaster proxies?",
-    items: [
-        { text: "Ticketmaster proxies are IP addresses that mask your real connection when accessing Ticketmaster, AXS, SeatGeek, or See Tickets, making your requests appear to originate from a different location or user. They serve two distinct purposes: bypassing geo-restrictions on presales or regional on-sales, and entering high-demand virtual queues from multiple IP positions simultaneously." },
-    ]
-},
-
-   {
-    q: "How do Ticketmaster proxies work?",
-    items: [
-        { 
-            text: "During a major on-sale, a Taylor Swift tour, Super Bowl, or Champions League final , Ticketmaster deploys Queue-it virtual waiting rooms and Akamai Bot Manager to enforce strict per-IP limits. Here's how proxies interact with that system:" 
+  const faqData: FaqEntry[] = [
+    {
+      q: "What are Ticketmaster proxies?",
+      items: [
+        {
+          text: "Ticketmaster proxies are IP addresses that mask your real connection when accessing Ticketmaster, AXS, SeatGeek, or See Tickets, making your requests appear to originate from a different location or user. They serve two distinct purposes: bypassing geo-restrictions on presales or regional on-sales, and entering high-demand virtual queues from multiple IP positions simultaneously.",
         },
-        { 
-            step: 1, 
-            color: "bg-orange-600", 
-            text: "On-sale or presale goes live. Ticketmaster opens the queue for a high-demand event Taylor Swift Eras Tour, Oasis, Glastonbury, or an NFL playoff game. Millions of fans hit the site simultaneously and Queue-it assigns each IP a unique position in the virtual waiting room." 
+      ],
+    },
+
+    {
+      q: "How do Ticketmaster proxies work?",
+      items: [
+        {
+          text: "During a major on-sale, a Taylor Swift tour, Super Bowl, or Champions League final , Ticketmaster deploys Queue-it virtual waiting rooms and Akamai Bot Manager to enforce strict per-IP limits. Here's how proxies interact with that system:",
         },
-        { 
-            step: 2, 
-            color: "bg-orange-600", 
-            text: "Each proxy IP enters the queue independently. Rather than one home IP holding one queue position, each residential or ISP proxy is assigned its own separate position, multiplying your chances of reaching the ticket selection page before inventory sells out." 
+        {
+          step: 1,
+          color: "bg-orange-600",
+          text: "On-sale or presale goes live. Ticketmaster opens the queue for a high-demand event Taylor Swift Eras Tour, Oasis, Glastonbury, or an NFL playoff game. Millions of fans hit the site simultaneously and Queue-it assigns each IP a unique position in the virtual waiting room.",
         },
-        { 
-            step: 3, 
-            color: "bg-orange-600", 
-            text: "Akamai Bot Manager screens each IP. As queue positions advance, Akamai checks IP reputation, TLS fingerprints, and browser behaviour signals. Clean residential IPs pass through; datacenter or flagged IPs are bounced back to the end of the queue or blocked entirely." 
+        {
+          step: 2,
+          color: "bg-orange-600",
+          text: "Each proxy IP enters the queue independently. Rather than one home IP holding one queue position, each residential or ISP proxy is assigned its own separate position, multiplying your chances of reaching the ticket selection page before inventory sells out.",
         },
-        { 
-            step: 4, 
-            color: "bg-orange-600", 
-            text: "The fastest clean queue position reaches ticket selection. The proxy-backed session that clears the queue first reaches the ticket selection screen and proceeds through checkout with a unique account, payment method, and delivery address." 
+        {
+          step: 3,
+          color: "bg-orange-600",
+          text: "Akamai Bot Manager screens each IP. As queue positions advance, Akamai checks IP reputation, TLS fingerprints, and browser behaviour signals. Clean residential IPs pass through; datacenter or flagged IPs are bounced back to the end of the queue or blocked entirely.",
         },
-        { 
-            step: 5, 
-            color: "bg-orange-600", 
-            text: "Used or flagged IPs are retired after the on-sale. Any proxy that triggered a CAPTCHA, queue-ban, or session error during the on-sale is removed from the pool — keeping remaining IPs clean for the next on-sale or presale window." 
+        {
+          step: 4,
+          color: "bg-orange-600",
+          text: "The fastest clean queue position reaches ticket selection. The proxy-backed session that clears the queue first reaches the ticket selection screen and proceeds through checkout with a unique account, payment method, and delivery address.",
         },
-    ]
-},
-  {
-    q: "What are the best proxies for Ticketmaster?",
-    items: [
-        { text: "Ticketmaster runs one of the most advanced bot-detection systems of any consumer platform , combining Queue-it queue fingerprinting, Akamai Bot Manager, and its own internal fraud layer. Only residential-grade IPs survive long enough to reach the ticket selection screen. Here's how each proxy type performs:" },
-          { label: "BEST", color: "bg-teal-500", text: "ISP (Static Residential) Proxies — The top choice for speed-critical on-sales on Ticketmaster US, Ticketmaster UK, and AXS. Datacenter-grade speed with residential IP legitimacy — critical for surviving Akamai's detection during the high-traffic queue window. Static IPs maintain a consistent session fingerprint throughout the full queue-to-checkout flow." },
-            { label: "STRONG", color: "bg-cyan-500", text: "Rotating Residential Proxies — Best for See Tickets, DICE, AEW, and Eventbrite where Queue-it is used but Akamai detection is less aggressive. Genuine ISP-assigned IPs that blend into organic fan traffic. Also ideal for multi-session presale access and geo-restricted regional on-sales." },
-    ]
-},
-];
-    const BRAND_LOGOS = [
-        { name: "Shield Proxies", src: "/images/business/shield.png" },
-        { name: "Boiling Proxies", src: "/images/business/boiling.png" },
-        { name: "Sugar Proxies", src: "/images/business/sugar.png" },
-        { name: "Malice Proxies", src: "/images/business/malke.png" },
-        { name: "Proxify.gg", src: "/images/business/proxify.png" }
-    ];
-    const [isMonthly, setIsMonthly] = useState<boolean>(true);
-
-    // Custom logic to swap true/false variables out for exact vector SVGs
-    const renderCell = (val: string | boolean) => {
-        if (typeof val === 'boolean') {
-            return val ? (
-                // Circular Orange Check Icon
-                <div className="flex justify-center">
-                    <div className="w-5 h-5 rounded-full bg-[#FF4F00] flex items-center justify-center text-black">
-                        <svg className="w-3 h-3 stroke-[3.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                    </div>
-                </div>
-            ) : (
-                // Circular Dimmed Cross Close Icon
-                <div className="flex justify-center">
-                    <div className="w-5 h-5 rounded-full border border-zinc-800 flex items-center justify-center text-zinc-600">
-                        <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </div>
-                </div>
-            );
-        }
-
-        // Fallback string printing for dynamic descriptors
-        return <span className="text-zinc-400 text-[13px] tracking-wide font-normal">{val}</span>;
-    };
-
-
-    // The exact words cycled in the video
-    const words = ["Amazon", "eBay", "Shopify", "Craigslist", "Coupang", "Google", "LinkedIn", "Social Media"];
-
-    const [currentWordIndex, setCurrentWordIndex] = useState(0);
-    const [fadeState, setFadeState] = useState<'fade-in' | 'fade-out'>('fade-in');
-
-    useEffect(() => {
-        // 1. Set up an interval to trigger the fade-out right before switching words
-        const fadeTimeout = setTimeout(() => {
-            setFadeState('fade-out');
-        }, 2000); // Word stays visible for 2 seconds
-
-        const changeWordTimeout = setTimeout(() => {
-            setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
-            setFadeState('fade-in');
-        }, 2300); // 300ms transition delay to finish fading out
-
-        return () => {
-            clearTimeout(fadeTimeout);
-            clearTimeout(changeWordTimeout);
-        };
-    }, [currentWordIndex]);
-
-
-
-    // Custom helper to render text lines, checkmarks, or X marks
-    const renderCellContent = (value: string | boolean, isHighlighted = false) => {
-        if (typeof value === 'boolean') {
-            return value ? (
-                // Green Checkmark
-                <div className="flex justify-center">
-                    <div className="w-5 h-5 rounded-full bg-[#10B981]/20 flex items-center justify-center text-[#10B981]">
-                        <svg className="w-3.5 h-3.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                    </div>
-                </div>
-            ) : (
-                // Muted Gray X Mark
-                <div className="flex justify-center">
-                    <div className="w-5 h-5 rounded-full border border-zinc-800 flex items-center justify-center text-zinc-600">
-                        <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </div>
-                </div>
-            );
-        }
-
-        // Handles line breaks cleanly for text configurations
-        return (
-            <span className={`text-[13px] whitespace-pre-line tracking-wide font-normal leading-relaxed ${isHighlighted ? 'text-zinc-300' : 'text-zinc-500'
-                }`}>
-                {value}
-            </span>
-        );
-    };
-
-
-
-    return (
-        <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden font-['Urbanist']">
-{/* ── SECTION: HERO ─────────────────────────────────────────────── */}
-<section className="relative bg-[#0a0a0a] text-white min-h-[650px] flex items-center py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden font-['Urbanist'] mt-16 sm:mt-24">
-  <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
-    {/* --- LEFT COLUMN: CONTENT & CALL TO ACTION --- */}
-    <div className="lg:col-span-7 flex flex-col items-start z-10 space-y-6">
-
-      {/* Trustpilot Badge Block */}
-      <div className="flex items-center">
-        <a
-          href="https://www.trustpilot.com/review/torchlabs.xyz"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="cursor-pointer"
-        >
-          <img
-            src="/images/TrustPiolet.png"
-            alt="Excellent 5-star rating on Trustpilot"
-            className="h-8 w-auto object-contain"
-            loading="lazy"
-          />
-        </a>
-      </div>
-
-      {/* Heading */}
-      <h1 className="text-3xl sm:text-5xl lg:text-[56px] font-medium tracking-tight leading-[1.1] max-w-xl text-white">
-        Best Ticketmaster Proxies. Never Miss Out on Tickets Again
-      </h1>
-
-      {/* Subheading */}
-      <p className="text-stone-400 text-sm sm:text-base lg:text-lg max-w-xl font-normal leading-relaxed select-none">
-        Get Past Ticketmaster Bans Without Breaking Your Session
-      </p>
-
-      {/* Features Inline List */}
-      <div className="flex flex-wrap gap-x-6 gap-y-3 items-center text-xs sm:text-sm text-stone-300">
-        {[
-          '97% IP Quality',
-          '99.9% Success Rate',
-          'Unlimited Bandwidth',
-        ].map((item, idx) => (
-          <div key={idx} className="flex items-center gap-1.5">
-            <svg className="w-4 h-4 text-[#FF4F00] shrink-0 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
-            <span>{item}</span>
-          </div>
-        ))}
-      </div>
-
-      {/* Action Buttons Row */}
-      <div className="flex flex-col sm:flex-row items-center gap-4 w-full pt-2">
-
-        {/* Primary Button */}
-        <button
-          onClick={() => router.push('https://dashboard.torchproxies.com/')}
-          className="group relative w-full sm:w-60 h-12 sm:h-14 overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99] cursor-pointer"
-        >
-          <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)] text-sm font-medium">
-              Try Now
-            </span>
-            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90 text-sm font-medium">
-              Try Now
-            </span>
-          </div>
-        </button>
-
-        {/* Secondary Button */}
-        <button
-          onClick={() => {
-            document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' });
-          }}
-          className="group relative w-full sm:w-60 h-12 sm:h-14 overflow-hidden bg-transparent border border-stone-700 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96] cursor-pointer"
-        >
-          <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)] text-sm font-medium">
-              View Pricing
-            </span>
-            <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white text-sm font-medium">
-              View Pricing
-            </span>
-          </div>
-        </button>
-
-      </div>
-
-    </div>
-
-    {/* --- RIGHT COLUMN: MAIN COLUMN IMAGE --- */}
-    <div className="lg:col-span-5 relative flex items-center justify-center w-full">
-      {/* Ambient Glow Effect */}
-      <div
-        className="absolute w-[300px] h-[300px] bg-[#FF4F00]/15 rounded-full blur-[80px] pointer-events-none select-none"
-        aria-hidden="true"
-      />
-
-      <div className="relative w-full max-w-[480px] aspect-[4/3]">
-        <Image
-          src="/images/tickets_again.png"
-          alt="Proxy Network Infrastructure Ad Verification Illustration"
-          fill
-          priority
-          className="object-contain"
-        />
-      </div>
-    </div>
-
-  </div>
-</section>
-{/* ── SECTION: WHY ACCESS DENIED / FEATURES GRID ────────────────── */}
-<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden">
-  <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16">
-
-    {/* Header Section */}
-    <div className="text-center max-w-4xl mx-auto space-y-3.5">
-      <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
-        Why Do You Keep Getting “Access Denied” on Ticketmaster?
-      </h2>
-      <p className="text-stone-400 text-xs sm:text-sm lg:text-base font-normal max-w-3xl mx-auto leading-relaxed">
-        Most ticket failures aren’t caused by your bot. They’re caused by IP reputation, fingerprint detection and unstable queue sessions.
-      </p>
-    </div>
-
-    {/* Features Grid */}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-      {features.map((item, index) => (
-        <div
-          key={index}
-          className="bg-[#0d0d0d] border border-stone-800/80 rounded-2xl p-6 sm:p-8 flex flex-col items-start text-left transition-all duration-200 hover:border-stone-700"
-        >
-          {/* Flame Icon Container */}
-          <div className="w-12 h-12 rounded-xl bg-[#050505] flex items-center justify-center p-2.5 relative overflow-hidden mb-6">
-            <Image
-              src="/images/icon/Flame.svg"
-              alt="Flame Icon"
-              width={24}
-              height={24}
-              className="object-contain w-full h-full"
-              priority
-            />
-          </div>
-
-          {/* Feature Title */}
-          <h3 className="text-lg sm:text-xl font-medium text-white tracking-tight mb-3">
-            {item.title}
-          </h3>
-
-          {/* Feature Description */}
-          <p className="text-stone-400 text-xs sm:text-sm font-normal leading-relaxed">
-            {item.desc}
-          </p>
-        </div>
-      ))}
-    </div>
-
-  </div>
-</section>
-{/* ── SECTION: WHY DETECTION RUINS TICKET CHANCES ────────────────── */}
-<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden">
-  <div className="max-w-7xl mx-auto">
-
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-      
-      {/* Visual Side */}
-      <div className="lg:col-span-6 relative group">
-        <div className="bg-[#0d0d0d] border border-stone-800/80 rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
-          <div className="bg-[#050505] rounded-2xl overflow-hidden flex items-center justify-center">
-            <Image
-              src="/images/ticket_chances.png"
-              alt="Perfect for Everyday Scraping & Automation"
-              width={600}
-              height={450}
-              className="w-full h-auto object-cover rounded-2xl"
-              priority
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Text Side */}
-      <div className="lg:col-span-6 space-y-6 sm:space-y-8">
-        
-        <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
-          Why Detection Ruins Your Ticket Chances
-        </h2>
-
-        <div className="space-y-6">
-          <div className="space-y-2">
-            <h4 className="text-lg sm:text-xl font-medium text-stone-200">
-              Incomplete or Killed Sessions
-            </h4>
-            <p className="text-stone-400 text-xs sm:text-sm font-normal leading-relaxed">
-              If your IP is flagged, your queue session is invalidated instantly even seconds before checkout.
-            </p>
-          </div>
-
-          <div className="space-y-2">
-            <h4 className="text-lg sm:text-xl font-medium text-stone-200">
-              Forced Queue Re-entry
-            </h4>
-            <p className="text-stone-400 text-xs sm:text-sm font-normal leading-relaxed">
-              Fail a reputation check and you’re pushed back or removed from the queue. In high-demand drops, one reset means lost tickets.
-            </p>
-          </div>
-
-          <div className="space-y-2">
-            <h4 className="text-lg sm:text-xl font-medium text-stone-200">
-              Checkout Timing Loss
-            </h4>
-            <p className="text-stone-400 text-xs sm:text-sm font-normal leading-relaxed">
-              Any delay, flag, or extra verification slows you down — and inventory sells out before you complete payment.
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-</section>
-{/* ── SECTION: ONE PROXY BUILT FOR HIGH-DEMAND SALES ─────────────── */}
-<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden">
-  <div className="max-w-7xl mx-auto">
-    <div className="text-center max-w-4xl mx-auto space-y-3.5">
-      <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
-        One Proxy Built for High-Demand Sales
-      </h2>
-      <p className="text-stone-400 text-xs sm:text-sm lg:text-base font-normal max-w-3xl mx-auto leading-relaxed">
-        A single clean ISP IP can outperform 20 low quality residential IPs.
-      </p>
-    </div>
-  </div>
-</section>
-{/* ── SECTION: WHAT ARE TICKETMASTER PROXIES ────────────────────── */}
-<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden">
-  <div className="max-w-7xl mx-auto">
-
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-
-      {/* Text Side (Column 1) */}
-      <div className="lg:col-span-6 space-y-6">
-        
-        <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
-          What are Ticketmaster Proxies?
-        </h2>
-
-        <p className="text-stone-400 text-xs sm:text-sm lg:text-base font-normal leading-relaxed">
-          Ticketmaster proxies mask your real IP address when accessing Ticketmaster, AXS, SeatGeek, or See Tickets.
-        </p>
-
-        <ul className="space-y-3 pt-2 text-stone-400 text-xs sm:text-sm lg:text-base">
-          {[
-            'Bypass IP-based restrictions',
-            'Enter multiple queue positions',
-            'Avoid geo-blocks',
-            'Maintain session stability',
-          ].map((item, idx) => (
-            <li key={idx} className="flex items-center gap-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FF4F00] shrink-0" />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-
-      </div>
-
-      {/* Visual Side (Column 2) */}
-      <div className="lg:col-span-6 relative group">
-        <div className="bg-[#0d0d0d] border border-stone-800/80 rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
-          <div className="bg-[#050505] rounded-2xl overflow-hidden flex items-center justify-center">
-            <Image
-              src="/images/ticketmaster_proxies.png"
-              alt="Ticketmaster Proxies Infrastructure Illustration"
-              width={600}
-              height={450}
-              className="w-full h-auto object-cover rounded-2xl"
-              priority
-            />
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-{/* ── SECTION: WHY OUR ISP PROXIES WIN ON TICKETMASTER ──────────── */}
-<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden">
-  <div className="max-w-7xl mx-auto">
-
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-
-      {/* Visual Side (Column 1 - Image first on desktop layout swap) */}
-      <div className="lg:col-span-6 relative group order-2 lg:order-1">
-        <div className="bg-[#0d0d0d] border border-stone-800/80 rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
-          <div className="bg-[#050505] rounded-2xl overflow-hidden flex items-center justify-center">
-            <Image
-              src="/images/win_on_ticketmaster.png"
-              alt="Why ISP Proxies Win on Ticketmaster Illustration"
-              width={600}
-              height={450}
-              className="w-full h-auto object-cover rounded-2xl"
-              priority
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Text Side (Column 2) */}
-      <div className="lg:col-span-6 space-y-6 order-1 lg:order-2">
-        
-        <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
-          Why Our ISP Proxies Win on Ticketmaster
-        </h2>
-
-        <p className="text-stone-400 text-xs sm:text-sm lg:text-base font-normal leading-relaxed">
-          Ticketmaster blocks standard proxies in seconds. Our ISP proxies use real ISP assigned IPs that pass residential verification while delivering true datacenter level speed so your session stays stable from queue to checkout.
-        </p>
-
-        <ul className="space-y-3 pt-2 text-stone-400 text-xs sm:text-sm lg:text-base">
-          {[
-            'Pass Akamai and Cloudflare residential checks without triggering fraud filters.',
-            '0.12s response time fast enough to compete during high-demand on-sales.',
-            'No mid queue IP rotation. Your position stays locked until checkout.',
-            'Flagged IPs are removed immediately to maintain consistent pass rates.',
-          ].map((item, idx) => (
-            <li key={idx} className="flex items-start gap-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FF4F00] shrink-0 mt-2" />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-
-      </div>
-
-    </div>
-
-  </div>
-</section>
-{/* ── SECTION: PRICING / RIGHT PROXIES FOR TICKETMASTER DROPS ──────────── */}
-<section id="pricing-section" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden">
-  <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16">
-
-    {/* --- HEADER --- */}
-    <div className="text-center max-w-4xl mx-auto space-y-3.5">
-      <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
-        The Right Proxies for Ticketmaster Drops
-      </h2>
-      <p className="text-stone-400 text-xs sm:text-sm lg:text-base font-normal max-w-3xl mx-auto leading-relaxed">
-        Select the proxy type built for high demand on sales, queue stability and zero session resets.
-      </p>
-    </div>
-
-    {/* --- MAIN 2-COLUMN ROW SIDE-BY-SIDE --- */}
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-
-      {/* LEFT COLUMN: THE PRICING CARD */}
-      <div className="lg:col-span-6 bg-[#0d0d0d] border border-stone-800/80 rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-200 hover:border-stone-700 w-full min-h-[580px]">
-        <div>
-          {/* Top Row: Icon & Badge */}
-          <div className="flex items-center justify-between mb-6">
-            <div className="w-12 h-12 rounded-xl bg-[#050505] flex items-center justify-center p-2.5">
-              <Image
-                src="/images/pr.svg"
-                alt="Hybrid Proxy Icon"
-                width={28}
-                height={28}
-                className="w-full h-full object-contain"
-              />
-            </div>
-
-            <span className="text-[11px] font-medium tracking-wide px-3 py-1 rounded-md bg-[#002B1B] text-[#00B67A]">
-              Most Popular
-            </span>
-          </div>
-
-          {/* Card Title & Description */}
-          <h3 className="text-xl sm:text-2xl font-medium text-white mb-1.5 tracking-tight">
-            Hybrid Proxies
-          </h3>
-          <p className="text-stone-400 text-xs sm:text-sm font-normal mb-6 leading-relaxed max-w-sm">
-            Built specifically for Ticketmaster, AXS and high traffic Queue-IT events.
-          </p>
-
-          {/* Pricing Block */}
-          <div className="flex items-baseline gap-2 mb-8">
-            <span className="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
-              $2.2/IP
-            </span>
-            <span className="text-stone-500 text-xs">per month</span>
-          </div>
-
-          {/* Features Checklist */}
-          <ul className="space-y-4 mb-10">
-            {[
-              "60% cheaper than residential proxies with better Ticketmaster pass rates",
-              "20x better ROI than datacenter proxies",
-              "99.9% success rate",
-              "Sticky sessions hold your place in Queue-IT without IP rotation mid-session",
-              "ISP assigned IPs to pass Akamai Bot Manager & Cloudflare's verification",
-              "0.12s response time",
-            ].map((feature, idx) => (
-              <li key={idx} className="flex items-start gap-3 text-stone-400 text-xs sm:text-sm font-normal leading-relaxed">
-                <svg className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>{feature}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
-          {/* --- PRIMARY BUTTON --- */}
-          <button 
-            onClick={() => router.push('https://dashboard.torchproxies.com/')} 
-            className="group relative w-full h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99] cursor-pointer"
-          >
-            <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-              <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                Try risk free now
-              </span>
-              <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
-                Try risk free now
-              </span>
-            </div>
-          </button>
-        </div>
-      </div>
-
-      {/* RIGHT COLUMN: INFORMATION DISPLAY & TARGET LOGOS */}
-      <div className="lg:col-span-6 flex flex-col justify-center py-4 space-y-6">
-        <h4 className="text-xl sm:text-2xl lg:text-[28px] font-medium tracking-tight text-white">
-          What this means for you?
-        </h4>
-
-        {/* Value Propositions List with Green Check Circles */}
-        <ul className="space-y-5 text-left">
-          {[
-            "More queue positions that actually hold",
-            "Fewer blocks, resets and restriction errors",
-            "Faster checkout during high demand events",
-          ].map((benefit, idx) => (
-            <li key={idx} className="flex items-center gap-3 text-stone-300 text-xs sm:text-sm lg:text-base font-normal">
-              <div className="w-[18px] h-[18px] rounded-full bg-[#00B67A] flex items-center justify-center shrink-0">
-                <svg className="w-[10px] h-[10px] text-black stroke-[4.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
-              </div>
-              <span>{benefit}</span>
-            </li>
-          ))}
-        </ul>
-
-        {/* "Best for" Identifier label */}
-        <div className="pt-4 text-center lg:text-left">
-          <span className="block text-stone-500 text-xs font-normal tracking-wide mb-6">
-            Best for
-          </span>
-
-          <div className="flex flex-wrap items-center justify-center lg:justify-start">
-            <Image 
-              src="/images/icon/ticketmaster_logo.svg" 
-              alt="Ticketmaster Logo" 
-              width={240} 
-              height={40} 
-              className="object-contain" 
-            />
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-{/* ── SECTION: SEE HOW WE COMPARE WITH OTHERS ──────────────────── */}
-<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden">
-  <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16">
-
-    {/* --- HEADER --- */}
-    <div className="text-center max-w-3xl mx-auto space-y-3.5">
-      <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
-        See how we compare with others
-      </h2>
-      <p className="text-stone-400 text-xs sm:text-sm lg:text-base font-normal max-w-2xl mx-auto leading-relaxed">
-        Proof why we are the best option for your use case
-      </p>
-    </div>
-
-    {/* --- COMPARISON MATRIX GRID --- */}
-    <div className="w-full overflow-x-auto">
-      <div className="min-w-[768px] relative w-full">
-        
-        <table className="w-full border-collapse text-center table-fixed relative z-10">
-          <colgroup>
-            <col className="w-[20%] text-left" />
-            <col className="w-[16%]" />
-            <col className="w-[16%]" />
-            <col className="w-[16%]" />
-            <col className="w-[16%]" />
-            <col className="w-[16%]" />
-          </colgroup>
-
-          <thead>
-            <tr className="align-middle">
-              <th className="pb-8"></th>
-
-              <th className="pb-8 px-2">
-                <div className="relative h-6 w-full max-w-[100px] mx-auto opacity-50 hover:opacity-100 transition">
-                  <Image src="/images/table/1.png" alt="Bright Data Logo" fill className="object-contain" />
-                </div>
-              </th>
-
-              <th className="pb-8 px-2">
-                <div className="relative h-6 w-full max-w-[100px] mx-auto opacity-50 hover:opacity-100 transition">
-                  <Image src="/images/table/2.png" alt="Oxylabs Logo" fill className="object-contain" />
-                </div>
-              </th>
-
-              {/* ── Highlighted Column Header ── */}
-              <th className="pb-8 px-2 relative">
-                <div className="absolute top-[-16px] left-[-4px] right-[-4px] bottom-[-16px] bg-[#0d0d0d] border border-stone-800/80 rounded-2xl z-0 pointer-events-none shadow-[0_20px_50px_rgba(0,0,0,0.6)]" />
-
-                <div className="relative h-6 w-full max-w-[110px] mx-auto opacity-100 transition z-10">
-                  <Image src="/images/table/torchproxies.png" alt="TorchProxies Logo" fill className="object-contain" />
-                </div>
-              </th>
-
-              <th className="pb-8 px-2">
-                <div className="relative h-6 w-full max-w-[100px] mx-auto opacity-50 hover:opacity-100 transition">
-                  <Image src="/images/table/3.png" alt="Proxy Empire Logo" fill className="object-contain" />
-                </div>
-              </th>
-
-              <th className="pb-8 px-2">
-                <div className="relative h-6 w-full max-w-[100px] mx-auto opacity-50 hover:opacity-100 transition">
-                  <Image src="/images/table/4.png" alt="Node Maven Logo" fill className="object-contain" />
-                </div>
-              </th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {comparisonData.map((row, idx) => (
-              <tr key={idx} className="align-middle border-t border-stone-800/40 first:border-t-0">
-                <td className="py-4 px-2 text-left text-stone-300 text-xs sm:text-sm font-medium">
-                  {row.metric}
-                </td>
-                <td className="py-4 px-2 text-stone-400 text-xs sm:text-sm">
-                  {renderCellContent(row.brightData)}
-                </td>
-                <td className="py-4 px-2 text-stone-400 text-xs sm:text-sm">
-                  {renderCellContent(row.oxylabs)}
-                </td>
-                
-                {/* ── TorchProxies Content Cell ── */}
-                <td className="py-4 px-2 text-white text-xs sm:text-sm font-medium relative z-10">
-                  {renderCellContent(row.torchProxies, true)}
-                </td>
-                
-                <td className="py-4 px-2 text-stone-400 text-xs sm:text-sm">
-                  {renderCellContent(row.proxyEmpire)}
-                </td>
-                <td className="py-4 px-2 text-stone-400 text-xs sm:text-sm">
-                  {renderCellContent(row.nodeMaven)}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-      </div>
-    </div>
-
-  </div>
-</section>
-{/* ── SECTION: INTERACTIVE CTA BANNER ──────────────────────────── */}
-<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden">
-  <div className="max-w-7xl mx-auto">
-    <div
-      className="relative rounded-3xl p-8 sm:p-12 lg:p-16 text-center overflow-hidden border border-stone-800/80"
-      style={{
-        background: 'linear-gradient(135deg, rgba(255,60,0,0.2) 0%, #0a0a0a 35%, #0a0a0a 75%, rgba(255,60,0,0.2) 100%)',
-      }}
-    >
-      {/* Subtle overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40 pointer-events-none" />
-
-      <div className="relative z-10 max-w-4xl mx-auto space-y-6">
-        
-        <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
-          Join users who secure tickets without getting blocked
-        </h2>
-
-        <p className="text-stone-300 text-xs sm:text-sm lg:text-base font-normal max-w-2xl mx-auto leading-relaxed">
-          Avoid bans. Hold your queue position. Beat the crowd.
-        </p>
-
-        {/* Primary Action Button */}
-        <div className="flex flex-col sm:flex-row items-center justify-center pt-2">
-          <button 
-            onClick={() => router.push('https://dashboard.torchproxies.com/')} 
-            className="group relative w-full sm:w-auto sm:px-8 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99] cursor-pointer"
-          >
-            {/* Fast 3D text track wrapper */}
-            <div className="relative w-full h-full flex flex-col items-center justify-center px-6 transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
-              <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
-                Start Now with ISP Proxies
-              </span>
-              <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
-                Start Now with ISP Proxies
-              </span>
-            </div>
-          </button>
-        </div>
-
-        {/* Features Inline List */}
-        <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 items-center pt-6 text-xs sm:text-sm text-stone-300">
-          {[
-            "No Credit Card Required",
-            "Set up in minutes",
-            "Works in 195+ countries",
-          ].map((feature, idx) => (
-            <div key={idx} className="flex items-center gap-2">
-              <svg className="w-4 h-4 text-[#FF4F00] shrink-0 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>{feature}</span>
-            </div>
-          ))}
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-{/* ── SECTION: FAQ (ACCORDION) ─────────────────────────────── */}
-<section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white relative overflow-hidden font-['Urbanist']">
-
-  {/* ── Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
-  <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
-    <Image
-      src="/images/contact-bg.png"
-      alt=""
-      fill
-      priority
-      className="object-cover object-bottom opacity-100"
-    />
-  </div>
-
-  {/* ── Content Wrapper ── */}
-  <div className="max-w-4xl mx-auto relative z-10 space-y-12 sm:space-y-16">
-    
-    {/* Header */}
-    <div className="text-center space-y-3.5">
-      <span className="text-[#FE4A01] text-xs font-medium tracking-widest uppercase block">
-        FAQ
-      </span>
-      <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
-        Frequently asked questions
-      </h2>
-    </div>
-
-    {/* FAQ Items */}
-    <div className="space-y-px">
-      {faqData.map((faq, index) => {
-        const isOpen = activeFaq === index;
-        return (
-          <div
-            key={index}
-            className="border-b border-stone-800 last:border-none group"
-          >
-            <button
-              onClick={() => setActiveFaq(isOpen ? null : index)}
-              className="w-full text-left py-6 flex items-center justify-between text-base sm:text-lg font-medium text-stone-200 hover:text-white transition-colors cursor-pointer"
+        {
+          step: 5,
+          color: "bg-orange-600",
+          text: "Used or flagged IPs are retired after the on-sale. Any proxy that triggered a CAPTCHA, queue-ban, or session error during the on-sale is removed from the pool — keeping remaining IPs clean for the next on-sale or presale window.",
+        },
+      ],
+    },
+    {
+      q: "What are the best proxies for Ticketmaster?",
+      items: [
+        {
+          text: "Ticketmaster runs one of the most advanced bot-detection systems of any consumer platform , combining Queue-it queue fingerprinting, Akamai Bot Manager, and its own internal fraud layer. Only residential-grade IPs survive long enough to reach the ticket selection screen. Here's how each proxy type performs:",
+        },
+        {
+          label: "BEST",
+          color: "bg-teal-500",
+          text: "ISP (Static Residential) Proxies — The top choice for speed-critical on-sales on Ticketmaster US, Ticketmaster UK, and AXS. Datacenter-grade speed with residential IP legitimacy — critical for surviving Akamai's detection during the high-traffic queue window. Static IPs maintain a consistent session fingerprint throughout the full queue-to-checkout flow.",
+        },
+        {
+          label: "STRONG",
+          color: "bg-cyan-500",
+          text: "Rotating Residential Proxies — Best for See Tickets, DICE, AEW, and Eventbrite where Queue-it is used but Akamai detection is less aggressive. Genuine ISP-assigned IPs that blend into organic fan traffic. Also ideal for multi-session presale access and geo-restricted regional on-sales.",
+        },
+      ],
+    },
+  ];
+  const BRAND_LOGOS = [
+    { name: "Shield Proxies", src: "/images/business/shield.png" },
+    { name: "Boiling Proxies", src: "/images/business/boiling.png" },
+    { name: "Sugar Proxies", src: "/images/business/sugar.png" },
+    { name: "Malice Proxies", src: "/images/business/malke.png" },
+    { name: "Proxify.gg", src: "/images/business/proxify.png" },
+  ];
+  const [isMonthly, setIsMonthly] = useState<boolean>(true);
+
+  // Custom logic to swap true/false variables out for exact vector SVGs
+  const renderCell = (val: string | boolean) => {
+    if (typeof val === "boolean") {
+      return val ? (
+        // Circular Orange Check Icon
+        <div className="flex justify-center">
+          <div className="w-5 h-5 rounded-full bg-[#FF4F00] flex items-center justify-center text-black">
+            <svg
+              className="w-3 h-3 stroke-[3.5]"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              <span>{faq.q}</span>
-              <ChevronDown
-                className={`w-5 h-5 text-stone-400 transition-all duration-300 shrink-0 ml-4 ${isOpen ? 'rotate-180 text-[#FE4A01]' : 'group-hover:text-stone-300'}`}
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M5 13l4 4L19 7"
               />
-            </button>
+            </svg>
+          </div>
+        </div>
+      ) : (
+        // Circular Dimmed Cross Close Icon
+        <div className="flex justify-center">
+          <div className="w-5 h-5 rounded-full border border-zinc-800 flex items-center justify-center text-zinc-600">
+            <svg
+              className="w-2.5 h-2.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </div>
+        </div>
+      );
+    }
 
-            <div className={`overflow-hidden transition-all duration-500 ${isOpen ? 'max-h-[2000px] pb-6' : 'max-h-0'}`}>
-              <div className="space-y-3">
-                {faq.items.map((item, i) => (
-                  <div key={i} className="flex items-start gap-4">
-                    {item.step ? (
-                      <span className="bg-[#FE4A01] text-white text-[13px] font-bold w-7 h-7 rounded-full shrink-0 flex items-center justify-center">
-                        {item.step}
-                      </span>
-                    ) : item.label ? (
-                      <span className={`${item.color ?? ''} text-white text-[11px] font-bold px-2.5 py-1 rounded-md shrink-0 tracking-wide min-w-[90px] text-center`}>
-                        {item.label}
-                      </span>
-                    ) : null}
-                    <p className="text-stone-400 text-xs sm:text-sm lg:text-base leading-relaxed">
-                      {item.text}
-                    </p>
+    // Fallback string printing for dynamic descriptors
+    return (
+      <span className="text-zinc-400 text-[13px] tracking-wide font-normal">
+        {val}
+      </span>
+    );
+  };
+
+  // The exact words cycled in the video
+  const words = [
+    "Amazon",
+    "eBay",
+    "Shopify",
+    "Craigslist",
+    "Coupang",
+    "Google",
+    "LinkedIn",
+    "Social Media",
+  ];
+
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [fadeState, setFadeState] = useState<"fade-in" | "fade-out">("fade-in");
+
+  useEffect(() => {
+    // 1. Set up an interval to trigger the fade-out right before switching words
+    const fadeTimeout = setTimeout(() => {
+      setFadeState("fade-out");
+    }, 2000); // Word stays visible for 2 seconds
+
+    const changeWordTimeout = setTimeout(() => {
+      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
+      setFadeState("fade-in");
+    }, 2300); // 300ms transition delay to finish fading out
+
+    return () => {
+      clearTimeout(fadeTimeout);
+      clearTimeout(changeWordTimeout);
+    };
+  }, [currentWordIndex]);
+
+  // Custom helper to render text lines, checkmarks, or X marks
+  const renderCellContent = (
+    value: string | boolean,
+    isHighlighted = false,
+  ) => {
+    if (typeof value === "boolean") {
+      return value ? (
+        // Green Checkmark
+        <div className="flex justify-center">
+          <div className="w-5 h-5 rounded-full bg-[#10B981]/20 flex items-center justify-center text-[#10B981]">
+            <svg
+              className="w-3.5 h-3.5 stroke-[3]"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+          </div>
+        </div>
+      ) : (
+        // Muted Gray X Mark
+        <div className="flex justify-center">
+          <div className="w-5 h-5 rounded-full border border-zinc-800 flex items-center justify-center text-zinc-600">
+            <svg
+              className="w-2.5 h-2.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </div>
+        </div>
+      );
+    }
+
+    // Handles line breaks cleanly for text configurations
+    return (
+      <span
+        className={`text-[13px] whitespace-pre-line tracking-wide font-normal leading-relaxed ${
+          isHighlighted ? "text-zinc-300" : "text-zinc-500"
+        }`}
+      >
+        {value}
+      </span>
+    );
+  };
+
+  return (
+    <div className="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden font-['Urbanist']">
+      {/* ── SECTION: HERO ─────────────────────────────────────────────── */}
+      <section className="relative bg-[#0a0a0a] text-white min-h-[650px] flex items-center py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden font-['Urbanist'] mt-16 sm:mt-24">
+        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* --- LEFT COLUMN: CONTENT & CALL TO ACTION --- */}
+          <div className="lg:col-span-7 flex flex-col items-start z-10 space-y-6">
+            {/* Trustpilot Badge Block */}
+            <div className="flex items-center">
+              <a
+                href="https://www.trustpilot.com/review/torchlabs.xyz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cursor-pointer"
+              >
+                <img
+                  src="/images/TrustPiolet.png"
+                  alt="Excellent 5-star rating on Trustpilot"
+                  className="h-8 w-auto object-contain"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+
+            {/* Heading */}
+            <h1 className="text-3xl sm:text-5xl lg:text-[56px] font-medium tracking-tight leading-[1.1] max-w-xl text-white">
+              Best Ticketmaster Proxies. Never Miss Out on Tickets Again
+            </h1>
+
+            {/* Subheading */}
+            <p className="text-stone-400 text-sm sm:text-base lg:text-lg max-w-xl font-normal leading-relaxed select-none">
+              Get Past Ticketmaster Bans Without Breaking Your Session
+            </p>
+
+            {/* Features Inline List */}
+            <div className="flex flex-wrap gap-x-6 gap-y-3 items-center text-xs sm:text-sm text-stone-300">
+              {[
+                "97% IP Quality",
+                "99.9% Success Rate",
+                "Unlimited Bandwidth",
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-center gap-1.5">
+                  <svg
+                    className="w-4 h-4 text-[#FF4F00] shrink-0 stroke-[3]"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Action Buttons Row */}
+            <div className="flex flex-col sm:flex-row items-center gap-4 w-full pt-2">
+              {/* Primary Button */}
+              <button
+                onClick={() =>
+                  handleReferralNavigation(
+                    "https://dashboard.torchproxies.com/",
+                  )
+                }
+                className="group relative w-full sm:w-60 h-12 sm:h-14 overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99] cursor-pointer"
+              >
+                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                  <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)] text-sm font-medium">
+                    Try Now
+                  </span>
+                  <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90 text-sm font-medium">
+                    Try Now
+                  </span>
+                </div>
+              </button>
+
+              {/* Secondary Button */}
+              <button
+                onClick={() => {
+                  document
+                    .getElementById("pricing-section")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="group relative w-full sm:w-60 h-12 sm:h-14 overflow-hidden bg-transparent border border-stone-700 hover:border-stone-400 text-stone-200 hover:text-white hover:bg-white/5 font-semibold rounded-xl transition-all duration-200 ease-out hover:scale-[0.98] active:scale-[0.96] cursor-pointer"
+              >
+                <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                  <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)] text-sm font-medium">
+                    View Pricing
+                  </span>
+                  <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white text-sm font-medium">
+                    View Pricing
+                  </span>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          {/* --- RIGHT COLUMN: MAIN COLUMN IMAGE --- */}
+          <div className="lg:col-span-5 relative flex items-center justify-center w-full">
+            {/* Ambient Glow Effect */}
+            <div
+              className="absolute w-[300px] h-[300px] bg-[#FF4F00]/15 rounded-full blur-[80px] pointer-events-none select-none"
+              aria-hidden="true"
+            />
+
+            <div className="relative w-full max-w-[480px] aspect-[4/3]">
+              <Image
+                src="/images/tickets_again.png"
+                alt="Proxy Network Infrastructure Ad Verification Illustration"
+                fill
+                priority
+                className="object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* ── SECTION: WHY ACCESS DENIED / FEATURES GRID ────────────────── */}
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden">
+        <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16">
+          {/* Header Section */}
+          <div className="text-center max-w-4xl mx-auto space-y-3.5">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
+              Why Do You Keep Getting “Access Denied” on Ticketmaster?
+            </h2>
+            <p className="text-stone-400 text-xs sm:text-sm lg:text-base font-normal max-w-3xl mx-auto leading-relaxed">
+              Most ticket failures aren’t caused by your bot. They’re caused by
+              IP reputation, fingerprint detection and unstable queue sessions.
+            </p>
+          </div>
+
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+            {features.map((item, index) => (
+              <div
+                key={index}
+                className="bg-[#0d0d0d] border border-stone-800/80 rounded-2xl p-6 sm:p-8 flex flex-col items-start text-left transition-all duration-200 hover:border-stone-700"
+              >
+                {/* Flame Icon Container */}
+                <div className="w-12 h-12 rounded-xl bg-[#050505] flex items-center justify-center p-2.5 relative overflow-hidden mb-6">
+                  <Image
+                    src="/images/icon/Flame.svg"
+                    alt="Flame Icon"
+                    width={24}
+                    height={24}
+                    className="object-contain w-full h-full"
+                    priority
+                  />
+                </div>
+
+                {/* Feature Title */}
+                <h3 className="text-lg sm:text-xl font-medium text-white tracking-tight mb-3">
+                  {item.title}
+                </h3>
+
+                {/* Feature Description */}
+                <p className="text-stone-400 text-xs sm:text-sm font-normal leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* ── SECTION: WHY DETECTION RUINS TICKET CHANCES ────────────────── */}
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Visual Side */}
+            <div className="lg:col-span-6 relative group">
+              <div className="bg-[#0d0d0d] border border-stone-800/80 rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
+                <div className="bg-[#050505] rounded-2xl overflow-hidden flex items-center justify-center">
+                  <Image
+                    src="/images/ticket_chances.png"
+                    alt="Perfect for Everyday Scraping & Automation"
+                    width={600}
+                    height={450}
+                    className="w-full h-auto object-cover rounded-2xl"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Text Side */}
+            <div className="lg:col-span-6 space-y-6 sm:space-y-8">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
+                Why Detection Ruins Your Ticket Chances
+              </h2>
+
+              <div className="space-y-6">
+                <div className="space-y-2">
+                  <h4 className="text-lg sm:text-xl font-medium text-stone-200">
+                    Incomplete or Killed Sessions
+                  </h4>
+                  <p className="text-stone-400 text-xs sm:text-sm font-normal leading-relaxed">
+                    If your IP is flagged, your queue session is invalidated
+                    instantly even seconds before checkout.
+                  </p>
+                </div>
+
+                <div className="space-y-2">
+                  <h4 className="text-lg sm:text-xl font-medium text-stone-200">
+                    Forced Queue Re-entry
+                  </h4>
+                  <p className="text-stone-400 text-xs sm:text-sm font-normal leading-relaxed">
+                    Fail a reputation check and you’re pushed back or removed
+                    from the queue. In high-demand drops, one reset means lost
+                    tickets.
+                  </p>
+                </div>
+
+                <div className="space-y-2">
+                  <h4 className="text-lg sm:text-xl font-medium text-stone-200">
+                    Checkout Timing Loss
+                  </h4>
+                  <p className="text-stone-400 text-xs sm:text-sm font-normal leading-relaxed">
+                    Any delay, flag, or extra verification slows you down — and
+                    inventory sells out before you complete payment.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* ── SECTION: ONE PROXY BUILT FOR HIGH-DEMAND SALES ─────────────── */}
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-4xl mx-auto space-y-3.5">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
+              One Proxy Built for High-Demand Sales
+            </h2>
+            <p className="text-stone-400 text-xs sm:text-sm lg:text-base font-normal max-w-3xl mx-auto leading-relaxed">
+              A single clean ISP IP can outperform 20 low quality residential
+              IPs.
+            </p>
+          </div>
+        </div>
+      </section>
+      {/* ── SECTION: WHAT ARE TICKETMASTER PROXIES ────────────────────── */}
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Text Side (Column 1) */}
+            <div className="lg:col-span-6 space-y-6">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
+                What are Ticketmaster Proxies?
+              </h2>
+
+              <p className="text-stone-400 text-xs sm:text-sm lg:text-base font-normal leading-relaxed">
+                Ticketmaster proxies mask your real IP address when accessing
+                Ticketmaster, AXS, SeatGeek, or See Tickets.
+              </p>
+
+              <ul className="space-y-3 pt-2 text-stone-400 text-xs sm:text-sm lg:text-base">
+                {[
+                  "Bypass IP-based restrictions",
+                  "Enter multiple queue positions",
+                  "Avoid geo-blocks",
+                  "Maintain session stability",
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-center gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FF4F00] shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Visual Side (Column 2) */}
+            <div className="lg:col-span-6 relative group">
+              <div className="bg-[#0d0d0d] border border-stone-800/80 rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
+                <div className="bg-[#050505] rounded-2xl overflow-hidden flex items-center justify-center">
+                  <Image
+                    src="/images/ticketmaster_proxies.png"
+                    alt="Ticketmaster Proxies Infrastructure Illustration"
+                    width={600}
+                    height={450}
+                    className="w-full h-auto object-cover rounded-2xl"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* ── SECTION: WHY OUR ISP PROXIES WIN ON TICKETMASTER ──────────── */}
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Visual Side (Column 1 - Image first on desktop layout swap) */}
+            <div className="lg:col-span-6 relative group order-2 lg:order-1">
+              <div className="bg-[#0d0d0d] border border-stone-800/80 rounded-3xl p-3 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
+                <div className="bg-[#050505] rounded-2xl overflow-hidden flex items-center justify-center">
+                  <Image
+                    src="/images/win_on_ticketmaster.png"
+                    alt="Why ISP Proxies Win on Ticketmaster Illustration"
+                    width={600}
+                    height={450}
+                    className="w-full h-auto object-cover rounded-2xl"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Text Side (Column 2) */}
+            <div className="lg:col-span-6 space-y-6 order-1 lg:order-2">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
+                Why Our ISP Proxies Win on Ticketmaster
+              </h2>
+
+              <p className="text-stone-400 text-xs sm:text-sm lg:text-base font-normal leading-relaxed">
+                Ticketmaster blocks standard proxies in seconds. Our ISP proxies
+                use real ISP assigned IPs that pass residential verification
+                while delivering true datacenter level speed so your session
+                stays stable from queue to checkout.
+              </p>
+
+              <ul className="space-y-3 pt-2 text-stone-400 text-xs sm:text-sm lg:text-base">
+                {[
+                  "Pass Akamai and Cloudflare residential checks without triggering fraud filters.",
+                  "0.12s response time fast enough to compete during high-demand on-sales.",
+                  "No mid queue IP rotation. Your position stays locked until checkout.",
+                  "Flagged IPs are removed immediately to maintain consistent pass rates.",
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FF4F00] shrink-0 mt-2" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* ── SECTION: PRICING / RIGHT PROXIES FOR TICKETMASTER DROPS ──────────── */}
+      <section
+        id="pricing-section"
+        className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden"
+      >
+        <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16">
+          {/* --- HEADER --- */}
+          <div className="text-center max-w-4xl mx-auto space-y-3.5">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
+              The Right Proxies for Ticketmaster Drops
+            </h2>
+            <p className="text-stone-400 text-xs sm:text-sm lg:text-base font-normal max-w-3xl mx-auto leading-relaxed">
+              Select the proxy type built for high demand on sales, queue
+              stability and zero session resets.
+            </p>
+          </div>
+
+          {/* --- MAIN 2-COLUMN ROW SIDE-BY-SIDE --- */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* LEFT COLUMN: THE PRICING CARD */}
+            <div className="lg:col-span-6 bg-[#0d0d0d] border border-stone-800/80 rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-200 hover:border-stone-700 w-full min-h-[580px]">
+              <div>
+                {/* Top Row: Icon & Badge */}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-[#050505] flex items-center justify-center p-2.5">
+                    <Image
+                      src="/images/pr.svg"
+                      alt="Hybrid Proxy Icon"
+                      width={28}
+                      height={28}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+
+                  <span className="text-[11px] font-medium tracking-wide px-3 py-1 rounded-md bg-[#002B1B] text-[#00B67A]">
+                    Most Popular
+                  </span>
+                </div>
+
+                {/* Card Title & Description */}
+                <h3 className="text-xl sm:text-2xl font-medium text-white mb-1.5 tracking-tight">
+                  Hybrid Proxies
+                </h3>
+                <p className="text-stone-400 text-xs sm:text-sm font-normal mb-6 leading-relaxed max-w-sm">
+                  Built specifically for Ticketmaster, AXS and high traffic
+                  Queue-IT events.
+                </p>
+
+                {/* Pricing Block */}
+                <div className="flex items-baseline gap-2 mb-8">
+                  <span className="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
+                    $2.2/IP
+                  </span>
+                  <span className="text-stone-500 text-xs">per month</span>
+                </div>
+
+                {/* Features Checklist */}
+                <ul className="space-y-4 mb-10">
+                  {[
+                    "60% cheaper than residential proxies with better Ticketmaster pass rates",
+                    "20x better ROI than datacenter proxies",
+                    "99.9% success rate",
+                    "Sticky sessions hold your place in Queue-IT without IP rotation mid-session",
+                    "ISP assigned IPs to pass Akamai Bot Manager & Cloudflare's verification",
+                    "0.12s response time",
+                  ].map((feature, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-start gap-3 text-stone-400 text-xs sm:text-sm font-normal leading-relaxed"
+                    >
+                      <svg
+                        className="w-4 h-4 text-[#FF4F00] shrink-0 mt-0.5 stroke-[3]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
+                {/* --- PRIMARY BUTTON --- */}
+                <button
+                  onClick={() =>
+                    handleReferralNavigation(
+                      "https://dashboard.torchproxies.com/",
+                    )
+                  }
+                  className="group relative w-full h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99] cursor-pointer"
+                >
+                  <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
+                      Try risk free now
+                    </span>
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90">
+                      Try risk free now
+                    </span>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            {/* RIGHT COLUMN: INFORMATION DISPLAY & TARGET LOGOS */}
+            <div className="lg:col-span-6 flex flex-col justify-center py-4 space-y-6">
+              <h4 className="text-xl sm:text-2xl lg:text-[28px] font-medium tracking-tight text-white">
+                What this means for you?
+              </h4>
+
+              {/* Value Propositions List with Green Check Circles */}
+              <ul className="space-y-5 text-left">
+                {[
+                  "More queue positions that actually hold",
+                  "Fewer blocks, resets and restriction errors",
+                  "Faster checkout during high demand events",
+                ].map((benefit, idx) => (
+                  <li
+                    key={idx}
+                    className="flex items-center gap-3 text-stone-300 text-xs sm:text-sm lg:text-base font-normal"
+                  >
+                    <div className="w-[18px] h-[18px] rounded-full bg-[#00B67A] flex items-center justify-center shrink-0">
+                      <svg
+                        className="w-[10px] h-[10px] text-black stroke-[4.5]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M4.5 12.75l6 6 9-13.5"
+                        />
+                      </svg>
+                    </div>
+                    <span>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* "Best for" Identifier label */}
+              <div className="pt-4 text-center lg:text-left">
+                <span className="block text-stone-500 text-xs font-normal tracking-wide mb-6">
+                  Best for
+                </span>
+
+                <div className="flex flex-wrap items-center justify-center lg:justify-start">
+                  <Image
+                    src="/images/icon/ticketmaster_logo.svg"
+                    alt="Ticketmaster Logo"
+                    width={240}
+                    height={40}
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* ── SECTION: SEE HOW WE COMPARE WITH OTHERS ──────────────────── */}
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden">
+        <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16">
+          {/* --- HEADER --- */}
+          <div className="text-center max-w-3xl mx-auto space-y-3.5">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
+              See how we compare with others
+            </h2>
+            <p className="text-stone-400 text-xs sm:text-sm lg:text-base font-normal max-w-2xl mx-auto leading-relaxed">
+              Proof why we are the best option for your use case
+            </p>
+          </div>
+
+          {/* --- COMPARISON MATRIX GRID --- */}
+          <div className="w-full overflow-x-auto">
+            <div className="min-w-[768px] relative w-full">
+              <table className="w-full border-collapse text-center table-fixed relative z-10">
+                <colgroup>
+                  <col className="w-[20%] text-left" />
+                  <col className="w-[16%]" />
+                  <col className="w-[16%]" />
+                  <col className="w-[16%]" />
+                  <col className="w-[16%]" />
+                  <col className="w-[16%]" />
+                </colgroup>
+
+                <thead>
+                  <tr className="align-middle">
+                    <th className="pb-8"></th>
+
+                    <th className="pb-8 px-2">
+                      <div className="relative h-6 w-full max-w-[100px] mx-auto opacity-50 hover:opacity-100 transition">
+                        <Image
+                          src="/images/table/1.png"
+                          alt="Bright Data Logo"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    </th>
+
+                    <th className="pb-8 px-2">
+                      <div className="relative h-6 w-full max-w-[100px] mx-auto opacity-50 hover:opacity-100 transition">
+                        <Image
+                          src="/images/table/2.png"
+                          alt="Oxylabs Logo"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    </th>
+
+                    {/* ── Highlighted Column Header ── */}
+                    <th className="pb-8 px-2 relative">
+                      <div className="absolute top-[-16px] left-[-4px] right-[-4px] bottom-[-16px] bg-[#0d0d0d] border border-stone-800/80 rounded-2xl z-0 pointer-events-none shadow-[0_20px_50px_rgba(0,0,0,0.6)]" />
+
+                      <div className="relative h-6 w-full max-w-[110px] mx-auto opacity-100 transition z-10">
+                        <Image
+                          src="/images/table/torchproxies.png"
+                          alt="TorchProxies Logo"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    </th>
+
+                    <th className="pb-8 px-2">
+                      <div className="relative h-6 w-full max-w-[100px] mx-auto opacity-50 hover:opacity-100 transition">
+                        <Image
+                          src="/images/table/3.png"
+                          alt="Proxy Empire Logo"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    </th>
+
+                    <th className="pb-8 px-2">
+                      <div className="relative h-6 w-full max-w-[100px] mx-auto opacity-50 hover:opacity-100 transition">
+                        <Image
+                          src="/images/table/4.png"
+                          alt="Node Maven Logo"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {comparisonData.map((row, idx) => (
+                    <tr
+                      key={idx}
+                      className="align-middle border-t border-stone-800/40 first:border-t-0"
+                    >
+                      <td className="py-4 px-2 text-left text-stone-300 text-xs sm:text-sm font-medium">
+                        {row.metric}
+                      </td>
+                      <td className="py-4 px-2 text-stone-400 text-xs sm:text-sm">
+                        {renderCellContent(row.brightData)}
+                      </td>
+                      <td className="py-4 px-2 text-stone-400 text-xs sm:text-sm">
+                        {renderCellContent(row.oxylabs)}
+                      </td>
+
+                      {/* ── TorchProxies Content Cell ── */}
+                      <td className="py-4 px-2 text-white text-xs sm:text-sm font-medium relative z-10">
+                        {renderCellContent(row.torchProxies, true)}
+                      </td>
+
+                      <td className="py-4 px-2 text-stone-400 text-xs sm:text-sm">
+                        {renderCellContent(row.proxyEmpire)}
+                      </td>
+                      <td className="py-4 px-2 text-stone-400 text-xs sm:text-sm">
+                        {renderCellContent(row.nodeMaven)}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* ── SECTION: INTERACTIVE CTA BANNER ──────────────────────────── */}
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist'] overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div
+            className="relative rounded-3xl p-8 sm:p-12 lg:p-16 text-center overflow-hidden border border-stone-800/80"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(255,60,0,0.2) 0%, #0a0a0a 35%, #0a0a0a 75%, rgba(255,60,0,0.2) 100%)",
+            }}
+          >
+            {/* Subtle overlay for depth */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40 pointer-events-none" />
+
+            <div className="relative z-10 max-w-4xl mx-auto space-y-6">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
+                Join users who secure tickets without getting blocked
+              </h2>
+
+              <p className="text-stone-300 text-xs sm:text-sm lg:text-base font-normal max-w-2xl mx-auto leading-relaxed">
+                Avoid bans. Hold your queue position. Beat the crowd.
+              </p>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 sm:mb-10">
+                <button
+                  onClick={() =>
+                    handleReferralNavigation(
+                      "https://dashboard.torchproxies.com/",
+                    )
+                  }
+                  className="group relative w-full sm:w-64 h-12 sm:h-14 overflow-hidden bg-[#FE4A01] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(254,74,1,0.25)] hover:shadow-[0_0_35px_rgba(254,74,1,0.5)] hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
+                >
+                  {/* Rolling 3D Text Effect Wrapper */}
+                  <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
+                    {/* Default State */}
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)] text-sm sm:text-base">
+                      Try Now with ISP
+                    </span>
+                    {/* Hover State */}
+                    <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:rotateX(-90deg)_translateZ(12px)] text-white/90 text-sm sm:text-base">
+                      Try Now with ISP
+                    </span>
+                  </div>
+                </button>
+              </div>
+
+              {/* Features Inline List */}
+              <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 items-center pt-6 text-xs sm:text-sm text-stone-300">
+                {[
+                  "No Credit Card Required",
+                  "Set up in minutes",
+                  "Works in 195+ countries",
+                ].map((feature, idx) => (
+                  <div key={idx} className="flex items-center gap-2">
+                    <svg
+                      className="w-4 h-4 text-[#FF4F00] shrink-0 stroke-[3]"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    <span>{feature}</span>
                   </div>
                 ))}
               </div>
             </div>
           </div>
-        );
-      })}
-    </div>
-
-  </div>
-
-  {/* Bottom Gradient Overlay */}
-  <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent pointer-events-none z-0" />
-</section>
         </div>
-    );
+      </section>
+      {/* ── SECTION: FAQ (ACCORDION) ─────────────────────────────── */}
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white relative overflow-hidden font-['Urbanist']">
+        {/* ── Full-Bleed Middle-Bottom Background Layer ────────────────────── */}
+        <div className="absolute inset-x-0 bottom-0 h-[450px] z-0 pointer-events-none select-none">
+          <Image
+            src="/images/contact-bg.png"
+            alt=""
+            fill
+            priority
+            className="object-cover object-bottom opacity-100"
+          />
+        </div>
+
+        {/* ── Content Wrapper ── */}
+        <div className="max-w-4xl mx-auto relative z-10 space-y-12 sm:space-y-16">
+          {/* Header */}
+          <div className="text-center space-y-3.5">
+            <span className="text-[#FE4A01] text-xs font-medium tracking-widest uppercase block">
+              FAQ
+            </span>
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
+              Frequently asked questions
+            </h2>
+          </div>
+
+          {/* FAQ Items */}
+          <div className="space-y-px">
+            {faqData.map((faq, index) => {
+              const isOpen = activeFaq === index;
+              return (
+                <div
+                  key={index}
+                  className="border-b border-stone-800 last:border-none group"
+                >
+                  <button
+                    onClick={() => setActiveFaq(isOpen ? null : index)}
+                    className="w-full text-left py-6 flex items-center justify-between text-base sm:text-lg font-medium text-stone-200 hover:text-white transition-colors cursor-pointer"
+                  >
+                    <span>{faq.q}</span>
+                    <ChevronDown
+                      className={`w-5 h-5 text-stone-400 transition-all duration-300 shrink-0 ml-4 ${isOpen ? "rotate-180 text-[#FE4A01]" : "group-hover:text-stone-300"}`}
+                    />
+                  </button>
+
+                  <div
+                    className={`overflow-hidden transition-all duration-500 ${isOpen ? "max-h-[2000px] pb-6" : "max-h-0"}`}
+                  >
+                    <div className="space-y-3">
+                      {faq.items.map((item, i) => (
+                        <div key={i} className="flex items-start gap-4">
+                          {item.step ? (
+                            <span className="bg-[#FE4A01] text-white text-[13px] font-bold w-7 h-7 rounded-full shrink-0 flex items-center justify-center">
+                              {item.step}
+                            </span>
+                          ) : item.label ? (
+                            <span
+                              className={`${item.color ?? ""} text-white text-[11px] font-bold px-2.5 py-1 rounded-md shrink-0 tracking-wide min-w-[90px] text-center`}
+                            >
+                              {item.label}
+                            </span>
+                          ) : null}
+                          <p className="text-stone-400 text-xs sm:text-sm lg:text-base leading-relaxed">
+                            {item.text}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Bottom Gradient Overlay */}
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent pointer-events-none z-0" />
+      </section>
+    </div>
+  );
 }

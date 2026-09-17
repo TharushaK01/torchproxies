@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Check, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { handleReferralNavigation } from "@/lib/referral";
 
 const MARQUEE_ITEMS = [
   "99.9% uptime guaranteed",
@@ -313,8 +314,10 @@ export default function TorchProxiesLandingPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pb-15 mt-8">
             {/* Primary Button */}
             <button
-              onClick={() => router.push("https://dashboard.torchproxies.com/")}
-              className="group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]"
+              onClick={() =>
+                handleReferralNavigation("https://dashboard.torchproxies.com/")
+              }
+              className="cursor-pointer group relative w-full sm:w-60 h-[56px] overflow-hidden bg-[#FF4F00] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,79,0,0.25)] hover:shadow-[0_0_35px_rgba(255,79,0,0.6)] hover:scale-[1.02] active:scale-[0.99]"
             >
               <div className="relative w-full h-full flex flex-col items-center justify-center transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateX(90deg)]">
                 <span className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden] [transform:translateZ(12px)]">
@@ -431,7 +434,9 @@ export default function TorchProxiesLandingPage() {
             <div className="mt-6 sm:mt-8">
               <button
                 onClick={() =>
-                  window.open("https://dashboard.torchproxies.com/", "_blank")
+                  handleReferralNavigation(
+                    "https://dashboard.torchproxies.com/",
+                  )
                 }
                 className="cursor-pointer group relative w-full sm:w-60 h-[52px] sm:h-[56px] overflow-hidden bg-[#FE4A01] text-white font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(254,74,1,0.25)] hover:shadow-[0_0_35px_rgba(254,74,1,0.6)] hover:scale-[1.02] active:scale-[0.98]"
               >
@@ -617,7 +622,9 @@ export default function TorchProxiesLandingPage() {
                 {/* --- PRIMARY BUTTON: ROLLING TEXT --- */}
                 <button
                   onClick={() =>
-                    window.open("https://dashboard.torchproxies.com/", "_blank")
+                    handleReferralNavigation(
+                      "https://dashboard.torchproxies.com/",
+                    )
                   }
                   className="cursor-pointer group relative w-full sm:w-60 h-[52px] sm:h-[56px] overflow-hidden bg-white text-black font-semibold rounded-xl transition-all duration-200 ease-out shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] hover:scale-[1.02] active:scale-[0.98]"
                 >
@@ -635,138 +642,6 @@ export default function TorchProxiesLandingPage() {
                   </div>
                 </button>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── SECTION 10: TESTIMONIALS ─────────────────────────────────── */}
-      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-stone-950/20 overflow-hidden font-['Urbanist']">
-        <div className="max-w-7xl mx-auto">
-          {/* Section Header Text Nodes */}
-          <div className="text-center mb-10 sm:mb-16 max-w-2xl mx-auto">
-            <span className="text-[#FE4A01] text-xs sm:text-sm font-semibold tracking-wider uppercase block mb-2 sm:mb-3">
-              Reviews
-            </span>
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white mb-3 sm:mb-4">
-              Customer Reviews
-            </h2>
-            <p className="text-stone-400 text-xs sm:text-base leading-relaxed">
-              See how engineering teams rate our connectivity network
-              performance and proxy API uptime.
-            </p>
-          </div>
-
-          {/* Outer Infinite Slider Container Track */}
-          <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-            <div className="flex gap-4 sm:gap-6 animate-marquee whitespace-nowrap py-2">
-              {/* First Loop Instance */}
-              {reviews.map((review, i) => (
-                <div
-                  key={i}
-                  className="flex flex-col justify-between bg-[#070707] border border-stone-800/80 p-6 sm:p-8 rounded-2xl sm:rounded-3xl w-[280px] sm:w-[360px] md:w-[380px] h-[260px] sm:h-[280px] shrink-0 whitespace-normal"
-                >
-                  <div>
-                    {/* Review Header & Rating */}
-                    <div className="text-white font-semibold text-sm sm:text-[15px] mb-2 tracking-tight line-clamp-1">
-                      {review.text.split(".")[0]}
-                    </div>
-                    <div className="mb-3">
-                      <TrustpilotStars rating={review.stars} />
-                    </div>
-
-                    {/* Feedback Text Area */}
-                    <p className="text-stone-400 text-xs sm:text-[13px] leading-relaxed line-clamp-4 font-normal">
-                      "{review.text}"
-                    </p>
-                  </div>
-
-                  {/* Client Avatar & Metadata Footer */}
-                  <div className="flex items-center gap-3 pt-4 border-t border-stone-900/80 mt-4">
-                    {review.avatar ? (
-                      <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden border border-stone-800 bg-stone-900 shrink-0">
-                        <Image
-                          src={review.avatar}
-                          alt={review.name}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                    ) : (
-                      <div
-                        className={`w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-full font-bold text-xs sm:text-sm tracking-wider uppercase shrink-0 ${
-                          review.initials === "IS"
-                            ? "bg-[#c6f6d5] text-stone-950"
-                            : "bg-[#FE4A01] text-white"
-                        }`}
-                      >
-                        {review.initials}
-                      </div>
-                    )}
-
-                    {/* User Identity Info */}
-                    <div className="flex flex-col min-w-0">
-                      <span className="text-stone-200 font-semibold text-xs sm:text-[13px] tracking-tight truncate">
-                        {review.name}
-                      </span>
-                      <span className="text-stone-500 text-[10px] sm:text-[11px] truncate">
-                        {review.role}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-
-              {/* Duplicate Loop Instance for Seamless Infinite Scroll */}
-              {reviews.map((review, i) => (
-                <div
-                  key={`dup-${i}`}
-                  className="flex flex-col justify-between bg-[#070707] border border-stone-800/80 p-6 sm:p-8 rounded-2xl sm:rounded-3xl w-[280px] sm:w-[360px] md:w-[380px] h-[260px] sm:h-[280px] shrink-0 whitespace-normal"
-                >
-                  <div>
-                    <div className="text-white font-semibold text-sm sm:text-[15px] mb-2 tracking-tight line-clamp-1">
-                      {review.text.split(".")[0]}
-                    </div>
-                    <div className="mb-3">
-                      <TrustpilotStars rating={review.stars} />
-                    </div>
-                    <p className="text-stone-400 text-xs sm:text-[13px] leading-relaxed line-clamp-4 font-normal">
-                      "{review.text}"
-                    </p>
-                  </div>
-
-                  <div className="flex items-center gap-3 pt-4 border-t border-stone-900/80 mt-4">
-                    {review.avatar ? (
-                      <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden border border-stone-800 bg-stone-900 shrink-0">
-                        <Image
-                          src={review.avatar}
-                          alt={review.name}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                    ) : (
-                      <div
-                        className={`w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-full font-bold text-xs sm:text-sm tracking-wider uppercase shrink-0 ${
-                          review.initials === "IS"
-                            ? "bg-[#c6f6d5] text-stone-950"
-                            : "bg-[#FE4A01] text-white"
-                        }`}
-                      >
-                        {review.initials}
-                      </div>
-                    )}
-                    <div className="flex flex-col min-w-0">
-                      <span className="text-stone-200 font-semibold text-xs sm:text-[13px] tracking-tight truncate">
-                        {review.name}
-                      </span>
-                      <span className="text-stone-500 text-[10px] sm:text-[11px] truncate">
-                        {review.role}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
