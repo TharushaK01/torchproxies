@@ -209,7 +209,7 @@ export async function getAllPosts() {
   if (!WP_URL) return [];
   // Reduced per_page to 12 to drastically reduce WP payload and query time
   const data = await fetchWithTimeout(
-    `${getApiUrl("posts")}?_embed&per_page=12`,
+    `${getApiUrl("posts")}?_embed&per_page=100`,
   );
   return Array.isArray(data) ? data : [];
 }
