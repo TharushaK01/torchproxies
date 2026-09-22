@@ -203,7 +203,7 @@ const NAV_LINKS = [
   },
   {
     label: "Resources",
-    href: "/resources",
+    href: "#",
     menuType: "resources-mega",
     dropdown: {
       leftSide: [

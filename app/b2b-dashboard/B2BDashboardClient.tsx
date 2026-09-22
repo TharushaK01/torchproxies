@@ -79,7 +79,7 @@ interface Plan {
 }
 
 const plans: Plan[] = [
-  { name: "FREE", price: { monthly: "$0", yearly: "$0" } },
+  // { name: "FREE", price: { monthly: "$0", yearly: "$0" } },
   { name: "BASIC", price: { monthly: "$100", yearly: "$1,000" } },
   { name: "PREMIUM", price: { monthly: "$160", yearly: "$1,600" } },
 ];
@@ -91,207 +91,264 @@ interface FeatureRow {
 }
 
 // Full array representation matching the exact repeat sequence in the screenshot
-const featureMatrix: FeatureRow[] = [
-  // Block 1
-  {
-    title: "Pay-as-You-Go Billing for Proxies",
-    free: "Add credits first",
-    basic: "Pay end of month",
-    premium: "Pay end of month",
-  },
-  {
-    title: "Seamless Integration with Porter Proxies Data Center & ISP API",
-    free: false,
-    basic: true,
-    premium: true,
-  },
-  {
-    title: "Custom Proxy Pool Configurations",
-    free: false,
-    basic: false,
-    premium: true,
-  },
-  {
-    title: "Untraceable Proxy Masking",
-    free: "Add on",
-    basic: "10 Add on - 25% discount",
-    premium: "Add on - free setup",
-  },
-  {
-    title: "Remove Torch Proxies Branding",
-    free: false,
-    basic: false,
-    premium: "Add on - 40$/M",
-  },
-  {
-    title: "Pre-configured Residential Proxy APIs with Free Whitelabeling",
-    free: true,
-    basic: true,
-    premium: true,
-  },
-  {
-    title: "Advanced Chargeback Protection Mechanism",
-    free: false,
-    basic: true,
-    premium: true,
-  },
-  {
-    title: "Fully White Label the Dashboard with Your Domain",
-    free: false,
-    basic: "Free one time",
-    premium: "Unlimited",
-  },
-  {
-    title: "Theme Customization Options for Personalized Branding",
-    free: "Free one time",
-    basic: "Free one time",
-    premium: "Unlimited",
-  },
-  {
-    title: "Additional Team Member Seats",
-    free: false,
-    basic: false,
-    premium: true,
-  },
-  {
-    title: "Restrict Dashboard Access Using Discord Server Membership or Role",
-    free: false,
-    basic: true,
-    premium: true,
-  },
+// const featureMatrix: FeatureRow[] = [
+//   // Block 1
+//   {
+//     title: "Pay-as-You-Go Billing for Proxies",
+//     free: "Add credits first",
+//     basic: "Pay end of month",
+//     premium: "Pay end of month",
+//   },
+//   {
+//     title: "Seamless Integration with Porter Proxies Data Center & ISP API",
+//     free: false,
+//     basic: true,
+//     premium: true,
+//   },
+//   {
+//     title: "Custom Proxy Pool Configurations",
+//     free: false,
+//     basic: false,
+//     premium: true,
+//   },
+//   {
+//     title: "Untraceable Proxy Masking",
+//     free: "Add on",
+//     basic: "10 Add on - 25% discount",
+//     premium: "Add on - free setup",
+//   },
+//   {
+//     title: "Remove Torch Proxies Branding",
+//     free: false,
+//     basic: false,
+//     premium: "Add on - 40$/M",
+//   },
+//   {
+//     title: "Pre-configured Residential Proxy APIs with Free Whitelabeling",
+//     free: true,
+//     basic: true,
+//     premium: true,
+//   },
+//   {
+//     title: "Advanced Chargeback Protection Mechanism",
+//     free: false,
+//     basic: true,
+//     premium: true,
+//   },
+//   {
+//     title: "Fully White Label the Dashboard with Your Domain",
+//     free: false,
+//     basic: "Free one time",
+//     premium: "Unlimited",
+//   },
+//   {
+//     title: "Theme Customization Options for Personalized Branding",
+//     free: "Free one time",
+//     basic: "Free one time",
+//     premium: "Unlimited",
+//   },
+//   {
+//     title: "Additional Team Member Seats",
+//     free: false,
+//     basic: false,
+//     premium: true,
+//   },
+//   {
+//     title: "Restrict Dashboard Access Using Discord Server Membership or Role",
+//     free: false,
+//     basic: true,
+//     premium: true,
+//   },
 
-  // Block 2
-  {
-    title: "Pay-as-You-Go Billing for Proxies",
-    free: "Add credits first",
-    basic: "Pay end of month",
-    premium: "Pay end of month",
-  },
-  {
-    title: "Seamless Integration with Porter Proxies Data Center & ISP API",
-    free: false,
-    basic: true,
-    premium: true,
-  },
-  {
-    title: "Custom Proxy Pool Configurations",
-    free: false,
-    basic: false,
-    premium: true,
-  },
-  {
-    title: "Untraceable Proxy Masking",
-    free: "Add on",
-    basic: "10 Add on - 25% discount",
-    premium: "Add on - free setup",
-  },
-  {
-    title: "Remove Torch Proxies Branding",
-    free: false,
-    basic: false,
-    premium: "Add on - 40$/M",
-  },
-  {
-    title: "Pre-configured Residential Proxy APIs with Free Whitelabeling",
-    free: true,
-    basic: true,
-    premium: true,
-  },
-  {
-    title: "Advanced Chargeback Protection Mechanism",
-    free: false,
-    basic: true,
-    premium: true,
-  },
-  {
-    title: "Fully White Label the Dashboard with Your Domain",
-    free: false,
-    basic: "Free one time",
-    premium: "Unlimited",
-  },
-  {
-    title: "Theme Customization Options for Personalized Branding",
-    free: "Free one time",
-    basic: "Free one time",
-    premium: "Unlimited",
-  },
-  {
-    title: "Additional Team Member Seats",
-    free: false,
-    basic: false,
-    premium: true,
-  },
-  {
-    title: "Restrict Dashboard Access Using Discord Server Membership or Role",
-    free: false,
-    basic: true,
-    premium: true,
-  },
+//   // Block 2
+//   {
+//     title: "Pay-as-You-Go Billing for Proxies",
+//     free: "Add credits first",
+//     basic: "Pay end of month",
+//     premium: "Pay end of month",
+//   },
+//   {
+//     title: "Seamless Integration with Porter Proxies Data Center & ISP API",
+//     free: false,
+//     basic: true,
+//     premium: true,
+//   },
+//   {
+//     title: "Custom Proxy Pool Configurations",
+//     free: false,
+//     basic: false,
+//     premium: true,
+//   },
+//   {
+//     title: "Untraceable Proxy Masking",
+//     free: "Add on",
+//     basic: "10 Add on - 25% discount",
+//     premium: "Add on - free setup",
+//   },
+//   {
+//     title: "Remove Torch Proxies Branding",
+//     free: false,
+//     basic: false,
+//     premium: "Add on - 40$/M",
+//   },
+//   {
+//     title: "Pre-configured Residential Proxy APIs with Free Whitelabeling",
+//     free: true,
+//     basic: true,
+//     premium: true,
+//   },
+//   {
+//     title: "Advanced Chargeback Protection Mechanism",
+//     free: false,
+//     basic: true,
+//     premium: true,
+//   },
+//   {
+//     title: "Fully White Label the Dashboard with Your Domain",
+//     free: false,
+//     basic: "Free one time",
+//     premium: "Unlimited",
+//   },
+//   {
+//     title: "Theme Customization Options for Personalized Branding",
+//     free: "Free one time",
+//     basic: "Free one time",
+//     premium: "Unlimited",
+//   },
+//   {
+//     title: "Additional Team Member Seats",
+//     free: false,
+//     basic: false,
+//     premium: true,
+//   },
+//   {
+//     title: "Restrict Dashboard Access Using Discord Server Membership or Role",
+//     free: false,
+//     basic: true,
+//     premium: true,
+//   },
 
-  // Block 3
+//   // Block 3
+//   {
+//     title: "Pay-as-You-Go Billing for Proxies",
+//     free: "Add credits first",
+//     basic: "Pay end of month",
+//     premium: "Pay end of month",
+//   },
+//   {
+//     title: "Seamless Integration with Porter Proxies Data Center & ISP API",
+//     free: false,
+//     basic: true,
+//     premium: true,
+//   },
+//   {
+//     title: "Custom Proxy Pool Configurations",
+//     free: false,
+//     basic: false,
+//     premium: true,
+//   },
+//   {
+//     title: "Untraceable Proxy Masking",
+//     free: "Add on",
+//     basic: "10 Add on - 25% discount",
+//     premium: "Add on - free setup",
+//   },
+//   {
+//     title: "Remove Torch Proxies Branding",
+//     free: false,
+//     basic: false,
+//     premium: "Add on - 40$/M",
+//   },
+//   {
+//     title: "Pre-configured Residential Proxy APIs with Free Whitelabeling",
+//     free: true,
+//     basic: true,
+//     premium: true,
+//   },
+//   {
+//     title: "Advanced Chargeback Protection Mechanism",
+//     free: false,
+//     basic: true,
+//     premium: true,
+//   },
+//   {
+//     title: "Fully White Label the Dashboard with Your Domain",
+//     free: false,
+//     basic: "Free one time",
+//     premium: "Unlimited",
+//   },
+//   {
+//     title: "Theme Customization Options for Personalized Branding",
+//     free: "Free one time",
+//     basic: "Free one time",
+//     premium: "Unlimited",
+//   },
+//   {
+//     title: "Additional Team Member Seats",
+//     free: false,
+//     basic: false,
+//     premium: true,
+//   },
+//   {
+//     title: "Restrict Dashboard Access Using Discord Server Membership or Role",
+//     free: false,
+//     basic: true,
+//     premium: true,
+//   },
+// ];
+const featureMatrix = [
   {
-    title: "Pay-as-You-Go Billing for Proxies",
-    free: "Add credits first",
-    basic: "Pay end of month",
+    title: "Flexible Pay-as-You-Go Proxy Billing",
+    basic: "Add credits first",
     premium: "Pay end of month",
   },
   {
-    title: "Seamless Integration with Porter Proxies Data Center & ISP API",
-    free: false,
+    title: "Access 50+ ISP Proxy Pools Across Multiple Global Locations",
     basic: true,
     premium: true,
   },
   {
-    title: "Custom Proxy Pool Configurations",
-    free: false,
+    title: "Build and Manage Custom Proxy Pools",
     basic: false,
     premium: true,
   },
   {
-    title: "Untraceable Proxy Masking",
-    free: "Add on",
-    basic: "10 Add on - 25% discount",
-    premium: "Add on - free setup",
-  },
-  {
-    title: "Remove Torch Proxies Branding",
-    free: false,
+    title: "Remove Torch Labs Branding for a Fully Branded Experience",
     basic: false,
-    premium: "Add on - 40$/M",
+    premium: "Add on - 40$/Month",
   },
   {
-    title: "Pre-configured Residential Proxy APIs with Free Whitelabeling",
-    free: true,
+    title: "Choose from 8+ Residential Proxy Providers",
     basic: true,
     premium: true,
   },
   {
-    title: "Advanced Chargeback Protection Mechanism",
-    free: false,
+    title: "Advanced Chargeback and Fraud Protection",
     basic: true,
     premium: true,
   },
   {
-    title: "Fully White Label the Dashboard with Your Domain",
-    free: false,
+    title: "Fully White-Label Your Dashboard with a Custom Domain",
     basic: "Free one time",
     premium: "Unlimited",
   },
   {
-    title: "Theme Customization Options for Personalized Branding",
-    free: "Free one time",
+    title: "Customize Colors, Themes, and Branding",
     basic: "Free one time",
     premium: "Unlimited",
   },
   {
-    title: "Additional Team Member Seats",
-    free: false,
+    title: "Add Team Members and Collaborate with Ease",
     basic: false,
     premium: true,
   },
   {
-    title: "Restrict Dashboard Access Using Discord Server Membership or Role",
-    free: false,
+    title: "Control Dashboard Access with Discord Roles and Memberships",
+    basic: true,
+    premium: true,
+  },
+  {
+    title: "Unlock 100+ Additional Features and Integrations",
     basic: true,
     premium: true,
   },
@@ -481,57 +538,75 @@ export default function B2BDashboardClient() {
     { name: "Malice Proxies", src: "/images/business/malke.png" },
     { name: "Proxify.gg", src: "/images/business/proxify.png" },
   ];
-  const [isMonthly, setIsMonthly] = useState<boolean>(true);
+  const [isMonthly, setIsMonthly] = useState(true);
+
+  const handleReferralNavigation = (url: string) => {
+    window.location.href = url;
+  };
 
   // Custom logic to swap true/false variables out for exact vector SVGs
-  const renderCell = (val: string | boolean) => {
-    if (typeof val === "boolean") {
-      return val ? (
-        // Circular Orange Check Icon
-        <div className="flex justify-center">
-          <div className="w-5 h-5 rounded-full bg-[#FF4F00] flex items-center justify-center text-black">
-            <svg
-              className="w-3 h-3 stroke-[3.5]"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
-          </div>
+  // const renderCell = (val: string | boolean) => {
+  //   if (typeof val === "boolean") {
+  //     return val ? (
+  //       // Circular Orange Check Icon
+  //       <div className="flex justify-center">
+  //         <div className="w-5 h-5 rounded-full bg-[#FF4F00] flex items-center justify-center text-black">
+  //           <svg
+  //             className="w-3 h-3 stroke-[3.5]"
+  //             fill="none"
+  //             viewBox="0 0 24 24"
+  //             stroke="currentColor"
+  //           >
+  //             <path
+  //               strokeLinecap="round"
+  //               strokeLinejoin="round"
+  //               d="M5 13l4 4L19 7"
+  //             />
+  //           </svg>
+  //         </div>
+  //       </div>
+  //     ) : (
+  //       // Circular Dimmed Cross Close Icon
+  //       <div className="flex justify-center">
+  //         {/* 🛠️ FIX: Changed border-zinc-400 to border-zinc-700/60 for a cleaner dark-mode blend, and text-zinc-600 to text-zinc-200 for a near-white icon */}
+  //         <div className="w-5 h-5 rounded-full border border-zinc-700/60 flex items-center justify-center text-zinc-200">
+  //           <svg
+  //             className="w-2.5 h-2.5 stroke-[2.5]"
+  //             fill="none"
+  //             viewBox="0 0 24 24"
+  //             stroke="currentColor"
+  //           >
+  //             <path
+  //               strokeLinecap="round"
+  //               strokeLinejoin="round"
+  //               d="M6 18L18 6M6 6l12 12"
+  //             />
+  //           </svg>
+  //         </div>
+  //       </div>
+  //     );
+  //   }
+
+  //   // Fallback string printing for dynamic descriptors
+  //   return (
+  //     <span className="text-zinc-400 text-[13px] tracking-wide font-normal">
+  //       {val}
+  //     </span>
+  //   );
+  // };
+  const renderCell = (value: boolean | string) => {
+    if (typeof value === "boolean") {
+      return value ? (
+        <div className="w-5 h-5 rounded-full bg-[#FE4A01] text-black flex items-center justify-center font-bold text-[11px] mx-auto shadow-sm">
+          ✓
         </div>
       ) : (
-        // Circular Dimmed Cross Close Icon
-        <div className="flex justify-center">
-          {/* 🛠️ FIX: Changed border-zinc-400 to border-zinc-700/60 for a cleaner dark-mode blend, and text-zinc-600 to text-zinc-200 for a near-white icon */}
-          <div className="w-5 h-5 rounded-full border border-zinc-700/60 flex items-center justify-center text-zinc-200">
-            <svg
-              className="w-2.5 h-2.5 stroke-[2.5]"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </div>
+        <div className="w-5 h-5 rounded-full border border-stone-600 text-stone-300 flex items-center justify-center text-[10px] mx-auto">
+          ✕
         </div>
       );
     }
-
-    // Fallback string printing for dynamic descriptors
-    return (
-      <span className="text-zinc-400 text-[13px] tracking-wide font-normal">
-        {val}
-      </span>
-    );
+    return <span className="text-stone-300 text-xs sm:text-sm">{value}</span>;
   };
 
   return (
@@ -838,24 +913,24 @@ export default function B2BDashboardClient() {
       </section>
 
       {/* ── SECTION: PLANS & PRICING COMPARISON ───────────────────────── */}
-      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist']">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-black text-white font-['Urbanist']">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-end justify-between gap-8 sm:gap-10">
           {/* --- LEFT SIDE: TITLE & TOGGLE --- */}
-          <div className="lg:col-span-5">
-            <span className="text-stone-500 text-xs font-semibold tracking-wider uppercase block mb-2">
+          <div className="w-full lg:flex-1 flex flex-col items-start text-left">
+            <span className="text-[#FE4A01] text-xs sm:text-sm font-medium tracking-wide uppercase block mb-2 sm:mb-3">
               Plans
             </span>
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white mb-6 leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-white mb-6">
               Compare our plans
             </h2>
 
             {/* Toggle Switch */}
-            <div className="inline-flex rounded-full bg-stone-950 border border-stone-800 p-1">
+            <div className="inline-flex items-center rounded-full bg-black border border-stone-800 p-1 w-full sm:w-auto">
               <button
                 onClick={() => setIsMonthly(true)}
-                className={`px-5 sm:px-6 py-2 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer ${
+                className={`flex-1 sm:flex-initial px-6 py-2.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer text-center ${
                   isMonthly
-                    ? "bg-[#FE4A01] text-white shadow-sm"
+                    ? "bg-[#FE4A01] text-white shadow-md shadow-[#FE4A01]/30"
                     : "text-stone-400 hover:text-white"
                 }`}
               >
@@ -863,9 +938,9 @@ export default function B2BDashboardClient() {
               </button>
               <button
                 onClick={() => setIsMonthly(false)}
-                className={`px-5 sm:px-6 py-2 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer ${
+                className={`flex-1 sm:flex-initial px-6 py-2.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer text-center ${
                   !isMonthly
-                    ? "bg-[#FE4A01] text-white shadow-sm"
+                    ? "bg-[#FE4A01] text-white shadow-md shadow-[#FE4A01]/30"
                     : "text-stone-400 hover:text-white"
                 }`}
               >
@@ -875,33 +950,33 @@ export default function B2BDashboardClient() {
           </div>
 
           {/* --- RIGHT SIDE: PRICING CARDS --- */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full lg:w-auto">
             {plans.map((plan) => (
               <div
                 key={plan.name}
-                className="bg-[#0b0b0d] border border-stone-900 rounded-2xl p-5 sm:p-6 flex flex-col justify-between min-h-[200px] transition-all hover:border-stone-800"
+                className="bg-[#08080a] border border-stone-800/80 rounded-2xl p-6 sm:p-7 flex flex-col justify-between w-full lg:w-[260px] min-h-[170px]"
               >
-                {/* Card Label and Price */}
                 <div>
-                  <p className="text-stone-500 text-xs font-medium tracking-wider uppercase">
-                    {plan.name}
+                  <p className="text-stone-300 text-sm font-medium capitalize">
+                    {plan.name.toLowerCase()}
                   </p>
-                  <p className="text-3xl sm:text-4xl font-semibold mt-2 text-white tracking-tight">
-                    {isMonthly ? plan.price.monthly : plan.price.yearly}
-                  </p>
-                  <p className="text-stone-400 text-[11px] mt-1">
-                    {isMonthly ? "per month" : "per month, billed yearly"}
-                  </p>
+                  <div className="flex items-baseline gap-1 mt-2">
+                    <span className="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
+                      {isMonthly ? plan.price.monthly : plan.price.yearly}
+                    </span>
+                    <span className="text-stone-400 text-sm font-normal">
+                      / {isMonthly ? "month" : "year"}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Action Button */}
                 <button
                   onClick={() =>
                     handleReferralNavigation(
                       "https://dashboard.torchproxies.com/",
                     )
                   }
-                  className="w-full mt-6 py-2.5 px-4 bg-[#FE4A01] hover:bg-[#e04100] text-white font-medium text-xs sm:text-sm rounded-xl transition duration-150 active:scale-[0.98] cursor-pointer"
+                  className="w-full mt-6 py-3 px-4 bg-[#FE4A01] hover:bg-[#e04100] text-white font-medium text-xs sm:text-sm rounded-xl transition duration-150 shadow-lg shadow-[#FE4A01]/25 active:scale-[0.98] cursor-pointer"
                 >
                   Get started
                 </button>
@@ -912,52 +987,35 @@ export default function B2BDashboardClient() {
       </section>
 
       {/* ── SECTION: FEATURE COMPARISON MATRIX ─────────────────────────── */}
-      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white font-['Urbanist']">
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-black text-white font-['Urbanist']">
         <div className="max-w-7xl mx-auto">
-          <div className="w-full overflow-x-auto border border-stone-900 rounded-2xl bg-[#08080a] shadow-2xl custom-scrollbar">
+          <div className="w-full overflow-x-auto border border-stone-800/80 rounded-2xl bg-[#08080a] shadow-2xl custom-scrollbar">
             <table className="w-full min-w-[768px] border-collapse text-left table-fixed">
-              {/* Defined col groups to perfectly align columns cleanly */}
+              {/* Column proportion allocation matching 2 tiers */}
               <colgroup>
-                <col className="w-[40%] sm:w-[46%]" />
-                <col className="w-[20%] sm:w-[18%]" />
-                <col className="w-[20%] sm:w-[18%]" />
-                <col className="w-[20%] sm:w-[18%]" />
+                <col className="w-[50%]" />
+                <col className="w-[25%]" />
+                <col className="w-[25%]" />
               </colgroup>
-
-              <thead>
-                <tr className="border-b border-stone-900 bg-[#0c0c0e] text-stone-400 text-xs sm:text-sm font-semibold uppercase tracking-wider">
-                  <th className="py-4 px-4 sm:px-6">Features</th>
-                  <th className="py-4 px-3 sm:px-4 text-center">Starter</th>
-                  <th className="py-4 px-3 sm:px-4 text-center bg-stone-900/30 text-white">
-                    Pro
-                  </th>
-                  <th className="py-4 px-3 sm:px-4 text-center">Enterprise</th>
-                </tr>
-              </thead>
 
               <tbody>
                 {featureMatrix.map((row, idx) => (
                   <tr
                     key={idx}
-                    className="border-b border-stone-900/60 last:border-b-0 hover:bg-stone-900/20 transition-colors duration-150"
+                    className="border-b border-stone-800/60 last:border-b-0 hover:bg-white/[0.02] transition-colors duration-150"
                   >
                     {/* Feature Description Left Element */}
-                    <td className="py-3.5 sm:py-4 px-4 sm:px-6 text-stone-300 text-xs sm:text-sm font-normal tracking-wide whitespace-normal leading-relaxed">
+                    <td className="py-4 px-6 text-stone-200 text-xs sm:text-sm font-medium tracking-wide whitespace-normal leading-relaxed">
                       {row.title}
                     </td>
 
-                    {/* Free Tier Segment */}
-                    <td className="py-3.5 sm:py-4 px-3 sm:px-4 text-center align-middle text-stone-300 text-xs sm:text-sm">
-                      {renderCell(row.free)}
-                    </td>
-
-                    {/* Basic Tier Segment (Slightly tinted background highlight) */}
-                    <td className="py-3.5 sm:py-4 px-3 sm:px-4 text-center align-middle bg-stone-900/20 text-stone-200 text-xs sm:text-sm">
+                    {/* Basic Tier Segment */}
+                    <td className="py-4 px-4 text-center align-middle text-stone-300 border-l border-stone-800/50">
                       {renderCell(row.basic)}
                     </td>
 
                     {/* Premium Tier Segment */}
-                    <td className="py-3.5 sm:py-4 px-3 sm:px-4 text-center align-middle text-stone-300 text-xs sm:text-sm">
+                    <td className="py-4 px-4 text-center align-middle text-stone-300 border-l border-stone-800/50">
                       {renderCell(row.premium)}
                     </td>
                   </tr>

@@ -1,30 +1,8 @@
 import { withSentryConfig } from "@sentry/nextjs";
-// const nextConfig = {
-//   images: {
-//     remotePatterns: [
-//       { protocol: "https", hostname: "torchproxies.com" },
-//       { protocol: "https", hostname: "secure.gravatar.com" }, // ← author avatars
-//       { protocol: "https", hostname: "*.gravatar.com" },
-//     ],
-//   },
-// };
-// export default nextConfig;
-// /** @type {import('next').NextConfig} */
-// const nextConfig = {
-//   trailingSlash: true,
-//   images: {
-//     remotePatterns: [
-//       { protocol: "https", hostname: "torchproxies.com" },
-//       { protocol: "https", hostname: "secure.gravatar.com" }, // ← author avatars
-//       { protocol: "https", hostname: "*.gravatar.com" },
-//     ],
-//   },
-// };
 
 /** @type {import('next').NextConfig} */
 
-// img-src 'self' data: blob: https://cms.torchproxies.com;
-// The Content Security Policy directive
+// Content Security Policy directive
 const ContentSecurityPolicy: string = [
   "default-src 'self';",
   "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://*.doubleclick.net https://*.googleadservices.com https://*.googlesyndication.com https://*.google.com https://*.google.lk https://static.cloudflareinsights.com https://us-assets.i.posthog.com https://*.openai.com https://bzrcdn.openai.com https://connect.facebook.net https://www.redditstatic.com https://*.reddit.com https://static.ads-twitter.com https://*.betterstack.com https://*.amazonaws.com;",
@@ -40,43 +18,33 @@ const ContentSecurityPolicy: string = [
   "frame-ancestors 'none';",
   "upgrade-insecure-requests;",
 ].join(" ");
-// .replace(/\s{2,}/g, " ")
-// .trim();
 
 const securityHeaders = [
   {
-    // Prevent browsers from sniffing MIME types (forces browser to adhere to declared Content-Type)
     key: "X-Content-Type-Options",
     value: "nosniff",
   },
   {
-    // Prevent Clickjacking by restricting framing to DENY or SAMEORIGIN
     key: "X-Frame-Options",
     value: "DENY",
   },
   {
-    // Control referrer leakage when navigating across origins
     key: "Referrer-Policy",
     value: "strict-origin-when-cross-origin",
   },
   {
-    // Enforce HTTPS and prevent downgrade attacks for 2 years
     key: "Strict-Transport-Security",
     value: "max-age=63072000; includeSubDomains; preload",
   },
   {
-    // Restrict access to sensitive browser capabilities (camera, mic, geolocation)
     key: "Permissions-Policy",
     value: "camera=(), microphone=(), geolocation=()",
   },
   {
-    // Restrict resource origins to mitigate XSS and injection vectors
     key: "Content-Security-Policy",
     value: ContentSecurityPolicy,
   },
 ];
-
-/** @type {import('next').NextConfig} */
 
 const nextConfig = {
   // Prevent Next.js from forcing trailing slashes on static asset requests
@@ -88,6 +56,65 @@ const nextConfig = {
       { protocol: "https", hostname: "secure.gravatar.com" },
       { protocol: "https", hostname: "*.gravatar.com" },
     ],
+  },
+  // 301 Permanent Redirects for SEO & URL Cleanup
+  async redirects() {
+    return [
+      {
+        source: "/proxy-dashboard",
+        destination: "https://www.torchproxies.com/b2b-dashboard",
+        permanent: true,
+      },
+      {
+        source: "/find-phone-number-using-ip-address",
+        destination:
+          "https://www.torchproxies.com/blog/find-phone-number-using-ip-address/",
+        permanent: true,
+      },
+      {
+        source:
+          "/roblox-alt-account-detection-in-2026-what-the-ban-api-actually-checks",
+        destination:
+          "https://www.torchproxies.com/blog/roblox-alt-account-detection-in-2026-what-the-ban-api-actually-checks/",
+        permanent: true,
+      },
+      {
+        source: "/unblock-proxy-guide-youtube-2025",
+        destination:
+          "https://www.torchproxies.com/blog/youtube-unblock-proxy-what-works-in-2026/",
+        permanent: true,
+      },
+      {
+        source: "/what-are-virgin-proxies-explained-2026",
+        destination:
+          "https://www.torchproxies.com/blog/what-are-virgin-proxies-explained-2026/",
+        permanent: true,
+      },
+      {
+        source: "/manage-multiple-discord-accounts-without-getting-banned-2026",
+        destination:
+          "https://www.torchproxies.com/blog/manage-multiple-discord-accounts-without-getting-banned-2026/",
+        permanent: true,
+      },
+      {
+        source: "/x-residential-proxies",
+        destination: "https://www.torchproxies.com/plan-x-residential",
+        permanent: true,
+      },
+      {
+        source: "/best-proxies-for-pokemon-go",
+        destination:
+          "https://www.torchproxies.com/blog/best-proxies-for-pokemon-go/",
+        permanent: true,
+      },
+      {
+        source:
+          "/best-proxies-for-instagram-accounts-in-2026-which-type-actually-works",
+        destination:
+          "https://www.torchproxies.com/blog/best-proxies-for-instagram-accounts-in-2026-which-type-actually-works",
+        permanent: true,
+      },
+    ];
   },
   // Automatically proxy WordPress media files to FASTPANEL backend
   async rewrites() {
@@ -114,38 +141,24 @@ const nextConfig = {
 };
 
 export default withSentryConfig(nextConfig, {
-  // For all available options, see:
-  // https://www.npmjs.com/package/@sentry/webpack-plugin#options
-
   org: "torch-labs",
-
   project: "torchproxies-web",
 
   // Only print logs for uploading source maps in CI
   silent: !process.env.CI,
 
-  // For all available options, see:
-  // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
-
   // Upload a larger set of source maps for prettier stack traces (increases build time)
   widenClientFileUpload: true,
 
   // Route browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers.
-  // This can increase your server load as well as your hosting bill.
-  // Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-
-  // side errors will fail.
   tunnelRoute: "/monitoring",
 
   webpack: {
-    // Enables automatic instrumentation of Vercel Cron Monitors. (Does not yet work with App Router route handlers.)
-    // See the following for more information:
-    // https://docs.sentry.io/product/crons/
-    // https://vercel.com/docs/cron-jobs
+    // Enables automatic instrumentation of Vercel Cron Monitors.
     automaticVercelMonitors: true,
 
     // Tree-shaking options for reducing bundle size
     treeshake: {
-      // Automatically tree-shake Sentry logger statements to reduce bundle size
       removeDebugLogging: true,
     },
   },
