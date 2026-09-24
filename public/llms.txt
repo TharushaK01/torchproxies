@@ -1,0 +1,100 @@
+# TorchProxies
+
+> TorchProxies is a proxy provider run by Torch Labs Software LLC (Sheridan, Wyoming, USA). It sells rotating and sticky residential proxies (Standard and Premium), Plan X (a hybrid of residential and ISP proxies), static ISP proxies, and mobile proxies, plus a Proxy API for resellers. Customers use it for web scraping, AI agents, multi-account management, sneaker and ticket drops, and ad verification.
+
+TorchProxies prices residential and mobile bandwidth per GB and ISP proxies per IP per month. You can buy pay-as-you-go or on a subscription, with no long-term contracts and no rate limits on any plan. A free trial is available and no credit card is needed.
+
+## Key facts
+
+- IP pool: 120M+ residential IPs (Plan X, the largest pool). Premium Residential has 90M+ and Standard Residential has 30M+.
+- Country coverage: 195 countries for residential proxies. ISP proxies cover 12 countries: United States, United Kingdom, Canada, Germany, Italy, France, Australia, Hong Kong, South Korea, Japan, Poland and Spain.
+- Uptime: 99% (Plan X), on a 10 Gbps network.
+- Protocols: HTTP, HTTPS and SOCKS5. ISP proxies also support UDP via SOCKS5.
+- Session types: rotating (a new IP on every request) or sticky (the same IP for a set time). Sticky sessions default to 30 minutes in the dashboard, you can set a custom length, and they go up to 168 hours through the proxy string. Mobile sticky sessions last up to 7 days.
+- Authentication: username:password or IP whitelist.
+- Targeting: country, state (US) and city for residential. Plan X adds device-type targeting (iOS, Android, macOS, Windows, Linux) and site-specific pools for Pokemon Center, Footsites and Popmart (US, Canada, Europe-wide, Australia, Singapore, Malaysia and Japan). Mobile adds carrier and Android/iOS targeting.
+- Concurrency: unlimited concurrent sessions, no rate limits.
+- Pricing:
+  - Standard Residential: from $4/GB
+  - Premium Residential: from $4.50/GB
+  - Plan X: $5/GB, with volume tiers down to $3.90/GB at 1,000 GB
+  - ISP Proxies: $2.40/IP/month for 5 IPs ($12), $2.30/IP/month for 25, 50, 100 or 200 IPs, unlimited bandwidth
+  - ISP Subnets: $584.20/month for a full dedicated private subnet of 255 IPs
+  - Mobile Proxies: per-GB pricing
+- Free trial: yes, no credit card required.
+- Refund policy: residential orders can be refunded if under 5% of the data has been used and you report the issue within 24 hours of delivery. ISP proxies are replaced free if you report a problem within 24 hours of delivery. Wallet credit top-ups can't be refunded or transferred.
+- Payment methods: cards (Visa, Mastercard, American Express, Discover) and crypto.
+- Support: 24/7 by email and Discord. General contact: hello@torchlabs.xyz.
+- Acceptable use: illegal or unauthorized use is prohibited. Users must be 18 or older, and the service can't be used for workloads regulated under HIPAA, FISMA or GLBA.
+
+## Products
+
+- [Standard Residential Proxies](https://www.torchproxies.com/standard-residential-proxies): The budget option at $4/GB, with 30M+ rotating residential IPs in 195 countries. Good for everyday scraping and for trying the network.
+- [Premium Residential Proxies](https://www.torchproxies.com/premium-residential-proxies): 90M+ residential IPs at $4.50/GB, aimed at businesses running ad verification, price monitoring and other steady production workloads.
+- [Plan X](https://www.torchproxies.com/plan-x-residential): A hybrid proxy plan that combines residential IPs (120M+) for authenticity with dedicated ISP IPs for speed and stability, on one account and switchable per request. It adds device-type targeting (iOS, Android, macOS, Windows, Linux), site-specific pools for Pokemon Center, Footsites and Popmart (US, Canada, Europe-wide, Australia, Singapore, Malaysia and Japan), and three optional Xtreame settings: Xtreame Pool (cleaner, more reliable IPs than the standard pool), Xtreame Authentication (fewer blocks on sites with advanced security) and Xtreame Speed (the fastest, most responsive proxies for high-demand tasks). It's built for scraping, AI agents, multi-account work, retail drops and strict anti-bot targets.
+- [ISP Proxies](https://www.torchproxies.com/isp-proxies): Static, 100% dedicated IPs registered to real ISPs, in 12 countries, on a 10 Gbps network with unlimited bandwidth, HTTP and SOCKS5 (including UDP via SOCKS5) and instant delivery. Sold as individual proxies (5 to 200 IPs, from $2.30/IP/month) or as full private subnets of 255 IPs ($584.20/month). Pools are split by use case: Tickets, Sneakers, Retail, Social, General, Pokémon Center (Australia) and IPQS-Filtered (IPs screened with IPQualityScore for low fraud scores). See the ISP catalog below for what each country offers.
+- Mobile Proxies: Real 4G/5G carrier IPs in 150+ countries with carrier and Android/iOS targeting, billed per GB. For social media accounts and the hardest-to-pass detection. Comparison: [Mobile vs ISP proxies](https://www.torchproxies.com/blog/mobile-proxies-vs-isp-proxies-the-honest-decision-guide-torchproxies).
+- [Proxy API](https://www.torchproxies.com/proxy-api): A backend API for creating sub-users, assigning data and generating proxies. Resellers use it to run their own proxy storefront or dashboard. Deposits start at $1.
+- [Proxy locations](https://www.torchproxies.com/countries): Residential and ISP coverage by country, with per-country IP counts.
+
+## ISP catalog by country
+
+"Proxies" are individual dedicated IPs (5 to 200). "Subnets" are full private 255-IP subnets. "All-in-One" is a general-purpose pool for web scraping, automation and data collection.
+
+- United States: Retail, Sneaker and Ticketing subnets; IPQS-Filtered, Social Media, Retail and Sneaker proxies. ASNs include RCN, Windstream, AT&T, Wave, Cogent, Spectrum and Frontier.
+- United Kingdom: IPQS-Filtered, Social Media, Retail, Sneaker and Ticketing proxies; Retail and Sneaker subnets. ASNs include British Telecom, Glide and Orange.
+- Canada: Retail, Sneaker and Ticketing, as both subnets and proxies. ASNs include Rogers and GTT.
+- Germany: Retail subnets; IPQS-Filtered, Social Media, Retail, Sneaker and Ticketing proxies. ASNs include DTAG (Deutsche Telekom) and Lumen.
+- Italy: All-in-One subnets and proxies. ASNs include Telecom Italia.
+- France: All-in-One subnets and proxies. ASNs include Orange.
+- Australia: Pokémon Center, Ticketing, Sneaker and Retail subnets; Pokémon Center, Ticketing and Sneaker proxies. The Pokémon Center pool is built for drops, restocks and checkout. ASNs include Vocus and Prefix Network.
+- Hong Kong: Ticketing subnets; Ticketing and Retail proxies. The ticketing pool works especially well with Ticketmaster; other ticketing sites may work but aren't guaranteed. ASNs include HGC.
+- South Korea: Premium Korea Sneaker Proxies for low-security sneaker and retail sites such as eBay, Coupang and Naver. ASN: Korea Telecom.
+- Japan: Retail subnets and proxies for Japanese retail and e-commerce. ASNs include WS Telecom and Jelly Tel.
+- Poland: All-in-One subnets and proxies. ASNs include Korbank.
+- Spain: All-in-One subnets and proxies. ASNs include Aire Networks.
+
+## Use cases
+
+- [Web scraping](https://www.torchproxies.com/web-scraping): Rotating residential and hybrid proxies for scraping at scale without IP bans.
+- [Sneaker proxies](https://www.torchproxies.com/sneaker-proxies): ISP pools tested on sneaker sites, including dedicated Nike, Supreme, Footsites, Yeezy Supply and Popmart pools.
+- [Ticketmaster proxies](https://www.torchproxies.com/ticketmaster-proxies): Ticketing ISP pools in the US, UK, Canada, Germany, Australia and Hong Kong.
+- [Ad verification](https://www.torchproxies.com/ad-verification): Checking how ads display by country and city from real residential IPs.
+- [Price monitoring](https://www.torchproxies.com/price-monitoring): Tracking competitor and retail prices across regions.
+- [SEO monitoring](https://www.torchproxies.com/seo-monitoring): Pulling localized search results for rank tracking.
+- [B2B reseller program](https://www.torchproxies.com/b2b-reseller): Proxy API, reseller dashboard, a free Discord proxy bot and custom-built dashboards for businesses that resell proxies.
+
+## Guides
+
+- [How to choose a proxy type in 2026: the decision tree](https://www.torchproxies.com/blog/how-to-choose-a-proxy-type-in-2026-the-decision-tree-torchproxies): Which proxy type (datacenter, residential, ISP, mobile) fits which job.
+- [How platforms detect bots: the 5-layer stack](https://www.torchproxies.com/blog/how-platforms-detect-bots-the-5-layer-stack-2026-data): The five layers of bot detection, from IP reputation and TLS fingerprinting through to behavior.
+- [Cloudflare vs DataDome vs HUMAN Security](https://www.torchproxies.com/blog/cloudflare-vs-datadome-vs-human-security-what-each-bot-system-actually-checks-2026): What each of the three big bot-protection systems actually checks.
+- [Proxy setup for LangChain, CrewAI and Claude agents](https://www.torchproxies.com/blog/proxy-setup-for-langchain-crewai-and-claude-agents-a-developers-guide-2026): Code-level proxy setup for the major AI agent frameworks, SOCKS5 included.
+- [How AI agents get blocked and how to proxy them right](https://www.torchproxies.com/blog/how-ai-agents-get-blocked-and-how-to-proxy-them-right-torchproxies): Why autonomous agents get blocked on the open web and which proxy setup prevents it.
+- [Building web data pipelines for LLMs and RAG](https://www.torchproxies.com/blog/building-reliable-web-data-pipelines-for-llms-and-rag-systems-with-proxies-2026): Collecting reliable web data to feed LLM and RAG systems.
+- [What is an MCP server?](https://www.torchproxies.com/blog/what-is-an-mcp-server-2026-developers-guide): A developer's explanation of the Model Context Protocol.
+- [MCP vs A2A](https://www.torchproxies.com/blog/mcp-vs-a2a-the-developers-guide-to-ai-agent-protocols-in-2026): How the two AI agent protocols differ and when to use each.
+- [Datacenter vs residential proxies](https://www.torchproxies.com/blog/datacenter-vs-residential-proxies-2026): The trade-offs in cost, speed and detection between the two.
+- [Mobile vs ISP proxies](https://www.torchproxies.com/blog/mobile-proxies-vs-isp-proxies-the-honest-decision-guide-torchproxies): When carrier mobile IPs are worth it and when a static ISP proxy does the job for less.
+- [Static vs rotating proxies](https://www.torchproxies.com/blog/static-vs-rotating-proxies): How session modes work and which tasks need which.
+- [SOCKS vs HTTP proxies](https://www.torchproxies.com/blog/socks-vs-http-proxy-key-differences-explained-2026): The protocol differences and when SOCKS5 matters.
+- [Best proxies for multi-account management](https://www.torchproxies.com/blog/best-proxies-for-multi-account-management-in-2026-one-rule-that-changes-everything): The one-account-one-IP rule and which proxy types hold up on social platforms.
+- [How to tell if a proxy provider is ethical](https://www.torchproxies.com/blog/how-to-tell-if-a-proxy-provider-is-ethical-torchproxies): How to check where a provider's residential IPs come from and whether users consented.
+- [The complete guide to proxies for web scraping](https://www.torchproxies.com/blog/the-complete-guide-to-proxies-for-web-scraping-2026): An end-to-end reference on proxy choice, rotation and avoiding blocks while scraping.
+
+## Documentation
+
+- [Documentation and support](https://www.torchproxies.com/documentation): Setup guides, API references and support channels.
+- [Help center](https://docs.torchlabs.xyz): Customer FAQs and troubleshooting.
+
+## Company
+
+- [About](https://www.torchproxies.com/about): Who runs TorchProxies.
+- [Contact](https://www.torchproxies.com/contact): Sales contact form for volume and custom plans.
+- [Affiliate program](https://www.torchproxies.com/affiliate): Commission for referring customers.
+
+## Optional
+
+- [Blog](https://www.torchproxies.com/blog): All guides and articles.
+- [Terms of Service](https://www.torchproxies.com/terms-of-service)
+- [Privacy Policy](https://www.torchproxies.com/privacy-policy)
