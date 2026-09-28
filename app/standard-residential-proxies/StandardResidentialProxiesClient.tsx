@@ -1001,7 +1001,7 @@ export default function TorchProxiesLandingPage() {
                     Plan X Residential Proxies
                   </h3>
                   <span className="bg-[#FE4A01]/10 border border-[#FE4A01]/20 text-[#FE4A01] text-xs sm:text-[14px] font-medium px-2.5 py-1 rounded-md font-['Urbanist'] shrink-0">
-                    From $4.5/GB
+                    From $5.0/GB
                   </span>
                 </div>
 

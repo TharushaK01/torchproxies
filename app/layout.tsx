@@ -15,8 +15,9 @@ import {
   Source_Code_Pro,
 } from "next/font/google";
 import "./globals.css";
-import { Suspense } from "react";
+import { Suspense, Fragment } from "react";
 import ReferralTracker from "@/components/ReferralTracker";
+import ChatwootWidget from "@/components/ChatwootWidget";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
@@ -107,6 +108,9 @@ export default function RootLayout({
           {/* Third-party lazy widgets */}
           <ChatWidget />
           <SessionRecorder />
+          <Fragment>
+            <ChatwootWidget />
+          </Fragment>
         </PostHogProvider>
 
         {/* PostHog Analytics Script */}

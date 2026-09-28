@@ -209,10 +209,13 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="lg:col-span-4 relative flex items-center h-[450px] lg:h-[620px] w-full">
+        {/* Right Column: Image Container */}
+        <div className="lg:col-span-4 relative flex items-center justify-center lg:justify-start h-auto sm:h-[450px] lg:h-[620px] w-full mt-8 lg:mt-0">
           <div className="absolute -inset-4 rounded-3xl bg-[#ff4500]/10 blur-3xl pointer-events-none" />
 
-          <div className="absolute top-1/2 -translate-y-1/2 left-0 w-[200%] sm:w-[170%] lg:w-[220%] xl:w-[240%] pointer-events-none">
+          {/* On Mobile & Tablet (below lg): Contained layout */}
+          {/* On Desktop (lg and up): Keeps your original wide overlay design */}
+          <div className="relative lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:left-0 w-full lg:w-[220%] xl:w-[240%] pointer-events-none">
             <div className="rounded-2xl border border-stone-800/80 bg-[#0d0e12] p-1.5 shadow-2xl overflow-hidden">
               <Image
                 src="/images/heroimage2.png"

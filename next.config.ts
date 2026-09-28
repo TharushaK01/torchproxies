@@ -5,13 +5,13 @@ import { withSentryConfig } from "@sentry/nextjs";
 // Content Security Policy directive
 const ContentSecurityPolicy: string = [
   "default-src 'self';",
-  "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://*.doubleclick.net https://*.googleadservices.com https://*.googlesyndication.com https://*.google.com https://*.google.lk https://static.cloudflareinsights.com https://us-assets.i.posthog.com https://*.openai.com https://bzrcdn.openai.com https://connect.facebook.net https://www.redditstatic.com https://*.reddit.com https://static.ads-twitter.com https://*.betterstack.com https://*.amazonaws.com;",
+  "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://*.doubleclick.net https://*.googleadservices.com https://*.googlesyndication.com https://*.google.com https://*.google.lk https://static.cloudflareinsights.com https://us-assets.i.posthog.com https://*.openai.com https://bzrcdn.openai.com https://connect.facebook.net https://www.redditstatic.com https://*.reddit.com https://static.ads-twitter.com https://*.betterstack.com https://*.amazonaws.com https://chatwoot.trytorchlabs.com;",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://torchproxies.com https://*.betterstack.com;",
   "img-src 'self' data: blob: https: https://*.doubleclick.net https://*.google.com https://*.google.lk https://www.facebook.com https://*.reddit.com;",
   "font-src 'self' https://fonts.gstatic.com;",
-  "connect-src 'self' https://*.google.com https://*.google.lk https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.googleadservices.com https://*.googlesyndication.com https://*.doubleclick.net https://cloudflareinsights.com https://us.i.posthog.com https://us-assets.i.posthog.com https://connect.facebook.net https://cms.torchproxies.com https://*.openai.com https://bzrcdn.openai.com https://*.reddit.com https://*.betterstack.com;",
+  "connect-src 'self' https://*.google.com https://*.google.lk https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.googleadservices.com https://*.googlesyndication.com https://*.doubleclick.net https://cloudflareinsights.com https://us.i.posthog.com https://us-assets.i.posthog.com https://connect.facebook.net https://cms.torchproxies.com https://*.openai.com https://bzrcdn.openai.com https://*.reddit.com https://*.betterstack.com https://chatwoot.trytorchlabs.com wss://chatwoot.trytorchlabs.com;",
   "worker-src 'self' blob:;",
-  "frame-src 'self' https://*.doubleclick.net https://*.google.com https://*.googlesyndication.com;",
+  "frame-src 'self' https://*.doubleclick.net https://*.google.com https://*.googlesyndication.com https://chatwoot.trytorchlabs.com;",
   "object-src 'none';",
   "base-uri 'self';",
   "form-action 'self';",
