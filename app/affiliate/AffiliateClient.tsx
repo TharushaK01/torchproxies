@@ -143,31 +143,37 @@ export default function AffiliateClient() {
   const features = [
     {
       icon: "/images/api2.svg",
+      alt: "60 day cookie tracking icon",
       title: "60 Day Cookie Window",
       desc: "Tracks referrals longer to help you earn even after delayed purchases.",
     },
     {
       icon: "/images/api3.svg",
+      alt: "High commission rates icon",
       title: "High Commission Rates",
       desc: "Earn higher commissions on every first-time sale you successfully refer.",
     },
     {
       icon: "/images/api4.svg",
+      alt: "Recurring lifetime earnings icon",
       title: "Recurring Lifetime Earnings",
       desc: "Keep earning continuously whenever your referred users renew.",
     },
     {
       icon: "/images/api5.svg",
+      alt: "Fast 30-day payouts icon",
       title: "Fast 30-Day Payouts",
       desc: "Receive automatic payouts every month without manual follow ups.",
     },
     {
       icon: "/images/api6.svg",
+      alt: "Tiered commission boost icon",
       title: "Tiered Commission Boost",
       desc: "Unlock better earning rates as your referral revenue grows monthly.",
     },
     {
       icon: "/images/api7.svg",
+      alt: "Monthly promotional packs icon",
       title: "Monthly Promo Packs",
       desc: "Access fresh creative assets monthly to support stronger promotions.",
     },

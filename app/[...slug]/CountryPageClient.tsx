@@ -222,7 +222,7 @@ export default function CountryPageClient({
         <div className="absolute bottom-0 left-0 w-full h-[65vh] z-0 w-full">
           <Image
             src="/images/hero_back.png"
-            alt=""
+            alt="Torch Proxies global proxy network background"
             fill
             priority
             className="object-cover object-bottom"

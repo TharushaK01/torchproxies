@@ -55,9 +55,10 @@ export const metadata: Metadata = {
   description:
     "Fast, reliable residential & ISP proxies for scraping, automation & multi-account management. 80M+ IPs across 195+ countries",
   metadataBase: new URL("https://www.torchproxies.com"),
-  // alternates: {
-  //   canonical: "./",
-  // },
+  // Enable canonical URL generation across all pages
+  alternates: {
+    canonical: "./",
+  },
   openGraph: {
     siteName: "TorchProxies",
     type: "website",

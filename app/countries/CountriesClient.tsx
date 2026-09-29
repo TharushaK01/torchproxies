@@ -127,7 +127,7 @@ export default function TorchProxiesLandingPage() {
         country: "Canada",
         ips: "815,658 IPs",
         code: "CA",
-        url: "/canada/residential",
+        url: "/canada",
       },
       {
         country: "Mexico",

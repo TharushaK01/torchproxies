@@ -48,7 +48,10 @@ const securityHeaders = [
 
 const nextConfig = {
   // Prevent Next.js from forcing trailing slashes on static asset requests
-  trailingSlash: false,
+  // trailingSlash: false,
+
+  // Forces Next.js to redirect URLs without trailing slashes to the trailing slash version
+  trailingSlash: true,
   skipTrailingSlashRedirect: true,
   images: {
     remotePatterns: [
