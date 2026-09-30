@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "United States Static ISP Proxies | Fast & Reliable",
   description:
     "Get static United States ISP proxies with real carrier-grade IPs, unlimited bandwidth, and 99.9% uptime — built for automation and long, stable sessions.",
+  alternates: {
+    canonical: "united-states/isp",
+  },
   openGraph: {
     title: "United States Static ISP Proxies | Fast & Reliable",
     description:

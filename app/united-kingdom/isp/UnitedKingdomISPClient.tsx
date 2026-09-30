@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   title: "United Kingdom Static ISP Proxies | Fast & Reliable",
   description:
     "Get static United Kingdom ISP proxies with real carrier-grade IPs, unlimited bandwidth, and 99.9% uptime — built for automation and long, stable sessions.",
+
   openGraph: {
     title: "United Kingdom Static ISP Proxies | Fast & Reliable",
     description:

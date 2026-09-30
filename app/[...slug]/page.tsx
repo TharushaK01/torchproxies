@@ -145,7 +145,22 @@ import CountryPageClient from "@/app/[...slug]/CountryPageClient";
 import { notFound } from "next/navigation";
 import { getCountryRows } from "@/lib/sheets";
 import ISPPageClient from "./ISPPageClient";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Proxy Locations & Supported Countries | Torch Proxies",
+  description:
+    "Browse 80M+ residential and ISP proxies across 195+ countries worldwide.",
+  alternates: {
+    canonical: "/countries", // Generates https://www.torchproxies.com/countries
+  },
+  openGraph: {
+    title: "Proxy Locations & Supported Countries | Torch Proxies",
+    description:
+      "Browse 80M+ residential and ISP proxies across 195+ countries worldwide.",
+    type: "website",
+  },
+};
 const VALID_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/i;
 
 interface PageProps {

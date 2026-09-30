@@ -6,6 +6,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Urbanist } from "next/font/google";
 import { ChevronDown, Star } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Partners",
+  alternates: {
+    canonical: "/partners",
+  },
+};
 
 interface ProcessedBlog {
   id: number;

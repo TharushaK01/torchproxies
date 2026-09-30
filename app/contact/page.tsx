@@ -4,7 +4,7 @@
 // import { Urbanist } from 'next/font/google';
 
 // // Load Urbanist font from Google Fonts
-// const urbanist = Urbanist({ 
+// const urbanist = Urbanist({
 //   subsets: ['latin'],
 //   weight: ['300', '400', '500', '600', '700'],
 //   variable: '--font-urbanist',
@@ -55,7 +55,7 @@
 
 //   return (
 //     <main className={`${urbanist.className} min-h-screen bg-[#050507] text-white flex flex-col items-center justify-center p-4 md:p-10 font-['Urbanist'] mt-[50px]`}>
-      
+
 //       {/* Top Trustpilot Rating Badge */}
 //       <div className="mb-8 mt-12 md:mt-0">
 //         <a href="https://www.trustpilot.com/review/torchlabs.xyz" target="_blank" rel="noopener noreferrer">
@@ -79,10 +79,10 @@
 
 //       {/* Main Container */}
 //       <div className="w-full max-w-6xl bg-[#0b0c10] border border-[#1f222a] rounded-2xl p-4 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-8 shadow-2xl font-['Urbanist']">
-        
+
 //         {/* LEFT COLUMN - Hero / Proof Section */}
 //         <div className="lg:col-span-5 rounded-xl bg-gradient-to-br from-[#c33800] via-[#5c1c02] to-[#120d18] p-6 md:p-8 flex flex-col justify-between border border-[#301c13] relative overflow-hidden min-h-[550px]">
-          
+
 //           {/* Top Headline */}
 //           <div>
 //             <h2 className="text-[43px] md:text-4xl font-semibold leading-tight mb-8 text-white text-center">
@@ -92,22 +92,22 @@
 //             {/* Client Logos Area */}
 //             <div className="mb-8 flex justify-center">
 //               {/* If you have a single image containing all logos: */}
-//               <Image 
+//               <Image
 //                 src="/images/client-logos.png" // Replace with your local image path
-//                 alt="Client Logos" 
-//                 width={320} 
-//                 height={80} 
+//                 alt="Client Logos"
+//                 width={320}
+//                 height={80}
 //                 className="h-auto object-contain max-w-[280px]"
 //               />
-              
+
 //               {/* Alternate fallback SVG / text layout if image isn't available: */}
-//               {/* 
+//               {/*
 //               <div className="grid grid-cols-2 gap-4 items-center opacity-90 text-sm font-semibold tracking-wider">
 //                 <div>L&apos;ORÉAL PARIS</div>
 //                 <div>McGill UNIVERSITY</div>
 //                 <div>descript</div>
 //                 <div>ramp</div>
-//               </div> 
+//               </div>
 //               */}
 //             </div>
 //           </div>
@@ -242,48 +242,55 @@
 //   );
 // }
 
-
 "use client";
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import { Urbanist } from 'next/font/google';
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { Urbanist } from "next/font/google";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  alternates: {
+    canonical: "/contact",
+  },
+};
 
 // Load Urbanist font from Google Fonts
-const urbanist = Urbanist({ 
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-urbanist',
+const urbanist = Urbanist({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-urbanist",
 });
 
 // Sample testimonials for the carousel
 const reviews = [
   {
     id: 1,
-    name: 'Henry Paul',
-    title: 'Clean and reliable provider',
+    name: "Henry Paul",
+    title: "Clean and reliable provider",
     content:
-      'Had a great experience with them. Firstly, their proxies are of high quality. They are stable, don\'t change ip frequently, perfect for webscraping. Also, they have very low score on scamalytics, and ip2location making them ideal for geo-restricted content. Proxies are fast too, response time is <0.5 sec in my case.',
+      "Had a great experience with them. Firstly, their proxies are of high quality. They are stable, don't change ip frequently, perfect for webscraping. Also, they have very low score on scamalytics, and ip2location making them ideal for geo-restricted content. Proxies are fast too, response time is <0.5 sec in my case.",
   },
   {
     id: 2,
-    name: 'Sarah Jenkins',
-    title: 'Outstanding customer support & performance',
+    name: "Sarah Jenkins",
+    title: "Outstanding customer support & performance",
     content:
-      'The speed and uptime are unmatched. Any time we had a question, their support team resolved it within minutes. Highly recommended for heavy automated workloads.',
+      "The speed and uptime are unmatched. Any time we had a question, their support team resolved it within minutes. Highly recommended for heavy automated workloads.",
   },
   {
     id: 3,
-    name: 'Alex Rivera',
-    title: 'Best proxy solution for scrapers',
+    name: "Alex Rivera",
+    title: "Best proxy solution for scrapers",
     content:
-      'Switched from another major provider and saved 40% while getting noticeably faster response times and far fewer blocked requests.',
+      "Switched from another major provider and saved 40% while getting noticeably faster response times and far fewer blocked requests.",
   },
   {
     id: 4,
-    name: 'David Kim',
-    title: 'Top-tier stability',
+    name: "David Kim",
+    title: "Top-tier stability",
     content:
-      'Extremely consistent IP pools and minimal dropouts. Has significantly streamlined our data pipeline with zero headaches.',
+      "Extremely consistent IP pools and minimal dropouts. Has significantly streamlined our data pipeline with zero headaches.",
   },
 ];
 
@@ -299,11 +306,16 @@ export default function ContactPage() {
   }, []);
 
   return (
-    <main className={`${urbanist.className} min-h-screen bg-[#050507] text-white flex flex-col items-center justify-center p-4 md:p-10 font-['Urbanist'] mt-[50px]`}>
-      
+    <main
+      className={`${urbanist.className} min-h-screen bg-[#050507] text-white flex flex-col items-center justify-center p-4 md:p-10 font-['Urbanist'] mt-[50px]`}
+    >
       {/* Top Trustpilot Rating Badge */}
       <div className="mb-8 mt-12 md:mt-0">
-        <a href="https://www.trustpilot.com/review/torchlabs.xyz" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.trustpilot.com/review/torchlabs.xyz"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Image
             src="/images/TrustPiolet.png"
             alt="Excellent 5-star rating on Trustpilot"
@@ -324,17 +336,15 @@ export default function ContactPage() {
 
       {/* Main Container */}
       <div className="w-full max-w-6xl bg-[#0b0c10] border border-[#1f222a] rounded-2xl p-4 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-8 shadow-2xl font-['Urbanist']">
-        
         {/* LEFT COLUMN - Hero / Proof Section (Adjusted gradient background using inline style for exact color stop positioning) */}
         {/* LEFT COLUMN - Hero / Proof Section */}
-<div 
-  className="lg:col-span-5 rounded-xl p-6 md:p-8 flex flex-col justify-between border border-[#301c13] relative overflow-hidden min-h-[550px]"
-  style={{
-    background: 'linear-gradient(180deg, #ff4500 0%, #c33800 18%, #4a1a0a 42%, #1a1210 65%, #0b0c10 100%)'
-  }}
->
-        
-          
+        <div
+          className="lg:col-span-5 rounded-xl p-6 md:p-8 flex flex-col justify-between border border-[#301c13] relative overflow-hidden min-h-[550px]"
+          style={{
+            background:
+              "linear-gradient(180deg, #ff4500 0%, #c33800 18%, #4a1a0a 42%, #1a1210 65%, #0b0c10 100%)",
+          }}
+        >
           {/* Top Headline */}
           <div>
             <h2 className="text-[43px] md:text-4xl font-semibold leading-tight mb-8 text-white text-center">
@@ -343,11 +353,11 @@ export default function ContactPage() {
 
             {/* Client Logos Area */}
             <div className="mb-8 flex justify-center">
-              <Image 
+              <Image
                 src="/images/client-logos.png"
-                alt="Client Logos" 
-                width={320} 
-                height={80} 
+                alt="Client Logos"
+                width={320}
+                height={80}
                 className="h-auto object-contain max-w-[280px]"
               />
             </div>
@@ -398,14 +408,15 @@ export default function ContactPage() {
                   key={index}
                   onClick={() => setCurrentSlide(index)}
                   className={`h-1 rounded-full transition-all duration-300 ${
-                    currentSlide === index ? 'w-6 bg-white' : 'w-2 bg-gray-600/60'
+                    currentSlide === index
+                      ? "w-6 bg-white"
+                      : "w-2 bg-gray-600/60"
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
                 />
               ))}
             </div>
           </div>
-
         </div>
 
         {/* RIGHT COLUMN - Contact Form */}
@@ -460,7 +471,8 @@ export default function ContactPage() {
                 Your message
               </label>
               <p className="text-[11px] text-gray-500 mb-1.5">
-                Please add any details that might help us with understanding your use case so we can assist you better
+                Please add any details that might help us with understanding
+                your use case so we can assist you better
               </p>
               <textarea
                 rows={4}
@@ -477,7 +489,6 @@ export default function ContactPage() {
             </button>
           </form>
         </div>
-
       </div>
     </main>
   );

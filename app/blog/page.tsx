@@ -33,8 +33,8 @@
 //         {categories.map((cat) => (
 //           <button
 //             key={cat.id}
-//             className="px-5 py-2 rounded-full border border-white/10 text-stone-400 
-//                        text-sm font-medium hover:border-orange-500 hover:text-white 
+//             className="px-5 py-2 rounded-full border border-white/10 text-stone-400
+//                        text-sm font-medium hover:border-orange-500 hover:text-white
 //                        transition-all duration-300"
 //           >
 //             {cat.name}
@@ -52,7 +52,6 @@
 //     </main>
 //   );
 // }
-
 
 // import { getPostBySlug, getAllPosts } from "@/lib/wordpress";
 // import { WPPost } from "@/types/wordpress";
@@ -250,10 +249,15 @@ import BlogClient from "./BlogClient";
 // 1. Add SEO Metadata for the main Blog Listing page
 export const metadata: Metadata = {
   title: "Blog & Insights | Torch Proxies",
-  description: "Explore the latest guides, proxy tutorials, and platform updates.",
+  description:
+    "Explore the latest guides, proxy tutorials, and platform updates.",
+  alternates: {
+    canonical: "/blog", // Generates https://www.torchproxies.com/blog
+  },
   openGraph: {
     title: "Blog & Insights | Torch Proxies",
-    description: "Explore the latest guides, proxy tutorials, and platform updates.",
+    description:
+      "Explore the latest guides, proxy tutorials, and platform updates.",
     type: "website",
   },
 };
@@ -266,7 +270,6 @@ export default async function BlogPage() {
     ]);
 
     return <BlogClient posts={posts} categories={categories} />;
-
   } catch (error) {
     // Shows error on screen instead of 404
     console.error("Blog fetch error:", error);

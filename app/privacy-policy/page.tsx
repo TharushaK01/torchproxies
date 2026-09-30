@@ -3,6 +3,9 @@ import React from "react";
 export const metadata = {
   title: "Privacy Policy | TorchProxies",
   description: "Privacy Policy and Legal Terms for Torch Proxies services.",
+  alternates: {
+    canonical: "/privacy-policy",
+  },
 };
 
 export default function PrivacyPolicyPage() {

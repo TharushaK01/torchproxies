@@ -7,7 +7,14 @@ import { Star } from "lucide-react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "About Us",
+  alternates: {
+    canonical: "/about",
+  },
+};
 const DepthCarousel = dynamic(() => import("../../components/DepthCarousel"), {
   loading: () => (
     <div className="w-full h-[420px] bg-[#08090c] border border-[#1b1e26] rounded-[24px] flex items-center justify-center">

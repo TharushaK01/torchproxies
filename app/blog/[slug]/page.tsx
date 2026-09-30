@@ -5,14 +5,13 @@
 // import WordPressRenderer from "@/components/WordPressRenderer";
 // import { splitStyleAndBody, scopeCss } from "@/lib/scopeWpContent";
 
-
 // export const revalidate = 3600;
 // export const dynamicParams = true;
 
 // // 2. Configure the font (you can specify weights or subsets)
 // const urbanist = Urbanist({
 //   subsets: ["latin"],
-//   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"], 
+//   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 //   display: "swap",
 // });
 
@@ -50,7 +49,7 @@
 // }: {
 //   params: Promise<{ slug: string }>;
 // }) {
-  
+
 //   const { slug } = await params;
 
 //   let post: WPPost | null = null;
@@ -61,7 +60,6 @@
 //   }
 
 //   if (!post) notFound();
-
 
 //   // Remove scripts only, preserve <style> tags
 // const cleanHtml = post.content.rendered
@@ -95,7 +93,7 @@ import { notFound } from "next/navigation";
 import { Urbanist } from "next/font/google";
 import { splitStyleAndBody, scopeCss } from "@/lib/scopeWpContent";
 import sanitizeHtml from "sanitize-html";
-import WordPressContent from '@/components/WordPressContent';
+import WordPressContent from "@/components/WordPressContent";
 
 export const revalidate = 3600;
 export const dynamicParams = true;
@@ -126,9 +124,7 @@ export async function generateMetadata({
     if (!post) return { title: "Post Not Found" };
     return {
       title: post.title.rendered.replace(/<[^>]+>/g, ""),
-      description: post.excerpt.rendered
-        .replace(/<[^>]+>/g, "")
-        .slice(0, 160),
+      description: post.excerpt.rendered.replace(/<[^>]+>/g, "").slice(0, 160),
     };
   } catch {
     return { title: "Post Not Found" };
@@ -183,9 +179,9 @@ export default async function BlogPostPage({
       suppressHydrationWarning
     >
       <style dangerouslySetInnerHTML={{ __html: scopedStyle }} />
-<div className="wp-post-wrapper">
-  <WordPressContent rawHtml={body} />
-</div>
+      <div className="wp-post-wrapper">
+        <WordPressContent rawHtml={body} />
+      </div>
     </main>
   );
 }

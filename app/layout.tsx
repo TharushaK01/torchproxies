@@ -161,6 +161,7 @@ export default function RootLayout({
             />
 
             {/* URL Parameter Tracker */}
+            {/* null - No Visible UI Needed */}
             <Suspense fallback={null}>
               <ReferralTracker />
             </Suspense>

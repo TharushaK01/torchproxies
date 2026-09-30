@@ -1,20 +1,25 @@
-import type { Metadata } from 'next';
-import TicketMasterProxiesClient from './TicketMasterProxiesClient';    
+import type { Metadata } from "next";
+import TicketMasterProxiesClient from "./TicketMasterProxiesClient";
 
 export const metadata: Metadata = {
-  title: 'Ticketmaster Proxies | Torch Proxies',
-  description: 'Most ticket failures aren’t caused by your bot — they’re caused by IP reputation, fingerprint detection, and unstable queue sessions. Fix it here. Read more.',
+  title: "Ticketmaster Proxies | Torch Proxies",
+  description:
+    "Most ticket failures aren’t caused by your bot — they’re caused by IP reputation, fingerprint detection, and unstable queue sessions. Fix it here. Read more.",
+  alternates: {
+    canonical: "/ticketmaster-proxies",
+  },
   openGraph: {
-    title: 'Ticketmaster Proxies | Torch Proxies',
-    description: 'Most ticket failures aren’t caused by your bot — they’re caused by IP reputation, fingerprint detection, and unstable queue sessions. Fix it here. Read more.',
-    images: ['/images/og-image.jpg'],
+    title: "Ticketmaster Proxies | Torch Proxies",
+    description:
+      "Most ticket failures aren’t caused by your bot — they’re caused by IP reputation, fingerprint detection, and unstable queue sessions. Fix it here. Read more.",
+    images: ["/images/og-image.jpg"],
   },
   twitter: {
-    card: 'summary_large_image',
-    images: ['/images/og-image.jpg'],
+    card: "summary_large_image",
+    images: ["/images/og-image.jpg"],
   },
 };
 
 export default function Page() {
-  return <TicketMasterProxiesClient/>;
+  return <TicketMasterProxiesClient />;
 }
