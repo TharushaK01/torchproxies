@@ -65,6 +65,11 @@ import { getAllPosts } from "@/lib/wordpress";
 import { getCountryRows } from "@/lib/sheets";
 import { WPPost } from "@/types/wordpress";
 
+// Force Node.js runtime so `fs` calls work reliably in serverless/edge environments
+export const runtime = "nodejs";
+// Revalidate sitemap output every 24 hours to reduce API call overhead
+export const revalidate = 86400;
+
 const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL || "https://www.torchproxies.com"
 ).replace(/\/$/, "");
@@ -104,7 +109,15 @@ function getStaticAppRoutes(): { route: string; filePath: string }[] {
 
     for (const entry of entries) {
       // Ignore private components (_components) or API folders automatically
-      if (entry.name.startsWith("_") || entry.name === "api") continue;
+      // if (entry.name.startsWith("_") || entry.name === "api") continue;
+
+      // Skip private components (_components), parallel routes (@modal), or API routes
+      if (
+        entry.name.startsWith("_") ||
+        entry.name.startsWith("@") ||
+        entry.name === "api"
+      )
+        continue;
 
       const fullPath = path.join(dir, entry.name);
 

@@ -18,6 +18,8 @@ import "./globals.css";
 import { Suspense, Fragment } from "react";
 import ReferralTracker from "@/components/ReferralTracker";
 import ChatwootWidget from "@/components/ChatwootWidget";
+import { headers } from "next/headers";
+import ServerBreadcrumbs from "@/components/ServerBreadcrumbs";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
@@ -73,7 +75,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -91,8 +93,15 @@ export default function RootLayout({
     sourceCodePro.variable,
   ].join(" ");
 
+  // Retrieve current pathname from headers
+  const headersList = await headers();
+  const pathname = headersList.get("x-current-path") || "";
+
   return (
     <html lang="en" suppressHydrationWarning className={fontVars}>
+      <head>
+        <ServerBreadcrumbs pathname={pathname} />
+      </head>
       <body
         className="bg-[#0A0A0A] text-stone-100 flex flex-col min-h-screen antialiased"
         suppressHydrationWarning

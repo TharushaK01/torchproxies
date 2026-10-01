@@ -529,7 +529,7 @@ export default function Navbar() {
                                       </span>
                                     </div>
 
-                                    <Link
+                                    <ReferralLink
                                       href="https://dashboard.torchproxies.com/"
                                       className="relative block w-full text-center text-[15px] font-medium text-white border border-stone-400 hover:border-white py-3.5 rounded-xl transition-colors duration-150 overflow-hidden group"
                                       style={{ perspective: "600px" }}
@@ -540,7 +540,7 @@ export default function Navbar() {
                                       <span className="absolute inset-0 flex items-center justify-center translate-y-full group-hover:translate-y-0 [transform:rotateX(90deg)] group-hover:[transform:rotateX(0deg)] transition-transform duration-500 ease-in-out origin-bottom">
                                         Learn more
                                       </span>
-                                    </Link>
+                                    </ReferralLink>
                                   </div>
                                 </div>
                               )}
@@ -1129,13 +1129,13 @@ export default function Navbar() {
               })}
 
               <div className="pt-6 pb-8 space-y-3">
-                <Link
+                <ReferralLink
                   href="https://dashboard.torchproxies.com"
                   onClick={() => setMobileOpen(false)}
                   className="block w-full py-3.5 text-center text-[15px] font-semibold text-white bg-[#FF4F00] rounded-xl"
                 >
                   Dashboard
-                </Link>
+                </ReferralLink>
                 <button
                   onClick={() => {
                     setMobileOpen(false);

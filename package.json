@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "clean": "rm -rf .next && npm run dev"
+    "clean": "node -e \"fs.rmSync('.next', { recursive: true, force: true })\""
   },
   "dependencies": {
     "@next/third-parties": "^16.3.1",

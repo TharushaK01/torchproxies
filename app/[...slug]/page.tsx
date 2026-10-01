@@ -145,7 +145,12 @@ import CountryPageClient from "@/app/[...slug]/CountryPageClient";
 import { notFound } from "next/navigation";
 import { getCountryRows } from "@/lib/sheets";
 import ISPPageClient from "./ISPPageClient";
-import type { Metadata } from "next";
+import { Metadata } from "next";
+import ServerBreadcrumbs from "@/components/ServerBreadcrumbs";
+
+type Props = {
+  params: Promise<{ country: string }>;
+};
 
 export const metadata: Metadata = {
   title: "Proxy Locations & Supported Countries | Torch Proxies",
@@ -169,6 +174,8 @@ interface PageProps {
 
 export default async function CatchAllPage({ params }: PageProps) {
   const { slug } = await params;
+  // breadcrums
+  const currentPath = `/countries/${slug}`;
 
   // Validate single-segment catch-all paths
   if (slug.length !== 1 || slug[0].length > 80 || !VALID_SLUG.test(slug[0])) {
@@ -243,9 +250,12 @@ export default async function CatchAllPage({ params }: PageProps) {
 
   // Render Country layout
   return (
-    <CountryPageClient
-      data={countryData}
-      dynamicDescriptions={dynamicDescriptions}
-    />
+    <>
+      <ServerBreadcrumbs pathname={currentPath} />
+      <CountryPageClient
+        data={countryData}
+        dynamicDescriptions={dynamicDescriptions}
+      />
+    </>
   );
 }
