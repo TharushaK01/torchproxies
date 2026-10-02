@@ -28,7 +28,7 @@ export default function ReferralLink({
   };
 
   return (
-    <Link {...props} href={getReferralUrl(targetUrl)} onClick={handleClick}>
+    <Link {...props} href={targetUrl} onClick={handleClick}>
       {children}
     </Link>
   );

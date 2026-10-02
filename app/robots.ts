@@ -13,8 +13,8 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: [
         "/",
-        "/_next/static/", // Allow Next.js static scripts & CSS
-        "/_next/image/", // Allow Next.js optimized images
+        // "/_next/static/", // Allow Next.js static scripts & CSS
+        // "/_next/image/", // Allow Next.js optimized images
       ],
       disallow: [
         "/api/", // Disallow API endpoint routes

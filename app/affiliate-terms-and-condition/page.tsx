@@ -71,8 +71,8 @@ export default function AffiliateTerms() {
           </h2>
           <ul className="list-disc list-inside space-y-2 pl-4 text-zinc-300">
             <li>
-              Standard commission starts at 15% on a referral&apos;s first
-              purchase and 8% recurring on all subsequent purchases.
+              Standard commission is a flat 30% on a referral's first purchase,
+              at every tier, and 8% recurring on all subsequent purchases.
             </li>
             <li>
               Commission rates increase as your referral volume grows, up to 25%
