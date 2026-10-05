@@ -207,7 +207,7 @@ export default function TorchProxiesLandingPage() {
       { name: "Czechia", ips: "130,363 IPs", code: "CZ", url: "/czechia" },
       { name: "Israel", ips: "4,421,824 IPs", code: "IL", url: "/israel" },
       { name: "Italy", ips: "4,421,824 IPs", code: "IT", url: "/italy" },
-      { name: "kenya", ips: "4,421,824 IPs", code: "KE", url: "/kenya" },
+      { name: "Kenya", ips: "4,421,824 IPs", code: "KE", url: "/kenya" },
       { name: "Malaysia", ips: "4,421,824 IPs", code: "MY", url: "/malaysia" },
       { name: "Nigeria", ips: "4,421,824 IPs", code: "NG", url: "/nigeria" },
       { name: "Norway", ips: "4,421,824 IPs", code: "NO", url: "/norway" },
@@ -222,7 +222,7 @@ export default function TorchProxiesLandingPage() {
       { name: "Poland", ips: "4,421,824 IPs", code: "PL", url: "/poland" },
       { name: "Portugal", ips: "4,421,824 IPs", code: "PT", url: "/portugal" },
       { name: "Russia", ips: "4,421,824 IPs", code: "RU", url: "/russia" },
-      { name: "Spain", ips: "4,421,824 IPs", code: "SG", url: "/spain" },
+      { name: "Spain", ips: "4,421,824 IPs", code: "ES", url: "/spain" },
       {
         name: "Switzerland",
         ips: "4,421,824 IPs",
@@ -323,7 +323,7 @@ export default function TorchProxiesLandingPage() {
         code: "CH",
         url: "/switzerland-isp",
       },
-      { name: "Taiwan", ips: "4,421,824 IPs", code: " TW", url: "/taiwan-isp" },
+      { name: "Taiwan", ips: "4,421,824 IPs", code: "TW", url: "/taiwan-isp" },
       {
         name: "Thailand",
         ips: "4,421,824 IPs",
