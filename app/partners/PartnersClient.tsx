@@ -1,12 +1,10 @@
-'use client'
+"use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Urbanist } from "next/font/google";
 import { ChevronDown, Star } from "lucide-react";
-
-
 
 interface ProcessedBlog {
   id: number;
@@ -212,6 +210,16 @@ const PARTNERS: Partner[] = [
     description:
       "MostLogin is an all-in-one system: Antidetect Browser + Cloud Phone + Free IP Proxy + MCP + RPA + API + Team Collaboration.\nPromo code: L8YOUTK9S4 (Get 10% off on browser profiles)",
     websiteUrl: "https://www.mostlogin.com/?invite-code=friendlylink1",
+  },
+  {
+    id: "Afina Browser",
+    name: "Afina Browser",
+    category: "Proxy Benchmarking Tools",
+    logo: "/images/partners/AfinaBrowser.svg",
+    description:
+      "Afina Browser is built on Chromium and combines an antidetect browser with a built-in no-code automation builder. Each account runs in an isolated profile with its own fingerprint, proxy, cookies and cache, so sites cannot link accounts. Bulk creation of up to 1,000 profiles, HTTP and SOCKS5 with native UDP routing, IP reputation checks and killswitch, team roles with encrypted sync, local REST API, CDP access for Puppeteer and Playwright. Windows and macOS.",
+    websiteUrl:
+      "https://afina.io/en?utm_source=torchproxies&utm_medium=partner_listing&utm_campaign=torchproxies",
   },
 ];
 
