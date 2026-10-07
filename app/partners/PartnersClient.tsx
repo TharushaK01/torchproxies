@@ -217,7 +217,10 @@ const PARTNERS: Partner[] = [
     category: "Proxy Benchmarking Tools",
     logo: "/images/partners/AfinaBrowser.svg",
     description:
-      "Afina Browser is built on Chromium and combines an antidetect browser with a built-in no-code automation builder. Each account runs in an isolated profile with its own fingerprint, proxy, cookies and cache, so sites cannot link accounts. Bulk creation of up to 1,000 profiles, HTTP and SOCKS5 with native UDP routing, IP reputation checks and killswitch, team roles with encrypted sync, local REST API, CDP access for Puppeteer and Playwright. Windows and macOS.",
+      "Afina Browser is built on Chromium and combines an antidetect browser with a built-in no-code automation builder. Each account runs in an isolated profile with its own fingerprint, proxy, cookies and cache, so sites cannot link accounts. Bulk creation of up to 1,000 profiles, HTTP and SOCKS5 with native UDP routing, IP reputation checks and killswitch, team roles with encrypted sync, local REST API, CDP access for Puppeteer and Playwright. Windows and macOS.\nPromo code SALE20,",
+    features: [
+      "20% off the Base, Standard and Max plans; new accounts get the Base plan free for 4 days",
+    ],
     websiteUrl:
       "https://afina.io/en?utm_source=torchproxies&utm_medium=partner_listing&utm_campaign=torchproxies",
   },
