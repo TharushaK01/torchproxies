@@ -1,136 +1,3 @@
-// import type { Metadata } from "next";
-// import Script from "next/script";
-// import Navbar from "@/components/layout/Navbar";
-// import Footer from "@/components/layout/Footer";
-// import ChatWidget from "@/components/analytics/ChatWidget";
-// import SessionRecorder from "@/components/analytics/SessionRecorder";
-// import { PostHogProvider } from "@/components/providers/PostHogProvider";
-// import { LazyMotion, domAnimation } from "framer-motion";
-// import { GoogleTagManager } from "@next/third-parties/google";
-// import {
-//   Urbanist,
-//   Chivo,
-//   Space_Grotesk,
-//   Inter,
-//   Source_Code_Pro,
-// } from "next/font/google";
-// import "./globals.css";
-
-// const urbanist = Urbanist({
-//   subsets: ["latin"],
-//   variable: "--font-urbanist",
-//   display: "swap",
-// });
-// const chivo = Chivo({
-//   subsets: ["latin"],
-//   variable: "--font-chivo",
-//   display: "swap",
-// });
-// const spaceGrotesk = Space_Grotesk({
-//   subsets: ["latin"],
-//   variable: "--font-space-grotesk",
-//   display: "swap",
-// });
-// const inter = Inter({
-//   subsets: ["latin"],
-//   weight: ["400", "500", "600", "700"],
-//   variable: "--font-inter",
-//   display: "swap",
-// });
-// const sourceCodePro = Source_Code_Pro({
-//   subsets: ["latin"],
-//   weight: ["400", "500"],
-//   variable: "--font-source-code-pro",
-//   display: "swap",
-// });
-
-// export const metadata: Metadata = {
-//   title: {
-//     default: "TorchProxies — Premium Proxy Solutions",
-//     template: "%s | TorchProxies",
-//   },
-//   description:
-//     "Premium residential, datacenter, ISP and hybrid proxies for web scraping, ad verification, and account management.",
-//   metadataBase: new URL('https://www.torchproxies.com'),
-//   alternates: {
-//     canonical: './',
-//   },
-//   openGraph: {
-//     siteName: "TorchProxies",
-//     type: "website",
-//     images: [
-//       {
-//         url: "/images/og-image.png",
-//         width: 1200,
-//         height: 630,
-//         alt: "TorchProxies Preview",
-//       },
-//     ],
-//   },
-// };
-
-// export default function RootLayout({
-//   children,
-// }: {
-//   children: React.ReactNode;
-// }) {
-//   const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-1498Q5L7EG";
-//   const gtmIdPrimary = process.env.NEXT_PUBLIC_GTM_PRIMARY_ID || "GTM-KMRQ2MK3";
-//   const gtmIdSecondary =
-//     process.env.NEXT_PUBLIC_GTM_SECONDARY_ID || "GTM-T43L54DD";
-
-//   const fontVars = [
-//     urbanist.variable,
-//     chivo.variable,
-//     spaceGrotesk.variable,
-//     inter.variable,
-//     sourceCodePro.variable,
-//   ].join(" ");
-
-//   return (
-//     <html lang="en" suppressHydrationWarning className={fontVars}>
-//       <body
-//         className="bg-[#0A0A0A] text-stone-100 flex flex-col min-h-screen antialiased"
-//         suppressHydrationWarning
-//       >
-//         <PostHogProvider>
-//           <Navbar />
-//           <div className="flex-1">
-//             <LazyMotion features={domAnimation}>{children}</LazyMotion>
-//           </div>
-//           <div className="relative z-0 isolate">
-//             <Footer />
-//           </div>
-
-//           {/* Third-party lazy widgets */}
-//           <ChatWidget />
-//           <SessionRecorder />
-//         </PostHogProvider>
-
-//         {gaId ? (
-//           <>
-//             <Script
-//               src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-//               strategy="afterInteractive"
-//             />
-//             <Script id="google-analytics" strategy="afterInteractive">
-//               {`
-//                 window.dataLayer = window.dataLayer || [];
-//                 function gtag(){dataLayer.push(arguments);}
-//                 gtag('js', new Date());
-//                 gtag('config', '${gaId}');
-//               `}
-//             </Script>
-//           </>
-//         ) : null}
-
-//         {gtmIdPrimary ? <GoogleTagManager gtmId={gtmIdPrimary} /> : null}
-//         {gtmIdSecondary ? <GoogleTagManager gtmId={gtmIdSecondary} /> : null}
-//       </body>
-//     </html>
-//   );
-// }
-
 import type { Metadata } from "next";
 import Script from "next/script";
 import Navbar from "@/components/layout/Navbar";
@@ -148,6 +15,11 @@ import {
   Source_Code_Pro,
 } from "next/font/google";
 import "./globals.css";
+import { Suspense, Fragment } from "react";
+import ReferralTracker from "@/components/ReferralTracker";
+import ChatwootWidget from "@/components/ChatwootWidget";
+import { headers } from "next/headers";
+import ServerBreadcrumbs from "@/components/ServerBreadcrumbs";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
@@ -179,12 +51,13 @@ const sourceCodePro = Source_Code_Pro({
 
 export const metadata: Metadata = {
   title: {
-    default: "TorchProxies — Premium Proxy Solutions",
+    default: "TorchProxies — Fast, Reliable ISP & Residential Proxies",
     template: "%s | TorchProxies",
   },
   description:
-    "Premium residential, datacenter, ISP and hybrid proxies for web scraping, ad verification, and account management.",
+    "Fast, reliable residential & ISP proxies for scraping, automation & multi-account management. 80M+ IPs across 195+ countries",
   metadataBase: new URL("https://www.torchproxies.com"),
+  // Enable canonical URL generation across all pages
   alternates: {
     canonical: "./",
   },
@@ -202,7 +75,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -220,8 +93,15 @@ export default function RootLayout({
     sourceCodePro.variable,
   ].join(" ");
 
+  // Retrieve current pathname from headers
+  const headersList = await headers();
+  const pathname = headersList.get("x-current-path") || "";
+
   return (
     <html lang="en" suppressHydrationWarning className={fontVars}>
+      <head>
+        <ServerBreadcrumbs pathname={pathname} />
+      </head>
       <body
         className="bg-[#0A0A0A] text-stone-100 flex flex-col min-h-screen antialiased"
         suppressHydrationWarning
@@ -238,6 +118,9 @@ export default function RootLayout({
           {/* Third-party lazy widgets */}
           <ChatWidget />
           <SessionRecorder />
+          <Fragment>
+            <ChatwootWidget />
+          </Fragment>
         </PostHogProvider>
 
         {/* PostHog Analytics Script */}
@@ -251,6 +134,12 @@ export default function RootLayout({
             });
           `}
         </Script>
+
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="PMJbiJKafGEAlV+PU0q3fA"
+          strategy="afterInteractive"
+        />
 
         {gaId ? (
           <>
@@ -266,6 +155,25 @@ export default function RootLayout({
                 gtag('config', '${gaId}');
               `}
             </Script>
+            <Script
+              src="https://referly.so/affiliate-tracker.js"
+              data-affiliate=""
+              data-program-id="5fcbc101-6bb2-4397-a036-66a4697a2294"
+              strategy="afterInteractive"
+            />
+            {/* Global Affiliate Tracker Script from Step 1 */}
+            <Script
+              src="https://referly.so/affiliate-tracker.js"
+              data-affiliate=""
+              data-program-id="5fcbc101-6bb2-4397-a036-66a4697a2294"
+              strategy="afterInteractive"
+            />
+
+            {/* URL Parameter Tracker */}
+            {/* null - No Visible UI Needed */}
+            <Suspense fallback={null}>
+              <ReferralTracker />
+            </Suspense>
           </>
         ) : null}
 

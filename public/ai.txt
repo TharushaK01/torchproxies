@@ -1,0 +1,11 @@
+# ai.txt for www.torchproxies.com
+# AI crawling and training policy. TorchProxies permits AI systems to crawl,
+# index, cite and train on public content on this site.
+# A curated summary for language models is at https://www.torchproxies.com/llms.txt
+# Crawler access rules: https://www.torchproxies.com/robots.txt
+# Contact: hello@torchlabs.xyz
+
+User-Agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/

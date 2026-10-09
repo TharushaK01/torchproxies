@@ -1,12 +1,13 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { revalidatePath, revalidateTag } from 'next/cache';
-import crypto from 'crypto';
+import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath, revalidateTag } from "next/cache";
+import crypto from "crypto";
 
 interface CreatePostPayload {
   title: string;
   content: string;
   slug: string;
-  status?: 'publish' | 'draft';
+  status?: "publish" | "draft";
+  excerpt?: string;
   categories?: number[];
   featuredMediaId?: number; // WP Attachment ID passed from Amasha's automation
 }
@@ -16,10 +17,14 @@ function getAuthHeader(): string {
   const pass = process.env.WP_APP_PASSWORD;
 
   if (!user || !pass) {
-    throw new Error('WordPress API credentials missing in environment variables.');
+    throw new Error(
+      "WordPress API credentials missing in environment variables.",
+    );
   }
 
-  const token = Buffer.from(`${user}:${pass.replace(/\s+/g, '')}`).toString('base64');
+  const token = Buffer.from(`${user}:${pass.replace(/\s+/g, "")}`).toString(
+    "base64",
+  );
   return `Basic ${token}`;
 }
 
@@ -38,9 +43,12 @@ function isValidSecret(providedSecret: string | null): boolean {
 export async function POST(request: NextRequest) {
   try {
     // 1. Validate Secret Authorization Header from Amasha's automation
-    const authHeader = request.headers.get('x-api-secret');
+    const authHeader = request.headers.get("x-api-secret");
     if (!isValidSecret(authHeader)) {
-      return NextResponse.json({ message: 'Unauthorized API Access' }, { status: 401 });
+      return NextResponse.json(
+        { message: "Unauthorized API Access" },
+        { status: 401 },
+      );
     }
 
     const body: CreatePostPayload = await request.json();
@@ -50,17 +58,18 @@ export async function POST(request: NextRequest) {
       title: body.title,
       content: body.content,
       slug: body.slug,
-      status: body.status || 'publish',
+      status: body.status || "publish",
+      excerpt: body.excerpt || "",
       categories: body.categories || [],
       featured_media: body.featuredMediaId || 0, // Binds uploaded WP image
     };
 
     // 3. Post directly to WordPress REST API
     const wpResponse = await fetch(`${process.env.WORDPRESS_API_URL}/posts`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Authorization': getAuthHeader(),
-        'Content-Type': 'application/json',
+        Authorization: getAuthHeader(),
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(wpPayload),
     });
@@ -68,18 +77,18 @@ export async function POST(request: NextRequest) {
     if (!wpResponse.ok) {
       const errorText = await wpResponse.text();
       return NextResponse.json(
-        { message: 'WordPress submission failed', error: errorText },
-        { status: wpResponse.status }
+        { message: "WordPress submission failed", error: errorText },
+        { status: wpResponse.status },
       );
     }
 
     const wpPost = await wpResponse.json();
 
     // 4. Trigger On-Demand ISR Cache Invalidation
-    revalidateTag('posts', { expire: 0 });
-    revalidatePath('/blog', 'page');
-    revalidatePath(`/blog/${wpPost.slug}`, 'page');
-    revalidatePath('/', 'page');
+    revalidateTag("posts", { expire: 0 });
+    revalidatePath("/blog", "page");
+    revalidatePath(`/blog/${wpPost.slug}`, "page");
+    revalidatePath("/", "page");
 
     return NextResponse.json({
       success: true,
@@ -88,11 +97,10 @@ export async function POST(request: NextRequest) {
       link: wpPost.link,
       revalidatedAt: Date.now(),
     });
-
   } catch (err: any) {
     return NextResponse.json(
-      { message: 'Internal Server Error', error: err.message },
-      { status: 500 }
+      { message: "Internal Server Error", error: err.message },
+      { status: 500 },
     );
   }
 }

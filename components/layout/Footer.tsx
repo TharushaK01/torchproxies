@@ -1,23 +1,41 @@
 import Link from "next/link";
-import Image from 'next/image';
+import Image from "next/image";
 
-const FOOTER_COLUMNS = [
-  {
+interface LinkItem {
+  label: string;
+  href: string;
+  badge?: string;
+  badgeColor?: string;
+  external?: boolean;
+}
+
+interface ColumnGroup {
+  heading: string;
+  links: LinkItem[];
+}
+
+const NAV_DATA = {
+  proxies: {
     heading: "Proxies",
     links: [
       { label: "Standard Residential", href: "/standard-residential-proxies/" },
       { label: "Premium Residential", href: "/premium-residential-proxies/" },
-{ 
-  label: "Plan X Residential", 
-  href: "/plan-x-residential/", 
-  badge: "Most Popular", 
-  badgeColor: "border-emerald-500/40 text-emerald-400 text-[10px]" 
-},
+      {
+        label: "Plan X Residential",
+        href: "/plan-x-residential/",
+        badge: "Most Popular",
+        badgeColor: "border-emerald-500/40 text-emerald-400",
+      },
       { label: "ISP Proxies", href: "/isp-proxies/" },
-      { label: "Mobile Proxies", href: "#", badge: "Coming Soon", badgeColor: "border-yellow-500/40 text-yellow-400" },
+      {
+        label: "Mobile Proxies",
+        href: "#",
+        badge: "New Here",
+        badgeColor: "border-amber-500/40 text-amber-300",
+      },
     ],
   },
-  {
+  useCases: {
     heading: "Use cases",
     links: [
       { label: "Web Scraping", href: "/web-scraping/" },
@@ -28,15 +46,7 @@ const FOOTER_COLUMNS = [
       { label: "Ticketmaster", href: "/ticketmaster-proxies/" },
     ],
   },
-  {
-    heading: "B2B Reseller",
-    links: [
-      { label: "B2B Dashboard", href: "/b2b-dashboard/", external: true },
-      { label: "B2B API", href: "/proxy-api/" },
-      { label: "Custom dashboards", href: "https://dashboard.torchproxies.com/" },
-    ],
-  },
-  {
+  resources: {
     heading: "Resources",
     links: [
       { label: "Documentation", href: "/documentation/" },
@@ -45,35 +55,56 @@ const FOOTER_COLUMNS = [
       { label: "Blog", href: "/blog/" },
       { label: "Help Center", href: "#" },
       { label: "Customer Support", href: "#" },
-      
     ],
   },
-  {
+  company: {
     heading: "Company",
     links: [
       { label: "About us", href: "/about/" },
       { label: "Contact Us", href: "/contact/" },
       { label: "Affiliate Program", href: "/affiliate/" },
       { label: "Careers", href: "https://torch-labs-workspace.slack.com" },
-      { label: "Trustpilot", href: "https://www.trustpilot.com/review/torchlabs.xyz", external: true },
+      {
+        label: "Trustpilot",
+        href: "https://www.trustpilot.com/review/torchlabs.xyz",
+        external: true,
+      },
     ],
   },
-  {
-    heading: "Corporate",
+  b2b: {
+    heading: "B2B Reseller",
+    links: [
+      { label: "B2B Dashboard", href: "/b2b-dashboard/", external: true },
+      { label: "B2B API", href: "/proxy-api/" },
+      {
+        label: "Custom dashboards",
+        href: "https://dashboard.torchproxies.com/",
+      },
+    ],
+  },
+  corporate: {
+    heading: "Corporate & Legal",
     links: [
       { label: "Terms & Conditions", href: "/terms-of-service/" },
       { label: "Report Vulnerability", href: "#" },
       { label: "Privacy Policy", href: "/privacy-policy/" },
     ],
   },
-];
+  forAi: {
+    heading: "For AI",
+    links: [
+      { label: "llms.txt", href: "/llms.txt" },
+      { label: "ai.txt", href: "/ai.txt" },
+    ],
+  },
+};
 
 const SOCIAL_LINKS = [
   {
     label: "Discord",
     href: "https://discord.com/invite/JSxDs3fDgV",
     icon: (
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
         <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.055a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z" />
       </svg>
     ),
@@ -82,7 +113,7 @@ const SOCIAL_LINKS = [
     label: "Twitter / X",
     href: "https://x.com/torch_proxies",
     icon: (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
       </svg>
     ),
@@ -91,7 +122,7 @@ const SOCIAL_LINKS = [
     label: "LinkedIn",
     href: "https://www.linkedin.com/company/torchlabs",
     icon: (
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
       </svg>
     ),
@@ -100,7 +131,7 @@ const SOCIAL_LINKS = [
     label: "Facebook",
     href: "https://www.facebook.com/Torchproxies/",
     icon: (
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
       </svg>
     ),
@@ -109,7 +140,7 @@ const SOCIAL_LINKS = [
     label: "Instagram",
     href: "https://www.instagram.com/torchproxies/",
     icon: (
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
       </svg>
     ),
@@ -118,92 +149,62 @@ const SOCIAL_LINKS = [
     label: "Telegram",
     href: "https://t.me/+7lAFVIZ3SfA4ZjMx",
     icon: (
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
         <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
       </svg>
     ),
   },
 ];
 
-const COL1 = [FOOTER_COLUMNS[0]]; // Proxies
-const COL2 = [FOOTER_COLUMNS[1]]; // Use cases
-const COL3 = [FOOTER_COLUMNS[2]]; // B2B Reseller
-const COL4 = [FOOTER_COLUMNS[3]]; // Resources
-const COL5 = [FOOTER_COLUMNS[4], FOOTER_COLUMNS[5]];
-
-function FooterColumn({ groups }: { groups: (typeof FOOTER_COLUMNS)[number][] }) {
+function ColumnBlock({ group }: { group: ColumnGroup }) {
   return (
-    <div className="flex flex-col gap-8">
-      {groups.map((group) => (
-        <div key={group.heading}>
-          <h4 className="text-orange-500 text-sm font-semibold mb-4 tracking-wide">
-            {group.heading}
-          </h4>
-          <ul className="space-y-3">
-            {group.links.map((link) => (
-              <li key={link.label}>
-                {/* 
-                  - On mobile (default): flex-col (stacks badge under text so it never overlaps)
-                  - On large screens (lg:): flex-row items-center (sits side-by-side)
-                */}
-                <div className="flex flex-col lg:flex-row lg:items-center gap-1 lg:gap-2">
-                  <Link
-                    href={link.href}
-                    {...("external" in link && link.external
-                      ? { target: "_blank", rel: "noopener noreferrer" }
-                      : {})}
-                    className="text-sm text-stone-400 hover:text-white transition-colors duration-150 whitespace-nowrap"
-                  >
-                    {link.label}
-                  </Link>
-                  {"badge" in link && link.badge && (
-                    <span className={`text-[10px] px-2 py-0.5 rounded-full border whitespace-nowrap w-fit ${link.badgeColor || "border-white/10 text-stone-300"}`}>
-                      {link.badge}
-                    </span>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+    <div>
+      <h4 className="text-orange-500 text-[18px] font-bold mb-4 tracking-wide whitespace-nowrap">
+        {group.heading}
+      </h4>
+      <ul className="space-y-2.5">
+        {group.links.map((link) => (
+          <li key={link.label}>
+            <div className="flex items-center gap-2">
+              <Link
+                href={link.href}
+                {...(link.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+                className="text-[14px] font-regular text-[#FFFFFF] hover:text-white transition-colors duration-150 whitespace-nowrap"
+              >
+                {link.label}
+              </Link>
+              {link.badge && (
+                <span
+                  className={`text-[9px] px-2 py-0.5 rounded-full border whitespace-nowrap ${
+                    link.badgeColor || "border-white/10 text-stone-300"
+                  }`}
+                >
+                  {link.badge}
+                </span>
+              )}
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
+
 export default function Footer() {
   return (
-    <footer className="bg-[#0a0a0a] border-t border-white/5 relative overflow-hidden w-full font-['Urbanist']">
-
-      {/* ── Main content layout container ─────────────────── */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-8 pt-16 pb-12 font-['Urbanist']">
-        <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-12">
-
-          {/* ── Brand column ──────────────────────────────── */}
-          <div className="flex flex-col gap-5">
-            {/* <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-8 h-8 flex items-center justify-center relative">
-                <div className="absolute inset-0 bg-orange-500 rounded-full opacity-20 blur-md" />
-                <svg width="22" height="26" viewBox="0 0 22 26" fill="none" className="relative z-10">
-                  <path d="M11 0C11 0 6 6 6 12C6 15.3 8.2 18 11 18C13.8 18 16 15.3 16 12C16 6 11 0 11 0Z" fill="url(#footerFlameGrad)" />
-                  <path d="M11 10C11 10 8.5 12.5 8.5 14.5C8.5 15.9 9.6 17 11 17C12.4 17 13.5 15.9 13.5 14.5C13.5 12.5 11 10 11 10Z" fill="white" opacity="0.9" />
-                  <rect x="9.5" y="17" width="3" height="4" rx="1.5" fill="#f97316" opacity="0.8" />
-                  <defs>
-                    <linearGradient id="footerFlameGrad" x1="11" y1="0" x2="11" y2="18" gradientUnits="userSpaceOnUse">
-                      <stop offset="0%" stopColor="#fb923c" />
-                      <stop offset="100%" stopColor="#ea580c" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
-              <span className="text-white font-bold text-lg tracking-tight">
-                <span className="text-orange-500">Torch</span>Proxies
-              </span>
-            </Link> */}
+    <footer className="bg-[#0b0b0b] relative overflow-hidden w-full font-['Urbanist']">
+      <div className="relative z-20 max-w-[1300px] mx-auto px-8 pt-16 pb-12">
+        {/* Main Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-12">
+          {/* Brand Column */}
+          <div className="flex flex-col gap-6">
             <Link href="/" className="flex items-center">
-              <div className="relative w-36 h-9"> {/* Easily adjust width and height to fit your exact logo's aspect ratio */}
+              <div className="relative w-40 h-10">
                 <Image
-                  src="/images/footerlogo.svg" // Path relative to your public folder
-                  alt="Torchlabs Logo"
+                  src="/images/footerlogo.svg"
+                  alt="TorchProxies Logo"
                   fill
                   className="object-contain object-left"
                   priority
@@ -211,24 +212,8 @@ export default function Footer() {
               </div>
             </Link>
 
-            {/* Status indicators */}
+            {/* Circular Social Icons */}
             <div className="flex items-center gap-2">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
-              </span>
-              <a
-                href="https://status.torchproxies.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-green-400 text-xs font-medium cursor-pointer"
-              >
-                All services are online
-              </a>
-            </div>
-
-            {/* Social icons */}
-            <div className="flex items-center gap-2 mt-1">
               {SOCIAL_LINKS.map((s) => (
                 <Link
                   key={s.label}
@@ -236,7 +221,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/10 text-stone-500 hover:border-orange-500/40 hover:text-orange-400 transition-all duration-200"
+                  className="w-7 h-7 flex items-center justify-center rounded-full bg-stone-900 border border-stone-800 text-stone-300 hover:bg-stone-800 hover:text-white hover:border-stone-700 transition-all duration-200"
                 >
                   {s.icon}
                 </Link>
@@ -244,38 +229,46 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ── Link columns grid ─────────────────────────── */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8">
-            <FooterColumn groups={COL1} />
-            <FooterColumn groups={COL2} />
-            <FooterColumn groups={COL3} />
-            <FooterColumn groups={COL4} />
-            <FooterColumn groups={COL5} />
+          {/* Right Navigation Content */}
+          <div className="flex flex-col gap-10">
+            {/* ROW 1: Proxies, Use cases, Resources, Company */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
+              <ColumnBlock group={NAV_DATA.proxies} />
+              <ColumnBlock group={NAV_DATA.useCases} />
+              <ColumnBlock group={NAV_DATA.resources} />
+              <ColumnBlock group={NAV_DATA.company} />
+            </div>
+
+            {/* ROW 2: B2B Reseller, Corporate & Legal, For AI (Starting from 2nd Column position) */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
+              <div className="hidden sm:block" />{" "}
+              {/* Empty spacer aligning B2B Reseller under Use Cases */}
+              <ColumnBlock group={NAV_DATA.b2b} />
+              <ColumnBlock group={NAV_DATA.corporate} />
+              <ColumnBlock group={NAV_DATA.forAi} />
+            </div>
           </div>
         </div>
 
-        {/* ── Bottom copyright bar ──────────────────────── */}
-        <div className="mt-24 text-center relative z-10">
-          <p className="text-xs text-stone-600 font-medium tracking-wide">
-            © Copyright {new Date().getFullYear()} Torch Labs Software. All Rights Reserved
+        {/* Copyright Bar */}
+        <div className="mt-20 text-center relative z-20">
+          <p className="text-xs text-stone-400 font-medium tracking-wide">
+            © Copyright {new Date().getFullYear()} Torch Labs Software. All
+            Rights Reserved
           </p>
         </div>
       </div>
 
-      {/* ── Perfected "TORCH LABS" Watermark Background ── */}
-
+      {/* Background Watermark Text */}
       <span
-        className="absolute left-1/2 translate-x-[-50%] select-none pointer-events-none whitespace-nowrap font-black tracking-normal uppercase text-white opacity-10 z-10 bottom-[-15%] pt-6 font-['Urbanist']"
+        className="absolute left-1/2 -translate-x-1/2 select-none pointer-events-none whitespace-nowrap font-black uppercase z-0 bottom-[-8%] font-['Urbanist'] bg-gradient-to-b from-[#141414] to-transparent bg-clip-text text-transparent tracking-[0.15em]"
         style={{
-          fontSize: "clamp(180px, 14vw, 440px)",
-          lineHeight: "1.0",
-          maskImage: "linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,1) 90%, rgba(0,0,0,1) 100%)",
-          WebkitMaskImage: "linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,1) 90%, rgba(0,0,0,1) 100%)",
+          fontSize: "clamp(80px, 11vw, 280px)",
+          lineHeight: "0.8",
         }}
       >
         TORCHPROXIES
       </span>
-
     </footer>
   );
 }
