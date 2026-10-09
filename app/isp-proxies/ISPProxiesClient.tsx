@@ -169,17 +169,17 @@ export default function TorchProxiesLandingPage() {
   ];
 
   const pricingData = {
-    "1GB": { price: "$4.00", total: "$4.00", perGb: "$4/GB" },
+    "1GB": { price: "$4.00", total: "$4.00", perGb: "$4/per IP" },
     "5GB": {
       price: "$3.80",
       total: "$19.00",
-      perGb: "$3.80/GB",
+      perGb: "$3.80/per IP",
       popular: true,
     },
-    "25GB": { price: "$3.50", total: "$87.50", perGb: "$3.50/GB" },
-    "100GB": { price: "$3.00", total: "$300.00", perGb: "$3.00/GB" },
-    "500GB": { price: "$2.50", total: "$1,250.00", perGb: "$2.50/GB" },
-    "1000GB": { price: "$2.00", total: "$2,000.00", perGb: "$2.00/GB" },
+    "25GB": { price: "$3.50", total: "$87.50", perGb: "$3.50/per IP" },
+    "100GB": { price: "$3.00", total: "$300.00", perGb: "$3.00/per IP" },
+    "500GB": { price: "$2.50", total: "$1,250.00", perGb: "$2.50/per IP" },
+    "1000GB": { price: "$2.00", total: "$2,000.00", perGb: "$2.00/per IP" },
   };
   const [selectedPlan, setSelectedPlan] = useState("1GB");
 
@@ -265,11 +265,10 @@ export default function TorchProxiesLandingPage() {
         {[...Array(5)].map((_, index) => (
           <div
             key={index}
-            className={`w-[18px] h-[18px] flex items-center justify-center rounded-[3px] text-[11px] font-bold transition-colors duration-200 ${
-              index < rating
-                ? "bg-[#00b67a] text-white" // Active Trustpilot Green box with White Star
-                : "bg-stone-800 text-stone-600" // Inactive Dark box with Muted Gray Star
-            }`}
+            className={`w-[18px] h-[18px] flex items-center justify-center rounded-[3px] text-[11px] font-bold transition-colors duration-200 ${index < rating
+              ? "bg-[#00b67a] text-white" // Active Trustpilot Green box with White Star
+              : "bg-stone-800 text-stone-600" // Inactive Dark box with Muted Gray Star
+              }`}
           >
             ★
           </div>
@@ -358,7 +357,7 @@ export default function TorchProxiesLandingPage() {
           <div className="py-8 max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 text-stone-200 text-[16px] font-medium">
             <div className="flex items-center justify-center gap-2">
               <Check className="text-orange-500 w-4 h-4" /> Pricing starts from
-              $3.9/GB
+              $3.9/IP
             </div>
             <div className="flex items-center justify-center gap-2">
               <Check className="text-orange-500 w-4 h-4" /> Money back guarantee
@@ -570,11 +569,10 @@ export default function TorchProxiesLandingPage() {
                     <div
                       key={tier.id}
                       onClick={() => setSelectedPlan(tier.id)}
-                      className={`h-[150px] sm:h-[171px] border rounded-2xl p-4 sm:p-5 relative cursor-pointer select-none transition-all duration-200 flex flex-col justify-between ${
-                        isSelected
-                          ? "bg-stone-900/40 border-[#FE4A01] shadow-[0_0_25px_rgba(254,74,1,.1)]"
-                          : "bg-[#0b0b0d]/50 border-stone-900 hover:border-stone-800/80"
-                      }`}
+                      className={`h-[150px] sm:h-[171px] border rounded-2xl p-4 sm:p-5 relative cursor-pointer select-none transition-all duration-200 flex flex-col justify-between ${isSelected
+                        ? "bg-stone-900/40 border-[#FE4A01] shadow-[0_0_25px_rgba(254,74,1,.1)]"
+                        : "bg-[#0b0b0d]/50 border-stone-900 hover:border-stone-800/80"
+                        }`}
                     >
                       {/* Floating Discount Label */}
                       {tier.discount && (
@@ -596,7 +594,7 @@ export default function TorchProxiesLandingPage() {
                           {tier.price}
                         </span>
                         <span className="text-[#FE4A01] text-xs sm:text-[14px] font-medium">
-                          per GB
+                          per IP
                         </span>
                       </div>
                     </div>
@@ -930,11 +928,10 @@ export default function TorchProxiesLandingPage() {
                     ) : (
                       /* Fallback Initials Circle */
                       <div
-                        className={`w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center rounded-full text-stone-950 font-bold text-xs sm:text-sm tracking-wider uppercase shrink-0 ${
-                          review.initials === "IS"
-                            ? "bg-[#c6f6d5]"
-                            : "bg-[#7f9cf5] text-white"
-                        }`}
+                        className={`w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center rounded-full text-stone-950 font-bold text-xs sm:text-sm tracking-wider uppercase shrink-0 ${review.initials === "IS"
+                          ? "bg-[#c6f6d5]"
+                          : "bg-[#7f9cf5] text-white"
+                          }`}
                       >
                         {review.initials}
                       </div>
