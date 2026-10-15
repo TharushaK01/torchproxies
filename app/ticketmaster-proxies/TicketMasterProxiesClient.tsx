@@ -1034,6 +1034,7 @@ export default function TorchProxiesLandingPage() {
                       width={28}
                       height={28}
                       className="w-full h-full object-contain"
+                      loading="lazy"
                     />
                   </div>
 
@@ -1162,6 +1163,7 @@ export default function TorchProxiesLandingPage() {
                     width={240}
                     height={40}
                     className="object-contain"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -1206,6 +1208,7 @@ export default function TorchProxiesLandingPage() {
                           alt="Bright Data Logo"
                           fill
                           className="object-contain"
+                          loading="lazy"
                         />
                       </div>
                     </th>
@@ -1217,6 +1220,8 @@ export default function TorchProxiesLandingPage() {
                           alt="Oxylabs Logo"
                           fill
                           className="object-contain"
+                          loading="lazy"
+                          
                         />
                       </div>
                     </th>
@@ -1231,6 +1236,7 @@ export default function TorchProxiesLandingPage() {
                           alt="TorchProxies Logo"
                           fill
                           className="object-contain"
+                          loading="lazy"
                         />
                       </div>
                     </th>
@@ -1242,6 +1248,7 @@ export default function TorchProxiesLandingPage() {
                           alt="Proxy Empire Logo"
                           fill
                           className="object-contain"
+                          loading="lazy"
                         />
                       </div>
                     </th>
@@ -1253,6 +1260,7 @@ export default function TorchProxiesLandingPage() {
                           alt="Node Maven Logo"
                           fill
                           className="object-contain"
+                          loading="lazy"
                         />
                       </div>
                     </th>

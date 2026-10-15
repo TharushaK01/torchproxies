@@ -364,6 +364,7 @@ export default function TorchProxiesLandingPage() {
                     src="/images/why_plan_x.png"
                     alt="Perfect for Everyday Scraping & Automation"
                     className="w-full h-auto object-cover rounded-2xl"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -444,6 +445,7 @@ export default function TorchProxiesLandingPage() {
                     alt="Feature Icon"
                     fill
                     className="object-contain"
+                    loading="lazy"
                   />
                 </div>
 
@@ -545,6 +547,7 @@ export default function TorchProxiesLandingPage() {
                     alt="Payment Methods"
                     fill
                     className="object-contain object-left"
+                    loading="lazy"
                   />
                 </div>
                 <span>& more</span>
@@ -800,6 +803,7 @@ export default function TorchProxiesLandingPage() {
                     alt={`${feat.title} Icon`}
                     fill
                     className="object-contain inverted-icon-color"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -1005,6 +1009,7 @@ export default function TorchProxiesLandingPage() {
                   src="/images/Scraping.png"
                   alt="Standard Residential Proxies"
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -1079,6 +1084,7 @@ export default function TorchProxiesLandingPage() {
                   src="/images/standardresidential.png"
                   alt="Premium Residential Proxies"
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -1129,6 +1135,7 @@ export default function TorchProxiesLandingPage() {
                           alt={review.name}
                           fill
                           className="object-cover"
+                          loading="lazy"
                         />
                       </div>
                     ) : (
@@ -1181,6 +1188,7 @@ export default function TorchProxiesLandingPage() {
                           alt={review.name}
                           fill
                           className="object-cover"
+                          loading="lazy"
                         />
                       </div>
                     ) : (

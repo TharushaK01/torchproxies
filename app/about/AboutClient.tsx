@@ -328,6 +328,7 @@ export default function AboutUsPage() {
             alt="Trustpilot rating"
             width={250}
             height={24}
+            loading="lazy"
           />
           {/* Heading */}
           <h1 className="text-[68px] md:text-[68px] -mb-2">
@@ -544,6 +545,7 @@ export default function AboutUsPage() {
                       fill
                       className="object-cover"
                       sizes="340px"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -937,6 +939,7 @@ export default function AboutUsPage() {
                       fill
                       className="object-cover"
                       sizes="32px"
+                      loading="lazy"
                     />
                   </motion.div>
                 ))}
@@ -1051,6 +1054,7 @@ export default function AboutUsPage() {
                             width={42}
                             height={42}
                             className="drop-shadow-md"
+                            loading="lazy"
                           />
                         )}
                       </div>
@@ -1097,6 +1101,7 @@ export default function AboutUsPage() {
             width={1200}
             height={60}
             className="h-auto max-w-full object-contain filter grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+            loading="lazy"
           />
         </div>
 
@@ -1145,6 +1150,7 @@ export default function AboutUsPage() {
                         alt={review.name}
                         fill
                         className="object-cover"
+                        loading="lazy"
                       />
                     </div>
                   ) : (
@@ -1197,6 +1203,7 @@ export default function AboutUsPage() {
                         alt={review.name}
                         fill
                         className="object-cover"
+                        loading="lazy"
                       />
                     </div>
                   ) : (

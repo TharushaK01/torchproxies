@@ -107,6 +107,7 @@ export default function ContactPage() {
                 width={320}
                 height={80}
                 className="h-auto object-contain max-w-[280px]"
+                loading="lazy"
               />
             </div>
           </div>
@@ -135,6 +136,7 @@ export default function ContactPage() {
                       width={155}
                       height={18}
                       className="object-contain"
+                      loading="lazy"
                     />
                   </div>
                 </div>

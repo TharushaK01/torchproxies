@@ -654,6 +654,7 @@ export default function TorchProxiesLandingPage() {
               alt="Yes"
               fill
               className="object-contain"
+              loading="lazy"
             />
           ) : (
             // Replace with your false/cross asset path
@@ -662,6 +663,7 @@ export default function TorchProxiesLandingPage() {
               alt="No"
               fill
               className="object-contain"
+              loading="lazy"
             />
           )}
         </div>
@@ -1095,6 +1097,7 @@ export default function TorchProxiesLandingPage() {
                         alt={`${card.title} Icon`}
                         fill
                         className="object-contain p-2"
+                        loading="lazy"
                       />
                     </div>
 
@@ -1219,6 +1222,7 @@ export default function TorchProxiesLandingPage() {
                           alt="Bright Data Logo"
                           fill
                           className="object-contain"
+                          loading="lazy"
                         />
                       </div>
                     </th>
@@ -1230,6 +1234,7 @@ export default function TorchProxiesLandingPage() {
                           alt="Oxylabs Logo"
                           fill
                           className="object-contain"
+                          loading="lazy"
                         />
                       </div>
                     </th>
@@ -1244,6 +1249,7 @@ export default function TorchProxiesLandingPage() {
                           alt="TorchProxies Logo"
                           fill
                           className="object-contain"
+                          loading="lazy"
                         />
                       </div>
                     </th>
@@ -1255,6 +1261,7 @@ export default function TorchProxiesLandingPage() {
                           alt="Proxy Empire Logo"
                           fill
                           className="object-contain"
+                          loading="lazy"
                         />
                       </div>
                     </th>
@@ -1266,6 +1273,7 @@ export default function TorchProxiesLandingPage() {
                           alt="Node Maven Logo"
                           fill
                           className="object-contain"
+                          loading="lazy"
                         />
                       </div>
                     </th>
@@ -1435,6 +1443,7 @@ export default function TorchProxiesLandingPage() {
                           alt={review.name}
                           fill
                           className="object-cover"
+                          loading="lazy"
                         />
                       </div>
                     ) : (
@@ -1474,6 +1483,7 @@ export default function TorchProxiesLandingPage() {
             fill
             priority
             className="object-cover object-bottom opacity-100"
+            loading="lazy"
           />
         </div>
 

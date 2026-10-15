@@ -459,6 +459,7 @@ export default function TorchProxiesLandingPage() {
                     alt="Feature Icon"
                     fill
                     className="object-contain"
+                    loading="lazy"
                   />
                 </div>
 
@@ -554,6 +555,7 @@ export default function TorchProxiesLandingPage() {
                     alt="Supported Payment Options"
                     fill
                     className="object-contain"
+                    loading="lazy"
                   />
                 </div>
                 <span>& more</span>
@@ -792,6 +794,7 @@ export default function TorchProxiesLandingPage() {
                       alt={`${feat.title} Icon`}
                       fill
                       className="object-contain inverted-icon-color"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -923,6 +926,7 @@ export default function TorchProxiesLandingPage() {
                           alt={review.name}
                           fill
                           className="object-cover"
+                          loading="lazy"
                         />
                       </div>
                     ) : (
@@ -974,6 +978,7 @@ export default function TorchProxiesLandingPage() {
                           alt={review.name}
                           fill
                           className="object-cover"
+                          loading="lazy"
                         />
                       </div>
                     ) : (

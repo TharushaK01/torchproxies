@@ -385,6 +385,7 @@ export default function AffiliateClient() {
                     src="/images/unlock_exceptional.png"
                     alt="Perfect for Everyday Scraping & Automation"
                     className="w-full h-auto object-cover rounded-2xl"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -508,6 +509,7 @@ export default function AffiliateClient() {
                       width={20}
                       height={20}
                       className="object-contain"
+                      loading="lazy"
                     />
                     <span className="font-medium">Starter</span>
                     <span className="text-xs text-stone-500">(Tier 1)</span>
@@ -523,6 +525,7 @@ export default function AffiliateClient() {
                       width={20}
                       height={20}
                       className="object-contain"
+                      loading="lazy"
                     />
                     <span className="font-medium">Rising</span>
                     <span className="text-xs text-stone-500">(Tier 2)</span>
@@ -538,6 +541,7 @@ export default function AffiliateClient() {
                       width={20}
                       height={20}
                       className="object-contain"
+                      loading="lazy"
                     />
                     <span className="font-medium">Pro</span>
                     <span className="text-xs text-stone-500">(Tier 3)</span>
@@ -739,6 +743,7 @@ export default function AffiliateClient() {
                     width={84}
                     height={84}
                     className="object-contain"
+                    loading="lazy"
                   />
                 </div>
 
@@ -759,6 +764,7 @@ export default function AffiliateClient() {
                       width={60}
                       height={35}
                       className="object-contain opacity-90 hover:opacity-100 transition-opacity"
+                      loading="lazy"
                     />
                   </div>
                 ))}
@@ -1067,6 +1073,7 @@ export default function AffiliateClient() {
                           alt={review.name}
                           fill
                           className="object-cover"
+                          loading="lazy"
                         />
                       </div>
                     ) : (
@@ -1118,6 +1125,7 @@ export default function AffiliateClient() {
                           alt={review.name}
                           fill
                           className="object-cover"
+                          loading="lazy"
                         />
                       </div>
                     ) : (

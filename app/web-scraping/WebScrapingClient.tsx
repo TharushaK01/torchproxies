@@ -1030,6 +1030,7 @@ export default function TorchProxiesLandingPage() {
                       width={48}
                       height={48}
                       className="object-contain"
+                      loading="lazy"
                     />
                   </div>
                   <span className="text-[11px] font-medium tracking-wide px-3 py-1 rounded-md bg-[#002B1B] text-[#00B67A]">
@@ -1155,6 +1156,7 @@ export default function TorchProxiesLandingPage() {
                     width={385}
                     height={54}
                     className="object-contain"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -1200,6 +1202,7 @@ export default function TorchProxiesLandingPage() {
                           alt="Bright Data Logo"
                           fill
                           className="object-contain"
+                          loading="lazy"
                         />
                       </div>
                     </th>
@@ -1211,6 +1214,7 @@ export default function TorchProxiesLandingPage() {
                           alt="Oxylabs Logo"
                           fill
                           className="object-contain"
+                          loading="lazy"
                         />
                       </div>
                     </th>
@@ -1224,6 +1228,7 @@ export default function TorchProxiesLandingPage() {
                           alt="TorchProxies Logo"
                           fill
                           className="object-contain"
+                          loading="lazy"
                         />
                       </div>
                     </th>
@@ -1235,6 +1240,7 @@ export default function TorchProxiesLandingPage() {
                           alt="Proxy Empire Logo"
                           fill
                           className="object-contain"
+                          loading="lazy"
                         />
                       </div>
                     </th>
@@ -1246,6 +1252,7 @@ export default function TorchProxiesLandingPage() {
                           alt="Node Maven Logo"
                           fill
                           className="object-contain"
+                          loading="lazy"
                         />
                       </div>
                     </th>

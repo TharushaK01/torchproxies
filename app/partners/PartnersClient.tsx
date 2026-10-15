@@ -503,6 +503,7 @@ export default function PartnersPage() {
                       alt={`${partner.name} logo`}
                       fill
                       className="object-contain object-left p-1"
+                      loading="lazy"
                     />
                   </div>
 
@@ -790,6 +791,7 @@ export default function PartnersPage() {
             fill
             priority
             className="object-cover object-bottom opacity-100"
+            loading="lazy"
           />
         </div>
 

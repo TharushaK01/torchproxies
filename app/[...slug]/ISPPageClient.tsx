@@ -307,6 +307,7 @@ export default function ISPPageClient({
                         alt="ISP Logo"
                         fill
                         className="object-contain"
+                        loading="lazy"
                       />
                     </div>
                     <div>
@@ -392,6 +393,7 @@ export default function ISPPageClient({
                     src="/images/Industry_leader.png"
                     alt={`Perfect for ${countryName} Scraping & Automation`}
                     className="w-full h-auto object-cover rounded-xl sm:rounded-2xl"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -562,6 +564,7 @@ export default function ISPPageClient({
             fill
             priority
             className="object-cover object-bottom opacity-100"
+            loading="lazy"
           />
         </div>
 

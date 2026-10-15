@@ -540,6 +540,7 @@ export default function TorchProxiesLandingPage() {
                           alt={review.name}
                           fill
                           className="object-cover"
+                          loading="lazy"
                         />
                       </div>
                     ) : (
@@ -591,6 +592,7 @@ export default function TorchProxiesLandingPage() {
                           alt={review.name}
                           fill
                           className="object-cover"
+                          loading="lazy"
                         />
                       </div>
                     ) : (

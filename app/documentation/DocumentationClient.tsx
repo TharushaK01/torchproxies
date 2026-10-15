@@ -205,6 +205,7 @@ const faqData: FAQItem[] = [
             src="/images/hero_back.png"
             alt=""
             className="w-full h-auto object-bottom opacity-100"
+            loading="lazy"
         />
     </div>
     
@@ -298,6 +299,7 @@ const faqData: FAQItem[] = [
                   alt={review.name}
                   fill
                   className="object-cover"
+                  loading="lazy"
                 />
               </div>
             ) : (
@@ -347,7 +349,8 @@ const faqData: FAQItem[] = [
                   src={review.avatar} 
                   alt={review.name} 
                   fill 
-                  className="object-cover" 
+                  className="object-cover"
+                  loading="lazy" 
                 />
               </div>
             ) : (

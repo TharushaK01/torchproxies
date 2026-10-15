@@ -486,6 +486,7 @@ export default function TorchProxiesLandingPage() {
                 width={18}
                 height={18}
                 className="w-4 h-4 object-contain"
+                loading="lazy"
               />
               <span>Secure checkout</span>
             </div>
@@ -498,6 +499,7 @@ export default function TorchProxiesLandingPage() {
                 width={18}
                 height={18}
                 className="w-4 h-4 object-contain"
+                loading="lazy"
               />
               <span>24 Hour Money Back Guarantee</span>
             </div>
@@ -510,6 +512,7 @@ export default function TorchProxiesLandingPage() {
                 width={18}
                 height={18}
                 className="w-4 h-4 object-contain"
+                loading="lazy"
               />
               <span>24/7 support</span>
             </div>
@@ -523,6 +526,7 @@ export default function TorchProxiesLandingPage() {
               width={16}
               height={16}
               className="w-4 h-4 object-contain mr-1"
+              loading="lazy"
             />
 
             {/* Text */}
@@ -536,6 +540,7 @@ export default function TorchProxiesLandingPage() {
                 width={28}
                 height={16}
                 className="h-4 w-auto object-contain"
+                loading="lazy"
               />
             </div>
 
@@ -550,6 +555,7 @@ export default function TorchProxiesLandingPage() {
                 width={28}
                 height={28}
                 className="w-auto h-4 object-contain"
+                loading="lazy"
               />
             </div>
           </div>
@@ -583,6 +589,7 @@ export default function TorchProxiesLandingPage() {
                     width={16}
                     height={16}
                     className="w-4 h-4 object-contain brightness-200"
+                    loading="lazy"
                   />
                 </div>
 

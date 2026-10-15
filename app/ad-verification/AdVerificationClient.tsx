@@ -851,6 +851,7 @@ export default function AdVerificationClient() {
                         alt={`${card.title} Icon`}
                         fill
                         className="object-contain p-2.5"
+                        loading="lazy"
                       />
                     </div>
 
@@ -972,6 +973,7 @@ export default function AdVerificationClient() {
                           alt="Bright Data Logo"
                           fill
                           className="object-contain"
+                          loading="lazy"
                         />
                       </div>
                     </th>
@@ -983,6 +985,7 @@ export default function AdVerificationClient() {
                           alt="Oxylabs Logo"
                           fill
                           className="object-contain"
+                          loading="lazy"
                         />
                       </div>
                     </th>
@@ -997,6 +1000,7 @@ export default function AdVerificationClient() {
                           alt="TorchProxies Logo"
                           fill
                           className="object-contain"
+                          loading="lazy"
                         />
                       </div>
                     </th>
@@ -1008,6 +1012,7 @@ export default function AdVerificationClient() {
                           alt="Proxy Empire Logo"
                           fill
                           className="object-contain"
+                          loading="lazy"
                         />
                       </div>
                     </th>
@@ -1019,6 +1024,7 @@ export default function AdVerificationClient() {
                           alt="Node Maven Logo"
                           fill
                           className="object-contain"
+                          loading="lazy"
                         />
                       </div>
                     </th>

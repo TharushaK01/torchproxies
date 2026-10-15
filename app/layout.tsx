@@ -138,14 +138,15 @@ export default async function RootLayout({
         <Script
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="PMJbiJKafGEAlV+PU0q3fA"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
+          
         />
 
         {gaId ? (
           <>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-              strategy="afterInteractive"
+              strategy="lazyOnload"
             />
             <Script id="google-analytics" strategy="afterInteractive">
               {`
@@ -159,14 +160,14 @@ export default async function RootLayout({
               src="https://referly.so/affiliate-tracker.js"
               data-affiliate=""
               data-program-id="5fcbc101-6bb2-4397-a036-66a4697a2294"
-              strategy="afterInteractive"
+              strategy="lazyOnload"
             />
             {/* Global Affiliate Tracker Script from Step 1 */}
             <Script
               src="https://referly.so/affiliate-tracker.js"
               data-affiliate=""
               data-program-id="5fcbc101-6bb2-4397-a036-66a4697a2294"
-              strategy="afterInteractive"
+              strategy="lazyOnload"
             />
 
             {/* URL Parameter Tracker */}

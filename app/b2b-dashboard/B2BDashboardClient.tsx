@@ -1178,6 +1178,7 @@ export default function B2BDashboardClient() {
                           alt={review.name}
                           fill
                           className="object-cover"
+                          loading="lazy"
                         />
                       </div>
                     ) : (
@@ -1228,6 +1229,7 @@ export default function B2BDashboardClient() {
                           alt={review.name}
                           fill
                           className="object-cover"
+                          loading="lazy"
                         />
                       </div>
                     ) : (

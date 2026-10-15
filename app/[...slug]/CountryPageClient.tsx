@@ -429,6 +429,7 @@ export default function CountryPageClient({
                     src="/images/Industry_leader.png"
                     alt={`Perfect for ${countryName} Scraping & Automation`}
                     className="w-full h-auto object-cover rounded-2xl"
+                    loading="lazy"
                   />
                 </div>
               </div>
