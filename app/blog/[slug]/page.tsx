@@ -150,15 +150,22 @@ export default async function BlogPostPage({
 
   if (!post) notFound();
 
+  // Format date nicely
+  const formattedDate = post.date 
+    ? new Date(post.date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }) 
+    : null;
+
   // 1. Sanitize the raw HTML from WordPress to remove dangerous scripts/attributes
   const sanitizedContent = sanitizeHtml(post.content.rendered, {
     allowedTags: sanitizeHtml.defaults.allowedTags.concat([
       "img",
       "h1",
       "h2",
+      "h3",
       "style",
       "svg",
       "path",
+      "iframe",
     ]),
     nonTextTags: ["script", "textarea", "option", "annotation-xml", "title"],
     allowedAttributes: {
@@ -166,6 +173,7 @@ export default async function BlogPostPage({
       "*": ["class", "id", "style"],
       img: ["src", "alt", "class", "width", "height", "loading"],
       a: ["href", "name", "target", "rel"],
+      iframe: ["src", "width", "height", "allow", "allowfullscreen"],
     },
     // Retain internal style tags so scopeCss can extract them
     allowVulnerableTags: true,
@@ -183,6 +191,15 @@ export default async function BlogPostPage({
         style={{ paddingTop: "80px" }}
         suppressHydrationWarning
       >
+      {/*Header Section for Title & Metadata */}
+        <div className="max-w-4xl mx-auto px-6 pt-8 pb-4">
+          <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-4" 
+              dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+          {formattedDate && (
+            <p className="text-stone-400 text-sm mb-6">Published on {formattedDate}</p>
+          )}
+        </div>
+
         <style dangerouslySetInnerHTML={{ __html: scopedStyle }} />
         <div className="wp-post-wrapper">
           <WordPressContent rawHtml={body} />
