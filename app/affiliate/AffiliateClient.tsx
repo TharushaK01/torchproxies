@@ -32,7 +32,7 @@ const FeatureCard = ({
 );
 
 const MARQUEE_ITEMS = [
-  "99.9% uptime guaranteed",
+  "99% uptime guaranteed",
   "Blazing fast proxy speeds",
   "Global geo targeting support",
   "Secure & anonymous connections",
@@ -403,7 +403,7 @@ export default function AffiliateClient() {
               </p>
               <ul className="text-gray-400 text-lg leading-relaxed">
                 <li>&#9679; Every 30 days payout frequency</li>
-                <li>&#9679; Up to 25% first person commissions</li>
+                <li>&#9679; Flat 30% first person commissions</li>
                 <li>&#9679; 60 days cookie duration</li>
                 <li>&#9679; Up to 12% recurring commissions</li>
               </ul>
@@ -811,120 +811,113 @@ export default function AffiliateClient() {
           </p>
         </div>
 
-        {/* --- START OF PROGRAM COMPARISON TABLE SECTION --- */}
         <div className="mt-16 w-full overflow-x-auto rounded-3xl border border-zinc-900 bg-[#050505]">
-          <table className="w-full min-w-[900px] border-collapse text-left text-sm table-fixed">
-            {/* Defining exact column width distributions */}
+          <table className="w-full min-w-[700px] border-collapse text-left text-sm table-fixed">
+            {/* ── Defining 3 Column Widths ───────────────────────────────────────── */}
             <colgroup>
-              <col className="w-[25%]" />
-              <col className="w-[25%]" />
-              <col className="w-[25%]" />
-              <col className="w-[25%]" />
+              <col className="w-[33.33%]" />
+              <col className="w-[33.33%]" />
+              <col className="w-[33.33%]" />
             </colgroup>
 
-            {/* ── Table Header ──────────────────────────────────────────────── */}
+            {/* ── Table Header ─────────────────────────────────────────────────── */}
             <thead>
               <tr className="border-b border-zinc-900">
-                {/* 🛠️ Added border-r to separate columns vertically */}
+                {/* Empty top-left header cell */}
                 <th className="p-6 border-r border-zinc-900"></th>
 
-                <th className="p-6 font-normal border-r border-zinc-900">
-                  <div className="flex flex-col gap-1">
-                    <span className="text-base font-bold text-[#FF4F00] tracking-tight">
-                      TorchProxies Affiliate
-                    </span>
-                    <span className="text-[13px] text-zinc-500 font-normal">
-                      Average commission rates
-                    </span>
-                  </div>
-                </th>
-
+                {/* Typical Programs Header */}
                 <th className="p-6 font-normal border-r border-zinc-900">
                   <div className="flex flex-col gap-1">
                     <span className="text-base font-bold text-white tracking-tight">
                       Typical Programs
                     </span>
                     <span className="text-[13px] text-zinc-500 font-normal">
-                      Average commission rates
+                      Avarage commission rates
                     </span>
                   </div>
                 </th>
 
-                {/* Last column doesn't need a right border */}
-                <th className="p-6 font-normal align-middle">
-                  <span className="text-base font-bold text-white tracking-tight">
-                    Max first commission
-                  </span>
+                {/* TorchProxies Affiliate Header */}
+                <th className="p-6 font-normal">
+                  <div className="flex flex-col gap-1">
+                    <span className="text-base font-bold text-[#FF4F00] tracking-tight">
+                      TorchProxies Affiliate
+                    </span>
+                    <span className="text-[13px] text-zinc-500 font-normal">
+                      High commission rates
+                    </span>
+                  </div>
                 </th>
               </tr>
             </thead>
 
-            {/* ── Table Body Rows ───────────────────────────────────────────── */}
+            {/* ── Table Body ────────────────────────────────────────────────────── */}
             <tbody className="divide-y divide-zinc-900 text-zinc-200">
-              {/* Row 1 */}
+              {/* Row 1: Max first commission */}
               <tr>
-                <td className="p-6 font-medium text-white border-r border-zinc-900">
-                  Up to 25%
+                <td className="p-6 text-zinc-300 border-r border-zinc-900">
+                  Max first commission
                 </td>
                 <td className="p-6 text-zinc-300 border-r border-zinc-900">
                   10 - 20%
                 </td>
+                <td className="p-6 font-medium text-white">Up to 30%</td>
+              </tr>
+
+              {/* Row 2: Recurring Commision */}
+              <tr>
                 <td className="p-6 text-zinc-300 border-r border-zinc-900">
                   Recurring Commision
                 </td>
-                <td className="p-6 text-zinc-300">Up to 12%</td>
-              </tr>
-
-              {/* Row 2 */}
-              <tr>
-                <td className="p-6 font-medium text-white border-r border-zinc-900">
+                <td className="p-6 text-zinc-300 border-r border-zinc-900">
                   5 - 10%
                 </td>
+                <td className="p-6 font-medium text-white">Up to 12%</td>
+              </tr>
+
+              {/* Row 3: Cookie Duration */}
+              <tr>
                 <td className="p-6 text-zinc-300 border-r border-zinc-900">
                   Cookie Duration
                 </td>
                 <td className="p-6 text-zinc-300 border-r border-zinc-900">
-                  60 days
+                  30 days or less
                 </td>
-                <td className="p-6 text-zinc-300">30 days or less</td>
+                <td className="p-6 font-medium text-white">60 days</td>
               </tr>
 
-              {/* Row 3 */}
+              {/* Row 4: Payouts */}
               <tr>
-                <td className="p-6 font-medium text-white border-r border-zinc-900">
-                  Payouts
-                </td>
                 <td className="p-6 text-zinc-300 border-r border-zinc-900">
-                  Every 30 days
+                  Payouts
                 </td>
                 <td className="p-6 text-zinc-300 border-r border-zinc-900">
                   35 - 50 days
                 </td>
-                <td className="p-6 text-zinc-300">Bonus incentives</td>
+                <td className="p-6 font-medium text-white">Every 30 days</td>
               </tr>
 
-              {/* Row 4 */}
+              {/* Row 5: Bonus incentives */}
               <tr>
-                <td className="p-6 font-medium text-white border-r border-zinc-900">
-                  Top 3 monthly
+                <td className="p-6 text-zinc-300 border-r border-zinc-900">
+                  Bonus incentives
                 </td>
                 <td className="p-6 text-zinc-300 border-r border-zinc-900">
                   Rare or none
                 </td>
+                <td className="p-6 font-medium text-white">Top 3 monthly</td>
+              </tr>
+
+              {/* Row 6: Marketing Assets */}
+              <tr className="last:border-b-0">
                 <td className="p-6 text-zinc-300 border-r border-zinc-900">
                   Marketing Assets
                 </td>
-                <td className="p-6 text-zinc-300">Monthly packs</td>
-              </tr>
-
-              {/* Row 5 */}
-              <tr className="last:border-b-0">
-                <td className="p-6 font-medium text-white border-r border-zinc-900">
+                <td className="p-6 text-zinc-300 border-r border-zinc-900">
                   Often unavailable
                 </td>
-                <td className="p-6 border-r border-zinc-900"></td>
-                <td className="p-6 border-r border-zinc-900"></td>
-                <td className="p-6"></td>
+                <td className="p-6 font-medium text-white">Monthly packs</td>
               </tr>
             </tbody>
           </table>

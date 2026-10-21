@@ -7,7 +7,7 @@ TorchProxies prices residential and mobile bandwidth per GB and ISP proxies per 
 ## Key facts
 
 - IP pool: 120M+ residential IPs (Plan X, the largest pool). Premium Residential has 90M+ and Standard Residential has 30M+.
-- Country coverage: 195 countries for residential proxies. ISP proxies cover 12 countries: United States, United Kingdom, Canada, Germany, Italy, France, Australia, Hong Kong, South Korea, Japan, Poland and Spain.
+- Country coverage: 195+ Locations for residential proxies. ISP proxies cover 12 countries: United States, United Kingdom, Canada, Germany, Italy, France, Australia, Hong Kong, South Korea, Japan, Poland and Spain.
 - Uptime: 99% (Plan X), on a 10 Gbps network.
 - Protocols: HTTP, HTTPS and SOCKS5. ISP proxies also support UDP via SOCKS5.
 - Session types: rotating (a new IP on every request) or sticky (the same IP for a set time). Sticky sessions default to 30 minutes in the dashboard, you can set a custom length, and they go up to 168 hours through the proxy string. Mobile sticky sessions last up to 7 days.
@@ -29,7 +29,7 @@ TorchProxies prices residential and mobile bandwidth per GB and ISP proxies per 
 
 ## Products
 
-- [Standard Residential Proxies](https://www.torchproxies.com/standard-residential-proxies): The budget option at $4/GB, with 30M+ rotating residential IPs in 195 countries. Good for everyday scraping and for trying the network.
+- [Standard Residential Proxies](https://www.torchproxies.com/standard-residential-proxies): The budget option at $4/GB, with 30M+ rotating residential IPs in 195+ Locations. Good for everyday scraping and for trying the network.
 - [Premium Residential Proxies](https://www.torchproxies.com/premium-residential-proxies): 90M+ residential IPs at $4.50/GB, aimed at businesses running ad verification, price monitoring and other steady production workloads.
 - [Plan X](https://www.torchproxies.com/plan-x-residential): A hybrid proxy plan that combines residential IPs (120M+) for authenticity with dedicated ISP IPs for speed and stability, on one account and switchable per request. It adds device-type targeting (iOS, Android, macOS, Windows, Linux), site-specific pools for Pokemon Center, Footsites and Popmart (US, Canada, Europe-wide, Australia, Singapore, Malaysia and Japan), and three optional Xtreame settings: Xtreame Pool (cleaner, more reliable IPs than the standard pool), Xtreame Authentication (fewer blocks on sites with advanced security) and Xtreame Speed (the fastest, most responsive proxies for high-demand tasks). It's built for scraping, AI agents, multi-account work, retail drops and strict anti-bot targets.
 - [ISP Proxies](https://www.torchproxies.com/isp-proxies): Static, 100% dedicated IPs registered to real ISPs, in 12 countries, on a 10 Gbps network with unlimited bandwidth, HTTP and SOCKS5 (including UDP via SOCKS5) and instant delivery. Sold as individual proxies (5 to 200 IPs, from $2.30/IP/month) or as full private subnets of 255 IPs ($584.20/month). Pools are split by use case: Tickets, Sneakers, Retail, Social, General, Pokémon Center (Australia) and IPQS-Filtered (IPs screened with IPQualityScore for low fraud scores). See the ISP catalog below for what each country offers.

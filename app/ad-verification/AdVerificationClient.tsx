@@ -84,7 +84,7 @@ const comparisonData: ComparisonRow[] = [
     oxylabs: "$8 per GB",
     torchProxies: "$4 per GB",
     proxyEmpire: "$4 per GB",
-    nodeMaven: "$4 per GB",
+    nodeMaven: "$4.25 per GB",
   },
   {
     metric: "Pool Size",
@@ -95,12 +95,12 @@ const comparisonData: ComparisonRow[] = [
     nodeMaven: "30M+ IPs",
   },
   {
-    metric: "Countries",
+    metric: "Locations",
     brightData: "195 Countries",
     oxylabs: "195+ Countries",
-    torchProxies: "195+ Countries",
+    torchProxies: "195+ Locations",
     proxyEmpire: "170+ Countries",
-    nodeMaven: "195+ Countries",
+    nodeMaven: "195+ Locations",
   },
   {
     metric: "Minimum Purchase",
@@ -967,7 +967,7 @@ export default function AdVerificationClient() {
                     <th className="pb-8"></th>
 
                     <th className="pb-8 px-1">
-                      <div className="relative h-6 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition">
+                      <div className="relative h-10 w-full max-w-[160px] mx-auto opacity-50 hover:opacity-100 transition">
                         <Image
                           src="/images/table/1.png"
                           alt="Bright Data Logo"
@@ -979,7 +979,7 @@ export default function AdVerificationClient() {
                     </th>
 
                     <th className="pb-8 px-1">
-                      <div className="relative h-6 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition">
+                      <div className="relative h-10 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition">
                         <Image
                           src="/images/table/2.png"
                           alt="Oxylabs Logo"
@@ -994,7 +994,7 @@ export default function AdVerificationClient() {
                     <th className="pb-8 px-1 relative">
                       <div className="absolute top-[-16px] left-0 right-0 h-[calc(100%+380px)] bg-[#0d0d0d] border border-stone-800/80 rounded-2xl z-0 pointer-events-none shadow-[0_20px_50px_rgba(0,0,0,0.6)]" />
 
-                      <div className="relative h-6 w-full max-w-[120px] mx-auto opacity-100 transition z-10">
+                      <div className="relative h-10 w-full max-w-[120px] mx-auto opacity-100 transition z-10">
                         <Image
                           src="/images/table/torchproxies.png"
                           alt="TorchProxies Logo"
@@ -1006,7 +1006,7 @@ export default function AdVerificationClient() {
                     </th>
 
                     <th className="pb-8 px-1">
-                      <div className="relative h-6 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition">
+                      <div className="relative h-10 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition">
                         <Image
                           src="/images/table/3.png"
                           alt="Proxy Empire Logo"
@@ -1018,7 +1018,7 @@ export default function AdVerificationClient() {
                     </th>
 
                     <th className="pb-8 px-1">
-                      <div className="relative h-6 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition">
+                      <div className="relative h-10 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition">
                         <Image
                           src="/images/table/4.png"
                           alt="Node Maven Logo"

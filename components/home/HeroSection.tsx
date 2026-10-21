@@ -14,7 +14,7 @@ const PixelBlast = dynamic(() => import("@/components/PixelBlast"), {
 });
 
 const MARQUEE_ITEMS = [
-  "99.9% uptime guaranteed",
+  "99% uptime guaranteed",
   "Blazing fast proxy speeds",
   "Global geo targeting support",
   "Secure & anonymous connections",
@@ -73,7 +73,7 @@ const urbanist = Urbanist({
 const STATS = [
   "Rotating & Static IPs",
   "Unlimited Concurrency",
-  "195+ Countries",
+  "195+ Locations",
 ];
 
 export default function HeroSection() {

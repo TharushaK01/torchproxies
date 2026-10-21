@@ -1,15 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  Check,
-  ChevronDown,
-  Database,
-  RefreshCw,
-  Layers,
-  ShieldCheck,
-  CreditCard,
-} from "lucide-react";
+import { Check, ChevronDown, CreditCard } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { handleReferralNavigation } from "@/lib/referral";
@@ -33,7 +25,7 @@ interface CountryPageClientProps {
 }
 
 const MARQUEE_ITEMS = [
-  "99.9% uptime guaranteed",
+  "99% uptime guaranteed",
   "Blazing fast proxy speeds",
   "Global geo targeting support",
   "Secure & anonymous connections",
@@ -447,7 +439,7 @@ export default function CountryPageClient({
                 TorchLabs' {countryName} proxy IPs.
               </p>
               <ul className="text-gray-400 text-lg leading-relaxed">
-                <li>&#9679; High uptime (up to 99.9%)</li>
+                <li>&#9679; High uptime (up to 99%)</li>
                 <li>&#9679; Pre selected and thoroughly tested proxies</li>
                 <li>&#9679; Minimal risk of IP blocks</li>
               </ul>

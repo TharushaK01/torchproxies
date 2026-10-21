@@ -13,7 +13,7 @@ const UseCasesSection = dynamic(
 );
 
 const MARQUEE_ITEMS = [
-  "99.9% uptime guaranteed",
+  "99% uptime guaranteed",
   "Blazing fast proxy speeds",
   "Global geo targeting support",
   "Secure & anonymous connections",
@@ -503,7 +503,7 @@ export default function TorchProxiesLandingPage() {
                 </li>
                 <li className="flex items-start gap-2.5">
                   <Check className="text-emerald-400 w-4 h-4 stroke-[3] shrink-0 mt-1" />{" "}
-                  120M+ ethically sourced unique IPs in 195 countries
+                  120M+ ethically sourced unique IPs in 195+ Locations
                 </li>
                 <li className="flex items-start gap-2.5">
                   <Check className="text-emerald-400 w-4 h-4 stroke-[3] shrink-0 mt-1" />{" "}
@@ -614,7 +614,7 @@ export default function TorchProxiesLandingPage() {
             Locations
           </span>
           <h2 className="text-[42px] md:text-5xl font-medium mb-6">
-            Available in 195+ countries
+            Available in 195+ Locations
           </h2>
           <p className="text-gray-400 max-w-3xl mx-auto mb-16">
             We provide you access to a global network of ethical sourced proxy
@@ -978,7 +978,7 @@ export default function TorchProxiesLandingPage() {
                   </li>
                   <li className="flex items-center gap-2.5">
                     <Check className="text-emerald-500 w-4 h-4 shrink-0" /> 30M+
-                    ethically sourced unique IPs in 195+ Countries
+                    ethically sourced unique IPs in 195+ Locations
                   </li>
                 </ul>
 
@@ -1055,7 +1055,7 @@ export default function TorchProxiesLandingPage() {
                   </li>
                   <li className="flex items-center gap-2.5">
                     <Check className="text-emerald-500 w-4 h-4 shrink-0" /> 30M+
-                    ethically sourced unique IPs in 195 countries
+                    ethically sourced unique IPs in 195+ Locations
                   </li>
                 </ul>
 

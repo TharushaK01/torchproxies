@@ -265,10 +265,11 @@ export default function TorchProxiesLandingPage() {
         {[...Array(5)].map((_, index) => (
           <div
             key={index}
-            className={`w-[18px] h-[18px] flex items-center justify-center rounded-[3px] text-[11px] font-bold transition-colors duration-200 ${index < rating
-              ? "bg-[#00b67a] text-white" // Active Trustpilot Green box with White Star
-              : "bg-stone-800 text-stone-600" // Inactive Dark box with Muted Gray Star
-              }`}
+            className={`w-[18px] h-[18px] flex items-center justify-center rounded-[3px] text-[11px] font-bold transition-colors duration-200 ${
+              index < rating
+                ? "bg-[#00b67a] text-white" // Active Trustpilot Green box with White Star
+                : "bg-stone-800 text-stone-600" // Inactive Dark box with Muted Gray Star
+            }`}
           >
             ★
           </div>
@@ -571,10 +572,11 @@ export default function TorchProxiesLandingPage() {
                     <div
                       key={tier.id}
                       onClick={() => setSelectedPlan(tier.id)}
-                      className={`h-[150px] sm:h-[171px] border rounded-2xl p-4 sm:p-5 relative cursor-pointer select-none transition-all duration-200 flex flex-col justify-between ${isSelected
-                        ? "bg-stone-900/40 border-[#FE4A01] shadow-[0_0_25px_rgba(254,74,1,.1)]"
-                        : "bg-[#0b0b0d]/50 border-stone-900 hover:border-stone-800/80"
-                        }`}
+                      className={`h-[150px] sm:h-[171px] border rounded-2xl p-4 sm:p-5 relative cursor-pointer select-none transition-all duration-200 flex flex-col justify-between ${
+                        isSelected
+                          ? "bg-stone-900/40 border-[#FE4A01] shadow-[0_0_25px_rgba(254,74,1,.1)]"
+                          : "bg-[#0b0b0d]/50 border-stone-900 hover:border-stone-800/80"
+                      }`}
                     >
                       {/* Floating Discount Label */}
                       {tier.discount && (
@@ -623,7 +625,7 @@ export default function TorchProxiesLandingPage() {
             Locations
           </span>
           <h2 className="text-[42px] md:text-5xl font-medium mb-6">
-            Available in 195+ countries
+            Available in 195+ Locations
           </h2>
           <p className="text-gray-400 max-w-3xl mx-auto mb-16">
             We provide you access to a global network of ethical sourced proxy
@@ -932,10 +934,11 @@ export default function TorchProxiesLandingPage() {
                     ) : (
                       /* Fallback Initials Circle */
                       <div
-                        className={`w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center rounded-full text-stone-950 font-bold text-xs sm:text-sm tracking-wider uppercase shrink-0 ${review.initials === "IS"
-                          ? "bg-[#c6f6d5]"
-                          : "bg-[#7f9cf5] text-white"
-                          }`}
+                        className={`w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center rounded-full text-stone-950 font-bold text-xs sm:text-sm tracking-wider uppercase shrink-0 ${
+                          review.initials === "IS"
+                            ? "bg-[#c6f6d5]"
+                            : "bg-[#7f9cf5] text-white"
+                        }`}
                       >
                         {review.initials}
                       </div>

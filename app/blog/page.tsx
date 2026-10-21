@@ -263,23 +263,34 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogPage() {
+  let posts: WPPost[] = [];
+  let categories: WPCategory[] = [];
+  let fetchError: unknown = null;
+
   try {
-    const [posts, categories]: [WPPost[], WPCategory[]] = await Promise.all([
+    const [fetchPosts, fetchedCategories] = await Promise.all([
       getAllPosts(),
       getCategories(),
     ]);
-
-    return <BlogClient posts={posts} categories={categories} />;
+    posts = fetchPosts;
+    categories = fetchedCategories;
   } catch (error) {
-    // Shows error on screen instead of 404
     console.error("Blog fetch error:", error);
+    fetchError = error;
+  }
+  if (fetchError) {
     return (
-      <main className="bg-[#0a0a0a] min-h-screen flex items-center justify-center">
+      <div className="fixed inset-0 z-50 bg-[#0a0a0a] flex items-center justify-center p-4">
         <div className="text-center">
-          <p className="text-red-400 text-sm mb-2">Failed to load blog</p>
-          <p className="text-stone-600 text-xs">{String(error)}</p>
+          <p className="text-red-400 text-sm mb-2 font-medium">
+            Failed to load blog
+          </p>
+          <p className="text-stone-600 text-xs max-w-md break-words">
+            {String(fetchError)}
+          </p>
         </div>
-      </main>
+      </div>
     );
   }
+  return <BlogClient posts={posts} categories={categories} />;
 }

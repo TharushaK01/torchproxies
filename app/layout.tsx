@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     template: "%s | TorchProxies",
   },
   description:
-    "Fast, reliable residential & ISP proxies for scraping, automation & multi-account management. 80M+ IPs across 195+ countries",
+    "Fast, reliable residential & ISP proxies for scraping, automation & multi-account management. 80M+ IPs across 195+ Locations",
   metadataBase: new URL("https://www.torchproxies.com"),
   // Enable canonical URL generation across all pages
   alternates: {
@@ -139,7 +139,6 @@ export default async function RootLayout({
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="PMJbiJKafGEAlV+PU0q3fA"
           strategy="lazyOnload"
-          
         />
 
         {gaId ? (

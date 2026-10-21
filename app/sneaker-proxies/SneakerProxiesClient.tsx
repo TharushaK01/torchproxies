@@ -12,7 +12,7 @@ const Marquee: React.FC = () => (
     <div className="flex animate-marquee text-xs font-semibold tracking-wider text-white uppercase">
       {/* Original Content */}
       <div className="flex items-center space-x-8 pr-8">
-        <span>• 99.9% uptime guaranteed</span>
+        <span>• 99% uptime guaranteed</span>
         <span>• Blazing fast proxy speeds</span>
         <span>• Global geo targeting support</span>
         <span>• Secure & anonymous connections</span>
@@ -22,7 +22,7 @@ const Marquee: React.FC = () => (
 
       {/* Duplicated Content for Seamless Loop */}
       <div className="flex items-center space-x-8 pr-8" aria-hidden="true">
-        <span>• 99.9% uptime guaranteed</span>
+        <span>• 99% uptime guaranteed</span>
         <span>• Blazing fast proxy speeds</span>
         <span>• Global geo targeting support</span>
         <span>• Secure & anonymous connections</span>
@@ -323,7 +323,7 @@ const comparisonData: ComparisonRow[] = [
     oxylabs: "$8 per GB",
     torchProxies: "$4 per GB",
     proxyEmpire: "$4 per GB",
-    nodeMaven: "$4 per GB",
+    nodeMaven: "$4.25 per GB",
   },
   {
     metric: "Pool Size",
@@ -334,12 +334,12 @@ const comparisonData: ComparisonRow[] = [
     nodeMaven: "30M+ IPs",
   },
   {
-    metric: "Countries",
+    metric: "Locations",
     brightData: "195 Countries",
     oxylabs: "195+ Countries",
-    torchProxies: "195+ Countries",
+    torchProxies: "195+ Locations",
     proxyEmpire: "170+ Countries",
-    nodeMaven: "195+ Countries",
+    nodeMaven: "195+ Locations",
   },
   {
     metric: "Minimum Purchase",
@@ -1185,7 +1185,7 @@ export default function TorchProxiesLandingPage() {
                     <th className="pb-8 sm:pb-10"></th>
 
                     <th className="pb-8 sm:pb-10 px-2">
-                      <div className="relative h-6 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition-opacity duration-200">
+                      <div className="relative h-10 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition-opacity duration-200">
                         <Image
                           src="/images/table/1.png"
                           alt="Bright Data Logo"
@@ -1197,7 +1197,7 @@ export default function TorchProxiesLandingPage() {
                     </th>
 
                     <th className="pb-8 sm:pb-10 px-2">
-                      <div className="relative h-6 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition-opacity duration-200">
+                      <div className="relative h-10 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition-opacity duration-200">
                         <Image
                           src="/images/table/2.png"
                           alt="Oxylabs Logo"
@@ -1212,7 +1212,7 @@ export default function TorchProxiesLandingPage() {
                     <th className="pb-8 sm:pb-10 px-2 relative">
                       <div className="absolute top-[-16px] left-0 right-0 h-[calc(100%+100%)] bg-[#0c0c0e] border border-stone-800/80 rounded-2xl z-0 pointer-events-none shadow-[0_20px_50px_rgba(0,0,0,0.6)]" />
 
-                      <div className="relative h-6 w-full max-w-[120px] mx-auto opacity-100 transition-opacity duration-200 z-10">
+                      <div className="relative h-10 w-full max-w-[120px] mx-auto opacity-100 transition-opacity duration-200 z-10">
                         <Image
                           src="/images/table/torchproxies.png"
                           alt="TorchProxies Logo"
@@ -1224,7 +1224,7 @@ export default function TorchProxiesLandingPage() {
                     </th>
 
                     <th className="pb-8 sm:pb-10 px-2">
-                      <div className="relative h-6 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition-opacity duration-200">
+                      <div className="relative h-10 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition-opacity duration-200">
                         <Image
                           src="/images/table/3.png"
                           alt="Proxy Empire Logo"
@@ -1236,7 +1236,7 @@ export default function TorchProxiesLandingPage() {
                     </th>
 
                     <th className="pb-8 sm:pb-10 px-2">
-                      <div className="relative h-6 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition-opacity duration-200">
+                      <div className="relative h-10 w-full max-w-[110px] mx-auto opacity-50 hover:opacity-100 transition-opacity duration-200">
                         <Image
                           src="/images/table/4.png"
                           alt="Node Maven Logo"
@@ -1337,7 +1337,7 @@ export default function TorchProxiesLandingPage() {
                 {[
                   "No Credit Card Needed",
                   "Set up in minutes",
-                  "Works in 195+ countries",
+                  "Works in 195+ Locations",
                 ].map((feature, idx) => (
                   <div key={idx} className="flex items-center gap-1.5">
                     <svg

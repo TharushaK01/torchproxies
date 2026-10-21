@@ -39,7 +39,7 @@ interface ISPPageClientProps {
 
 // ── MARQUEE ANIMATION COMPONENT ──────────────────────────────────────
 const MARQUEE_ITEMS = [
-  "99.9% uptime guaranteed",
+  "99% uptime guaranteed",
   "Blazing fast proxy speeds",
   "Global geo targeting support",
   "Secure & anonymous connections",
@@ -417,7 +417,7 @@ export default function ISPPageClient({
               <ul className="space-y-2.5 text-stone-400 text-xs sm:text-sm lg:text-[16px] font-normal leading-relaxed pt-2">
                 <li className="flex items-center gap-2.5">
                   <span className="text-[#FE4A01] text-xs">●</span>
-                  <span>High uptime (up to 99.9%)</span>
+                  <span>High uptime (up to 99%)</span>
                 </li>
                 <li className="flex items-center gap-2.5">
                   <span className="text-[#FE4A01] text-xs">●</span>
@@ -564,7 +564,6 @@ export default function ISPPageClient({
             fill
             priority
             className="object-cover object-bottom opacity-100"
-            loading="lazy"
           />
         </div>
 

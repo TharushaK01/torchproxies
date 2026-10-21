@@ -4,14 +4,14 @@ import AustraliaISPClient from "./AustraliaISPClient";
 export const metadata: Metadata = {
   title: "Australia ISP Proxies | Static, Carrier-Grade & Reliable",
   description:
-    "Static Australia ISP proxies with carrier-grade IPs, unlimited bandwidth, and 99.9% uptime. Ideal for account management, automation, and scraping at scale.",
+    "Static Australia ISP proxies with carrier-grade IPs, unlimited bandwidth, and 99% uptime. Ideal for account management, automation, and scraping at scale.",
   alternates: {
     canonical: "/australia/isp",
   },
   openGraph: {
     title: "Australia ISP Proxies | Static, Carrier-Grade & Reliable ",
     description:
-      "Static Australia ISP proxies with carrier-grade IPs, unlimited bandwidth, and 99.9% uptime. Ideal for account management, automation, and scraping at scale.",
+      "Static Australia ISP proxies with carrier-grade IPs, unlimited bandwidth, and 99% uptime. Ideal for account management, automation, and scraping at scale.",
     images: ["/images/og-image.jpg"],
   },
   twitter: {

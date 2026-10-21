@@ -31,7 +31,7 @@ interface LocationsData {
 }
 
 const MARQUEE_ITEMS = [
-  "99.9% uptime guaranteed",
+  "99% uptime guaranteed",
   "Blazing fast proxy speeds",
   "Global geo targeting support",
   "Secure & anonymous connections",
@@ -418,7 +418,7 @@ export default function TorchProxiesLandingPage() {
           </div>
 
           <h1 className="text-[60px] sm:text-6xl lg:text-7xl font-normal tracking-tight leading-tight mb-6 bg-gradient-to-b from-white via-stone-200 to-stone-500 bg-clip-text text-transparent">
-            Available in 190+ countries <br />
+            Available in 195+ Locations <br />
             <span className="bg-gradient-to-b from-white via-stone-200 to-stone-200 bg-clip-text text-transparent">
               worldwide
             </span>

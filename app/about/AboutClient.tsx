@@ -100,7 +100,7 @@ const journeyData = [
 ];
 
 const MARQUEE_ITEMS = [
-  "99.9% uptime guaranteed",
+  "99% uptime guaranteed",
   "Blazing fast proxy speeds",
   "Global geo targeting support",
   "Secure & anonymous connections",
@@ -873,7 +873,7 @@ export default function AboutUsPage() {
                   transition={{ delay: 0.6 }}
                   className="absolute top-8 right-4 bg-black/80 text-[10px] text-gray-300 font-medium px-2.5 py-0.5 rounded-full border border-gray-700/50 mt-12"
                 >
-                  195 Countries
+                  195+ Locations
                 </motion.div>
 
                 <motion.div
@@ -891,7 +891,7 @@ export default function AboutUsPage() {
                   transition={{ delay: 0.7 }}
                   className="absolute bottom-[2px] right-2 bg-black/80 text-[10px] text-gray-300 font-medium px-2.5 py-0.5 rounded-full border border-gray-700/50 mt-12"
                 >
-                  99.9% uptime
+                  99% uptime
                 </motion.div>
 
                 {/* Avatar Circles */}

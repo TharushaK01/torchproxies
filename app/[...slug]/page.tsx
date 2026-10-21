@@ -140,7 +140,6 @@
 //     />
 //   );
 // }
-import React from "react";
 import CountryPageClient from "@/app/[...slug]/CountryPageClient";
 import { notFound } from "next/navigation";
 import { getCountryRows } from "@/lib/sheets";
@@ -149,23 +148,32 @@ import { Metadata } from "next";
 import ServerBreadcrumbs from "@/components/ServerBreadcrumbs";
 
 type Props = {
-  params: Promise<{ country: string }>;
+  params: Promise<{ slug: string[] }> | { slug: string[] };
 };
 
-export const metadata: Metadata = {
-  title: "Proxy Locations & Supported Countries | Torch Proxies",
-  description:
-    "Browse 80M+ residential and ISP proxies across 195+ countries worldwide.",
-  alternates: {
-    canonical: "/countries", // Generates https://www.torchproxies.com/countries
-  },
-  openGraph: {
-    title: "Proxy Locations & Supported Countries | Torch Proxies",
-    description:
-      "Browse 80M+ residential and ISP proxies across 195+ countries worldwide.",
-    type: "website",
-  },
-};
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const slugPath = Array.isArray(slug) ? slug.join("/") : slug;
+  const currentPath = `/${slugPath}`;
+
+  const pageTitle = slugPath
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+
+  return {
+    title: `${pageTitle} Proxies | Torch Proxies`,
+    description: `Browse fast and reliable proxies for ${pageTitle}. 80M+ residential and ISP proxies available.`,
+    alternates: {
+      canonical: currentPath,
+    },
+    openGraph: {
+      title: `${pageTitle} Proxies | Torch Proxies`,
+      description: `Browse fast and reliable proxies for ${pageTitle}.`,
+      type: "website",
+    },
+  };
+}
 const VALID_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/i;
 
 interface PageProps {

@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import FranceResidentialClient from "./FranceResidentialClient";
 
 export const metadata: Metadata = {
-  title: "France Residential Proxies | 99.9% Uptime Guarantee",
+  title: "France Residential Proxies | 99% Uptime Guarantee",
   description:
-    "Get fast, private France residential proxies with real household IPs, unlimited locations, and 99.9% uptime. Start browsing and scraping from France today.",
+    "Get fast, private France residential proxies with real household IPs, unlimited locations, and 99% uptime. Start browsing and scraping from France today.",
   alternates: {
     canonical: "/france/residential",
   },
   openGraph: {
-    title: "France Residential Proxies | 99.9% Uptime Guarantee",
+    title: "France Residential Proxies | 99% Uptime Guarantee",
     description:
-      "Get fast, private France residential proxies with real household IPs, unlimited locations, and 99.9% uptime. Start browsing and scraping from France today.",
+      "Get fast, private France residential proxies with real household IPs, unlimited locations, and 99% uptime. Start browsing and scraping from France today.",
     images: ["/images/og-image.jpg"],
   },
   twitter: {

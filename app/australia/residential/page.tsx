@@ -4,14 +4,14 @@ import AustraliaResidentialClient from "./AustraliaResidentialClient";
 export const metadata: Metadata = {
   title: "Fast Australia Residential Proxies | Torch Proxies",
   description:
-    "Torch Proxies gives you fast, private Australia residential proxies with real household IPs, unlimited locations, and 99.9% uptime for scraping and automation.",
+    "Torch Proxies gives you fast, private Australia residential proxies with real household IPs, unlimited locations, and 99% uptime for scraping and automation.",
   alternates: {
     canonical: "/australia/residential",
   },
   openGraph: {
     title: "Fast Australia Residential Proxies | Torch Proxies ",
     description:
-      "Torch Proxies gives you fast, private Australia residential proxies with real household IPs, unlimited locations, and 99.9% uptime for scraping and automation.",
+      "Torch Proxies gives you fast, private Australia residential proxies with real household IPs, unlimited locations, and 99% uptime for scraping and automation.",
     images: ["/images/og-image.jpg"],
   },
   twitter: {

@@ -151,8 +151,12 @@ export default async function BlogPostPage({
   if (!post) notFound();
 
   // Format date nicely
-  const formattedDate = post.date 
-    ? new Date(post.date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }) 
+  const formattedDate = post.date
+    ? new Date(post.date).toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+      })
     : null;
 
   // 1. Sanitize the raw HTML from WordPress to remove dangerous scripts/attributes
@@ -191,14 +195,14 @@ export default async function BlogPostPage({
         style={{ paddingTop: "80px" }}
         suppressHydrationWarning
       >
-      {/*Header Section for Title & Metadata */}
-        <div className="max-w-4xl mx-auto px-6 pt-8 pb-4">
+        {/*Header Section for Title & Metadata */}
+        {/* <div className="max-w-4xl mx-auto px-6 pt-8 pb-4">
           <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-4" 
               dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
           {formattedDate && (
             <p className="text-stone-400 text-sm mb-6">Published on {formattedDate}</p>
           )}
-        </div>
+        </div> */}
 
         <style dangerouslySetInnerHTML={{ __html: scopedStyle }} />
         <div className="wp-post-wrapper">

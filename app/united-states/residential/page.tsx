@@ -4,14 +4,14 @@ import UnitedStatesResidentialClient from "./UnitedStatesResidentialClient";
 export const metadata: Metadata = {
   title: "United States Residential Proxies – Fast & Private",
   description:
-    "Torch Proxies gives you fast, private United States residential proxies with real household IPs, unlimited locations, and 99.9% uptime for scraping and.",
+    "Torch Proxies gives you fast, private United States residential proxies with real household IPs, unlimited locations, and 99% uptime for scraping and.",
   alternates: {
     canonical: "united-states/residential",
   },
   openGraph: {
     title: "United States Residential Proxies – Fast & Private",
     description:
-      "Torch Proxies gives you fast, private United States residential proxies with real household IPs, unlimited locations, and 99.9% uptime for scraping and.",
+      "Torch Proxies gives you fast, private United States residential proxies with real household IPs, unlimited locations, and 99% uptime for scraping and.",
     images: ["/images/og-image.jpg"],
   },
   twitter: {

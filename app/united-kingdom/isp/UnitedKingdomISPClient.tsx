@@ -11,12 +11,12 @@ import { handleReferralNavigation } from "@/lib/referral";
 export const metadata: Metadata = {
   title: "United Kingdom Static ISP Proxies | Fast & Reliable",
   description:
-    "Get static United Kingdom ISP proxies with real carrier-grade IPs, unlimited bandwidth, and 99.9% uptime — built for automation and long, stable sessions.",
+    "Get static United Kingdom ISP proxies with real carrier-grade IPs, unlimited bandwidth, and 99% uptime — built for automation and long, stable sessions.",
 
   openGraph: {
     title: "United Kingdom Static ISP Proxies | Fast & Reliable",
     description:
-      "Get static United Kingdom ISP proxies with real carrier-grade IPs, unlimited bandwidth, and 99.9% uptime — built for automation and long, stable sessions.",
+      "Get static United Kingdom ISP proxies with real carrier-grade IPs, unlimited bandwidth, and 99% uptime — built for automation and long, stable sessions.",
     images: ["/images/og-image.jpg"],
   },
   twitter: {
@@ -33,7 +33,7 @@ const ADVANTAGE_CHECKLIST = [
 ] as const;
 
 const MARQUEE_ITEMS = [
-  "99.9% uptime guaranteed",
+  "99% uptime guaranteed",
   "Blazing fast proxy speeds",
   "Global geo targeting support",
   "Secure & anonymous connections",
@@ -363,7 +363,7 @@ export default function TorchProxiesLandingPage() {
             </div>
             <div className="bg-[#121824]/30 border border-white/10 backdrop-blur-md rounded-2xl p-5 text-center flex flex-col justify-center space-y-1">
               <span className="text-xl md:text-[19px] font-black text-white tracking-wide">
-                99.9%
+                99%
               </span>
               <span className="text-[13px] text-gray-400 font-medium">
                 uptime

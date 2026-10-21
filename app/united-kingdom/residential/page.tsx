@@ -4,14 +4,14 @@ import UnitedKingdomResidentialClient from "./UnitedKingdomResidentialClient";
 export const metadata: Metadata = {
   title: "United Kingdom Static ISP Proxies | Fast & Reliable",
   description:
-    "Get static United Kingdom ISP proxies with real carrier-grade IPs, unlimited bandwidth, and 99.9% uptime — built for automation and long, stable sessions.",
+    "Get static United Kingdom ISP proxies with real carrier-grade IPs, unlimited bandwidth, and 99% uptime — built for automation and long, stable sessions.",
   alternates: {
     canonical: "united-kingdom/residential",
   },
   openGraph: {
     title: "United Kingdom Static ISP Proxies | Fast & Reliable",
     description:
-      "Get static United Kingdom ISP proxies with real carrier-grade IPs, unlimited bandwidth, and 99.9% uptime — built for automation and long, stable sessions.",
+      "Get static United Kingdom ISP proxies with real carrier-grade IPs, unlimited bandwidth, and 99% uptime — built for automation and long, stable sessions.",
     images: ["/images/og-image.jpg"],
   },
   twitter: {

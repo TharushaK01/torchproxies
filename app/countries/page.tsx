@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import CountriesClient from "./CountriesClient";
 
 export const metadata: Metadata = {
-  title: "Proxy Locations by Country | 40+ Countries Covered",
+  title: "Proxy Locations by Country | 195+ Locations Covered",
   description:
-    "Proxy Locations by Country | 40+ Countries Covered	Power your online activity with fast, secure, reliable proxies across regions worldwide. Browse every country Torch Proxies covers and get connected now.",
+    "Proxy Locations by Country | 195+ Locations Covered	Power your online activity with fast, secure, reliable proxies across regions worldwide. Browse every country Torch Proxies covers and get connected now.",
   alternates: {
     canonical: "/countries",
   },
   openGraph: {
-    title: "Proxy Locations by Country | 40+ Countries Covered",
+    title: "Proxy Locations by Country | 195+ Locations Covered",
     description:
-      "Proxy Locations by Country | 40+ Countries Covered	Power your online activity with fast, secure, reliable proxies across regions worldwide. Browse every country Torch Proxies covers and get connected now.",
+      "Proxy Locations by Country | 195+ Locations Covered	Power your online activity with fast, secure, reliable proxies across regions worldwide. Browse every country Torch Proxies covers and get connected now.",
     images: ["/images/og-image.jpg"],
   },
   twitter: {

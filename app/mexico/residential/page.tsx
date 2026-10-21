@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import MexicoResidentialClient from "./MexicoResidentialClient";
 
 export const metadata: Metadata = {
-  title: "Mexico Residential Proxies | 99.9% Uptime Guarantee",
+  title: "Mexico Residential Proxies | 99% Uptime Guarantee",
   description:
-    "Get fast, private Mexico residential proxies with real household IPs, unlimited locations, and 99.9% uptime. Start browsing and scraping from Mexico today.",
+    "Get fast, private Mexico residential proxies with real household IPs, unlimited locations, and 99% uptime. Start browsing and scraping from Mexico today.",
   alternates: {
     canonical: "/mexico/residential",
   },
   openGraph: {
-    title: "Mexico Residential Proxies | 99.9% Uptime Guarantee",
+    title: "Mexico Residential Proxies | 99% Uptime Guarantee",
     description:
-      "Get fast, private Mexico residential proxies with real household IPs, unlimited locations, and 99.9% uptime. Start browsing and scraping from Mexico today.",
+      "Get fast, private Mexico residential proxies with real household IPs, unlimited locations, and 99% uptime. Start browsing and scraping from Mexico today.",
     images: ["/images/og-image.jpg"],
   },
   twitter: {

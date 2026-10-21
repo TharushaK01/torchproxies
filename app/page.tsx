@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Torch Proxies | Fast, Reliable ISP & Residential Proxies",
   description:
-    "Fast, reliable residential & ISP proxies for scraping, automation & multi-account management. 80M+ IPs across 195+ countries",
+    "Fast, reliable residential & ISP proxies for scraping, automation & multi-account management. 80M+ IPs across 195+ Locations",
   verification: {
     other: {
       "ahrefs-site-verification":
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Home | Fast, Reliable ISP & Residential Proxies",
     description:
-      "Fast, reliable residential & ISP proxies for scraping, automation & multi-account management. 80M+ IPs across 195+ countries",
+      "Fast, reliable residential & ISP proxies for scraping, automation & multi-account management. 80M+ IPs across 195+ Locations",
     images: ["/images/og-image.png"],
   },
   twitter: {

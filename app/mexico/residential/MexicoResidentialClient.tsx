@@ -21,7 +21,7 @@ const ADVANTAGE_CHECKLIST = [
 ] as const;
 
 const MARQUEE_ITEMS = [
-  "99.9% uptime guaranteed",
+  "99% uptime guaranteed",
   "Blazing fast proxy speeds",
   "Global geo targeting support",
   "Secure & anonymous connections",
@@ -246,7 +246,7 @@ export default function TorchProxiesLandingPage() {
       features: [
         "Authentic residential IPs",
         "Unlimited concurrent sessions",
-        "30M+ ethically sourced unique IPs in 195 countries",
+        "30M+ ethically sourced unique IPs in 195+ Locations",
         "Easy API access for integration",
       ],
     },
@@ -260,7 +260,7 @@ export default function TorchProxiesLandingPage() {
       features: [
         "Premium residential IPs",
         "Unlimited concurrent sessions",
-        "90M+ ethically sourced unique IPs in 195 countries",
+        "90M+ ethically sourced unique IPs in 195+ Locations",
         "Easy API access for integration",
       ],
     },
@@ -272,7 +272,7 @@ export default function TorchProxiesLandingPage() {
       features: [
         "Authentic residential proxies with dedicated ISP pools",
         "Unlimited concurrent sessions",
-        "120M+ ethically sourced unique IPs in 195 countries",
+        "120M+ ethically sourced unique IPs in 195+ Locations",
         "Easy API access for integration",
       ],
     },
@@ -379,7 +379,7 @@ export default function TorchProxiesLandingPage() {
             </div>
             <div className="bg-[#121824]/30 border border-white/10 backdrop-blur-md rounded-2xl p-5 text-center flex flex-col justify-center space-y-1">
               <span className="text-xl md:text-[19px] font-black text-white tracking-wide">
-                99.9%
+                99%
               </span>
               <span className="text-[13px] text-gray-400 font-medium">
                 uptime

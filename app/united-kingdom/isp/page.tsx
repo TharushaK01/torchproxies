@@ -4,14 +4,14 @@ import UnitedKingdomISPClient from "./UnitedKingdomISPClient";
 export const metadata: Metadata = {
   title: "United Kingdom Residential Proxies | Torch Proxies",
   description:
-    "Torch Proxies gives you fast, private United Kingdom residential proxies with real household IPs, unlimited locations, and 99.9% uptime for scraping and.",
+    "Torch Proxies gives you fast, private United Kingdom residential proxies with real household IPs, unlimited locations, and 99% uptime for scraping and.",
   alternates: {
     canonical: "/united-kingdom/isp",
   },
   openGraph: {
     title: "United Kingdom Residential Proxies | Torch Proxies",
     description:
-      "Torch Proxies gives you fast, private United Kingdom residential proxies with real household IPs, unlimited locations, and 99.9% uptime for scraping and.",
+      "Torch Proxies gives you fast, private United Kingdom residential proxies with real household IPs, unlimited locations, and 99% uptime for scraping and.",
     images: ["/images/og-image.jpg"],
   },
   twitter: {
