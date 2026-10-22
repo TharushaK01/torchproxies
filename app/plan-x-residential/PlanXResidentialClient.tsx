@@ -67,17 +67,19 @@ const Marquee: React.FC = () => (
     </div>
   </div>
 );
+interface PricingTier {
+  id: string;
+  size: string;
+  price: string;
+  originalPrice?: string;
+  discountedSubPrice?: string;
+  discount?: string;
+}
 
 export default function TorchProxiesLandingPage() {
   const router = useRouter();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
-  const [selectedTier, setSelectedTier] = useState<string>("5GB");
 
-  const barConfigs = Array.from({ length: 32 }, (_, i) => ({
-    id: i,
-    isActive: true,
-    isDimmed: i >= 30,
-  }));
   const locations = [
     {
       code: "US",
@@ -99,29 +101,55 @@ export default function TorchProxiesLandingPage() {
     { code: "FR", name: "France", ips: "4,429,824", url: "/france" },
   ];
 
-  const pricingData = {
-    "1GB": { price: "$4.00", total: "$4.00", perGb: "$4/GB" },
-    "5GB": {
-      price: "$3.80",
-      total: "$19.00",
-      perGb: "$3.80/GB",
-      popular: true,
-    },
-    "25GB": { price: "$3.50", total: "$87.50", perGb: "$3.50/GB" },
-    "100GB": { price: "$3.00", total: "$300.00", perGb: "$3.00/GB" },
-    "500GB": { price: "$2.50", total: "$1,250.00", perGb: "$2.50/GB" },
-    "1000GB": { price: "$2.00", total: "$2,000.00", perGb: "$2.00/GB" },
-  };
   const [selectedPlan, setSelectedPlan] = useState("1GB");
 
   // Hardcoded pricing tiers matching the design exactly
-  const tiers = [
-    { id: "1GB", size: "1GB", price: "$ 5" },
-    { id: "5GB", size: "5GB", price: "$ 4.75", discount: "5.56% OFF" },
-    { id: "25GB", size: "25GB", price: "$ 4.50", discount: "11.11% OFF" },
-    { id: "100GB", size: "100GB", price: "$ 4.25", discount: "16.67% OFF" },
-    { id: "500GB", size: "500GB", price: "$ 4.00", discount: "22.22% OFF" },
-    { id: "1000GB", size: "1000GB", price: "$ 3.90", discount: "24.44% OFF" },
+  const tiers: PricingTier[] = [
+    {
+      id: "1GB",
+      size: "1GB",
+      price: "$ 4.75",
+    },
+    {
+      id: "5GB",
+      size: "5GB",
+      price: "$ 4.75",
+      originalPrice: "$4.00/GB",
+      discountedSubPrice: "$3.75/GB",
+      discount: "Save 6.25%",
+    },
+    {
+      id: "25GB",
+      size: "25GB",
+      price: "$ 4.75",
+      originalPrice: "$4.00/GB",
+      discountedSubPrice: "$3.75/GB",
+      discount: "Save 6.25%",
+    },
+    {
+      id: "100GB",
+      size: "100GB",
+      price: "$ 4.75",
+      originalPrice: "$4.00/GB",
+      discountedSubPrice: "$3.75/GB",
+      discount: "Save 6.25%",
+    },
+    {
+      id: "500GB",
+      size: "500GB",
+      price: "$ 4.75",
+      originalPrice: "$4.00/GB",
+      discountedSubPrice: "$3.75/GB",
+      discount: "Save 6.25%",
+    },
+    {
+      id: "1000GB",
+      size: "1000GB",
+      price: "$ 4.75",
+      originalPrice: "$4.00/GB",
+      discountedSubPrice: "$3.75/GB",
+      discount: "Save 6.25%",
+    },
   ];
   const features = [
     {
@@ -562,34 +590,47 @@ export default function TorchProxiesLandingPage() {
                   <div
                     key={tier.id}
                     onClick={() => setSelectedPlan(tier.id)}
-                    className={`min-h-[150px] sm:min-h-[170px] border rounded-2xl p-4 sm:p-5 relative cursor-pointer select-none transition-all duration-200 flex flex-col justify-between ${
+                    className={`min-h-[160px] sm:min-h-[180px] border rounded-2xl p-5 sm:p-6 relative cursor-pointer select-none transition-all duration-200 flex flex-col justify-between ${
                       isSelected
-                        ? "bg-stone-900/40 border-[#FE4A01] shadow-[0_0_25px_rgba(254,74,1,.1)]"
-                        : "bg-[#0b0b0d]/50 border-stone-900 hover:border-stone-800/80"
+                        ? "bg-[#0f0f11] border-[#FE4A01] shadow-[0_0_25px_rgba(254,74,1,.1)]"
+                        : "bg-[#0b0b0d] border-stone-800/60 hover:border-stone-700"
                     }`}
                   >
-                    {/* Floating Green Percentage Label */}
+                    {/* Top Row: Floating Green Save Badge */}
                     {tier.discount && (
-                      <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded">
+                      <div className="absolute top-4 right-4 bg-emerald-950/40 border border-emerald-500/30 text-emerald-400 text-[11px] font-medium px-2.5 py-0.5 rounded-md">
                         {tier.discount}
                       </div>
                     )}
 
                     {/* Volume Metric Display */}
-                    <div className="mt-6 sm:mt-8">
-                      <span className="text-2xl sm:text-[32px] font-medium tracking-tight text-stone-200 block">
+                    <div>
+                      <span className="text-3xl sm:text-[36px] font-bold tracking-tight text-white block">
                         {tier.size}
                       </span>
                     </div>
 
-                    {/* Price Metric Formula */}
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-[#FE4A01] font-bold text-xl sm:text-[24px]">
-                        {tier.price}
-                      </span>
-                      <span className="text-[#FE4A01] text-xs sm:text-[14px] font-medium">
-                        per GB
-                      </span>
+                    {/* Price Metric & Sub-pricing Arrow Line */}
+                    <div className="flex flex-col gap-1 mt-2">
+                      <div className="flex items-baseline gap-1.5">
+                        <span className="text-[#FE4A01] font-bold text-2xl sm:text-[28px]">
+                          {tier.price}
+                        </span>
+                        <span className="text-[#FE4A01]/80 text-xs sm:text-[14px] font-medium">
+                          per GB
+                        </span>
+                      </div>
+
+                      {/* Strikethrough Conversion Price ($4.00/GB -> $3.75/GB) */}
+                      {tier.originalPrice && tier.discountedSubPrice && (
+                        <div className="flex items-center gap-1.5 text-stone-500 text-xs sm:text-[13px] font-mono mt-0.5">
+                          <span className="line-through">
+                            {tier.originalPrice}
+                          </span>
+                          <span>→</span>
+                          <span>{tier.discountedSubPrice}</span>
+                        </div>
+                      )}
                     </div>
                   </div>
                 );
