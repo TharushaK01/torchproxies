@@ -63,7 +63,7 @@ const NAV_DATA = {
       { label: "About us", href: "/about/" },
       { label: "Contact Us", href: "/contact/" },
       { label: "Affiliate Program", href: "/affiliate/" },
-      { label: "Careers", href: "https://torch-labs-workspace.slack.com" },
+      { label: "Careers", href: "#" },
       {
         label: "Trustpilot",
         href: "https://www.trustpilot.com/review/torchlabs.xyz",
