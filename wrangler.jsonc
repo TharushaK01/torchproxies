@@ -1,0 +1,35 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"main": ".open-next/worker.js",
+	"name": "torchproxies",
+	"compatibility_date": "2026-10-26",
+	"compatibility_flags": [
+		"nodejs_compat",
+		"global_fetch_strictly_public"
+	],
+	"assets": {
+		"directory": ".open-next/assets",
+		"binding": "ASSETS"
+	},
+	"services": [
+		{
+			// Self-reference service binding, the service name must match the worker name
+			// see https://opennext.js.org/cloudflare/caching
+			"binding": "WORKER_SELF_REFERENCE",
+			"service": "torchproxies"
+		}
+	],
+	"images": {
+		// Enable image optimization
+		// see https://opennext.js.org/cloudflare/howtos/image
+		"binding": "IMAGES"
+	},
+
+	// NOTE: CLOUDFLARE_API_TOKEN must be set as a Secret via Cloudflare Dashboard
+	// or `wrangler secret put CLOUDFLARE_API_TOKEN` — NOT as a plaintext var.
+	// Google Sheets credentials (GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY,
+	// GOOGLE_SHEET_ID) should also be set as Secrets, not vars.
+	"observability": {
+		"enabled": true
+	}
+}

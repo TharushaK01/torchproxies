@@ -92,7 +92,7 @@ import { WPPost } from "@/types/wordpress";
 import { notFound } from "next/navigation";
 import { Urbanist } from "next/font/google";
 import { splitStyleAndBody, scopeCss } from "@/lib/scopeWpContent";
-import sanitizeHtml from "sanitize-html";
+import sanitizeHtml from "@/lib/sanitize";
 import WordPressContent from "@/components/WordPressContent";
 import ServerBreadcrumbs from "@/components/ServerBreadcrumbs";
 

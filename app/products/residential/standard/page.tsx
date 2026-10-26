@@ -1,6 +1,6 @@
 import { getPageBySlug } from "@/lib/wordpress";
 import { notFound } from "next/navigation";
-import sanitizeHtml from "sanitize-html";
+import sanitizeHtml from "@/lib/sanitize";
 
 const WP_BASE = "https://torchproxies.com";
 
