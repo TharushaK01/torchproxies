@@ -57,6 +57,9 @@ const ContactSection = dynamic(
   { loading: SectionFallback },
 );
 
+export const dynamicMode = "force-dynamic";
+export const revalidate = 0;
+
 export default async function Home() {
   let data = [];
 
@@ -65,17 +68,31 @@ export default async function Home() {
       process.env.NEXT_PUBLIC_WORDPRESS_API_URL ||
       "https://cms.torchproxies.com/wp-json/wp/v2";
 
-    const fetchData = async () => {
-      const res = await fetch(`${apiUrl}/posts`, {
-        next: { revalidate: 3600 },
-      });
+    // const fetchData = async () => {
+    //   const res = await fetch(`${apiUrl}/posts`, {
+    //     next: { revalidate: 3600 },
+    //   });
 
-      if (res.ok) {
-        data = await res.json();
-      }
-    };
+    //   if (res.ok) {
+    //     data = await res.json();
+    //   }
+    // };
 
-    fetchData();
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+    const res = await fetch(`${apiUrl}/posts`, {
+      signal: controller.signal,
+      cache: "no-store", // Respects force-dynamic
+    });
+
+    clearTimeout(timeoutId);
+
+    if (res.ok) {
+      data = await res.json();
+    }
+
+    // fetchData();
   } catch (error) {
     console.error("Failed to fetch posts on Home page:", error);
   }
