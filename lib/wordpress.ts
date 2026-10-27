@@ -206,13 +206,14 @@ async function fetchWithTimeout(url: string, init?: RequestInit) {
 // POSTS
 // ─────────────────────────────
 export async function getAllPosts() {
-  if (!WP_URL) return [];
-  // Reduced per_page to 12 to drastically reduce WP payload and query time
-  const data = await fetchWithTimeout(
-    `${getApiUrl("posts")}?_embed&per_page=100`,
-    { cache: 'no-store' }
-  );
-  return Array.isArray(data) ? data : [];
+    if (!WP_URL) return [];
+    
+    const data = await fetchWithTimeout(
+        `${getApiUrl("posts")}?_embed&per_page=100&_fields=id,slug,title,excerpt,date,modified,_links,_embedded`,
+        { next: { revalidate: 3600 } } // Cached safely for 1 hour
+    );
+    
+    return Array.isArray(data) ? data : [];
 }
 
 // ─────────────────────────────
