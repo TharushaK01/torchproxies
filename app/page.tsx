@@ -63,40 +63,45 @@ export const revalidate = 0;
 export default async function Home() {
   let data = [];
 
-  try {
-    const apiUrl =
-      process.env.NEXT_PUBLIC_WORDPRESS_API_URL ||
-      "https://cms.torchproxies.com/wp-json/wp/v2";
+  if (process.env.NODE_ENV === "production" && process.env.CF_PAGES === "1") {
+    console.log("Skipping WordPress fetch during Cloudflare build.");
+  } else {
+    try {
+      const apiUrl =
+        process.env.NEXT_PUBLIC_WORDPRESS_API_URL ||
+        "https://cms.torchproxies.com/wp-json/wp/v2";
 
-    // const fetchData = async () => {
-    //   const res = await fetch(`${apiUrl}/posts`, {
-    //     next: { revalidate: 3600 },
-    //   });
+      // const fetchData = async () => {
+      //   const res = await fetch(`${apiUrl}/posts`, {
+      //     next: { revalidate: 3600 },
+      //   });
 
-    //   if (res.ok) {
-    //     data = await res.json();
-    //   }
-    // };
+      //   if (res.ok) {
+      //     data = await res.json();
+      //   }
+      // };
 
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 5000);
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 4000);
 
-    const res = await fetch(`${apiUrl}/posts`, {
-      signal: controller.signal,
-      cache: "no-store", // Respects force-dynamic
-    });
+      const res = await fetch(`${apiUrl}/posts`, {
+        signal: controller.signal,
+        cache: "no-store", // Respects force-dynamic
+      });
 
-    clearTimeout(timeoutId);
+      clearTimeout(timeoutId);
 
-    if (res.ok) {
-      data = await res.json();
+      if (res.ok) {
+        data = await res.json();
+      }
+
+      // fetchData();
+    } catch (error) {
+      console.warn(
+        "WordPress backend unreachable during build/runtime, using empty fallback.",
+      );
     }
-
-    // fetchData();
-  } catch (error) {
-    console.error("Failed to fetch posts on Home page:", error);
   }
-
   return (
     <main className="bg-[#0a0a0a] min-h-screen">
       <HeroSection />

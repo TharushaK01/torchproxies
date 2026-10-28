@@ -351,8 +351,68 @@ export default function PartnersPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [failedImages, setFailedImages] = useState<Record<number, boolean>>({});
 
+  // useEffect(() => {
+  //   async function fetchWPBlogs() {
+  //     try {
+  //       const wpBaseUrl =
+  //         process.env.NEXT_PUBLIC_WORDPRESS_API_URL ||
+  //         "https://cms.torchproxies.com/wp-json/wp/v2";
+
+  //       const res = await fetch(`${wpBaseUrl}/posts?_embed&per_page=3`, {
+  //         method: "GET",
+  //         headers: {
+  //           Accept: "application/json",
+  //         },
+  //       });
+
+  //       if (!res.ok) {
+  //         throw new Error(`WordPress API returned status: ${res.status}`);
+  //       }
+
+  //       const rawPosts: any[] = await res.json();
+
+  //       if (Array.isArray(rawPosts)) {
+  //         const formattedPosts: ProcessedBlog[] = rawPosts.map((post) => {
+  //           const rawTitle = post.title?.rendered || "";
+  //           const cleanTitle = rawTitle
+  //             .replace(/&#8211;/g, "-")
+  //             .replace(/&#8217;/g, "'")
+  //             .replace(/&amp;/g, "&");
+
+  //           const image =
+  //             post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+  //             post.jetpack_featured_media_url ||
+  //             "";
+
+  //           const tag = post._embedded?.["wp:term"]?.[0]?.[0]?.name || "Blog";
+
+  //           return {
+  //             id: post.id,
+  //             title: cleanTitle,
+  //             image: image,
+  //             tag: tag,
+  //             slug: post.slug || "",
+  //           };
+  //         });
+
+  //         setBlogs(formattedPosts);
+  //       }
+  //     } catch (error) {
+  //       console.error("Failed to fetch WordPress blog posts:", error);
+  //       setBlogs([]); // Explicitly set empty array so UI doesn't break or stay stuck
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   }
+
+  //   fetchWPBlogs();
+  // }, []);
+
   useEffect(() => {
     async function fetchWPBlogs() {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 6000); // 6-second timeout
+
       try {
         const wpBaseUrl =
           process.env.NEXT_PUBLIC_WORDPRESS_API_URL ||
@@ -363,7 +423,10 @@ export default function PartnersPage() {
           headers: {
             Accept: "application/json",
           },
+          signal: controller.signal,
         });
+
+        clearTimeout(timeoutId);
 
         if (!res.ok) {
           throw new Error(`WordPress API returned status: ${res.status}`);
@@ -399,7 +462,7 @@ export default function PartnersPage() {
         }
       } catch (error) {
         console.error("Failed to fetch WordPress blog posts:", error);
-        setBlogs([]); // Explicitly set empty array so UI doesn't break or stay stuck
+        setBlogs([]);
       } finally {
         setIsLoading(false);
       }
