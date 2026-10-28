@@ -49,6 +49,9 @@ const sourceCodePro = Source_Code_Pro({
   display: "swap",
 });
 
+export const dynamic = "force-dynamic";
+export const fetchCache = "default-no-store";
+
 export const metadata: Metadata = {
   title: {
     default: "TorchProxies — Fast, Reliable ISP & Residential Proxies",
