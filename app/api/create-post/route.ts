@@ -64,6 +64,9 @@ export async function POST(request: NextRequest) {
       featured_media: body.featuredMediaId || 0, // Binds uploaded WP image
     };
 
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
+
     // 3. Post directly to WordPress REST API
     const wpResponse = await fetch(`${process.env.WORDPRESS_API_URL}/posts`, {
       method: "POST",
@@ -72,7 +75,10 @@ export async function POST(request: NextRequest) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(wpPayload),
+      signal: controller.signal,
     });
+
+    clearTimeout(timeoutId);
 
     if (!wpResponse.ok) {
       const errorText = await wpResponse.text();
