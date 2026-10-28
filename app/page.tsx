@@ -1,7 +1,11 @@
-import dynamic from "next/dynamic";
 import HeroSection from "@/components/home/HeroSection";
 import GlobalNetwork from "@/components/home/GlobalNetworkLazy";
+import nextDynamic from "next/dynamic";
 import type { Metadata } from "next";
+
+export const dynamic = "force-dynamic";
+export const fetchCache = "default-no-store";
+export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: "Torch Proxies | Fast, Reliable ISP & Residential Proxies",
@@ -30,41 +34,41 @@ export const metadata: Metadata = {
 
 const SectionFallback = () => <div className="min-h-[400px] w-full" />;
 
-const PricingSection = dynamic(
+const PricingSection = nextDynamic(
   () => import("@/components/home/PricingSection"),
   { loading: SectionFallback },
 );
-const LocationsSection = dynamic(
+const LocationsSection = nextDynamic(
   () => import("@/components/home/LocationsSection"),
   { loading: SectionFallback },
 );
-const FeaturesGrid = dynamic(() => import("@/components/home/FeaturesGrid"), {
-  loading: SectionFallback,
-});
-const ClientManagement = dynamic(
+const FeaturesGrid = nextDynamic(
+  () => import("@/components/home/FeaturesGrid"),
+  {
+    loading: SectionFallback,
+  },
+);
+const ClientManagement = nextDynamic(
   () => import("@/components/home/ClientManagement"),
   { loading: SectionFallback },
 );
-const UseCasesSection = dynamic(
+const UseCasesSection = nextDynamic(
   () => import("@/components/home/UseCasesSection"),
   { loading: SectionFallback },
 );
-const CtaBanner = dynamic(() => import("@/components/home/CtaBanner"), {
+const CtaBanner = nextDynamic(() => import("@/components/home/CtaBanner"), {
   loading: SectionFallback,
 });
-const ContactSection = dynamic(
+const ContactSection = nextDynamic(
   () => import("@/components/home/ContactSection"),
   { loading: SectionFallback },
 );
 
-export const dynamicMode = "force-dynamic";
-export const revalidate = 0;
-
 export default async function Home() {
   let data = [];
 
-  if (process.env.NODE_ENV === "production" && process.env.CF_PAGES === "1") {
-    console.log("Skipping WordPress fetch during Cloudflare build.");
+  if (process.env.NEXT_PHASE === "phase-production-build") {
+    console.log("Skipping WordPress fetch during production build.");
   } else {
     try {
       const apiUrl =

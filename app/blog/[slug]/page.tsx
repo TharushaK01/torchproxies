@@ -105,11 +105,24 @@ const urbanist = Urbanist({
   display: "swap",
 });
 
+// export async function generateStaticParams() {
+//   try {
+//     const posts: WPPost[] = await getAllPosts();
+//     return posts.map((post) => ({ slug: post.slug }));
+//   } catch {
+//     return [];
+//   }
+// }
 export async function generateStaticParams() {
   try {
-    const posts: WPPost[] = await getAllPosts();
-    return posts.map((post) => ({ slug: post.slug }));
-  } catch {
+    const res = await fetch(
+      "https://cms.torchproxies.com/wp-json/wp/v2/posts?per_page=100",
+    );
+    if (!res.ok) return [];
+    const posts = await res.json();
+    return posts.map((post: any) => ({ slug: post.slug }));
+  } catch (error) {
+    // Return empty array on failure so the build never hangs
     return [];
   }
 }

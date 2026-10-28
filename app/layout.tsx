@@ -7,47 +7,12 @@ import SessionRecorder from "@/components/analytics/SessionRecorder";
 import { PostHogProvider } from "@/components/providers/PostHogProvider";
 import { LazyMotion, domAnimation } from "framer-motion";
 import { GoogleTagManager } from "@next/third-parties/google";
-import {
-  Urbanist,
-  Chivo,
-  Space_Grotesk,
-  Inter,
-  Source_Code_Pro,
-} from "next/font/google";
 import "./globals.css";
 import { Suspense, Fragment } from "react";
 import ReferralTracker from "@/components/ReferralTracker";
 import ChatwootWidget from "@/components/ChatwootWidget";
 import { headers } from "next/headers";
 import ServerBreadcrumbs from "@/components/ServerBreadcrumbs";
-
-const urbanist = Urbanist({
-  subsets: ["latin"],
-  variable: "--font-urbanist",
-  display: "swap",
-});
-const chivo = Chivo({
-  subsets: ["latin"],
-  variable: "--font-chivo",
-  display: "swap",
-});
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  display: "swap",
-});
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-inter",
-  display: "swap",
-});
-const sourceCodePro = Source_Code_Pro({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-source-code-pro",
-  display: "swap",
-});
 
 export const dynamic = "force-dynamic";
 export const fetchCache = "default-no-store";
@@ -88,21 +53,29 @@ export default async function RootLayout({
   const gtmIdSecondary =
     process.env.NEXT_PUBLIC_GTM_SECONDARY_ID || "GTM-T43L54DD";
 
-  const fontVars = [
-    urbanist.variable,
-    chivo.variable,
-    spaceGrotesk.variable,
-    inter.variable,
-    sourceCodePro.variable,
-  ].join(" ");
-
   // Retrieve current pathname from headers
   const headersList = await headers();
   const pathname = headersList.get("x-current-path") || "";
 
   return (
-    <html lang="en" suppressHydrationWarning className={fontVars}>
+    <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Preconnect to Google Fonts CDN */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        {/* Load all 5 fonts via CDN to avoid Next.js font compilation crashes on Cloudflare */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Chivo:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet"
+        />
         <ServerBreadcrumbs pathname={pathname} />
       </head>
       <body
@@ -158,13 +131,6 @@ export default async function RootLayout({
                 gtag('config', '${gaId}');
               `}
             </Script>
-            <Script
-              src="https://referly.so/affiliate-tracker.js"
-              data-affiliate=""
-              data-program-id="5fcbc101-6bb2-4397-a036-66a4697a2294"
-              strategy="lazyOnload"
-            />
-            {/* Global Affiliate Tracker Script from Step 1 */}
             <Script
               src="https://referly.so/affiliate-tracker.js"
               data-affiliate=""

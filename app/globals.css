@@ -6,9 +6,12 @@
 @import "tailwindcss";
 
 @theme {
-  --font-archivo: var(--font-archivo), sans-serif;
-  --font-geist: var(--font-geist), sans-serif;
-  --font-urbanist: var(--font-urbanist), sans-serif;
+  --font-urbanist: "Urbanist", sans-serif;
+  --font-chivo: "Chivo", sans-serif;
+  --font-space: "Space Grotesk", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-mono: "Source Code Pro", monospace;
+  --font-archivo: "Archivo", sans-serif;
 }
 
 @layer base {
